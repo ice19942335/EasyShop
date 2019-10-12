@@ -43,7 +43,7 @@ namespace EasyShop.CP.UI
                 options.Password.RequireLowercase = true;
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = true;
-                options.Password.RequiredLength = 12;
+                options.Password.RequiredLength = 10;
                 options.Password.RequiredUniqueChars = 3;
 
                 options.Lockout.MaxFailedAccessAttempts = 30;

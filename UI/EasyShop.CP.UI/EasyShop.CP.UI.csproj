@@ -15,7 +15,6 @@
   <ItemGroup>
     <Folder Include="Areas\" />
     <Folder Include="Components\" />
-    <Folder Include="Infra\" />
     <Folder Include="Views\Shared\Components\" />
   </ItemGroup>
 
