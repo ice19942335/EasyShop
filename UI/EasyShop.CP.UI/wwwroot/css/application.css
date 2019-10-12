@@ -12,7 +12,7 @@ html {
   display: block;
   left: 50%;
   position: absolute;
-  top: 0;
+  top: 3px;
   -webkit-transform: translateX(-50%);
       -ms-transform: translateX(-50%);
        -o-transform: translateX(-50%);

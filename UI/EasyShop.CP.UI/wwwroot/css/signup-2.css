@@ -29,7 +29,7 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 140px;
+  width: 100%;
 }
 .signup-heading {
   margin-bottom: 15px;

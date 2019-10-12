@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
   font-family: sans-serif;
@@ -3282,7 +3282,7 @@ tbody.collapse.in {
 }
 .navbar-brand {
   float: left;
-  padding: 15px 15px;
+  /*padding: 15px 15px;*/
   font-size: 18px;
   line-height: 20px;
   height: 50px;
@@ -9471,8 +9471,8 @@ select.md-form-control option {
   position: relative;
 }
 .navbar-brand-logo {
-  height: 20px;
-  width: auto;
+    height: 45px;
+    width: auto;
 }
 .navbar-toggler {
   background-color: transparent;
