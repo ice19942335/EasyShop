@@ -3245,7 +3245,7 @@ tbody.collapse.in {
   .container > .navbar-collapse,
   .container-fluid > .navbar-header,
   .container-fluid > .navbar-collapse {
-    margin-right: 0;
+    /*margin-right: 0;*/
     margin-left: 0;
   }
 }
@@ -3291,7 +3291,8 @@ tbody.collapse.in {
   text-decoration: none;
 }
 .navbar-brand > img {
-  display: block;
+    margin: 3px;
+    display: block;
 }
 @media (min-width: 768px) {
   .navbar > .container .navbar-brand,

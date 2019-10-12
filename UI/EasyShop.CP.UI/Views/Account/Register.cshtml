@@ -6,23 +6,9 @@
 
 <div class="signup">
     <div class="signup-body">
-        <a class="signup-brand" href="index.html">
+        <a class="signup-brand" asp-area="" asp-controller="Home" asp-action="Index">
             <img class="img-responsive" src="~/img/LogoNameSlogan.png" alt="Elephant">
         </a>
-        <p class="signup-heading">
-            <em>Get started with a free account. 30 day free trial, unlimited users, no credit card required.</em>
-        </p>
-        <p class="signup-twitter">
-            <a class="btn btn-block bg-twitter" href="#">
-                <span class="icon icon-twitter icon-lg icon-fw"></span>
-                Log in with Twitter
-            </a>
-        </p>
-        <div class="signup-divider">
-            <div class="divider">
-                <div class="divider-content">OR</div>
-            </div>
-        </div>
         <div class="signup-form">
             <form data-toggle="validator" data-groups='{"birthdate": "birth_month birth_day birth_year"}'>
                 <div class="row gutter-xs">
@@ -51,8 +37,8 @@
                     <div class="col-sm-12">
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input id="password" class="form-control" type="password" name="password" minlength="6" data-msg-minlength="Password must be 6 characters or more." data-msg-required="Please enter your password." required>
-                            <small class="help-block">6-character minimum; case sensitive.</small>
+                            <input id="password" class="form-control" type="password" name="password" minlength="10" data-msg-minlength="Password must be 10 characters or more." data-msg-required="Please enter your password." required>
+                            <small class="help-block">10-character minimum, case sensitive.</small>
                         </div>
                     </div>
                 </div>
@@ -113,7 +99,7 @@
                             <label class="custom-control custom-control-primary custom-checkbox">
                                 <input id="agree" class="custom-control-input" type="checkbox" name="agree" data-msg-required="In order to use our services, you must agree to the Terms of Service." required>
                                 <span class="custom-control-indicator"></span>
-                                <small class="custom-control-label">I agree to the Elephant <a href="#">Terms of Service</a>.</small>
+                                <small class="custom-control-label">I agree to the Monetization <a asp-area="" asp-controller="Terms" asp-action="Index">Terms of Service</a>.</small>
                             </label>
                         </div>
                     </div>
@@ -123,6 +109,14 @@
         </div>
     </div>
     <div class="signup-footer">
-        Already have an account? <a href="login-2.html">Log in</a>
+        Already have an account? <a asp-area="" asp-controller="Account" asp-action="Login">Log in</a>
     </div>
 </div>
+
+@section Styles{
+    <link rel="stylesheet" href="~/css/signup-2.css" asp-append-version="true">
+}
+
+@section Scripts{
+
+}

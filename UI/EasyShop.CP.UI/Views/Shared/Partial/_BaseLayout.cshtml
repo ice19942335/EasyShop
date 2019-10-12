@@ -15,7 +15,8 @@
     <link rel="stylesheet" href="~/css/vendor.css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/elephant.css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/application.css" asp-append-version="true">
-    <link rel="stylesheet" href="~/css/signup-2.css" asp-append-version="true">
+    @RenderSection("Styles", false)
 </head>
 @RenderBody()
+@RenderSection("Scripts", false)
 </html>

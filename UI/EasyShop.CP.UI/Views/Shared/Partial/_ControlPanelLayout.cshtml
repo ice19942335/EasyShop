@@ -18,3 +18,11 @@
     <script src="~/js/application.min.js"></script>
     @await Html.PartialAsync("Partial/_GoogleAnalyticsObject")
 </body>
+
+@section Styles {
+    @RenderSection("Styles", false)
+}
+
+@section Scripts {
+    @RenderSection("Scripts", false)
+}

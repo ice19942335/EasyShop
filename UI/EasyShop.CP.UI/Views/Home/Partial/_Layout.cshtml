@@ -2,10 +2,12 @@
     Layout = "Partial/_BaseLayout";
 }
 
-<body>
+<body class="spinner spinner-primary spinner-lg">
+    @await Html.PartialAsync("Partial/_NavBar")
     @RenderBody()
-    <script src="~/js/vendor.min.js"></script>
-    <script src="~/js/elephant.min.js"></script>
+    <script src="js/vendor.min.js"></script>
+    <script src="js/elephant.min.js"></script>
+    <script src="js/landing-page.min.js"></script>
     @await Html.PartialAsync("Partial/_GoogleAnalyticsObject")
 </body>
 
