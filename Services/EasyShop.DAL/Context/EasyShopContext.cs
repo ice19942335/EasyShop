@@ -11,7 +11,6 @@ namespace EasyShop.DAL.Context
     {
 
 
-
         public EasyShopContext(DbContextOptions<EasyShopContext> options) : base(options) { }
 
         //Fluent API

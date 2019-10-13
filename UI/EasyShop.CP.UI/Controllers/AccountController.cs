@@ -29,8 +29,6 @@ namespace EasyShop.CP.UI.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterUserViewModel model)
         {
-            var date = new DateTime(model.Year, model.Day, Int32.Parse(model.Month));
-
             if (!ModelState.IsValid)
                 return View(model);
 
@@ -42,8 +40,15 @@ namespace EasyShop.CP.UI.Controllers
 
             var newUser = new User
             {
-                UserName = model.Firstname?? model.Email,
-                Email = model.Email
+                FirstName = model.Firstname,
+                Lastname = model.LastName,
+                Gender = model.Gender,
+                UserName = model.Email,
+                Email = model.Email,
+                EmailConfirmed = false,
+                RegistrationDate = new DateTime(model.Year, model.Day, Int32.Parse(model.Month)),
+                ShopsAllowed = 2,
+                PercentageOfTransaction = 1
             };
             var creationResult = await _userManager.CreateAsync(newUser, model.Password);
 
@@ -62,7 +67,33 @@ namespace EasyShop.CP.UI.Controllers
 
         public IActionResult Login() => View();
 
-        public IActionResult LogOut() => RedirectToAction("Index", "Home");
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LoginUserViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            var loginResult = await _signInManager
+                .PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, true);
+
+            if (loginResult.Succeeded)
+            {
+                if (Url.IsLocalUrl(model.ReturnUrl))
+                    return Redirect(model.ReturnUrl);
+
+                return RedirectToAction("Dashboard", "ControlPanel");
+            }
+
+            ModelState.AddModelError("", "Email on password is incorrect, please try again");
+            return View(model);
+        }
+
+        public async Task<IActionResult> LogOut()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
 
         public IActionResult PasswordReset() => View();
 

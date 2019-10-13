@@ -1,4 +1,4 @@
-﻿
+﻿@model LoginUserViewModel
 @{
     ViewData["Title"] = "Login";
     Layout = "_AuthLayout";
@@ -10,18 +10,19 @@
             <img class="img-responsive" src="~/img/LogoNameSlogan.png" alt="Monetization">
         </a>
         <div class="login-form">
-            <form data-toggle="validator">
+            <form data-toggle="validator" method="post" asp-area="" asp-controller="Account" asp-action="Login" asp-antiforgery="true">
+                <div asp-validation-summary="ModelOnly"></div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input id="email" class="form-control" type="email" name="email" spellcheck="false" autocomplete="off" data-msg-required="Please enter your email address." required>
+                    <input asp-for="UserName" id="email" class="form-control" type="email" spellcheck="false" autocomplete="off" data-msg-required="Please enter your email address." required>
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input id="password" class="form-control" type="password" name="password" minlength="10" data-msg-minlength="Password must be 10 characters or more." data-msg-required="Please enter your password." required>
+                    <input asp-for="Password" id="password" class="form-control" type="password" minlength="10" data-msg-minlength="Password must be 10 characters or more." data-msg-required="Please enter your password." required>
                 </div>
                 <div class="form-group">
                     <label class="custom-control custom-control-primary custom-checkbox">
-                        <input class="custom-control-input" type="checkbox" checked="checked">
+                        <input asp-for="RememberMe" class="custom-control-input" type="checkbox" checked="checked">
                         <span class="custom-control-indicator"></span>
                         <span class="custom-control-label">Keep me signed in</span>
                     </label>

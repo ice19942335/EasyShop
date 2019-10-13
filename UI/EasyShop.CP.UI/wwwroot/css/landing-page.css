@@ -25,7 +25,8 @@ body.spinner {
   -webkit-transform: translateZ(0);
 }
 .navbar-btn-group {
-  display: none;
+    /*display: none;*/
+    width: auto
 }
 .masthead {
   background-color: #08bbff;
@@ -422,7 +423,7 @@ body.spinner {
 @media (min-width: 768px) {
   .navbar-btn-group {
     display: block;
-    margin-left: 15px;
+    margin: 0 15px 0 15px;
   }
   .divider {
     margin: 0;

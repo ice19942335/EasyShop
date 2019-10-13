@@ -7,24 +7,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                <img class="navbar-brand-logo" src="img/Logo.png" alt="Elephant">
-            </a>
         </div>
-        <nav id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Faq</a></li>
-                <li><a href="#">Team</a></li>
-                <li><a href="#">Testimonials</a></li>
-                <li><a href="#">Contact</a></li>
-                <li>
-                    <div class="navbar-btn-group">
-                        <a class="navbar-btn btn btn-primary btn-block" asp-area="" asp-controller="Account" asp-action="Register">Sign up</a>
-                    </div>
-                </li>
-            </ul>
-        </nav>
+        @await Component.InvokeAsync("UserStatus")
     </div>
 </div>

@@ -1,6 +1,13 @@
-﻿<div class="layout-footer">
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+
+@{
+    string version = Configuration["AppVersion"];
+}
+
+<div class="layout-footer">
     <div class="layout-footer-body">
-        <small class="version">Version (Alpha 0.0.1)</small>
-        <small class="copyright">@DateTime.Now.Year &copy; EasyShop <a href="http://birula.info/" target="_blank">A.Birula</a></small>
+        <small class="version">@version</small>
+        <small class="copyright">@DateTime.Now.Year &copy; Monetization <a href="http://birula.info/" target="_blank">A.Birula</a></small>
     </div>
 </div>

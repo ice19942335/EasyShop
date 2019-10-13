@@ -3,7 +3,7 @@
 }
 
 <body class="layout layout-header-fixed">
-    @await Html.PartialAsync("Partial/_Header")
+    @await Html.PartialAsync("Partial/_NavBar")
     <div class="layout-main">
         @await Html.PartialAsync("Partial/_SideBar")
         <div class="layout-content">
@@ -13,9 +13,9 @@
         </div>
         @await Html.PartialAsync("Partial/_Footer")
     </div>
-    <script src="~/js/vendor.min.js"></script>
-    <script src="~/js/elephant.min.js"></script>
-    <script src="~/js/application.min.js"></script>
+    <script src="~/js/vendor.js" asp-append-version="true"></script>
+    <script src="~/js/elephant.js" asp-append-version="true"></script>
+    <script src="~/js/application.js" asp-append-version="true"></script>
     @await Html.PartialAsync("Partial/_GoogleAnalyticsObject")
 </body>
 

@@ -3245,7 +3245,8 @@ tbody.collapse.in {
   .container > .navbar-collapse,
   .container-fluid > .navbar-header,
   .container-fluid > .navbar-collapse {
-    /*margin-right: 0;*/
+      display: none;  
+    margin-right: 0;
     margin-left: 0;
   }
 }
@@ -3291,7 +3292,7 @@ tbody.collapse.in {
   text-decoration: none;
 }
 .navbar-brand > img {
-    margin: 3px;
+    margin: 0;
     display: block;
 }
 @media (min-width: 768px) {
@@ -9472,8 +9473,8 @@ select.md-form-control option {
   position: relative;
 }
 .navbar-brand-logo {
-    height: 45px;
-    width: auto;
+    /*height: 45px;
+    width: auto;*/
 }
 .navbar-toggler {
   background-color: transparent;
