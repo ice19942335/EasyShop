@@ -12,9 +12,16 @@
     <link rel="mask-icon" href="~/safari-pinned-tab.svg" color="#00aced">
     <meta name="theme-color" content="#1b1b1b">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,700">
-    <link rel="stylesheet" href="~/css/vendor.css" asp-append-version="true">
-    <link rel="stylesheet" href="~/css/elephant.css" asp-append-version="true">
-    <link rel="stylesheet" href="~/css/application.css" asp-append-version="true">
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/vendor.css" asp-append-version="true">
+        <link rel="stylesheet" href="~/css/elephant.css" asp-append-version="true">
+        <link rel="stylesheet" href="~/css/application.css" asp-append-version="true">
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true">
+    </environment>
+
     @RenderSection("Styles", false)
 </head>
 @RenderBody()

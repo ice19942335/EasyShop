@@ -38,17 +38,11 @@ namespace EasyShop.CP.UI.Controllers
                 return View(model);
             }
 
+            //RegistrationDate = new DateTime(model.Year, model.Day, Int32.Parse(model.Month)),
             var newUser = new User
             {
-                FirstName = model.Firstname,
-                Lastname = model.LastName,
-                Gender = model.Gender,
                 UserName = model.Email,
                 Email = model.Email,
-                EmailConfirmed = false,
-                RegistrationDate = new DateTime(model.Year, model.Day, Int32.Parse(model.Month)),
-                ShopsAllowed = 2,
-                PercentageOfTransaction = 1
             };
             var creationResult = await _userManager.CreateAsync(newUser, model.Password);
 

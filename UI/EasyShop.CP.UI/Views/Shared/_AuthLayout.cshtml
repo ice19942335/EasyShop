@@ -4,8 +4,7 @@
 
 <body>
     @RenderBody()
-    <script src="~/js/vendor.js" asp-append-version="true"></script>
-    <script src="~/js/elephant.js" asp-append-version="true"></script>
+    @await Html.PartialAsync("Partial/_AuthSharedScripts")
     @await Html.PartialAsync("Partial/_GoogleAnalyticsObject")
 </body>
 

@@ -13,9 +13,7 @@
         </div>
         @await Html.PartialAsync("Partial/_Footer")
     </div>
-    <script src="~/js/vendor.js" asp-append-version="true"></script>
-    <script src="~/js/elephant.js" asp-append-version="true"></script>
-    <script src="~/js/application.js" asp-append-version="true"></script>
+    @await Html.PartialAsync("Partial/_ControlPanelSharedScripts")
     @await Html.PartialAsync("Partial/_GoogleAnalyticsObject")
 </body>
 
