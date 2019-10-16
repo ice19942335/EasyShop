@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\**" />
+    <Content Remove="Areas\**" />
+    <EmbeddedResource Remove="Areas\**" />
+    <None Remove="Areas\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\Common\EasyShop.Domain\EasyShop.Domain.csproj" />
     <ProjectReference Include="..\..\Common\EasyShop.Logger\EasyShop.Logger.csproj" />
     <ProjectReference Include="..\..\Services\EasyShop.DAL\EasyShop.DAL.csproj" />
@@ -12,11 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="BuildBundlerMinifier" Version="3.0.415" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
