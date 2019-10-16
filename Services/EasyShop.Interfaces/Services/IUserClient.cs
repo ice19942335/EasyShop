@@ -7,14 +7,14 @@ using Microsoft.AspNetCore.Identity;
 namespace EasyShop.Interfaces.Services
 {
     public interface IUserClient :
-        IUserRoleStore<User>,
-        IUserClaimStore<User>,
-        IUserPasswordStore<User>,
-        IUserEmailStore<User>,
-        IUserPhoneNumberStore<User>,
-        IUserLoginStore<User>,
-        IUserLockoutStore<User>,
-        IUserTwoFactorStore<User>
+        IUserRoleStore<ApplicationUser>,
+        IUserClaimStore<ApplicationUser>,
+        IUserPasswordStore<ApplicationUser>,
+        IUserEmailStore<ApplicationUser>,
+        IUserPhoneNumberStore<ApplicationUser>,
+        IUserLoginStore<ApplicationUser>,
+        IUserLockoutStore<ApplicationUser>,
+        IUserTwoFactorStore<ApplicationUser>
     {
     }
 }

@@ -9,18 +9,21 @@ using EasyShop.Domain.ViewModels.Account;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace EasyShop.CP.UI.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly UserManager<User> _userManager;
-        private readonly SignInManager<User> _signInManager;
+        private readonly IConfiguration _configuration;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IConfiguration configuration)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _configuration = configuration;
         }
 
         public IActionResult Register() => View();
@@ -39,10 +42,17 @@ namespace EasyShop.CP.UI.Controllers
             }
 
             //RegistrationDate = new DateTime(model.Year, model.Day, Int32.Parse(model.Month)),
-            var newUser = new User
+            var newUser = new ApplicationUser
             {
                 UserName = model.Email,
                 Email = model.Email,
+                FirstName = model.Firstname,
+                LastName = model.LastName,
+                BirthDate = new DateTime(model.Year, model.Day, Int32.Parse(model.Month)),
+                Gender = model.Gender,
+                TransactionPercent = Int32.Parse(_configuration["TransactionPercent"]),
+                ShopsAllowed = Int32.Parse(_configuration["DefaultShopsAllowed"]),
+                RegistrationDate = DateTime.Now
             };
             var creationResult = await _userManager.CreateAsync(newUser, model.Password);
 

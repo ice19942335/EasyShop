@@ -12,10 +12,10 @@ namespace EasyShop.Services.Data
     public class EasyShopContextInitializer
     {
         private readonly EasyShopContext _context;
-        private readonly UserManager<User> _userManager;
+        private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
 
-        public EasyShopContextInitializer(EasyShopContext ctx, UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
+        public EasyShopContextInitializer(EasyShopContext ctx, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _context = ctx;
             _userManager = userManager;
@@ -31,24 +31,24 @@ namespace EasyShop.Services.Data
 
         private async Task InitializeIdentity()
         {
-            if (!await _roleManager.RoleExistsAsync(User.RoleUser))
-                await _roleManager.CreateAsync(new IdentityRole(User.RoleUser));
+            if (!await _roleManager.RoleExistsAsync(ApplicationUser.RoleUser))
+                await _roleManager.CreateAsync(new IdentityRole(ApplicationUser.RoleUser));
 
-            if (!await _roleManager.RoleExistsAsync(User.RoleAdmin))
-                await _roleManager.CreateAsync(new IdentityRole(User.RoleAdmin));
+            if (!await _roleManager.RoleExistsAsync(ApplicationUser.RoleAdmin))
+                await _roleManager.CreateAsync(new IdentityRole(ApplicationUser.RoleAdmin));
 
-            if (await _userManager.FindByEmailAsync(User.AdminUserName) == null)
+            if (await _userManager.FindByEmailAsync(ApplicationUser.AdminUserName) == null)
             {
-                var admin = new User
+                var admin = new ApplicationUser
                 {
-                    UserName = User.AdminUserName,
-                    Email = User.AdminUserName
+                    UserName = ApplicationUser.AdminUserName,
+                    Email = ApplicationUser.AdminUserName
                 };
 
-                var creationResult = await _userManager.CreateAsync(admin, User.DefaultAdminPassword);
+                var creationResult = await _userManager.CreateAsync(admin, ApplicationUser.DefaultAdminPassword);
 
                 if (creationResult.Succeeded)
-                    await _userManager.AddToRoleAsync(admin, User.RoleAdmin);
+                    await _userManager.AddToRoleAsync(admin, ApplicationUser.RoleAdmin);
             }
         }
     }

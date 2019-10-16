@@ -7,21 +7,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EasyShop.DAL.Context
 {
-    public class EasyShopContext : IdentityDbContext<User>
+    public class EasyShopContext : IdentityDbContext<ApplicationUser>
     {
+        //Tables
 
-
+        //Constructor
         public EasyShopContext(DbContextOptions<EasyShopContext> options) : base(options) { }
 
         //Fluent API
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    base.OnModelCreating(modelBuilder);
-
-        //    modelBuilder.Entity<Section>()
-        //        .HasMany(section => section.Products)
-        //        .WithOne(product => product.Section)
-        //        .HasForeignKey(product => product.SectionId);
-        //}
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

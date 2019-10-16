@@ -32,7 +32,7 @@ namespace EasyShop.CP.UI
 
             services.AddDbContext<EasyShopContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
 
-            services.AddIdentity<User, IdentityRole>()
+            services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<EasyShopContext>()
                 .AddDefaultTokenProviders();
 
@@ -49,19 +49,19 @@ namespace EasyShop.CP.UI
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
                 options.Lockout.AllowedForNewUsers = true;
 
-                options.User.RequireUniqueEmail = true; //.....................................    Грабли
+                options.User.RequireUniqueEmail = true;
 
-                services.ConfigureApplicationCookie(options =>
+                services.ConfigureApplicationCookie(opt =>
                 {
-                    options.Cookie.HttpOnly = true;
-                    options.ExpireTimeSpan = TimeSpan.FromDays(7); //..........................    New in Core 3
-                    options.Cookie.MaxAge = TimeSpan.FromDays(7);
+                    opt.Cookie.HttpOnly = true;
+                    opt.ExpireTimeSpan = TimeSpan.FromDays(7); //..........................    New in Core 3
+                    opt.Cookie.MaxAge = TimeSpan.FromDays(7);
 
-                    options.LoginPath = "/Account/Login";
-                    options.LogoutPath = "/Account/Logout";
-                    options.AccessDeniedPath = "/Account/AccessDenied";
+                    opt.LoginPath = "/Account/Login";
+                    opt.LogoutPath = "/Account/Logout";
+                    opt.AccessDeniedPath = "/Account/AccessDenied";
 
-                    options.SlidingExpiration = true; //.......................................    Change Session ID if being authorized
+                    opt.SlidingExpiration = true; //.......................................    Change Session ID if being authorized
                 });
             });
         }
