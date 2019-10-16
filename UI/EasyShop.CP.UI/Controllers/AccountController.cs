@@ -50,8 +50,8 @@ namespace EasyShop.CP.UI.Controllers
                 LastName = model.LastName,
                 BirthDate = new DateTime(model.Year, model.Day, Int32.Parse(model.Month)),
                 Gender = model.Gender,
-                TransactionPercent = Int32.Parse(_configuration["TransactionPercent"]),
-                ShopsAllowed = Int32.Parse(_configuration["DefaultShopsAllowed"]),
+                TransactionPercent = 1,
+                ShopsAllowed = 10,
                 RegistrationDate = DateTime.Now
             };
             var creationResult = await _userManager.CreateAsync(newUser, model.Password);
