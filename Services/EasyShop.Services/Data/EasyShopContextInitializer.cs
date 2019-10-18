@@ -34,8 +34,8 @@ namespace EasyShop.Services.Data
             if (!await _roleManager.RoleExistsAsync(ApplicationUser.RoleUser))
                 await _roleManager.CreateAsync(new IdentityRole(ApplicationUser.RoleUser));
 
-            if (!await _roleManager.RoleExistsAsync(ApplicationUser.RoleAdmin))
-                await _roleManager.CreateAsync(new IdentityRole(ApplicationUser.RoleAdmin));
+            if (!await _roleManager.RoleExistsAsync(ApplicationUser.RoleAdministrator))
+                await _roleManager.CreateAsync(new IdentityRole(ApplicationUser.RoleAdministrator));
 
             if (await _userManager.FindByEmailAsync(ApplicationUser.AdminUserName) == null)
             {
@@ -48,7 +48,7 @@ namespace EasyShop.Services.Data
                 var creationResult = await _userManager.CreateAsync(admin, ApplicationUser.DefaultAdminPassword);
 
                 if (creationResult.Succeeded)
-                    await _userManager.AddToRoleAsync(admin, ApplicationUser.RoleAdmin);
+                    await _userManager.AddToRoleAsync(admin, ApplicationUser.RoleAdministrator);
             }
         }
     }
