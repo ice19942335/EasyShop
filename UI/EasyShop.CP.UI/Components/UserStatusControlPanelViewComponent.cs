@@ -20,9 +20,9 @@ namespace EasyShop.CP.UI.Components
             var appUser = _context.Users.FirstOrDefault(user => user.UserName == User.Identity.Name);
 
             if (appUser is null)
-                return View(new UserDataViewModel { FirstName = User.Identity.Name });
+                return View(new ApplicationUserViewModel { FirstName = User.Identity.Name });
 
-            var model = new UserDataViewModel
+            var model = new ApplicationUserViewModel
             {
                 FirstName = appUser.FirstName,
                 LastName = appUser.LastName,

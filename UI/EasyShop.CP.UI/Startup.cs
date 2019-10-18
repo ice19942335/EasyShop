@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EasyShop.CP.UI.Data;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entities.Identity;
 using Microsoft.AspNetCore.Builder;
@@ -36,12 +37,14 @@ namespace EasyShop.CP.UI
                 .AddEntityFrameworkStores<EasyShopContext>()
                 .AddDefaultTokenProviders();
 
+            services.AddScoped<EasyShopContextInitializer>();
+
             services.Configure<IdentityOptions>(options =>
             {
                 options.Password.RequireDigit = true;
                 options.Password.RequireLowercase = true;
-                options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = true;
+                options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequiredLength = 10;
                 options.Password.RequiredUniqueChars = 3;
 
@@ -67,8 +70,10 @@ namespace EasyShop.CP.UI
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, EasyShopContextInitializer contextInitializer)
         {
+            contextInitializer.Initialize().Wait();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

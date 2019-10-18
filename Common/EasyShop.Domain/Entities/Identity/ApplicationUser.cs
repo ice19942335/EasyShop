@@ -7,10 +7,10 @@ namespace EasyShop.Domain.Entities.Identity
 {
     public class ApplicationUser : IdentityUser
     {
-        public const string AdminUserName = "Administrator@easyshop.com";
-        public const string DefaultAdminPassword = "AdminPassword";
+        public const string AdminUserName = "aleksejbirula@gmail.com";
+        public const string DefaultAdminPassword = "AdminPassword123";
 
-        public const string RoleAdmin = "Administrator";
+        public const string RoleAdministrator = "Administrator";
         public const string RoleUser = "User";
 
         public string FirstName { get; set; }

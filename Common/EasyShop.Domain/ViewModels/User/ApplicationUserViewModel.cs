@@ -7,7 +7,7 @@ using Microsoft.Extensions.FileProviders;
 
 namespace EasyShop.Domain.ViewModels.User
 {
-    public class UserDataViewModel
+    public class ApplicationUserViewModel
     {
         public string FirstName { get; set; }
 
