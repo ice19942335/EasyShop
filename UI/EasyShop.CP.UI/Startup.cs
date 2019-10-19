@@ -2,7 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EasyShop.Clients.Users;
 using EasyShop.Domain.Entities.Identity;
+using EasyShop.Interfaces.Services;
+using EasyShop.Services.UserServices.UserData;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -28,6 +31,19 @@ namespace EasyShop.CP.UI
         {
             services.AddHttpContextAccessor();
             services.AddRazorPages();
+
+            services.AddIdentity<ApplicationUser, IdentityRole>(options => { /*Cookies configuration can be hire*/ })
+                .AddDefaultTokenProviders();
+
+            services.AddTransient<IUserStore<ApplicationUser>, UserClient>();
+            services.AddTransient<IUserClaimStore<ApplicationUser>, UserClient>();
+            services.AddTransient<IUserPasswordStore<ApplicationUser>, UserClient>();
+            services.AddTransient<IUserTwoFactorStore<ApplicationUser>, UserClient>();
+            services.AddTransient<IUserEmailStore<ApplicationUser>, UserClient>();
+            services.AddTransient<IUserPhoneNumberStore<ApplicationUser>, UserClient>();
+            services.AddTransient<IUserLoginStore<ApplicationUser>, UserClient>();
+            services.AddTransient<IUserLockoutStore<ApplicationUser>, UserClient>();
+            services.AddTransient<IRoleStore<IdentityRole>, RoleClient>();
 
             services.Configure<IdentityOptions>(options =>
             {

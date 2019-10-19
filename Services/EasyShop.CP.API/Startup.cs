@@ -38,6 +38,22 @@ namespace EasyShop.CP.API
 
             services.AddControllers();
             services.AddHttpContextAccessor();
+
+            services.Configure<IdentityOptions>(options =>
+            {
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireUppercase = true;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequiredLength = 10;
+                options.Password.RequiredUniqueChars = 3;
+
+                options.Lockout.MaxFailedAccessAttempts = 30;
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
+                options.Lockout.AllowedForNewUsers = true;
+
+                options.User.RequireUniqueEmail = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
