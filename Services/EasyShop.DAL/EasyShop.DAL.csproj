@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20191013100311_AddIdentityData.cs" />
-    <Compile Remove="Migrations\20191013100311_AddIdentityData.Designer.cs" />
+    <Compile Remove="Startup.cs" />
   </ItemGroup>
 
   <ItemGroup>

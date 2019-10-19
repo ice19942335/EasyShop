@@ -2,8 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using EasyShop.CP.UI.Data;
-using EasyShop.DAL.Context;
 using EasyShop.Domain.Entities.Identity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,14 +28,6 @@ namespace EasyShop.CP.UI
         {
             services.AddHttpContextAccessor();
             services.AddRazorPages();
-
-            services.AddDbContext<EasyShopContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
-
-            services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<EasyShopContext>()
-                .AddDefaultTokenProviders();
-
-            services.AddScoped<EasyShopContextInitializer>();
 
             services.Configure<IdentityOptions>(options =>
             {
@@ -70,10 +60,8 @@ namespace EasyShop.CP.UI
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, EasyShopContextInitializer contextInitializer)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            contextInitializer.Initialize().Wait();
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
