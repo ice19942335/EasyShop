@@ -43,19 +43,19 @@ namespace EasyShop.CP.UI
                 options.Lockout.AllowedForNewUsers = true;
 
                 options.User.RequireUniqueEmail = true;
+            });
 
-                services.ConfigureApplicationCookie(opt =>
-                {
-                    opt.Cookie.HttpOnly = true;
-                    opt.ExpireTimeSpan = TimeSpan.FromDays(7); //..........................    New in Core 3
-                    opt.Cookie.MaxAge = TimeSpan.FromDays(7);
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.Cookie.HttpOnly = true;
+                options.ExpireTimeSpan = TimeSpan.FromDays(7); //..........................    New in Core 3
+                options.Cookie.MaxAge = TimeSpan.FromDays(7);
 
-                    opt.LoginPath = "/Account/Login";
-                    opt.LogoutPath = "/Account/Logout";
-                    opt.AccessDeniedPath = "/Account/AccessDenied";
+                options.LoginPath = "/Account/Login";
+                options.LogoutPath = "/Account/Logout";
+                options.AccessDeniedPath = "/Account/AccessDenied";
 
-                    opt.SlidingExpiration = true; //.......................................    Change Session ID if being authorized
-                });
+                options.SlidingExpiration = true; //.......................................    Change Session ID if being authorized
             });
         }
 

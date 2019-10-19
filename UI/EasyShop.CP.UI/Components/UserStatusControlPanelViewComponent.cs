@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
-using EasyShop.Domain.ViewModels.User;
+using EasyShop.Domain.ViewModels.User.UserData;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EasyShop.CP.UI.Components

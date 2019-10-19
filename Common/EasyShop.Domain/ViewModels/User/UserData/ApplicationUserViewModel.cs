@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.FileProviders;
 
-namespace EasyShop.Domain.ViewModels.User
+namespace EasyShop.Domain.ViewModels.User.UserData
 {
     public class ApplicationUserViewModel
     {
