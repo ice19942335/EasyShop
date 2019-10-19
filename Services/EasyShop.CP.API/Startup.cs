@@ -38,8 +38,8 @@ namespace EasyShop.CP.API
 
             services.AddControllers();
             services.AddHttpContextAccessor();
-
-            services.Configure<IdentityOptions>(options =>
+            
+          services.Configure<IdentityOptions>(options =>
             {
                 options.Password.RequireDigit = true;
                 options.Password.RequireLowercase = true;
