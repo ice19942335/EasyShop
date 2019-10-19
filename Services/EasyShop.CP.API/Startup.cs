@@ -30,14 +30,14 @@ namespace EasyShop.CP.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<EasyShopContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+            services.AddScoped<EasyShopContextInitializer>();
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<EasyShopContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddScoped<EasyShopContextInitializer>();
-
             services.AddControllers();
+            services.AddHttpContextAccessor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
