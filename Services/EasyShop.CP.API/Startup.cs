@@ -29,6 +29,8 @@ namespace EasyShop.CP.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvcCore();
+
             services.AddDbContext<EasyShopContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
             services.AddScoped<EasyShopContextInitializer>();
 
@@ -38,8 +40,8 @@ namespace EasyShop.CP.API
 
             services.AddControllers();
             services.AddHttpContextAccessor();
-            
-          services.Configure<IdentityOptions>(options =>
+
+            services.Configure<IdentityOptions>(options =>
             {
                 options.Password.RequireDigit = true;
                 options.Password.RequireLowercase = true;
@@ -48,11 +50,13 @@ namespace EasyShop.CP.API
                 options.Password.RequiredLength = 10;
                 options.Password.RequiredUniqueChars = 3;
 
-                options.Lockout.MaxFailedAccessAttempts = 30;
-                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                options.Lockout.MaxFailedAccessAttempts = 5;
                 options.Lockout.AllowedForNewUsers = true;
 
-                options.User.RequireUniqueEmail = true;
+                options.User.AllowedUserNameCharacters =
+                    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+                options.User.RequireUniqueEmail = false;
             });
         }
 

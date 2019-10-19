@@ -54,18 +54,20 @@ namespace EasyShop.CP.UI
                 options.Password.RequiredLength = 10;
                 options.Password.RequiredUniqueChars = 3;
 
-                options.Lockout.MaxFailedAccessAttempts = 30;
-                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                options.Lockout.MaxFailedAccessAttempts = 5;
                 options.Lockout.AllowedForNewUsers = true;
 
-                options.User.RequireUniqueEmail = true;
+                options.User.AllowedUserNameCharacters =
+                    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+                options.User.RequireUniqueEmail = false;
             });
 
             services.ConfigureApplicationCookie(options =>
             {
                 options.Cookie.HttpOnly = true;
-                options.ExpireTimeSpan = TimeSpan.FromDays(7); //..........................    New in Core 3
-                options.Cookie.MaxAge = TimeSpan.FromDays(7);
+                options.ExpireTimeSpan = TimeSpan.FromDays(5);
+                options.Cookie.MaxAge = TimeSpan.FromDays(5);
 
                 options.LoginPath = "/Account/Login";
                 options.LogoutPath = "/Account/Logout";

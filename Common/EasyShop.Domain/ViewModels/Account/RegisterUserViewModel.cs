@@ -39,5 +39,7 @@ namespace EasyShop.Domain.ViewModels.Account
         public int Gender { get; set; }
 
         public bool Terms { get; set; }
+
+        public string ReturnUrl { get; set; }
     }
 }

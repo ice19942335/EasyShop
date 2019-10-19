@@ -11,11 +11,11 @@ namespace EasyShop.CP.API.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
-    public class RolesController : ControllerBase
+    public class RoleController : ControllerBase
     {
         private readonly RoleStore<IdentityRole> _roleStore;
 
-        public RolesController(EasyShopContext dbContext)
+        public RoleController(EasyShopContext dbContext)
         {
             _roleStore = new RoleStore<IdentityRole>(dbContext) { AutoSaveChanges = true };
         }

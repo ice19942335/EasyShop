@@ -20,7 +20,7 @@ namespace EasyShop.Clients.Users
 
         public UserClient(IConfiguration configuration, ILogger<UserClient> logger) : base(configuration, "api/users") => _logger = logger;
 
-        #region Implementation of IUserStore<ApplicationUser>
+        #region Implementation of IUserStore<User>
 
         public async Task<string> GetUserIdAsync(ApplicationUser user, CancellationToken cancel)
         {
@@ -40,7 +40,7 @@ namespace EasyShop.Clients.Users
 
         public async Task SetUserNameAsync(ApplicationUser user, string name, CancellationToken cancel)
         {
-            _logger.LogInformation("ApplicationUser name changing, from {0} to: {1}", user.UserName, name);
+            _logger.LogInformation("User name changing, from {0} to: {1}", user.UserName, name);
             user.UserName = name;
             await PostAsync($"{_serviceAddress}/UserName/{name}", user, cancel);
         }
@@ -61,7 +61,7 @@ namespace EasyShop.Clients.Users
 
         public async Task<IdentityResult> CreateAsync(ApplicationUser user, CancellationToken cancel)
         {
-            return await (await PostAsync($"{_serviceAddress}/ApplicationUser", user, cancel))
+            return await (await PostAsync($"{_serviceAddress}/User", user, cancel))
                 .Content
                 .ReadAsAsync<bool>(cancel)
                 ? IdentityResult.Success
@@ -70,7 +70,7 @@ namespace EasyShop.Clients.Users
 
         public async Task<IdentityResult> UpdateAsync(ApplicationUser user, CancellationToken cancel)
         {
-            return await (await PutAsync($"{_serviceAddress}/ApplicationUser", user, cancel))
+            return await (await PutAsync($"{_serviceAddress}/User", user, cancel))
                 .Content
                 .ReadAsAsync<bool>(cancel)
                 ? IdentityResult.Success
@@ -79,7 +79,7 @@ namespace EasyShop.Clients.Users
 
         public async Task<IdentityResult> DeleteAsync(ApplicationUser user, CancellationToken cancel)
         {
-            return await (await PostAsync($"{_serviceAddress}/ApplicationUser/Delete", user, cancel))
+            return await (await PostAsync($"{_serviceAddress}/User/Delete", user, cancel))
                 .Content
                 .ReadAsAsync<bool>(cancel)
                 ? IdentityResult.Success
@@ -88,18 +88,18 @@ namespace EasyShop.Clients.Users
 
         public async Task<ApplicationUser> FindByIdAsync(string id, CancellationToken cancel)
         {
-            return await GetAsync<ApplicationUser>($"{_serviceAddress}/ApplicationUser/Find/{id}", cancel);
+            return await GetAsync<ApplicationUser>($"{_serviceAddress}/User/Find/{id}", cancel);
         }
 
         public async Task<ApplicationUser> FindByNameAsync(string name, CancellationToken cancel)
         {
-            var user = await GetAsync<ApplicationUser>($"{_serviceAddress}/ApplicationUser/Normal/{name}", cancel);
+            var user = await GetAsync<ApplicationUser>($"{_serviceAddress}/User/Normal/{name}", cancel);
             return user;
         }
 
         #endregion
 
-        #region Implementation of IUserRoleStore<ApplicationUser>
+        #region Implementation of IUserRoleStore<User>
 
         public async Task AddToRoleAsync(ApplicationUser user, string role, CancellationToken cancel)
         {
@@ -132,7 +132,7 @@ namespace EasyShop.Clients.Users
 
         #endregion
 
-        #region Implementation of IUserPasswordStore<ApplicationUser>
+        #region Implementation of IUserPasswordStore<User>
 
         public async Task SetPasswordHashAsync(ApplicationUser user, string hash, CancellationToken cancel)
         {
@@ -156,7 +156,7 @@ namespace EasyShop.Clients.Users
 
         #endregion
 
-        #region Implementation of IUserEmailStore<ApplicationUser>
+        #region Implementation of IUserEmailStore<User>
 
         public async Task SetEmailAsync(ApplicationUser user, string email, CancellationToken cancel)
         {
@@ -186,12 +186,12 @@ namespace EasyShop.Clients.Users
 
         public async Task<ApplicationUser> FindByEmailAsync(string email, CancellationToken cancel)
         {
-            return await GetAsync<ApplicationUser>($"{_serviceAddress}/ApplicationUser/FindByEmail/{email}", cancel);
+            return await GetAsync<ApplicationUser>($"{_serviceAddress}/User/FindByEmail/{email}", cancel);
         }
 
         public async Task<string> GetNormalizedEmailAsync(ApplicationUser user, CancellationToken cancel)
         {
-            return await (await PostAsync($"{_serviceAddress}/ApplicationUser/GetNormalizedEmail", user, cancel))
+            return await (await PostAsync($"{_serviceAddress}/User/GetNormalizedEmail", user, cancel))
                 .Content
                 .ReadAsAsync<string>(cancel);
         }
@@ -203,7 +203,7 @@ namespace EasyShop.Clients.Users
 
         #endregion
 
-        #region Implementation of IUserPhoneNumberStore<ApplicationUser>
+        #region Implementation of IUserPhoneNumberStore<User>
 
         public async Task SetPhoneNumberAsync(ApplicationUser user, string phone, CancellationToken cancel)
         {
@@ -233,11 +233,11 @@ namespace EasyShop.Clients.Users
 
         #endregion
 
-        #region Implementation of IUserLoginStore<ApplicationUser>
+        #region Implementation of IUserLoginStore<User>
 
         public async Task AddLoginAsync(ApplicationUser user, UserLoginInfo login, CancellationToken cancel)
         {
-            _logger.LogInformation("ApplicationUser {0} login in system", user.UserName);
+            _logger.LogInformation("User {0} login in system", user.UserName);
             await PostAsync($"{_serviceAddress}/AddLogin", new AddLoginDTO { User = user, UserLoginInfo = login }, cancel);
         }
 
@@ -255,12 +255,12 @@ namespace EasyShop.Clients.Users
 
         public async Task<ApplicationUser> FindByLoginAsync(string loginProvider, string providerKey, CancellationToken cancel)
         {
-            return await GetAsync<ApplicationUser>($"{_serviceAddress}/ApplicationUser/FindByLogin/{loginProvider}/{providerKey}", cancel);
+            return await GetAsync<ApplicationUser>($"{_serviceAddress}/User/FindByLogin/{loginProvider}/{providerKey}", cancel);
         }
 
         #endregion
 
-        #region Implementation of IUserLockoutStore<ApplicationUser>
+        #region Implementation of IUserLockoutStore<User>
 
         public async Task<DateTimeOffset?> GetLockoutEndDateAsync(ApplicationUser user, CancellationToken cancel)
         {
@@ -309,7 +309,7 @@ namespace EasyShop.Clients.Users
 
         #endregion
 
-        #region Implementation of IUserTwoFactorStore<ApplicationUser>
+        #region Implementation of IUserTwoFactorStore<User>
 
         public async Task SetTwoFactorEnabledAsync(ApplicationUser user, bool enabled, CancellationToken cancel)
         {
@@ -326,7 +326,7 @@ namespace EasyShop.Clients.Users
 
         #endregion
 
-        #region Implementation of IUserClaimStore<ApplicationUser>
+        #region Implementation of IUserClaimStore<User>
 
         public async Task<IList<Claim>> GetClaimsAsync(ApplicationUser user, CancellationToken cancel)
         {

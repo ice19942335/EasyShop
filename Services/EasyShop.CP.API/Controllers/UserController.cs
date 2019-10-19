@@ -22,13 +22,10 @@ namespace EasyShop.CP.API.Controllers
         private readonly ILogger<UsersController> _logger;
         private readonly UserStore<ApplicationUser> _userStore;
 
-        public UsersController(EasyShopContext context, ILogger<UsersController> logger)
+        public UsersController(EasyShopContext dbContext, ILogger<UsersController> logger)
         {
             _logger = logger;
-            _userStore = new UserStore<ApplicationUser>(context)
-            {
-                AutoSaveChanges = true
-            };
+            _userStore = new UserStore<ApplicationUser>(dbContext) { AutoSaveChanges = true };
         }
 
         #region Users
@@ -51,28 +48,28 @@ namespace EasyShop.CP.API.Controllers
         [HttpPost("NormalUserName/{name}")]
         public Task SetNormalizedUserNameAsync([FromBody] ApplicationUser user, string name) => _userStore.SetNormalizedUserNameAsync(user, name);
 
-        [HttpPost("ApplicationUser")]
+        [HttpPost("User")]
         public async Task<bool> CreateAsync([FromBody] ApplicationUser user)
         {
             var result = await _userStore.CreateAsync(user);
             if (result.Succeeded)
-                _logger.LogInformation("ApplicationUser {0} created ", user.UserName);
+                _logger.LogInformation("User {0} created ", user.UserName);
             else
                 _logger.LogWarning("Errors on user creation user ID: {0} Errors: {1}",
                     user.UserName, string.Join(",", result.Errors.Select(error => error.Description)));
             return result.Succeeded;
         }
 
-        [HttpPut("ApplicationUser")]
+        [HttpPut("User")]
         public async Task<bool> UpdateAsync([FromBody] ApplicationUser user) => (await _userStore.UpdateAsync(user)).Succeeded;
 
-        [HttpPost("ApplicationUser/Delete")]
+        [HttpPost("User/Delete")]
         public async Task<bool> DeleteAsync([FromBody] ApplicationUser user) => (await _userStore.DeleteAsync(user)).Succeeded;
 
-        [HttpGet("ApplicationUser/Find/{id}")]
+        [HttpGet("User/Find/{id}")]
         public async Task<ApplicationUser> FindByIdAsync(string id) => await _userStore.FindByIdAsync(id);
 
-        [HttpGet("ApplicationUser/Normal/{name}")]
+        [HttpGet("User/Normal/{name}")]
         public async Task<ApplicationUser> FindByNameAsync(string name) => await _userStore.FindByNameAsync(name);
 
         #endregion
@@ -191,7 +188,7 @@ namespace EasyShop.CP.API.Controllers
         [HttpPost("AddLogin")]
         public async Task AddLoginAsync([FromBody] AddLoginDTO login)
         {
-            _logger.LogInformation("ApplicationUser {0} successfully logged in", login.User);
+            _logger.LogInformation("User {0} successfully logged in", login.User);
             await _userStore.AddLoginAsync(login.User, login.UserLoginInfo);
         }
 
@@ -202,7 +199,7 @@ namespace EasyShop.CP.API.Controllers
         [HttpPost("GetLogins")]
         public async Task<IList<UserLoginInfo>> GetLoginsAsync([FromBody] ApplicationUser user) => await _userStore.GetLoginsAsync(user);
 
-        [HttpGet("ApplicationUser/FindByLogin/{loginProvider}/{ProviderKey}")]
+        [HttpGet("User/FindByLogin/{loginProvider}/{ProviderKey}")]
         public async Task<ApplicationUser> FindByLoginAsync(string loginProvider, string providerKey) =>
             await _userStore.FindByLoginAsync(loginProvider, providerKey);
 
