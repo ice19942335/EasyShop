@@ -89,7 +89,7 @@ namespace EasyShop.CP.UI.Controllers
                 return RedirectToAction("Dashboard", "ControlPanel");
             }
 
-            ModelState.AddModelError("", "Email on password is incorrect, please try again");
+            ModelState.AddModelError("", "Email or password is incorrect, please try again");
             return View(model);
         }
 
