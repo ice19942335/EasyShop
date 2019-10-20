@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using EasyShop.Clients.Users;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entities.Identity;
 using EasyShop.Domain.ViewModels.User.UserData;
@@ -18,8 +17,6 @@ namespace EasyShop.CP.UI.Components
         public UserStatusControlPanelViewComponent(IUserStore<ApplicationUser> userStore) => _userStore = userStore;
         public IViewComponentResult Invoke()
         {
-            //var appUser = _context.Users.FirstOrDefault(user => user.UserName == User.Identity.Name);
-
             var appUser = _userStore.FindByNameAsync(User.Identity.Name, default).Result;
 
             if (appUser is null)

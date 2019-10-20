@@ -100,7 +100,7 @@ namespace EasyShop.CP.API.Controllers
 
         [HttpPost("SetPasswordHash")]
         public async Task<string> SetPasswordHashAsync([FromBody] PasswordHashDTO hash)
-        {
+        { 
             await _userStore.SetPasswordHashAsync(hash.User, hash.Hash);
             return hash.User.PasswordHash;
         }

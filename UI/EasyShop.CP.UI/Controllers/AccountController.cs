@@ -14,21 +14,24 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace EasyShop.CP.UI.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly IConfiguration _configuration;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly ILogger<AccountController> _logger;
 
-        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager,
-            IConfiguration configuration)
+        public AccountController(
+            UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager,
+            ILogger<AccountController> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;
-            _configuration = configuration;
+            _logger = logger;
         }
 
         public IActionResult Register() => View();
@@ -37,59 +40,54 @@ namespace EasyShop.CP.UI.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterUserViewModel model)
         {
+            //var code = await _userManager.GenerateEmailConfirmationTokenAsync(newUser);
+            //code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+            //var callbackUrl = Url.Page(
+            //    "/Account/ConfirmEmail",
+            //    pageHandler: null,
+            //    values: new { area = "Identity", userId = newUser.Id, code = code },
+            //    protocol: Request.Scheme);
+
+            //await _emailSender.SendEmailAsync(model.Email, "Confirm your email",
+            //    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+
             if (!ModelState.IsValid)
                 return View(model);
 
-            if (!model.Terms)
+            using (_logger.BeginScope($"New user registration: <{model.Email}>"))
             {
-                ModelState.AddModelError("Terms", "Please, accept terms of service");
-                return View(model);
-            }
+                var user = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    FirstName = model.Firstname,
+                    LastName = model.LastName,
+                    BirthDate = new DateTime(model.Year, model.Day, Int32.Parse(model.Month)),
+                    Gender = model.Gender,
+                    TransactionPercent = 1,
+                    ShopsAllowed = 10,
+                    RegistrationDate = DateTime.Now
+                };
 
-            //RegistrationDate = new DateTime(model.Year, model.Day, Int32.Parse(model.Month)),
-            var newUser = new ApplicationUser
-            {
-                UserName = model.Email,
-                Email = model.Email,
-                FirstName = model.Firstname,
-                LastName = model.LastName,
-                BirthDate = new DateTime(model.Year, model.Day, Int32.Parse(model.Month)),
-                Gender = model.Gender,
-                TransactionPercent = 1,
-                ShopsAllowed = 10,
-                RegistrationDate = DateTime.Now
-            };
+                var creationResult = await _userManager.CreateAsync(user, model.Password);
 
-            var creationResult = await _userManager.CreateAsync(newUser, model.Password);
+                if (creationResult.Succeeded)
+                {
+                    await _signInManager.SignInAsync(user, false);
 
-            if (creationResult.Succeeded)
-            {
-                var code = await _userManager.GenerateEmailConfirmationTokenAsync(newUser);
-                code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-                var callbackUrl = Url.Page(
-                    "/Account/ConfirmEmail",
-                    pageHandler: null,
-                    values: new { area = "Identity", userId = newUser.Id, code = code },
-                    protocol: Request.Scheme);
+                    _logger.LogInformation($"User <{model.Email}> successfully registered in system");
 
-                //await _emailSender.SendEmailAsync(model.Email, "Confirm your email",
-                //    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
-
-                await _signInManager.SignInAsync(newUser, false);
-
-                if (model.ReturnUrl is null)
                     return RedirectToAction("Index", "Home");
+                }
 
-                if (Url.IsLocalUrl(model.ReturnUrl))
-                    return LocalRedirect(model.ReturnUrl);
+                foreach (var error in creationResult.Errors)
+                    ModelState.AddModelError("", error.Description);
 
-                return RedirectPermanent(model.ReturnUrl);
-
-            }
-
-            foreach (var error in creationResult.Errors)
-            {
-                ModelState.AddModelError(string.Empty, error.Description);
+                _logger.LogWarning(
+                    "Registration error, User: <{0}>, Errors: {1}",
+                    model.Email,
+                    string.Join(", ", creationResult.Errors.Select(err => err.Description))
+                );
             }
 
             return View(model);
@@ -105,17 +103,21 @@ namespace EasyShop.CP.UI.Controllers
                 return View(model);
 
             var loginResult = await _signInManager
-                .PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, true);
+                .PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, false);
 
             if (loginResult.Succeeded)
             {
+                _logger.LogInformation("User <{0}> successfully logged in", model.UserName);
+
                 if (Url.IsLocalUrl(model.ReturnUrl))
                     return Redirect(model.ReturnUrl);
-
-                return RedirectToAction("Dashboard", "ControlPanel");
+                return RedirectToAction("Index", "Home");
             }
 
-            ModelState.AddModelError("", "Email or password is incorrect, please try again");
+            ModelState.AddModelError("", "Username or password is incorrect");
+
+            _logger.LogWarning("User <{0}> login error", model.UserName);
+
             return View(model);
         }
 

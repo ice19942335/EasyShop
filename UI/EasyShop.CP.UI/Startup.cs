@@ -2,9 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using EasyShop.Clients.Users;
+using EasyShop.DAL.Context;
 using EasyShop.Domain.Entities.Identity;
 using EasyShop.Interfaces.Services;
+using EasyShop.Services.Data;
 using EasyShop.Services.UserServices.UserData;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,18 +33,17 @@ namespace EasyShop.CP.UI
             services.AddHttpContextAccessor();
             services.AddRazorPages();
 
-            services.AddIdentity<ApplicationUser, IdentityRole>(options => { /*Cookies configuration can be hire*/ })
+            services.AddMvcCore();
+
+            services.AddDbContext<EasyShopContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+            services.AddScoped<EasyShopContextInitializer>();
+
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<EasyShopContext>()
                 .AddDefaultTokenProviders();
 
-            services.AddTransient<IUserStore<ApplicationUser>, UserClient>();
-            services.AddTransient<IUserClaimStore<ApplicationUser>, UserClient>();
-            services.AddTransient<IUserPasswordStore<ApplicationUser>, UserClient>();
-            services.AddTransient<IUserTwoFactorStore<ApplicationUser>, UserClient>();
-            services.AddTransient<IUserEmailStore<ApplicationUser>, UserClient>();
-            services.AddTransient<IUserPhoneNumberStore<ApplicationUser>, UserClient>();
-            services.AddTransient<IUserLoginStore<ApplicationUser>, UserClient>();
-            services.AddTransient<IUserLockoutStore<ApplicationUser>, UserClient>();
-            services.AddTransient<IRoleStore<IdentityRole>, RoleClient>();
+            services.AddControllers();
+            services.AddHttpContextAccessor();
 
             services.Configure<IdentityOptions>(options =>
             {
@@ -62,24 +62,13 @@ namespace EasyShop.CP.UI
                     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
                 options.User.RequireUniqueEmail = false;
             });
-
-            services.ConfigureApplicationCookie(options =>
-            {
-                options.Cookie.HttpOnly = true;
-                options.ExpireTimeSpan = TimeSpan.FromDays(5);
-                options.Cookie.MaxAge = TimeSpan.FromDays(5);
-
-                options.LoginPath = "/Account/Login";
-                options.LogoutPath = "/Account/Logout";
-                options.AccessDeniedPath = "/Account/AccessDenied";
-
-                options.SlidingExpiration = true; //.......................................    Change Session ID if being authorized
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, EasyShopContextInitializer contextInitializer)
         {
+            contextInitializer.Initialize().Wait();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
