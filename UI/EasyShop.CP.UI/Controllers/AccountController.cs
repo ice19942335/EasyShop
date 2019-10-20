@@ -78,7 +78,7 @@ namespace EasyShop.CP.UI.Controllers
                 await _signInManager.SignInAsync(newUser, false);
 
                 if (model.ReturnUrl is null)
-                    return RedirectToAction("Dashboard", "ControlPanel");
+                    return RedirectToAction("Index", "Home");
 
                 if (Url.IsLocalUrl(model.ReturnUrl))
                     return LocalRedirect(model.ReturnUrl);
@@ -88,8 +88,10 @@ namespace EasyShop.CP.UI.Controllers
             }
 
             foreach (var error in creationResult.Errors)
+            {
                 ModelState.AddModelError(string.Empty, error.Description);
-             
+            }
+
             return View(model);
         }
 
