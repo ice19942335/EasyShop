@@ -1,19 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using System.Runtime.Serialization;
-using System.Security.Policy;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entities.Identity;
 using EasyShop.Domain.ViewModels.Account;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.WebUtilities;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
 namespace EasyShop.CP.UI.Controllers
@@ -23,15 +19,18 @@ namespace EasyShop.CP.UI.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<AccountController> _logger;
+        private readonly IEmailSender _emailSender;
 
         public AccountController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
-            ILogger<AccountController> logger)
+            ILogger<AccountController> logger, 
+            IEmailSender emailSender)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
+            _emailSender = emailSender;
         }
 
         public IActionResult Register() => View();
@@ -40,21 +39,10 @@ namespace EasyShop.CP.UI.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterUserViewModel model)
         {
-            //var code = await _userManager.GenerateEmailConfirmationTokenAsync(newUser);
-            //code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-            //var callbackUrl = Url.Page(
-            //    "/Account/ConfirmEmail",
-            //    pageHandler: null,
-            //    values: new { area = "Identity", userId = newUser.Id, code = code },
-            //    protocol: Request.Scheme);
-
-            //await _emailSender.SendEmailAsync(model.Email, "Confirm your email",
-            //    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
-
             if (!ModelState.IsValid)
                 return View(model);
 
-            using (_logger.BeginScope($"New user registration: <{model.Email}>"))
+            using (_logger.BeginScope($"New user registration: {model.Email}"))
             {
                 var user = new ApplicationUser
                 {
@@ -73,20 +61,30 @@ namespace EasyShop.CP.UI.Controllers
 
                 if (creationResult.Succeeded)
                 {
+                    _logger.LogInformation($"User: {model.Email} successfully registered in system");
+
+                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    var callbackUrl = Url.Action(
+                        "ConfirmEmail",
+                        "Account",
+                        new {userId = user.Id, code = code},
+                        protocol: HttpContext.Request.Scheme);
+
+                    await _emailSender.SendEmailAsync(model.Email, "Confirm your account",
+                        $"Please confirm your email by click this link: <a href='{callbackUrl}'>Confirm</a>");
+
                     await _signInManager.SignInAsync(user, false);
 
-                    _logger.LogInformation($"User <{model.Email}> successfully registered in system");
-
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("EmailConfirmation", "UserProfile");
                 }
 
                 foreach (var error in creationResult.Errors)
                     ModelState.AddModelError("", error.Description);
 
                 _logger.LogWarning(
-                    "Registration error, User: <{0}>, Errors: {1}",
+                    "Registration error, User: {0}, Errors: {1}",
                     model.Email,
-                    string.Join(", ", creationResult.Errors.Select(err => err.Description))
+                    string.Join(",\n", creationResult.Errors.Select(err => err.Description))
                 );
             }
 
@@ -107,16 +105,22 @@ namespace EasyShop.CP.UI.Controllers
 
             if (loginResult.Succeeded)
             {
-                _logger.LogInformation("User <{0}> successfully logged in", model.UserName);
+                _logger.LogInformation("User: {0} successfully logged in", model.UserName);
+
+                var user = await _userManager.FindByNameAsync(model.UserName);
+
+                if (!await _userManager.IsEmailConfirmedAsync(user))
+                    return RedirectToAction("EmailConfirmation", "UserProfile");
 
                 if (Url.IsLocalUrl(model.ReturnUrl))
-                    return Redirect(model.ReturnUrl);
+                    return LocalRedirect(model.ReturnUrl);
+
                 return RedirectToAction("Index", "Home");
             }
 
-            ModelState.AddModelError("", "Username or password is incorrect");
+            ModelState.AddModelError("", "Username or password is incorrect, please try again");
 
-            _logger.LogWarning("User <{0}> login error", model.UserName);
+            _logger.LogWarning("User: {0} login error", model.UserName);
 
             return View(model);
         }
@@ -125,6 +129,26 @@ namespace EasyShop.CP.UI.Controllers
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> ConfirmEmail(string userId, string code)
+        {
+            if(userId == null || code == null)
+                return View(nameof(AccessDenied));
+
+            var user = await _userManager.FindByIdAsync(userId);
+
+            if (user is null)
+                return View(nameof(AccessDenied));
+
+            var result = await _userManager.ConfirmEmailAsync(user, code);
+
+            if (result.Succeeded)
+                return RedirectToAction("Dashboard", "ControlPanel");
+            else
+                return View(nameof(AccessDenied));
         }
 
         public IActionResult PasswordReset() => View();

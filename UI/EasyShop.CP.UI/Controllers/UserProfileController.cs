@@ -12,5 +12,10 @@ namespace EasyShop.CP.UI.Controllers
         {
             return View();
         }
+
+        public IActionResult EmailConfirmation()
+        {
+            return View();
+        }
     }
 }

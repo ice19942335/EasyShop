@@ -48,7 +48,8 @@ namespace EasyShop.Services.Data
                     Gender = 1,
                     TransactionPercent = 1,
                     RegistrationDate = DateTime.Now,
-                    ShopsAllowed = 10
+                    ShopsAllowed = 10,
+                    EmailConfirmed = true
                 };
 
                 var creationResult = await _userManager.CreateAsync(admin, ApplicationUser.DefaultAdminPassword);
@@ -56,7 +57,8 @@ namespace EasyShop.Services.Data
                 if (creationResult.Succeeded)
                     await _userManager.AddToRoleAsync(admin, ApplicationUser.RoleAdministrator);
                 else
-                    throw new ApplicationException("User creation error\n" + $"Error list:\n" + $"{string.Join(", ", creationResult.Errors.Select(e => e.Description))}");
+                    throw new ApplicationException("Admin creation error\n" + $"Error list:\n" + $"{string.Join(", ", creationResult.Errors.Select(e => e.Description))}");
+                
             }
         }
     }

@@ -1,19 +1,13 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entities.Identity;
-using EasyShop.Interfaces.Services;
+using EasyShop.Services.Auth.Email;
 using EasyShop.Services.Data;
-using EasyShop.Services.UserServices.UserData;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Routing;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -32,8 +26,9 @@ namespace EasyShop.CP.UI
         {
             services.AddHttpContextAccessor();
             services.AddRazorPages();
-
             services.AddMvcCore();
+
+            services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddDbContext<EasyShopContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
             services.AddScoped<EasyShopContextInitializer>();
@@ -72,6 +67,11 @@ namespace EasyShop.CP.UI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+                app.UseHsts();
             }
 
             app.UseStaticFiles();
