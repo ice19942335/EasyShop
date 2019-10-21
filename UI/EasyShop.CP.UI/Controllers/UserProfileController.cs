@@ -8,14 +8,6 @@ namespace EasyShop.CP.UI.Controllers
 {
     public class UserProfileController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult EmailConfirmation()
-        {
-            return View();
-        }
+        public IActionResult Index() => View();
     }
 }

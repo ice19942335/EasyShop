@@ -75,7 +75,7 @@ namespace EasyShop.CP.UI.Controllers
 
                     await _signInManager.SignInAsync(user, false);
 
-                    return RedirectToAction("EmailConfirmation", "UserProfile");
+                    return RedirectToAction("EmailConfirmation", "Account");
                 }
 
                 foreach (var error in creationResult.Errors)
@@ -110,7 +110,7 @@ namespace EasyShop.CP.UI.Controllers
                 var user = await _userManager.FindByNameAsync(model.UserName);
 
                 if (!await _userManager.IsEmailConfirmedAsync(user))
-                    return RedirectToAction("EmailConfirmation", "UserProfile");
+                    return RedirectToAction("EmailConfirmation", "Account");
 
                 if (Url.IsLocalUrl(model.ReturnUrl))
                     return LocalRedirect(model.ReturnUrl);
@@ -150,6 +150,8 @@ namespace EasyShop.CP.UI.Controllers
             else
                 return View(nameof(AccessDenied));
         }
+
+        public IActionResult EmailConfirmation() => View();
 
         public IActionResult PasswordReset() => View();
 
