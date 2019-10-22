@@ -12,7 +12,7 @@ namespace EasyShop.CP.UI.Components
         public IViewComponentResult Invoke()
         {
             if (User.Identity.IsAuthenticated)
-                return View("SignedId");
+                return View("SignedIn");
 
             return View();
         }

@@ -74,8 +74,10 @@ namespace EasyShop.CP.UI.Controllers
                         new {userId = user.Id, code = code},
                         protocol: HttpContext.Request.Scheme);
 
-                    await _emailSender.SendEmailAsync(model.Email, "Confirm your account",
-                        $"Please confirm your email by click this link: <a href='{callbackUrl}'>Confirm</a>");
+                    await _emailSender.SendEmailAsync(
+                        user.Email,
+                        "Monetization | Confirm E-mail",
+                        EmailConfirmationLinkHtml.GetHtmlCode(callbackUrl));
 
                     await _signInManager.SignInAsync(user, false);
 
@@ -95,6 +97,7 @@ namespace EasyShop.CP.UI.Controllers
             return View(model);
         }
 
+        [AllowAnonymous]
         public IActionResult Login() => View();
 
         [HttpPost]
@@ -175,12 +178,9 @@ namespace EasyShop.CP.UI.Controllers
                 new { userId = user.Id, code = code },
                 protocol: HttpContext.Request.Scheme);
 
-            //await _emailSender.SendEmailAsync(user.Email, "Monetization email confirmation",
-            //    $"Please confirm your email by click this link: <a href='{callbackUrl}'>Confirm</a>");
-
             await _emailSender.SendEmailAsync(
                 user.Email,
-                "Monetization email confirmation", 
+                "Monetization | Confirm E-mail", 
                 EmailConfirmationLinkHtml.GetHtmlCode(callbackUrl));
 
             _logger.LogInformation($"Confirmation link was sent to User: {userName}");
