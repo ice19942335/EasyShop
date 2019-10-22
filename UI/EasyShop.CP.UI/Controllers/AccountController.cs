@@ -5,6 +5,7 @@ using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entities.Identity;
 using EasyShop.Domain.ViewModels.Account;
+using EasyShop.Services.Html;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -14,6 +15,7 @@ using Microsoft.Extensions.Logging;
 
 namespace EasyShop.CP.UI.Controllers
 {
+    [Authorize]
     public class AccountController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
@@ -33,9 +35,11 @@ namespace EasyShop.CP.UI.Controllers
             _emailSender = emailSender;
         }
 
+        [AllowAnonymous]
         public IActionResult Register() => View();
 
         [HttpPost]
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterUserViewModel model)
         {
@@ -94,6 +98,7 @@ namespace EasyShop.CP.UI.Controllers
         public IActionResult Login() => View();
 
         [HttpPost]
+        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginUserViewModel model)
         {
@@ -152,6 +157,36 @@ namespace EasyShop.CP.UI.Controllers
         }
 
         public IActionResult EmailConfirmation() => View();
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SendEmailConfirmationLink([FromQuery] string userName)
+        {
+
+            var user = await _userManager.FindByNameAsync(userName);
+
+            if (user is null)
+                return View(nameof(AccessDenied));
+
+            var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            var callbackUrl = Url.Action(
+                nameof(ConfirmEmail),
+                "Account",
+                new { userId = user.Id, code = code },
+                protocol: HttpContext.Request.Scheme);
+
+            //await _emailSender.SendEmailAsync(user.Email, "Monetization email confirmation",
+            //    $"Please confirm your email by click this link: <a href='{callbackUrl}'>Confirm</a>");
+
+            await _emailSender.SendEmailAsync(
+                user.Email,
+                "Monetization email confirmation", 
+                EmailConfirmationLinkHtml.GetHtmlCode(callbackUrl));
+
+            _logger.LogInformation($"Confirmation link was sent to User: {userName}");
+
+            return View(nameof(EmailConfirmation));
+        }
 
         public IActionResult PasswordReset() => View();
 

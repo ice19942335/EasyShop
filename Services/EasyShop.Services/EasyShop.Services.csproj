@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
@@ -13,10 +13,6 @@
     <ProjectReference Include="..\..\Common\EasyShop.Domain\EasyShop.Domain.csproj" />
     <ProjectReference Include="..\EasyShop.DAL\EasyShop.DAL.csproj" />
     <ProjectReference Include="..\EasyShop.Interfaces\EasyShop.Interfaces.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="UserServices\UserData\" />
   </ItemGroup>
 
 </Project>
