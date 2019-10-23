@@ -1,12 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entities.Identity;
 using EasyShop.Domain.ViewModels.Account;
+using EasyShop.Services.Files;
 using EasyShop.Services.Html;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -18,17 +21,20 @@ namespace EasyShop.CP.UI.Controllers
     [Authorize]
     public class AccountController : Controller
     {
+        private readonly IWebHostEnvironment _environment;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<AccountController> _logger;
         private readonly IEmailSender _emailSender;
 
         public AccountController(
+            IWebHostEnvironment environment,
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             ILogger<AccountController> logger, 
             IEmailSender emailSender)
         {
+            _environment = environment;
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
@@ -74,10 +80,22 @@ namespace EasyShop.CP.UI.Controllers
                         new {userId = user.Id, code = code},
                         protocol: HttpContext.Request.Scheme);
 
+                    Dictionary<string, string> data = new Dictionary<string, string>
+                    {
+                        { "callbackUrl", callbackUrl }
+                    };
+
+                    var fileInsertDataHelper = new FileInsertDataHelper(
+                        _environment,
+                        "EmailConfirmationLetter",
+                        "txt",
+                        "Interpolation",
+                        data);
+
                     await _emailSender.SendEmailAsync(
                         user.Email,
                         "Monetization | Confirm E-mail",
-                        EmailConfirmationLinkHtml.GetHtmlCode(callbackUrl));
+                        fileInsertDataHelper.GetResult().Result);
 
                     await _signInManager.SignInAsync(user, false);
 
@@ -178,10 +196,22 @@ namespace EasyShop.CP.UI.Controllers
                 new { userId = user.Id, code = code },
                 protocol: HttpContext.Request.Scheme);
 
+            Dictionary<string, string> data = new Dictionary<string, string>
+            {
+                { "callbackUrl", callbackUrl }
+            };
+
+            var fileInsertDataHelper = new FileInsertDataHelper(
+                _environment,
+                "EmailConfirmationLetter",
+                "txt", 
+                "Interpolation",
+                data);
+
             await _emailSender.SendEmailAsync(
                 user.Email,
-                "Monetization | Confirm E-mail", 
-                EmailConfirmationLinkHtml.GetHtmlCode(callbackUrl));
+                "Monetization | Confirm E-mail",
+                fileInsertDataHelper.GetResult().Result);
 
             _logger.LogInformation($"Confirmation link was sent to User: {userName}");
 
