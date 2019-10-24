@@ -3,17 +3,26 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 
 namespace EasyShop.Services.Auth.Email
 {
+    /// <summary>
+    /// Sending email trough sendgrid.com
+    /// </summary>
     public class EmailSender : IEmailSender
     {
+        public IConfiguration Configuration { get; }
         private readonly string _apiKey;
 
-        public EmailSender() => _apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
+        public EmailSender(IConfiguration configuration)
+        {
+            Configuration = configuration;
+            _apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
+        }
 
         public Task SendEmailAsync(string email, string subject, string message) => Execute(_apiKey, subject, message, email);
 
@@ -22,7 +31,7 @@ namespace EasyShop.Services.Auth.Email
             var client = new SendGridClient(apiKey);
             var msg = new SendGridMessage
             {
-                From = new EmailAddress("aleksejs.birula.corporation@gmail.com"),
+                From = new EmailAddress(Configuration["SendGridSenderEmail"]),
                 Subject = subject,
                 PlainTextContent = message,
                 HtmlContent = message

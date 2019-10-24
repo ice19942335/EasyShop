@@ -268,7 +268,7 @@ namespace EasyShop.CP.UI.Controllers
         [AllowAnonymous]
         public IActionResult ResetPassword(string code = null)
         {
-            return code == null ? View("Error") : View();
+            return code == null ? View("AccessDenied") : View();
         }
 
         [HttpPost]
