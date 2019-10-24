@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.Extensions.Logging;
 
 namespace EasyShop.CP.UI.Controllers
@@ -214,8 +215,10 @@ namespace EasyShop.CP.UI.Controllers
 
             _logger.LogInformation($"Confirmation link was sent to User: {userName}");
 
-            return View(nameof(EmailConfirmation));
+            return View(nameof(EmailConfirmationRequestHasBeenSent));
         }
+
+        public IActionResult EmailConfirmationRequestHasBeenSent() => View();
 
         [HttpGet]
         [AllowAnonymous]
