@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using EasyShop.Domain.Entities.Identity;
 using EasyShop.Domain.ViewModels.Account;
 using EasyShop.Services.Files;
-using EasyShop.Services.Html;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -35,7 +34,7 @@ namespace EasyShop.CP.UI.Controllers
             IEmailSender emailSender)
         {
             _environment = environment;
-            _userManager = userManager;
+            _userManager = userManager; 
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
@@ -87,7 +86,7 @@ namespace EasyShop.CP.UI.Controllers
 
                     var fileInsertDataHelper = new FileInsertDataHelper(
                         _environment,
-                        "EmailConfirmationLetter",
+                        "EmailConfirmationLink",
                         "txt",
                         "Interpolation",
                         data);
@@ -203,7 +202,7 @@ namespace EasyShop.CP.UI.Controllers
 
             var fileInsertDataHelper = new FileInsertDataHelper(
                 _environment,
-                "EmailConfirmationLetter",
+                "EmailConfirmationLink",
                 "txt", 
                 "Interpolation",
                 data);
@@ -218,7 +217,82 @@ namespace EasyShop.CP.UI.Controllers
             return View(nameof(EmailConfirmation));
         }
 
-        public IActionResult PasswordReset() => View();
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            var user = await _userManager.FindByEmailAsync(model.Email);
+
+            if (user is null || !await _userManager.IsEmailConfirmedAsync(user))
+                return View("ForgotPasswordConfirmation");
+
+            var code = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+            var callbackUrl = Url.Action("ResetPassword",
+                "Account",
+                new {userId = user.Id, code = code},
+                protocol: HttpContext.Request.Scheme);
+
+            Dictionary<string, string> data = new Dictionary<string, string>
+            {
+                { "callbackUrl", callbackUrl }
+            };
+
+            var fileInsertDataHelper = new FileInsertDataHelper(
+                _environment,
+                "PasswordResetLink",
+                "txt",
+                "Interpolation",
+                data);
+
+            await _emailSender.SendEmailAsync(
+                user.Email,
+                "Monetization | Confirm E-mail",
+                fileInsertDataHelper.GetResult().Result);
+
+            return View("ForgotPasswordConfirmation");
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult ResetPassword(string code = null)
+        {
+            return code == null ? View("Error") : View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+            
+            var user = await _userManager.FindByNameAsync(model.Email);
+
+            if (user == null)
+                return View("ResetPasswordConfirmation");
+            
+            var result = await _userManager.ResetPasswordAsync(user, model.Code, model.Password);
+            if (result.Succeeded)
+                return View("ResetPasswordConfirmation");
+            
+            foreach (var error in result.Errors)
+                ModelState.AddModelError(string.Empty, error.Description);
+            
+            return View(model);
+        }
 
         public IActionResult AccessDenied() => View();
     }

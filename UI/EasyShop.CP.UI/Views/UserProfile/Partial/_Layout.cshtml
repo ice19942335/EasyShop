@@ -1,0 +1,12 @@
+﻿@{
+    Layout = "_ControlPanelLayout";
+}
+
+<div class="row">
+    <div class="col-sm-3">
+        @await Html.PartialAsync("Partial/_LeftSideBar")
+    </div>
+    <div class="col-sm-9">
+        @RenderBody()
+    </div>
+</div>

@@ -9,5 +9,7 @@ namespace EasyShop.CP.UI.Controllers
     public class UserProfileController : Controller
     {
         public IActionResult Index() => View();
+
+        public IActionResult Security() => View();
     }
 }
