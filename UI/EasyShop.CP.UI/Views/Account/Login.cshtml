@@ -11,7 +11,7 @@
         </a>
         <div class="login-form">
             <form data-toggle="validator" method="post" asp-area="" asp-controller="Account" asp-action="Login" asp-antiforgery="true">
-                <div asp-validation-summary="ModelOnly"></div>
+                <div asp-validation-summary="ModelOnly" class="alert alert-info"></div>
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input asp-for="UserName" id="email" class="form-control" type="email" spellcheck="false" autocomplete="off" data-msg-required="Please enter your email address." required>
