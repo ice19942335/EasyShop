@@ -1,1 +1,18 @@
-﻿<h2>LeftSideBar</h2>
+﻿<div class="row">
+    <div class="col-lg-12">
+        <div class="list-group-divided">
+            <a class="list-group-item" asp-area="" asp-controller="UserProfile" asp-action="Index">
+                <span class="icon icon-user icon-lg icon-fw"></span>
+                User profile
+            </a>
+            <a class="list-group-item" asp-area="" asp-controller="UserProfile" asp-action="PasswordResetRequest">
+                <span class="icon icon-key icon-lg icon-fw"></span>
+                Password
+            </a>
+            <a class="list-group-item" asp-area="" asp-controller="UserProfile" asp-action="Index">
+                <span class="icon icon-envelope icon-lg icon-fw"></span>
+                Email confirmation
+            </a>
+        </div>
+    </div>
+</div>
