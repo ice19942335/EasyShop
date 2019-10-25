@@ -10,5 +10,7 @@ namespace EasyShop.Domain.ViewModels.Account
         [Required]
         [EmailAddress]
         public string Email { get; set; }
+
+        public bool Authenticated { get; set; }
     }
 }

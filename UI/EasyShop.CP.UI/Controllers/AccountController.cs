@@ -264,6 +264,9 @@ namespace EasyShop.CP.UI.Controllers
                 "Monetization | Confirm E-mail",
                 fileInsertDataHelper.GetResult().Result);
 
+            if (model.Authenticated)
+                return RedirectToAction("PasswordResetRequestHasBeenSent", "UserProfile");
+
             return View("ForgotPasswordConfirmation");
         }
 

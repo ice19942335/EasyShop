@@ -24,6 +24,8 @@ namespace EasyShop.CP.UI.Controllers
 
         public IActionResult PasswordResetRequest() => View();
 
+        public IActionResult PasswordResetRequestHasBeenSent() => View();
+
         public IActionResult EmailConfirmationStatus() => View();
     }
 }
