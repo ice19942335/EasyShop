@@ -224,7 +224,7 @@ namespace EasyShop.CP.UI.Controllers
                 "Monetization | Confirm E-mail",
                 fileInsertDataHelper.GetResult().Result);
 
-            _logger.LogInformation($"Confirmation link was sent to User: {userName}");
+            _logger.LogInformation($"Date ({DateTime.Now}) Confirmation link was sent to User: {userName}, Confirmation link: {callbackUrl}");
 
             return RedirectToAction("EmailConfirmationRequestHasBeenSent", "UserProfile");
         }
@@ -271,11 +271,12 @@ namespace EasyShop.CP.UI.Controllers
             await _emailSender.SendEmailAsync(
                 user.Email,
                 "Monetization | Confirm E-mail",
-                fileInsertDataHelper.GetResult().Result);
+                await fileInsertDataHelper.GetResult());
 
             if (model.Authenticated)
                 return RedirectToAction("PasswordResetRequestHasBeenSent", "UserProfile");
 
+            _logger.LogInformation($"Date ({DateTime.Now}) Password reset request link was sent to User: {user.UserName}, Link: {callbackUrl}");
             return View("ForgotPasswordConfirmation");
         }
 
@@ -300,12 +301,17 @@ namespace EasyShop.CP.UI.Controllers
                 return View("ResetPasswordConfirmation");
             
             var result = await _userManager.ResetPasswordAsync(user, model.Code, model.Password);
+
             if (result.Succeeded)
+            {
+                _logger.LogInformation($"Date ({DateTime.Now}) User: {user.UserName}, Password has been successfully changed");
                 return View("ResetPasswordConfirmation");
-            
+            }
+
             foreach (var error in result.Errors)
                 ModelState.AddModelError(string.Empty, error.Description);
-            
+
+            _logger.LogWarning($"Date ({DateTime.Now}) User: {user.UserName}, Password reset fail, Errors: {string.Join(", ", result.Errors.Select(e => e.Description))}");
             return View(model);
         }
 
