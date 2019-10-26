@@ -1,6 +1,7 @@
 using System;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entities.Identity;
+using EasyShop.Logger;
 using EasyShop.Services.Auth.Email;
 using EasyShop.Services.Data;
 using Microsoft.AspNetCore.Builder;
@@ -11,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace EasyShop.CP.UI
 {
@@ -60,8 +62,14 @@ namespace EasyShop.CP.UI
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, EasyShopContextInitializer contextInitializer)
+        public void Configure(
+            IApplicationBuilder app, 
+            IWebHostEnvironment env, 
+            EasyShopContextInitializer contextInitializer, 
+            ILoggerFactory loggerFactory)
         {
+            loggerFactory.AddLog4Net();
+
             contextInitializer.Initialize().Wait();
 
             if (env.IsDevelopment())

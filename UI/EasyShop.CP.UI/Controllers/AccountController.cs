@@ -71,7 +71,7 @@ namespace EasyShop.CP.UI.Controllers
 
                 if (creationResult.Succeeded)
                 {
-                    _logger.LogInformation($"Date ({DateTime.Now}) User: {model.Email} successfully registered in system");
+                    _logger.LogInformation($"User: {model.Email} successfully registered in system.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     var callbackUrl = Url.Action(
@@ -106,8 +106,7 @@ namespace EasyShop.CP.UI.Controllers
                     ModelState.AddModelError("", error.Description);
 
                 _logger.LogWarning(
-                    "Date: ({0}) Registration error, User: {1}, Errors: {2}",
-                    DateTime.Now,
+                    "Registration error, User: {0}, Errors: {1}",
                     model.Email,
                     string.Join(",\n", creationResult.Errors.Select(err => err.Description))
                 );
@@ -132,7 +131,7 @@ namespace EasyShop.CP.UI.Controllers
 
             if (loginResult.Succeeded)
             {
-                _logger.LogInformation($"Date ({DateTime.Now}) User: {model.UserName} successfully logged in");
+                _logger.LogInformation($"User: {model.UserName} successfully logged in.");
 
                 var user = await _userManager.FindByNameAsync(model.UserName);
 
@@ -145,9 +144,9 @@ namespace EasyShop.CP.UI.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            ModelState.AddModelError("", "Username or password is incorrect, please try again");
+            ModelState.AddModelError("", "Username or password is incorrect, please try again.");
 
-            _logger.LogWarning($"Date ({DateTime.Now}) User: {model.UserName} login error");
+            _logger.LogWarning($"User: {model.UserName} login error.");
 
             return View(model);
         }
@@ -155,7 +154,7 @@ namespace EasyShop.CP.UI.Controllers
         public async Task<IActionResult> LogOut()
         {
             await _signInManager.SignOutAsync();
-            _logger.LogInformation($"Date ({DateTime.Now}) User: {User.Identity.Name} has been logged out");
+            _logger.LogInformation($"User: {User.Identity.Name} has been logged out.");
             return RedirectToAction("Index", "Home");
         }
 
@@ -175,7 +174,7 @@ namespace EasyShop.CP.UI.Controllers
 
             if (result.Succeeded)
             {
-                _logger.LogInformation($"Date ({DateTime.Now}) User: {user.UserName} successfully confirmed email");
+                _logger.LogInformation($"User: {user.UserName} successfully confirmed email");
                 return RedirectToAction("EmailConfirmation", "UserProfile");
             }
             else
@@ -224,7 +223,7 @@ namespace EasyShop.CP.UI.Controllers
                 "Monetization | Confirm E-mail",
                 fileInsertDataHelper.GetResult().Result);
 
-            _logger.LogInformation($"Date ({DateTime.Now}) Confirmation link was sent to User: {userName}, Confirmation link: {callbackUrl}");
+            _logger.LogInformation($"Confirmation link was sent to User: {userName}, Confirmation link: {callbackUrl}");
 
             return RedirectToAction("EmailConfirmationRequestHasBeenSent", "UserProfile");
         }
@@ -276,7 +275,7 @@ namespace EasyShop.CP.UI.Controllers
             if (model.Authenticated)
                 return RedirectToAction("PasswordResetRequestHasBeenSent", "UserProfile");
 
-            _logger.LogInformation($"Date ({DateTime.Now}) Password reset request link was sent to User: {user.UserName}, Link: {callbackUrl}");
+            _logger.LogInformation($"Password reset request link was sent to User: {user.UserName}, Link: {callbackUrl}");
             return View("ForgotPasswordConfirmation");
         }
 
@@ -304,14 +303,14 @@ namespace EasyShop.CP.UI.Controllers
 
             if (result.Succeeded)
             {
-                _logger.LogInformation($"Date ({DateTime.Now}) User: {user.UserName}, Password has been successfully changed");
+                _logger.LogInformation($"User: {user.UserName}, Password has been successfully changed.");
                 return View("ResetPasswordConfirmation");
             }
 
             foreach (var error in result.Errors)
                 ModelState.AddModelError(string.Empty, error.Description);
 
-            _logger.LogWarning($"Date ({DateTime.Now}) User: {user.UserName}, Password reset fail, Errors: {string.Join(", ", result.Errors.Select(e => e.Description))}");
+            _logger.LogWarning($"User: {user.UserName}, Password reset fail, Errors: {string.Join(", ", result.Errors.Select(e => e.Description))}");
             return View(model);
         }
 
