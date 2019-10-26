@@ -20,7 +20,10 @@ namespace EasyShop.CP.UI.Controllers
             _userManager = userManager;
         }
 
-        public IActionResult Index () => View();
+        public IActionResult Index ()
+        {
+            return View();
+        }
 
         public IActionResult PasswordResetRequest() => View();
 

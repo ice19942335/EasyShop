@@ -1,4 +1,5 @@
 using System;
+using EasyShop.CP.UI.Infrastructure.Middleware;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entities.Identity;
 using EasyShop.Logger;
@@ -89,6 +90,8 @@ namespace EasyShop.CP.UI
 
             app.UseAuthentication(); //Should be after "UseRouting" middleware
             app.UseAuthorization();  //Should be after "UseRouting" middleware
+
+            app.UseMiddleware<ErrorHandlingMiddleware>();
 
             app.UseEndpoints(endpoints =>
             {

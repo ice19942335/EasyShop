@@ -170,3 +170,673 @@ WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[Normalized
 
 2019-10-26 14:03:07,548 [9] ?     - Request finished in 25.680400000000002ms 200 text/html; charset=utf-8
 
+2019-10-26 14:20:24,080 [1] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-10-26 14:20:25,604 [4] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+
+2019-10-26 14:20:25,682 [11] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+
+2019-10-26 14:20:25,705 [12] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+
+2019-10-26 14:20:25,737 [4] ?     - No migrations were applied. The database is already up to date.
+
+2019-10-26 14:20:25,949 [4] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2019-10-26 14:20:26,046 [4] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2019-10-26 14:20:26,066 [13] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-10-26 14:20:26,675 [1] ?     - Now listening on: https://localhost:5001
+
+2019-10-26 14:20:26,677 [1] ?     - Now listening on: http://localhost:5000
+
+2019-10-26 14:20:26,680 [1] ?     - Application started. Press Ctrl+C to shut down.
+
+2019-10-26 14:20:26,682 [1] ?     - Hosting environment: Development
+
+2019-10-26 14:20:26,684 [1] ?     - Content root path: C:\Users\Administrator\Source\Repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2019-10-26 14:20:27,669 [15] ?     - Request starting HTTP/2 GET https://localhost:5001/  
+
+2019-10-26 14:20:27,743 [15] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI)'
+
+2019-10-26 14:20:27,780 [15] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.HomeController (EasyShop.CP.UI).
+
+2019-10-26 14:20:27,800 [15] ?     - Executing ViewResult, running view Index.
+
+2019-10-26 14:20:28,073 [15] ?     - Executed ViewResult - view Index executed in 272.2807ms.
+
+2019-10-26 14:20:28,077 [15] ?     - Executed action EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI) in 293.6929ms
+
+2019-10-26 14:20:28,081 [15] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI)'
+
+2019-10-26 14:20:28,089 [15] ?     - Request finished in 419.9463ms 200 text/html; charset=utf-8
+
+2019-10-26 14:20:39,074 [7] ?     - Request starting HTTP/2 GET https://localhost:5001/Account/Login  
+
+2019-10-26 14:20:39,092 [7] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI)'
+
+2019-10-26 14:20:39,097 [7] ?     - Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2019-10-26 14:20:39,112 [7] ?     - Executing ViewResult, running view Login.
+
+2019-10-26 14:20:39,161 [7] ?     - Executed ViewResult - view Login executed in 50.6749ms.
+
+2019-10-26 14:20:39,164 [7] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI) in 63.6332ms
+
+2019-10-26 14:20:39,166 [7] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI)'
+
+2019-10-26 14:20:39,169 [7] ?     - Request finished in 95.295ms 200 text/html; charset=utf-8
+
+2019-10-26 14:20:39,185 [7] ?     - Request starting HTTP/2 GET https://localhost:5001/css/login-2.css?v=AjsglAboyQeB6SgbYcM0mlvKlnITztt4TAtIDcXWXTw  
+
+2019-10-26 14:20:39,188 [4] ?     - Request starting HTTP/2 GET https://localhost:5001/img/LogoNameSlogan.png  
+
+2019-10-26 14:20:39,207 [7] ?     - Sending file. Request path: '/css/login-2.css'. Physical path: 'C:\Users\Administrator\Source\Repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\wwwroot\css\login-2.css'
+
+2019-10-26 14:20:39,207 [4] ?     - Sending file. Request path: '/img/LogoNameSlogan.png'. Physical path: 'C:\Users\Administrator\Source\Repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\wwwroot\img\LogoNameSlogan.png'
+
+2019-10-26 14:20:39,209 [4] ?     - Request finished in 25.3881ms 200 image/png
+
+2019-10-26 14:20:39,212 [7] ?     - Request finished in 25.386100000000003ms 200 text/css
+
+2019-10-26 14:20:41,691 [7] ?     - Request starting HTTP/2 POST https://localhost:5001/Account/Login application/x-www-form-urlencoded 268
+
+2019-10-26 14:20:41,698 [7] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI)'
+
+2019-10-26 14:20:41,727 [7] ?     - Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(EasyShop.Domain.ViewModels.Account.LoginUserViewModel) on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2019-10-26 14:20:41,764 [7] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-10-26 14:20:41,769 [7] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-10-26 14:20:41,805 [12] ?     - Invalid password for user 0955e217-bf54-4fee-9b66-9761c981966c.
+
+2019-10-26 14:20:41,807 [12] ?     - User 0955e217-bf54-4fee-9b66-9761c981966c failed to provide the correct password.
+
+2019-10-26 14:20:41,810 [12] ?     - User: ice19942335@gmail.com login error.
+
+2019-10-26 14:20:41,816 [12] ?     - Executing ViewResult, running view Login.
+
+2019-10-26 14:20:41,822 [12] ?     - Executed ViewResult - view Login executed in 6.300400000000001ms.
+
+2019-10-26 14:20:41,825 [12] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI) in 95.9192ms
+
+2019-10-26 14:20:41,828 [12] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI)'
+
+2019-10-26 14:20:41,835 [12] ?     - Request finished in 143.997ms 200 text/html; charset=utf-8
+
+2019-10-26 14:20:48,113 [11] ?     - Request starting HTTP/2 POST https://localhost:5001/Account/Login application/x-www-form-urlencoded 269
+
+2019-10-26 14:20:48,118 [11] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI)'
+
+2019-10-26 14:20:48,121 [11] ?     - Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(EasyShop.Domain.ViewModels.Account.LoginUserViewModel) on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2019-10-26 14:20:48,162 [11] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-10-26 14:20:48,167 [11] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-10-26 14:20:48,214 [4] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE ([a].[UserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2019-10-26 14:20:48,251 [15] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2019-10-26 14:20:48,269 [15] ?     - AuthenticationScheme: Identity.Application signed in.
+
+2019-10-26 14:20:48,272 [15] ?     - User: ice19942335@gmail.com successfully logged in.
+
+2019-10-26 14:20:48,275 [15] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-10-26 14:20:48,289 [7] ?     - Executing RedirectResult, redirecting to /.
+
+2019-10-26 14:20:48,292 [7] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI) in 168.4659ms
+
+2019-10-26 14:20:48,295 [7] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI)'
+
+2019-10-26 14:20:48,299 [7] ?     - Request finished in 186.7664ms 302 
+
+2019-10-26 14:20:48,304 [12] ?     - Request starting HTTP/2 GET https://localhost:5001/  
+
+2019-10-26 14:20:48,318 [12] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI)'
+
+2019-10-26 14:20:48,321 [12] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.HomeController (EasyShop.CP.UI).
+
+2019-10-26 14:20:48,324 [12] ?     - Executing ViewResult, running view Index.
+
+2019-10-26 14:20:48,337 [12] ?     - Executed ViewResult - view Index executed in 10.0592ms.
+
+2019-10-26 14:20:48,339 [12] ?     - Executed action EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI) in 15.5546ms
+
+2019-10-26 14:20:48,342 [12] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI)'
+
+2019-10-26 14:20:48,345 [12] ?     - Request finished in 41.333600000000004ms 200 text/html; charset=utf-8
+
+2019-10-26 14:20:54,960 [7] ?     - Request starting HTTP/2 GET https://localhost:5001/ControlPanel/Dashboard  
+
+2019-10-26 14:20:54,968 [7] ?     - Authorization was successful.
+
+2019-10-26 14:20:54,970 [7] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ControlPanelController.Dashboard (EasyShop.CP.UI)'
+
+2019-10-26 14:20:54,974 [7] ?     - Route matched with {action = "Dashboard", controller = "ControlPanel"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Dashboard() on controller EasyShop.CP.UI.Controllers.ControlPanelController (EasyShop.CP.UI).
+
+2019-10-26 14:20:54,978 [7] ?     - Executing ViewResult, running view Dashboard.
+
+2019-10-26 14:20:55,004 [7] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-10-26 14:20:55,007 [7] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-10-26 14:20:55,030 [7] ?     - Executed ViewResult - view Dashboard executed in 53.1815ms.
+
+2019-10-26 14:20:55,032 [7] ?     - Executed action EasyShop.CP.UI.Controllers.ControlPanelController.Dashboard (EasyShop.CP.UI) in 55.7973ms
+
+2019-10-26 14:20:55,035 [7] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ControlPanelController.Dashboard (EasyShop.CP.UI)'
+
+2019-10-26 14:20:55,038 [7] ?     - Request finished in 77.8369ms 200 text/html; charset=utf-8
+
+2019-10-26 14:22:03,406 [15] ?     - Request starting HTTP/2 GET https://localhost:5001/ControlPanel/Dashboard  
+
+2019-10-26 14:22:03,411 [15] ?     - Authorization was successful.
+
+2019-10-26 14:22:49,980 [15] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ControlPanelController.Dashboard (EasyShop.CP.UI)'
+
+2019-10-26 14:23:01,054 [15] ?     - Route matched with {action = "Dashboard", controller = "ControlPanel"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Dashboard() on controller EasyShop.CP.UI.Controllers.ControlPanelController (EasyShop.CP.UI).
+
+2019-10-26 14:23:01,056 [15] ?     - Executing ViewResult, running view Dashboard.
+
+2019-10-26 14:23:01,060 [15] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-10-26 14:23:01,064 [15] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-10-26 14:23:01,069 [15] ?     - Executed ViewResult - view Dashboard executed in 12.696200000000001ms.
+
+2019-10-26 14:23:01,071 [15] ?     - Executed action EasyShop.CP.UI.Controllers.ControlPanelController.Dashboard (EasyShop.CP.UI) in 15.3625ms
+
+2019-10-26 14:23:01,073 [15] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ControlPanelController.Dashboard (EasyShop.CP.UI)'
+
+2019-10-26 14:24:03,045 [15] ?     - Request finished in 117605.0919ms 200 text/html; charset=utf-8
+
+2019-10-26 14:24:03,052 [25] ?     - Request starting HTTP/2 GET https://localhost:5001/favicon-32x32.png  
+
+2019-10-26 14:24:03,055 [25] ?     - Sending file. Request path: '/favicon-32x32.png'. Physical path: 'C:\Users\Administrator\Source\Repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\wwwroot\favicon-32x32.png'
+
+2019-10-26 14:24:03,057 [25] ?     - Request finished in 4.815ms 200 image/png
+
+2019-10-26 14:24:39,088 [2] ?     - Application is shutting down...
+
+2019-10-26 14:24:59,173 [1] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-10-26 14:24:59,661 [4] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+
+2019-10-26 14:24:59,730 [4] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+
+2019-10-26 14:24:59,746 [5] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+
+2019-10-26 14:24:59,777 [5] ?     - No migrations were applied. The database is already up to date.
+
+2019-10-26 14:25:00,015 [5] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2019-10-26 14:25:00,106 [12] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2019-10-26 14:25:00,119 [12] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-10-26 14:25:12,446 [1] ?     - Now listening on: https://localhost:5001
+
+2019-10-26 14:25:12,448 [1] ?     - Now listening on: http://localhost:5000
+
+2019-10-26 14:25:12,450 [1] ?     - Application started. Press Ctrl+C to shut down.
+
+2019-10-26 14:25:12,452 [1] ?     - Hosting environment: Development
+
+2019-10-26 14:25:12,454 [1] ?     - Content root path: C:\Users\Administrator\Source\Repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2019-10-26 14:25:12,898 [4] ?     - Request starting HTTP/2 GET https://localhost:5001/  
+
+2019-10-26 14:25:16,325 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI)'
+
+2019-10-26 14:25:16,360 [4] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.HomeController (EasyShop.CP.UI).
+
+2019-10-26 14:25:16,380 [4] ?     - Executing ViewResult, running view Index.
+
+2019-10-26 14:25:16,578 [4] ?     - Executed ViewResult - view Index executed in 199.8946ms.
+
+2019-10-26 14:25:16,581 [4] ?     - Executed action EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI) in 218.4802ms
+
+2019-10-26 14:25:16,587 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI)'
+
+2019-10-26 14:25:16,595 [4] ?     - Request finished in 3695.8256ms 200 text/html; charset=utf-8
+
+2019-10-26 14:25:28,195 [2] ?     - Application is shutting down...
+
+2019-10-26 14:28:52,737 [1] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-10-26 14:28:53,164 [9] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+
+2019-10-26 14:28:53,233 [12] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+
+2019-10-26 14:28:53,249 [13] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+
+2019-10-26 14:28:53,274 [13] ?     - No migrations were applied. The database is already up to date.
+
+2019-10-26 14:28:53,482 [13] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2019-10-26 14:28:53,569 [12] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2019-10-26 14:28:53,587 [13] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-10-26 14:28:53,874 [1] ?     - Now listening on: https://localhost:5001
+
+2019-10-26 14:28:53,876 [1] ?     - Now listening on: http://localhost:5000
+
+2019-10-26 14:28:53,880 [1] ?     - Application started. Press Ctrl+C to shut down.
+
+2019-10-26 14:28:53,882 [1] ?     - Hosting environment: Development
+
+2019-10-26 14:28:53,884 [1] ?     - Content root path: C:\Users\Administrator\Source\Repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2019-10-26 14:28:54,586 [4] ?     - Request starting HTTP/2 GET https://localhost:5001/  
+
+2019-10-26 14:28:54,663 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI)'
+
+2019-10-26 14:28:54,697 [4] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.HomeController (EasyShop.CP.UI).
+
+2019-10-26 14:28:54,715 [4] ?     - Executing ViewResult, running view Index.
+
+2019-10-26 14:28:54,927 [4] ?     - Executed ViewResult - view Index executed in 211.38340000000002ms.
+
+2019-10-26 14:28:54,931 [4] ?     - Executed action EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI) in 230.8309ms
+
+2019-10-26 14:28:54,946 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI)'
+
+2019-10-26 14:28:54,956 [4] ?     - Request finished in 369.62ms 200 text/html; charset=utf-8
+
+2019-10-26 14:28:57,567 [13] ?     - Request starting HTTP/2 GET https://localhost:5001/ControlPanel/Dashboard  
+
+2019-10-26 14:28:57,589 [13] ?     - Authorization was successful.
+
+2019-10-26 14:28:57,592 [13] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ControlPanelController.Dashboard (EasyShop.CP.UI)'
+
+2019-10-26 14:28:57,595 [13] ?     - Route matched with {action = "Dashboard", controller = "ControlPanel"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Dashboard() on controller EasyShop.CP.UI.Controllers.ControlPanelController (EasyShop.CP.UI).
+
+2019-10-26 14:28:57,600 [13] ?     - Executing ViewResult, running view Dashboard.
+
+2019-10-26 14:28:57,631 [13] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-10-26 14:28:57,636 [13] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-10-26 14:28:57,665 [13] ?     - Executed ViewResult - view Dashboard executed in 66.5295ms.
+
+2019-10-26 14:28:57,667 [13] ?     - Executed action EasyShop.CP.UI.Controllers.ControlPanelController.Dashboard (EasyShop.CP.UI) in 69.76950000000001ms
+
+2019-10-26 14:28:57,670 [13] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ControlPanelController.Dashboard (EasyShop.CP.UI)'
+
+2019-10-26 14:28:57,675 [13] ?     - Request finished in 107.0814ms 200 text/html; charset=utf-8
+
+2019-10-26 14:29:17,015 [15] ?     - Request starting HTTP/2 GET https://localhost:5001/UserProfile  
+
+2019-10-26 14:29:17,031 [15] ?     - Authorization was successful.
+
+2019-10-26 14:29:17,032 [15] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Index (EasyShop.CP.UI)'
+
+2019-10-26 14:29:17,036 [15] ?     - Route matched with {action = "Index", controller = "UserProfile"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.UserProfileController (EasyShop.CP.UI).
+
+2019-10-26 14:29:25,597 [15] ?     - Executed action EasyShop.CP.UI.Controllers.UserProfileController.Index (EasyShop.CP.UI) in 8559.595000000001ms
+
+2019-10-26 14:29:25,600 [15] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Index (EasyShop.CP.UI)'
+
+2019-10-26 14:29:25,663 [15] ?     - An unhandled exception occurred while processing an incoming request
+
+2019-10-26 14:29:25,689 [15] ?     - An unhandled exception has occurred while executing the request.
+
+2019-10-26 14:29:25,727 [15] ?     - Request finished in 8711.8816ms 500 text/html; charset=utf-8
+
+2019-10-26 14:29:26,083 [13] ?     - Request starting HTTP/2 GET https://localhost:5001/favicon.ico  
+
+2019-10-26 14:29:26,112 [15] ?     - Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Administrator\Source\Repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\wwwroot\favicon.ico'
+
+2019-10-26 14:29:26,115 [15] ?     - Request finished in 32.2048ms 200 image/x-icon
+
+2019-10-26 14:29:45,086 [2] ?     - Application is shutting down...
+
+2019-10-26 14:33:00,889 [1] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-10-26 14:33:01,372 [5] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+
+2019-10-26 14:33:01,437 [11] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+
+2019-10-26 14:33:01,453 [12] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+
+2019-10-26 14:33:01,483 [4] ?     - No migrations were applied. The database is already up to date.
+
+2019-10-26 14:33:01,715 [4] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2019-10-26 14:33:01,814 [11] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2019-10-26 14:33:01,827 [5] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-10-26 14:33:02,108 [1] ?     - Now listening on: https://localhost:5001
+
+2019-10-26 14:33:02,110 [1] ?     - Now listening on: http://localhost:5000
+
+2019-10-26 14:33:02,113 [1] ?     - Application started. Press Ctrl+C to shut down.
+
+2019-10-26 14:33:02,116 [1] ?     - Hosting environment: Development
+
+2019-10-26 14:33:02,118 [1] ?     - Content root path: C:\Users\Administrator\Source\Repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2019-10-26 14:33:03,029 [4] ?     - Request starting HTTP/2 GET https://localhost:5001/  
+
+2019-10-26 14:33:03,107 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI)'
+
+2019-10-26 14:33:03,152 [4] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.HomeController (EasyShop.CP.UI).
+
+2019-10-26 14:33:03,177 [4] ?     - Executing ViewResult, running view Index.
+
+2019-10-26 14:33:03,463 [4] ?     - Executed ViewResult - view Index executed in 287.1562ms.
+
+2019-10-26 14:33:03,467 [4] ?     - Executed action EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI) in 311.7693ms
+
+2019-10-26 14:33:03,472 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI)'
+
+2019-10-26 14:33:03,488 [4] ?     - Request finished in 458.8202ms 200 text/html; charset=utf-8
+
+2019-10-26 14:33:06,043 [4] ?     - Request starting HTTP/2 GET https://localhost:5001/ControlPanel/Dashboard  
+
+2019-10-26 14:33:06,062 [4] ?     - Authorization was successful.
+
+2019-10-26 14:33:06,064 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ControlPanelController.Dashboard (EasyShop.CP.UI)'
+
+2019-10-26 14:33:06,068 [4] ?     - Route matched with {action = "Dashboard", controller = "ControlPanel"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Dashboard() on controller EasyShop.CP.UI.Controllers.ControlPanelController (EasyShop.CP.UI).
+
+2019-10-26 14:33:06,073 [4] ?     - Executing ViewResult, running view Dashboard.
+
+2019-10-26 14:33:06,105 [4] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-10-26 14:33:06,110 [4] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-10-26 14:33:06,140 [4] ?     - Executed ViewResult - view Dashboard executed in 67.6519ms.
+
+2019-10-26 14:33:06,142 [4] ?     - Executed action EasyShop.CP.UI.Controllers.ControlPanelController.Dashboard (EasyShop.CP.UI) in 71.3294ms
+
+2019-10-26 14:33:06,145 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ControlPanelController.Dashboard (EasyShop.CP.UI)'
+
+2019-10-26 14:33:06,149 [4] ?     - Request finished in 106.6426ms 200 text/html; charset=utf-8
+
+2019-10-26 14:33:08,030 [5] ?     - Request starting HTTP/2 GET https://localhost:5001/UserProfile  
+
+2019-10-26 14:33:08,046 [5] ?     - Authorization was successful.
+
+2019-10-26 14:33:08,048 [5] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Index (EasyShop.CP.UI)'
+
+2019-10-26 14:33:08,052 [5] ?     - Route matched with {action = "Index", controller = "UserProfile"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.UserProfileController (EasyShop.CP.UI).
+
+2019-10-26 14:33:14,165 [5] ?     - Executed action EasyShop.CP.UI.Controllers.UserProfileController.Index (EasyShop.CP.UI) in 6110.1657000000005ms
+
+2019-10-26 14:33:14,167 [5] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Index (EasyShop.CP.UI)'
+
+2019-10-26 14:33:14,237 [5] ?     - An unhandled exception occurred while processing an incoming request. Error: Test exception
+
+2019-10-26 14:33:14,264 [5] ?     - An unhandled exception has occurred while executing the request.
+
+2019-10-26 14:33:14,295 [5] ?     - Request finished in 6264.905400000001ms 500 text/html; charset=utf-8
+
+2019-10-26 14:34:11,457 [1] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-10-26 14:34:11,909 [4] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+
+2019-10-26 14:34:11,976 [11] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+
+2019-10-26 14:34:11,994 [7] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+
+2019-10-26 14:34:12,018 [7] ?     - No migrations were applied. The database is already up to date.
+
+2019-10-26 14:34:12,252 [7] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2019-10-26 14:34:12,353 [4] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2019-10-26 14:34:12,369 [13] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-10-26 14:34:12,668 [1] ?     - Now listening on: https://localhost:5001
+
+2019-10-26 14:34:12,670 [1] ?     - Now listening on: http://localhost:5000
+
+2019-10-26 14:34:12,673 [1] ?     - Application started. Press Ctrl+C to shut down.
+
+2019-10-26 14:34:12,675 [1] ?     - Hosting environment: Development
+
+2019-10-26 14:34:12,677 [1] ?     - Content root path: C:\Users\Administrator\Source\Repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2019-10-26 14:34:13,164 [4] ?     - Request starting HTTP/2 GET https://localhost:5001/  
+
+2019-10-26 14:34:13,236 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI)'
+
+2019-10-26 14:34:13,275 [4] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.HomeController (EasyShop.CP.UI).
+
+2019-10-26 14:34:13,294 [4] ?     - Executing ViewResult, running view Index.
+
+2019-10-26 14:34:13,498 [4] ?     - Executed ViewResult - view Index executed in 206.6892ms.
+
+2019-10-26 14:34:13,501 [4] ?     - Executed action EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI) in 223.84990000000002ms
+
+2019-10-26 14:34:13,503 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI)'
+
+2019-10-26 14:34:13,516 [4] ?     - Request finished in 348.1932ms 200 text/html; charset=utf-8
+
+2019-10-26 14:34:25,820 [1] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-10-26 14:34:26,286 [4] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+
+2019-10-26 14:34:26,346 [4] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+
+2019-10-26 14:34:26,367 [12] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+
+2019-10-26 14:34:26,390 [4] ?     - No migrations were applied. The database is already up to date.
+
+2019-10-26 14:34:26,610 [4] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2019-10-26 14:34:26,701 [11] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2019-10-26 14:34:26,715 [4] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-10-26 14:34:27,016 [1] ?     - Now listening on: https://localhost:5001
+
+2019-10-26 14:34:27,019 [1] ?     - Now listening on: http://localhost:5000
+
+2019-10-26 14:34:27,022 [1] ?     - Application started. Press Ctrl+C to shut down.
+
+2019-10-26 14:34:27,024 [1] ?     - Hosting environment: Development
+
+2019-10-26 14:34:27,026 [1] ?     - Content root path: C:\Users\Administrator\Source\Repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2019-10-26 14:34:27,618 [7] ?     - Request starting HTTP/2 GET https://localhost:5001/  
+
+2019-10-26 14:34:27,696 [7] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI)'
+
+2019-10-26 14:34:27,734 [7] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.HomeController (EasyShop.CP.UI).
+
+2019-10-26 14:34:27,756 [7] ?     - Executing ViewResult, running view Index.
+
+2019-10-26 14:34:28,014 [7] ?     - Executed ViewResult - view Index executed in 223.0299ms.
+
+2019-10-26 14:34:28,023 [7] ?     - Executed action EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI) in 281.2894ms
+
+2019-10-26 14:34:28,027 [7] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI)'
+
+2019-10-26 14:34:28,045 [7] ?     - Request finished in 419.66790000000003ms 200 text/html; charset=utf-8
+
+2019-10-26 14:34:30,534 [13] ?     - Request starting HTTP/2 GET https://localhost:5001/ControlPanel/Dashboard  
+
+2019-10-26 14:34:30,556 [13] ?     - Authorization was successful.
+
+2019-10-26 14:34:30,559 [13] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ControlPanelController.Dashboard (EasyShop.CP.UI)'
+
+2019-10-26 14:34:30,563 [13] ?     - Route matched with {action = "Dashboard", controller = "ControlPanel"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Dashboard() on controller EasyShop.CP.UI.Controllers.ControlPanelController (EasyShop.CP.UI).
+
+2019-10-26 14:34:30,567 [13] ?     - Executing ViewResult, running view Dashboard.
+
+2019-10-26 14:34:30,601 [13] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-10-26 14:34:30,606 [13] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-10-26 14:34:30,635 [13] ?     - Executed ViewResult - view Dashboard executed in 69.49640000000001ms.
+
+2019-10-26 14:34:30,638 [13] ?     - Executed action EasyShop.CP.UI.Controllers.ControlPanelController.Dashboard (EasyShop.CP.UI) in 72.5241ms
+
+2019-10-26 14:34:30,640 [13] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ControlPanelController.Dashboard (EasyShop.CP.UI)'
+
+2019-10-26 14:34:30,645 [13] ?     - Request finished in 109.941ms 200 text/html; charset=utf-8
+
+2019-10-26 14:34:32,962 [7] ?     - Request starting HTTP/2 GET https://localhost:5001/ControlPanel/contacts.html  
+
+2019-10-26 14:34:32,978 [7] ?     - Request finished in 15.936200000000001ms 404 
+
+2019-10-26 14:34:37,501 [11] ?     - Request starting HTTP/2 GET https://localhost:5001/UserProfile  
+
+2019-10-26 14:34:37,506 [11] ?     - Authorization was successful.
+
+2019-10-26 14:34:37,509 [11] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Index (EasyShop.CP.UI)'
+
+2019-10-26 14:34:37,514 [11] ?     - Route matched with {action = "Index", controller = "UserProfile"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.UserProfileController (EasyShop.CP.UI).
+
+2019-10-26 14:34:40,154 [11] ?     - Executed action EasyShop.CP.UI.Controllers.UserProfileController.Index (EasyShop.CP.UI) in 2637.2706000000003ms
+
+2019-10-26 14:34:40,158 [11] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Index (EasyShop.CP.UI)'
+
+2019-10-26 14:34:40,228 [11] ?     - An unhandled exception occurred while processing an incoming request. Error: Test exception. Stack trace:    at EasyShop.CP.UI.Controllers.UserProfileController.Index() in C:\Users\Administrator\Source\Repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\Controllers\UserProfileController.cs:line 25
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at EasyShop.CP.UI.Infrastructure.Middleware.ErrorHandlingMiddleware.Invoke(HttpContext context) in C:\Users\Administrator\Source\Repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\Infrastructure\Middleware\ErrorHandlingMiddleware.cs:line 26
+
+2019-10-26 14:34:40,255 [11] ?     - An unhandled exception has occurred while executing the request.
+
+2019-10-26 14:34:40,288 [11] ?     - Request finished in 2787.2472000000002ms 500 text/html; charset=utf-8
+
