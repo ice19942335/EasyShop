@@ -52,7 +52,7 @@ namespace EasyShop.CP.UI.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            using (_logger.BeginScope($"New user registration: {model.Email}"))
+            using (_logger.BeginScope($"Date({DateTime.Now}) New user registration: {model.Email}"))
             {
                 var user = new ApplicationUser
                 {
@@ -71,7 +71,7 @@ namespace EasyShop.CP.UI.Controllers
 
                 if (creationResult.Succeeded)
                 {
-                    _logger.LogInformation($"User: {model.Email} successfully registered in system");
+                    _logger.LogInformation($"Date ({DateTime.Now}) User: {model.Email} successfully registered in system");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     var callbackUrl = Url.Action(
@@ -106,7 +106,8 @@ namespace EasyShop.CP.UI.Controllers
                     ModelState.AddModelError("", error.Description);
 
                 _logger.LogWarning(
-                    "Registration error, User: {0}, Errors: {1}",
+                    "Date: ({0}) Registration error, User: {1}, Errors: {2}",
+                    DateTime.Now,
                     model.Email,
                     string.Join(",\n", creationResult.Errors.Select(err => err.Description))
                 );
@@ -131,7 +132,7 @@ namespace EasyShop.CP.UI.Controllers
 
             if (loginResult.Succeeded)
             {
-                _logger.LogInformation("User: {0} successfully logged in", model.UserName);
+                _logger.LogInformation($"Date ({DateTime.Now}) User: {model.UserName} successfully logged in");
 
                 var user = await _userManager.FindByNameAsync(model.UserName);
 
@@ -146,7 +147,7 @@ namespace EasyShop.CP.UI.Controllers
 
             ModelState.AddModelError("", "Username or password is incorrect, please try again");
 
-            _logger.LogWarning("User: {0} login error", model.UserName);
+            _logger.LogWarning($"Date ({DateTime.Now}) User: {model.UserName} login error");
 
             return View(model);
         }
@@ -154,6 +155,7 @@ namespace EasyShop.CP.UI.Controllers
         public async Task<IActionResult> LogOut()
         {
             await _signInManager.SignOutAsync();
+            _logger.LogInformation($"Date ({DateTime.Now}) User: {User.Identity.Name} has been logged out");
             return RedirectToAction("Index", "Home");
         }
 
@@ -172,9 +174,20 @@ namespace EasyShop.CP.UI.Controllers
             var result = await _userManager.ConfirmEmailAsync(user, code);
 
             if (result.Succeeded)
+            {
+                _logger.LogInformation($"Date ({DateTime.Now}) User: {user.UserName} successfully confirmed email");
                 return RedirectToAction("EmailConfirmation", "UserProfile");
+            }
             else
+            {
+                _logger.LogWarning(
+                    "Date ({0}) User: {1} email confirmation failed. Errors: {2}",
+                    DateTime.Now,
+                    user.UserName,
+                    string.Join(", ", result.Errors.Select(e => e.Description))
+                );
                 return View(nameof(AccessDenied));
+            }
         }
 
         [HttpPost]

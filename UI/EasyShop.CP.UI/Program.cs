@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Console;
 
 namespace EasyShop.CP.UI
 {
@@ -21,6 +22,11 @@ namespace EasyShop.CP.UI
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                })
+                .ConfigureLogging((host, log) =>
+                {
+                    //Just an example, for knowledge
+                    //log.AddFilter<ConsoleLoggerProvider>("System", LogLevel.Error);
                 });
     }
 }
