@@ -15,5 +15,7 @@ namespace EasyShop.Domain.ViewModels.User.UserData
         public int TransactionPercent { get; set; }
 
         public int ShopsAllowed { get; set; }
+
+        public string ProfileImage { get; set; }
     }
 }

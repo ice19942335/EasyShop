@@ -1,8 +1,81 @@
-﻿
+﻿@model UserProfileViewModel
 @{
     ViewData["Title"] = "User profile main";
     Layout = "Partial/_Layout";
 }
 
-<h1>User profile index</h1>
+<div class="well text-center">
+    <div class="userImage">
+        <img src="@($"UserImages/{Model.ProfileImage}.jpg")" alt="@($"{Model.ProfileImage}.jpg")">
+        <h4>Aleksejs Birula</h4>
+    </div>
+    <form id="demo-uploader" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label class="file-upload-btn btn btn-primary">
+                Upload picture
+                <input class="file-upload-input" type="file" name="files[]" multiple="">
+            </label>
+        </div>
+        <div class="form-group">
+            <ul class="file-list"></ul>
+        </div>
+    </form>
+    <form method="post" id="demo-inputmask" class="form form-horizontal">
+        <div class="form-group m-t-lg">
+            <label class="col-sm-3 control-label">Shops allowed</label>
+            <div class="col-sm-6">
+                <input class="form-control" type="number" value="2" readonly="">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Percent from transaction</label>
+            <div class="col-sm-6">
+                <input class="form-control" type="number" value="1" readonly="">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">E-mail</label>
+            <div class="col-sm-6">
+                <input class="form-control" type="email" placeholder="Email Address" value="ice19942335@gmail.com" readonly="">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">First name</label>
+            <div class="col-sm-6">
+                <input class="form-control" type="text" placeholder="First name" value="Aleksejs">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Last name</label>
+            <div class="col-sm-6">
+                <input class="form-control" type="text" placeholder="Last name" value="Birula">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Date</label>
+            <div class="col-sm-6">
+                <input class="form-control" type="text" value="05-10-1994" data-inputmask="'alias': 'dd-mm-yyyy'">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Gender</label>
+            <div class="col-sm-6">
+                <select class="custom-select">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="not specified" selected="">Not specified</option>
+                </select>
+            </div>
+        </div>
+    </form>
+</div>
 
+@section Styles
+{
+    <link rel="stylesheet" href="~/css/login-2.css" asp-append-version="true">
+}
+
+@section Scripts
+{
+    <script src="~/js/demo.js" asp-append-version="true"></script>
+}

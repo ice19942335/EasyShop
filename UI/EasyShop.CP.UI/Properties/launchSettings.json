@@ -20,7 +20,9 @@
     "EasyShop.CP.UI": {
       "commandName": "Project",
       "launchBrowser": true,
+      "launchUrl": "UserProfile/Index",
       "environmentVariables": {
+        "SENDGRID_API_KEY": "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",
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "applicationUrl": "https://localhost:5001;http://localhost:5000"

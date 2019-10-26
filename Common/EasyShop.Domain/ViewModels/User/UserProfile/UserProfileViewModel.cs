@@ -19,7 +19,7 @@ namespace EasyShop.Domain.ViewModels.User.UserProfile
 
         public int ShopsAllowed { get; set; }
 
-        public IFormFile ProfileImage { get; set; }
+        public string ProfileImage { get; set; }
 
         public IFormFile ImageToUpload { get; set; }
     }

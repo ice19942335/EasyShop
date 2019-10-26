@@ -54,6 +54,15 @@ namespace EasyShop.CP.UI.Controllers
 
             using (_logger.BeginScope($"Date({DateTime.Now}) New user registration: {model.Email}"))
             {
+                string profileImage;
+
+                if (model.Gender == 1)
+                    profileImage = "default-profile-male";
+                else if (model.Gender == 2)
+                    profileImage = "default-profile-female";
+                else
+                    profileImage = "not-specified";
+
                 var user = new ApplicationUser
                 {
                     UserName = model.Email,
@@ -63,8 +72,9 @@ namespace EasyShop.CP.UI.Controllers
                     BirthDate = new DateTime(model.Year, model.Day, Int32.Parse(model.Month)),
                     Gender = model.Gender,
                     TransactionPercent = 1,
-                    ShopsAllowed = 10,
-                    RegistrationDate = DateTime.Now
+                    ShopsAllowed = 2,
+                    RegistrationDate = DateTime.Now,
+                    ProfileImage = profileImage
                 };
 
                 var creationResult = await _userManager.CreateAsync(user, model.Password);
@@ -94,7 +104,7 @@ namespace EasyShop.CP.UI.Controllers
 
                     await _emailSender.SendEmailAsync(
                         user.Email,
-                        "Monetization | Confirm E-mail",
+                        "E-mail confirmation Monetization",
                         fileInsertDataHelper.GetResult().Result);
 
                     await _signInManager.SignInAsync(user, false);

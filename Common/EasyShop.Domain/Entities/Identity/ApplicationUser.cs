@@ -28,5 +28,7 @@ namespace EasyShop.Domain.Entities.Identity
         public DateTime RegistrationDate { get; set; }
 
         public int ShopsAllowed { get; set; }
+
+        public string ProfileImage { get; set; }
     }
 }

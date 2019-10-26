@@ -3,3 +3,8 @@
         display: inline-block;
     }
 }
+
+.userImage {
+    width: 225px;
+    height: 225px;
+}

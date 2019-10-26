@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entities.Identity;
 using EasyShop.Domain.ViewModels.Account;
+using EasyShop.Domain.ViewModels.User.UserProfile;
+using EasyShop.Services.Mappers.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -20,9 +22,16 @@ namespace EasyShop.CP.UI.Controllers
             _userManager = userManager;
         }
 
-        public IActionResult Index ()
+        public async Task<IActionResult> Index ()
         {
-            return View();
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            if (user is null)
+                return RedirectToAction("AccessDenied", "Account");
+
+            var model = user.CreateViewModel();
+
+            return View(model);
         }
 
         public IActionResult PasswordResetRequest() => View();
