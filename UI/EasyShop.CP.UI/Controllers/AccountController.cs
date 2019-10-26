@@ -99,7 +99,7 @@ namespace EasyShop.CP.UI.Controllers
 
                     await _signInManager.SignInAsync(user, false);
 
-                    return RedirectToAction("EmailConfirmation", "Account");
+                    return RedirectToAction("EmailConfirmation", "UserProfile");
                 }
 
                 foreach (var error in creationResult.Errors)
@@ -136,7 +136,7 @@ namespace EasyShop.CP.UI.Controllers
                 var user = await _userManager.FindByNameAsync(model.UserName);
 
                 if (!await _userManager.IsEmailConfirmedAsync(user))
-                    return RedirectToAction("EmailConfirmation", "Account");
+                    return RedirectToAction("EmailConfirmation", "UserProfile");
 
                 if (Url.IsLocalUrl(model.ReturnUrl))
                     return LocalRedirect(model.ReturnUrl);
@@ -172,12 +172,10 @@ namespace EasyShop.CP.UI.Controllers
             var result = await _userManager.ConfirmEmailAsync(user, code);
 
             if (result.Succeeded)
-                return RedirectToAction("Dashboard", "ControlPanel");
+                return RedirectToAction("EmailConfirmation", "UserProfile");
             else
                 return View(nameof(AccessDenied));
         }
-
-        public IActionResult EmailConfirmation() => View();
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -215,10 +213,8 @@ namespace EasyShop.CP.UI.Controllers
 
             _logger.LogInformation($"Confirmation link was sent to User: {userName}");
 
-            return View(nameof(EmailConfirmationRequestHasBeenSent));
+            return RedirectToAction("EmailConfirmationRequestHasBeenSent", "UserProfile");
         }
-
-        public IActionResult EmailConfirmationRequestHasBeenSent() => View();
 
         [HttpGet]
         [AllowAnonymous]

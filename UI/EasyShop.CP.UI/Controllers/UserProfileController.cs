@@ -28,5 +28,7 @@ namespace EasyShop.CP.UI.Controllers
 
         public IActionResult EmailConfirmation() => View();
 
+        public IActionResult EmailConfirmationRequestHasBeenSent() => View();
+
     }
 }
