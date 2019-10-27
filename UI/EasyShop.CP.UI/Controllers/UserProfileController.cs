@@ -42,5 +42,11 @@ namespace EasyShop.CP.UI.Controllers
 
         public IActionResult EmailConfirmationRequestHasBeenSent() => View();
 
+        [HttpPost]
+        public async Task<IActionResult> ProfileImageUpload([FromBody] UserProfileViewModel model)
+        {
+            return View();
+        }
+
     }
 }

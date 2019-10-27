@@ -2,6 +2,31 @@
 @{
     ViewData["Title"] = "User profile main";
     Layout = "Partial/_Layout";
+
+    string selected = "selected=\"\"";
+    string selectedMale = String.Empty;
+    string selectedFemale = String.Empty;
+    string selectedNetSpec = String.Empty;
+
+    if (Model.Gender == 1)
+    {
+        selectedMale = selected;
+    }
+    else if (Model.Gender == 2)
+    {
+        selectedFemale = selected;
+    }
+    else if (Model.Gender == 3)
+    {
+        selectedNetSpec = selected;
+    }
+
+    string options = 
+        $"<option value=\"male\" {selectedMale}>Male</option>\r\n    " +
+        $"<option value=\"female\" {selectedFemale}>Female</option>\r\n    " +
+        $"<option value=\"not specified\" {selectedNetSpec}>Not specified</option>";
+
+    
 }
 
 <div class="well text-center">
@@ -10,10 +35,11 @@
         <h4>Aleksejs Birula</h4>
     </div>
     <form id="demo-uploader" method="post" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="alert alert-info"></div>
         <div class="form-group">
             <label class="file-upload-btn btn btn-primary">
                 Upload picture
-                <input class="file-upload-input" type="file" name="files[]" multiple="">
+                <input class="file-upload-input" type="file" name="files[]">
             </label>
         </div>
         <div class="form-group">
@@ -21,49 +47,48 @@
         </div>
     </form>
     <form method="post" id="demo-inputmask" class="form form-horizontal">
+        <div asp-validation-summary="ModelOnly" class="alert alert-info"></div>
         <div class="form-group m-t-lg">
             <label class="col-sm-3 control-label">Shops allowed</label>
             <div class="col-sm-6">
-                <input class="form-control" type="number" value="2" readonly="">
+                <input class="form-control" type="number" value="@Model.ShopsAllowed" readonly="">
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label">Percent from transaction</label>
             <div class="col-sm-6">
-                <input class="form-control" type="number" value="1" readonly="">
+                <input class="form-control" type="number" value="@Model.TransactionPercent" readonly="">
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label">E-mail</label>
             <div class="col-sm-6">
-                <input class="form-control" type="email" placeholder="Email Address" value="ice19942335@gmail.com" readonly="">
+                <input class="form-control" type="email" placeholder="Email Address" value="@User.Identity.Name" readonly="">
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label">First name</label>
             <div class="col-sm-6">
-                <input class="form-control" type="text" placeholder="First name" value="Aleksejs">
+                <input asp-for="FirstName" class="form-control" type="text" placeholder="First name" value="@Model.FirstName">
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label">Last name</label>
             <div class="col-sm-6">
-                <input class="form-control" type="text" placeholder="Last name" value="Birula">
+                <input asp-for="LastName" class="form-control" type="text" placeholder="Last name" value="@Model.LastName">
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-3 control-label">Date</label>
+            <label class="col-sm-3 control-label">Birth date</label>
             <div class="col-sm-6">
-                <input class="form-control" type="text" value="05-10-1994" data-inputmask="'alias': 'dd-mm-yyyy'">
+                <input asp-for="BirthDate" class="form-control" type="text" value="@Model.BirthDate.Date" data-inputmask="'alias': 'dd-mm-yyyy'">
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label">Gender</label>
             <div class="col-sm-6">
-                <select class="custom-select">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="not specified" selected="">Not specified</option>
+                <select asp-for="Gender" class="custom-select">
+                    @Html.Raw(options)
                 </select>
             </div>
         </div>
