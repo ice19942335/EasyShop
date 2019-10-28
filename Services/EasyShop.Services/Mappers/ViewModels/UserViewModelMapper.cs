@@ -38,8 +38,8 @@ namespace EasyShop.Services.Mappers.ViewModels
             var dateArr = model.BirthDateToUpdate.Split('-');
             var birthDate = new DateTime(Int32.Parse(dateArr[2]), Int32.Parse(dateArr[0]), Int32.Parse(dateArr[1]));
 
-            if (GenderHelper.IsPictureDefault(model.ProfileImage))
-                user.ProfileImage = GenderHelper.GetDefaultPictureName(model.Gender);
+            if (DefaultPictureNameHelper.IsPictureDefault(model.ProfileImage))
+                user.ProfileImage = DefaultPictureNameHelper.GetDefaultPictureName(model.Gender);
             
             user.FirstName = model.FirstName;
             user.LastName = model.LastName;

@@ -55,7 +55,7 @@ namespace EasyShop.CP.UI.Controllers
 
             using (_logger.BeginScope($"New user registration: {model.Email}"))
             {
-                var profileImage = GenderHelper.GetDefaultPictureName(model.Gender);
+                var profileImage = DefaultPictureNameHelper.GetDefaultPictureName(model.Gender);
 
                 var user = new ApplicationUser
                 {

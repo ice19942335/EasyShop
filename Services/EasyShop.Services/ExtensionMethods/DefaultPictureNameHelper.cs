@@ -6,9 +6,9 @@ using Microsoft.VisualBasic.CompilerServices;
 
 namespace EasyShop.Services.ExtensionMethods
 {
-    public static class GenderHelper
+    public static class DefaultPictureNameHelper
     {
-        private static string[] _defaultPictures = new[] { "default-profile-male", "default-profile-female", "not-specified" };
+        private static string[] _defaultPictures = new[] { "default-profile-male.jpg", "default-profile-female.jpg", "not-specified.jpg" };
 
         /// <summary>
         /// Return default picture name depend on user gender
@@ -29,6 +29,11 @@ namespace EasyShop.Services.ExtensionMethods
             return profileImage;
         }
 
+        /// <summary>
+        /// Return true if picture name is default name
+        /// </summary>
+        /// <param name="pictureName"></param>
+        /// <returns></returns>
         public static bool IsPictureDefault(string pictureName)
         {
             if (_defaultPictures.Contains(pictureName))
