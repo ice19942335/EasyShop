@@ -6,6 +6,7 @@ using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entities.Identity;
 using EasyShop.Domain.ViewModels.Account;
+using EasyShop.Services.ExtensionMethods;
 using EasyShop.Services.Files;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
@@ -52,16 +53,9 @@ namespace EasyShop.CP.UI.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            using (_logger.BeginScope($"Date({DateTime.Now}) New user registration: {model.Email}"))
+            using (_logger.BeginScope($"New user registration: {model.Email}"))
             {
-                string profileImage;
-
-                if (model.Gender == 1)
-                    profileImage = "default-profile-male";
-                else if (model.Gender == 2)
-                    profileImage = "default-profile-female";
-                else
-                    profileImage = "not-specified";
+                var profileImage = GenderHelper.GetDefaultPictureName(model.Gender);
 
                 var user = new ApplicationUser
                 {

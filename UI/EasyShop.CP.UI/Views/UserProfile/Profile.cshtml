@@ -22,16 +22,14 @@
     }
 
     string options = 
-        $"<option value=\"male\" {selectedMale}>Male</option>\r\n    " +
-        $"<option value=\"female\" {selectedFemale}>Female</option>\r\n    " +
-        $"<option value=\"not specified\" {selectedNetSpec}>Not specified</option>";
-
-    
+        $"<option value=\"1\" {selectedMale}>Male</option>\r\n    " +
+        $"<option value=\"2\" {selectedFemale}>Female</option>\r\n    " +
+        $"<option value=\"3\" {selectedNetSpec}>Not specified</option>";
 }
 
 <div class="well text-center">
     <div class="userImage">
-        <img src="@($"UserImages/{Model.ProfileImage}.jpg")" alt="@($"{Model.ProfileImage}.jpg")">
+        <img src="~/@($"UserImages/{Model.ProfileImage}.jpg")" alt="@($"{Model.ProfileImage}.jpg")">
         <h4>Aleksejs Birula</h4>
     </div>
     <form id="demo-uploader" method="post" enctype="multipart/form-data">
@@ -46,24 +44,25 @@
             <ul class="file-list"></ul>
         </div>
     </form>
-    <form method="post" id="demo-inputmask" class="form form-horizontal">
+    <form method="post" id="demo-inputmask" class="form-horizontal" asp-area="" asp-controller="UserProfile" asp-action="Profile">
         <div asp-validation-summary="ModelOnly" class="alert alert-info"></div>
+        <input asp-for="ProfileImage" hidden="" />
         <div class="form-group m-t-lg">
             <label class="col-sm-3 control-label">Shops allowed</label>
             <div class="col-sm-6">
-                <input class="form-control" type="number" value="@Model.ShopsAllowed" readonly="">
+                <input asp-for="ShopsAllowed" class="form-control" type="number" value="@Model.ShopsAllowed" readonly="">
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label">Percent from transaction</label>
             <div class="col-sm-6">
-                <input class="form-control" type="number" value="@Model.TransactionPercent" readonly="">
+                <input asp-for="TransactionPercent" class="form-control" type="number" value="@Model.TransactionPercent" readonly="">
             </div>
         </div>
         <div class="form-group">
             <label class="col-sm-3 control-label">E-mail</label>
             <div class="col-sm-6">
-                <input class="form-control" type="email" placeholder="Email Address" value="@User.Identity.Name" readonly="">
+                <input asp-for="Email" class="form-control" type="email" placeholder="Email Address" value="@Model.Email" readonly="">
             </div>
         </div>
         <div class="form-group">
@@ -78,10 +77,11 @@
                 <input asp-for="LastName" class="form-control" type="text" placeholder="Last name" value="@Model.LastName">
             </div>
         </div>
+        <span asp-validation-for="BirthDateToUpdate"></span>
         <div class="form-group">
             <label class="col-sm-3 control-label">Birth date</label>
             <div class="col-sm-6">
-                <input asp-for="BirthDate" class="form-control" type="text" value="@Model.BirthDate.Date" data-inputmask="'alias': 'dd-mm-yyyy'">
+                <input asp-for="BirthDateToUpdate" class="form-control" type="text" value="@Model.BirthDate.Date" data-inputmask="'alias': 'mm-dd-yyyy'">
             </div>
         </div>
         <div class="form-group">
@@ -92,6 +92,7 @@
                 </select>
             </div>
         </div>
+        <button class="btn btn-primary" type="submit">Save changes</button>
     </form>
 </div>
 

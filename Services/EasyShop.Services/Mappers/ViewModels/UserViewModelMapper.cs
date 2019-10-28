@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using EasyShop.Domain.Entities.Identity;
 using EasyShop.Domain.ViewModels.User.UserProfile;
+using EasyShop.Services.ExtensionMethods;
 
 namespace EasyShop.Services.Mappers.ViewModels
 {
@@ -17,6 +18,7 @@ namespace EasyShop.Services.Mappers.ViewModels
             model.TransactionPercent = user.TransactionPercent;
             model.ShopsAllowed = user.ShopsAllowed;
             model.ProfileImage = user.ProfileImage;
+            model.Email = user.Email;
         }
 
         /// <summary>
@@ -33,9 +35,15 @@ namespace EasyShop.Services.Mappers.ViewModels
 
         private static void CopyToApplicationUser(this UserProfileViewModel model, ApplicationUser user)
         {
+            var dateArr = model.BirthDateToUpdate.Split('-');
+            var birthDate = new DateTime(Int32.Parse(dateArr[2]), Int32.Parse(dateArr[0]), Int32.Parse(dateArr[1]));
+
+            if (GenderHelper.IsPictureDefault(model.ProfileImage))
+                user.ProfileImage = GenderHelper.GetDefaultPictureName(model.Gender);
+            
             user.FirstName = model.FirstName;
             user.LastName = model.LastName;
-            user.BirthDate = model.BirthDate;
+            user.BirthDate = birthDate;
             user.Gender = model.Gender;
         }
 

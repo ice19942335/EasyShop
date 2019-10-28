@@ -2,8 +2,10 @@ using System;
 using EasyShop.CP.UI.Infrastructure.Middleware;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entities.Identity;
+using EasyShop.Interfaces.CP;
 using EasyShop.Logger;
 using EasyShop.Services.Auth.Email;
+using EasyShop.Services.CP.UserProfile;
 using EasyShop.Services.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -32,6 +34,7 @@ namespace EasyShop.CP.UI
             services.AddMvcCore();
 
             services.AddTransient<IEmailSender, EmailSender>();
+            services.AddTransient<IUserProfileServiceSql, UserProfileServiceSql>();
 
             services.AddDbContext<EasyShopContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
             services.AddScoped<EasyShopContextInitializer>();
