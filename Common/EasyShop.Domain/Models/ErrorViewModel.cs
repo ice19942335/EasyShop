@@ -1,6 +1,4 @@
-using System;
-
-namespace EasyShop.CP.UI.Models
+namespace EasyShop.Domain.Models
 {
     public class ErrorViewModel
     {

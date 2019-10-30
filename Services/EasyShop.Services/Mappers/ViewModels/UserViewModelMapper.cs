@@ -45,6 +45,7 @@ namespace EasyShop.Services.Mappers.ViewModels
             user.LastName = model.LastName;
             user.BirthDate = birthDate;
             user.Gender = model.Gender;
+            user.ProfileImage = model.ProfileImage;
         }
 
         /// <summary>

@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 using EasyShop.Domain.Entities.Identity;
 using EasyShop.Domain.ViewModels.Account;
 using EasyShop.Domain.ViewModels.User.UserProfile;
-using EasyShop.Interfaces.CP;
+using EasyShop.Interfaces.Services.CP;
+using EasyShop.Services.CP.FileImage;
 using EasyShop.Services.CP.UserProfile;
 using EasyShop.Services.Mappers.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace EasyShop.CP.UI.Controllers
 {
@@ -20,11 +22,16 @@ namespace EasyShop.CP.UI.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IUserProfileServiceSql _userProfileService;
+        private readonly IFileImageService _fileImageService;
 
-        public UserProfileController(UserManager<ApplicationUser> userManager, IUserProfileServiceSql userProfileService)
+        public UserProfileController(
+            UserManager<ApplicationUser> userManager, 
+            IUserProfileServiceSql userProfileService,
+            IFileImageService fileImageService)
         {
             _userManager = userManager;
             _userProfileService = userProfileService;
+            _fileImageService = fileImageService;
         }
 
         public IActionResult PasswordResetRequest() => View();
@@ -34,12 +41,6 @@ namespace EasyShop.CP.UI.Controllers
         public IActionResult EmailConfirmation() => View();
 
         public IActionResult EmailConfirmationRequestHasBeenSent() => View();
-
-        [HttpPost]
-        public async Task<IActionResult> ProfileImageUpload([FromBody] UserProfileViewModel model)
-        {
-            return View();
-        }
 
         public async Task<IActionResult> Profile()
         {
@@ -58,7 +59,19 @@ namespace EasyShop.CP.UI.Controllers
         {
             if (!ModelState.IsValid)
                 return View(model);
-            
+
+            if (model.ImageToUpload != null)
+            {
+                var saveFileResult = await _fileImageService.SaveFile(model, "UserImages");
+                model.ProfileImage = saveFileResult;
+
+                if(saveFileResult is null)
+                {
+                    ModelState.AddModelError("", "Can't save selected picture, please try again or contact support.");
+                    return View(model);
+                }
+            }
+
             var result = await _userProfileService.UpdateUserData(model);
 
             return View(result);

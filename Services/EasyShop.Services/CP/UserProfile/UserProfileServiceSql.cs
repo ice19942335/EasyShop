@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entities.Identity;
 using EasyShop.Domain.ViewModels.User.UserProfile;
-using EasyShop.Interfaces.CP;
+using EasyShop.Interfaces.Services.CP;
 using EasyShop.Services.Mappers.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -22,7 +22,7 @@ namespace EasyShop.Services.CP.UserProfile
 
         public UserProfileServiceSql(
             UserManager<ApplicationUser> userManager,
-            EasyShopContext context, 
+            EasyShopContext context,
             ILogger<UserProfileServiceSql> logger)
         {
             _userManager = userManager;

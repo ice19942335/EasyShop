@@ -49,7 +49,8 @@ namespace EasyShop.Services.Data
                     TransactionPercent = 1,
                     RegistrationDate = DateTime.Now,
                     ShopsAllowed = 10,
-                    EmailConfirmed = true
+                    EmailConfirmed = true,
+                    ProfileImage = "default-profile-male.jpg"
                 };
 
                 var creationResult = await _userManager.CreateAsync(admin, ApplicationUser.DefaultAdminPassword);

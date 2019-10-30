@@ -30,6 +30,7 @@ namespace EasyShop.Domain.ViewModels.User.UserProfile
 
         public string ProfileImage { get; set; }
 
+        [UserPictureToUploadValidation(new string[] { "png", "jpg", "jpeg" })]
         public IFormFile ImageToUpload { get; set; }
     }
 }

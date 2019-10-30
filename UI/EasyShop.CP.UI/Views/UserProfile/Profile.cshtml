@@ -29,24 +29,21 @@
 
 <div class="well text-center">
     <div class="userImage">
-        <img src="~/UserImages/@Model.ProfileImage" alt="@Model.ProfileImage">
+        <img src="~/UserImages/@Model.ProfileImage" alt="@Model.ProfileImage" width="225" height="225">
         <h4>Aleksejs Birula</h4>
     </div>
-    <form method="post" enctype="multipart/form-data" asp-area="" asp-controller="UserProfile" asp-action="ProfileImageUpload">
+    <form method="post" id="demo-inputmask" class="form-horizontal" enctype="multipart/form-data" asp-area="" asp-controller="UserProfile" asp-action="Profile">
         <div asp-validation-summary="ModelOnly" class="alert alert-info"></div>
+        <input asp-for="ProfileImage" hidden="" />
         <div class="form-group">
             <label class="file-upload-btn btn btn-primary">
                 Upload picture
-                <input class="file-upload-input" type="file">
+                <input asp-for="ImageToUpload" class="file-upload-input" type="file" />
             </label>
         </div>
         <div class="form-group">
             <ul class="file-list"></ul>
         </div>
-    </form>
-    <form method="post" id="demo-inputmask" class="form-horizontal" asp-area="" asp-controller="UserProfile" asp-action="Profile">
-        <div asp-validation-summary="ModelOnly" class="alert alert-info"></div>
-        <input asp-for="ProfileImage" hidden="" />
         <div class="form-group m-t-lg">
             <label class="col-sm-3 control-label">Shops allowed</label>
             <div class="col-sm-6">

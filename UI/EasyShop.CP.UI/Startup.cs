@@ -2,9 +2,10 @@ using System;
 using EasyShop.CP.UI.Infrastructure.Middleware;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entities.Identity;
-using EasyShop.Interfaces.CP;
+using EasyShop.Interfaces.Services.CP;
 using EasyShop.Logger;
 using EasyShop.Services.Auth.Email;
+using EasyShop.Services.CP.FileImage;
 using EasyShop.Services.CP.UserProfile;
 using EasyShop.Services.Data;
 using Microsoft.AspNetCore.Builder;
@@ -35,6 +36,7 @@ namespace EasyShop.CP.UI
 
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddTransient<IUserProfileServiceSql, UserProfileServiceSql>();
+            services.AddTransient<IFileImageService, FileImageService>();
 
             services.AddDbContext<EasyShopContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
             services.AddScoped<EasyShopContextInitializer>();
