@@ -3018,3 +3018,399 @@ WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[Normalized
 
 2019-10-30 19:54:57,548 [4] ?     - Request finished in 13.3489ms 200 image/png
 
+2019-10-30 19:57:18,356 [1] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-10-30 19:57:18,925 [4] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+
+2019-10-30 19:57:19,414 [11] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+
+2019-10-30 19:57:19,438 [11] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+
+2019-10-30 19:57:19,466 [13] ?     - No migrations were applied. The database is already up to date.
+
+2019-10-30 19:57:19,727 [13] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2019-10-30 19:57:19,816 [8] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2019-10-30 19:57:19,853 [13] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-10-30 19:57:20,046 [1] ?     - Application started. Press Ctrl+C to shut down.
+
+2019-10-30 19:57:20,049 [1] ?     - Hosting environment: Development
+
+2019-10-30 19:57:20,055 [1] ?     - Content root path: C:\Users\Administrator\Source\Repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2019-10-30 19:57:20,087 [11] ?     - Request starting HTTP/1.1 GET http://localhost:5000/UserProfile/Profile  
+
+2019-10-30 19:57:20,169 [11] ?     - Authorization was successful.
+
+2019-10-30 19:57:20,175 [11] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI)'
+
+2019-10-30 19:57:20,214 [11] ?     - Route matched with {action = "Profile", controller = "UserProfile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Profile() on controller EasyShop.CP.UI.Controllers.UserProfileController (EasyShop.CP.UI).
+
+2019-10-30 19:57:20,228 [11] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-10-30 19:57:20,233 [11] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-10-30 19:57:20,265 [4] ?     - Executing ViewResult, running view Profile.
+
+2019-10-30 19:57:20,443 [4] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-10-30 19:57:20,602 [4] ?     - Executed ViewResult - view Profile executed in 342.4845ms.
+
+2019-10-30 19:57:20,607 [4] ?     - Executed action EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI) in 389.13100000000003ms
+
+2019-10-30 19:57:20,611 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI)'
+
+2019-10-30 19:57:20,623 [4] ?     - Request finished in 537.7895ms 200 text/html; charset=utf-8
+
+2019-10-30 19:57:20,842 [11] ?     - Request starting HTTP/1.1 GET http://localhost:5000/UserImages/image_aleksejbirula@gmail.com_Logo-back-gray_0247.png  
+
+2019-10-30 19:57:20,851 [11] ?     - The file /UserImages/image_aleksejbirula@gmail.com_Logo-back-gray_0247.png was not modified
+
+2019-10-30 19:57:20,855 [11] ?     - Request finished in 13.4457ms 304 image/png
+
+2019-10-30 19:57:32,031 [4] ?     - Request starting HTTP/1.1 POST http://localhost:5000/UserProfile/Profile multipart/form-data; boundary=----WebKitFormBoundarygS2yKt772IBP45nC 5655
+
+2019-10-30 19:57:32,038 [4] ?     - Authorization was successful.
+
+2019-10-30 19:57:32,045 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI)'
+
+2019-10-30 19:57:32,069 [4] ?     - Route matched with {action = "Profile", controller = "UserProfile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Profile(EasyShop.Domain.ViewModels.User.UserProfile.UserProfileViewModel) on controller EasyShop.CP.UI.Controllers.UserProfileController (EasyShop.CP.UI).
+
+2019-10-30 19:57:32,106 [4] ?     - Executing ViewResult, running view Profile.
+
+2019-10-30 19:57:32,139 [4] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-10-30 19:57:32,143 [4] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-10-30 19:57:32,149 [4] ?     - Executed ViewResult - view Profile executed in 43.457300000000004ms.
+
+2019-10-30 19:57:32,151 [4] ?     - Executed action EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI) in 79.0681ms
+
+2019-10-30 19:57:32,153 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI)'
+
+2019-10-30 19:57:32,156 [4] ?     - Request finished in 125.2112ms 200 text/html; charset=utf-8
+
+2019-10-30 20:00:26,122 [1] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-10-30 20:00:26,585 [4] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+
+2019-10-30 20:00:26,652 [11] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+
+2019-10-30 20:00:26,672 [13] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+
+2019-10-30 20:00:26,704 [13] ?     - No migrations were applied. The database is already up to date.
+
+2019-10-30 20:00:26,920 [13] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2019-10-30 20:00:27,006 [4] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2019-10-30 20:00:27,019 [13] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-10-30 20:00:27,199 [1] ?     - Application started. Press Ctrl+C to shut down.
+
+2019-10-30 20:00:27,206 [1] ?     - Hosting environment: Development
+
+2019-10-30 20:00:27,208 [1] ?     - Content root path: C:\Users\Administrator\Source\Repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2019-10-30 20:00:27,238 [4] ?     - Request starting HTTP/1.1 GET http://localhost:5000/UserProfile/Profile  
+
+2019-10-30 20:00:27,316 [4] ?     - Authorization was successful.
+
+2019-10-30 20:00:27,320 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI)'
+
+2019-10-30 20:00:27,355 [4] ?     - Route matched with {action = "Profile", controller = "UserProfile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Profile() on controller EasyShop.CP.UI.Controllers.UserProfileController (EasyShop.CP.UI).
+
+2019-10-30 20:00:27,375 [4] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-10-30 20:00:27,379 [4] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-10-30 20:00:27,404 [11] ?     - Executing ViewResult, running view Profile.
+
+2019-10-30 20:00:27,560 [11] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-10-30 20:00:27,719 [11] ?     - Executed ViewResult - view Profile executed in 314.27950000000004ms.
+
+2019-10-30 20:00:27,726 [11] ?     - Executed action EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI) in 367.7835ms
+
+2019-10-30 20:00:27,734 [11] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI)'
+
+2019-10-30 20:00:27,744 [11] ?     - Request finished in 507.76250000000005ms 200 text/html; charset=utf-8
+
+2019-10-30 20:00:27,958 [8] ?     - Request starting HTTP/1.1 GET http://localhost:5000/UserImages/image_aleksejbirula@gmail.com_Logo-back-gray_0247.png  
+
+2019-10-30 20:00:27,967 [8] ?     - The file /UserImages/image_aleksejbirula@gmail.com_Logo-back-gray_0247.png was not modified
+
+2019-10-30 20:00:27,971 [8] ?     - Request finished in 13.921100000000001ms 304 image/png
+
+2019-10-30 20:00:33,684 [11] ?     - Request starting HTTP/1.1 POST http://localhost:5000/UserProfile/Profile multipart/form-data; boundary=----WebKitFormBoundaryN4fetE1D2LEMBAZ2 1431
+
+2019-10-30 20:00:33,692 [11] ?     - Authorization was successful.
+
+2019-10-30 20:00:33,694 [11] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI)'
+
+2019-10-30 20:00:33,721 [11] ?     - Route matched with {action = "Profile", controller = "UserProfile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Profile(EasyShop.Domain.ViewModels.User.UserProfile.UserProfileViewModel) on controller EasyShop.CP.UI.Controllers.UserProfileController (EasyShop.CP.UI).
+
+2019-10-30 20:00:33,758 [11] ?     - Executing ViewResult, running view Profile.
+
+2019-10-30 20:00:33,792 [11] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-10-30 20:00:33,796 [11] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-10-30 20:00:33,801 [11] ?     - Executed ViewResult - view Profile executed in 43.7785ms.
+
+2019-10-30 20:00:33,804 [11] ?     - Executed action EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI) in 80.5284ms
+
+2019-10-30 20:00:33,806 [11] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI)'
+
+2019-10-30 20:00:33,808 [11] ?     - Request finished in 125.03110000000001ms 200 text/html; charset=utf-8
+
+2019-10-30 20:01:19,666 [1] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-10-30 20:01:20,077 [8] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+
+2019-10-30 20:01:20,141 [11] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+
+2019-10-30 20:01:20,159 [12] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+
+2019-10-30 20:01:20,188 [4] ?     - No migrations were applied. The database is already up to date.
+
+2019-10-30 20:01:20,388 [4] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2019-10-30 20:01:20,477 [8] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2019-10-30 20:01:20,490 [12] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-10-30 20:01:20,654 [1] ?     - Application started. Press Ctrl+C to shut down.
+
+2019-10-30 20:01:20,657 [1] ?     - Hosting environment: Development
+
+2019-10-30 20:01:20,660 [1] ?     - Content root path: C:\Users\Administrator\Source\Repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2019-10-30 20:01:20,712 [4] ?     - Request starting HTTP/1.1 GET http://localhost:5000/UserProfile/Profile  
+
+2019-10-30 20:01:20,791 [4] ?     - Authorization was successful.
+
+2019-10-30 20:01:20,795 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI)'
+
+2019-10-30 20:01:20,832 [4] ?     - Route matched with {action = "Profile", controller = "UserProfile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Profile() on controller EasyShop.CP.UI.Controllers.UserProfileController (EasyShop.CP.UI).
+
+2019-10-30 20:01:20,847 [4] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-10-30 20:01:20,850 [4] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-10-30 20:01:20,885 [17] ?     - Executing ViewResult, running view Profile.
+
+2019-10-30 20:01:21,048 [17] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-10-30 20:01:21,216 [17] ?     - Executed ViewResult - view Profile executed in 332.2842ms.
+
+2019-10-30 20:01:21,221 [17] ?     - Executed action EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI) in 385.45680000000004ms
+
+2019-10-30 20:01:21,225 [17] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI)'
+
+2019-10-30 20:01:21,239 [17] ?     - Request finished in 528.405ms 200 text/html; charset=utf-8
+
+2019-10-30 20:01:21,451 [8] ?     - Request starting HTTP/1.1 GET http://localhost:5000/UserImages/image_aleksejbirula@gmail.com_Logo-back-gray_0247.png  
+
+2019-10-30 20:01:21,459 [8] ?     - The file /UserImages/image_aleksejbirula@gmail.com_Logo-back-gray_0247.png was not modified
+
+2019-10-30 20:01:21,463 [8] ?     - Request finished in 12.510800000000001ms 304 image/png
+
+2019-10-30 20:01:27,700 [8] ?     - Request starting HTTP/1.1 POST http://localhost:5000/UserProfile/Profile multipart/form-data; boundary=----WebKitFormBoundary07AS6OOZljqkyy6G 1431
+
+2019-10-30 20:01:27,709 [8] ?     - Authorization was successful.
+
+2019-10-30 20:01:27,715 [8] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI)'
+
+2019-10-30 20:01:27,741 [8] ?     - Route matched with {action = "Profile", controller = "UserProfile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Profile(EasyShop.Domain.ViewModels.User.UserProfile.UserProfileViewModel) on controller EasyShop.CP.UI.Controllers.UserProfileController (EasyShop.CP.UI).
+
+2019-10-30 20:01:27,778 [8] ?     - Executing ViewResult, running view Profile.
+
+2019-10-30 20:01:27,812 [8] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-10-30 20:01:27,815 [8] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-10-30 20:01:27,821 [8] ?     - Executed ViewResult - view Profile executed in 42.787800000000004ms.
+
+2019-10-30 20:01:27,823 [8] ?     - Executed action EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI) in 80.739ms
+
+2019-10-30 20:01:27,825 [8] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI)'
+
+2019-10-30 20:01:27,827 [8] ?     - Request finished in 128.20250000000001ms 200 text/html; charset=utf-8
+
+2019-10-30 20:01:43,192 [17] ?     - Request starting HTTP/1.1 GET http://localhost:5000/js/canvas-to-blob.min.js.map  
+
+2019-10-30 20:01:43,212 [17] ?     - Request finished in 20.4104ms 404 
+
+2019-10-30 20:02:33,928 [1] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-10-30 20:02:34,352 [4] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+
+2019-10-30 20:02:34,408 [11] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+
+2019-10-30 20:02:34,428 [12] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+
+2019-10-30 20:02:34,452 [8] ?     - No migrations were applied. The database is already up to date.
+
+2019-10-30 20:02:34,632 [8] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2019-10-30 20:02:34,706 [13] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2019-10-30 20:02:34,715 [13] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-10-30 20:02:34,899 [1] ?     - Application started. Press Ctrl+C to shut down.
+
+2019-10-30 20:02:34,906 [1] ?     - Hosting environment: Development
+
+2019-10-30 20:02:34,908 [1] ?     - Content root path: C:\Users\Administrator\Source\Repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2019-10-30 20:02:34,928 [14] ?     - Request starting HTTP/1.1 GET http://localhost:5000/UserProfile/Profile  
+
+2019-10-30 20:02:35,003 [14] ?     - Authorization was successful.
+
+2019-10-30 20:02:35,007 [14] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI)'
+
+2019-10-30 20:02:35,046 [14] ?     - Route matched with {action = "Profile", controller = "UserProfile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Profile() on controller EasyShop.CP.UI.Controllers.UserProfileController (EasyShop.CP.UI).
+
+2019-10-30 20:02:35,060 [14] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-10-30 20:02:35,063 [14] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-10-30 20:02:35,093 [12] ?     - Executing ViewResult, running view Profile.
+
+2019-10-30 20:02:35,268 [12] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-10-30 20:02:35,470 [12] ?     - Executed ViewResult - view Profile executed in 378.0384ms.
+
+2019-10-30 20:02:35,493 [12] ?     - Executed action EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI) in 427.3883ms
+
+2019-10-30 20:02:35,497 [12] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI)'
+
+2019-10-30 20:02:35,507 [12] ?     - Request finished in 580.3409ms 200 text/html; charset=utf-8
+
+2019-10-30 20:02:35,800 [12] ?     - Request starting HTTP/1.1 GET http://localhost:5000/UserImages/image_aleksejbirula@gmail.com_Logo-back-gray_0247.png  
+
+2019-10-30 20:02:35,809 [12] ?     - The file /UserImages/image_aleksejbirula@gmail.com_Logo-back-gray_0247.png was not modified
+
+2019-10-30 20:02:35,815 [12] ?     - Request finished in 20.043300000000002ms 304 image/png
+
+2019-10-30 20:02:42,294 [16] ?     - Request starting HTTP/1.1 POST http://localhost:5000/UserProfile/Profile multipart/form-data; boundary=----WebKitFormBoundarysDFf6sy3ZUgEMk27 1501
+
+2019-10-30 20:02:42,302 [16] ?     - Authorization was successful.
+
+2019-10-30 20:02:42,305 [16] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI)'
+
+2019-10-30 20:02:42,332 [16] ?     - Route matched with {action = "Profile", controller = "UserProfile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Profile(EasyShop.Domain.ViewModels.User.UserProfile.UserProfileViewModel) on controller EasyShop.CP.UI.Controllers.UserProfileController (EasyShop.CP.UI).
+
+2019-10-30 20:02:42,374 [16] ?     - Executing ViewResult, running view Profile.
+
+2019-10-30 20:02:42,409 [16] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-10-30 20:02:42,413 [16] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-10-30 20:02:42,464 [16] ?     - Executed ViewResult - view Profile executed in 45.7593ms.
+
+2019-10-30 20:02:42,468 [16] ?     - Executed action EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI) in 132.5071ms
+
+2019-10-30 20:02:42,471 [16] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI)'
+
+2019-10-30 20:02:42,474 [16] ?     - Request finished in 180.1527ms 200 text/html; charset=utf-8
+
+2019-10-30 20:02:46,098 [12] ?     - Request starting HTTP/1.1 GET http://localhost:5000/js/canvas-to-blob.min.js.map  
+
+2019-10-30 20:02:46,116 [12] ?     - Request finished in 17.8033ms 404 
+

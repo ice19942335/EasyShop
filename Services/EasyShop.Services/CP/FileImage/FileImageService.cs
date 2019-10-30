@@ -41,7 +41,7 @@ namespace EasyShop.Services.CP.FileImage
 
             var type = model.ImageToUpload.ContentType.Split("/")[1];
 
-            if (type == "jpeg" || type == "gif" || type == "png")
+            if (type == "jpeg" || type == "jpg" || type == "png")
             {
                 // full path to file in temp location
                 var filePath = Path.GetTempFileName();
