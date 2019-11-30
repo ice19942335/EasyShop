@@ -41,10 +41,8 @@ namespace EasyShop.Services.CP.FileImage
 
             var type = model.ImageToUpload.ContentType.Split("/")[1];
 
-            if (type == "jpeg" || type == "jpg" || type == "png")
+            if (type == "jpeg" || type == "jpg" || type == "png" || model.ImageToUpload.Length < 10000000)
             {
-                // full path to file in temp location
-                var filePath = Path.GetTempFileName();
                 var uniqueFileName = GetUniqueFileName($"image_{model.Email}_{model.ImageToUpload.FileName}");
                 var filePathUploadsImages = Path.Combine(imagesFolder, uniqueFileName);
 

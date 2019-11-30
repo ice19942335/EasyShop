@@ -67,7 +67,7 @@ namespace EasyShop.CP.UI.Controllers
 
                 if(saveFileResult is null)
                 {
-                    ModelState.AddModelError("", "Can't save selected picture, please try again or contact support.");
+                    ModelState.AddModelError("", "Can't save selected picture, max size 10MB, picture type should be .jpeg .jpg or .png ");
                     return View(model);
                 }
             }

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using EasyShop.Domain.Entities.Identity;
 using EasyShop.Domain.ViewModels.User.UserProfile;
 using EasyShop.Services.ExtensionMethods;

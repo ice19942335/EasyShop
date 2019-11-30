@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using EasyShop.Interfaces.Services.CP;
-using EasyShop.Services.Auth.Email;
+﻿using EasyShop.Interfaces.Services.CP;
 using EasyShop.Services.CP.FileImage;
 using EasyShop.Services.CP.UserProfile;
-using EasyShop.Services.Data;
+using EasyShop.Services.Email;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
