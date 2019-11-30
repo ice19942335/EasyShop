@@ -10,9 +10,9 @@ namespace EasyShop.CP.UI.Components
 {
     public class EmailConfirmationViewComponent : ViewComponent
     {
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly UserManager<AppUser> _userManager;
 
-        public EmailConfirmationViewComponent(UserManager<ApplicationUser> userManager)
+        public EmailConfirmationViewComponent(UserManager<AppUser> userManager)
         {
             _userManager = userManager;
         }

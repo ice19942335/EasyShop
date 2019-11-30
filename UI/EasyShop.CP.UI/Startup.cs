@@ -1,5 +1,6 @@
 using System;
 using EasyShop.CP.UI.Infrastructure.Middleware;
+using EasyShop.CP.UI.Installers;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entities.Identity;
 using EasyShop.Interfaces.Services.CP;
@@ -30,41 +31,7 @@ namespace EasyShop.CP.UI
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddHttpContextAccessor();
-            services.AddRazorPages();
-            services.AddMvcCore();
-
-            services.AddTransient<IEmailSender, EmailSender>();
-            services.AddTransient<IUserProfileServiceSql, UserProfileServiceSql>();
-            services.AddTransient<IFileImageService, FileImageService>();
-
-            services.AddDbContext<EasyShopContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
-            services.AddScoped<EasyShopContextInitializer>();
-
-            services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<EasyShopContext>()
-                .AddDefaultTokenProviders();
-
-            services.AddControllers();
-            services.AddHttpContextAccessor();
-
-            services.Configure<IdentityOptions>(options =>
-            {
-                options.Password.RequireDigit = true;
-                options.Password.RequireLowercase = true;
-                options.Password.RequireUppercase = true;
-                options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequiredLength = 10;
-                options.Password.RequiredUniqueChars = 3;
-
-                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
-                options.Lockout.MaxFailedAccessAttempts = 5;
-                options.Lockout.AllowedForNewUsers = true;
-
-                options.User.AllowedUserNameCharacters =
-                    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
-                options.User.RequireUniqueEmail = false;
-            });
+            services.InstallServicesInAssembly(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -100,7 +67,12 @@ namespace EasyShop.CP.UI
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapDefaultControllerRoute();
+                endpoints.MapAreaControllerRoute(
+                    "admin",
+                    "admin",
+                    "Admin/{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute(
+                    "default", "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

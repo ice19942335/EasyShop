@@ -20,12 +20,12 @@ namespace EasyShop.CP.UI.Controllers
     [Authorize]
     public class UserProfileController : Controller
     {
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly UserManager<AppUser> _userManager;
         private readonly IUserProfileServiceSql _userProfileService;
         private readonly IFileImageService _fileImageService;
 
         public UserProfileController(
-            UserManager<ApplicationUser> userManager, 
+            UserManager<AppUser> userManager, 
             IUserProfileServiceSql userProfileService,
             IFileImageService fileImageService)
         {

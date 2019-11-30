@@ -13,8 +13,8 @@ namespace EasyShop.CP.UI.Components
     [ViewComponent(Name = "UserStatusControlPanel")]
     public class UserStatusControlPanelViewComponent : ViewComponent
     {
-        private IUserStore<ApplicationUser> _userStore;
-        public UserStatusControlPanelViewComponent(IUserStore<ApplicationUser> userStore) => _userStore = userStore;
+        private IUserStore<AppUser> _userStore;
+        public UserStatusControlPanelViewComponent(IUserStore<AppUser> userStore) => _userStore = userStore;
         public IViewComponentResult Invoke()
         {
             var appUser = _userStore.FindByNameAsync(User.Identity.Name, default).Result;
