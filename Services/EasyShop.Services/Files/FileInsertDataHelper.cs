@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Threading.Tasks;
 using EasyShop.Interfaces.Files;
 using Microsoft.AspNetCore.Hosting;
@@ -29,10 +28,8 @@ namespace EasyShop.Services.Files
         {
             var fileFullPath = Path.Combine(_environment.WebRootPath, folderInRoot, $"{fileName}.{fileType}");
 
-            using (var reader = File.OpenText(fileFullPath))
-            {
-                return await reader.ReadToEndAsync();
-            }
+            using var reader = File.OpenText(fileFullPath);
+            return await reader.ReadToEndAsync();
         }
 
         public string ReplaceKeysWithData(string fileContent, Dictionary<string, string> data)
@@ -44,7 +41,7 @@ namespace EasyShop.Services.Files
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                throw new ApplicationException(e.Message);
             }
 
             return fileContent;
