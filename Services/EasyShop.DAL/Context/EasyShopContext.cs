@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EasyShop.DAL.Context
 {
-    public class EasyShopContext : IdentityDbContext<ApplicationUser>
+    public class EasyShopContext : IdentityDbContext<AppUser>
     {
         //Tables
 

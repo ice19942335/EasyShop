@@ -9,7 +9,7 @@ namespace EasyShop.Services.Mappers.ViewModels
 {
     public static class UserViewModelMapper
     {
-        private static void CopyToUserProfileViewModel(this ApplicationUser user, UserProfileViewModel model)
+        private static void CopyToUserProfileViewModel(this AppUser user, UserProfileViewModel model)
         {
             model.FirstName = user.FirstName;
             model.LastName = user.LastName;
@@ -22,18 +22,18 @@ namespace EasyShop.Services.Mappers.ViewModels
         }
 
         /// <summary>
-        /// Converting ApplicationUser to UserProfileViewModel
+        /// Converting AppUser to UserProfileViewModel
         /// </summary>
         /// <param name="user"></param>
         /// <returns>UserProfileViewModel</returns>
-        public static UserProfileViewModel CreateViewModel(this ApplicationUser user)
+        public static UserProfileViewModel CreateViewModel(this AppUser user)
         {
             var model = new UserProfileViewModel();
             user.CopyToUserProfileViewModel(model);
             return model;
         }
 
-        private static void CopyToApplicationUser(this UserProfileViewModel model, ApplicationUser user)
+        private static void CopyToApplicationUser(this UserProfileViewModel model, AppUser user)
         {
             var dateArr = model.BirthDateToUpdate.Split('-');
             var birthDate = new DateTime(Int32.Parse(dateArr[2]), Int32.Parse(dateArr[0]), Int32.Parse(dateArr[1]));
@@ -49,12 +49,12 @@ namespace EasyShop.Services.Mappers.ViewModels
         }
 
         /// <summary>
-        /// Applying changed fields and return ApplicationUser
+        /// Applying changed fields and return AppUser
         /// </summary>
         /// <param name="model"></param>
         /// <param name="user"></param>
-        /// <returns>ApplicationUser</returns>
-        public static ApplicationUser CreateApplicationUser(this UserProfileViewModel model, ApplicationUser user)
+        /// <returns>AppUser</returns>
+        public static AppUser CreateApplicationUser(this UserProfileViewModel model, AppUser user)
         {
             model.CopyToApplicationUser(user);
             return user;

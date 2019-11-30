@@ -11,10 +11,10 @@ namespace EasyShop.Services.Data
     public class EasyShopContextInitializer
     {
         private readonly EasyShopContext _context;
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly UserManager<AppUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
 
-        public EasyShopContextInitializer(EasyShopContext context, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+        public EasyShopContextInitializer(EasyShopContext context, UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _context = context;
             _userManager = userManager;
@@ -30,18 +30,18 @@ namespace EasyShop.Services.Data
 
         private async Task InitializeIdentity()
         {
-            if (!await _roleManager.RoleExistsAsync(ApplicationUser.RoleUser))
-                await _roleManager.CreateAsync(new IdentityRole(ApplicationUser.RoleUser));
+            if (!await _roleManager.RoleExistsAsync(AppUser.RoleUser))
+                await _roleManager.CreateAsync(new IdentityRole(AppUser.RoleUser));
 
-            if (!await _roleManager.RoleExistsAsync(ApplicationUser.RoleAdministrator))
-                await _roleManager.CreateAsync(new IdentityRole(ApplicationUser.RoleAdministrator));
+            if (!await _roleManager.RoleExistsAsync(AppUser.RoleAdministrator))
+                await _roleManager.CreateAsync(new IdentityRole(AppUser.RoleAdministrator));
 
-            if (await _userManager.FindByNameAsync(ApplicationUser.AdminUserName) == null)
+            if (await _userManager.FindByNameAsync(AppUser.AdminUserName) == null)
             {
-                var admin = new ApplicationUser
+                var admin = new AppUser
                 {
-                    UserName = ApplicationUser.AdminUserName,
-                    Email = ApplicationUser.AdminUserName,
+                    UserName = AppUser.AdminUserName,
+                    Email = AppUser.AdminUserName,
                     FirstName = "Aleksejs",
                     LastName = "Birula",
                     BirthDate = new DateTime(1994, 10, 5),
@@ -53,10 +53,10 @@ namespace EasyShop.Services.Data
                     ProfileImage = "default-profile-male.jpg"
                 };
 
-                var creationResult = await _userManager.CreateAsync(admin, ApplicationUser.DefaultAdminPassword);
+                var creationResult = await _userManager.CreateAsync(admin, AppUser.DefaultAdminPassword);
 
                 if (creationResult.Succeeded)
-                    await _userManager.AddToRoleAsync(admin, ApplicationUser.RoleAdministrator);
+                    await _userManager.AddToRoleAsync(admin, AppUser.RoleAdministrator);
                 else
                     throw new ApplicationException("Admin creation error\n" + $"Error list:\n" + $"{string.Join(", ", creationResult.Errors.Select(e => e.Description))}");
                 

@@ -16,12 +16,12 @@ namespace EasyShop.Services.CP.UserProfile
 {
     public class UserProfileServiceSql : IUserProfileServiceSql
     {
-        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly UserManager<AppUser> _userManager;
         private readonly EasyShopContext _context;
         private readonly ILogger<UserProfileServiceSql> _logger;
 
         public UserProfileServiceSql(
-            UserManager<ApplicationUser> userManager,
+            UserManager<AppUser> userManager,
             EasyShopContext context,
             ILogger<UserProfileServiceSql> logger)
         {

@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyShop.Services", "Servic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyShop.CP.UI", "UI\EasyShop.CP.UI\EasyShop.CP.UI.csproj", "{92796BD3-4386-4517-A23D-88DDC58FF125}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyShop.Logger", "Common\EasyShop.Logger\EasyShop.Logger.csproj", "{22812D9A-05E3-4004-8508-25BF7D019E96}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyShop.Logger", "Common\EasyShop.Logger\EasyShop.Logger.csproj", "{22812D9A-05E3-4004-8508-25BF7D019E96}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -23,15 +23,15 @@ namespace EasyShop.CP.UI.Controllers
     public class AccountController : Controller
     {
         private readonly IWebHostEnvironment _environment;
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly SignInManager<AppUser> _signInManager;
         private readonly ILogger<AccountController> _logger;
         private readonly IEmailSender _emailSender;
 
         public AccountController(
             IWebHostEnvironment environment,
-            UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager,
+            UserManager<AppUser> userManager,
+            SignInManager<AppUser> signInManager,
             ILogger<AccountController> logger, 
             IEmailSender emailSender)
         {
@@ -57,7 +57,7 @@ namespace EasyShop.CP.UI.Controllers
             {
                 var profileImage = DefaultPictureNameHelper.GetDefaultPictureName(model.Gender);
 
-                var user = new ApplicationUser
+                var user = new AppUser
                 {
                     UserName = model.Email,
                     Email = model.Email,

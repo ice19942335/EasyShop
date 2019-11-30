@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace EasyShop.Domain.Entities.Identity
 {
-    public class ApplicationUser : IdentityUser
+    public class AppUser : IdentityUser
     {
         public const string AdminUserName = "aleksejbirula@gmail.com";
         public const string DefaultAdminPassword = "AdminPassword123";
