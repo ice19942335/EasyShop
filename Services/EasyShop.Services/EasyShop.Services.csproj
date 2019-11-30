@@ -15,4 +15,8 @@
     <ProjectReference Include="..\EasyShop.Interfaces\EasyShop.Interfaces.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Email\" />
+  </ItemGroup>
+
 </Project>

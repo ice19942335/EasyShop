@@ -8,7 +8,7 @@ namespace EasyShop.Services.ExtensionMethods
 {
     public static class DefaultPictureNameHelper
     {
-        private static string[] _defaultPictures = new[] { "default-profile-male.jpg", "default-profile-female.jpg", "not-specified.jpg" };
+        private static readonly string[] DefaultPictures = { "default-profile-male.jpg", "default-profile-female.jpg", "not-specified.jpg" };
 
         /// <summary>
         /// Return default picture name depend on user gender
@@ -20,11 +20,11 @@ namespace EasyShop.Services.ExtensionMethods
             string profileImage;
 
             if (gender == 1)
-                profileImage = _defaultPictures[0];
+                profileImage = DefaultPictures[0];
             else if (gender == 2)
-                profileImage = _defaultPictures[1];
+                profileImage = DefaultPictures[1];
             else
-                profileImage = _defaultPictures[2];
+                profileImage = DefaultPictures[2];
 
             return profileImage;
         }
@@ -36,7 +36,7 @@ namespace EasyShop.Services.ExtensionMethods
         /// <returns></returns>
         public static bool IsPictureDefault(string pictureName)
         {
-            if (_defaultPictures.Contains(pictureName))
+            if (DefaultPictures.Contains(pictureName))
                 return true;
 
             return false;
