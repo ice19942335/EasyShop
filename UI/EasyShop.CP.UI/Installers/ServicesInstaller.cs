@@ -23,7 +23,7 @@ namespace EasyShop.CP.UI.Installers
             services.AddTransient<IFileImageService, FileImageService>();
 
             //Scooped
-            services.AddScoped<EasyShopContextInitializer>();
+
 
             //SingleTone
         }

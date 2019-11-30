@@ -32,7 +32,7 @@ namespace EasyShop.Services.CP.FileImage
                 .Select(path => Path.GetFileName(path));
         }
 
-        public async Task<string?> SaveFile(UserProfileViewModel model, string folder)
+        public async Task<string> SaveFile(UserProfileViewModel model, string folder)
         {
             var imagesFolder = Path.Combine(_environment.WebRootPath, folder);
 

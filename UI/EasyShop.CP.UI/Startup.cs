@@ -35,15 +35,9 @@ namespace EasyShop.CP.UI
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(
-            IApplicationBuilder app, 
-            IWebHostEnvironment env, 
-            EasyShopContextInitializer contextInitializer, 
-            ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddLog4Net();
-
-            contextInitializer.Initialize().Wait();
 
             if (env.IsDevelopment())
             {
