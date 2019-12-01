@@ -6,6 +6,8 @@ using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entities.Identity;
 using EasyShop.Domain.ViewModels.Account;
+using EasyShop.Interfaces.Services.CP;
+using EasyShop.Services.CP.Account;
 using EasyShop.Services.ExtensionMethods;
 using EasyShop.Services.Files;
 using Microsoft.AspNetCore.Authorization;
@@ -27,19 +29,22 @@ namespace EasyShop.CP.UI.Controllers
         private readonly SignInManager<AppUser> _signInManager;
         private readonly ILogger<AccountController> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly IAccountService _accountService;
 
         public AccountController(
             IWebHostEnvironment environment,
             UserManager<AppUser> userManager,
             SignInManager<AppUser> signInManager,
             ILogger<AccountController> logger, 
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            IAccountService accountService)
         {
             _environment = environment;
             _userManager = userManager; 
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _accountService = accountService;
         }
 
         [AllowAnonymous]
@@ -53,69 +58,20 @@ namespace EasyShop.CP.UI.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            using (_logger.BeginScope($"New user registration: {model.Email}"))
+            var result = await _accountService.Register(model, Url);
+
+            if (!result.Success)
             {
-                var profileImage = DefaultPictureNameHelper.GetDefaultPictureName(model.Gender);
-
-                var user = new AppUser
-                {
-                    UserName = model.Email,
-                    Email = model.Email,
-                    FirstName = model.Firstname,
-                    LastName = model.LastName,
-                    BirthDate = new DateTime(model.Year, model.Day, Int32.Parse(model.Month)),
-                    Gender = model.Gender,
-                    TransactionPercent = 1,
-                    ShopsAllowed = 2,
-                    RegistrationDate = DateTime.Now,
-                    ProfileImage = profileImage
-                };
-
-                var creationResult = await _userManager.CreateAsync(user, model.Password);
-
-                if (creationResult.Succeeded)
-                {
-                    _logger.LogInformation($"User: {model.Email} successfully registered in system.");
-
-                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    var callbackUrl = Url.Action(
-                        "ConfirmEmail",
-                        "Account",
-                        new {userId = user.Id, code = code},
-                        protocol: HttpContext.Request.Scheme);
-
-                    Dictionary<string, string> data = new Dictionary<string, string>
-                    {
-                        { "callbackUrl", callbackUrl }
-                    };
-
-                    var fileInsertDataHelper = new FileInsertDataHelper(
-                        _environment,
-                        "EmailConfirmationLink",
-                        "txt",
-                        "Interpolation",
-                        data);
-
-                    await _emailSender.SendEmailAsync(
-                        user.Email,
-                        "E-mail confirmation Monetization",
-                        fileInsertDataHelper.GetResult().Result);
-
-                    await _signInManager.SignInAsync(user, false);
-
-                    return RedirectToAction("EmailConfirmation", "UserProfile");
-                }
-
-                foreach (var error in creationResult.Errors)
-                    ModelState.AddModelError("", error.Description);
-
-                _logger.LogWarning(
-                    "Registration error, User: {0}, Errors: {1}",
-                    model.Email,
-                    string.Join(",\n", creationResult.Errors.Select(err => err.Description))
-                );
+                result.Errors.ToList().ForEach(x => ModelState.AddModelError("", x));
+                return View(model);
             }
 
+            if (result.RedirectToAction != null)
+            {
+                var redirectData = result.RedirectToAction.First();
+                return RedirectToAction(redirectData.Key, redirectData.Value);
+            }
+            
             return View(model);
         }
 
