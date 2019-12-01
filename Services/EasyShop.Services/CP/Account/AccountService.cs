@@ -45,7 +45,7 @@ namespace EasyShop.Services.CP.Account
             _emailSender = emailSender;
         }
 
-        public async Task<AccountRegistrationDto> Register(RegisterUserViewModel model, IUrlHelper url)
+        public async Task<AccountDto> Register(RegisterUserViewModel model, IUrlHelper url)
         {
             using (_logger.BeginScope($"New user registration: {model.Email}"))
             {
@@ -94,7 +94,7 @@ namespace EasyShop.Services.CP.Account
 
                     await _signInManager.SignInAsync(user, false);
 
-                    return new AccountRegistrationDto
+                    return new AccountDto
                     {
                         RedirectToAction = new Dictionary<string, string> { { "EmailConfirmation", "UserProfile" } },
                         Success = true
@@ -107,8 +107,44 @@ namespace EasyShop.Services.CP.Account
                     string.Join(",\n", creationResult.Errors.Select(err => err.Description))
                 );
 
-                return new AccountRegistrationDto { Errors = creationResult.Errors.Select(x => x.Description) };
+                return new AccountDto { Errors = creationResult.Errors.Select(x => x.Description) };
             }
+        }
+
+        public async Task<AccountDto> Login(LoginUserViewModel model, IUrlHelper url)
+        {
+            var loginResult = await _signInManager
+                .PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, false);
+
+            if (loginResult.Succeeded)
+            {
+                _logger.LogInformation($"User: {model.UserName} successfully logged in.");
+
+                var user = await _userManager.FindByNameAsync(model.UserName);
+
+                if (!await _userManager.IsEmailConfirmedAsync(user))
+                    return new AccountDto
+                    {
+                        RedirectToAction = new Dictionary<string, string> { { "EmailConfirmation", "UserProfile" } },
+                        Success = true
+                    };
+
+                if (url.IsLocalUrl(model.ReturnUrl))
+                    return new AccountDto
+                    {
+                        LocalRedirect = model.ReturnUrl,
+                        Success = true
+                    };
+
+                return new AccountDto
+                {
+                    RedirectToAction = new Dictionary<string, string> { { "Index", "Home" } },
+                    Success = true
+                };
+            }
+
+            _logger.LogWarning($"User: {model.UserName} login error.");
+            return new AccountDto { Errors = new[] { "Username or password is incorrect, please try again." } };
         }
     }
 }
