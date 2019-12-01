@@ -1,27 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entities.Identity;
 using EasyShop.Domain.ViewModels.Account;
 using EasyShop.Interfaces.Services.CP;
-using EasyShop.Services.CP.Account;
-using EasyShop.Services.ExtensionMethods;
 using EasyShop.Services.Files;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.WebUtilities;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.Extensions.Logging;
 
 namespace EasyShop.CP.UI.Controllers
 {
-    [Authorize]
     public class AccountController : Controller
     {
         private readonly IWebHostEnvironment _environment;
@@ -47,66 +39,58 @@ namespace EasyShop.CP.UI.Controllers
             _accountService = accountService;
         }
 
-        [AllowAnonymous]
         public IActionResult Register() => View();
 
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterUserViewModel model)
         {
             if (!ModelState.IsValid)
                 return View(model);
 
-            var result = await _accountService.Register(model, Url);
+            var registrationResult = await _accountService.Register(model, Url);
 
-            if (!result.Success)
+            if (!registrationResult.Success)
             {
-                result.Errors.ToList().ForEach(x => ModelState.AddModelError("", x));
+                registrationResult.Errors.ToList().ForEach(x => ModelState.AddModelError("", x));
                 return View(model);
             }
 
-            if (result.RedirectToAction != null)
+            if (registrationResult.RedirectToAction != null)
             {
-                var redirectData = result.RedirectToAction.First();
+                var redirectData = registrationResult.RedirectToAction.First();
                 return RedirectToAction(redirectData.Key, redirectData.Value);
             }
             
             return View(model);
         }
 
-        [AllowAnonymous]
         public IActionResult Login() => View();
 
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginUserViewModel model)
         {
             if (!ModelState.IsValid)
                 return View(model);
 
-            var loginResult = await _signInManager
-                .PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, false);
+            var loginResult = await _accountService.Login(model, Url);
 
-            if (loginResult.Succeeded)
+            if (!loginResult.Success)
             {
-                _logger.LogInformation($"User: {model.UserName} successfully logged in.");
-
-                var user = await _userManager.FindByNameAsync(model.UserName);
-
-                if (!await _userManager.IsEmailConfirmedAsync(user))
-                    return RedirectToAction("EmailConfirmation", "UserProfile");
-
-                if (Url.IsLocalUrl(model.ReturnUrl))
-                    return LocalRedirect(model.ReturnUrl);
-
-                return RedirectToAction("Index", "Home");
+                loginResult.Errors.ToList().ForEach(x => ModelState.AddModelError("", x));
+                return View(model);
             }
 
-            ModelState.AddModelError("", "Username or password is incorrect, please try again.");
-
-            _logger.LogWarning($"User: {model.UserName} login error.");
+            if (loginResult.RedirectToAction != null)
+            {
+                var redirectData = loginResult.RedirectToAction.First();
+                return RedirectToAction(redirectData.Key, redirectData.Value);
+            } 
+            else if (loginResult.LocalRedirect != null)
+            {
+                return LocalRedirect(loginResult.LocalRedirect);
+            }
 
             return View(model);
         }
@@ -119,7 +103,6 @@ namespace EasyShop.CP.UI.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
         public async Task<IActionResult> ConfirmEmail(string userId, string code)
         {
             if(userId == null || code == null)
@@ -189,14 +172,12 @@ namespace EasyShop.CP.UI.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
         public IActionResult ForgotPassword()
         {
             return View();
         }
 
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel model)
         {
@@ -240,14 +221,12 @@ namespace EasyShop.CP.UI.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
         public IActionResult ResetPassword(string code = null)
         {
             return code == null ? View("AccessDenied") : View();
         }
 
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
         {
