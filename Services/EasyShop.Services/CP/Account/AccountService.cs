@@ -45,7 +45,7 @@ namespace EasyShop.Services.CP.Account
             _emailSender = emailSender;
         }
 
-        public async Task<AccountDto> Register(RegisterUserViewModel model, IUrlHelper url)
+        public async Task<AccountDto> RegisterAsync(RegisterUserViewModel model, IUrlHelper url)
         {
             using (_logger.BeginScope($"New user registration: {model.Email}"))
             {
@@ -111,7 +111,7 @@ namespace EasyShop.Services.CP.Account
             }
         }
 
-        public async Task<AccountDto> Login(LoginUserViewModel model, IUrlHelper url)
+        public async Task<AccountDto> LoginAsync(LoginUserViewModel model, IUrlHelper url)
         {
             var loginResult = await _signInManager
                 .PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, false);
@@ -145,6 +145,11 @@ namespace EasyShop.Services.CP.Account
 
             _logger.LogWarning($"User: {model.UserName} login error.");
             return new AccountDto { Errors = new[] { "Username or password is incorrect, please try again." } };
+        }
+
+        public async Task<AccountDto> SendEmailConfirmationLinkAsync(string username)
+        {
+            return new AccountDto();
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entities.Identity;
+using EasyShop.Domain.Enums;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,9 +22,9 @@ namespace EasyShop.CP.UI.Components
             var user = _userManager.FindByNameAsync(User.Identity.Name).Result;
 
             if (user is null)
-                return View(false);
+                return View(EmailConfirmationEnum.SomethingWentWrong);
 
-            return View(user.EmailConfirmed);
+            return View(user.EmailConfirmed ? EmailConfirmationEnum.EmailIsConfirmed : EmailConfirmationEnum.EmailNotConfirmed);
         }
     }
 }

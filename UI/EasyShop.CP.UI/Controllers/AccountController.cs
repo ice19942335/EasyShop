@@ -27,12 +27,12 @@ namespace EasyShop.CP.UI.Controllers
             IWebHostEnvironment environment,
             UserManager<AppUser> userManager,
             SignInManager<AppUser> signInManager,
-            ILogger<AccountController> logger, 
+            ILogger<AccountController> logger,
             IEmailSender emailSender,
             IAccountService accountService)
         {
             _environment = environment;
-            _userManager = userManager; 
+            _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
@@ -48,7 +48,7 @@ namespace EasyShop.CP.UI.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            var registrationResult = await _accountService.Register(model, Url);
+            var registrationResult = await _accountService.RegisterAsync(model, Url);
 
             if (!registrationResult.Success)
             {
@@ -61,7 +61,7 @@ namespace EasyShop.CP.UI.Controllers
                 var redirectData = registrationResult.RedirectToAction.First();
                 return RedirectToAction(redirectData.Key, redirectData.Value);
             }
-            
+
             return View(model);
         }
 
@@ -74,7 +74,7 @@ namespace EasyShop.CP.UI.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            var loginResult = await _accountService.Login(model, Url);
+            var loginResult = await _accountService.LoginAsync(model, Url);
 
             if (!loginResult.Success)
             {
@@ -86,7 +86,7 @@ namespace EasyShop.CP.UI.Controllers
             {
                 var redirectData = loginResult.RedirectToAction.First();
                 return RedirectToAction(redirectData.Key, redirectData.Value);
-            } 
+            }
             else if (loginResult.LocalRedirect != null)
             {
                 return LocalRedirect(loginResult.LocalRedirect);
@@ -102,10 +102,23 @@ namespace EasyShop.CP.UI.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SendEmailConfirmationLink([FromQuery] string userName)
+        {
+
+            var sendLinkResult = await _accountService.SendEmailConfirmationLinkAsync(userName);
+
+            if(!sendLinkResult.Success)
+                return RedirectToAction("EmailConfirmationRequestHasBeenSent", "UserProfile");
+
+            return RedirectToAction("EmailConfirmationRequestHasBeenSent", "UserProfile");
+        }
+
         [HttpGet]
         public async Task<IActionResult> ConfirmEmail(string userId, string code)
         {
-            if(userId == null || code == null)
+            if (userId == null || code == null)
                 return View(nameof(AccessDenied));
 
             var user = await _userManager.FindByIdAsync(userId);
@@ -132,45 +145,6 @@ namespace EasyShop.CP.UI.Controllers
             }
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> SendEmailConfirmationLink([FromQuery] string userName)
-        {
-
-            var user = await _userManager.FindByNameAsync(userName);
-
-            if (user is null)
-                return View(nameof(AccessDenied));
-
-            var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-            var callbackUrl = Url.Action(
-                nameof(ConfirmEmail),
-                "Account",
-                new { userId = user.Id, code = code },
-                protocol: HttpContext.Request.Scheme);
-
-            Dictionary<string, string> data = new Dictionary<string, string>
-            {
-                { "callbackUrl", callbackUrl }
-            };
-
-            var fileInsertDataHelper = new FileInsertDataHelper(
-                _environment,
-                "EmailConfirmationLink",
-                "txt", 
-                "Interpolation",
-                data);
-
-            await _emailSender.SendEmailAsync(
-                user.Email,
-                "Monetization | Confirm E-mail",
-                fileInsertDataHelper.GetResult().Result);
-
-            _logger.LogInformation($"Confirmation link was sent to User: {userName}, Confirmation link: {callbackUrl}");
-
-            return RedirectToAction("EmailConfirmationRequestHasBeenSent", "UserProfile");
-        }
-
         [HttpGet]
         public IActionResult ForgotPassword()
         {
@@ -193,13 +167,10 @@ namespace EasyShop.CP.UI.Controllers
 
             var callbackUrl = Url.Action("ResetPassword",
                 "Account",
-                new {userId = user.Id, code = code},
+                new { userId = user.Id, code = code },
                 protocol: HttpContext.Request.Scheme);
 
-            Dictionary<string, string> data = new Dictionary<string, string>
-            {
-                { "callbackUrl", callbackUrl }
-            };
+            Dictionary<string, string> data = new Dictionary<string, string> { { "callbackUrl", callbackUrl } };
 
             var fileInsertDataHelper = new FileInsertDataHelper(
                 _environment,
@@ -232,12 +203,12 @@ namespace EasyShop.CP.UI.Controllers
         {
             if (!ModelState.IsValid)
                 return View(model);
-            
+
             var user = await _userManager.FindByNameAsync(model.Email);
 
             if (user == null)
                 return View("ResetPasswordConfirmation");
-            
+
             var result = await _userManager.ResetPasswordAsync(user, model.Code, model.Password);
 
             if (result.Succeeded)
