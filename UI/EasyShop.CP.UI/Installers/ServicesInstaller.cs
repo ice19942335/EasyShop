@@ -1,9 +1,10 @@
-﻿using EasyShop.Interfaces.Services.CP;
+﻿using EasyShop.Interfaces.Email;
+using EasyShop.Interfaces.Services.CP;
 using EasyShop.Services.CP.Account;
 using EasyShop.Services.CP.FileImage;
 using EasyShop.Services.CP.UserProfile;
 using EasyShop.Services.Email;
-using Microsoft.AspNetCore.Identity.UI.Services;
+
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

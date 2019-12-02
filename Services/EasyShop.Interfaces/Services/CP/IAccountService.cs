@@ -12,8 +12,10 @@ namespace EasyShop.Interfaces.Services.CP
 {
     public interface IAccountService
     {
-        Task<AccountDto> Register(RegisterUserViewModel model, IUrlHelper url);
+        Task<AccountDto> RegisterAsync(RegisterUserViewModel model, IUrlHelper url);
 
-        Task<AccountDto> Login(LoginUserViewModel model, IUrlHelper url);
+        Task<AccountDto> LoginAsync(LoginUserViewModel model, IUrlHelper url);
+
+        Task<AccountDto> SendEmailConfirmationLinkAsync(string userName, IUrlHelper url);
     }
 }

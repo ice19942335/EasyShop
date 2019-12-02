@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using EasyShop.Domain.Dto.CP.Account;
 using EasyShop.Domain.Entities.Identity;
 using EasyShop.Domain.ViewModels.Account;
+using EasyShop.Interfaces.Email;
 using EasyShop.Interfaces.Services.CP;
 using EasyShop.Services.ExtensionMethods;
 using EasyShop.Services.Files;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.Extensions.Logging;
@@ -45,7 +46,7 @@ namespace EasyShop.Services.CP.Account
             _emailSender = emailSender;
         }
 
-        public async Task<AccountDto> Register(RegisterUserViewModel model, IUrlHelper url)
+        public async Task<AccountDto> RegisterAsync(RegisterUserViewModel model, IUrlHelper url)
         {
             using (_logger.BeginScope($"New user registration: {model.Email}"))
             {
@@ -111,7 +112,7 @@ namespace EasyShop.Services.CP.Account
             }
         }
 
-        public async Task<AccountDto> Login(LoginUserViewModel model, IUrlHelper url)
+        public async Task<AccountDto> LoginAsync(LoginUserViewModel model, IUrlHelper url)
         {
             var loginResult = await _signInManager
                 .PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, false);
@@ -145,6 +146,42 @@ namespace EasyShop.Services.CP.Account
 
             _logger.LogWarning($"User: {model.UserName} login error.");
             return new AccountDto { Errors = new[] { "Username or password is incorrect, please try again." } };
+        }
+
+        public async Task<AccountDto> SendEmailConfirmationLinkAsync(string userName, IUrlHelper url)
+        {
+            var user = await _userManager.FindByNameAsync(userName);
+
+            if (user is null)
+                return new AccountDto();
+
+            var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            var callbackUrl = url.Action(
+                "ConfirmEmail",
+                "Account",
+                new { userId = user.Id, code = code },
+                protocol: _httpContext.HttpContext.Request.Scheme);
+
+            var data = new Dictionary<string, string> { { "callbackUrl", callbackUrl } };
+            var fileInsertDataHelper = new FileInsertDataHelper(
+                _environment,
+                "EmailConfirmationLink",
+                "txt",
+                "Interpolation",
+                data);
+
+            var response = await _emailSender.SendEmailAsync(
+                user.Email,
+                "Monetization | Confirm E-mail",
+                fileInsertDataHelper.GetResult().Result);
+
+            if (response.StatusCode == HttpStatusCode.Accepted)
+            {
+                _logger.LogInformation($"Confirmation link was sent to User: {userName}, Confirmation link: {callbackUrl}");
+                return new AccountDto { Success = true };
+            }
+
+            return new AccountDto();
         }
     }
 }

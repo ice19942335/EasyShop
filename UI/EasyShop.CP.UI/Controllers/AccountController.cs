@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entities.Identity;
 using EasyShop.Domain.ViewModels.Account;
+using EasyShop.Interfaces.Email;
 using EasyShop.Interfaces.Services.CP;
 using EasyShop.Services.Files;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -48,7 +50,7 @@ namespace EasyShop.CP.UI.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            var registrationResult = await _accountService.Register(model, Url);
+            var registrationResult = await _accountService.RegisterAsync(model, Url);
 
             if (!registrationResult.Success)
             {
@@ -74,7 +76,7 @@ namespace EasyShop.CP.UI.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            var loginResult = await _accountService.Login(model, Url);
+            var loginResult = await _accountService.LoginAsync(model, Url);
 
             if (!loginResult.Success)
             {
@@ -133,41 +135,15 @@ namespace EasyShop.CP.UI.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> SendEmailConfirmationLink([FromQuery] string userName)
+        public async Task<IActionResult> SendEmailConfirmationLink()
         {
+            var sendLinkResult = await _accountService.SendEmailConfirmationLinkAsync(User.Identity.Name, Url);
 
-            var user = await _userManager.FindByNameAsync(userName);
-
-            if (user is null)
-                return View(nameof(AccessDenied));
-
-            var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-            var callbackUrl = Url.Action(
-                nameof(ConfirmEmail),
-                "Account",
-                new { userId = user.Id, code = code },
-                protocol: HttpContext.Request.Scheme);
-
-            Dictionary<string, string> data = new Dictionary<string, string>
-            {
-                { "callbackUrl", callbackUrl }
-            };
-
-            var fileInsertDataHelper = new FileInsertDataHelper(
-                _environment,
-                "EmailConfirmationLink",
-                "txt", 
-                "Interpolation",
-                data);
-
-            await _emailSender.SendEmailAsync(
-                user.Email,
-                "Monetization | Confirm E-mail",
-                fileInsertDataHelper.GetResult().Result);
-
-            _logger.LogInformation($"Confirmation link was sent to User: {userName}, Confirmation link: {callbackUrl}");
-
+            if (!sendLinkResult.Success)
+                return RedirectToAction("SomethingWentWrong", "UserProfile");
+            
             return RedirectToAction("EmailConfirmationRequestHasBeenSent", "UserProfile");
         }
 
