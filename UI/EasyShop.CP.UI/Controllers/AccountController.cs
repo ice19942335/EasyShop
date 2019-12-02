@@ -142,7 +142,7 @@ namespace EasyShop.CP.UI.Controllers
             var sendLinkResult = await _accountService.SendEmailConfirmationLinkAsync(User.Identity.Name, Url);
 
             if (!sendLinkResult.Success)
-                return View(nameof(AccessDenied));
+                return RedirectToAction("SomethingWentWrong", "UserProfile");
             
             return RedirectToAction("EmailConfirmationRequestHasBeenSent", "UserProfile");
         }

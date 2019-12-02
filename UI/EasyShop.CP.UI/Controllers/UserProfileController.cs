@@ -42,6 +42,8 @@ namespace EasyShop.CP.UI.Controllers
 
         public IActionResult EmailConfirmationRequestHasBeenSent() => View();
 
+        public IActionResult SomethingWentWrong() => View();
+
         public async Task<IActionResult> Profile()
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
