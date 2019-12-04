@@ -44,6 +44,15 @@
                     </div>
                 </div>
                 <div class="row gutter-xs">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input asp-for="ConfirmPassword" id="confirmPassword" class="form-control" type="password" minlength="10" data-msg-minlength="Password must be 10 characters or more." data-msg-required="Please enter your password." required>
+                            <small class="help-block">10-character minimum, case sensitive.</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gutter-xs">
                     <div class="col-xs-12">
                         <div class="form-group">
                             <label for="birth-month">Birthdate</label>
