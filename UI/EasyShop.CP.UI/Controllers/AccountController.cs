@@ -48,7 +48,12 @@ namespace EasyShop.CP.UI.Controllers
         public async Task<IActionResult> Register(RegisterUserViewModel model)
         {
             if (!ModelState.IsValid)
+            {
+                var errorsList = ModelState.Values.SelectMany(x => x.Errors.Select(xx => xx.ErrorMessage)).ToList();
+                errorsList.ForEach(x => ModelState.AddModelError("", x));
                 return View(model);
+            }
+                
 
             var registrationResult = await _accountService.RegisterAsync(model, Url);
 
@@ -74,8 +79,12 @@ namespace EasyShop.CP.UI.Controllers
         public async Task<IActionResult> Login(LoginUserViewModel model)
         {
             if (!ModelState.IsValid)
+            {
+                var errorsList = ModelState.Values.SelectMany(x => x.Errors.Select(xx => xx.ErrorMessage)).ToList();
+                errorsList.ForEach(x => ModelState.AddModelError("", x));
                 return View(model);
-
+            }
+            
             var loginResult = await _accountService.LoginAsync(model, Url);
 
             if (!loginResult.Success)
