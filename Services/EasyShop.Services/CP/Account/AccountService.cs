@@ -90,7 +90,7 @@ namespace EasyShop.Services.CP.Account
 
                     await _emailSender.SendEmailAsync(
                         user.Email,
-                        "E-mail confirmation Monetization",
+                        "Monetization | Confirm E-mail",
                         fileInsertDataHelper.GetResult().Result);
 
                     await _signInManager.SignInAsync(user, false);
@@ -155,11 +155,11 @@ namespace EasyShop.Services.CP.Account
             if (user is null)
                 return new AccountDto();
 
-            var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
             var callbackUrl = url.Action(
                 "ConfirmEmail",
                 "Account",
-                new { userId = user.Id, code = code },
+                new { userId = user.Id, token = token },
                 protocol: _httpContext.HttpContext.Request.Scheme);
 
             var data = new Dictionary<string, string> { { "callbackUrl", callbackUrl } };
@@ -182,6 +182,34 @@ namespace EasyShop.Services.CP.Account
             }
 
             return new AccountDto();
+        }
+
+        public async Task<AccountDto> ConfirmEmail(string userId, string token)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+
+            if (user is null)
+                return new AccountDto { RedirectToAction = new Dictionary<string, string> { { "Account", "AccessDenied" } } };
+
+            var result = await _userManager.ConfirmEmailAsync(user, token);
+
+            if (!result.Succeeded)
+            {
+                _logger.LogWarning(
+                    "Date ({0}) User: {1} email confirmation failed. Errors: {2}",
+                    DateTime.Now,
+                    user.UserName,
+                    string.Join(", ", result.Errors.Select(e => e.Description))
+                );
+                return new AccountDto { RedirectToAction = new Dictionary<string, string> { { "Account", "AccessDenied" } } };
+            }
+
+            _logger.LogInformation($"User: {user.UserName} successfully confirmed email");
+            return new AccountDto
+            {
+                RedirectToAction = new Dictionary<string, string> { { "EmailConfirmation", "UserProfile" } },
+                Success = true
+            };
         }
     }
 }
