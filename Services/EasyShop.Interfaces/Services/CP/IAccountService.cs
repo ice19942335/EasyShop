@@ -17,5 +17,7 @@ namespace EasyShop.Interfaces.Services.CP
         Task<AccountDto> LoginAsync(LoginUserViewModel model, IUrlHelper url);
 
         Task<AccountDto> SendEmailConfirmationLinkAsync(string userName, IUrlHelper url);
+
+        Task<AccountDto> ConfirmEmail(string userId, string token);
     }
 }

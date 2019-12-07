@@ -114,33 +114,27 @@ namespace EasyShop.CP.UI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> ConfirmEmail(string userId, string code)
+        public async Task<IActionResult> ConfirmEmail(string userId, string token)
         {
-            if(userId == null || code == null)
+            if (userId == null || token == null)
                 return View(nameof(AccessDenied));
 
-            var user = await _userManager.FindByIdAsync(userId);
+            var confirmationResult = await _accountService.ConfirmEmail(userId, token);
 
-            if (user is null)
-                return View(nameof(AccessDenied));
-
-            var result = await _userManager.ConfirmEmailAsync(user, code);
-
-            if (result.Succeeded)
+            if (confirmationResult.RedirectToAction != null)
             {
-                _logger.LogInformation($"User: {user.UserName} successfully confirmed email");
-                return RedirectToAction("EmailConfirmation", "UserProfile");
+                KeyValuePair<string, string> redirectData;
+                if (!confirmationResult.Success)
+                {
+                    redirectData = confirmationResult.RedirectToAction.First();
+                    return RedirectToAction(redirectData.Key, redirectData.Value);
+                }
+
+                redirectData = confirmationResult.RedirectToAction.First();
+                return RedirectToAction(redirectData.Key, redirectData.Value);
             }
-            else
-            {
-                _logger.LogWarning(
-                    "Date ({0}) User: {1} email confirmation failed. Errors: {2}",
-                    DateTime.Now,
-                    user.UserName,
-                    string.Join(", ", result.Errors.Select(e => e.Description))
-                );
-                return View(nameof(AccessDenied));
-            }
+
+            return RedirectToAction("ErrorStatus", "Home", new { id = 404 }, null);
         }
 
         [HttpPost]
@@ -174,11 +168,11 @@ namespace EasyShop.CP.UI.Controllers
             if (user is null || !await _userManager.IsEmailConfirmedAsync(user))
                 return View("ForgotPasswordConfirmation");
 
-            var code = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
 
             var callbackUrl = Url.Action("ResetPassword",
                 "Account",
-                new {userId = user.Id, code = code},
+                new {userId = user.Id, token = token},
                 protocol: HttpContext.Request.Scheme);
 
             Dictionary<string, string> data = new Dictionary<string, string>
@@ -206,9 +200,9 @@ namespace EasyShop.CP.UI.Controllers
         }
 
         [HttpGet]
-        public IActionResult ResetPassword(string code = null)
+        public IActionResult ResetPassword(string token = null)
         {
-            return code == null ? View("AccessDenied") : View();
+            return token == null ? View("AccessDenied") : View();
         }
 
         [HttpPost]
