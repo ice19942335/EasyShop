@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Security.Policy;
-using System.Text;
 using System.Threading.Tasks;
 using EasyShop.Domain.Dto.CP.Account;
 using EasyShop.Domain.Entities.Identity;
@@ -16,12 +14,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.Extensions.Logging;
 
 namespace EasyShop.Services.CP.Account
 {
-    public class AccountService : IAccountService
+    public class AccountService : Controller, IAccountService
     {
         private readonly IHttpContextAccessor _httpContext;
         private readonly IWebHostEnvironment _environment;
@@ -97,7 +94,7 @@ namespace EasyShop.Services.CP.Account
 
                     return new AccountDto
                     {
-                        RedirectToAction = new Dictionary<string, string> { { "EmailConfirmation", "UserProfile" } },
+                        RedirectToAction = RedirectToAction("EmailConfirmation", "UserProfile"),
                         Success = true
                     };
                 }
@@ -126,7 +123,7 @@ namespace EasyShop.Services.CP.Account
                 if (!await _userManager.IsEmailConfirmedAsync(user))
                     return new AccountDto
                     {
-                        RedirectToAction = new Dictionary<string, string> { { "EmailConfirmation", "UserProfile" } },
+                        RedirectToAction = RedirectToAction("EmailConfirmation", "UserProfile"),
                         Success = true
                     };
 
@@ -139,7 +136,7 @@ namespace EasyShop.Services.CP.Account
 
                 return new AccountDto
                 {
-                    RedirectToAction = new Dictionary<string, string> { { "Index", "Home" } },
+                    RedirectToAction = RedirectToAction("Index", "Home"),
                     Success = true
                 };
             }
@@ -189,7 +186,10 @@ namespace EasyShop.Services.CP.Account
             var user = await _userManager.FindByIdAsync(userId);
 
             if (user is null)
-                return new AccountDto { RedirectToAction = new Dictionary<string, string> { { "Account", "AccessDenied" } } };
+                return new AccountDto
+                {
+                    RedirectToAction = RedirectToAction("AccessDenied", "Account")
+                };
 
             var result = await _userManager.ConfirmEmailAsync(user, token);
 
@@ -201,15 +201,56 @@ namespace EasyShop.Services.CP.Account
                     user.UserName,
                     string.Join(", ", result.Errors.Select(e => e.Description))
                 );
-                return new AccountDto { RedirectToAction = new Dictionary<string, string> { { "Account", "AccessDenied" } } };
+                return new AccountDto { RedirectToAction = RedirectToAction("AccessDenied", "Account") };
             }
 
             _logger.LogInformation($"User: {user.UserName} successfully confirmed email");
             return new AccountDto
             {
-                RedirectToAction = new Dictionary<string, string> { { "EmailConfirmation", "UserProfile" } },
-                Success = true
+                RedirectToAction = RedirectToAction("EmailConfirmation", "UserProfile"),
+                Success = true,
             };
+        }
+
+        public async Task<AccountDto> SendPasswordResetLink(ForgotPasswordViewModel model, IUrlHelper url)
+        {
+            var user = await _userManager.FindByEmailAsync(model.Email);
+
+            if (user is null)
+                return new AccountDto { RedirectToAction = RedirectToAction("AccessDenied", "Account") };
+
+            if (!await _userManager.IsEmailConfirmedAsync(user))
+                return new AccountDto { RedirectToAction = RedirectToAction("EmailHaveToBeConfirmed", "Account") };
+
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+            var callbackUrl = url.Action("ResetPassword",
+                "Account",
+                new { userId = user.Id, token = token },
+                protocol: _httpContext.HttpContext.Request.Scheme);
+
+            Dictionary<string, string> data = new Dictionary<string, string> { { "callbackUrl", callbackUrl } };
+
+            var fileInsertDataHelper = new FileInsertDataHelper(
+                _environment,
+                "PasswordResetLink",
+                "txt",
+                "Interpolation",
+                data);
+
+            await _emailSender.SendEmailAsync(
+                user.Email,
+                "Monetization | Confirm E-mail",
+                await fileInsertDataHelper.GetResult());
+
+            if (model.Authenticated)
+            {
+                _logger.LogInformation($"Password reset request link was sent to User: {user.UserName}, Link: {callbackUrl}");
+                return new AccountDto { RedirectToAction = RedirectToAction("PasswordResetRequestHasBeenSent", "UserProfile"), Success = true };
+            }
+            
+            _logger.LogInformation($"Password reset request link was sent to User: {user.UserName}, Link: {callbackUrl}");
+            return new AccountDto { RedirectToAction = RedirectToAction("PasswordResetRequestHasBeenSent", "Account"), Success = true };
         }
     }
 }
