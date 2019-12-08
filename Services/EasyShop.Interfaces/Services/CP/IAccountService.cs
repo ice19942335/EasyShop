@@ -16,5 +16,7 @@ namespace EasyShop.Interfaces.Services.CP
         Task<AccountDto> ConfirmEmail(string userId, string token);
 
         Task<AccountDto> SendPasswordResetLink(ForgotPasswordViewModel model, IUrlHelper url);
+
+        Task<AccountDto> ResetPasswordAsync(string userId, PasswordResetViewModel model);
     }
 }

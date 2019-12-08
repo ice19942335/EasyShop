@@ -9,6 +9,8 @@ namespace EasyShop.Domain.Dto.CP.Account
     {
         public IActionResult RedirectToAction { get; set; }
 
+        public IActionResult ReturnToView { get; set; }
+
         public string LocalRedirect { get; set; }
 
         public IEnumerable<string> Errors { get; set; }

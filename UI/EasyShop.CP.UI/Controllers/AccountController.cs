@@ -54,17 +54,12 @@ namespace EasyShop.CP.UI.Controllers
             
             var registrationResult = await _accountService.RegisterAsync(model, Url);
 
-            if (!registrationResult.Success)
-            {
-                registrationResult.Errors.ToList().ForEach(x => ModelState.AddModelError("", x));
-                return View(model);
-            }
+            registrationResult.Errors?.ToList().ForEach(x => ModelState.AddModelError("", x));
 
-            if (registrationResult.RedirectToAction != null)
-                return registrationResult.RedirectToAction;
-            
-            
-            return View(model);
+            if (!ModelState.IsValid)
+                return View(model);
+
+            return registrationResult.RedirectToAction;
         }
 
         public IActionResult Login() => View();
@@ -82,19 +77,12 @@ namespace EasyShop.CP.UI.Controllers
             
             var loginResult = await _accountService.LoginAsync(model, Url);
 
-            if (!loginResult.Success)
-            {
-                loginResult.Errors.ToList().ForEach(x => ModelState.AddModelError("", x));
-                return View(model);
-            }
+            loginResult.Errors?.ToList().ForEach(x => ModelState.AddModelError("", x));
 
-            if (loginResult.RedirectToAction != null)
-                return loginResult.RedirectToAction;
-            
             if (loginResult.LocalRedirect != null)
                 return LocalRedirect(loginResult.LocalRedirect);
-            
-            return View(model);
+
+            return loginResult.RedirectToAction ?? loginResult.ReturnToView;
         }
 
         public async Task<IActionResult> LogOut()
@@ -111,10 +99,7 @@ namespace EasyShop.CP.UI.Controllers
         {
             var sendLinkResult = await _accountService.SendEmailConfirmationLinkAsync(User.Identity.Name, Url);
 
-            if (!sendLinkResult.Success)
-                return RedirectToAction("SomethingWentWrong", "UserProfile");
-
-            return RedirectToAction("EmailConfirmationRequestHasBeenSent", "UserProfile");
+            return sendLinkResult.RedirectToAction;
         }
 
         [HttpGet]
@@ -125,15 +110,7 @@ namespace EasyShop.CP.UI.Controllers
 
             var confirmationResult = await _accountService.ConfirmEmail(userId, token);
 
-            if (confirmationResult.RedirectToAction != null)
-            {
-                if (!confirmationResult.Success)
-                    return confirmationResult.RedirectToAction;
-
-                return confirmationResult.RedirectToAction;
-            }
-
-            return RedirectToAction("ErrorStatus", "Home", new { id = 404 }, null);
+            return confirmationResult.RedirectToAction;
         }
 
         [HttpGet]
@@ -159,7 +136,7 @@ namespace EasyShop.CP.UI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ResetPassword([FromQuery] string userId, ResetPasswordViewModel model)
+        public async Task<IActionResult> ResetPassword([FromQuery] string userId, PasswordResetViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -169,24 +146,9 @@ namespace EasyShop.CP.UI.Controllers
                 return View(model);
             }
 
-            var user = await _userManager.FindByIdAsync(userId);
+            var resetResult = await _accountService.ResetPasswordAsync(userId, model);
 
-            if (user == null)
-                return RedirectToAction("ErrorStatus", "Home", new { id = 404 }, null);
-            
-            var result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
-
-            if (result.Succeeded)
-            {
-                _logger.LogInformation($"User: {user.UserName}, Password has been successfully changed.");
-                return View("ResetPasswordConfirmation");
-            }
-
-            foreach (var error in result.Errors)
-                ModelState.AddModelError(string.Empty, error.Description);
-
-            _logger.LogWarning($"User: {user.UserName}, Password reset fail, Errors: {string.Join(", ", result.Errors.Select(e => e.Description))}");
-            return View(model);
+            return resetResult.RedirectToAction ?? resetResult.ReturnToView;
         }
 
         [HttpGet]
@@ -197,5 +159,8 @@ namespace EasyShop.CP.UI.Controllers
 
         [HttpGet]
         public IActionResult PasswordResetRequestHasBeenSent() => View();
+
+        [HttpGet]
+        public IActionResult ResetPasswordConfirmation() => View();
     }
 }

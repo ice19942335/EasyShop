@@ -73,7 +73,7 @@ namespace EasyShop.Services.CP.Account
                     var callbackUrl = url.Action(
                         "ConfirmEmail",
                         "Account",
-                        new { userId = user.Id, code = code },
+                        new { userId = user.Id, token = code },
                         protocol: _httpContext.HttpContext.Request.Scheme);
 
                     Dictionary<string, string> data = new Dictionary<string, string> { { "callbackUrl", callbackUrl } };
@@ -94,8 +94,7 @@ namespace EasyShop.Services.CP.Account
 
                     return new AccountDto
                     {
-                        RedirectToAction = RedirectToAction("EmailConfirmation", "UserProfile"),
-                        Success = true
+                        RedirectToAction = RedirectToAction("EmailConfirmation", "UserProfile")
                     };
                 }
 
@@ -105,7 +104,9 @@ namespace EasyShop.Services.CP.Account
                     string.Join(",\n", creationResult.Errors.Select(err => err.Description))
                 );
 
-                return new AccountDto { Errors = creationResult.Errors.Select(x => x.Description) };
+                var errors = new List<string>(creationResult.Errors.Select(x => x.Description));
+
+                return new AccountDto { Errors = errors };
             }
         }
 
@@ -121,24 +122,12 @@ namespace EasyShop.Services.CP.Account
                 var user = await _userManager.FindByNameAsync(model.UserName);
 
                 if (!await _userManager.IsEmailConfirmedAsync(user))
-                    return new AccountDto
-                    {
-                        RedirectToAction = RedirectToAction("EmailConfirmation", "UserProfile"),
-                        Success = true
-                    };
+                    return new AccountDto { RedirectToAction = RedirectToAction("EmailConfirmation", "UserProfile"), };
 
                 if (url.IsLocalUrl(model.ReturnUrl))
-                    return new AccountDto
-                    {
-                        LocalRedirect = model.ReturnUrl,
-                        Success = true
-                    };
+                    return new AccountDto { LocalRedirect = model.ReturnUrl };
 
-                return new AccountDto
-                {
-                    RedirectToAction = RedirectToAction("Index", "Home"),
-                    Success = true
-                };
+                return new AccountDto { RedirectToAction = RedirectToAction("Index", "Home"), };
             }
 
             _logger.LogWarning($"User: {model.UserName} login error.");
@@ -150,7 +139,10 @@ namespace EasyShop.Services.CP.Account
             var user = await _userManager.FindByNameAsync(userName);
 
             if (user is null)
-                return new AccountDto();
+                return new AccountDto
+                {
+                    RedirectToAction = RedirectToAction("ErrorStatus", "Home", new { id = 404 }, null)
+                };
 
             var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
             var callbackUrl = url.Action(
@@ -175,10 +167,16 @@ namespace EasyShop.Services.CP.Account
             if (response.StatusCode == HttpStatusCode.Accepted)
             {
                 _logger.LogInformation($"Confirmation link was sent to User: {userName}, Confirmation link: {callbackUrl}");
-                return new AccountDto { Success = true };
+                return new AccountDto
+                {
+                    RedirectToAction = RedirectToAction("EmailConfirmationRequestHasBeenSent", "UserProfile")
+                };
             }
 
-            return new AccountDto();
+            return new AccountDto
+            {
+                RedirectToAction = RedirectToAction("SomethingWentWrong", "UserProfile")
+            };
         }
 
         public async Task<AccountDto> ConfirmEmail(string userId, string token)
@@ -208,7 +206,6 @@ namespace EasyShop.Services.CP.Account
             return new AccountDto
             {
                 RedirectToAction = RedirectToAction("EmailConfirmation", "UserProfile"),
-                Success = true,
             };
         }
 
@@ -246,11 +243,39 @@ namespace EasyShop.Services.CP.Account
             if (model.Authenticated)
             {
                 _logger.LogInformation($"Password reset request link was sent to User: {user.UserName}, Link: {callbackUrl}");
-                return new AccountDto { RedirectToAction = RedirectToAction("PasswordResetRequestHasBeenSent", "UserProfile"), Success = true };
+                return new AccountDto { RedirectToAction = RedirectToAction("PasswordResetRequestHasBeenSent", "UserProfile") };
             }
-            
+
             _logger.LogInformation($"Password reset request link was sent to User: {user.UserName}, Link: {callbackUrl}");
-            return new AccountDto { RedirectToAction = RedirectToAction("PasswordResetRequestHasBeenSent", "Account"), Success = true };
+            return new AccountDto { RedirectToAction = RedirectToAction("PasswordResetRequestHasBeenSent", "Account") };
+        }
+
+        public async Task<AccountDto> ResetPasswordAsync(string userId, PasswordResetViewModel model)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+
+            if (user == null)
+                return new AccountDto
+                {
+                    RedirectToAction = RedirectToAction("ErrorStatus", "Home", new { id = 404 }, null)
+                };
+
+            var result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
+
+            if (result.Succeeded)
+            {
+                _logger.LogInformation($"User: {user.UserName}, Password has been successfully changed.");
+                return new AccountDto { RedirectToAction = RedirectToAction("ResetPasswordConfirmation", "Account") };
+            }
+
+            foreach (var error in result.Errors)
+                ModelState.AddModelError(string.Empty, error.Description);
+
+            _logger.LogWarning($"User: {user.UserName}, Password reset fail, Errors: {string.Join(", ", result.Errors.Select(e => e.Description))}");
+            return new AccountDto
+            {
+                ReturnToView = View(model)
+            };
         }
     }
 }
