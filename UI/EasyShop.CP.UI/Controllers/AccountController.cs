@@ -159,7 +159,7 @@ namespace EasyShop.CP.UI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
+        public async Task<IActionResult> ResetPassword([FromQuery] string userId, ResetPasswordViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -169,7 +169,7 @@ namespace EasyShop.CP.UI.Controllers
                 return View(model);
             }
 
-            var user = await _userManager.FindByIdAsync(model.UserId);
+            var user = await _userManager.FindByIdAsync(userId);
 
             if (user == null)
                 return RedirectToAction("ErrorStatus", "Home", new { id = 404 }, null);
