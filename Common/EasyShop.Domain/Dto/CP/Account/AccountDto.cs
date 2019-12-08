@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EasyShop.Domain.Dto.CP.Account
 {
     public class AccountDto
     {
-        public Dictionary<string, string> RedirectToAction { get; set; }
+        public IActionResult RedirectToAction { get; set; }
 
         public string LocalRedirect { get; set; }
 

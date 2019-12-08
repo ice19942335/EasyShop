@@ -9,7 +9,7 @@ namespace EasyShop.Domain.ViewModels.Account
 {
     public class RegisterUserViewModel
     {
-        [MaxLength(256, ErrorMessage = "Max 256 symbols.")]
+        [MaxLength(36, ErrorMessage = "Max 36 symbols")]
         [MinLength(2, ErrorMessage = "Firstname required minimum 2 characters.")]
         [Display(Name = "Firstname")]
         public string Firstname { get; set; }
@@ -21,6 +21,8 @@ namespace EasyShop.Domain.ViewModels.Account
 
         [Required(ErrorMessage = "Email address required.")]
         [EmailAddress(ErrorMessage = "Email format is: abc@def.domain")]
+        [MaxLength(36, ErrorMessage = "Email max length 36 symbols.")]
+        [MinLength(2, ErrorMessage = "Email required minimum 4 characters.")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
@@ -30,7 +32,7 @@ namespace EasyShop.Domain.ViewModels.Account
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [MaxLength(256, ErrorMessage = "Max 256 symbols")]
+        [MaxLength(36, ErrorMessage = "Max 36 symbols")]
         [MinLength(8, ErrorMessage = "Password must be 10 characters or more.")]
         [Compare(nameof(Password), ErrorMessage = "Passwords have to be same.")]
         public string ConfirmPassword { get; set; }

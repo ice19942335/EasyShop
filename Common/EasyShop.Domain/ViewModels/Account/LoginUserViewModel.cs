@@ -7,14 +7,15 @@ namespace EasyShop.Domain.ViewModels.Account
 {
     public class LoginUserViewModel
     {
-        [Required(ErrorMessage = "Email required")]
-        [MaxLength(256, ErrorMessage = "Max 256 symbols")]
+        [Required(ErrorMessage = "Email address required.")]
         [EmailAddress(ErrorMessage = "Email format is: abc@def.domain")]
+        [MaxLength(36, ErrorMessage = "Email max length 36 symbols.")]
+        [MinLength(2, ErrorMessage = "Email required minimum 4 characters.")]
         [DataType(DataType.EmailAddress)]
         public string UserName { get; set; }
 
         [Required(ErrorMessage = "Password required")]
-        [MaxLength(256, ErrorMessage = "Max 256 symbols")]
+        [MaxLength(36, ErrorMessage = "Max 36 symbols")]
         [MinLength(10, ErrorMessage = "Password must be 10 characters or more.")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
