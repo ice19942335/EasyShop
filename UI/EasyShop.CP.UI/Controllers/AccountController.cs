@@ -56,10 +56,7 @@ namespace EasyShop.CP.UI.Controllers
 
             registrationResult.Errors?.ToList().ForEach(x => ModelState.AddModelError("", x));
 
-            if (!ModelState.IsValid)
-                return View(model);
-
-            return registrationResult.RedirectToAction;
+            return registrationResult.RedirectToAction ?? registrationResult.ReturnToView;
         }
 
         public IActionResult Login() => View();

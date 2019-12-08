@@ -104,9 +104,10 @@ namespace EasyShop.Services.CP.Account
                     string.Join(",\n", creationResult.Errors.Select(err => err.Description))
                 );
 
-                var errors = new List<string>(creationResult.Errors.Select(x => x.Description));
+                foreach (var error in creationResult.Errors)
+                    ModelState.AddModelError("", error.Description);
 
-                return new AccountDto { Errors = errors };
+                return new AccountDto { ReturnToView = View(model) };
             }
         }
 
@@ -131,7 +132,10 @@ namespace EasyShop.Services.CP.Account
             }
 
             _logger.LogWarning($"User: {model.UserName} login error.");
-            return new AccountDto { Errors = new[] { "Username or password is incorrect, please try again." } };
+
+            ModelState.AddModelError("", "Username or password is incorrect, please try again.");
+
+            return new AccountDto { ReturnToView = View(model) };
         }
 
         public async Task<AccountDto> SendEmailConfirmationLinkAsync(string userName, IUrlHelper url)
@@ -269,7 +273,7 @@ namespace EasyShop.Services.CP.Account
             }
 
             foreach (var error in result.Errors)
-                ModelState.AddModelError(string.Empty, error.Description);
+                ModelState.AddModelError("", error.Description);
 
             _logger.LogWarning($"User: {user.UserName}, Password reset fail, Errors: {string.Join(", ", result.Errors.Select(e => e.Description))}");
             return new AccountDto
