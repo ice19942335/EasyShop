@@ -15,6 +15,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using SendGrid;
+
+// ReSharper disable Mvc.ViewNotResolved
 
 namespace EasyShop.Services.CP.Account
 {
@@ -76,26 +79,15 @@ namespace EasyShop.Services.CP.Account
                         new { userId = user.Id, token = code },
                         protocol: _httpContext.HttpContext.Request.Scheme);
 
-                    Dictionary<string, string> data = new Dictionary<string, string> { { "callbackUrl", callbackUrl } };
+                    var response = await SendMailAsync(user, "Email confirmation", "EmailConfirmationLink", "txt", "Interpolation", "callbackUrl", callbackUrl);
 
-                    var fileInsertDataHelper = new FileInsertDataHelper(
-                        _environment,
-                        "EmailConfirmationLink",
-                        "txt",
-                        "Interpolation",
-                        data);
-
-                    await _emailSender.SendEmailAsync(
-                        user.Email,
-                        "Monetization | Confirm E-mail",
-                        fileInsertDataHelper.GetResult().Result);
-
-                    await _signInManager.SignInAsync(user, false);
-
-                    return new AccountDto
+                    if (response.StatusCode == HttpStatusCode.Accepted)
                     {
-                        RedirectToAction = RedirectToAction("EmailConfirmation", "UserProfile")
-                    };
+                        await _signInManager.SignInAsync(user, false);
+                        return new AccountDto { RedirectToAction = RedirectToAction("EmailConfirmation", "UserProfile") };
+                    }
+
+                    return new AccountDto { ReturnToView = View("SomethingWentWrong", "link sending") };
                 }
 
                 _logger.LogWarning(
@@ -155,18 +147,7 @@ namespace EasyShop.Services.CP.Account
                 new { userId = user.Id, token = token },
                 protocol: _httpContext.HttpContext.Request.Scheme);
 
-            var data = new Dictionary<string, string> { { "callbackUrl", callbackUrl } };
-            var fileInsertDataHelper = new FileInsertDataHelper(
-                _environment,
-                "EmailConfirmationLink",
-                "txt",
-                "Interpolation",
-                data);
-
-            var response = await _emailSender.SendEmailAsync(
-                user.Email,
-                "Monetization | Confirm E-mail",
-                fileInsertDataHelper.GetResult().Result);
+            var response = await SendMailAsync(user, "Email confirmation", "EmailConfirmationLink", "txt", "Interpolation", "callbackUrl", callbackUrl);
 
             if (response.StatusCode == HttpStatusCode.Accepted)
             {
@@ -179,7 +160,7 @@ namespace EasyShop.Services.CP.Account
 
             return new AccountDto
             {
-                RedirectToAction = RedirectToAction("SomethingWentWrong", "UserProfile")
+                ReturnToView = View("SomethingWentWrong", "link sending")
             };
         }
 
@@ -217,10 +198,7 @@ namespace EasyShop.Services.CP.Account
         {
             var user = await _userManager.FindByEmailAsync(model.Email);
 
-            if (user is null)
-                return new AccountDto { RedirectToAction = RedirectToAction("AccessDenied", "Account") };
-
-            if (!await _userManager.IsEmailConfirmedAsync(user))
+            if (user is null || !await _userManager.IsEmailConfirmedAsync(user))
                 return new AccountDto { RedirectToAction = RedirectToAction("EmailHaveToBeConfirmed", "Account") };
 
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
@@ -230,31 +208,24 @@ namespace EasyShop.Services.CP.Account
                 new { userId = user.Id, token = token },
                 protocol: _httpContext.HttpContext.Request.Scheme);
 
-            Dictionary<string, string> data = new Dictionary<string, string> { { "callbackUrl", callbackUrl } };
+            var response = await SendMailAsync(user, "Password reset", "PasswordResetLink", "txt", "Interpolation", "callbackUrl", callbackUrl);
 
-            var fileInsertDataHelper = new FileInsertDataHelper(
-                _environment,
-                "PasswordResetLink",
-                "txt",
-                "Interpolation",
-                data);
-
-            await _emailSender.SendEmailAsync(
-                user.Email,
-                "Monetization | Confirm E-mail",
-                await fileInsertDataHelper.GetResult());
-
-            if (model.Authenticated)
+            if (response.StatusCode == HttpStatusCode.Accepted)
             {
+                if (model.Authenticated)
+                {
+                    _logger.LogInformation($"Password reset request link was sent to User: {user.UserName}, Link: {callbackUrl}");
+                    return new AccountDto { RedirectToAction = RedirectToAction("PasswordResetRequestHasBeenSent", "UserProfile") };
+                }
+
                 _logger.LogInformation($"Password reset request link was sent to User: {user.UserName}, Link: {callbackUrl}");
-                return new AccountDto { RedirectToAction = RedirectToAction("PasswordResetRequestHasBeenSent", "UserProfile") };
+                return new AccountDto { RedirectToAction = RedirectToAction("PasswordResetRequestHasBeenSent", "Account") };
             }
 
-            _logger.LogInformation($"Password reset request link was sent to User: {user.UserName}, Link: {callbackUrl}");
-            return new AccountDto { RedirectToAction = RedirectToAction("PasswordResetRequestHasBeenSent", "Account") };
+            return new AccountDto { ReturnToView = View("SomethindWentWrong", "link sending") };
         }
 
-        public async Task<AccountDto> ResetPasswordAsync(string userId, PasswordResetViewModel model)
+        public async Task<AccountDto> ResetPasswordAsync(string userId, PasswordResetViewModel model, IUrlHelper url)
         {
             var user = await _userManager.FindByIdAsync(userId);
 
@@ -264,22 +235,55 @@ namespace EasyShop.Services.CP.Account
                     RedirectToAction = RedirectToAction("ErrorStatus", "Home", new { id = 404 }, null)
                 };
 
-            var result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
 
-            if (result.Succeeded)
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+            var callbackUrl = url.Action("ResetPassword",
+                "Account",
+                new { userId = user.Id, token = token },
+                protocol: _httpContext.HttpContext.Request.Scheme);
+
+            var response = await SendMailAsync(user, "Password reset", "PasswordHasBeenChangedNotification", "txt", "Interpolation", "callbackUrl", callbackUrl);
+
+            if (response.StatusCode == HttpStatusCode.Accepted)
             {
-                _logger.LogInformation($"User: {user.UserName}, Password has been successfully changed.");
-                return new AccountDto { RedirectToAction = RedirectToAction("ResetPasswordConfirmation", "Account") };
+                var result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
+
+                if (result.Succeeded)
+                {
+                    _logger.LogInformation($"User: {user.UserName}, Password has been successfully changed.");
+                    return new AccountDto { RedirectToAction = RedirectToAction("ResetPasswordConfirmation", "Account") };
+                }
+                else
+                {
+                    foreach (var error in result.Errors)
+                        ModelState.AddModelError("", error.Description);
+
+                    _logger.LogWarning($"User: {user.UserName}, Password reset fail, Errors: {string.Join(", ", result.Errors.Select(e => e.Description))}");
+                    return new AccountDto { ReturnToView = View(model) };
+                }
             }
-
-            foreach (var error in result.Errors)
-                ModelState.AddModelError("", error.Description);
-
-            _logger.LogWarning($"User: {user.UserName}, Password reset fail, Errors: {string.Join(", ", result.Errors.Select(e => e.Description))}");
-            return new AccountDto
+            else
             {
-                ReturnToView = View(model)
-            };
+                _logger.LogWarning($"User: {user.UserName}, $Password reset fail, Errors: Send grid response status code: {response.StatusCode}");
+                return new AccountDto { ReturnToView = View("SomethindWentWrong", "link sending") };
+            }
+        }
+
+        private async Task<Response> SendMailAsync(AppUser user, string subject, string filename, string fileType, string folderNameInRoot, string key, string value)
+        {
+            Dictionary<string, string> data = new Dictionary<string, string> { { key, value } };
+
+            var fileInsertDataHelper = new FileInsertDataHelper(
+                _environment,
+                filename,
+                fileType,
+                folderNameInRoot,
+                data);
+
+            var html = await fileInsertDataHelper.GetResult();
+
+            return await _emailSender.SendEmailAsync(user.Email, $"Monetization | {subject}", html);
         }
     }
 }

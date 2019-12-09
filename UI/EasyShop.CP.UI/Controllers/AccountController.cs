@@ -122,7 +122,7 @@ namespace EasyShop.CP.UI.Controllers
 
             var result = await _accountService.SendPasswordResetLink(model, Url);
 
-            return result.RedirectToAction;
+            return result.RedirectToAction ?? result.ReturnToView;
         }
 
         [HttpGet]
@@ -143,7 +143,7 @@ namespace EasyShop.CP.UI.Controllers
                 return View(model);
             }
 
-            var resetResult = await _accountService.ResetPasswordAsync(userId, model);
+            var resetResult = await _accountService.ResetPasswordAsync(userId, model, Url);
 
             return resetResult.RedirectToAction ?? resetResult.ReturnToView;
         }
