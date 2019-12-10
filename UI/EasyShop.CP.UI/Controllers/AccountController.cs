@@ -20,7 +20,7 @@ namespace EasyShop.CP.UI.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly ILogger<AccountController> _logger;
-        private readonly IEmailSender _emailSender;
+        private readonly ISendGridEmailSender _sendGridEmailSender;
         private readonly IAccountService _accountService;
 
         public AccountController(
@@ -28,14 +28,14 @@ namespace EasyShop.CP.UI.Controllers
             UserManager<AppUser> userManager,
             SignInManager<AppUser> signInManager,
             ILogger<AccountController> logger, 
-            IEmailSender emailSender,
+            ISendGridEmailSender sendGridEmailSender,
             IAccountService accountService)
         {
             _environment = environment;
             _userManager = userManager; 
             _signInManager = signInManager;
             _logger = logger;
-            _emailSender = emailSender;
+            _sendGridEmailSender = sendGridEmailSender;
             _accountService = accountService;
         }
 

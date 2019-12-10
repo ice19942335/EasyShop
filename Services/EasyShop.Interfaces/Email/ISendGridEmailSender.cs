@@ -6,7 +6,7 @@ using SendGrid;
 
 namespace EasyShop.Interfaces.Email
 {
-    public interface IEmailSender
+    public interface ISendGridEmailSender
     {
         Task<Response> SendEmailAsync(string email, string subject, string message);
     }

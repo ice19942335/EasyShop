@@ -10,7 +10,7 @@ namespace EasyShop.Services.Email
     /// <summary>
     /// Sending email trough sendgrid.com
     /// </summary>
-    public class SendGridEmailSender : IEmailSender
+    public class SendGridEmailSender : ISendGridEmailSender
     {
         public IConfiguration Configuration { get; }
         private readonly string _apiKey;

@@ -28,7 +28,7 @@ namespace EasyShop.Services.CP.Account
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly ILogger<AccountService> _logger;
-        private readonly IEmailSender _emailSender;
+        private readonly ISendGridEmailSender _sendGridEmailSender;
 
         public AccountService(
             IHttpContextAccessor httpContext,
@@ -36,14 +36,14 @@ namespace EasyShop.Services.CP.Account
             UserManager<AppUser> userManager,
             SignInManager<AppUser> signInManager,
             ILogger<AccountService> logger,
-            IEmailSender emailSender)
+            ISendGridEmailSender sendGridEmailSender)
         {
             _httpContext = httpContext;
             _environment = environment;
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
-            _emailSender = emailSender;
+            _sendGridEmailSender = sendGridEmailSender;
         }
 
         public async Task<AccountDto> RegisterAsync(RegisterUserViewModel model, IUrlHelper url)
@@ -283,7 +283,7 @@ namespace EasyShop.Services.CP.Account
 
             var html = await fileInsertDataHelper.GetResult();
 
-            return await _emailSender.SendEmailAsync(user.Email, $"Monetization | {subject}", html);
+            return await _sendGridEmailSender.SendEmailAsync(user.Email, $"Monetization | {subject}", html);
         }
     }
 }
