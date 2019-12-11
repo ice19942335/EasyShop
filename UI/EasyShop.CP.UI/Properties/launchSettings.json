@@ -4,7 +4,7 @@
     "anonymousAuthentication": true,
     "iisExpress": {
       "applicationUrl": "http://localhost:5000",
-      "sslPort": 0
+      "sslPort": 44374
     }
   },
   "profiles": {
@@ -18,7 +18,7 @@
       }
     },
     "EasyShop.CP.UI": {
-      "commandName": "Project",
+      "commandName": "IISExpress",
       "launchBrowser": true,
       "launchUrl": "UserProfile/Profile",
       "environmentVariables": {

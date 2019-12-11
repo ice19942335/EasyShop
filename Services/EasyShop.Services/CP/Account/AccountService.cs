@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using EasyShop.Domain.Dto.CP.Account;
 using EasyShop.Domain.Entities.Identity;
@@ -29,6 +30,7 @@ namespace EasyShop.Services.CP.Account
         private readonly SignInManager<AppUser> _signInManager;
         private readonly ILogger<AccountService> _logger;
         private readonly ISendGridEmailSender _sendGridEmailSender;
+        private readonly ISmtpEmailSender _smtpEmailSender;
 
         public AccountService(
             IHttpContextAccessor httpContext,
@@ -36,7 +38,8 @@ namespace EasyShop.Services.CP.Account
             UserManager<AppUser> userManager,
             SignInManager<AppUser> signInManager,
             ILogger<AccountService> logger,
-            ISendGridEmailSender sendGridEmailSender)
+            ISendGridEmailSender sendGridEmailSender,
+            ISmtpEmailSender smtpEmailSender)
         {
             _httpContext = httpContext;
             _environment = environment;
@@ -44,6 +47,7 @@ namespace EasyShop.Services.CP.Account
             _signInManager = signInManager;
             _logger = logger;
             _sendGridEmailSender = sendGridEmailSender;
+            _smtpEmailSender = smtpEmailSender;
         }
 
         public async Task<AccountDto> RegisterAsync(RegisterUserViewModel model, IUrlHelper url)
@@ -81,7 +85,7 @@ namespace EasyShop.Services.CP.Account
 
                     var response = await SendMailAsync(user, "Email confirmation", "EmailConfirmationLink", "txt", "Interpolation", "callbackUrl", callbackUrl);
 
-                    if (response.StatusCode == HttpStatusCode.Accepted)
+                    if (response)
                     {
                         await _signInManager.SignInAsync(user, false);
                         return new AccountDto { RedirectToAction = RedirectToAction("EmailConfirmation", "UserProfile") };
@@ -149,7 +153,7 @@ namespace EasyShop.Services.CP.Account
 
             var response = await SendMailAsync(user, "Email confirmation", "EmailConfirmationLink", "txt", "Interpolation", "callbackUrl", callbackUrl);
 
-            if (response.StatusCode == HttpStatusCode.Accepted)
+            if (response)
             {
                 _logger.LogInformation($"Confirmation link was sent to User: {userName}, Confirmation link: {callbackUrl}");
                 return new AccountDto
@@ -160,7 +164,7 @@ namespace EasyShop.Services.CP.Account
 
             return new AccountDto
             {
-                ReturnToView = View("SomethingWentWrong", "link sending")
+                ReturnToView = RedirectToAction("SomethingWentWrong", "UserProfile")
             };
         }
 
@@ -210,7 +214,7 @@ namespace EasyShop.Services.CP.Account
 
             var response = await SendMailAsync(user, "Password reset", "PasswordResetLink", "txt", "Interpolation", "callbackUrl", callbackUrl);
 
-            if (response.StatusCode == HttpStatusCode.Accepted)
+            if (response)
             {
                 if (model.Authenticated)
                 {
@@ -222,7 +226,7 @@ namespace EasyShop.Services.CP.Account
                 return new AccountDto { RedirectToAction = RedirectToAction("PasswordResetRequestHasBeenSent", "Account") };
             }
 
-            return new AccountDto { ReturnToView = View("SomethindWentWrong", "link sending") };
+            return new AccountDto { ReturnToView = View("SomethingWentWrong", "link sending") };
         }
 
         public async Task<AccountDto> ResetPasswordAsync(string userId, PasswordResetViewModel model, IUrlHelper url)
@@ -245,7 +249,7 @@ namespace EasyShop.Services.CP.Account
 
             var response = await SendMailAsync(user, "Password reset", "PasswordHasBeenChangedNotification", "txt", "Interpolation", "callbackUrl", callbackUrl);
 
-            if (response.StatusCode == HttpStatusCode.Accepted)
+            if (response)
             {
                 var result = await _userManager.ResetPasswordAsync(user, model.Token, model.Password);
 
@@ -265,12 +269,12 @@ namespace EasyShop.Services.CP.Account
             }
             else
             {
-                _logger.LogWarning($"User: {user.UserName}, $Password reset fail, Errors: Send grid response status code: {response.StatusCode}");
-                return new AccountDto { ReturnToView = View("SomethindWentWrong", "link sending") };
+                _logger.LogWarning($"User: {user.UserName}, $Password reset fail, Errors: Email was not delivered.");
+                return new AccountDto { ReturnToView = View("SomethingWentWrong", "link sending") };
             }
         }
 
-        private async Task<Response> SendMailAsync(AppUser user, string subject, string filename, string fileType, string folderNameInRoot, string key, string value)
+        private async Task<bool> SendMailAsync(AppUser user, string subject, string filename, string fileType, string folderNameInRoot, string key, string value)
         {
             Dictionary<string, string> data = new Dictionary<string, string> { { key, value } };
 
@@ -283,7 +287,10 @@ namespace EasyShop.Services.CP.Account
 
             var html = await fileInsertDataHelper.GetResult();
 
-            return await _sendGridEmailSender.SendEmailAsync(user.Email, $"Monetization | {subject}", html);
+            var result = await _smtpEmailSender.SendEmailAsync(user.Email, $"Monetization | {subject}", html);
+
+            return result;
+
         }
     }
 }

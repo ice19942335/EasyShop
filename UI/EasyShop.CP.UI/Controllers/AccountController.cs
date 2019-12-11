@@ -96,7 +96,7 @@ namespace EasyShop.CP.UI.Controllers
         {
             var sendLinkResult = await _accountService.SendEmailConfirmationLinkAsync(User.Identity.Name, Url);
 
-            return sendLinkResult.RedirectToAction;
+            return sendLinkResult.RedirectToAction ?? sendLinkResult.ReturnToView;
         }
 
         [HttpGet]
