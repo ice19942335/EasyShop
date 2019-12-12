@@ -15,12 +15,12 @@ namespace EasyShop.Services.Email
 {
     public class SmtpEmailSender : ISmtpEmailSender
     {
-        public SmtpEmailSender(IOptions<GmailSmtpSettings> emailSettings)
-        {
-            EmailSettings = emailSettings.Value;
-        }
+        private readonly GmailSmtpSettings _smtpSettings;
 
-        public GmailSmtpSettings EmailSettings { get; }
+        public SmtpEmailSender(GmailSmtpSettings smtpSettings)
+        {
+            _smtpSettings = smtpSettings;
+        }
 
         public async Task<bool> SendEmailAsync(string email, string subject, string message)
         {
@@ -34,23 +34,23 @@ namespace EasyShop.Services.Email
             try
             {
                 string toEmail = string.IsNullOrEmpty(email)
-                    ? EmailSettings.ToEmail
+                    ? _smtpSettings.ToEmail
                     : email;
                 MailMessage mail = new MailMessage
                 {
-                    From = new MailAddress(EmailSettings.UsernameEmail, "Game Server Monetization")
+                    From = new MailAddress(_smtpSettings.UsernameEmail, "Game Server Monetization")
                 };
                 mail.To.Add(new MailAddress(toEmail));
-                mail.CC.Add(new MailAddress(EmailSettings.CcEmail));
+                mail.CC.Add(new MailAddress(_smtpSettings.CcEmail));
 
                 mail.Subject = subject;
                 mail.Body = message;
                 mail.IsBodyHtml = true;
                 mail.Priority = MailPriority.High;
 
-                using (SmtpClient smtp = new SmtpClient(EmailSettings.PrimaryDomain, EmailSettings.PrimaryPort))
+                using (SmtpClient smtp = new SmtpClient(_smtpSettings.PrimaryDomain, _smtpSettings.PrimaryPort))
                 {
-                    smtp.Credentials = new NetworkCredential(EmailSettings.UsernameEmail, EmailSettings.UsernamePassword);
+                    smtp.Credentials = new NetworkCredential(_smtpSettings.UsernameEmail, _smtpSettings.UsernamePassword);
                     smtp.EnableSsl = true;
                     await smtp.SendMailAsync(mail);
                 }
