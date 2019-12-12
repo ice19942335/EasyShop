@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entities.Identity;
 using EasyShop.Domain.ViewModels.Account;
@@ -22,7 +20,7 @@ namespace EasyShop.CP.UI.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly ILogger<AccountController> _logger;
-        private readonly IEmailSender _emailSender;
+        private readonly ISendGridEmailSender _sendGridEmailSender;
         private readonly IAccountService _accountService;
 
         public AccountController(
@@ -30,14 +28,14 @@ namespace EasyShop.CP.UI.Controllers
             UserManager<AppUser> userManager,
             SignInManager<AppUser> signInManager,
             ILogger<AccountController> logger, 
-            IEmailSender emailSender,
+            ISendGridEmailSender sendGridEmailSender,
             IAccountService accountService)
         {
             _environment = environment;
             _userManager = userManager; 
             _signInManager = signInManager;
             _logger = logger;
-            _emailSender = emailSender;
+            _sendGridEmailSender = sendGridEmailSender;
             _accountService = accountService;
         }
 
@@ -48,23 +46,17 @@ namespace EasyShop.CP.UI.Controllers
         public async Task<IActionResult> Register(RegisterUserViewModel model)
         {
             if (!ModelState.IsValid)
-                return View(model);
-
-            var registrationResult = await _accountService.RegisterAsync(model, Url);
-
-            if (!registrationResult.Success)
             {
-                registrationResult.Errors.ToList().ForEach(x => ModelState.AddModelError("", x));
+                var errorsList = ModelState.Values.SelectMany(x => x.Errors.Select(xx => xx.ErrorMessage)).ToList();
+                errorsList.ForEach(x => ModelState.AddModelError("", x));
                 return View(model);
-            }
-
-            if (registrationResult.RedirectToAction != null)
-            {
-                var redirectData = registrationResult.RedirectToAction.First();
-                return RedirectToAction(redirectData.Key, redirectData.Value);
             }
             
-            return View(model);
+            var registrationResult = await _accountService.RegisterAsync(model, Url);
+
+            registrationResult.Errors?.ToList().ForEach(x => ModelState.AddModelError("", x));
+
+            return registrationResult.RedirectToAction ?? registrationResult.ReturnToView;
         }
 
         public IActionResult Login() => View();
@@ -74,27 +66,20 @@ namespace EasyShop.CP.UI.Controllers
         public async Task<IActionResult> Login(LoginUserViewModel model)
         {
             if (!ModelState.IsValid)
+            {
+                var errorsList = ModelState.Values.SelectMany(x => x.Errors.Select(xx => xx.ErrorMessage)).ToList();
+                errorsList.ForEach(x => ModelState.AddModelError("", x));
                 return View(model);
-
+            }
+            
             var loginResult = await _accountService.LoginAsync(model, Url);
 
-            if (!loginResult.Success)
-            {
-                loginResult.Errors.ToList().ForEach(x => ModelState.AddModelError("", x));
-                return View(model);
-            }
+            loginResult.Errors?.ToList().ForEach(x => ModelState.AddModelError("", x));
 
-            if (loginResult.RedirectToAction != null)
-            {
-                var redirectData = loginResult.RedirectToAction.First();
-                return RedirectToAction(redirectData.Key, redirectData.Value);
-            } 
-            else if (loginResult.LocalRedirect != null)
-            {
+            if (loginResult.LocalRedirect != null)
                 return LocalRedirect(loginResult.LocalRedirect);
-            }
 
-            return View(model);
+            return loginResult.RedirectToAction ?? loginResult.ReturnToView;
         }
 
         public async Task<IActionResult> LogOut()
@@ -104,36 +89,6 @@ namespace EasyShop.CP.UI.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        [HttpGet]
-        public async Task<IActionResult> ConfirmEmail(string userId, string code)
-        {
-            if(userId == null || code == null)
-                return View(nameof(AccessDenied));
-
-            var user = await _userManager.FindByIdAsync(userId);
-
-            if (user is null)
-                return View(nameof(AccessDenied));
-
-            var result = await _userManager.ConfirmEmailAsync(user, code);
-
-            if (result.Succeeded)
-            {
-                _logger.LogInformation($"User: {user.UserName} successfully confirmed email");
-                return RedirectToAction("EmailConfirmation", "UserProfile");
-            }
-            else
-            {
-                _logger.LogWarning(
-                    "Date ({0}) User: {1} email confirmation failed. Errors: {2}",
-                    DateTime.Now,
-                    user.UserName,
-                    string.Join(", ", result.Errors.Select(e => e.Description))
-                );
-                return View(nameof(AccessDenied));
-            }
-        }
-
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
@@ -141,17 +96,22 @@ namespace EasyShop.CP.UI.Controllers
         {
             var sendLinkResult = await _accountService.SendEmailConfirmationLinkAsync(User.Identity.Name, Url);
 
-            if (!sendLinkResult.Success)
-                return RedirectToAction("SomethingWentWrong", "UserProfile");
-            
-            return RedirectToAction("EmailConfirmationRequestHasBeenSent", "UserProfile");
+            return sendLinkResult.RedirectToAction ?? sendLinkResult.ReturnToView;
         }
 
         [HttpGet]
-        public IActionResult ForgotPassword()
+        public async Task<IActionResult> ConfirmEmail(string userId, string token)
         {
-            return View();
+            if (userId == null || token == null)
+                return View(nameof(AccessDenied));
+
+            var confirmationResult = await _accountService.ConfirmEmail(userId, token);
+
+            return confirmationResult.RedirectToAction;
         }
+
+        [HttpGet]
+        public IActionResult ForgotPassword() => View();
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -160,75 +120,44 @@ namespace EasyShop.CP.UI.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            var user = await _userManager.FindByEmailAsync(model.Email);
+            var result = await _accountService.SendPasswordResetLink(model, Url);
 
-            if (user is null || !await _userManager.IsEmailConfirmedAsync(user))
-                return View("ForgotPasswordConfirmation");
-
-            var code = await _userManager.GeneratePasswordResetTokenAsync(user);
-
-            var callbackUrl = Url.Action("ResetPassword",
-                "Account",
-                new {userId = user.Id, code = code},
-                protocol: HttpContext.Request.Scheme);
-
-            Dictionary<string, string> data = new Dictionary<string, string>
-            {
-                { "callbackUrl", callbackUrl }
-            };
-
-            var fileInsertDataHelper = new FileInsertDataHelper(
-                _environment,
-                "PasswordResetLink",
-                "txt",
-                "Interpolation",
-                data);
-
-            await _emailSender.SendEmailAsync(
-                user.Email,
-                "Monetization | Confirm E-mail",
-                await fileInsertDataHelper.GetResult());
-
-            if (model.Authenticated)
-                return RedirectToAction("PasswordResetRequestHasBeenSent", "UserProfile");
-
-            _logger.LogInformation($"Password reset request link was sent to User: {user.UserName}, Link: {callbackUrl}");
-            return View("ForgotPasswordConfirmation");
+            return result.RedirectToAction ?? result.ReturnToView;
         }
 
         [HttpGet]
-        public IActionResult ResetPassword(string code = null)
+        public IActionResult ResetPassword(string token = null)
         {
-            return code == null ? View("AccessDenied") : View();
+            return token == null ? View("AccessDenied") : View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
+        public async Task<IActionResult> ResetPassword([FromQuery] string userId, PasswordResetViewModel model)
         {
             if (!ModelState.IsValid)
-                return View(model);
-            
-            var user = await _userManager.FindByNameAsync(model.Email);
-
-            if (user == null)
-                return View("ResetPasswordConfirmation");
-            
-            var result = await _userManager.ResetPasswordAsync(user, model.Code, model.Password);
-
-            if (result.Succeeded)
             {
-                _logger.LogInformation($"User: {user.UserName}, Password has been successfully changed.");
-                return View("ResetPasswordConfirmation");
+                ModelState.Values.SelectMany(x => x.Errors.Select(xx => xx.ErrorMessage)).ToList()
+                    .ForEach(x => ModelState.AddModelError("", x));
+
+                return View(model);
             }
 
-            foreach (var error in result.Errors)
-                ModelState.AddModelError(string.Empty, error.Description);
+            var resetResult = await _accountService.ResetPasswordAsync(userId, model, Url);
 
-            _logger.LogWarning($"User: {user.UserName}, Password reset fail, Errors: {string.Join(", ", result.Errors.Select(e => e.Description))}");
-            return View(model);
+            return resetResult.RedirectToAction ?? resetResult.ReturnToView;
         }
 
+        [HttpGet]
         public IActionResult AccessDenied() => View();
+
+        [HttpGet]
+        public IActionResult EmailHaveToBeConfirmed() => View();
+
+        [HttpGet]
+        public IActionResult PasswordResetRequestHasBeenSent() => View();
+
+        [HttpGet]
+        public IActionResult ResetPasswordConfirmation() => View();
     }
 }

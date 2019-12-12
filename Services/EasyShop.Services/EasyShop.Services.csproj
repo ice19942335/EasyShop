@@ -5,7 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="MailKit" Version="1.10.0" />
+    <PackageReference Include="MimeKit" Version="2.4.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Sendgrid" Version="9.12.0" />
   </ItemGroup>
 
@@ -13,10 +15,6 @@
     <ProjectReference Include="..\..\Common\EasyShop.Domain\EasyShop.Domain.csproj" />
     <ProjectReference Include="..\EasyShop.DAL\EasyShop.DAL.csproj" />
     <ProjectReference Include="..\EasyShop.Interfaces\EasyShop.Interfaces.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Email\" />
   </ItemGroup>
 
 </Project>

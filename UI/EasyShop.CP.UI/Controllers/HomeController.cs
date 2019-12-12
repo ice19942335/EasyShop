@@ -9,10 +9,23 @@ namespace EasyShop.CP.UI.Controllers
 {
     public class HomeController : Controller
     {
-        
+
         public IActionResult Index()
         {
             return View();
+        }
+
+        public IActionResult NotFoundPage() => View();
+
+        public IActionResult ErrorStatus(string id)
+        {
+            switch (id)
+            {
+                case "404":
+                    return RedirectToAction(nameof(NotFoundPage));
+                default:
+                    return Content($"Status code {id}");
+            }
         }
     }
 }

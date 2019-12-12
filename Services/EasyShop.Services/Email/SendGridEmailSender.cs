@@ -10,12 +10,12 @@ namespace EasyShop.Services.Email
     /// <summary>
     /// Sending email trough sendgrid.com
     /// </summary>
-    public class EmailSender : IEmailSender
+    public class SendGridEmailSender : ISendGridEmailSender
     {
         public IConfiguration Configuration { get; }
         private readonly string _apiKey;
 
-        public EmailSender(IConfiguration configuration)
+        public SendGridEmailSender(IConfiguration configuration)
         {
             Configuration = configuration;
             _apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
@@ -39,7 +39,9 @@ namespace EasyShop.Services.Email
             // See https://sendgrid.com/docs/User_Guide/Settings/tracking.html
             msg.SetClickTracking(false, false);
 
-            return client.SendEmailAsync(msg);
+            var result = client.SendEmailAsync(msg);
+
+            return result;
         }
     }
 }

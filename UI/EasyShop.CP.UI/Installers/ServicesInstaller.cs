@@ -15,9 +15,11 @@ namespace EasyShop.CP.UI.Installers
         public void InstallServices(IServiceCollection services, IConfiguration configuration)
         {
             //Transient
-            services.AddTransient<IEmailSender, EmailSender>();
+            services.AddTransient<ISendGridEmailSender, SendGridEmailSender>();
             services.AddTransient<IUserProfileServiceSql, UserProfileServiceSql>();
             services.AddTransient<IFileImageService, FileImageService>();
+
+            services.AddTransient<ISmtpEmailSender, SmtpEmailSender>();
 
             //Scooped
             services.AddScoped<IAccountService, AccountService>();
