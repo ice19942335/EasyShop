@@ -54,8 +54,6 @@ namespace EasyShop.CP.UI.Controllers
             
             var registrationResult = await _accountService.RegisterAsync(model, Url);
 
-            registrationResult.Errors?.ToList().ForEach(x => ModelState.AddModelError("", x));
-
             return registrationResult.RedirectToAction ?? registrationResult.ReturnToView;
         }
 
@@ -73,8 +71,6 @@ namespace EasyShop.CP.UI.Controllers
             }
             
             var loginResult = await _accountService.LoginAsync(model, Url);
-
-            loginResult.Errors?.ToList().ForEach(x => ModelState.AddModelError("", x));
 
             if (loginResult.LocalRedirect != null)
                 return LocalRedirect(loginResult.LocalRedirect);
