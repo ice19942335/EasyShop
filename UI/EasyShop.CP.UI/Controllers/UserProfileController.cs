@@ -79,5 +79,7 @@ namespace EasyShop.CP.UI.Controllers
             return View(result);
         }
 
+        public IActionResult EmailHaveToBeConfirmed() => View();
+
     }
 }
