@@ -2,7 +2,7 @@
 
 namespace EasyShop.Domain.ViewModels.Account
 {
-    public class ResetPasswordViewModel
+    public class PasswordResetViewModel
     {
         public string UserId { get; set; }
 
