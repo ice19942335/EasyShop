@@ -205,7 +205,12 @@ namespace EasyShop.Services.CP.Account
             var user = await _userManager.FindByEmailAsync(model.Email);
 
             if (user is null || !await _userManager.IsEmailConfirmedAsync(user))
+            {
+                if (model.Authenticated)
+                    return new AccountDto { RedirectToAction = RedirectToAction("EmailHaveToBeConfirmed", "UserProfile") };
+
                 return new AccountDto { RedirectToAction = RedirectToAction("EmailHaveToBeConfirmed", "Account") };
+            }
 
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
 
