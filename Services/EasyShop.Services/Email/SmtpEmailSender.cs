@@ -33,14 +33,11 @@ namespace EasyShop.Services.Email
         {
             try
             {
-                string toEmail = string.IsNullOrEmpty(email)
-                    ? _smtpSettings.ToEmail
-                    : email;
                 MailMessage mail = new MailMessage
                 {
                     From = new MailAddress(_smtpSettings.UsernameEmail, "Game Server Monetization")
                 };
-                mail.To.Add(new MailAddress(toEmail));
+                mail.To.Add(new MailAddress(email));
                 mail.CC.Add(new MailAddress(_smtpSettings.CcEmail));
 
                 mail.Subject = subject;
