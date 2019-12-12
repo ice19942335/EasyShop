@@ -14,7 +14,9 @@ namespace EasyShop.CP.UI.Installers
         {
             services.AddSingleton(configuration.GetSection("SendGridSmtpSettings").Get<SendGridSmtpSettings>());
 
-            services.AddSingleton(configuration.GetSection("Campaigns").Get<SmtpEmailSettings>());
+            services.AddSingleton(configuration.GetSection("GmailSmtpSettings").Get<GmailSmtpSettings>());
+
+            services.Configure<GmailSmtpSettings>(configuration.GetSection("GmailSmtpSettings"));
         }
     }
 }

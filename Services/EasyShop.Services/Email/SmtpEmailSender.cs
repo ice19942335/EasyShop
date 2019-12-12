@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Net;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using EasyShop.Domain.Settings;
 using EasyShop.Interfaces.Email;
-using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using MimeKit;
@@ -14,60 +15,48 @@ namespace EasyShop.Services.Email
 {
     public class SmtpEmailSender : ISmtpEmailSender
     {
-        private readonly SmtpEmailSettings _emailSettings;
-        private readonly IWebHostEnvironment _env;
-
-        public SmtpEmailSender(SmtpEmailSettings emailSettings, IWebHostEnvironment env)
+        public SmtpEmailSender(IOptions<GmailSmtpSettings> emailSettings)
         {
-            _emailSettings = emailSettings;
-            _env = env;
+            EmailSettings = emailSettings.Value;
         }
 
+        public GmailSmtpSettings EmailSettings { get; }
 
         public async Task<bool> SendEmailAsync(string email, string subject, string message)
         {
+
+            return await Execute(email, subject, message);
+            //return Task.FromResult(0);
+        }
+
+        public async Task<bool> Execute(string email, string subject, string message)
+        {
             try
             {
-                var mimeMessage = new MimeMessage();
-
-                mimeMessage.From.Add(new MailboxAddress(_emailSettings.SenderName, _emailSettings.Sender));
-
-                mimeMessage.To.Add(new MailboxAddress(email));
-
-                mimeMessage.Subject = subject;
-
-                mimeMessage.Body = new TextPart("html")
+                string toEmail = string.IsNullOrEmpty(email)
+                    ? EmailSettings.ToEmail
+                    : email;
+                MailMessage mail = new MailMessage
                 {
-                    Text = message
+                    From = new MailAddress(EmailSettings.UsernameEmail, "Game Server Monetization")
                 };
+                mail.To.Add(new MailAddress(toEmail));
+                mail.CC.Add(new MailAddress(EmailSettings.CcEmail));
 
-                using var client = new SmtpClient();
-                // For demo-purposes, accept all SSL certificates (in case the server supports STARTTLS)
-                client.ServerCertificateValidationCallback = (s, c, h, e) => true;
+                mail.Subject = subject;
+                mail.Body = message;
+                mail.IsBodyHtml = true;
+                mail.Priority = MailPriority.High;
 
-                if (_env.IsDevelopment())
+                using (SmtpClient smtp = new SmtpClient(EmailSettings.PrimaryDomain, EmailSettings.PrimaryPort))
                 {
-                    // The third parameter is useSSL (true if the client should make an SSL-wrapped
-                    // connection to the server; otherwise, false).
-                    await client.ConnectAsync(_emailSettings.MailServer, _emailSettings.MailPort, false);
+                    smtp.Credentials = new NetworkCredential(EmailSettings.UsernameEmail, EmailSettings.UsernamePassword);
+                    smtp.EnableSsl = true;
+                    await smtp.SendMailAsync(mail);
                 }
-                else
-                {
-                    await client.ConnectAsync(_emailSettings.MailServer);
-                }
-
-                // Note: only needed if the SMTP server requires authentication
-                await client.AuthenticateAsync(_emailSettings.Sender, _emailSettings.Password);
-
-                await client.SendAsync(mimeMessage);
-
-                await client.DisconnectAsync(true);
             }
             catch (Exception ex)
             {
-                // TODO: handle exception
-                //throw new InvalidOperationException(ex.Message);
-
                 return false;
             }
 

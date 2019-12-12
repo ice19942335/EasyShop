@@ -9,6 +9,7 @@ using EasyShop.Domain.Entities.Identity;
 using EasyShop.Domain.ViewModels.Account;
 using EasyShop.Interfaces.Email;
 using EasyShop.Interfaces.Services.CP;
+using EasyShop.Services.Email;
 using EasyShop.Services.ExtensionMethods;
 using EasyShop.Services.Files;
 using Microsoft.AspNetCore.Hosting;
@@ -91,6 +92,7 @@ namespace EasyShop.Services.CP.Account
                         return new AccountDto { RedirectToAction = RedirectToAction("EmailConfirmation", "UserProfile") };
                     }
 
+                    await _userManager.DeleteAsync(user);
                     return new AccountDto { ReturnToView = View("SomethingWentWrong", "link sending") };
                 }
 
