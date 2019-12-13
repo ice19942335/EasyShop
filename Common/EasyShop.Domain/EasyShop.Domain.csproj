@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Entries\Tariff\" />
     <Folder Include="Models\Email\" />
   </ItemGroup>
 
