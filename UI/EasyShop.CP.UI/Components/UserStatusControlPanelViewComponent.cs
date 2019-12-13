@@ -5,17 +5,22 @@ using System.Threading.Tasks;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.ViewModels.User.UserData;
+using EasyShop.Services.Data.FirstRunIdentityInitialization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EasyShop.CP.UI.Components
 {
-    [ViewComponent(Name = "UserStatusControlPanel")]
     public class UserStatusControlPanelViewComponent : ViewComponent
     {
-        private IUserStore<AppUser> _userStore;
+        private readonly IUserStore<AppUser> _userStore;
+        private readonly UserManager<AppUser> _userManager;
 
-        public UserStatusControlPanelViewComponent(IUserStore<AppUser> userStore) => _userStore = userStore;
+        public UserStatusControlPanelViewComponent(IUserStore<AppUser> userStore, UserManager<AppUser> userManager)
+        {
+            _userStore = userStore;
+            _userManager = userManager;
+        }
 
         public IViewComponentResult Invoke()
         {
@@ -31,8 +36,12 @@ namespace EasyShop.CP.UI.Components
                 BirthDate = appUser.BirthDate,
                 Gender = appUser.Gender,
                 TransactionPercent = appUser.TransactionPercent,
-                ShopsAllowed = appUser.ShopsAllowed
+                ShopsAllowed = appUser.ShopsAllowed,
+                ProfileImage = appUser.ProfileImage
             };
+
+            if (_userManager.IsInRoleAsync(appUser, DefaultIdentity.RoleAdmin).Result)
+                return View("Admin", model);
 
             return View(model);
         }

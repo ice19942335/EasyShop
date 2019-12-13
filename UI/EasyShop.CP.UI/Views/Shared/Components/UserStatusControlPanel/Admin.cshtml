@@ -8,22 +8,14 @@
 
 <li class="dropdown hidden-xs">
     <button class="navbar-account-btn" data-toggle="dropdown" aria-haspopup="true">
-        <img class="rounded" width="36" height="36" src="~/img/0180441436.jpg" alt="@($"{Model.FirstName} {@Model.LastName}")"> @($"{Model.FirstName} {@Model.LastName}")
+        <img class="rounded" width="36" height="36" src="~/UserImages/@Model.ProfileImage" alt="@($"{Model.FirstName} {@Model.LastName}")"> @($"{Model.FirstName} {@Model.LastName}")
         <span class="caret"></span>
     </button>
     <ul class="dropdown-menu dropdown-menu-right">
-        <li>
-            <a href="upgrade.html">
-                <h5 class="navbar-upgrade-heading">
-                    Upgrade Now
-                    <small class="navbar-upgrade-notification">You have 15 days left in your trial.</small>
-                </h5>
-            </a>
-        </li>
+        <li><a asp-area="" asp-controller="Admin" asp-action="Index">Admin panel</a></li>
         <li class="divider"></li>
         <li class="navbar-upgrade-version">@version</li>
         <li class="divider"></li>
-        <li><a href="contacts.html">Contacts</a></li>
         <li><a asp-area="" asp-controller="UserProfile" asp-action="Profile">Profile</a></li>
         <li><a asp-area="" asp-controller="Account" asp-action="LogOut">Sign out</a></li>
     </ul>

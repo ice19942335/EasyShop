@@ -20,7 +20,7 @@
                 <span class="sr-only">Toggle navigation</span>
                 <span class="arrow-up"></span>
                 <span class="ellipsis ellipsis-vertical">
-                    <img class="ellipsis-object" width="32" height="32" src="~/img/0180441436.jpg" alt="Teddy Wilson">
+                    @await Component.InvokeAsync("UserPicture")
                 </span>
             </button>
         </div>
@@ -38,9 +38,9 @@
                     </span>
                 </button>
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="visible-xs-block">
+                    @*<li class="visible-xs-block">
                         <h4 class="navbar-text text-center">Hi, Teddy Wilson</h4>
-                    </li>
+                    </li>*@
                     <li class="hidden-xs hidden-sm">
                         <form class="navbar-search navbar-search-collapsed">
                             <div class="navbar-search-group">
@@ -296,7 +296,7 @@
                                     <a class="list-group-item" href="#">
                                         <div class="notification">
                                             <div class="notification-media">
-                                                <img class="rounded" width="40" height="40" src="~/img/0180441436.jpg" alt="Teddy Wilson">
+                                                @await Component.InvokeAsync("UserPicture")
                                             </div>
                                             <div class="notification-content">
                                                 <small class="notification-timestamp">9 hr</small>

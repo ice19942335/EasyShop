@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EasyShop.CP.UI.Components
 {
-    [ViewComponent(Name = "UserStatus")]
     public class UserStatusViewComponent : ViewComponent
     {
         public IViewComponentResult Invoke()
