@@ -29,16 +29,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="Views\Shared\Components\UserPicture\UserPicture.cshtml">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Views\Shared\Components\EmailConfirmation\" />
-    <Folder Include="Views\Shared\Components\UserPicture\" />
-    <Folder Include="Views\Shared\Components\UserStatusControlPanel\" />
+    <Folder Include="Views\Shared\Components\ControlPanelUserStatus\" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
