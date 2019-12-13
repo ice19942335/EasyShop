@@ -34,7 +34,7 @@ namespace EasyShop.CP.UI
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Home/ServerErrorPage");
                 app.UseHsts();
             }
 
