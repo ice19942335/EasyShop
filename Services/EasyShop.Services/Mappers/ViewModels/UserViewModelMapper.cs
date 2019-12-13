@@ -1,5 +1,5 @@
 ﻿using System;
-using EasyShop.Domain.Entities.Identity;
+using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.ViewModels.User.UserProfile;
 using EasyShop.Services.ExtensionMethods;
 
