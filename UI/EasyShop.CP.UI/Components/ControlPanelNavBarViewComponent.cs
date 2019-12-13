@@ -2,22 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
+using EasyShop.Domain.Enums;
 using EasyShop.Domain.ViewModels.User.UserData;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EasyShop.CP.UI.Components
 {
-    [ViewComponent(Name = "UserStatusControlPanel")]
-    public class UserStatusControlPanelViewComponent : ViewComponent
+    public class ControlPanelNavBarViewComponent : ViewComponent
     {
-        private IUserStore<AppUser> _userStore;
-        public UserStatusControlPanelViewComponent(IUserStore<AppUser> userStore) => _userStore = userStore;
+        private readonly UserManager<AppUser> _userManager;
+
+        public ControlPanelNavBarViewComponent(UserManager<AppUser> userManager) => _userManager = userManager;
+
         public IViewComponentResult Invoke()
         {
-            var appUser = _userStore.FindByNameAsync(User.Identity.Name, default).Result;
+            var appUser = _userManager.FindByEmailAsync(User.Identity.Name).Result;
 
             if (appUser is null)
                 return View(new ApplicationUserViewModel { FirstName = User.Identity.Name });
@@ -29,7 +30,8 @@ namespace EasyShop.CP.UI.Components
                 BirthDate = appUser.BirthDate,
                 Gender = appUser.Gender,
                 TransactionPercent = appUser.TransactionPercent,
-                ShopsAllowed = appUser.ShopsAllowed
+                ShopsAllowed = appUser.ShopsAllowed,
+                ProfileImage = appUser.ProfileImage
             };
 
             return View(model);

@@ -34,7 +34,7 @@ namespace EasyShop.CP.UI
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Home/ServerErrorPage");
                 app.UseHsts();
             }
 
@@ -50,10 +50,6 @@ namespace EasyShop.CP.UI
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapAreaControllerRoute(
-                    "admin",
-                    "admin",
-                    "Admin/{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapControllerRoute(
                     "default", "{controller=Home}/{action=Index}/{id?}");
             });

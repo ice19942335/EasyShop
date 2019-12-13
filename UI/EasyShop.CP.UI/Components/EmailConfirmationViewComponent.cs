@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using EasyShop.Domain.Entries.Identity;
+﻿using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Enums;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
