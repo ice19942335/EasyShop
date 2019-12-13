@@ -2,7 +2,7 @@
 using System.Net.Mime;
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
-using EasyShop.Domain.Entities.Identity;
+using EasyShop.Domain.Entries.Identity;
 using Microsoft.AspNetCore.Identity;
 
 namespace EasyShop.Services.Data.FirstRunIdentityInitialization

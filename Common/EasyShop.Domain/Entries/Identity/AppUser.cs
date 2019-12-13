@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Identity;
 
-namespace EasyShop.Domain.Entities.Identity
+namespace EasyShop.Domain.Entries.Identity
 {
     public class AppUser : IdentityUser
     {

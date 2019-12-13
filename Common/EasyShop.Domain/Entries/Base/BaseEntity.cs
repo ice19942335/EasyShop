@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
-using EasyShop.Domain.Entities.Base.Interfaces;
+using EasyShop.Domain.Entries.Base.Interfaces;
 
-namespace EasyShop.Domain.Entities.Base
+namespace EasyShop.Domain.Entries.Base
 {
     public abstract class BaseEntity : IBaseEntity
     {

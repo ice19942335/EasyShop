@@ -30,7 +30,7 @@
 <div class="well text-center">
     <div class="userImage">
         <img src="~/UserImages/@Model.ProfileImage" alt="@Model.ProfileImage" width="225" height="225">
-        <h4>Aleksejs Birula</h4>
+        <h4>@($"{Model.FirstName} {Model.LastName}")</h4>
     </div>
     <form method="post" id="demo-inputmask" class="form-horizontal" enctype="multipart/form-data" asp-area="" asp-controller="UserProfile" asp-action="Profile">
         <input asp-for="ProfileImage" hidden=""/>

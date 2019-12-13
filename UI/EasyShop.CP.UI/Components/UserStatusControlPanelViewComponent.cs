@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
-using EasyShop.Domain.Entities.Identity;
+using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.ViewModels.User.UserData;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
