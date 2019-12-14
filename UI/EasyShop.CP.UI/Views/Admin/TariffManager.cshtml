@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewData["Title"] = "Tariffs manager";
+    Layout = "Partial/_Layout";
+}
+
+<div class="row">
+    <div class="col-lg-4 col-lg-offset-4 text-center">
+        <h2>Tariff manager</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-4 col-md-3">
+        <form class="form">
+            <div class="form-group">
+                <button class="btn btn-primary btn-block" type="submit">New Tariff</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="panel-body">
+    <div class="table-responsive">
+        <table class="table table-middle">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="nowrap">
+                        <strong>Jessica Brown</strong>
+                    </td>
+                    <td class="maw-320">
+                        <span class="truncate">Short description</span>
+                    </td>
+                    <td>
+                        <a href="#"><span class="icon icon-pencil icon-lg icon-fw"></span></a>
+                    </td>
+                    <td>
+                        <a href="#"><span class="icon icon-times icon-lg icon-fw" style="color: red"></span></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -14,5 +14,10 @@ namespace EasyShop.CP.UI.Controllers
         {
             return View();
         }
+
+        public IActionResult TariffManager()
+        {
+            return View();
+        }
     }
 }
