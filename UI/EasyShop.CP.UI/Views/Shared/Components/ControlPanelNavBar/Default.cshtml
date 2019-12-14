@@ -12,155 +12,6 @@
 <li class="visible-xs-block">
     <h4 class="navbar-text text-center">@($"{Model.FirstName} {Model.LastName}")</h4>
 </li>
-<li class="hidden-xs hidden-sm">
-    <form class="navbar-search navbar-search-collapsed">
-        <div class="navbar-search-group">
-            <input class="navbar-search-input" type="text" placeholder="Search for people, companies, and more&hellip;">
-            <button class="navbar-search-toggler" title="Expand search form" aria-expanded="false" type="submit">
-                <span class="icon icon-search icon-lg"></span>
-            </button>
-            <button class="navbar-search-adv-btn" type="button">Advanced</button>
-        </div>
-    </form>
-</li>
-<li class="dropdown">
-    <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true">
-        <span class="icon-with-child hidden-xs">
-            <span class="icon icon-envelope-o icon-lg"></span>
-            <span class="badge badge-danger badge-above right">8</span>
-        </span>
-        <span class="visible-xs-block">
-            <span class="icon icon-envelope icon-lg icon-fw"></span>
-            <span class="badge badge-danger pull-right">8</span>
-            Messages
-        </span>
-    </a>
-    <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg">
-        <div class="dropdown-header">
-            <a class="dropdown-link" href="compose.html">New Message</a>
-            <h5 class="dropdown-heading">Recent messages</h5>
-        </div>
-        <div class="dropdown-body">
-            <div class="list-group list-group-divided custom-scrollbar">
-                <a class="list-group-item" href="#">
-                    <div class="notification">
-                        <div class="notification-media">
-                            <img class="rounded" width="40" height="40" src="~/img/0299419341.jpg" alt="Harry Jones">
-                        </div>
-                        <div class="notification-content">
-                            <small class="notification-timestamp">16 min</small>
-                            <h5 class="notification-heading">Harry Jones</h5>
-                            <p class="notification-text">
-                                <small class="truncate">Hi Teddy, Just wanted to let you know we got the project! We should be starting the planning next week. Harry</small>
-                            </p>
-                        </div>
-                    </div>
-                </a>
-                <a class="list-group-item" href="#">
-                    <div class="notification">
-                        <div class="notification-media">
-                            <img class="rounded" width="40" height="40" src="~/img/0310728269.jpg" alt="Daniel Taylor">
-                        </div>
-                        <div class="notification-content">
-                            <small class="notification-timestamp">2 hr</small>
-                            <h5 class="notification-heading">Daniel Taylor</h5>
-                            <p class="notification-text">
-                                <small class="truncate">Teddy Boyyyy, label text isn't vertically aligned with value text in grid forms when using .form-control... DT</small>
-                            </p>
-                        </div>
-                    </div>
-                </a>
-                <a class="list-group-item" href="#">
-                    <div class="notification">
-                        <div class="notification-media">
-                            <img class="rounded" width="40" height="40" src="~/img/0460697039.jpg" alt="Charlotte Harrison">
-                        </div>
-                        <div class="notification-content">
-                            <small class="notification-timestamp">Sep 20</small>
-                            <h5 class="notification-heading">Charlotte Harrison</h5>
-                            <p class="notification-text">
-                                <small class="truncate">Dear Teddy, Can we discuss the benefits of this approach during our Monday meeting? Best regards Charlotte Harrison</small>
-                            </p>
-                        </div>
-                    </div>
-                </a>
-                <a class="list-group-item" href="#">
-                    <div class="notification">
-                        <div class="notification-media">
-                            <img class="rounded" width="40" height="40" src="~/img/0531871454.jpg" alt="Ethan Walker">
-                        </div>
-                        <div class="notification-content">
-                            <small class="notification-timestamp">Sep 19</small>
-                            <h5 class="notification-heading">Ethan Walker</h5>
-                            <p class="notification-text">
-                                <small class="truncate">If you need any further assistance, please feel free to contact us. We are always happy to assist you. Regards, Ethan</small>
-                            </p>
-                        </div>
-                    </div>
-                </a>
-                <a class="list-group-item" href="#">
-                    <div class="notification">
-                        <div class="notification-media">
-                            <img class="rounded" width="40" height="40" src="~/img/0601274412.jpg" alt="Sophia Evans">
-                        </div>
-                        <div class="notification-content">
-                            <small class="notification-timestamp">Sep 18</small>
-                            <h5 class="notification-heading">Sophia Evans</h5>
-                            <p class="notification-text">
-                                <small class="truncate">Teddy, Please call me when you finish your work! I have many things to discuss. Don't forget call me !! Sophia</small>
-                            </p>
-                        </div>
-                    </div>
-                </a>
-                <a class="list-group-item" href="#">
-                    <div class="notification">
-                        <div class="notification-media">
-                            <img class="rounded" width="40" height="40" src="~/img/0777931269.jpg" alt="Harry Walker">
-                        </div>
-                        <div class="notification-content">
-                            <small class="notification-timestamp">Sep 17</small>
-                            <h5 class="notification-heading">Harry Walker</h5>
-                            <p class="notification-text">
-                                <small class="truncate">Thank you for your message. I am currently out of the office, with no email access. I will be returning on 20 Jun.</small>
-                            </p>
-                        </div>
-                    </div>
-                </a>
-                <a class="list-group-item" href="#">
-                    <div class="notification">
-                        <div class="notification-media">
-                            <img class="rounded" width="40" height="40" src="~/img/0872116906.jpg" alt="Emma Lewis">
-                        </div>
-                        <div class="notification-content">
-                            <small class="notification-timestamp">Sep 15</small>
-                            <h5 class="notification-heading">Emma Lewis</h5>
-                            <p class="notification-text">
-                                <small class="truncate">Teddy, Please find the attached report. I am truly sorry and very embarrassed about not finishing the report by the deadline.</small>
-                            </p>
-                        </div>
-                    </div>
-                </a>
-                <a class="list-group-item" href="#">
-                    <div class="notification">
-                        <div class="notification-media">
-                            <img class="rounded" width="40" height="40" src="~/img/0980726243.jpg" alt="Eliot Morgan">
-                        </div>
-                        <div class="notification-content">
-                            <small class="notification-timestamp">Sep 15</small>
-                            <h5 class="notification-heading">Eliot Morgan</h5>
-                            <p class="notification-text">
-                                <small class="truncate">Dear Teddy, Please accept this message as notification that I was unable to work yesterday, due to personal illness.m</small>
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="dropdown-footer">
-            <a class="dropdown-btn" href="#">See All</a>
-        </div>
-    </div>
-</li>
 <li class="dropdown">
     <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true">
         <span class="icon-with-child hidden-xs">
@@ -285,10 +136,25 @@
         </div>
     </div>
 </li>
+@if (Model.Roles.Contains(DefaultIdentity.RoleAdmin))
+{
+    <li class="visible-xs-block">
+        <a asp-area="" asp-controller="Admin" asp-action="Index">
+            <span class="icon icon-wrench icon-lg icon-fw"></span>
+            Admin panel
+        </a>
+    </li>
+}
 <li class="visible-xs-block">
-    <a href="contacts.html">
+    <a asp-area="" asp-controller="UserProfile" asp-action="Profile">
         <span class="icon icon-users icon-lg icon-fw"></span>
-        Contacts
+        Profile
+    </a>
+</li>
+<li class="visible-xs-block">
+    <a asp-area="" asp-controller="Account" asp-action="LogOut">
+        <span class="icon icon-power-off icon-lg icon-fw"></span>
+        Sign out
     </a>
 </li>
 <li class="dropdown hidden-xs">
@@ -298,13 +164,13 @@
     </button>
     <ul class="dropdown-menu dropdown-menu-right">
         @*<li>
-            <a href="upgrade.html">
-                <h5 class="navbar-upgrade-heading">
-                    Upgrade Now
-                    <small class="navbar-upgrade-notification">You have 15 days left in your trial.</small>
-                </h5>
-            </a>
-        </li>*@
+                <a href="upgrade.html">
+                    <h5 class="navbar-upgrade-heading">
+                        Upgrade Now
+                        <small class="navbar-upgrade-notification">You have 15 days left in your trial.</small>
+                    </h5>
+                </a>
+            </li>*@
         @{
             if (Model.Roles.Contains(DefaultIdentity.RoleAdmin))
             {
