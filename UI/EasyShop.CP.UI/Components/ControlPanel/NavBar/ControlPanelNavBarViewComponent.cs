@@ -8,7 +8,7 @@ using EasyShop.Domain.ViewModels.User.UserData;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EasyShop.CP.UI.Components
+namespace EasyShop.CP.UI.Components.ControlPanel.NavBar
 {
     public class ControlPanelNavBarViewComponent : ViewComponent
     {
@@ -31,7 +31,8 @@ namespace EasyShop.CP.UI.Components
                 Gender = appUser.Gender,
                 TransactionPercent = appUser.TransactionPercent,
                 ShopsAllowed = appUser.ShopsAllowed,
-                ProfileImage = appUser.ProfileImage
+                ProfileImage = appUser.ProfileImage,
+                Roles = _userManager.GetRolesAsync(appUser).Result
             };
 
             return View(model);

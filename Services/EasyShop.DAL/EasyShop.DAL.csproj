@@ -5,12 +5,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20191026164331_Added_ProfileImage_In_ApplicationUser.cs" />
+    <Compile Remove="Migrations\20191026164331_Added_ProfileImage_In_ApplicationUser.Designer.cs" />
     <Compile Remove="Migrations\20191213105221_Added_Tariffs_and_tariffsPptions_Tables.cs" />
     <Compile Remove="Migrations\20191213105221_Added_Tariffs_and_tariffsPptions_Tables.Designer.cs" />
     <Compile Remove="Migrations\20191213110134_Added_Tariffs_And_TariffOptions_Tables.cs" />
     <Compile Remove="Migrations\20191213110134_Added_Tariffs_And_TariffOptions_Tables.Designer.cs" />
     <Compile Remove="Migrations\20191213110541_Added_Tariffs_And_TariffOprions_Tables.cs" />
     <Compile Remove="Migrations\20191213110541_Added_Tariffs_And_TariffOprions_Tables.Designer.cs" />
+    <Compile Remove="Migrations\20191213110736_Added_Tariffs_And_TariffOprions_Tables.cs" />
+    <Compile Remove="Migrations\20191213110736_Added_Tariffs_And_TariffOprions_Tables.Designer.cs" />
+    <Compile Remove="Migrations\20191214171526_TariffUpdated_RequiredAnotationsAdded.cs" />
+    <Compile Remove="Migrations\20191214171526_TariffUpdated_RequiredAnotationsAdded.Designer.cs" />
+    <Compile Remove="Migrations\20191214171631_TariffUpdated_RequiredAnnotationsAdded.cs" />
+    <Compile Remove="Migrations\20191214171631_TariffUpdated_RequiredAnnotationsAdded.Designer.cs" />
     <Compile Remove="Startup.cs" />
   </ItemGroup>
 

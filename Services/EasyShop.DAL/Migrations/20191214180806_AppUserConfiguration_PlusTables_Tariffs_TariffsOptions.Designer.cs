@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EasyShop.DAL.Migrations
 {
     [DbContext(typeof(EasyShopContext))]
-    [Migration("20191026164331_Added_ProfileImage_In_ApplicationUser")]
-    partial class Added_ProfileImage_In_ApplicationUser
+    [Migration("20191214180806_AppUserConfiguration_PlusTables_Tariffs_TariffsOptions")]
+    partial class AppUserConfiguration_PlusTables_Tariffs_TariffsOptions
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace EasyShop.DAL.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("EasyShop.Domain.Entities.Identity.AppUser", b =>
+            modelBuilder.Entity("EasyShop.Domain.Entries.Identity.AppUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -87,6 +87,12 @@ namespace EasyShop.DAL.Migrations
                     b.Property<int>("ShopsAllowed")
                         .HasColumnType("int");
 
+                    b.Property<int?>("TariffId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("TariffLastUpdate")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("TransactionPercent")
                         .HasColumnType("int");
 
@@ -107,7 +113,56 @@ namespace EasyShop.DAL.Migrations
                         .HasName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
+                    b.HasIndex("TariffId");
+
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("EasyShop.Domain.Entries.Tariff.Tariff", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("DaysActive")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tariffs");
+                });
+
+            modelBuilder.Entity("EasyShop.Domain.Entries.Tariff.TariffOption", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("TariffId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TariffId");
+
+                    b.ToTable("TariffOptions");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -241,6 +296,20 @@ namespace EasyShop.DAL.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("EasyShop.Domain.Entries.Identity.AppUser", b =>
+                {
+                    b.HasOne("EasyShop.Domain.Entries.Tariff.Tariff", "Tariff")
+                        .WithMany()
+                        .HasForeignKey("TariffId");
+                });
+
+            modelBuilder.Entity("EasyShop.Domain.Entries.Tariff.TariffOption", b =>
+                {
+                    b.HasOne("EasyShop.Domain.Entries.Tariff.Tariff", null)
+                        .WithMany("TariffOptions")
+                        .HasForeignKey("TariffId");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -252,7 +321,7 @@ namespace EasyShop.DAL.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("EasyShop.Domain.Entities.Identity.AppUser", null)
+                    b.HasOne("EasyShop.Domain.Entries.Identity.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -261,7 +330,7 @@ namespace EasyShop.DAL.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("EasyShop.Domain.Entities.Identity.AppUser", null)
+                    b.HasOne("EasyShop.Domain.Entries.Identity.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -276,7 +345,7 @@ namespace EasyShop.DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EasyShop.Domain.Entities.Identity.AppUser", null)
+                    b.HasOne("EasyShop.Domain.Entries.Identity.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -285,7 +354,7 @@ namespace EasyShop.DAL.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("EasyShop.Domain.Entities.Identity.AppUser", null)
+                    b.HasOne("EasyShop.Domain.Entries.Identity.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

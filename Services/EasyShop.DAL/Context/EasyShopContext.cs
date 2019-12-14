@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Entries.Tariff;
+using EasyShop.Domain.ViewModels.ControlPanel.Tariff;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,9 +13,9 @@ namespace EasyShop.DAL.Context
     public class EasyShopContext : IdentityDbContext<AppUser>
     {
         //Tables
-        private DbSet<Tariff> Tariffs { get; set; }
+        public DbSet<Tariff> Tariffs { get; set; }
 
-        private DbSet<TariffOption> TariffOptions { get; set; }
+        public DbSet<TariffOption> TariffOptions { get; set; }
 
         //Constructor
         public EasyShopContext(DbContextOptions<EasyShopContext> options) : base(options) { }

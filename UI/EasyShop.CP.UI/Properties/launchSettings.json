@@ -20,7 +20,7 @@
     "EasyShop.CP.UI": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "UserProfile/Profile",
+      "launchUrl": "AdminTariff/TariffManager",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
