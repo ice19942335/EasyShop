@@ -31,7 +31,8 @@ namespace EasyShop.CP.UI.Components.ControlPanel.NavBar
                 Gender = appUser.Gender,
                 TransactionPercent = appUser.TransactionPercent,
                 ShopsAllowed = appUser.ShopsAllowed,
-                ProfileImage = appUser.ProfileImage
+                ProfileImage = appUser.ProfileImage,
+                Roles = _userManager.GetRolesAsync(appUser).Result
             };
 
             return View(model);

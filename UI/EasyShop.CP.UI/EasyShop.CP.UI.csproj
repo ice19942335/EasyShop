@@ -30,7 +30,6 @@
 
   <ItemGroup>
     <Folder Include="Views\Shared\Components\EmailConfirmation\" />
-    <Folder Include="Views\Shared\Components\ControlPanelUserStatus\" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>

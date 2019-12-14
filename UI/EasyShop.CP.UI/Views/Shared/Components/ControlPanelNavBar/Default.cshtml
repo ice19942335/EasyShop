@@ -1,8 +1,17 @@
-﻿@model EasyShop.Domain.ViewModels.User.UserData.ApplicationUserViewModel
+﻿@using EasyShop.Domain.Entries.Identity
+@using EasyShop.Services.Data.FirstRunIdentityInitialization
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.Extensions.Configuration
+@model EasyShop.Domain.ViewModels.User.UserData.ApplicationUserViewModel
+@inject IConfiguration Configuration;
+
+@{
+    string version = Configuration["AppVersion"];
+}
 
 <li class="visible-xs-block">
-        <h4 class="navbar-text text-center">@($"{Model.FirstName} {Model.LastName}")</h4>
-    </li>
+    <h4 class="navbar-text text-center">@($"{Model.FirstName} {Model.LastName}")</h4>
+</li>
 <li class="hidden-xs hidden-sm">
     <form class="navbar-search navbar-search-collapsed">
         <div class="navbar-search-group">
@@ -276,4 +285,36 @@
         </div>
     </div>
 </li>
-@await Component.InvokeAsync("ControlPanelUserStatus")
+<li class="visible-xs-block">
+    <a href="contacts.html">
+        <span class="icon icon-users icon-lg icon-fw"></span>
+        Contacts
+    </a>
+</li>
+<li class="dropdown hidden-xs">
+    <button class="navbar-account-btn" data-toggle="dropdown" aria-haspopup="true">
+        <img class="rounded" width="36" height="36" src="~/UserImages/@Model.ProfileImage" alt="@($"{Model.FirstName} {@Model.LastName}")"> @($"{Model.FirstName} {@Model.LastName}")
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-right">
+        @*<li>
+            <a href="upgrade.html">
+                <h5 class="navbar-upgrade-heading">
+                    Upgrade Now
+                    <small class="navbar-upgrade-notification">You have 15 days left in your trial.</small>
+                </h5>
+            </a>
+        </li>*@
+        @{
+            if (Model.Roles.Contains(DefaultIdentity.RoleAdmin))
+            {
+                <li><a asp-area="" asp-controller="Admin" asp-action="Index">AdminPanel</a></li>
+            }
+        }
+        <li class="divider"></li>
+        <li class="navbar-upgrade-version">@version</li>
+        <li class="divider"></li>
+        <li><a asp-area="" asp-controller="UserProfile" asp-action="Profile">Profile</a></li>
+        <li><a asp-area="" asp-controller="Account" asp-action="LogOut">Sign out</a></li>
+    </ul>
+</li>

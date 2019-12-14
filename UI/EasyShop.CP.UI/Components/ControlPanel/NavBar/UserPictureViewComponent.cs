@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EasyShop.CP.UI.Components.ControlPanel
+namespace EasyShop.CP.UI.Components.ControlPanel.NavBar
 {
     public class UserPictureViewComponent : ViewComponent
     {

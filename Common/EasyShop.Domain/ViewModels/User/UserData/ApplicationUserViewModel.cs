@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace EasyShop.Domain.ViewModels.User.UserData
 {
@@ -17,5 +19,7 @@ namespace EasyShop.Domain.ViewModels.User.UserData
         public int ShopsAllowed { get; set; }
 
         public string ProfileImage { get; set; }
+
+        public IList<string> Roles { get; set; }
     }
 }
