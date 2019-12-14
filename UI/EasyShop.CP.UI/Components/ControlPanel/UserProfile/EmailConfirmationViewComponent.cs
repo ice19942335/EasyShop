@@ -3,7 +3,7 @@ using EasyShop.Domain.Enums;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EasyShop.CP.UI.Components
+namespace EasyShop.CP.UI.Components.ControlPanel.UserProfile
 {
     public class EmailConfirmationViewComponent : ViewComponent
     {
