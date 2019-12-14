@@ -85,6 +85,12 @@ namespace EasyShop.DAL.Migrations
                     b.Property<int>("ShopsAllowed")
                         .HasColumnType("int");
 
+                    b.Property<int?>("TariffId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("TariffLastUpdate")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("TransactionPercent")
                         .HasColumnType("int");
 
@@ -105,6 +111,8 @@ namespace EasyShop.DAL.Migrations
                         .HasName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
+                    b.HasIndex("TariffId");
+
                     b.ToTable("AspNetUsers");
                 });
 
@@ -117,6 +125,9 @@ namespace EasyShop.DAL.Migrations
 
                     b.Property<int>("DaysActive")
                         .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -131,13 +142,23 @@ namespace EasyShop.DAL.Migrations
 
             modelBuilder.Entity("EasyShop.Domain.Entries.Tariff.TariffOption", b =>
                 {
-                    b.Property<int>("TariffId")
-                        .HasColumnType("int");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("TariffId");
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("TariffId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TariffId");
 
                     b.ToTable("TariffOptions");
                 });
@@ -273,13 +294,18 @@ namespace EasyShop.DAL.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("EasyShop.Domain.Entries.Identity.AppUser", b =>
+                {
+                    b.HasOne("EasyShop.Domain.Entries.Tariff.Tariff", "Tariff")
+                        .WithMany()
+                        .HasForeignKey("TariffId");
+                });
+
             modelBuilder.Entity("EasyShop.Domain.Entries.Tariff.TariffOption", b =>
                 {
-                    b.HasOne("EasyShop.Domain.Entries.Tariff.Tariff", "TariffOf")
-                        .WithMany()
-                        .HasForeignKey("TariffId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("EasyShop.Domain.Entries.Tariff.Tariff", null)
+                        .WithMany("TariffOptions")
+                        .HasForeignKey("TariffId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

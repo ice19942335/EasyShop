@@ -1,19 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Identity;
-using EasyShop.Domain.ViewModels.Account;
 using EasyShop.Domain.ViewModels.User.UserProfile;
 using EasyShop.Interfaces.Services.CP;
-using EasyShop.Services.CP.FileImage;
-using EasyShop.Services.CP.UserProfile;
 using EasyShop.Services.Mappers.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace EasyShop.CP.UI.Controllers
 {

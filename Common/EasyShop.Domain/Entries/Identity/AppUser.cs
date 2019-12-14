@@ -29,5 +29,12 @@ namespace EasyShop.Domain.Entries.Identity
         public int ShopsAllowed { get; set; }
 
         public string ProfileImage { get; set; }
+
+        [DataType(DataType.Date)]
+        public DateTime? TariffLastUpdate { get; set; }
+
+        public Tariff.Tariff Tariff { get; set; }
+
+        
     }
 }

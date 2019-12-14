@@ -11,6 +11,7 @@ namespace EasyShop.Services.Data.FirstRunIdentityInitialization
 
         public const string AdminUserName = "aleksejbirula@gmail.com";
         public const string DefaultAdminPassword = "AdminPassword123!";
+        public const string DefaultAdminPicture = "default-admin.jpg";
         public const string DefaultAdminFirstName = "Aleksejs";
         public const string DefaultAdminLastname = "Birula";
     }

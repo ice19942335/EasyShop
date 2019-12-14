@@ -2,6 +2,7 @@
 using EasyShop.Interfaces.Services.CP;
 using EasyShop.Services.CP.Account;
 using EasyShop.Services.CP.FileImage;
+using EasyShop.Services.CP.Tariff;
 using EasyShop.Services.CP.UserProfile;
 using EasyShop.Services.Email;
 
@@ -20,6 +21,9 @@ namespace EasyShop.CP.UI.Installers
             services.AddTransient<IFileImageService, FileImageService>();
 
             services.AddTransient<ISmtpEmailSender, SmtpEmailSender>();
+
+
+            services.AddTransient<ITariffService, TariffService>();
 
             //Scooped
             services.AddScoped<IAccountService, AccountService>();

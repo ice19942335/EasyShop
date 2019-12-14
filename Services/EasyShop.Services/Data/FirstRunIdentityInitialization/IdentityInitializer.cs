@@ -38,7 +38,8 @@ namespace EasyShop.Services.Data.FirstRunIdentityInitialization
                     LastName = DefaultIdentity.DefaultAdminLastname,
                     EmailConfirmed = true,
                     TransactionPercent = 1,
-                    ShopsAllowed = 10
+                    ShopsAllowed = 10,
+                    ProfileImage = DefaultIdentity.DefaultAdminPicture
                 };
 
                 var creationResult = await _userManager.CreateAsync(admin, DefaultIdentity.DefaultAdminPassword);
