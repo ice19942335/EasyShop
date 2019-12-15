@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using EasyShop.Domain.ViewModels.ControlPanel.Tariff;
 
-namespace EasyShop.Interfaces.Services.CP
+namespace EasyShop.Interfaces.Services.CP.Tariff
 {
     public interface ITariffService
     {
-        Task<IEnumerable<TariffViewModel>> GetAllAsync();
+        Task<IEnumerable<Domain.Entries.Tariff.Tariff>> GetAllAsync();
 
         Task<TariffViewModel> GetByIdAsync(int id);
 

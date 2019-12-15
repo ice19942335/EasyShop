@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.ViewModels.ControlPanel.Tariff;
 using EasyShop.Interfaces.Services.CP;
+using EasyShop.Interfaces.Services.CP.Tariff;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Org.BouncyCastle.Math.EC.Rfc7748;
@@ -21,19 +22,7 @@ namespace EasyShop.Services.CP.Tariff
             _context = context;
         }
 
-        public async Task<IEnumerable<TariffViewModel>> GetAllAsync()
-        {
-            var tariffs = _context.Tariffs.Select(x => new TariffViewModel
-            {
-                Id = x.Id,
-                Name = x.Name,
-                Price = x.Price,
-                DaysActive = x.DaysActive,
-                Description = x.Description
-            });
-
-            return tariffs;
-        }
+        public async Task<IEnumerable<Domain.Entries.Tariff.Tariff>> GetAllAsync() => _context.Tariffs;
 
         public async Task<TariffViewModel> GetByIdAsync(int id)
         {
@@ -71,7 +60,7 @@ namespace EasyShop.Services.CP.Tariff
 
         public async Task<TariffViewModel> UpdateAsync(TariffViewModel model)
         {
-            var tariff = _context.Tariffs.Include(x => x.TariffOptions).First(x => x.Id == model.Id);
+            var tariff = _context.Tariffs.First(x => x.Id == model.Id);
 
             if (tariff is null)
                 return null;

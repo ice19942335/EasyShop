@@ -29,7 +29,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Views\Admin\" />
     <Folder Include="Views\Shared\Components\EmailConfirmation\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
