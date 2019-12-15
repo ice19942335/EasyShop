@@ -23,6 +23,8 @@ namespace EasyShop.Domain.Entries.Tariff
 
         public string Description { get; set; }
 
-        public ICollection<TariffOption> TariffOptions { get; set; }
+        public ICollection<TariffOption> TariffOptions { get; set; } = new List<TariffOption>();
+
+        public ICollection<UserTariff> UserTariffs { get; set; } = new List<UserTariff>();
     }
 }

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EasyShop.DAL.Migrations
 {
-    public partial class AppUserConfiguration_PlusTables_Tariffs_TariffsOptions : Migration
+    public partial class AppUser_Configuration_And_Tariff_Tables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -46,11 +46,6 @@ namespace EasyShop.DAL.Migrations
                 nullable: false,
                 defaultValue: 0);
 
-            migrationBuilder.AddColumn<int>(
-                name: "TariffId",
-                table: "AspNetUsers",
-                nullable: true);
-
             migrationBuilder.AddColumn<DateTime>(
                 name: "TariffLastUpdate",
                 table: "AspNetUsers",
@@ -61,6 +56,20 @@ namespace EasyShop.DAL.Migrations
                 table: "AspNetUsers",
                 nullable: false,
                 defaultValue: 0);
+
+            migrationBuilder.CreateTable(
+                name: "TariffOptionDescriptions",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TariffOptionDescriptions", x => x.Id);
+                });
 
             migrationBuilder.CreateTable(
                 name: "Tariffs",
@@ -82,57 +91,74 @@ namespace EasyShop.DAL.Migrations
                 name: "TariffOptions",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true),
-                    TariffId = table.Column<int>(nullable: true)
+                    TariffOptionDescriptionId = table.Column<int>(nullable: false),
+                    TariffId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TariffOptions", x => x.Id);
+                    table.PrimaryKey("PK_TariffOptions", x => new { x.TariffOptionDescriptionId, x.TariffId });
                     table.ForeignKey(
                         name: "FK_TariffOptions_Tariffs_TariffId",
                         column: x => x.TariffId,
                         principalTable: "Tariffs",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_TariffOptions_TariffOptionDescriptions_TariffOptionDescriptionId",
+                        column: x => x.TariffOptionDescriptionId,
+                        principalTable: "TariffOptionDescriptions",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateIndex(
-                name: "IX_AspNetUsers_TariffId",
-                table: "AspNetUsers",
-                column: "TariffId");
+            migrationBuilder.CreateTable(
+                name: "UserTariffs",
+                columns: table => new
+                {
+                    TariffId = table.Column<int>(nullable: false),
+                    AppUserId = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserTariffs", x => new { x.AppUserId, x.TariffId });
+                    table.ForeignKey(
+                        name: "FK_UserTariffs_AspNetUsers_AppUserId",
+                        column: x => x.AppUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserTariffs_Tariffs_TariffId",
+                        column: x => x.TariffId,
+                        principalTable: "Tariffs",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_TariffOptions_TariffId",
                 table: "TariffOptions",
                 column: "TariffId");
 
-            migrationBuilder.AddForeignKey(
-                name: "FK_AspNetUsers_Tariffs_TariffId",
-                table: "AspNetUsers",
-                column: "TariffId",
-                principalTable: "Tariffs",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
+            migrationBuilder.CreateIndex(
+                name: "IX_UserTariffs_TariffId",
+                table: "UserTariffs",
+                column: "TariffId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_AspNetUsers_Tariffs_TariffId",
-                table: "AspNetUsers");
-
             migrationBuilder.DropTable(
                 name: "TariffOptions");
 
             migrationBuilder.DropTable(
-                name: "Tariffs");
+                name: "UserTariffs");
 
-            migrationBuilder.DropIndex(
-                name: "IX_AspNetUsers_TariffId",
-                table: "AspNetUsers");
+            migrationBuilder.DropTable(
+                name: "TariffOptionDescriptions");
+
+            migrationBuilder.DropTable(
+                name: "Tariffs");
 
             migrationBuilder.DropColumn(
                 name: "BirthDate",
@@ -160,10 +186,6 @@ namespace EasyShop.DAL.Migrations
 
             migrationBuilder.DropColumn(
                 name: "ShopsAllowed",
-                table: "AspNetUsers");
-
-            migrationBuilder.DropColumn(
-                name: "TariffId",
                 table: "AspNetUsers");
 
             migrationBuilder.DropColumn(

@@ -72,7 +72,7 @@ namespace EasyShop.CP.UI.Controllers
         {
             var result = await _tariffService.DeleteByIdAsync(id);
 
-            if(result)
+            if (result)
                 return RedirectToAction("TariffManager", "AdminTariff");
 
             return View("SomethingWentWrong", "tariff deletion");

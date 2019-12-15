@@ -17,7 +17,5 @@ namespace EasyShop.Interfaces.Services.CP
         Task<TariffViewModel> UpdateAsync(TariffViewModel model);
 
         Task<bool> DeleteByIdAsync(int id);
-
-
     }
 }

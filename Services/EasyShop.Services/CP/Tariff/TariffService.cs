@@ -23,14 +23,13 @@ namespace EasyShop.Services.CP.Tariff
 
         public async Task<IEnumerable<TariffViewModel>> GetAllAsync()
         {
-            var tariffs = _context.Tariffs.Include(x => x.TariffOptions).Select(x => new TariffViewModel
+            var tariffs = _context.Tariffs.Select(x => new TariffViewModel
             {
                 Id = x.Id,
                 Name = x.Name,
                 Price = x.Price,
                 DaysActive = x.DaysActive,
-                Description = x.Description,
-                Tariffs = x.TariffOptions
+                Description = x.Description
             });
 
             return tariffs;
@@ -38,7 +37,7 @@ namespace EasyShop.Services.CP.Tariff
 
         public async Task<TariffViewModel> GetByIdAsync(int id)
         {
-            var tariff = _context.Tariffs.Include(x => x.TariffOptions).FirstOrDefault(x => x.Id == id);
+            var tariff = _context.Tariffs.FirstOrDefault(x => x.Id == id);
 
             if (tariff is null)
                 return null;
@@ -49,8 +48,7 @@ namespace EasyShop.Services.CP.Tariff
                 Name = tariff.Name,
                 Price = tariff.Price,
                 DaysActive = tariff.DaysActive,
-                Description = tariff.Description,
-                Tariffs = tariff.TariffOptions
+                Description = tariff.Description
             };
         }
 
@@ -92,8 +90,7 @@ namespace EasyShop.Services.CP.Tariff
                 Name = tariff.Name,
                 Price = tariff.Price,
                 DaysActive = tariff.DaysActive,
-                Description = tariff.Description,
-                Tariffs = tariff.TariffOptions
+                Description = tariff.Description
             };
         }
 

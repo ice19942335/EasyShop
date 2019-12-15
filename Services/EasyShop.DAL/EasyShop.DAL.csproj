@@ -19,6 +19,10 @@
     <Compile Remove="Migrations\20191214171526_TariffUpdated_RequiredAnotationsAdded.Designer.cs" />
     <Compile Remove="Migrations\20191214171631_TariffUpdated_RequiredAnnotationsAdded.cs" />
     <Compile Remove="Migrations\20191214171631_TariffUpdated_RequiredAnnotationsAdded.Designer.cs" />
+    <Compile Remove="Migrations\20191215110822_AppUser_And_TariffTables.cs" />
+    <Compile Remove="Migrations\20191215110822_AppUser_And_TariffTables.Designer.cs" />
+    <Compile Remove="Migrations\20191215111719_AppUser_And_TariffTables.cs" />
+    <Compile Remove="Migrations\20191215111719_AppUser_And_TariffTables.Designer.cs" />
     <Compile Remove="Startup.cs" />
   </ItemGroup>
 
