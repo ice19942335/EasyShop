@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Identity;
 
@@ -6,12 +7,6 @@ namespace EasyShop.Domain.Entries.Identity
 {
     public class AppUser : IdentityUser
     {
-        public const string AdminUserName = "aleksejbirula@gmail.com";
-        public const string DefaultAdminPassword = "AdminPassword123";
-
-        public const string RoleAdministrator = "Administrator";
-        public const string RoleUser = "User";
-
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
@@ -32,9 +27,5 @@ namespace EasyShop.Domain.Entries.Identity
 
         [DataType(DataType.Date)]
         public DateTime? TariffLastUpdate { get; set; }
-
-        public Tariff.Tariff Tariff { get; set; }
-
-        
     }
 }

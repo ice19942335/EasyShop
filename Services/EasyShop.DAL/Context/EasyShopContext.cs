@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Identity;
@@ -15,7 +16,7 @@ namespace EasyShop.DAL.Context
         //Tables
         public DbSet<Tariff> Tariffs { get; set; }
 
-        public DbSet<TariffOption> TariffOptions { get; set; }
+        public DbSet<TariffOptionDescription> TariffOptions { get; set; }
 
         //Constructor
         public EasyShopContext(DbContextOptions<EasyShopContext> options) : base(options) { }
@@ -24,6 +25,19 @@ namespace EasyShop.DAL.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<TariffOption>()
+                .HasKey(x => new {x.TariffOptionDescriptionId, x.TariffId});
+
+            modelBuilder.Entity<TariffOption>()
+                .HasOne(x => x.TariffOptionDescription)
+                .WithMany(x => x.TariffOptions)
+                .HasForeignKey(x => x.TariffOptionDescriptionId);
+
+            modelBuilder.Entity<TariffOption>()
+                .HasOne(x => x.Tariff)
+                .WithMany(x => x.TariffOptions)
+                .HasForeignKey(x => x.TariffId);
         }
     }
 }

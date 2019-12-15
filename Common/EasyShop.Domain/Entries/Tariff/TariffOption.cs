@@ -1,11 +1,19 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using EasyShop.Domain.Entries.Base;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.Contracts;
+using System.Text;
 
 namespace EasyShop.Domain.Entries.Tariff
 {
     [Table("TariffOptions")]
-    public class TariffOption : NamedEntity
+    public class TariffOption
     {
-        public string Description { get; set; }
+        public int TariffOptionDescriptionId { get; set; }
+        public TariffOptionDescription TariffOptionDescription { get; set; }
+
+
+        public int TariffId { get; set; }
+        public Tariff Tariff { get; set; }
     }
 }
