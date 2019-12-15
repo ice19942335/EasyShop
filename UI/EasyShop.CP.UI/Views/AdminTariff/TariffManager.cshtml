@@ -29,7 +29,7 @@
     </div>
     <div class="panel-body">
         <div class="table-responsive">
-            <table class="table table-responsive">
+            <table class="table table-responsive table-center">
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -45,22 +45,22 @@
                         foreach (var tariff in Model.Tariffs)
                         {
                             <tr>
-                                <td align="left">
+                                <td>
                                     <strong>@tariff.Id</strong>
                                 </td>
-                                <td align="left">
+                                <td>
                                     <strong>@tariff.Name</strong>
                                 </td>
-                                <td align="left">
+                                <td>
                                     <strong>@tariff.Price</strong>
                                 </td>
-                                <td align="left">
+                                <td>
                                     <strong>@tariff.DaysActive</strong>
                                 </td>
-                                <td align="left">
+                                <td>
                                     <a asp-area="" asp-controller="AdminTariff" asp-action="EditTariff" asp-route-id="@tariff.Id"><span class="icon icon-pencil icon-lg icon-fw"></span></a>
                                 </td>
-                                <td align="left">
+                                <td>
                                     <a asp-area="" asp-controller="AdminTariff" asp-action="DeleteTariff" asp-route-id="@tariff.Id"><span class="icon icon-times icon-lg icon-fw" style="color: red"></span></a>
                                 </td>
                             </tr>
@@ -89,10 +89,11 @@
     </div>
     <div class="panel-body">
         <div class="table-responsive">
-            <table class="table table-middle">
+            <table class="table table-middle table-center">
                 <thead>
                     <tr>
                         <th>Id</th>
+                        <th>Name</th>
                         <th>Description</th>
                         <th>Edit</th>
                         <th>Delete</th>
@@ -103,16 +104,19 @@
                         foreach (var tariffOptionDescription in Model.TariffOptionDescriptions)
                         {
                             <tr>
-                                <td align="left">
+                                <td>
                                     <strong>@tariffOptionDescription.Id</strong>
                                 </td>
-                                <td align="left">
+                                <td>
+                                    <strong>@tariffOptionDescription.Name</strong>
+                                </td>
+                                <td>
                                     <strong>@tariffOptionDescription.Description</strong>
                                 </td>
-                                <td align="left">
+                                <td>
                                     <a asp-area="" asp-controller="AdminTariff" asp-action="EditTariffOptionDescription" asp-route-id="@tariffOptionDescription.Id"><span class="icon icon-pencil icon-lg icon-fw"></span></a>
                                 </td>
-                                <td align="left">
+                                <td>
                                     <a asp-area="" asp-controller="AdminTariff" asp-action="DeleteTariffOptionDescription" asp-route-id="@tariffOptionDescription.Id"><span class="icon icon-times icon-lg icon-fw" style="color: red"></span></a>
                                 </td>
                             </tr>

@@ -7,7 +7,7 @@ using EasyShop.Domain.Entries.Tariff;
 
 namespace EasyShop.Domain.ViewModels.ControlPanel.Tariff
 {
-    public class TariffViewModel
+    public class EditTariffViewModel
     {
         public int? Id { get; set; }
 
@@ -25,6 +25,8 @@ namespace EasyShop.Domain.ViewModels.ControlPanel.Tariff
 
         public string Description { get; set; }
 
-        public IEnumerable<TariffOptionDescription> Tariffs { get; set; }
+        public IEnumerable<TariffOptionDescription> TariffOptionsDescriptions{ get; set; }
+
+        public IEnumerable<TariffOptionDescription> AllTariffOptionDescriptions { get; set; }
     }
 }

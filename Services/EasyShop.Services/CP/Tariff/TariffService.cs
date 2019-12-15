@@ -24,14 +24,14 @@ namespace EasyShop.Services.CP.Tariff
 
         public async Task<IEnumerable<Domain.Entries.Tariff.Tariff>> GetAllAsync() => _context.Tariffs;
 
-        public async Task<TariffViewModel> GetByIdAsync(int id)
+        public async Task<EditTariffViewModel> GetByIdAsync(int id)
         {
             var tariff = _context.Tariffs.FirstOrDefault(x => x.Id == id);
 
             if (tariff is null)
                 return null;
 
-            return new TariffViewModel
+            return new EditTariffViewModel
             {
                 Id = tariff.Id,
                 Name = tariff.Name,
@@ -41,7 +41,7 @@ namespace EasyShop.Services.CP.Tariff
             };
         }
 
-        public async Task<TariffViewModel> CreateAsync(TariffViewModel model)
+        public async Task<EditTariffViewModel> CreateAsync(EditTariffViewModel model)
         {
 
             var newTariff = new Domain.Entries.Tariff.Tariff
@@ -58,7 +58,7 @@ namespace EasyShop.Services.CP.Tariff
             return model;
         }
 
-        public async Task<TariffViewModel> UpdateAsync(TariffViewModel model)
+        public async Task<EditTariffViewModel> UpdateAsync(EditTariffViewModel model)
         {
             var tariff = _context.Tariffs.First(x => x.Id == model.Id);
 
@@ -73,7 +73,7 @@ namespace EasyShop.Services.CP.Tariff
             _context.Update(tariff);
             await _context.SaveChangesAsync();
 
-            return new TariffViewModel
+            return new EditTariffViewModel
             {
                 Id = tariff.Id,
                 Name = tariff.Name,

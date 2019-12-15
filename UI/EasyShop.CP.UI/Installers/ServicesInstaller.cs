@@ -27,6 +27,7 @@ namespace EasyShop.CP.UI.Installers
 
             services.AddTransient<ITariffService, TariffService>();
             services.AddTransient<ITariffOptionDescriptionService, TariffOptionDescriptionService>();
+            services.AddTransient<ITariffOptionsService, TariffOptionsService>();
 
             //Scooped
             services.AddScoped<IAccountService, AccountService>();
