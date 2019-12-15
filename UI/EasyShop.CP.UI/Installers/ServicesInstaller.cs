@@ -1,5 +1,7 @@
-﻿using EasyShop.Interfaces.Email;
+﻿using EasyShop.Domain.Entries.Tariff;
+using EasyShop.Interfaces.Email;
 using EasyShop.Interfaces.Services.CP;
+using EasyShop.Interfaces.Services.CP.Tariff;
 using EasyShop.Services.CP.Account;
 using EasyShop.Services.CP.FileImage;
 using EasyShop.Services.CP.Tariff;
@@ -24,6 +26,7 @@ namespace EasyShop.CP.UI.Installers
 
 
             services.AddTransient<ITariffService, TariffService>();
+            services.AddTransient<ITariffOptionDescriptionService, TariffOptionDescriptionService>();
 
             //Scooped
             services.AddScoped<IAccountService, AccountService>();

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using EasyShop.Domain.Entries.Base.Interfaces;
 using EasyShop.Domain.Entries.Tariff;
 
 namespace EasyShop.Domain.ViewModels.ControlPanel.Tariff

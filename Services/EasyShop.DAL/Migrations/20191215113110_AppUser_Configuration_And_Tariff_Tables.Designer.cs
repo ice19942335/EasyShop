@@ -321,13 +321,13 @@ namespace EasyShop.DAL.Migrations
                     b.HasOne("EasyShop.Domain.Entries.Tariff.Tariff", "Tariff")
                         .WithMany("TariffOptions")
                         .HasForeignKey("TariffId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("EasyShop.Domain.Entries.Tariff.TariffOptionDescription", "TariffOptionDescription")
                         .WithMany("TariffOptions")
                         .HasForeignKey("TariffOptionDescriptionId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 
@@ -336,13 +336,13 @@ namespace EasyShop.DAL.Migrations
                     b.HasOne("EasyShop.Domain.Entries.Identity.AppUser", "AppUser")
                         .WithMany("UserTariffs")
                         .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("EasyShop.Domain.Entries.Tariff.Tariff", "Tariff")
                         .WithMany("UserTariffs")
                         .HasForeignKey("TariffId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 
@@ -351,7 +351,7 @@ namespace EasyShop.DAL.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 
@@ -360,7 +360,7 @@ namespace EasyShop.DAL.Migrations
                     b.HasOne("EasyShop.Domain.Entries.Identity.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 
@@ -369,7 +369,7 @@ namespace EasyShop.DAL.Migrations
                     b.HasOne("EasyShop.Domain.Entries.Identity.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 
@@ -378,13 +378,13 @@ namespace EasyShop.DAL.Migrations
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("EasyShop.Domain.Entries.Identity.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 
@@ -393,7 +393,7 @@ namespace EasyShop.DAL.Migrations
                     b.HasOne("EasyShop.Domain.Entries.Identity.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
 #pragma warning restore 612, 618

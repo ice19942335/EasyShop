@@ -7,56 +7,119 @@
 <div class="row">
     <div class="col-lg-4 col-lg-offset-4 text-center">
         <h2>Tariff manager</h2>
+        <hr />
     </div>
 </div>
 
-<div class="row">
-    <div class="col-sm-4 col-md-3">
-        <form method="get" asp-area="" asp-controller="AdminTariff" asp-action="EditTariff">
-            <div class="form-group"> 
-                <button class="btn btn-primary btn-block" type="submit">New Tariff</button>
-            </div>
-        </form>
+<div class="well text-center">
+    <div class="row">
+        <div class="col-lg-4 col-lg-offset-4 text-center">
+            <h4>Tariffs</h4>
+        </div>
     </div>
-</div>
-
-
-<div class="panel-body">
-    <div class="table-responsive">
-        <table class="table table-middle">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Price</th>
-                    @*<th>Description</th>*@
-                    <th>Edit</th>
-                    <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody>
-            @{
-                foreach (var tariff in Model.Tariffs)
-                {
+    <hr />
+    <div class="row">
+        <div class="col-sm-4 col-md-3">
+            <form method="get" asp-area="" asp-controller="AdminTariff" asp-action="EditTariff">
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block" type="submit">New Tariff</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-responsive">
+                <thead>
                     <tr>
-                        <td class="nowrap">
-                            <strong>@tariff.Name</strong>
-                        </td>
-                        <td>
-                            <strong>@tariff.Price</strong>
-                        </td>
-                        @*<td class="maw-320">
-                            <span class="truncate">Short description</span>
-                        </td>*@
-                        <td>
-                            <a asp-area="" asp-controller="AdminTariff" asp-action="EditTariff" asp-route-id="@tariff.Id"><span class="icon icon-pencil icon-lg icon-fw"></span></a>
-                        </td>
-                        <td>
-                            <a asp-area="" asp-controller="AdminTariff" asp-action="DeleteTariff" asp-route-id="@tariff.Id"><span class="icon icon-times icon-lg icon-fw" style="color: red"></span></a>
-                        </td>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Days active</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
-                }
-            }
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @{
+                        foreach (var tariff in Model.Tariffs)
+                        {
+                            <tr>
+                                <td align="left">
+                                    <strong>@tariff.Id</strong>
+                                </td>
+                                <td align="left">
+                                    <strong>@tariff.Name</strong>
+                                </td>
+                                <td align="left">
+                                    <strong>@tariff.Price</strong>
+                                </td>
+                                <td align="left">
+                                    <strong>@tariff.DaysActive</strong>
+                                </td>
+                                <td align="left">
+                                    <a asp-area="" asp-controller="AdminTariff" asp-action="EditTariff" asp-route-id="@tariff.Id"><span class="icon icon-pencil icon-lg icon-fw"></span></a>
+                                </td>
+                                <td align="left">
+                                    <a asp-area="" asp-controller="AdminTariff" asp-action="DeleteTariff" asp-route-id="@tariff.Id"><span class="icon icon-times icon-lg icon-fw" style="color: red"></span></a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="well text-center">
+    <div class="row">
+        <div class="col-lg-4 col-lg-offset-4 text-center">
+            <h4>Tariff options</h4>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-sm-4 col-md-3">
+            <form method="get" asp-area="" asp-controller="AdminTariff" asp-action="EditTariffOptionDescription">
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block" type="submit">New Option</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table table-middle">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Description</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach (var tariffOptionDescription in Model.TariffOptionDescriptions)
+                        {
+                            <tr>
+                                <td align="left">
+                                    <strong>@tariffOptionDescription.Id</strong>
+                                </td>
+                                <td align="left">
+                                    <strong>@tariffOptionDescription.Description</strong>
+                                </td>
+                                <td align="left">
+                                    <a asp-area="" asp-controller="AdminTariff" asp-action="EditTariffOptionDescription" asp-route-id="@tariffOptionDescription.Id"><span class="icon icon-pencil icon-lg icon-fw"></span></a>
+                                </td>
+                                <td align="left">
+                                    <a asp-area="" asp-controller="AdminTariff" asp-action="DeleteTariffOptionDescription" asp-route-id="@tariffOptionDescription.Id"><span class="icon icon-times icon-lg icon-fw" style="color: red"></span></a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
