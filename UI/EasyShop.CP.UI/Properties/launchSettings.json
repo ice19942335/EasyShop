@@ -18,7 +18,7 @@
       }
     },
     "EasyShop.CP.UI": {
-      "commandName": "IISExpress",
+      "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "AdminTariff/TariffManager",
       "environmentVariables": {

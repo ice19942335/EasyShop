@@ -7,6 +7,7 @@ using EasyShop.Interfaces.Services.CP;
 using EasyShop.Interfaces.Services.CP.Tariff;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 
@@ -17,13 +18,16 @@ namespace EasyShop.CP.UI.Controllers
     {
         private readonly ITariffService _tariffService;
         private readonly ITariffOptionDescriptionService _tariffOptionDescriptionService;
+        private readonly ITariffOptionsService _tariffOptionsService;
 
         public AdminTariffController(
             ITariffService tariffService,
-            ITariffOptionDescriptionService tariffOptionDescriptionService)
+            ITariffOptionDescriptionService tariffOptionDescriptionService,
+            ITariffOptionsService tariffOptionsService)
         {
             _tariffService = tariffService;
             _tariffOptionDescriptionService = tariffOptionDescriptionService;
+            _tariffOptionsService = tariffOptionsService;
         }
 
         public async Task<IActionResult> TariffManager()
@@ -33,7 +37,7 @@ namespace EasyShop.CP.UI.Controllers
 
             var model = new TariffManagerViewModel
             {
-                Tariffs = tariffs.Select(x => new TariffViewModel
+                Tariffs = tariffs.Select(x => new EditTariffViewModel
                 {
                     Id = x.Id,
                     Name = x.Name,
@@ -44,6 +48,7 @@ namespace EasyShop.CP.UI.Controllers
                 TariffOptionDescriptions = tariffsOptions.Select(x => new TariffOptionDescriptionViewModel()
                 {
                     Id = x.Id,
+                    Name = x.Name,
                     Description = x.Description
                 }),
             };
@@ -59,18 +64,19 @@ namespace EasyShop.CP.UI.Controllers
             if (id != null)
             {
                 var model = await _tariffService.GetByIdAsync((int)id);
-
                 if (model is null)
                     return View("SomethingWentWrong", "on getting tariff by id");
 
+                model.AllTariffOptionDescriptions = await _tariffOptionDescriptionService.GetAllAsync();
+                model.TariffOptionsDescriptions = await _tariffOptionsService.GetAllAssignedToTariffByIdOptionDescriptionsAsync((int)id);
                 return View(model);
             }
 
-            return View("EditTariff", new TariffViewModel());
+            return View("EditTariff", new EditTariffViewModel());
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditTariff([FromForm] TariffViewModel model)
+        public async Task<IActionResult> EditTariff([FromForm] EditTariffViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -90,6 +96,9 @@ namespace EasyShop.CP.UI.Controllers
             if (tariffUpdated is null)
                 return View("SomethingWentWrong", "on updating existing tariff");
 
+
+            tariffUpdated.AllTariffOptionDescriptions = await _tariffOptionDescriptionService.GetAllAsync();
+            tariffUpdated.TariffOptionsDescriptions = await _tariffOptionsService.GetAllAssignedToTariffByIdOptionDescriptionsAsync((int)model.Id);
             return View(tariffUpdated);
         }
 
@@ -155,6 +164,20 @@ namespace EasyShop.CP.UI.Controllers
                 return RedirectToAction("TariffManager", "AdminTariff");
 
             return View("SomethingWentWrong", "tariff option deletion");
+        }
+
+        #endregion
+
+        #region TarifOptionManipulation
+
+        public Task<IActionResult> AddAnOptionToATariff(int tariffId, int optionId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IActionResult> RemoveAnOptionFromaTariff(int tariffId, int optionId)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

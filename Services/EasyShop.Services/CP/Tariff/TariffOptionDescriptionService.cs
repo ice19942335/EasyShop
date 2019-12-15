@@ -28,6 +28,7 @@ namespace EasyShop.Services.CP.Tariff
             return new TariffOptionDescriptionViewModel
             {
                 Id = tariffOptionDescription.Id,
+                Name = tariffOptionDescription.Name,
                 Description = tariffOptionDescription.Description
             };
         }
@@ -52,6 +53,7 @@ namespace EasyShop.Services.CP.Tariff
             if (tariffOptionDescription is null)
                 return null;
 
+            tariffOptionDescription.Name = model.Name;
             tariffOptionDescription.Description = model.Description;
 
             _context.Update(tariffOptionDescription);
@@ -60,6 +62,7 @@ namespace EasyShop.Services.CP.Tariff
             return new TariffOptionDescriptionViewModel
             {
                 Id = tariffOptionDescription.Id,
+                Name = tariffOptionDescription.Name,
                 Description = tariffOptionDescription.Description
             };
         }

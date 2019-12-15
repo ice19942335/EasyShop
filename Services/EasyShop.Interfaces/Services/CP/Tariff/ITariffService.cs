@@ -8,11 +8,11 @@ namespace EasyShop.Interfaces.Services.CP.Tariff
     {
         Task<IEnumerable<Domain.Entries.Tariff.Tariff>> GetAllAsync();
 
-        Task<TariffViewModel> GetByIdAsync(int id);
+        Task<EditTariffViewModel> GetByIdAsync(int id);
 
-        Task<TariffViewModel> CreateAsync(TariffViewModel model);
+        Task<EditTariffViewModel> CreateAsync(EditTariffViewModel model);
 
-        Task<TariffViewModel> UpdateAsync(TariffViewModel model);
+        Task<EditTariffViewModel> UpdateAsync(EditTariffViewModel model);
 
         Task<bool> DeleteByIdAsync(int id);
     }
