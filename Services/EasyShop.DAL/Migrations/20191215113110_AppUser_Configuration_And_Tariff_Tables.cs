@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EasyShop.DAL.Migrations
 {
-    public partial class AppUser_And_TariffTables : Migration
+    public partial class AppUser_Configuration_And_Tariff_Tables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -111,9 +111,38 @@ namespace EasyShop.DAL.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "UserTariffs",
+                columns: table => new
+                {
+                    TariffId = table.Column<int>(nullable: false),
+                    AppUserId = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserTariffs", x => new { x.AppUserId, x.TariffId });
+                    table.ForeignKey(
+                        name: "FK_UserTariffs_AspNetUsers_AppUserId",
+                        column: x => x.AppUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserTariffs_Tariffs_TariffId",
+                        column: x => x.TariffId,
+                        principalTable: "Tariffs",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_TariffOptions_TariffId",
                 table: "TariffOptions",
+                column: "TariffId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserTariffs_TariffId",
+                table: "UserTariffs",
                 column: "TariffId");
         }
 
@@ -123,10 +152,13 @@ namespace EasyShop.DAL.Migrations
                 name: "TariffOptions");
 
             migrationBuilder.DropTable(
-                name: "Tariffs");
+                name: "UserTariffs");
 
             migrationBuilder.DropTable(
                 name: "TariffOptionDescriptions");
+
+            migrationBuilder.DropTable(
+                name: "Tariffs");
 
             migrationBuilder.DropColumn(
                 name: "BirthDate",

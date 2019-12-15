@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using EasyShop.Domain.Entries.Tariff;
 using Microsoft.AspNetCore.Identity;
 
 namespace EasyShop.Domain.Entries.Identity
@@ -27,5 +28,7 @@ namespace EasyShop.Domain.Entries.Identity
 
         [DataType(DataType.Date)]
         public DateTime? TariffLastUpdate { get; set; }
+
+        public List<UserTariff> UserTariffs { get; set; }
     }
 }

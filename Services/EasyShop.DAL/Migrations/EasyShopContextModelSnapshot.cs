@@ -168,6 +168,21 @@ namespace EasyShop.DAL.Migrations
                     b.ToTable("TariffOptionDescriptions");
                 });
 
+            modelBuilder.Entity("EasyShop.Domain.Entries.Tariff.UserTariff", b =>
+                {
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("TariffId")
+                        .HasColumnType("int");
+
+                    b.HasKey("AppUserId", "TariffId");
+
+                    b.HasIndex("TariffId");
+
+                    b.ToTable("UserTariffs");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -310,6 +325,21 @@ namespace EasyShop.DAL.Migrations
                     b.HasOne("EasyShop.Domain.Entries.Tariff.TariffOptionDescription", "TariffOptionDescription")
                         .WithMany("TariffOptions")
                         .HasForeignKey("TariffOptionDescriptionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("EasyShop.Domain.Entries.Tariff.UserTariff", b =>
+                {
+                    b.HasOne("EasyShop.Domain.Entries.Identity.AppUser", "AppUser")
+                        .WithMany("UserTariffs")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EasyShop.Domain.Entries.Tariff.Tariff", "Tariff")
+                        .WithMany("UserTariffs")
+                        .HasForeignKey("TariffId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
