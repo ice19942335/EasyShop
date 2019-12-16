@@ -67,8 +67,8 @@ namespace EasyShop.CP.UI.Controllers
                 if (model is null)
                     return View("SomethingWentWrong", "on getting tariff by id");
 
-                model.AllTariffOptionDescriptions = await _tariffOptionDescriptionService.GetAllAsync();
-                model.TariffOptionsDescriptions = await _tariffOptionsService.GetAllAssignedToTariffByIdOptionDescriptionsAsync((int)id);
+                model.AllOptions = await _tariffOptionDescriptionService.GetAllAsync();
+                model.AssignedOptions = await _tariffOptionsService.GetAllOptionsAssignedToATariffByIdAsync((int)id);
                 return View(model);
             }
 
@@ -97,8 +97,8 @@ namespace EasyShop.CP.UI.Controllers
                 return View("SomethingWentWrong", "on updating existing tariff");
 
 
-            tariffUpdated.AllTariffOptionDescriptions = await _tariffOptionDescriptionService.GetAllAsync();
-            tariffUpdated.TariffOptionsDescriptions = await _tariffOptionsService.GetAllAssignedToTariffByIdOptionDescriptionsAsync((int)model.Id);
+            tariffUpdated.AllOptions = await _tariffOptionDescriptionService.GetAllAsync();
+            tariffUpdated.AssignedOptions = await _tariffOptionsService.GetAllOptionsAssignedToATariffByIdAsync((int)model.Id);
             return View(tariffUpdated);
         }
 
@@ -170,14 +170,29 @@ namespace EasyShop.CP.UI.Controllers
 
         #region TarifOptionManipulation
 
-        public Task<IActionResult> AddAnOptionToATariff(int tariffId, int optionId)
+        [HttpGet]
+        public async Task<IActionResult> AddAnOptionToATariff(int tariffId, int optionId)
         {
-            throw new NotImplementedException();
+            var result = await _tariffOptionsService.CreateAsync(tariffId, optionId);
+
+            var tariffModel = await _tariffService.GetByIdAsync(tariffId);
+
+            if (result is null)
+                return View("EditTariff", tariffModel);
+
+            return View("EditTariff", tariffModel);
         }
 
-        public Task<IActionResult> RemoveAnOptionFromaTariff(int tariffId, int optionId)
+        public async Task<IActionResult> RemoveAnOptionFromATariff(int tariffId, int optionId)
         {
-            throw new NotImplementedException();
+            var result = await _tariffOptionsService.DeleteAsync(tariffId, optionId);
+
+            var tariffModel = await _tariffService.GetByIdAsync(tariffId);
+
+            if (result is null)
+                return View("EditTariff", tariffModel);
+
+            return View("EditTariff", tariffModel);
         }
 
         #endregion

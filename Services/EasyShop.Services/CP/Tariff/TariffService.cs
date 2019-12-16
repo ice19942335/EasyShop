@@ -16,10 +16,14 @@ namespace EasyShop.Services.CP.Tariff
     public class TariffService : ITariffService
     {
         private readonly EasyShopContext _context;
+        private readonly ITariffOptionDescriptionService _tariffOptionDescriptionService;
+        private readonly ITariffOptionsService _tariffOptionsService;
 
-        public TariffService(EasyShopContext context)
+        public TariffService(EasyShopContext context, ITariffOptionDescriptionService tariffOptionDescriptionService, ITariffOptionsService tariffOptionsService)
         {
             _context = context;
+            _tariffOptionDescriptionService = tariffOptionDescriptionService;
+            _tariffOptionsService = tariffOptionsService;
         }
 
         public async Task<IEnumerable<Domain.Entries.Tariff.Tariff>> GetAllAsync() => _context.Tariffs;
@@ -37,7 +41,9 @@ namespace EasyShop.Services.CP.Tariff
                 Name = tariff.Name,
                 Price = tariff.Price,
                 DaysActive = tariff.DaysActive,
-                Description = tariff.Description
+                Description = tariff.Description,
+                AllOptions = await _tariffOptionDescriptionService.GetAllAsync(),
+                AssignedOptions = await _tariffOptionsService.GetAllOptionsAssignedToATariffByIdAsync(id)
             };
         }
 
