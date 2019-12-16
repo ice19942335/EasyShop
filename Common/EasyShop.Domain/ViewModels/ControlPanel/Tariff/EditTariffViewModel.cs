@@ -25,8 +25,8 @@ namespace EasyShop.Domain.ViewModels.ControlPanel.Tariff
 
         public string Description { get; set; }
 
-        public IEnumerable<TariffOptionDescription> TariffOptionsDescriptions{ get; set; }
+        public IEnumerable<TariffOptionDescription> AssignedOptions{ get; set; }
 
-        public IEnumerable<TariffOptionDescription> AllTariffOptionDescriptions { get; set; }
+        public IEnumerable<TariffOptionDescription> AllOptions { get; set; }
     }
 }
