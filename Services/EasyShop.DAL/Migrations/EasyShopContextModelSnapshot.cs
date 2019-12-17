@@ -76,6 +76,10 @@ namespace EasyShop.DAL.Migrations
                     b.Property<string>("ProfileImage")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("PurchasedTariffs")
+                        .HasColumnType("nvarchar(max)")
+                        .HasMaxLength(10000);
+
                     b.Property<DateTime>("RegistrationDate")
                         .HasColumnType("datetime2");
 
@@ -85,11 +89,8 @@ namespace EasyShop.DAL.Migrations
                     b.Property<int>("ShopsAllowed")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("TariffLastUpdate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("TransactionPercent")
-                        .HasColumnType("int");
+                    b.Property<decimal>("TransactionPercent")
+                        .HasColumnType("decimal(18, 2)");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
@@ -97,6 +98,9 @@ namespace EasyShop.DAL.Migrations
                     b.Property<string>("UserName")
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
+
+                    b.Property<bool>("UsingTariff")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -109,6 +113,117 @@ namespace EasyShop.DAL.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("EasyShop.Domain.Entries.Shop.GameType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("GameTypes");
+                });
+
+            modelBuilder.Entity("EasyShop.Domain.Entries.Shop.Server", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("IndexInList")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IpAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Map")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NameInShop")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Port")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Servers");
+                });
+
+            modelBuilder.Entity("EasyShop.Domain.Entries.Shop.ServerShop", b =>
+                {
+                    b.Property<int>("ServerId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ShopId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ServerId", "ShopId");
+
+                    b.HasIndex("ShopId");
+
+                    b.ToTable("ServerShops");
+                });
+
+            modelBuilder.Entity("EasyShop.Domain.Entries.Shop.Shop", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("GameTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("Secret")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ShopName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ShopTitle")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("StartBalance")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GameTypeId");
+
+                    b.ToTable("Shops");
+                });
+
+            modelBuilder.Entity("EasyShop.Domain.Entries.Shop.UserShop", b =>
+                {
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("ShopId")
+                        .HasColumnType("int");
+
+                    b.HasKey("AppUserId", "ShopId");
+
+                    b.HasIndex("ShopId");
+
+                    b.ToTable("UserShops");
                 });
 
             modelBuilder.Entity("EasyShop.Domain.Entries.Tariff.Tariff", b =>
@@ -175,6 +290,9 @@ namespace EasyShop.DAL.Migrations
 
                     b.Property<int>("TariffId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("PurchaseDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("AppUserId", "TariffId");
 
@@ -312,6 +430,45 @@ namespace EasyShop.DAL.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("EasyShop.Domain.Entries.Shop.ServerShop", b =>
+                {
+                    b.HasOne("EasyShop.Domain.Entries.Shop.Server", "Server")
+                        .WithMany("ServerShops")
+                        .HasForeignKey("ServerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EasyShop.Domain.Entries.Shop.Shop", "Shop")
+                        .WithMany("ServerShops")
+                        .HasForeignKey("ShopId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("EasyShop.Domain.Entries.Shop.Shop", b =>
+                {
+                    b.HasOne("EasyShop.Domain.Entries.Shop.GameType", "GameType")
+                        .WithMany()
+                        .HasForeignKey("GameTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("EasyShop.Domain.Entries.Shop.UserShop", b =>
+                {
+                    b.HasOne("EasyShop.Domain.Entries.Identity.AppUser", "AppUser")
+                        .WithMany("UserShops")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EasyShop.Domain.Entries.Shop.Shop", "Shop")
+                        .WithMany("UserShops")
+                        .HasForeignKey("ShopId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("EasyShop.Domain.Entries.Tariff.TariffOption", b =>

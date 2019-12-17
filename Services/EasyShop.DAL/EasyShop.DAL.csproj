@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20191011145545_Initial_AddIdentity.cs" />
+    <Compile Remove="Migrations\20191011145545_Initial_AddIdentity.Designer.cs" />
     <Compile Remove="Migrations\20191026164331_Added_ProfileImage_In_ApplicationUser.cs" />
     <Compile Remove="Migrations\20191026164331_Added_ProfileImage_In_ApplicationUser.Designer.cs" />
     <Compile Remove="Migrations\20191213105221_Added_Tariffs_and_tariffsPptions_Tables.cs" />
@@ -23,6 +25,12 @@
     <Compile Remove="Migrations\20191215110822_AppUser_And_TariffTables.Designer.cs" />
     <Compile Remove="Migrations\20191215111719_AppUser_And_TariffTables.cs" />
     <Compile Remove="Migrations\20191215111719_AppUser_And_TariffTables.Designer.cs" />
+    <Compile Remove="Migrations\20191215113110_AppUser_Configuration_And_Tariff_Tables.cs" />
+    <Compile Remove="Migrations\20191215113110_AppUser_Configuration_And_Tariff_Tables.Designer.cs" />
+    <Compile Remove="Migrations\20191217172452_AddedShopServerTables_And_PurchasedTariffs_In_AppUser.cs" />
+    <Compile Remove="Migrations\20191217172452_AddedShopServerTables_And_PurchasedTariffs_In_AppUser.Designer.cs" />
+    <Compile Remove="Migrations\20191217173652_Added_ShopTables_Edite_dAppUser.cs" />
+    <Compile Remove="Migrations\20191217173652_Added_ShopTables_Edite_dAppUser.Designer.cs" />
     <Compile Remove="Startup.cs" />
   </ItemGroup>
 
