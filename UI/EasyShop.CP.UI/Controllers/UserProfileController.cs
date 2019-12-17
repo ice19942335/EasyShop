@@ -26,16 +26,6 @@ namespace EasyShop.CP.UI.Controllers
             _fileImageService = fileImageService;
         }
 
-        public IActionResult PasswordResetRequest() => View();
-
-        public IActionResult PasswordResetRequestHasBeenSent() => View();
-
-        public IActionResult EmailConfirmation() => View();
-
-        public IActionResult EmailConfirmationRequestHasBeenSent() => View();
-
-        public IActionResult SomethingWentWrong() => View();
-
         public async Task<IActionResult> Profile()
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
@@ -71,7 +61,17 @@ namespace EasyShop.CP.UI.Controllers
             return View(result);
         }
 
+        public IActionResult PasswordResetRequest() => View();
+
+        public IActionResult PasswordResetRequestHasBeenSent() => View();
+
+        public IActionResult EmailConfirmation() => View();
+
+        public IActionResult EmailConfirmationRequestHasBeenSent() => View();
+
         public IActionResult EmailHaveToBeConfirmed() => View();
+
+        public IActionResult SomethingWentWrong() => View();
 
     }
 }

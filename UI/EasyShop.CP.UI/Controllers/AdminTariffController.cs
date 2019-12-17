@@ -45,7 +45,7 @@ namespace EasyShop.CP.UI.Controllers
                     DaysActive = x.DaysActive,
                     Description = x.Description
                 }),
-                TariffOptionDescriptions = tariffsOptions.Select(x => new TariffOptionDescriptionViewModel()
+                TariffOptionDescriptions = tariffsOptions.Select(x => new TariffOptionDescriptionViewModel
                 {
                     Id = x.Id,
                     Name = x.Name,
