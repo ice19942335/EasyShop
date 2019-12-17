@@ -14,7 +14,7 @@ namespace EasyShop.Domain.ViewModels.User.UserData
 
         public int Gender { get; set; }
 
-        public int TransactionPercent { get; set; }
+        public double TransactionPercent { get; set; }
 
         public int ShopsAllowed { get; set; }
 

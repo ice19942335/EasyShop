@@ -14,5 +14,7 @@ namespace EasyShop.Domain.Entries.Tariff
 
         public string AppUserId { get; set; }
         public AppUser AppUser { get; set; }
+
+        public DateTime PurchaseDate { get; set; }
     }
 }
