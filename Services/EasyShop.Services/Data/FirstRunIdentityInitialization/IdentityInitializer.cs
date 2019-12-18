@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Mime;
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
+using EasyShop.Domain.Entries.Shop;
 using Microsoft.AspNetCore.Identity;
 
 namespace EasyShop.Services.Data.FirstRunIdentityInitialization
@@ -20,7 +22,7 @@ namespace EasyShop.Services.Data.FirstRunIdentityInitialization
             _userManager = userManager;
         }
 
-        public async Task Initialize()
+        public async Task InitializeIdentity()
         {
             if (!await _roleManager.RoleExistsAsync(DefaultIdentity.RoleAdmin))
                 await _roleManager.CreateAsync(new IdentityRole(DefaultIdentity.RoleAdmin));
@@ -52,6 +54,20 @@ namespace EasyShop.Services.Data.FirstRunIdentityInitialization
 
                 await _dbContext.SaveChangesAsync();
             }
+        }
+
+        public async Task InitializeGameTypes()
+        {
+            var gameTypes = new List<GameType>
+            {
+                new GameType
+                {
+                    Type = "Rust"
+                }
+            };
+
+            await _dbContext.GameTypes.AddRangeAsync(gameTypes);
+            await _dbContext.SaveChangesAsync();
         }
     }
 }
