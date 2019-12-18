@@ -1,9 +1,11 @@
 ﻿using EasyShop.Domain.Entries.Tariff;
 using EasyShop.Interfaces.Email;
 using EasyShop.Interfaces.Services.CP;
+using EasyShop.Interfaces.Services.CP.Shop;
 using EasyShop.Interfaces.Services.CP.Tariff;
 using EasyShop.Services.CP.Account;
 using EasyShop.Services.CP.FileImage;
+using EasyShop.Services.CP.Shop;
 using EasyShop.Services.CP.Tariff;
 using EasyShop.Services.CP.UserProfile;
 using EasyShop.Services.Email;
@@ -24,11 +26,12 @@ namespace EasyShop.CP.UI.Installers
 
             services.AddTransient<ISmtpEmailSender, SmtpEmailSender>();
 
-
             services.AddTransient<ITariffService, TariffService>();
             services.AddTransient<ITariffOptionDescriptionService, TariffOptionDescriptionService>();
             services.AddTransient<ITariffOptionsService, TariffOptionsService>();
 
+
+            services.AddTransient<IShopManagerService, ShopManagerService>();
             //Scooped
             services.AddScoped<IAccountService, AccountService>();
 

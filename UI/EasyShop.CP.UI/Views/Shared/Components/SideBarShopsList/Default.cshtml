@@ -1,4 +1,4 @@
-﻿@model Dictionary<string, int>
+﻿@model EasyShop.Domain.ViewModels.Shop.ShopManagerViewModel
 
 <li class="sidenav-item has-subnav">
     <a href="#" aria-haspopup="true">
@@ -9,9 +9,9 @@
         <li class="sidenav-subheading">UI Elements</li>
         @{
             <li><a asp-area="" asp-controller="ShopManager" asp-action="Index"><span style="color: #00aced">Shops manager</span></a></li>
-            foreach (var (key, value) in Model)
+            foreach (var item in Model.Shops)
             {
-                <li><a asp-area="" asp-controller="ShopManager" asp-action="EditShop" asp-route-id="@value">@key</a></li>
+                <li><a asp-area="" asp-controller="ShopManager" asp-action="EditShop" asp-route-id="@item.Id">@item.ShopName</a></li>
             }
         }
     </ul>
