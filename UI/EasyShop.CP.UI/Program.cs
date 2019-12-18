@@ -26,7 +26,8 @@ namespace EasyShop.CP.UI
                 var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
 
                 var basicIdentityInitializer = new IdentityInitializer(dbContext, roleManager, userManager);
-                await basicIdentityInitializer.Initialize();
+                await basicIdentityInitializer.InitializeIdentity();
+                await basicIdentityInitializer.InitializeGameTypes();
 
                 await dbContext.SaveChangesAsync();
             }

@@ -1,0 +1,58 @@
+﻿@model EasyShop.Domain.ViewModels.Shop.ShopManagerViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_ControlPanelLayout";
+}
+
+
+    <div class="well text-center">
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-4 text-center">
+                <h2>My shops</h2>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-sm-4 col-md-3">
+                <form method="get" asp-area="" asp-controller="ShopManager" asp-action="EditShop">
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-block" type="submit">New shop</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        @if (Model.Shops?.Count() > 0)
+        {
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-responsive table-center">
+                        <thead>
+                        <tr>
+                            <th>Shop name</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @{
+                            foreach (var shop in Model.Shops)
+                            {
+                                <tr>
+                                    <td>
+                                        <strong>@shop.ShopName</strong>
+                                    </td>
+                                    <td>
+                                        <a asp-area="" asp-controller="ShopManager" asp-action="EditShop" asp-route-id="@shop.Id"><span class="icon icon-pencil icon-lg icon-fw"></span></a>
+                                    </td>
+                                    <td>
+                                        <a asp-area="" asp-controller="ShopManager" asp-action="DeleteShop" asp-route-id="@shop.Id"><span class="icon icon-times icon-lg icon-fw" style="color: red"></span></a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        }
+    </div>

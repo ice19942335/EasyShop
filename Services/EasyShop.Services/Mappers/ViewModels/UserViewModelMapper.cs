@@ -13,8 +13,6 @@ namespace EasyShop.Services.Mappers.ViewModels
             model.LastName = user.LastName;
             model.BirthDate = user.BirthDate;
             model.Gender = user.Gender;
-            model.TransactionPercent = user.TransactionPercent;
-            model.ShopsAllowed = user.ShopsAllowed;
             model.ProfileImage = user.ProfileImage;
             model.Email = user.Email;
         }

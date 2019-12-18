@@ -63,12 +63,13 @@ namespace EasyShop.Services.CP.Account
                     Email = model.Email,
                     FirstName = model.Firstname,
                     LastName = model.LastName,
-                    BirthDate = new DateTime(model.Year, model.Day, Int32.Parse(model.Month)),
+                    BirthDate = new DateTime(model.Year, model.Day, int.Parse(model.Month)),
                     Gender = model.Gender,
-                    TransactionPercent = 1,
-                    ShopsAllowed = 2,
                     RegistrationDate = DateTime.Now,
-                    ProfileImage = profileImage
+                    ProfileImage = profileImage,
+                    TransactionPercent = 3,
+                    ShopsAllowed = 10,
+                    UsingTariff = false
                 };
 
                 var creationResult = await _userManager.CreateAsync(user, model.Password);

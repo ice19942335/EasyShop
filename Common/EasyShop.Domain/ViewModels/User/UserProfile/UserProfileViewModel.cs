@@ -14,6 +14,7 @@ namespace EasyShop.Domain.ViewModels.User.UserProfile
         [Required]
         public string LastName { get; set; }
 
+        [Required]
         public string Email { get; set; }
 
         public DateTime BirthDate { get; set; }
@@ -23,10 +24,6 @@ namespace EasyShop.Domain.ViewModels.User.UserProfile
         public string BirthDateToUpdate { get; set; }
 
         public int Gender { get; set; }
-
-        public double TransactionPercent { get; set; }
-
-        public int ShopsAllowed { get; set; }
 
         public string ProfileImage { get; set; }
 

@@ -4,26 +4,14 @@
         <div class="custom-scrollbar">
             <nav id="sidenav" class="sidenav-collapse collapse">
                 <ul class="sidenav">
-                    <li class="sidenav-heading">Navigation</li>
-                    <li class="sidenav-item has-subnav active">
-                        <a href="dashboard-1.html" aria-haspopup="true">
-                            <span class="sidenav-icon icon icon-home"></span>
-                            <span class="sidenav-label">Dashboards</span>
-                        </a>
-                        <ul class="sidenav-subnav collapse">
-                            <li class="sidenav-subheading">Dashboards</li>
-                            <li class="active"><a href="dashboard-1.html">Dashboard 1</a></li>
-                            <li><a href="dashboard-2.html">Dashboard 2</a></li>
-                            <li><a href="dashboard-3.html">Dashboard 3</a></li>
-                        </ul>
-                    </li>
+                    <li class="sidenav-heading">Main menu</li>
                     <li class="sidenav-item">
-                        <a href="widgets.html">
-                            <span class="badge badge-success">26</span>
-                            <span class="sidenav-icon icon icon-th"></span>
-                            <span class="sidenav-label">Widgets</span>
+                        <a asp-area="" asp-controller="ControlPanel" asp-action="Dashboard">
+                            <span class="sidenav-icon icon icon-pie-chart"></span>
+                            <span class="sidenav-label">Dashboard</span>
                         </a>
                     </li>
+                    @await Component.InvokeAsync("SideBarShopsList")
                 </ul>
             </nav>
         </div>
