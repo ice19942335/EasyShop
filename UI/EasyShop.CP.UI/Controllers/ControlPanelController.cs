@@ -10,9 +10,8 @@ namespace EasyShop.CP.UI.Controllers
     [Authorize]
     public class ControlPanelController : Controller
     {
-        public IActionResult Dashboard()
-        {
-            return View();
-        }
+        public IActionResult Dashboard() => View();
+
+        public IActionResult SomethingWentWrong(string reason) => View(reason);
     }
 }

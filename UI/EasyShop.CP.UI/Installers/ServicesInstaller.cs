@@ -31,7 +31,7 @@ namespace EasyShop.CP.UI.Installers
             services.AddTransient<ITariffOptionsService, TariffOptionsService>();
 
 
-            services.AddTransient<IShopManagerService, ShopManagerService>();
+            services.AddTransient<IShopManager, ShopManager>();
             //Scooped
             services.AddScoped<IAccountService, AccountService>();
 

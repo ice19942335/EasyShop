@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EasyShop.Domain.ViewModels.Shop
+namespace EasyShop.Domain.ViewModels.Shop.Rust
 {
-    public class EditShopViewModel
+    public class EditRustShopViewModel
     {
 
     }
