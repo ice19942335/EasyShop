@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using EasyShop.Domain.Entries.Servers;
 
 namespace EasyShop.Domain.Entries.Shop
 {
@@ -15,7 +16,7 @@ namespace EasyShop.Domain.Entries.Shop
         public string ShopName { get; set; }
 
         [Required]
-        public GameType GameType { get; set; }
+        public GameType.GameType GameType { get; set; }
 
         [Required]
         public string ShopTitle { get; set; }

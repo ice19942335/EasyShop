@@ -45,16 +45,16 @@
                                         <a asp-area="" asp-controller="ShopManager" asp-action="EditShopHandler" asp-route-shopId="@shop.Id"><span class="icon icon-pencil icon-lg icon-fw"></span></a>
                                     </td>
                                     <td>
-                                        <button id="deleteButton_@shop.Id" class="btn btn-danger" type="button" onclick="deleteShopConfirmationDialog('@shop.Id', true)">Delete</button>
+                                        <a id="deleteButton_@shop.Id" href="#" onclick="deleteShopConfirmationDialog('@shop.Id', true)" style="color: red"><span class="icon icon-times icon-lg icon-fw"></span></a>
+                                        @*<button id="deleteButton_@shop.Id" class="btn btn-danger" type="button" onclick="deleteShopConfirmationDialog('@shop.Id', true)">Delete</button>*@
                                         <span id="confirmDeleteSpan_@shop.Id" style="display: none">
                                             <span>Are you sure you want to delete?</span>
                                             <span>
-                                                <form style="display: inline" method="get" asp-area="" asp-controller="ShopManager" asp-action="DeleteShop" asp-route-shopId="@shop.Id">
-                                                    <button class="btn btn-success" type="submit">Yes</button>
-                                                </form>
+                                                <a asp-area="" asp-controller="ShopManager" asp-action="DeleteShop" asp-route-shopId="@shop.Id" style="color: green"><span class="icon icon-check icon-lg icon-fw"></span></a>
                                             </span>
                                             <span>
-                                                <button class="btn btn-danger" type="button" onclick="deleteShopConfirmationDialog('@shop.Id', false)">No</button>
+                                                @*<button class="btn btn-danger" type="button" onclick="deleteShopConfirmationDialog('@shop.Id', false)">No</button>*@
+                                                <a style="color: red; cursor: pointer" onclick="deleteShopConfirmationDialog('@shop.Id', false)"><span class="icon icon-times icon-lg icon-fw"></span></a>
                                             </span>
                                         </span>
                                     </td>
