@@ -73,7 +73,7 @@ namespace EasyShop.CP.UI.Controllers
 
             switch (shop.GameType.Type)
             {
-                case DefaultGameTypes.GameRust: return RedirectToAction("EditMainSettings", "RustShop", new { shopId = shopId });
+                case DefaultGameTypes.GameRust: return RedirectToAction("Index", "RustShop", new { shopId = shopId });
                 default: return RedirectToAction("NotFoundPage", "Home");
             }
         }

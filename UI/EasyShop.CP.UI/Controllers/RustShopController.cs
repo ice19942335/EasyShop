@@ -24,6 +24,34 @@ namespace EasyShop.CP.UI.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> Index(string shopId)
+        {
+            var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(shopId));
+
+            if (shop is null)
+                return RedirectToAction("NotFoundPage", "Home");
+
+            var model = new RustShopViewModel
+            {
+                RustShopStatsViewModel = new RustShopStatsViewModel
+                {
+                    Id = shop.Id,
+                    ShopName = shop.ShopName,
+                    ShopTitle = shop.ShopTitle
+                },
+                EditMainSettingsRustShopViewModel = new EditMainSettingsRustShopViewModel
+                {
+                    Id = shop.Id,
+                    ShopName = shop.ShopName,
+                    ShopTitle = shop.ShopTitle,
+                    StartBalance = shop.StartBalance,
+                }
+            };
+
+            return View(model);
+        }
+
+        [HttpGet]
         public async Task<IActionResult> EditMainSettings(string shopId)
         {
             var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(shopId));
@@ -31,12 +59,21 @@ namespace EasyShop.CP.UI.Controllers
             if (shop is null)
                 return RedirectToAction("NotFoundPage", "Home");
 
-            var model = new EditMainSettingsRustShopViewModel
+            var model = new RustShopViewModel
             {
-                Id = shop.Id,
-                ShopName = shop.ShopName,
-                ShopTitle = shop.ShopTitle,
-                StartBalance = shop.StartBalance
+                RustShopStatsViewModel = new RustShopStatsViewModel
+                {
+                    Id = shop.Id,
+                    ShopName = shop.ShopName,
+                    ShopTitle = shop.ShopTitle
+                },
+                EditMainSettingsRustShopViewModel = new EditMainSettingsRustShopViewModel
+                {
+                    Id = shop.Id,
+                    ShopName = shop.ShopName,
+                    ShopTitle = shop.ShopTitle,
+                    StartBalance = shop.StartBalance,
+                }
             };
 
             return View(model);

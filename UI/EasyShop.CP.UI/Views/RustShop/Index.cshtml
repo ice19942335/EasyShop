@@ -1,0 +1,65 @@
+﻿@model EasyShop.Domain.ViewModels.Shop.Rust.RustShopViewModel
+@{
+    ViewData["Title"] = "Rust shop";
+    Layout = "Partial/_RustBaseLayout";
+}
+
+<div class="row gutter-xs">
+    <div class="col-xs-6 col-md-3">
+        <div class="card">
+            <div class="card-values">
+                <div class="p-x">
+                    <small>Visitors</small>
+                    <h3 class="card-title fw-l">185,118</h3>
+                </div>
+            </div>
+            <div class="card-chart">
+                <iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                <canvas data-chart="line" data-animation="false" data-labels="[&quot;Jun 21&quot;, &quot;Jun 20&quot;, &quot;Jun 19&quot;, &quot;Jun 18&quot;, &quot;Jun 17&quot;, &quot;Jun 16&quot;, &quot;Jun 15&quot;]" data-values="[{&quot;backgroundColor&quot;: &quot;rgba(255, 255, 255, 0.1)&quot;, &quot;borderColor&quot;: &quot;#00aced&quot;, &quot;data&quot;: [25250, 23370, 25568, 28961, 26762, 30072, 25135]}]" data-scales="{&quot;yAxes&quot;: [{ &quot;ticks&quot;: {&quot;max&quot;: 32327}}]}" data-hide="[&quot;legend&quot;, &quot;points&quot;, &quot;scalesX&quot;, &quot;scalesY&quot;, &quot;tooltips&quot;]" height="31" width="273" style="display: block; width: 273px; height: 31px;"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 col-md-3">
+        <div class="card">
+            <div class="card-values">
+                <div class="p-x">
+                    <small>New visitors</small>
+                    <h3 class="card-title fw-l">68,494</h3>
+                </div>
+            </div>
+            <div class="card-chart">
+                <iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                <canvas data-chart="line" data-animation="false" data-labels="[&quot;Jun 21&quot;, &quot;Jun 20&quot;, &quot;Jun 19&quot;, &quot;Jun 18&quot;, &quot;Jun 17&quot;, &quot;Jun 16&quot;, &quot;Jun 15&quot;]" data-values="[{&quot;backgroundColor&quot;: &quot;rgba(255, 255, 255, 0.1)&quot;, &quot;borderColor&quot;: &quot;#00aced&quot;, &quot;data&quot;: [8796, 11317, 8678, 9452, 8453, 11853, 9945]}]" data-scales="{&quot;yAxes&quot;: [{ &quot;ticks&quot;: {&quot;max&quot;: 12742}}]}" data-hide="[&quot;legend&quot;, &quot;points&quot;, &quot;scalesX&quot;, &quot;scalesY&quot;, &quot;tooltips&quot;]" height="31" width="273" style="display: block; width: 273px; height: 31px;"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 col-md-3">
+        <div class="card">
+            <div class="card-values">
+                <div class="p-x">
+                    <small>Pageviews</small>
+                    <h3 class="card-title fw-l">925,590</h3>
+                </div>
+            </div>
+            <div class="card-chart">
+                <iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                <canvas data-chart="line" data-animation="false" data-labels="[&quot;Jun 21&quot;, &quot;Jun 20&quot;, &quot;Jun 19&quot;, &quot;Jun 18&quot;, &quot;Jun 17&quot;, &quot;Jun 16&quot;, &quot;Jun 15&quot;]" data-values="[{&quot;backgroundColor&quot;: &quot;rgba(255, 255, 255, 0.1)&quot;, &quot;borderColor&quot;: &quot;#00aced&quot;, &quot;data&quot;: [116196, 145160, 124419, 147004, 134740, 120846, 137225]}]" data-scales="{&quot;yAxes&quot;: [{ &quot;ticks&quot;: {&quot;max&quot;: 158029}}]}" data-hide="[&quot;legend&quot;, &quot;points&quot;, &quot;scalesX&quot;, &quot;scalesY&quot;, &quot;tooltips&quot;]" height="31" width="273" style="display: block; width: 273px; height: 31px;"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 col-md-3">
+        <div class="card">
+            <div class="card-values">
+                <div class="p-x">
+                    <small>Average duration</small>
+                    <h3 class="card-title fw-l">00:07:56</h3>
+                </div>
+            </div>
+            <div class="card-chart">
+                <iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
+                <canvas data-chart="line" data-animation="false" data-labels="[&quot;Jun 21&quot;, &quot;Jun 20&quot;, &quot;Jun 19&quot;, &quot;Jun 18&quot;, &quot;Jun 17&quot;, &quot;Jun 16&quot;, &quot;Jun 15&quot;]" data-values="[{&quot;backgroundColor&quot;: &quot;rgba(255, 255, 255, 0.1)&quot;, &quot;borderColor&quot;: &quot;#00aced&quot;, &quot;data&quot;: [13590442, 12362934, 13639564, 13055677, 12915203, 11009940, 11542408]}]" data-scales="{&quot;yAxes&quot;: [{ &quot;ticks&quot;: {&quot;max&quot;: 14662531}}]}" data-hide="[&quot;legend&quot;, &quot;points&quot;, &quot;scalesX&quot;, &quot;scalesY&quot;, &quot;tooltips&quot;]" height="31" width="273" style="display: block; width: 273px; height: 31px;"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
