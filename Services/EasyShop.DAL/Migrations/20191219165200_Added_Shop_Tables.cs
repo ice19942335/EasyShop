@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EasyShop.DAL.Migrations
 {
-    public partial class Added_ShopTables_Edited_dAppUser : Migration
+    public partial class Added_Shop_Tables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -66,8 +66,7 @@ namespace EasyShop.DAL.Migrations
                 name: "Shops",
                 columns: table => new
                 {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Id = table.Column<Guid>(nullable: false),
                     ShopName = table.Column<string>(nullable: false),
                     GameTypeId = table.Column<int>(nullable: false),
                     ShopTitle = table.Column<string>(nullable: false),
@@ -89,7 +88,7 @@ namespace EasyShop.DAL.Migrations
                 name: "ServerShops",
                 columns: table => new
                 {
-                    ShopId = table.Column<int>(nullable: false),
+                    ShopId = table.Column<Guid>(nullable: false),
                     ServerId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -113,7 +112,7 @@ namespace EasyShop.DAL.Migrations
                 name: "UserShops",
                 columns: table => new
                 {
-                    ShopId = table.Column<int>(nullable: false),
+                    ShopId = table.Column<Guid>(nullable: false),
                     AppUserId = table.Column<string>(nullable: false)
                 },
                 constraints: table =>

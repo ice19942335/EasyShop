@@ -9,9 +9,9 @@
         <li class="sidenav-subheading">UI Elements</li>
         @{
             <li><a asp-area="" asp-controller="ShopManager" asp-action="Index"><span style="color: #00aced">Shops manager</span></a></li>
-            foreach (var item in Model.Shops)
+            foreach (var shop in Model.Shops)
             {
-                <li><a asp-area="" asp-controller="ShopManager" asp-action="EditShop" asp-route-id="@item.Id">@item.ShopName</a></li>
+                <li><a asp-area="" asp-controller="ShopManager" asp-action="EditShopHandler" asp-route-shopId="@shop.Id">@shop.ShopName</a></li>
             }
         }
     </ul>

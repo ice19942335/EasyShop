@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net.Mime;
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
+using EasyShop.Domain.Entries.GameType;
 using EasyShop.Domain.Entries.Identity;
-using EasyShop.Domain.Entries.Shop;
 using Microsoft.AspNetCore.Identity;
 
 namespace EasyShop.Services.Data.FirstRunIdentityInitialization

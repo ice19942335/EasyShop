@@ -170,8 +170,8 @@ namespace EasyShop.DAL.Migrations
                     b.Property<int>("ServerId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ShopId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("ShopId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("ServerId", "ShopId");
 
@@ -182,10 +182,9 @@ namespace EasyShop.DAL.Migrations
 
             modelBuilder.Entity("EasyShop.Domain.Entries.Shop.Shop", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("GameTypeId")
                         .HasColumnType("int");
@@ -216,8 +215,8 @@ namespace EasyShop.DAL.Migrations
                     b.Property<string>("AppUserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("ShopId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("ShopId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("AppUserId", "ShopId");
 

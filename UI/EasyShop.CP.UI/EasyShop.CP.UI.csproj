@@ -31,6 +31,7 @@
   <ItemGroup>
     <Folder Include="Views\Admin\" />
     <Folder Include="Views\Shared\Components\EmailConfirmation\" />
+    <Folder Include="wwwroot\lib\jquery\" />
   </ItemGroup>
 
   <ItemGroup>

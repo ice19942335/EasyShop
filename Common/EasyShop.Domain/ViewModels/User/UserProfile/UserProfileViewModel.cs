@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using EasyShop.Domain.ViewModels.ViewModelValidation;
 using Microsoft.AspNetCore.Http;
 
 namespace EasyShop.Domain.ViewModels.User.UserProfile

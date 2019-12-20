@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
+using EasyShop.Domain.Entries.GameType;
 using EasyShop.Domain.Entries.Identity;
+using EasyShop.Domain.Entries.Servers;
 using EasyShop.Domain.Entries.Shop;
 using EasyShop.Domain.Entries.Tariff;
-using EasyShop.Domain.ViewModels.ControlPanel.Tariff;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;

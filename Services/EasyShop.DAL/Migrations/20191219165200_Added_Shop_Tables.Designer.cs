@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EasyShop.DAL.Migrations
 {
     [DbContext(typeof(EasyShopContext))]
-    [Migration("20191217173723_Added_ShopTables_Edited_dAppUser")]
-    partial class Added_ShopTables_Edited_dAppUser
+    [Migration("20191219165200_Added_Shop_Tables")]
+    partial class Added_Shop_Tables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -172,8 +172,8 @@ namespace EasyShop.DAL.Migrations
                     b.Property<int>("ServerId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ShopId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("ShopId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("ServerId", "ShopId");
 
@@ -184,10 +184,9 @@ namespace EasyShop.DAL.Migrations
 
             modelBuilder.Entity("EasyShop.Domain.Entries.Shop.Shop", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("GameTypeId")
                         .HasColumnType("int");
@@ -218,8 +217,8 @@ namespace EasyShop.DAL.Migrations
                     b.Property<string>("AppUserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("ShopId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("ShopId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("AppUserId", "ShopId");
 

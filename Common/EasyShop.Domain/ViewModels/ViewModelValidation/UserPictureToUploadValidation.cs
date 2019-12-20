@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text;
 using Microsoft.AspNetCore.Http;
 
-namespace EasyShop.Domain.ViewModels.User.UserProfile
+namespace EasyShop.Domain.ViewModels.ViewModelValidation
 {
     public class UserPictureToUploadValidation : ValidationAttribute
     {

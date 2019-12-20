@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using EasyShop.Domain.Entries.Base;
 using EasyShop.Domain.Entries.Base.Interfaces;
 
-namespace EasyShop.Domain.Entries.Shop
+namespace EasyShop.Domain.Entries.Servers
 {
     [Table("Servers")]
     public class Server : BaseEntity, INamedEntity
