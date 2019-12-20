@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace EasyShop.Services.CP.Shop
 {
@@ -21,13 +22,15 @@ namespace EasyShop.Services.CP.Shop
         private readonly EasyShopContext _context;
         private readonly UserManager<AppUser> _userManager;
         private readonly IConfiguration _configuration;
+        private readonly ILogger<ShopManager> _logger;
         private readonly HttpContext _httpContext;
 
-        public ShopManager(EasyShopContext context, UserManager<AppUser> userManager, IHttpContextAccessor httpContext, IConfiguration configuration)
+        public ShopManager(EasyShopContext context, UserManager<AppUser> userManager, IHttpContextAccessor httpContext, IConfiguration configuration, ILogger<ShopManager> logger)
         {
             _context = context;
             _userManager = userManager;
             _configuration = configuration;
+            _logger = logger;
             _httpContext = httpContext.HttpContext;
         }
 
@@ -104,5 +107,20 @@ namespace EasyShop.Services.CP.Shop
         public async Task<Domain.Entries.Shop.Shop> GetShopByIdAsync(Guid shopId) =>
             _context.Shops.Include(x => x.GameType).FirstOrDefault(x => x.Id == shopId);
 
+        public async Task<bool> DeleteShopAsync(Guid shopId)
+        {
+            var userShop = _context.UserShops.FirstOrDefault(x => x.ShopId == shopId);
+            var shop = _context.Shops.FirstOrDefault(x => x.Id == shopId);
+
+            if (userShop is null || shop is null)
+                return false;
+
+            _context.UserShops.Remove(userShop);
+            _context.Shops.Remove(shop);
+
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
     }
 }

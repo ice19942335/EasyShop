@@ -58,9 +58,14 @@ namespace EasyShop.CP.UI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> DeleteShop(string id)
+        public async Task<IActionResult> DeleteShop(string shopId)
         {
-            throw new NotImplementedException();
+            var result = await _shopManager.DeleteShopAsync(Guid.Parse(shopId));
+
+            if (!result)
+                return RedirectToAction("SomethingWentWrong", "ControlPanel");
+
+            return RedirectToAction("Index");
         }
 
         [HttpGet]

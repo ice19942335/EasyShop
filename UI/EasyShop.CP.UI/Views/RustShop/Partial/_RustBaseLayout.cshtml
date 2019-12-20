@@ -4,21 +4,6 @@
     Layout = "_ControlPanelLayout";
 }
 
-<div class="title-bar">
-    <div class="title-bar-actions">
-        <div class="btn-group bootstrap-select dropdown fit-width">
-            <select class="selectpicker dropdown" name="period" data-dropdown-align-right="true" data-style="btn-default btn-sm" data-width="fit" tabindex="-98">
-                <option value="today">Today</option>
-                <option value="yesterday">Yesterday</option>
-                <option value="last_7d" selected="selected">Last 7 days</option>
-                <option value="last_1m">Last 30 days</option>
-                <option value="last_3m">Last 90 days</option>
-            </select>
-        </div>
-    </div>
-    <h2>@Model.RustShopStatsViewModel.ShopName</h2>
-    <a href="#"><span class="icon icon-external-link icon-lg icon-fw"></span> Server: @Model.RustShopStatsViewModel.ShopLink</a>
-</div>
 @await Html.PartialAsync("Partial/_RustShopNavBar", Model)
 @RenderBody()
 
