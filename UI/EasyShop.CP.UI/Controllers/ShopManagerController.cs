@@ -7,10 +7,13 @@ using EasyShop.Domain.StaticEntities.GameTypes;
 using EasyShop.Domain.ViewModels.Shop;
 using EasyShop.Domain.ViewModels.Shop.Rust;
 using EasyShop.Interfaces.Services.CP.Shop;
+using EasyShop.Services.Data.FirstRunIdentityInitialization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EasyShop.CP.UI.Controllers
 {
+    [Authorize(Roles = "Admin,User")]
     public class ShopManagerController : Controller
     {
         private readonly IShopManager _shopManager;

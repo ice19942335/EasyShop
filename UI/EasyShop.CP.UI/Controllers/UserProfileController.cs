@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EasyShop.CP.UI.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin,User")]
     public class UserProfileController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
