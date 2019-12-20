@@ -57,7 +57,7 @@ namespace EasyShop.CP.UI.Controllers
             return RedirectToAction("Index", "ShopManager");
         }
 
-        [HttpGet]
+        [HttpGet("{shopId}")]
         public async Task<IActionResult> DeleteShop(string shopId)
         {
             var result = await _shopManager.DeleteShopAsync(Guid.Parse(shopId));

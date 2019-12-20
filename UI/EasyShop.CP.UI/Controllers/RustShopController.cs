@@ -67,7 +67,7 @@ namespace EasyShop.CP.UI.Controllers
                     Id = shop.Id,
                     ShopName = shop.ShopName,
                     ShopTitle = shop.ShopTitle,
-                    ShopLink = shop.ShopTitle + shop.Id
+                    ShopLink = "http://www.site.birula.com/monetization/" + shop.ShopTitle
                 },
                 EditMainSettingsRustShopViewModel = new EditMainSettingsRustShopViewModel
                 {
