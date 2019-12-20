@@ -30,7 +30,6 @@
 
   <ItemGroup>
     <Folder Include="Views\Admin\" />
-    <Folder Include="Views\RustShop\Partial\" />
     <Folder Include="Views\Shared\Components\EmailConfirmation\" />
   </ItemGroup>
 

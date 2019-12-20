@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using EasyShop.Domain.Entries.Base;
-using EasyShop.Domain.Entries.Identity;
 
 namespace EasyShop.Domain.Entries.Shop
 {

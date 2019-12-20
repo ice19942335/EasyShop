@@ -16,13 +16,13 @@ namespace EasyShop.CP.UI.Components.ControlPanel.SideBarShopsList
 {
     public class SideBarShopsListViewComponent : ViewComponent
     {
-        private readonly IShopManager _shop;
+        private readonly IShopManager _shopManager;
 
-        public SideBarShopsListViewComponent(IShopManager shop) => _shop = shop;
+        public SideBarShopsListViewComponent(IShopManager shop) => _shopManager = shop;
 
         public IViewComponentResult Invoke()
         {
-            var userShops = _shop.UserShopsByUserEmailAsync(User.Identity.Name).Result;
+            var userShops = _shopManager.UserShopsByUserEmailAsync(User.Identity.Name).Result;
 
             var model = new ShopManagerViewModel { Shops = userShops };
 

@@ -11,6 +11,7 @@ using EasyShop.Domain.ViewModels.Shop.Rust;
 using EasyShop.Interfaces.Services.CP.Shop;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
 namespace EasyShop.Services.CP.Shop
@@ -44,7 +45,7 @@ namespace EasyShop.Services.CP.Shop
                 {
                     Id = shop.Id,
                     ShopName = shop.ShopName,
-                    GameType = shop.GameType,
+                    GameType = _context.GameTypes.FirstOrDefault(x => x.Id == shop.GameType.Id),
                     ShopTitle = shop.ShopTitle,
                     StartBalance = shop.StartBalance,
                     Secret = shop.Secret
@@ -66,7 +67,7 @@ namespace EasyShop.Services.CP.Shop
             if (userAllowedShops > userShops.Count())
             {
                 Guid secret;
-                do { secret = new Guid(); } while (_context.Shops.FirstOrDefault(x => x.Secret == secret) != null);
+                do { secret = Guid.NewGuid(); } while (_context.Shops.FirstOrDefault(x => x.Secret == secret) != null);
 
                 var gameType = _context.GameTypes.First(x => x.Type == model.GameType);
 
@@ -80,7 +81,7 @@ namespace EasyShop.Services.CP.Shop
                 };
 
                 Guid userShopId;
-                do { userShopId = new Guid(); } while (_context.UserShops.FirstOrDefault(x => x.ShopId == userShopId) != null);
+                do { userShopId = Guid.NewGuid(); } while (_context.UserShops.FirstOrDefault(x => x.ShopId == userShopId) != null);
 
                 var userShop = new UserShop
                 {
@@ -100,11 +101,8 @@ namespace EasyShop.Services.CP.Shop
             return false;
         }
 
-        public async Task<Domain.Entries.Shop.Shop> GetShopByIdAsync(Guid shopId)
-        {
-            throw new NotImplementedException();
-            //Нужно собрать объект вместе с GameType
-        }
+        public async Task<Domain.Entries.Shop.Shop> GetShopByIdAsync(Guid shopId) =>
+            _context.Shops.Include(x => x.GameType).FirstOrDefault(x => x.Id == shopId);
 
     }
 }

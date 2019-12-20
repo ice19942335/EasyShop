@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Shop;
+using EasyShop.Domain.StaticEntities.GameTypes;
 using EasyShop.Domain.ViewModels.Shop;
 using EasyShop.Domain.ViewModels.Shop.Rust;
 using EasyShop.Interfaces.Services.CP.Shop;
@@ -38,7 +39,12 @@ namespace EasyShop.CP.UI.Controllers
         public async Task<IActionResult> CreateShop(CreateShopViewModel model)
         {
             if (!ModelState.IsValid)
+            {
+                var errors = ModelState.Values.SelectMany(x => x.Errors.Select(xx => xx.ErrorMessage)).ToList();
+                errors.ForEach(x => ModelState.AddModelError("", x));
                 return View(model);
+            }
+                
 
             var result = await _shopManager.CreateShopAsync(model);
 
@@ -55,13 +61,16 @@ namespace EasyShop.CP.UI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> EditShopHandler(Guid shopId)
+        public async Task<IActionResult> EditShopHandler(string shopId)
         {
-            var gameType = await _shopManager.GetShopByIdAsync(shopId);
+            var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(shopId));
 
-            switch (gameType.GameType.Type)
+            if (shop is null)
+                return RedirectToAction("NotFoundPage", "Home");
+
+            switch (shop.GameType.Type)
             {
-                case "Rust": return RedirectToAction("EditShop", "RustShop");
+                case DefaultGameTypes.GameRust: return RedirectToAction("EditMainSettings", "RustShop", new { shopId = shopId });
                 default: return RedirectToAction("NotFoundPage", "Home");
             }
         }

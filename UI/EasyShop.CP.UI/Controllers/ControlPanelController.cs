@@ -12,6 +12,6 @@ namespace EasyShop.CP.UI.Controllers
     {
         public IActionResult Dashboard() => View();
 
-        public IActionResult SomethingWentWrong(string reason) => View(reason);
+        public IActionResult SomethingWentWrong() => View();
     }
 }

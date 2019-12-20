@@ -1,11 +1,12 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using EasyShop.Domain.Entries.Shop;
 
-namespace EasyShop.Domain.ViewModels.Shop
+namespace EasyShop.Domain.ViewModels.Shop.Rust
 {
-    public class CreateShopViewModel
+    public class EditMainSettingsRustShopViewModel
     {
+        public Guid Id { get; set; }
+
         [Required(ErrorMessage = "Shop name is required")]
         public string ShopName { get; set; }
 
@@ -14,9 +15,6 @@ namespace EasyShop.Domain.ViewModels.Shop
 
         [RegularExpression("^[0-9]*,[0-9]{2}$", ErrorMessage = "Please enter correct value, example (9,99 or 150,00)")]
         public decimal StartBalance { get; set; }
-
-        [Required(ErrorMessage = "Game type is required")]
-        public string GameType { get; set; }
 
         public bool AddDefaultItems { get; set; }
     }
