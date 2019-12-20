@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EasyShop.Domain.ViewModels.Shop.Rust;
@@ -7,7 +6,6 @@ using EasyShop.Interfaces.Services.CP.Shop;
 using EasyShop.Interfaces.Services.CP.Shop.Rust;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace EasyShop.CP.UI.Controllers
 {
