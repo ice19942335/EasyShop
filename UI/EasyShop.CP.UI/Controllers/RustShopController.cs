@@ -37,7 +37,8 @@ namespace EasyShop.CP.UI.Controllers
                 {
                     Id = shop.Id,
                     ShopName = shop.ShopName,
-                    ShopTitle = shop.ShopTitle
+                    ShopTitle = shop.ShopTitle,
+                    ShopLink = shop.ShopTitle + shop.Id
                 },
                 EditMainSettingsRustShopViewModel = new EditMainSettingsRustShopViewModel
                 {
@@ -65,7 +66,8 @@ namespace EasyShop.CP.UI.Controllers
                 {
                     Id = shop.Id,
                     ShopName = shop.ShopName,
-                    ShopTitle = shop.ShopTitle
+                    ShopTitle = shop.ShopTitle,
+                    ShopLink = shop.ShopTitle + shop.Id
                 },
                 EditMainSettingsRustShopViewModel = new EditMainSettingsRustShopViewModel
                 {
@@ -80,7 +82,7 @@ namespace EasyShop.CP.UI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditMainSettings(EditMainSettingsRustShopViewModel model)
+        public async Task<IActionResult> EditMainSettings(RustShopViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -89,12 +91,20 @@ namespace EasyShop.CP.UI.Controllers
                 return View(model);
             }
 
-            var result = await _rustShopService.UpdateShopAsync(model);
+            var result = await _rustShopService.UpdateShopAsync(model.EditMainSettingsRustShopViewModel);
 
             if (result is null)
                 return RedirectToAction("SomethingWentWrong", "ControlPanel");
 
-            return View(result);
+            model.EditMainSettingsRustShopViewModel = result;
+            model.RustShopStatsViewModel = new RustShopStatsViewModel
+            {
+                Id = result.Id,
+                ShopName = result.ShopName,
+                ShopTitle = result.ShopTitle,
+                ShopLink = result.ShopTitle + result.Id
+            };
+            return View(model);
         }
     }
 }

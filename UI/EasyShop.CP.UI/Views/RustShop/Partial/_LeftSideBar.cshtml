@@ -1,7 +1,9 @@
-﻿<div class="row">
+﻿@model EasyShop.Domain.ViewModels.Shop.Rust.RustShopViewModel
+
+<div class="row">
     <div class="col-lg-12">
         <div class="list-group-divided">
-            <a class="list-group-item" asp-area="" asp-controller="RustShop" asp-action="EditMainSettings" asp-route-shopId="@Context.Request.Query["shopId"]">
+            <a class="list-group-item" asp-area="" asp-controller="RustShop" asp-action="EditMainSettings" asp-route-shopId="@Model.RustShopStatsViewModel.Id">
                 <span class="icon icon-user icon-lg icon-fw"></span>
                 Main settings
             </a>
