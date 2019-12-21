@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace EasyShop.Services.Data.FirstRunIdentityInitialization
+﻿namespace EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization
 {
     public static class DefaultIdentity
     {
