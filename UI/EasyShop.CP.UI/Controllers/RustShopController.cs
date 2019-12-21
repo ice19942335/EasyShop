@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EasyShop.Domain.ViewModels.Shop.Rust;
 using EasyShop.Interfaces.Services.CP.Shop;
 using EasyShop.Interfaces.Services.CP.Shop.Rust;
+using EasyShop.Services.Mappers.ViewModels.Rust;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace EasyShop.CP.UI.Controllers
 {
@@ -24,26 +23,33 @@ namespace EasyShop.CP.UI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> EditMainSettings(string shopId)
+        public async Task<IActionResult> Index(string shopId)
         {
             var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(shopId));
 
             if (shop is null)
                 return RedirectToAction("NotFoundPage", "Home");
 
-            var model = new EditMainSettingsRustShopViewModel
-            {
-                Id = shop.Id,
-                ShopName = shop.ShopName,
-                ShopTitle = shop.ShopTitle,
-                StartBalance = shop.StartBalance
-            };
+            var model = shop.CreateRustShopViewModel();
+
+            return View(model);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> MainSettings(string shopId)
+        {
+            var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(shopId));
+
+            if (shop is null)
+                return RedirectToAction("NotFoundPage", "Home");
+
+            var model = shop.CreateRustShopViewModel();
 
             return View(model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditMainSettings(EditMainSettingsRustShopViewModel model)
+        public async Task<IActionResult> MainSettings([FromForm] RustShopViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -52,12 +58,14 @@ namespace EasyShop.CP.UI.Controllers
                 return View(model);
             }
 
-            var result = await _rustShopService.UpdateShopAsync(model);
+            var result = await _rustShopService.UpdateShopAsync(model.MainSettingsRustShopViewModel);
 
             if (result is null)
                 return RedirectToAction("SomethingWentWrong", "ControlPanel");
 
-            return View(result);
+            model = result.CreateRustShopViewModel();
+
+            return View(model);
         }
     }
 }

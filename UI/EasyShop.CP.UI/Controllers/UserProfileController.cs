@@ -1,5 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Identity;
+using EasyShop.Domain.ViewModels.User.UserData;
 using EasyShop.Domain.ViewModels.User.UserProfile;
 using EasyShop.Interfaces.Services.CP;
 using EasyShop.Services.Mappers.ViewModels;
@@ -59,6 +61,23 @@ namespace EasyShop.CP.UI.Controllers
             var result = await _userProfileService.UpdateUserData(model);
 
             return View(result);
+        }
+
+        public async Task<IActionResult> Main()
+        {
+            var user = await _userManager.FindByEmailAsync(User.Identity.Name);
+
+            if (user is null)
+                return RedirectToAction("SomethingWentWrong", "UserProfile");
+
+            var model = new AppUserViewModel
+            {
+                TransactionPercent = user.TransactionPercent,
+                ShopsAllowed = user.ShopsAllowed,
+                TotalRevenue = user.TotalRevenue
+            };
+            
+            return View(model);
         }
 
         public IActionResult PasswordResetRequest() => View();

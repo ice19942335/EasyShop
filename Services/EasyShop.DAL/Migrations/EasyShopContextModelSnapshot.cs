@@ -19,6 +19,22 @@ namespace EasyShop.DAL.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("EasyShop.Domain.Entries.GameType.GameType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("GameTypes");
+                });
+
             modelBuilder.Entity("EasyShop.Domain.Entries.Identity.AppUser", b =>
                 {
                     b.Property<string>("Id")
@@ -89,6 +105,9 @@ namespace EasyShop.DAL.Migrations
                     b.Property<int>("ShopsAllowed")
                         .HasColumnType("int");
 
+                    b.Property<decimal>("TotalRevenue")
+                        .HasColumnType("decimal(18, 2)");
+
                     b.Property<decimal>("TransactionPercent")
                         .HasColumnType("decimal(18, 2)");
 
@@ -115,23 +134,140 @@ namespace EasyShop.DAL.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("EasyShop.Domain.Entries.Shop.GameType", b =>
+            modelBuilder.Entity("EasyShop.Domain.Entries.Identity.RustUser", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Type")
+                    b.Property<decimal>("Balance")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.Property<decimal>("TotalSpent")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.Property<string>("Uid")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("GameTypes");
+                    b.ToTable("RustUsers");
                 });
 
-            modelBuilder.Entity("EasyShop.Domain.Entries.Shop.Server", b =>
+            modelBuilder.Entity("EasyShop.Domain.Entries.Items.RustItems.RustCategory", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.ToTable("RustCategories");
+                });
+
+            modelBuilder.Entity("EasyShop.Domain.Entries.Items.RustItems.RustItem", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ImgUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.Property<Guid>("RustItemTypeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RustItemTypeId");
+
+                    b.ToTable("RustItems");
+                });
+
+            modelBuilder.Entity("EasyShop.Domain.Entries.Items.RustItems.RustItemCategory", b =>
+                {
+                    b.Property<Guid>("RustItemId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("RustCategoryId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("RustItemId", "RustCategoryId");
+
+                    b.HasIndex("RustCategoryId");
+
+                    b.ToTable("RustItemCategories");
+                });
+
+            modelBuilder.Entity("EasyShop.Domain.Entries.Items.RustItems.RustItemType", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("TypeName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RustItemTypes");
+                });
+
+            modelBuilder.Entity("EasyShop.Domain.Entries.Items.RustItems.RustItemsPurchased", b =>
+                {
+                    b.Property<Guid>("RustItemId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("RustUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.HasKey("RustItemId", "RustUserId");
+
+                    b.HasIndex("RustUserId");
+
+                    b.ToTable("RustItemsPurchased");
+                });
+
+            modelBuilder.Entity("EasyShop.Domain.Entries.Items.RustItems.RustShopItem", b =>
+                {
+                    b.Property<Guid>("RustItemId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ShopId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("RustItemId", "ShopId");
+
+                    b.HasIndex("ShopId");
+
+                    b.ToTable("RustShopItems");
+                });
+
+            modelBuilder.Entity("EasyShop.Domain.Entries.Servers.Server", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -165,7 +301,7 @@ namespace EasyShop.DAL.Migrations
                     b.ToTable("Servers");
                 });
 
-            modelBuilder.Entity("EasyShop.Domain.Entries.Shop.ServerShop", b =>
+            modelBuilder.Entity("EasyShop.Domain.Entries.Servers.ServerShop", b =>
                 {
                     b.Property<int>("ServerId")
                         .HasColumnType("int");
@@ -431,9 +567,70 @@ namespace EasyShop.DAL.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("EasyShop.Domain.Entries.Shop.ServerShop", b =>
+            modelBuilder.Entity("EasyShop.Domain.Entries.Items.RustItems.RustCategory", b =>
                 {
-                    b.HasOne("EasyShop.Domain.Entries.Shop.Server", "Server")
+                    b.HasOne("EasyShop.Domain.Entries.Identity.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId");
+                });
+
+            modelBuilder.Entity("EasyShop.Domain.Entries.Items.RustItems.RustItem", b =>
+                {
+                    b.HasOne("EasyShop.Domain.Entries.Items.RustItems.RustItemType", "RustItemType")
+                        .WithMany()
+                        .HasForeignKey("RustItemTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("EasyShop.Domain.Entries.Items.RustItems.RustItemCategory", b =>
+                {
+                    b.HasOne("EasyShop.Domain.Entries.Items.RustItems.RustCategory", "RustCategory")
+                        .WithMany("RustItemCategories")
+                        .HasForeignKey("RustCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EasyShop.Domain.Entries.Items.RustItems.RustItem", "RustItem")
+                        .WithMany("RustItemCategories")
+                        .HasForeignKey("RustItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("EasyShop.Domain.Entries.Items.RustItems.RustItemsPurchased", b =>
+                {
+                    b.HasOne("EasyShop.Domain.Entries.Items.RustItems.RustItem", "RustItem")
+                        .WithMany("RustItemsPurchased")
+                        .HasForeignKey("RustItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EasyShop.Domain.Entries.Identity.RustUser", "RustUser")
+                        .WithMany("RustItemsPurchased")
+                        .HasForeignKey("RustUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("EasyShop.Domain.Entries.Items.RustItems.RustShopItem", b =>
+                {
+                    b.HasOne("EasyShop.Domain.Entries.Items.RustItems.RustItem", "RustItem")
+                        .WithMany("RustShopItems")
+                        .HasForeignKey("RustItemId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EasyShop.Domain.Entries.Shop.Shop", "Shop")
+                        .WithMany("RustShopItems")
+                        .HasForeignKey("ShopId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("EasyShop.Domain.Entries.Servers.ServerShop", b =>
+                {
+                    b.HasOne("EasyShop.Domain.Entries.Servers.Server", "Server")
                         .WithMany("ServerShops")
                         .HasForeignKey("ServerId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -448,7 +645,7 @@ namespace EasyShop.DAL.Migrations
 
             modelBuilder.Entity("EasyShop.Domain.Entries.Shop.Shop", b =>
                 {
-                    b.HasOne("EasyShop.Domain.Entries.Shop.GameType", "GameType")
+                    b.HasOne("EasyShop.Domain.Entries.GameType.GameType", "GameType")
                         .WithMany()
                         .HasForeignKey("GameTypeId")
                         .OnDelete(DeleteBehavior.Cascade)

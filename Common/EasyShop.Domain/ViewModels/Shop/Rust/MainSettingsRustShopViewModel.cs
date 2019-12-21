@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EasyShop.Domain.ViewModels.Shop.Rust
 {
-    public class EditMainSettingsRustShopViewModel
+    public class MainSettingsRustShopViewModel
     {
         public Guid Id { get; set; }
 
@@ -16,6 +16,6 @@ namespace EasyShop.Domain.ViewModels.Shop.Rust
         [RegularExpression("^[0-9]*,[0-9]{2}$", ErrorMessage = "Please enter correct value, example (9,99 or 150,00)")]
         public decimal StartBalance { get; set; }
 
-        public bool AddDefaultItems { get; set; }
+        public Guid Secret { get; set; }
     }
 }

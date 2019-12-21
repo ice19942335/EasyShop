@@ -1,0 +1,20 @@
+﻿@model EasyShop.Domain.ViewModels.Shop.Rust.RustShopViewModel
+@{
+    ViewData["Title"] = $"Rust shop {Model.ShopName}";
+    Layout = "_ControlPanelLayout";
+}
+
+@await Html.PartialAsync("Partial/_RustShopNavBar", Model)
+@RenderBody()
+
+
+@section Styles {
+    @RenderSection("Styles", false)
+}
+
+@section Scripts {
+    @RenderSection("Scripts", false)
+    <link rel="stylesheet" href="~/css/profile.min.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/custom/customStyles.css" asp-append-version="true"/>
+}
+

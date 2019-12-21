@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
-using EasyShop.Services.Data.FirstRunIdentityInitialization;
+using EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

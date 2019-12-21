@@ -1,10 +1,12 @@
-﻿@{
-    Layout = "_ControlPanelLayout";
+﻿@model EasyShop.Domain.ViewModels.Shop.Rust.RustShopViewModel
+
+@{
+    Layout = "Partial/_RustBaseLayout";
 }
 
 <div class="row gutter-lg">
     <div class="col-sm-3">
-        @await Html.PartialAsync("Partial/_LeftSideBar")
+        @await Html.PartialAsync("Partial/_LeftSideBar", Model)
     </div>
     <div class="col-sm-9">
         @RenderBody()

@@ -6,7 +6,7 @@ using EasyShop.Domain.Entries.GameType;
 using EasyShop.Domain.Entries.Identity;
 using Microsoft.AspNetCore.Identity;
 
-namespace EasyShop.Services.Data.FirstRunIdentityInitialization
+namespace EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization
 {
     public class IdentityInitializer
     {

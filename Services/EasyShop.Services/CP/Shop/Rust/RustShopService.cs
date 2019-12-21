@@ -27,7 +27,7 @@ namespace EasyShop.Services.CP.Shop.Rust
             _logger = logger;
         }
 
-        public async Task<EditMainSettingsRustShopViewModel> UpdateShopAsync(EditMainSettingsRustShopViewModel model)
+        public async Task<Domain.Entries.Shop.Shop> UpdateShopAsync(MainSettingsRustShopViewModel model)
         {
             var shop = await _shopManager.GetShopByIdAsync(model.Id);
 
@@ -43,7 +43,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                 _context.Shops.Update(shop);
                 await _context.SaveChangesAsync();
 
-                return model;
+                return shop;
             }
             catch (Exception e)
             {
