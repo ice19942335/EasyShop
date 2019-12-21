@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using EasyShop.Domain.Entries.Items.RustItems;
 using EasyShop.Domain.Entries.Servers;
 using EasyShop.Domain.ViewModels.Shop.Rust;
 
@@ -31,5 +32,7 @@ namespace EasyShop.Domain.Entries.Shop
         public ICollection<UserShop> UserShops { get; set; }
 
         public ICollection<ServerShop> ServerShops { get; set; }
+
+        public ICollection<RustShopItem> RustShopItems { get; set; }
     }
 }
