@@ -8,6 +8,6 @@ namespace EasyShop.Interfaces.Services.CP.Shop.Rust
 {
     public interface IRustShopService
     {
-        Task<EditMainSettingsRustShopViewModel> UpdateShopAsync(EditMainSettingsRustShopViewModel model);
+        Task<Domain.Entries.Shop.Shop> UpdateShopAsync(MainSettingsRustShopViewModel model);
     }
 }

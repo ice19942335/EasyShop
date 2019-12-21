@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace EasyShop.Domain.ViewModels.Shop.Rust
 {
     public class RustShopViewModel
     {
-        public RustShopStatsViewModel RustShopStatsViewModel { get; set; }
+        public Guid Id { get; set; }
 
-        public EditMainSettingsRustShopViewModel EditMainSettingsRustShopViewModel { get; set; }
+        public string ShopName { get; set; }
+
+        public string ShopTitle { get; set; }
+
+        public MainSettingsRustShopViewModel MainSettingsRustShopViewModel { get; set; }
     }
 }

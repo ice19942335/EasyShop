@@ -13,20 +13,20 @@
     <div class="row">
         <div class="col-md-6 col-lg-4">
             <div class="demo-form-wrapper">
-                <form method="post" asp-area="" asp-controller="RustShop" asp-action="EditMainSettings">
-                    <input asp-for="EditMainSettingsRustShopViewModel.Id" type="hidden" />
+                <form method="post" asp-area="" asp-controller="RustShop" asp-action="MainSettings">
+                    <input asp-for="MainSettingsRustShopViewModel.Id" type="hidden" />
                     <div asp-validation-summary="ModelOnly" class="alert alert-info"></div>
                     <div class="form-group">
                         <label>Shop name</label>
-                        <input asp-for="EditMainSettingsRustShopViewModel.ShopName" class="form-control" type="text">
+                        <input asp-for="MainSettingsRustShopViewModel.ShopName" class="form-control" type="text">
                     </div>
                     <div class="form-group">
                         <label>Shop title</label>
-                        <input asp-for="EditMainSettingsRustShopViewModel.ShopTitle" class="form-control" type="text">
+                        <input asp-for="MainSettingsRustShopViewModel.ShopTitle" class="form-control" type="text">
                     </div>
                     <div class="form-group">
                         <label>Start balance</label>
-                        <input asp-for="EditMainSettingsRustShopViewModel.StartBalance" class="form-control">
+                        <input asp-for="MainSettingsRustShopViewModel.StartBalance" class="form-control">
                         <span class="help-block">Input example (9,99 or 150,00)</span>
                     </div>
                     <div class="form-group">
@@ -37,15 +37,15 @@
         </div>
     </div>
     <div>
-        <span id="deleteButton_@Model.EditMainSettingsRustShopViewModel.Id">
-            <button  style="max-width: fit-content; margin-right: 10px;" class="btn btn-danger btn-block" onclick="deleteShopConfirmationDialog('@Model.EditMainSettingsRustShopViewModel.Id', true)">Delete shop</button>
+        <span id="deleteButton_@Model.MainSettingsRustShopViewModel.Id">
+            <button  style="max-width: fit-content; margin-right: 10px;" class="btn btn-danger btn-block" onclick="deleteShopConfirmationDialog('@Model.MainSettingsRustShopViewModel.Id', true)">Delete shop</button>
         </span>
-        <span style="display: none" id="confirmDeleteSpan_@Model.EditMainSettingsRustShopViewModel.Id">
-            <form style="display: inline;" method="get" asp-area="" asp-controller="ShopManager" asp-action="DeleteShop" asp-route-shopId="@Model.EditMainSettingsRustShopViewModel.Id">
+        <span style="display: none" id="confirmDeleteSpan_@Model.MainSettingsRustShopViewModel.Id">
+            <form style="display: inline;" method="get" asp-area="" asp-controller="ShopManager" asp-action="DeleteShop" asp-route-shopId="@Model.MainSettingsRustShopViewModel.Id">
                 <span>Are you sure you want to delete?</span>
                 <button style="max-width: fit-content; display: inline;" class="btn btn-success btn-block" type="submit">Yes</button>
             </form>
-            <button style="max-width: fit-content; display: inline;" class="btn btn-danger btn-block" onclick="deleteShopConfirmationDialog('@Model.EditMainSettingsRustShopViewModel.Id', false)">No</button>
+            <button style="max-width: fit-content; display: inline;" class="btn btn-danger btn-block" onclick="deleteShopConfirmationDialog('@Model.MainSettingsRustShopViewModel.Id', false)">No</button>
         </span>
     </div>
 </div>

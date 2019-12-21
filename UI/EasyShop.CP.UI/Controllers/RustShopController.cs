@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using EasyShop.Domain.ViewModels.Shop.Rust;
 using EasyShop.Interfaces.Services.CP.Shop;
 using EasyShop.Interfaces.Services.CP.Shop.Rust;
+using EasyShop.Services.Mappers.ViewModels.Rust;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -29,58 +30,26 @@ namespace EasyShop.CP.UI.Controllers
             if (shop is null)
                 return RedirectToAction("NotFoundPage", "Home");
 
-            var model = new RustShopViewModel
-            {
-                RustShopStatsViewModel = new RustShopStatsViewModel
-                {
-                    Id = shop.Id,
-                    ShopName = shop.ShopName,
-                    ShopTitle = shop.ShopTitle,
-                    ShopLink = shop.ShopTitle + shop.Id
-                },
-                EditMainSettingsRustShopViewModel = new EditMainSettingsRustShopViewModel
-                {
-                    Id = shop.Id,
-                    ShopName = shop.ShopName,
-                    ShopTitle = shop.ShopTitle,
-                    StartBalance = shop.StartBalance,
-                }
-            };
+            var model = shop.CreateRustShopViewModel();
 
             return View(model);
         }
 
         [HttpGet]
-        public async Task<IActionResult> EditMainSettings(string shopId)
+        public async Task<IActionResult> MainSettings(string shopId)
         {
             var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(shopId));
 
             if (shop is null)
                 return RedirectToAction("NotFoundPage", "Home");
 
-            var model = new RustShopViewModel
-            {
-                RustShopStatsViewModel = new RustShopStatsViewModel
-                {
-                    Id = shop.Id,
-                    ShopName = shop.ShopName,
-                    ShopTitle = shop.ShopTitle,
-                    ShopLink = "http://www.site.birula.com/monetization/" + shop.ShopTitle
-                },
-                EditMainSettingsRustShopViewModel = new EditMainSettingsRustShopViewModel
-                {
-                    Id = shop.Id,
-                    ShopName = shop.ShopName,
-                    ShopTitle = shop.ShopTitle,
-                    StartBalance = shop.StartBalance,
-                }
-            };
+            var model = shop.CreateRustShopViewModel();
 
             return View(model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditMainSettings(RustShopViewModel model)
+        public async Task<IActionResult> MainSettings(RustShopViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -89,19 +58,13 @@ namespace EasyShop.CP.UI.Controllers
                 return View(model);
             }
 
-            var result = await _rustShopService.UpdateShopAsync(model.EditMainSettingsRustShopViewModel);
+            var result = await _rustShopService.UpdateShopAsync(model.MainSettingsRustShopViewModel);
 
             if (result is null)
                 return RedirectToAction("SomethingWentWrong", "ControlPanel");
 
-            model.EditMainSettingsRustShopViewModel = result;
-            model.RustShopStatsViewModel = new RustShopStatsViewModel
-            {
-                Id = result.Id,
-                ShopName = result.ShopName,
-                ShopTitle = result.ShopTitle,
-                ShopLink = result.ShopTitle + result.Id
-            };
+            model = result.CreateRustShopViewModel();
+
             return View(model);
         }
     }
