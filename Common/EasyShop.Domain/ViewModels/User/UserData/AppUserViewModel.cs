@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace EasyShop.Domain.ViewModels.User.UserData
 {
-    public class ApplicationUserViewModel
+    public class AppUserViewModel
     {
         public string FirstName { get; set; }
 
@@ -21,5 +21,7 @@ namespace EasyShop.Domain.ViewModels.User.UserData
         public string ProfileImage { get; set; }
 
         public IList<string> Roles { get; set; }
+
+        public decimal TotalRevenue { get; set; }
     }
 }

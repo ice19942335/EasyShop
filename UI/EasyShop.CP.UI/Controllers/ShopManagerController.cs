@@ -35,7 +35,6 @@ namespace EasyShop.CP.UI.Controllers
             return View(model);
         }
 
-        [HttpGet]
         public async Task<IActionResult> CreateShop() => View(new CreateShopViewModel());
 
         [HttpPost]
@@ -47,7 +46,7 @@ namespace EasyShop.CP.UI.Controllers
                 errors.ForEach(x => ModelState.AddModelError("", x));
                 return View(model);
             }
-                
+
 
             var result = await _shopManager.CreateShopAsync(model);
 
@@ -68,7 +67,6 @@ namespace EasyShop.CP.UI.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpGet]
         public async Task<IActionResult> EditShopHandler(string shopId)
         {
             var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(shopId));
@@ -81,6 +79,16 @@ namespace EasyShop.CP.UI.Controllers
                 case DefaultGameTypes.GameRust: return RedirectToAction("Index", "RustShop", new { shopId = shopId });
                 default: return RedirectToAction("NotFoundPage", "Home");
             }
+        }
+
+        public async Task<IActionResult> NewSecret(string shopId)
+        {
+            var result = await _shopManager.NewSecretAsync(Guid.Parse(shopId));
+
+            if (!result)
+                return RedirectToAction("SomethingWentWrong", "ControlPanel");
+
+            return RedirectToAction("MainSettings", "RustShop", new { shopId = shopId });
         }
     }
 }

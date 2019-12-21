@@ -4,14 +4,14 @@
     Layout = "Partial/_RustEditLayout";
 }
 
-<div class="well">
+<div class="well text-center">
     <div class="row">
         <div class="col-md-8 col-md-offset-2 text-center">
             <h2>Main settings</h2>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6 col-lg-4">
+        <div class="col-md-10 col-lg-8">
             <div class="demo-form-wrapper">
                 <form method="post" asp-area="" asp-controller="RustShop" asp-action="MainSettings">
                     <input asp-for="MainSettingsRustShopViewModel.Id" type="hidden" />
@@ -33,20 +33,32 @@
                         <button class="btn btn-primary btn-block" type="submit">Save changes</button>
                     </div>
                 </form>
+                <form class="m-b-md" asp-area="" asp-controller="ShopManager" asp-action="NewSecret" asp-route-shopId="@Model.Id">
+                    <div class="form-group">
+                        <label>Secret (used in Rust plugin)</label>
+                        <input asp-for="MainSettingsRustShopViewModel.Secret" class="form-control" disabled="">
+                        <span class="help-block">After each change of secret, you have to download a new plugin package.</span>
+                    </div>
+                    <button class="btn btn-warning btn-block" type="submit">New secret</button>
+                </form>
             </div>
         </div>
     </div>
-    <div>
-        <span id="deleteButton_@Model.MainSettingsRustShopViewModel.Id">
-            <button  style="max-width: fit-content; margin-right: 10px;" class="btn btn-danger btn-block" onclick="deleteShopConfirmationDialog('@Model.MainSettingsRustShopViewModel.Id', true)">Delete shop</button>
-        </span>
-        <span style="display: none" id="confirmDeleteSpan_@Model.MainSettingsRustShopViewModel.Id">
-            <form style="display: inline;" method="get" asp-area="" asp-controller="ShopManager" asp-action="DeleteShop" asp-route-shopId="@Model.MainSettingsRustShopViewModel.Id">
-                <span>Are you sure you want to delete?</span>
-                <button style="max-width: fit-content; display: inline;" class="btn btn-success btn-block" type="submit">Yes</button>
-            </form>
-            <button style="max-width: fit-content; display: inline;" class="btn btn-danger btn-block" onclick="deleteShopConfirmationDialog('@Model.MainSettingsRustShopViewModel.Id', false)">No</button>
-        </span>
+    <div class="row">
+        <div class="col-md-10 col-lg-8">
+            <div>
+                <span id="deleteButton_@Model.Id">
+                    <button class="btn btn-danger btn-block m-r-md" onclick="deleteShopConfirmationDialog('@Model.Id', true)">Delete shop</button>
+                </span>
+                <span style="display: none" id="confirmDeleteSpan_@Model.Id">
+                    <form style="display: inline;" method="get" asp-area="" asp-controller="ShopManager" asp-action="DeleteShop" asp-route-shopId="@Model.Id">
+                        <span>Are you sure you want to delete?</span>
+                        <button style="max-width: fit-content; display: inline;" class="btn btn-success btn-block" type="submit">Yes</button>
+                    </form>
+                    <button style="max-width: fit-content; display: inline;" class="btn btn-danger btn-block" onclick="deleteShopConfirmationDialog('@Model.Id', false)">No</button>
+                </span>
+            </div>
+        </div>
     </div>
 </div>
 

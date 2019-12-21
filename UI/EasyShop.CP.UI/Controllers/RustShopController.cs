@@ -49,7 +49,7 @@ namespace EasyShop.CP.UI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> MainSettings(RustShopViewModel model)
+        public async Task<IActionResult> MainSettings([FromForm] RustShopViewModel model)
         {
             if (!ModelState.IsValid)
             {

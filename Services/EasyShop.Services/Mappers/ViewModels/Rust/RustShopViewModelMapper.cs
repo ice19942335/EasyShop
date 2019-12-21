@@ -42,7 +42,7 @@ namespace EasyShop.Services.Mappers.ViewModels.Rust
         {
             var model = new RustShopViewModel
             {
-                Id = shop.Id,
+                Id = shop.Id.ToString(),
                 ShopName = shop.ShopName,
                 ShopTitle = shop.ShopTitle,
                 MainSettingsRustShopViewModel = shop.CreateMainSettingsViewModel()

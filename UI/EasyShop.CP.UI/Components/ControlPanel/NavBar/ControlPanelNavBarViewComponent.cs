@@ -21,9 +21,9 @@ namespace EasyShop.CP.UI.Components.ControlPanel.NavBar
             var appUser = _userManager.FindByEmailAsync(User.Identity.Name).Result;
 
             if (appUser is null)
-                return View(new ApplicationUserViewModel { FirstName = User.Identity.Name });
+                return View(new AppUserViewModel { FirstName = User.Identity.Name });
 
-            var model = new ApplicationUserViewModel
+            var model = new AppUserViewModel
             {
                 FirstName = appUser.FirstName,
                 LastName = appUser.LastName,

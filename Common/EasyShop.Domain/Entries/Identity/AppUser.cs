@@ -32,6 +32,9 @@ namespace EasyShop.Domain.Entries.Identity
 
         public bool UsingTariff { get; set; }
 
+        [Column(TypeName = "decimal(18, 2)")]
+        public decimal TotalRevenue { get; set; }
+
         public Dictionary<Tariff.Tariff, DateTime> PurchasedTariffs { get; set; }
 
         public ICollection<UserTariff> UserTariffs { get; set; }

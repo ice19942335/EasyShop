@@ -122,5 +122,22 @@ namespace EasyShop.Services.CP.Shop
 
             return true;
         }
+
+        public async Task<bool> NewSecretAsync(Guid shopId)
+        {
+            var shop = _context.Shops.FirstOrDefault(x => x.Id == shopId);
+
+            if (shop is null)
+                return false;
+
+            Guid secret;
+            do { secret = Guid.NewGuid(); } while (_context.Shops.FirstOrDefault(x => x.Secret == secret) != null);
+
+            shop.Secret = secret;
+            _context.Shops.Update(shop);
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
     }
 }

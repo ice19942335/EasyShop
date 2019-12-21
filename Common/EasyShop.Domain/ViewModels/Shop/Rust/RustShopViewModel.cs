@@ -7,7 +7,7 @@ namespace EasyShop.Domain.ViewModels.Shop.Rust
 {
     public class RustShopViewModel
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
 
         public string ShopName { get; set; }
 

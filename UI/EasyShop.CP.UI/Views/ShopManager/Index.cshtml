@@ -31,6 +31,7 @@
                             <thead>
                                 <tr>
                                     <th>Shop name</th>
+                                    <th>Shop title</th>
                                     <th>Game</th>
                                     <th>Start balance</th>
                                     <th>Edit</th>
@@ -44,6 +45,9 @@
                                         <tr>
                                             <td>
                                                 <strong>@shop.ShopName</strong>
+                                            </td>
+                                            <td>
+                                                <strong>@shop.ShopTitle</strong>
                                             </td>
                                             <td>
                                                 <strong>@shop.GameType.Type</strong>
@@ -80,5 +84,5 @@
 
 @section Scripts
 {
-    <script src="~/js/customScripts/ShopDeleteConfirmationDialog.js"></script>
+    <script src="~/js/customScripts/ShopDeleteConfirmationDialog.js" asp-append-version="true"></script>
 }
