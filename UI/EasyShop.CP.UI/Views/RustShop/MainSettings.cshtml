@@ -35,11 +35,14 @@
                 </form>
                 <form class="m-b-md" asp-area="" asp-controller="ShopManager" asp-action="NewSecret" asp-route-shopId="@Model.Id">
                     <div class="form-group">
-                        <label class="pull-left">Secret (used in Rust plugin)</label>
-                        <input asp-for="MainSettingsRustShopViewModel.Secret" class="form-control" disabled="">
+                        <div style="display: flex">
+                            <input asp-for="MainSettingsRustShopViewModel.Secret" class="form-control" disabled="">
+                            <button class="btn btn-primary" title="" data-container="body" data-placement="top" data-toggle="tooltip" type="submit" data-original-title="Get new secret">
+                                <span class="icon icon-refresh icon-fw"></span>
+                            </button>
+                        </div>
                         <span class="help-block">After each change of secret, you have to download a new plugin package.</span>
                     </div>
-                    <button class="btn btn-warning btn-block" type="submit">New secret</button>
                 </form>
             </div>
         </div>
