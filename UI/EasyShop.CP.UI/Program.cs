@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization;
+using EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitialization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -28,6 +29,10 @@ namespace EasyShop.CP.UI
                 var basicIdentityInitializer = new IdentityInitializer(dbContext, roleManager, userManager);
                 await basicIdentityInitializer.InitializeIdentity();
                 await basicIdentityInitializer.InitializeGameTypes();
+
+
+                var rustDefaultDataInitialization = new RustDefaultDataInitialization(dbContext);
+                await rustDefaultDataInitialization.Initialize();
 
                 await dbContext.SaveChangesAsync();
             }

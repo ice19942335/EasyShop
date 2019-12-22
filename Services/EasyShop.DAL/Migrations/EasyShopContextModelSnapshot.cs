@@ -194,6 +194,10 @@ namespace EasyShop.DAL.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18, 2)");
 
+                    b.Property<string>("RustId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<Guid>("RustItemTypeId")
                         .HasColumnType("uniqueidentifier");
 

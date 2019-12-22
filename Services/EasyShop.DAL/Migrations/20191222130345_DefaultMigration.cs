@@ -296,6 +296,7 @@ namespace EasyShop.DAL.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
+                    RustId = table.Column<string>(nullable: false),
                     Name = table.Column<string>(nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
                     Amount = table.Column<int>(nullable: false),
