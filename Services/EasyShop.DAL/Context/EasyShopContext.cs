@@ -30,12 +30,11 @@ namespace EasyShop.DAL.Context
         public DbSet<Server> Servers { get; set; }
 
 
-        public DbSet<RustShopItem> RustShopItems { get; set; }
         public DbSet<RustItem> RustItems { get; set; }
         public DbSet<RustItemType> RustItemTypes { get; set; }
-        public DbSet<RustItemCategory> RustItemCategories { get; set; }
+        public DbSet<RustUserItem> RustUserItems { get; set; }
         public DbSet<RustCategory> RustCategories { get; set; }
-        public DbSet<RustItemsPurchased> RustItemsPurchased { get; set; }
+        public DbSet<RustPurchasedItem> RustItemsPurchased { get; set; }
 
         public DbSet<RustUser> RustUsers { get; set; }
 
@@ -121,49 +120,19 @@ namespace EasyShop.DAL.Context
                 .HasForeignKey(x => x.ShopId);
             //===================================================================
 
-            //RustShopItems -----------------------------------------------------
-            modelBuilder.Entity<RustShopItem>()
-                .HasKey(x => new { x.RustItemId, x.ShopId });
+            //RustPurchasedItems ------------------------------------------------
+            modelBuilder.Entity<RustPurchasedItem>()
+                .HasKey(x => new { x.RustUserItemId, x.RustUserId });
 
-            modelBuilder.Entity<RustShopItem>()
-                .HasOne(x => x.RustItem)
-                .WithMany(x => x.RustShopItems)
-                .HasForeignKey(x => x.RustItemId);
-
-            modelBuilder.Entity<RustShopItem>()
-                .HasOne(x => x.Shop)
-                .WithMany(x => x.RustShopItems)
-                .HasForeignKey(x => x.ShopId);
-            //===================================================================
-
-            //RustItemCategories ------------------------------------------------
-            modelBuilder.Entity<RustItemCategory>()
-                .HasKey(x => new { x.RustItemId, x.RustCategoryId });
-
-            modelBuilder.Entity<RustItemCategory>()
-                .HasOne(x => x.RustItem)
-                .WithMany(x => x.RustItemCategories)
-                .HasForeignKey(x => x.RustItemId);
-
-            modelBuilder.Entity<RustItemCategory>()
-                .HasOne(x => x.RustCategory)
-                .WithMany(x => x.RustItemCategories)
-                .HasForeignKey(x => x.RustCategoryId);
-            //===================================================================
-
-            //RustItemsBasket ------------------------------------------------
-            modelBuilder.Entity<RustItemsPurchased>()
-                .HasKey(x => new { x.RustItemId, x.RustUserId });
-
-            modelBuilder.Entity<RustItemsPurchased>()
-                .HasOne(x => x.RustItem)
-                .WithMany(x => x.RustItemsPurchased)
-                .HasForeignKey(x => x.RustItemId);
-
-            modelBuilder.Entity<RustItemsPurchased>()
+            modelBuilder.Entity<RustPurchasedItem>()
                 .HasOne(x => x.RustUser)
-                .WithMany(x => x.RustItemsPurchased)
+                .WithMany(x => x.RustPurchasedItems)
                 .HasForeignKey(x => x.RustUserId);
+
+            modelBuilder.Entity<RustPurchasedItem>()
+                .HasOne(x => x.RustUserItem)
+                .WithMany(x => x.RustPurchasedItems)
+                .HasForeignKey(x => x.RustUserItemId);
             //===================================================================
         }
     }
