@@ -12,10 +12,8 @@ namespace EasyShop.Domain.Entries.Items.RustItems
         [Key]
         public Guid Id { get; set; }
 
-        public AppUser AppUser { get; set; }
-
         public string Name { get; set; }
 
-        public ICollection<RustItemCategory> RustItemCategories { get; set; }
+        public AppUser AppUser { get; set; }
     }
 }

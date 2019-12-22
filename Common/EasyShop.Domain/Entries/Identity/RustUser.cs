@@ -23,6 +23,6 @@ namespace EasyShop.Domain.Entries.Identity
         [Column(TypeName = "decimal(18, 2)")]
         public decimal TotalSpent { get; set; }
 
-        public ICollection<RustItemsPurchased> RustItemsPurchased { get; set; }
+        public ICollection<RustPurchasedItem> RustPurchasedItems { get; set; }
     }
 }

@@ -10,6 +10,7 @@ using EasyShop.Services.CP.Shop;
 using EasyShop.Services.CP.Shop.Rust;
 using EasyShop.Services.CP.Tariff;
 using EasyShop.Services.CP.UserProfile;
+using EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitialization;
 using EasyShop.Services.Email;
 
 using Microsoft.Extensions.Configuration;

@@ -32,7 +32,5 @@ namespace EasyShop.Domain.Entries.Shop
         public ICollection<UserShop> UserShops { get; set; }
 
         public ICollection<ServerShop> ServerShops { get; set; }
-
-        public ICollection<RustShopItem> RustShopItems { get; set; }
     }
 }

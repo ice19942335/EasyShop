@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Threading.Tasks;
 using EasyShop.DAL.Context;
-using EasyShop.Domain.Entries.Identity;
-using Microsoft.AspNetCore.Identity;
 
 namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitialization
 {
@@ -11,30 +7,31 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
     {
         private readonly EasyShopContext _dbContext;
 
-        //private readonly List<string> _defaultItemTypes = new List<string>
-        //{
-        //    "Weapon",
-        //    "Resources",
-        //    "Ammunition",
-        //    "Clothing",
-        //    "Constructions",
-        //    "Tools",
-        //    "Medicines",
-        //    "Food",
-        //    "Electricity",
-        //    "Components",
-        //    "Holidays",
-        //    "Other"
-        //};
+        public RustDefaultDataInitialization(EasyShopContext dbContext) => _dbContext = dbContext; 
 
-        public RustDefaultDataInitialization(EasyShopContext dbContext)
+        public async Task Initialize()
         {
-            _dbContext = dbContext;
+            await InitializeDefaultCategories();
+            await InitializeDefaultItemTypes();
+            await InitializeDefaultItems();
         }
 
-        public void InitializeDefaultCategories()
+        private async Task InitializeDefaultCategories()
         {
+            await _dbContext.RustCategories.AddRangeAsync(RustDefaultInitializationData.DefaultRustCategories);
+            await _dbContext.SaveChangesAsync();
+        }
 
+        private async Task InitializeDefaultItemTypes()
+        {
+            await _dbContext.RustItemTypes.AddRangeAsync(RustDefaultInitializationData.DefaultRustItemTypes);
+            await _dbContext.SaveChangesAsync();
+        }
+
+        private async Task InitializeDefaultItems()
+        {
+            await _dbContext.RustItems.AddRangeAsync(RustDefaultInitializationData.DefaultRustItems);
+            await _dbContext.SaveChangesAsync();
         }
     }
 }

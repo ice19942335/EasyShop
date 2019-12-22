@@ -12,14 +12,10 @@ namespace EasyShop.Domain.Entries.Items.RustItems
         public Guid Id { get; set; }
 
         [Required]
+        public string RustId { get; set; }
+
+        [Required]
         public string Name { get; set; }
-
-        [Required]
-        [Column(TypeName = "decimal(18, 2)")]
-        public decimal Price { get; set; }
-
-        [Required]
-        public int Amount { get; set; }
 
         [Required]
         public RustItemType RustItemType { get; set; }
@@ -27,10 +23,6 @@ namespace EasyShop.Domain.Entries.Items.RustItems
         [Required]
         public string ImgUrl { get; set; }
 
-        public ICollection<RustShopItem> RustShopItems { get; set; }
-
-        public ICollection<RustItemCategory> RustItemCategories { get; set; }
-
-        public ICollection<RustItemsPurchased> RustItemsPurchased { get; set; }
+        public ICollection<RustUserItem> RustUserItems { get; set; }
     }
 }
