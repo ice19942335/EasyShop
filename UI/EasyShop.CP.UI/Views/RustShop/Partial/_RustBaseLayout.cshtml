@@ -9,12 +9,13 @@
 
 
 @section Styles {
+    <link rel="stylesheet" href="~/css/profile.min.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/custom/customStyles.css" asp-append-version="true" />
     @RenderSection("Styles", false)
 }
 
 @section Scripts {
+    <script src="~/js/customScripts/ShopNavBarActiveLink.js" asp-append-version="true"></script>
     @RenderSection("Scripts", false)
-    <link rel="stylesheet" href="~/css/profile.min.css" asp-append-version="true">
-    <link rel="stylesheet" href="~/css/custom/customStyles.css" asp-append-version="true"/>
 }
 

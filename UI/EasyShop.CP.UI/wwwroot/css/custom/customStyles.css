@@ -1,17 +1,21 @@
 ﻿.profile-nav > li > a {
-    color: rgba(255,255,255,0.75);
+    color: #fff;
     display: block;
-    margin-bottom: 10px;
-    margin-right: 10px;
+    margin: 0 0 20px 10px;
     font-size: 16px;
     font-weight: 600;
     line-height: 20px;
     padding: 5px 2px;
     position: relative;
     text-align: center;
+    border-bottom: 2px solid rgba(0, 0, 0, 0);
+}
+
+.profile-nav > li > a:hover {
+    color: #00aced;
     border-bottom: 2px solid #00aced;
 }
 
-    .profile-nav > li > a:hover {
-        color: #00aced;
-    }
+#shopSettingsActiveItem {
+    border-bottom: 2px solid #00aced;
+}
