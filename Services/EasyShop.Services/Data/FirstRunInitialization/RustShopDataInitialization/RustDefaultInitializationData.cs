@@ -19,6 +19,12 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             {
                 Id = Guid.NewGuid(),
                 AppUser = null,
+                Name = "WeaponAttachment"
+            },
+            new RustCategory
+            {
+                Id = Guid.NewGuid(),
+                AppUser = null,
                 Name = "Resources"
             },
             new RustCategory
@@ -832,7 +838,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             {
                 Id = Guid.NewGuid(),
                 RustId = "heavy.plate.jacket",
-                Name = "Heavy Plate JacketTest",
+                Name = "Heavy Plate Jacket",
                 
                 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
@@ -852,7 +858,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             {
                 Id = Guid.NewGuid(),
                 RustId = "facialhair.style01",
-                Name = "Male Facial Hair Style 01",
+                Name = "Facial Hair Style 01",
                 
                 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
@@ -1432,7 +1438,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             {
                 Id = Guid.NewGuid(),
                 RustId = "bearmeat.cooked",
-                Name = "Cooked Bear Meat",
+                Name = "Bear Meat Cooked",
                 
                 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
@@ -1691,8 +1697,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "Fridge",
-                Name = "fridge",
+                RustId = "fridge",
+                Name = "Fridge",
                 
                 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),

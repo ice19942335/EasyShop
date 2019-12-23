@@ -46,7 +46,6 @@ namespace EasyShop.CP.UI.Controllers
                 return View(model);
             }
 
-
             var result = await _shopManager.CreateShopAsync(model);
 
             if (!result)
