@@ -58,7 +58,7 @@
                         <span>Are you sure you want to delete?</span>
                         <button style="max-width: fit-content; display: inline;" class="btn btn-success btn-block" type="submit">Yes</button>
                     </form>
-                    <button style="max-width: fit-content; display: inline;" class="btn btn-danger btn-block" onclick="deleteShopConfirmationDialog('@Model.Id', false)">No</button>
+                    <button style="max-width: fit-content; display: inline;" class="btn btn-danger btn-block" onclick="deleteConfirmationDialog('@Model.Id', false)">No</button>
                 </span>
             </div>
         </div>
@@ -67,5 +67,5 @@
 
 @section Scripts
 {
-    <script src="~/js/customScripts/ShopDeleteConfirmationDialog.js"></script>
+    <script src="~/js/customScripts/DeleteConfirmationDialog.js"></script>
 }

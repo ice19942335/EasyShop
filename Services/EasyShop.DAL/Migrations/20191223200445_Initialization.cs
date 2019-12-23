@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EasyShop.DAL.Migrations
 {
-    public partial class initialize : Migration
+    public partial class Initialization : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -251,25 +251,6 @@ namespace EasyShop.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "RustCategories",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    AppUserId = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_RustCategories", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_RustCategories_AspNetUsers_AppUserId",
-                        column: x => x.AppUserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Shops",
                 columns: table => new
                 {
@@ -359,6 +340,32 @@ namespace EasyShop.DAL.Migrations
                         principalTable: "Tariffs",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RustCategories",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    AppUserId = table.Column<string>(nullable: true),
+                    ShopId = table.Column<Guid>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RustCategories", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_RustCategories_AspNetUsers_AppUserId",
+                        column: x => x.AppUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_RustCategories_Shops_ShopId",
+                        column: x => x.ShopId,
+                        principalTable: "Shops",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -525,6 +532,11 @@ namespace EasyShop.DAL.Migrations
                 column: "AppUserId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_RustCategories_ShopId",
+                table: "RustCategories",
+                column: "ShopId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_RustItems_RustItemTypeId",
                 table: "RustItems",
                 column: "RustItemTypeId");
@@ -637,10 +649,10 @@ namespace EasyShop.DAL.Migrations
                 name: "RustItems");
 
             migrationBuilder.DropTable(
-                name: "Shops");
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "Shops");
 
             migrationBuilder.DropTable(
                 name: "RustItemTypes");

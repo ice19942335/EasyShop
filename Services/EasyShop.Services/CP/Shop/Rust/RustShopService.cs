@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
+using EasyShop.Domain.Entries.Items.RustItems;
 using EasyShop.Domain.ViewModels.Shop.Rust;
 using EasyShop.Interfaces.Services.CP.Shop;
 using EasyShop.Interfaces.Services.CP.Shop.Rust;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace EasyShop.Services.CP.Shop.Rust
@@ -50,6 +53,23 @@ namespace EasyShop.Services.CP.Shop.Rust
                 _logger.LogCritical(e.Message);
                 return null;
             }
+        }
+
+        public async Task<IEnumerable<RustCategory>> GetAllAssignedCategoriesByShopIsAsync(Guid shopId)
+        {
+            var categories = _context.RustCategories.Include(x => x.AppUser).Include(x => x.Shop).Where(x => x.Shop.Id == shopId).AsEnumerable();
+
+            return categories;
+        }
+
+        public int GetAssignedItemsCountToACategoryInShop(Guid categoryId, Guid shopId)
+        {
+            var result = _context.RustUserItems
+                .Include(x => x.Shop)
+                .Include(x => x.RustCategory)
+                .Where(x => x.RustCategory.Id == categoryId && x.Shop.Id == shopId).ToList().Count;
+
+            return result;
         }
     }
 }

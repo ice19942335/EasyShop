@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EasyShop.DAL.Migrations
 {
     [DbContext(typeof(EasyShopContext))]
-    [Migration("20191222154406_initialize")]
-    partial class initialize
+    [Migration("20191223200445_Initialization")]
+    partial class Initialization
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -169,9 +169,14 @@ namespace EasyShop.DAL.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid?>("ShopId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
 
                     b.HasIndex("AppUserId");
+
+                    b.HasIndex("ShopId");
 
                     b.ToTable("RustCategories");
                 });
@@ -595,6 +600,10 @@ namespace EasyShop.DAL.Migrations
                     b.HasOne("EasyShop.Domain.Entries.Identity.AppUser", "AppUser")
                         .WithMany()
                         .HasForeignKey("AppUserId");
+
+                    b.HasOne("EasyShop.Domain.Entries.Shop.Shop", "Shop")
+                        .WithMany()
+                        .HasForeignKey("ShopId");
                 });
 
             modelBuilder.Entity("EasyShop.Domain.Entries.Items.RustItems.RustItem", b =>

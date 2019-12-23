@@ -66,7 +66,7 @@
                                                         <a asp-area="" asp-controller="ShopManager" asp-action="DeleteShop" asp-route-shopId="@shop.Id" style="color: green"><span class="icon icon-check icon-lg icon-fw"></span></a>
                                                     </span>
                                                     <span>
-                                                        <a style="color: red; cursor: pointer" onclick="deleteShopConfirmationDialog('@shop.Id', false)"><span class="icon icon-times icon-lg icon-fw"></span></a>
+                                                        <a style="color: red; cursor: pointer" onclick="deleteConfirmationDialog('@shop.Id', false)"><span class="icon icon-times icon-lg icon-fw"></span></a>
                                                     </span>
                                                 </span>
                                             </td>
@@ -84,5 +84,5 @@
 
 @section Scripts
 {
-    <script src="~/js/customScripts/ShopDeleteConfirmationDialog.js" asp-append-version="true"></script>
+    <script src="~/js/customScripts/DeleteConfirmationDialog.js" asp-append-version="true"></script>
 }

@@ -1,4 +1,4 @@
-﻿function deleteShopConfirmationDialog(shopId, isDeleteClicked) {
+﻿function deleteConfirmationDialog(shopId, isDeleteClicked) {
     let deleteButton = 'deleteButton_' + shopId;
     let confirmDeleteSpan = 'confirmDeleteSpan_' + shopId;
 

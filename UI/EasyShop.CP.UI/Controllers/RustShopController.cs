@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EasyShop.Domain.ViewModels.Shop.Rust;
@@ -66,6 +67,42 @@ namespace EasyShop.CP.UI.Controllers
             model = result.CreateRustShopViewModel();
 
             return View(model);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Categories(string shopId)
+        {
+            var categories = await _rustShopService.GetAllAssignedCategoriesByShopIsAsync(Guid.Parse(shopId));
+            var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(shopId));
+            var model = shop.CreateRustShopViewModel();
+
+            var categoriesViewModelListTasks = categories
+                .Select(x => x.CreateRustCategoryViewModel(_rustShopService.GetAssignedItemsCountToACategoryInShop(x.Id, shop.Id)));
+
+            model.RustShopCategories = new RustShopCategoriesViewModel
+            {
+                Categories = categoriesViewModelListTasks
+            };
+
+            return View(model);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> EditCategory(string categoryId)
+        {
+            throw new NotImplementedException();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditCategory([FromForm] RustShopViewModel model)
+        {
+            throw new NotImplementedException();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Products(string shopId)
+        {
+            throw new NotImplementedException();
         }
     }
 }

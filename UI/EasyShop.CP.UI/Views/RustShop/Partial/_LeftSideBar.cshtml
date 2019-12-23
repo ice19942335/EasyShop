@@ -7,11 +7,11 @@
                 <span class="icon icon-user icon-lg icon-fw"></span>
                 Main settings
             </a>
-            <a class="list-group-item" asp-area="" asp-controller="RustShop" asp-action="Products">
+            <a class="list-group-item" asp-area="" asp-controller="RustShop" asp-action="Products" asp-route-shopId="@Model.Id">
                 <span class="icon icon-user icon-lg icon-fw"></span>
                 Products
             </a>
-            <a class="list-group-item" asp-area="" asp-controller="RustShop" asp-action="Categories">
+            <a class="list-group-item" asp-area="" asp-controller="RustShop" asp-action="Categories" asp-route-shopId="@Model.Id">
                 <span class="icon icon-user icon-lg icon-fw"></span>
                 Categories
             </a>

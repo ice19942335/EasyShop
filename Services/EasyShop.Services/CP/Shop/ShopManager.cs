@@ -15,6 +15,7 @@ using EasyShop.Interfaces.Services.CP.Shop.Rust;
 using EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitialization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;

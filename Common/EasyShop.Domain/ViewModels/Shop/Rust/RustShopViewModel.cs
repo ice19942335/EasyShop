@@ -14,5 +14,7 @@ namespace EasyShop.Domain.ViewModels.Shop.Rust
         public string ShopTitle { get; set; }
 
         public MainSettingsRustShopViewModel MainSettingsRustShopViewModel { get; set; }
+
+        public RustShopCategoriesViewModel RustShopCategories { get; set; }
     }
 }

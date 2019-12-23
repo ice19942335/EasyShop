@@ -15,5 +15,7 @@ namespace EasyShop.Domain.Entries.Items.RustItems
         public string Name { get; set; }
 
         public AppUser AppUser { get; set; }
+
+        public Shop.Shop Shop { get; set; }
     }
 }

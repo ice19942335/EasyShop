@@ -22,7 +22,8 @@ namespace EasyShop.Services.CP.Shop.Rust
             {
                 Id = Guid.NewGuid(),
                 Name = x.Name,
-                AppUser = user
+                AppUser = user,
+                Shop = shop
             }).ToList();
 
             #region WeaponsFirst
