@@ -51,7 +51,7 @@
         <div class="col-md-10 col-lg-8">
             <div>
                 <span id="deleteButton_@Model.Id">
-                    <button class="btn btn-danger btn-block m-r-md" onclick="deleteShopConfirmationDialog('@Model.Id', true)">Delete shop</button>
+                    <button class="btn btn-danger btn-block m-r-md" onclick="deleteConfirmationDialog('@Model.Id', true)">Delete shop</button>
                 </span>
                 <span style="display: none" id="confirmDeleteSpan_@Model.Id">
                     <form style="display: inline;" method="get" asp-area="" asp-controller="ShopManager" asp-action="DeleteShop" asp-route-shopId="@Model.Id">

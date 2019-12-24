@@ -35,7 +35,7 @@
                                             <strong>@categoryModel.AssignedItemsCount</strong>
                                         </td>
                                         <td>
-                                            <a asp-area="" asp-controller="RustShop" asp-action="EditCategory" asp-route-categoryId="@categoryModel.Id"><span class="icon icon-pencil icon-lg icon-fw"></span></a>
+                                            <a asp-area="" asp-controller="RustShop" asp-action="EditCategory" asp-route-shopId="@Model.Id" asp-route-categoryId="@categoryModel.Id"><span class="icon icon-pencil icon-lg icon-fw"></span></a>
                                         </td>
                                         <td>
                                             <a id="deleteButton_@categoryModel.Id" href="#" onclick="deleteShopConfirmationDialog('@categoryModel.Id', true)" style="color: red"><span class="icon icon-times icon-lg icon-fw"></span></a>

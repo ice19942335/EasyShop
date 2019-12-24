@@ -59,7 +59,7 @@
                                                 <a asp-area="" asp-controller="ShopManager" asp-action="EditShopHandler" asp-route-shopId="@shop.Id"><span class="icon icon-pencil icon-lg icon-fw"></span></a>
                                             </td>
                                             <td>
-                                                <a id="deleteButton_@shop.Id" href="#" onclick="deleteShopConfirmationDialog('@shop.Id', true)" style="color: red"><span class="icon icon-times icon-lg icon-fw"></span></a>
+                                                <a id="deleteButton_@shop.Id" href="#" onclick="deleteConfirmationDialog('@shop.Id', true)" style="color: red"><span class="icon icon-times icon-lg icon-fw"></span></a>
                                                 <span id="confirmDeleteSpan_@shop.Id" style="display: none">
                                                     <span>Are you sure you want to delete?</span>
                                                     <span>

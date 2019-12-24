@@ -12,6 +12,7 @@ using EasyShop.Interfaces.Services.CP.Shop.Rust;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Guid = System.Guid;
 
 namespace EasyShop.Services.CP.Shop.Rust
 {
@@ -32,7 +33,7 @@ namespace EasyShop.Services.CP.Shop.Rust
 
         public async Task<Domain.Entries.Shop.Shop> UpdateShopAsync(MainSettingsRustShopViewModel model)
         {
-            var shop = await _shopManager.GetShopByIdAsync(model.Id);
+            var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(model.Id));
 
             if (shop is null)
                 return null;
@@ -55,7 +56,7 @@ namespace EasyShop.Services.CP.Shop.Rust
             }
         }
 
-        public async Task<IEnumerable<RustCategory>> GetAllAssignedCategoriesByShopIsAsync(Guid shopId)
+        public async Task<IEnumerable<RustCategory>> GetAllAssignedCategoriesByShopIdAsync(Guid shopId)
         {
             var categories = _context.RustCategories.Include(x => x.AppUser).Include(x => x.Shop).Where(x => x.Shop.Id == shopId).AsEnumerable();
 
@@ -71,5 +72,23 @@ namespace EasyShop.Services.CP.Shop.Rust
 
             return result;
         }
+
+        public async Task<RustCategory> UpdateCategoryAsync(EditRustCategoryViewModel model)
+        {
+            var category = GetCategoryById(Guid.Parse(model.Category.Id));
+
+            if (category is null)
+                return null;
+
+            category.Name = model.Category.Name;
+
+            _context.RustCategories.Update(category);
+            await _context.SaveChangesAsync();
+
+            return category;
+        }
+
+        public RustCategory GetCategoryById(Guid categoryId) => _context.RustCategories
+            .Include(x => x.AppUser).Include(x => x.Shop).FirstOrDefault(x => x.Id == categoryId);
     }
 }

@@ -5,7 +5,7 @@ namespace EasyShop.Domain.ViewModels.Shop.Rust
 {
     public class MainSettingsRustShopViewModel
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
 
         [Required(ErrorMessage = "Shop name is required")]
         public string ShopName { get; set; }

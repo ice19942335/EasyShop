@@ -11,8 +11,12 @@ namespace EasyShop.Interfaces.Services.CP.Shop.Rust
     {
         Task<Domain.Entries.Shop.Shop> UpdateShopAsync(MainSettingsRustShopViewModel model);
 
-        Task<IEnumerable<RustCategory>> GetAllAssignedCategoriesByShopIsAsync(Guid shopId);
+        Task<IEnumerable<RustCategory>> GetAllAssignedCategoriesByShopIdAsync(Guid shopId);
 
         int GetAssignedItemsCountToACategoryInShop(Guid categoryId, Guid shopId);
+
+        Task<RustCategory> UpdateCategoryAsync(EditRustCategoryViewModel model);
+
+        RustCategory GetCategoryById(Guid categoryId);
     }
 }

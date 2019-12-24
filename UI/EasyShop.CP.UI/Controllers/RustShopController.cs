@@ -72,10 +72,10 @@ namespace EasyShop.CP.UI.Controllers
         [HttpGet]
         public async Task<IActionResult> Categories(string shopId)
         {
-            var categories = await _rustShopService.GetAllAssignedCategoriesByShopIsAsync(Guid.Parse(shopId));
             var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(shopId));
             var model = shop.CreateRustShopViewModel();
 
+            var categories = await _rustShopService.GetAllAssignedCategoriesByShopIdAsync(Guid.Parse(shopId));
             var categoriesViewModelListTasks = categories
                 .Select(x => x.CreateRustCategoryViewModel(_rustShopService.GetAssignedItemsCountToACategoryInShop(x.Id, shop.Id)));
 
@@ -88,13 +88,41 @@ namespace EasyShop.CP.UI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> EditCategory(string categoryId)
+        public async Task<IActionResult> EditCategory(string shopId, string categoryId)
         {
-            throw new NotImplementedException();
+            var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(shopId));
+            var category = _rustShopService.GetCategoryById(Guid.Parse(categoryId));
+
+            if (shop is null || category is null)
+                return RedirectToAction("SomethingWentWrong", "ControlPanel");
+
+            var model = shop.CreateRustShopViewModel();
+            model.EditRustCategoryViewModel.Category =
+                category.CreateRustCategoryViewModel(_rustShopService.GetAssignedItemsCountToACategoryInShop(category.Id, shop.Id));
+
+            return View(model);
         }
 
         [HttpPost]
         public async Task<IActionResult> EditCategory([FromForm] RustShopViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                var errors = ModelState.Values.SelectMany(x => x.Errors.Select(xx => xx.ErrorMessage)).ToList();
+                errors.ForEach(x => ModelState.AddModelError("", x));
+                return View(model);
+            }
+
+            var result = await _rustShopService.UpdateCategoryAsync(model.EditRustCategoryViewModel);
+
+            if(result is null)
+                return RedirectToAction("SomethingWentWrong", "ControlPanel");
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteCategory(string categoryId)
         {
             throw new NotImplementedException();
         }
