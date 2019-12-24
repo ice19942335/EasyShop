@@ -12,78 +12,91 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustCategory
             {
                 Id = Guid.NewGuid(),
+                Index = 1,
                 AppUser = null,
                 Name = "Weapon"
             },
             new RustCategory
             {
                 Id = Guid.NewGuid(),
-                AppUser = null,
-                Name = "WeaponAttachment"
-            },
-            new RustCategory
-            {
-                Id = Guid.NewGuid(),
-                AppUser = null,
-                Name = "Resources"
-            },
-            new RustCategory
-            {
-                Id = Guid.NewGuid(),
+                Index = 2,
                 AppUser = null,
                 Name = "Ammunition"
             },
             new RustCategory
             {
                 Id = Guid.NewGuid(),
+                Index = 3,
+                AppUser = null,
+                Name = "WeaponAttachment"
+            },
+            new RustCategory
+            {
+                Id = Guid.NewGuid(),
+                Index = 4,
                 AppUser = null,
                 Name = "Clothing"
             },
             new RustCategory
             {
                 Id = Guid.NewGuid(),
-                AppUser = null,
-                Name = "Constructions"
-            },
-            new RustCategory
-            {
-                Id = Guid.NewGuid(),
-                AppUser = null,
-                Name = "Tools"
-            },
-            new RustCategory
-            {
-                Id = Guid.NewGuid(),
+                Index = 5,
                 AppUser = null,
                 Name = "Medicines"
             },
             new RustCategory
             {
                 Id = Guid.NewGuid(),
+                Index = 6,
                 AppUser = null,
                 Name = "Food"
             },
             new RustCategory
             {
                 Id = Guid.NewGuid(),
+                Index = 7,
+                AppUser = null,
+                Name = "Resources"
+            },
+            new RustCategory
+            {
+                Id = Guid.NewGuid(),
+                Index = 8,
+                AppUser = null,
+                Name = "Constructions"
+            },
+            new RustCategory
+            {
+                Id = Guid.NewGuid(),
+                Index = 9,
+                AppUser = null,
+                Name = "Tools"
+            },
+            new RustCategory
+            {
+                Id = Guid.NewGuid(),
+                Index = 10,
                 AppUser = null,
                 Name = "Electricity"
             },
             new RustCategory
             {
                 Id = Guid.NewGuid(),
+                Index = 11,
                 AppUser = null,
                 Name = "Components"
             },
             new RustCategory
             {
                 Id = Guid.NewGuid(),
+                Index = 12,
                 AppUser = null,
                 Name = "Holidays"
             },
             new RustCategory
             {
                 Id = Guid.NewGuid(),
+                Index = 13,
                 AppUser = null,
                 Name = "Other"
             }

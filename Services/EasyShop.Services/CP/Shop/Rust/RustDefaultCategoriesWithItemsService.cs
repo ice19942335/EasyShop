@@ -21,12 +21,11 @@ namespace EasyShop.Services.CP.Shop.Rust
             var userDefaultCategories = defaultCategories.Select(x => new RustCategory
             {
                 Id = Guid.NewGuid(),
+                Index = x.Index,
                 Name = x.Name,
                 AppUser = user,
                 Shop = shop
             }).ToList();
-
-            #region WeaponsFirst
 
             var userItemsWeapons = new List<RustUserItem>
             {
@@ -3127,8 +3126,6 @@ namespace EasyShop.Services.CP.Shop.Rust
             };
 
             return (userDefaultCategories, userItemsWeapons);
-
-            #endregion
         }
     }
 }

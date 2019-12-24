@@ -31,6 +31,8 @@ namespace EasyShop.Services.CP.Shop.Rust
             _logger = logger;
         }
 
+
+        #region Rust Chop
         public async Task<Domain.Entries.Shop.Shop> UpdateShopAsync(MainSettingsRustShopViewModel model)
         {
             var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(model.Id));
@@ -56,21 +58,39 @@ namespace EasyShop.Services.CP.Shop.Rust
             }
         }
 
-        public async Task<IEnumerable<RustCategory>> GetAllAssignedCategoriesByShopIdAsync(Guid shopId)
+        public async Task<bool> DeleteShopAsync(Guid shopId)
         {
-            var categories = _context.RustCategories.Include(x => x.AppUser).Include(x => x.Shop).Where(x => x.Shop.Id == shopId).AsEnumerable();
+            var userShop = _context.UserShops.FirstOrDefault(x => x.ShopId == shopId);
+            var shop = _context.Shops.FirstOrDefault(x => x.Id == shopId);
 
-            return categories.OrderBy(x => x.Name);
+            if (userShop is null || shop is null)
+                return false;
+
+            var allAssignedCategoriesToShop = await GetAllAssignedItemsToShopByIdAsync(shopId);
+
+            _context.RustCategories.RemoveRange(allAssignedCategoriesToShop);
+            await _context.SaveChangesAsync();
+
+            _context.UserShops.Remove(userShop);
+            _context.Shops.Remove(shop);
+
+            await _context.SaveChangesAsync();
+
+            return true;
         }
+        #endregion
 
-        public int GetAssignedItemsCountToACategoryInShop(Guid categoryId, Guid shopId)
+        #region Rust Category
+        public async Task<IEnumerable<RustCategory>> GetAllAssignedItemsToShopByIdAsync(Guid shopId)
         {
-            var result = _context.RustUserItems
+            var categories = _context.RustCategories
+                .Include(x => x.AppUser)
                 .Include(x => x.Shop)
-                .Include(x => x.RustCategory)
-                .Where(x => x.RustCategory.Id == categoryId && x.Shop.Id == shopId).ToList().Count;
+                .Where(x => x.Shop.Id == shopId)
+                .OrderBy(x => x.Index)
+                .AsEnumerable();
 
-            return result;
+            return categories;
         }
 
         public async Task<RustCategory> UpdateCategoryAsync(EditRustCategoryViewModel model)
@@ -80,6 +100,7 @@ namespace EasyShop.Services.CP.Shop.Rust
             if (category is null)
                 return null;
 
+            category.Index = model.Category.Index;
             category.Name = model.Category.Name;
 
             _context.RustCategories.Update(category);
@@ -103,26 +124,18 @@ namespace EasyShop.Services.CP.Shop.Rust
 
             return true;
         }
+        #endregion
 
-        public async Task<bool> DeleteShopAsync(Guid shopId)
+        #region Rust Items
+        public int GetAssignedUserItemsCountToACategoryInShop(Guid categoryId, Guid shopId)
         {
-            var userShop = _context.UserShops.FirstOrDefault(x => x.ShopId == shopId);
-            var shop = _context.Shops.FirstOrDefault(x => x.Id == shopId);
+            var result = _context.RustUserItems
+                .Include(x => x.Shop)
+                .Include(x => x.RustCategory)
+                .Where(x => x.RustCategory.Id == categoryId && x.Shop.Id == shopId).ToList().Count;
 
-            if (userShop is null || shop is null)
-                return false;
-
-            var allAssignedCategoriesToShop = await GetAllAssignedCategoriesByShopIdAsync(shopId);
-
-            _context.RustCategories.RemoveRange(allAssignedCategoriesToShop);
-            await _context.SaveChangesAsync();
-
-            _context.UserShops.Remove(userShop);
-            _context.Shops.Remove(shop);
-
-            await _context.SaveChangesAsync();
-
-            return true;
+            return result;
         }
+        #endregion
     }
 }

@@ -19,6 +19,7 @@ namespace EasyShop.Services.Mappers.ViewModels.Rust
             var model = new RustCategoryViewModel
             {
                 Id = category.Id.ToString(),
+                Index = category.Index,
                 ShopId = category.Shop.Id.ToString(),
                 Name = category.Name,
                 AssignedItemsCount = assignedItemsCount

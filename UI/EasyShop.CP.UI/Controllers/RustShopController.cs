@@ -7,6 +7,7 @@ using EasyShop.Interfaces.Services.CP.Shop;
 using EasyShop.Interfaces.Services.CP.Shop.Rust;
 using EasyShop.Services.Mappers.ViewModels.Rust;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EasyShop.CP.UI.Controllers
@@ -16,11 +17,13 @@ namespace EasyShop.CP.UI.Controllers
     {
         private readonly IShopManager _shopManager;
         private readonly IRustShopService _rustShopService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public RustShopController(IShopManager shopManager, IRustShopService rustShopService)
+        public RustShopController(IShopManager shopManager, IRustShopService rustShopService, IHttpContextAccessor httpContextAccessor)
         {
             _shopManager = shopManager;
             _rustShopService = rustShopService;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         [HttpGet]
@@ -75,9 +78,9 @@ namespace EasyShop.CP.UI.Controllers
             var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(shopId));
             var model = shop.CreateRustShopViewModel();
 
-            var categories = await _rustShopService.GetAllAssignedCategoriesByShopIdAsync(Guid.Parse(shopId));
+            var categories = await _rustShopService.GetAllAssignedItemsToShopByIdAsync(Guid.Parse(shopId));
             var categoriesViewModelListTasks = categories
-                .Select(x => x.CreateRustCategoryViewModel(_rustShopService.GetAssignedItemsCountToACategoryInShop(x.Id, shop.Id)));
+                .Select(x => x.CreateRustCategoryViewModel(_rustShopService.GetAssignedUserItemsCountToACategoryInShop(x.Id, shop.Id)));
 
             model.RustShopCategories = new RustShopCategoriesViewModel
             {
@@ -98,7 +101,7 @@ namespace EasyShop.CP.UI.Controllers
 
             var model = shop.CreateRustShopViewModel();
             model.EditRustCategoryViewModel.Category =
-                category.CreateRustCategoryViewModel(_rustShopService.GetAssignedItemsCountToACategoryInShop(category.Id, shop.Id));
+                category.CreateRustCategoryViewModel(_rustShopService.GetAssignedUserItemsCountToACategoryInShop(category.Id, shop.Id));
 
             return View(model);
         }
@@ -121,7 +124,7 @@ namespace EasyShop.CP.UI.Controllers
             return View(model);
         }
 
-        [HttpGet]
+        [HttpGet(template: "{shopId}&{categoryId}")]
         public async Task<IActionResult> DeleteCategory(string shopId, string categoryId)
         {
             var result = await _rustShopService.DeleteCategory(Guid.Parse(categoryId));

@@ -17,6 +17,7 @@
                     <table class="table table-responsive table-center">
                         <thead>
                             <tr>
+                                <th>Id</th>
                                 <th>Name</th>
                                 <th>Items in category</th>
                                 <th>Edit</th>
@@ -28,6 +29,9 @@
                                 foreach (var categoryModel in Model.RustShopCategories.Categories)
                                 {
                                     <tr>
+                                        <td>
+                                            <strong>@categoryModel.Index</strong>
+                                        </td>
                                         <td>
                                             <strong>@categoryModel.Name</strong>
                                         </td>
