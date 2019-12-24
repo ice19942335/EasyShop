@@ -90,16 +90,30 @@ namespace EasyShop.CP.UI.Controllers
             return View(model);
         }
 
+        [HttpGet("CreateCategory/{shopId}")]
+        public async Task<IActionResult> CreateCategory(string shopId)
+        {
+            return RedirectToAction("EditCategory", "RustShop", new {shopId = shopId});
+        }
+
         [HttpGet]
         public async Task<IActionResult> EditCategory(string shopId, string categoryId)
         {
             var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(shopId));
-            var category = _rustShopService.GetCategoryById(Guid.Parse(categoryId));
 
-            if (shop is null || category is null)
+            if (shop is null)
                 return RedirectToAction("SomethingWentWrong", "ControlPanel");
 
             var model = shop.CreateRustShopViewModel();
+
+            if (categoryId is null)
+            {
+                model.EditRustCategoryViewModel = new EditRustCategoryViewModel();
+                return View(model);
+            }
+
+            var category = _rustShopService.GetCategoryById(Guid.Parse(categoryId));
+
             model.EditRustCategoryViewModel.Category =
                 category.CreateRustCategoryViewModel(_rustShopService.GetAssignedUserItemsCountToACategoryInShop(category.Id, shop.Id));
 
@@ -116,7 +130,7 @@ namespace EasyShop.CP.UI.Controllers
                 return View(model);
             }
 
-            var result = await _rustShopService.UpdateCategoryAsync(model.EditRustCategoryViewModel);
+            var result = await _rustShopService.UpdateCategoryAsync(model);
 
             if (result is null)
                 return RedirectToAction("SomethingWentWrong", "ControlPanel");

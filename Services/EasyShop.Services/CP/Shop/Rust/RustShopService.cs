@@ -9,6 +9,7 @@ using EasyShop.Domain.Entries.Items.RustItems;
 using EasyShop.Domain.ViewModels.Shop.Rust;
 using EasyShop.Interfaces.Services.CP.Shop;
 using EasyShop.Interfaces.Services.CP.Shop.Rust;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -22,13 +23,15 @@ namespace EasyShop.Services.CP.Shop.Rust
         private readonly UserManager<AppUser> _userManager;
         private readonly EasyShopContext _context;
         private readonly ILogger<RustShopService> _logger;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public RustShopService(IShopManager shopManager, UserManager<AppUser> userManager, EasyShopContext context, ILogger<RustShopService> logger)
+        public RustShopService(IShopManager shopManager, UserManager<AppUser> userManager, EasyShopContext context, ILogger<RustShopService> logger, IHttpContextAccessor httpContextAccessor)
         {
             _shopManager = shopManager;
             _userManager = userManager;
             _context = context;
             _logger = logger;
+            _httpContextAccessor = httpContextAccessor;
         }
 
 
@@ -93,15 +96,37 @@ namespace EasyShop.Services.CP.Shop.Rust
             return categories;
         }
 
-        public async Task<RustCategory> UpdateCategoryAsync(EditRustCategoryViewModel model)
+        public async Task<RustCategory> UpdateCategoryAsync(RustShopViewModel model)
         {
-            var category = GetCategoryById(Guid.Parse(model.Category.Id));
+            if (model.EditRustCategoryViewModel.Category.Id is null)
+            {
+                var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(model.Id));
+
+                if (shop is null)
+                    return null;
+
+                RustCategory newCategory = new RustCategory
+                {
+                    Id = Guid.NewGuid(),
+                    Index = 1,
+                    Name = model.EditRustCategoryViewModel.Category.Name,
+                    AppUser = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name),
+                    Shop = shop
+                };
+
+                _context.RustCategories.Add(newCategory);
+                await _context.SaveChangesAsync();
+
+                return newCategory;
+            }
+
+            var category = GetCategoryById(Guid.Parse(model.EditRustCategoryViewModel.Category.Id));
 
             if (category is null)
                 return null;
 
-            category.Index = model.Category.Index;
-            category.Name = model.Category.Name;
+            category.Index = model.EditRustCategoryViewModel.Category.Index;
+            category.Name = model.EditRustCategoryViewModel.Category.Name;
 
             _context.RustCategories.Update(category);
             await _context.SaveChangesAsync();
