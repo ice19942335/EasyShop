@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.Linq;
+﻿using System.Threading;
 using System.Threading.Tasks;
-using EasyShop.Domain.Entities.Identity;
-using EasyShop.Domain.ViewModels.Account;
+using EasyShop.Domain.Entries.Identity;
+using EasyShop.Domain.ViewModels.User.UserData;
 using EasyShop.Domain.ViewModels.User.UserProfile;
 using EasyShop.Interfaces.Services.CP;
-using EasyShop.Services.CP.FileImage;
-using EasyShop.Services.CP.UserProfile;
 using EasyShop.Services.Mappers.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace EasyShop.CP.UI.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin,User")]
     public class UserProfileController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
@@ -33,16 +27,6 @@ namespace EasyShop.CP.UI.Controllers
             _userProfileService = userProfileService;
             _fileImageService = fileImageService;
         }
-
-        public IActionResult PasswordResetRequest() => View();
-
-        public IActionResult PasswordResetRequestHasBeenSent() => View();
-
-        public IActionResult EmailConfirmation() => View();
-
-        public IActionResult EmailConfirmationRequestHasBeenSent() => View();
-
-        public IActionResult SomethingWentWrong() => View();
 
         public async Task<IActionResult> Profile()
         {
@@ -78,6 +62,35 @@ namespace EasyShop.CP.UI.Controllers
 
             return View(result);
         }
+
+        public async Task<IActionResult> Main()
+        {
+            var user = await _userManager.FindByEmailAsync(User.Identity.Name);
+
+            if (user is null)
+                return RedirectToAction("SomethingWentWrong", "UserProfile");
+
+            var model = new AppUserViewModel
+            {
+                TransactionPercent = user.TransactionPercent,
+                ShopsAllowed = user.ShopsAllowed,
+                TotalRevenue = user.TotalRevenue
+            };
+            
+            return View(model);
+        }
+
+        public IActionResult PasswordResetRequest() => View();
+
+        public IActionResult PasswordResetRequestHasBeenSent() => View();
+
+        public IActionResult EmailConfirmation() => View();
+
+        public IActionResult EmailConfirmationRequestHasBeenSent() => View();
+
+        public IActionResult EmailHaveToBeConfirmed() => View();
+
+        public IActionResult SomethingWentWrong() => View();
 
     }
 }

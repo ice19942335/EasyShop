@@ -30,7 +30,7 @@
 <div class="well text-center">
     <div class="userImage">
         <img src="~/UserImages/@Model.ProfileImage" alt="@Model.ProfileImage" width="225" height="225">
-        <h4>Aleksejs Birula</h4>
+        <h4>@($"{Model.FirstName} {Model.LastName}")</h4>
     </div>
     <form method="post" id="demo-inputmask" class="form-horizontal" enctype="multipart/form-data" asp-area="" asp-controller="UserProfile" asp-action="Profile">
         <input asp-for="ProfileImage" hidden=""/>
@@ -38,23 +38,11 @@
         <div class="form-group">
             <label class="file-upload-btn btn btn-primary">
                 Upload picture
-                <input asp-for="ImageToUpload" class="file-upload-input" type="file" />
+                <input asp-for="ImageToUpload" type="file" accept="image/*">
             </label>
         </div>
         <div class="form-group">
             <ul class="file-list"></ul>
-        </div>
-        <div class="form-group m-t-lg">
-            <label class="col-sm-3 control-label">Shops allowed</label>
-            <div class="col-sm-6">
-                <input asp-for="ShopsAllowed" class="form-control" type="number" value="@Model.ShopsAllowed" readonly="">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-3 control-label">Percent from transaction</label>
-            <div class="col-sm-6">
-                <input asp-for="TransactionPercent" class="form-control" type="number" value="@Model.TransactionPercent" readonly="">
-            </div>
         </div>
         <span asp-validation-for="Email" class="warning text-warning"></span>
         <div class="form-group">

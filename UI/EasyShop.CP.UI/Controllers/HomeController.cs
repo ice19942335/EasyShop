@@ -17,6 +17,8 @@ namespace EasyShop.CP.UI.Controllers
 
         public IActionResult NotFoundPage() => View();
 
+        public IActionResult ServerErrorPage() => View();
+
         public IActionResult ErrorStatus(string id)
         {
             switch (id)
@@ -24,7 +26,7 @@ namespace EasyShop.CP.UI.Controllers
                 case "404":
                     return RedirectToAction(nameof(NotFoundPage));
                 default:
-                    return Content($"Status code {id}");
+                    return RedirectToAction(nameof(ServerErrorPage), "Home", new {statusCode = id});
             }
         }
     }

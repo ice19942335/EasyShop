@@ -1,0 +1,18 @@
+﻿@model EasyShop.Domain.ViewModels.Shop.ShopManagerViewModel
+
+<li class="sidenav-item has-subnav">
+    <a href="#" aria-haspopup="true">
+        <span class="sidenav-icon icon icon-shopping-cart"></span>
+        <span class="sidenav-label">Shops</span>
+    </a>
+    <ul class="sidenav-subnav collapse" aria-expanded="false">
+        <li class="sidenav-subheading">UI Elements</li>
+        @{
+            <li><a asp-area="" asp-controller="ShopManager" asp-action="Index"><span style="color: #00aced">Shops manager</span></a></li>
+            foreach (var shop in Model.Shops)
+            {
+                <li><a asp-area="" asp-controller="ShopManager" asp-action="EditShopHandler" asp-route-shopId="@shop.Id">@shop.ShopName</a></li>
+            }
+        }
+    </ul>
+</li>

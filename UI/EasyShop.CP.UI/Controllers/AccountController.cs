@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using EasyShop.Domain.Entities.Identity;
+using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.ViewModels.Account;
 using EasyShop.Interfaces.Email;
 using EasyShop.Interfaces.Services.CP;

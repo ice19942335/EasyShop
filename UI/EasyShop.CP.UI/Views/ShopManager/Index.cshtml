@@ -1,0 +1,88 @@
+﻿@model EasyShop.Domain.ViewModels.Shop.ShopManagerViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_ControlPanelLayout";
+}
+
+
+<div class="well text-center">
+    <div class="row">
+        <div class="col-lg-4 col-lg-offset-4 text-center">
+            <h2>My shops</h2>
+        </div>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-sm-4 col-md-3">
+            <form method="get" asp-area="" asp-controller="ShopManager" asp-action="CreateShop">
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block" type="submit">New shop</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    @if (Model.Shops?.Count() > 0)
+    {
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-responsive table-center">
+                            <thead>
+                                <tr>
+                                    <th>Shop name</th>
+                                    <th>Shop title</th>
+                                    <th>Game</th>
+                                    <th>Start balance</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    foreach (var shop in Model.Shops)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <strong>@shop.ShopName</strong>
+                                            </td>
+                                            <td>
+                                                <strong>@shop.ShopTitle</strong>
+                                            </td>
+                                            <td>
+                                                <strong>@shop.GameType.Type</strong>
+                                            </td>
+                                            <td>
+                                                <strong>@shop.StartBalance</strong>
+                                            </td>
+                                            <td>
+                                                <a asp-area="" asp-controller="ShopManager" asp-action="EditShopHandler" asp-route-shopId="@shop.Id"><span class="icon icon-pencil icon-lg icon-fw"></span></a>
+                                            </td>
+                                            <td>
+                                                <a id="deleteButton_@shop.Id" href="#" onclick="deleteConfirmationDialog('@shop.Id', true)" style="color: red"><span class="icon icon-times icon-lg icon-fw"></span></a>
+                                                <span id="confirmDeleteSpan_@shop.Id" style="display: none">
+                                                    <span>Are you sure you want to delete?</span>
+                                                    <span>
+                                                        <a asp-area="" asp-controller="ShopManager" asp-action="DeleteShop" asp-route-shopId="@shop.Id" style="color: green"><span class="icon icon-check icon-lg icon-fw"></span></a>
+                                                    </span>
+                                                    <span>
+                                                        <a style="color: red; cursor: pointer" onclick="deleteConfirmationDialog('@shop.Id', false)"><span class="icon icon-times icon-lg icon-fw"></span></a>
+                                                    </span>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts
+{
+    <script src="~/js/customScripts/DeleteConfirmationDialog.js" asp-append-version="true"></script>
+}

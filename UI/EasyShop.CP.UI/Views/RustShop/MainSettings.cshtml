@@ -1,0 +1,71 @@
+﻿@model EasyShop.Domain.ViewModels.Shop.Rust.RustShopViewModel
+@{
+    ViewData["Title"] = "Edit rust Shop";
+    Layout = "Partial/_RustEditLayout";
+}
+
+<div class="well text-center">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 text-center">
+            <h2>Main settings</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 col-lg-8">
+            <div class="demo-form-wrapper">
+                <form method="post" asp-area="" asp-controller="RustShop" asp-action="MainSettings">
+                    <input asp-for="MainSettingsRustShopViewModel.Id" type="hidden" />
+                    <div asp-validation-summary="ModelOnly" class="alert alert-info"></div>
+                    <div class="form-group">
+                        <label class="pull-left">Shop name</label>
+                        <input asp-for="MainSettingsRustShopViewModel.ShopName" class="form-control" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label class="pull-left">Shop title</label>
+                        <input asp-for="MainSettingsRustShopViewModel.ShopTitle" class="form-control" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label class="pull-left">Start balance</label>
+                        <input asp-for="MainSettingsRustShopViewModel.StartBalance" class="form-control">
+                        <span class="help-block">Input example (0.99 or 150.00)</span>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-block" type="submit">Save changes</button>
+                    </div>
+                </form>
+                <form class="m-b-md" asp-area="" asp-controller="ShopManager" asp-action="NewSecret" asp-route-shopId="@Model.Id">
+                    <div class="form-group">
+                        <div style="display: flex">
+                            <input asp-for="MainSettingsRustShopViewModel.Secret" class="form-control" disabled="">
+                            <button class="btn btn-primary" title="" data-container="body" data-placement="top" data-toggle="tooltip" type="submit" data-original-title="Get new secret">
+                                <span class="icon icon-refresh icon-fw"></span>
+                            </button>
+                        </div>
+                        <span class="help-block">After each change of secret, you have to download a new plugin package.</span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 col-lg-8">
+            <div>
+                <span id="deleteButton_@Model.Id">
+                    <button class="btn btn-danger btn-block m-r-md" onclick="deleteConfirmationDialog('@Model.Id', true)">Delete shop</button>
+                </span>
+                <span style="display: none" id="confirmDeleteSpan_@Model.Id">
+                    <form style="display: inline;" method="get" asp-area="" asp-controller="ShopManager" asp-action="DeleteShop" asp-route-shopId="@Model.Id">
+                        <span>Are you sure you want to delete?</span>
+                        <button style="max-width: fit-content; display: inline;" class="btn btn-success btn-block" type="submit">Yes</button>
+                    </form>
+                    <button style="max-width: fit-content; display: inline;" class="btn btn-danger btn-block" onclick="deleteConfirmationDialog('@Model.Id', false)">No</button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="~/js/customScripts/DeleteConfirmationDialog.js" asp-append-version="true"></script>
+}

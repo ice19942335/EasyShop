@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using EasyShop.Domain.Dto.CP.Account;
-using EasyShop.Domain.Entities.Identity;
+using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.ViewModels.Account;
 using EasyShop.Interfaces.Email;
 using EasyShop.Interfaces.Services.CP;
@@ -63,12 +63,13 @@ namespace EasyShop.Services.CP.Account
                     Email = model.Email,
                     FirstName = model.Firstname,
                     LastName = model.LastName,
-                    BirthDate = new DateTime(model.Year, model.Day, Int32.Parse(model.Month)),
+                    BirthDate = new DateTime(model.Year, model.Day, int.Parse(model.Month)),
                     Gender = model.Gender,
-                    TransactionPercent = 1,
-                    ShopsAllowed = 2,
                     RegistrationDate = DateTime.Now,
-                    ProfileImage = profileImage
+                    ProfileImage = profileImage,
+                    TransactionPercent = 3,
+                    ShopsAllowed = 10,
+                    UsingTariff = false
                 };
 
                 var creationResult = await _userManager.CreateAsync(user, model.Password);
@@ -205,7 +206,12 @@ namespace EasyShop.Services.CP.Account
             var user = await _userManager.FindByEmailAsync(model.Email);
 
             if (user is null || !await _userManager.IsEmailConfirmedAsync(user))
+            {
+                if (model.Authenticated)
+                    return new AccountDto { RedirectToAction = RedirectToAction("EmailHaveToBeConfirmed", "UserProfile") };
+
                 return new AccountDto { RedirectToAction = RedirectToAction("EmailHaveToBeConfirmed", "Account") };
+            }
 
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
 

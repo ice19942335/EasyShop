@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using EasyShop.Domain.ViewModels.ViewModelValidation;
 using Microsoft.AspNetCore.Http;
 
 namespace EasyShop.Domain.ViewModels.User.UserProfile
@@ -14,6 +15,7 @@ namespace EasyShop.Domain.ViewModels.User.UserProfile
         [Required]
         public string LastName { get; set; }
 
+        [Required]
         public string Email { get; set; }
 
         public DateTime BirthDate { get; set; }
@@ -23,10 +25,6 @@ namespace EasyShop.Domain.ViewModels.User.UserProfile
         public string BirthDateToUpdate { get; set; }
 
         public int Gender { get; set; }
-
-        public int TransactionPercent { get; set; }
-
-        public int ShopsAllowed { get; set; }
 
         public string ProfileImage { get; set; }
 
