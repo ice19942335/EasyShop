@@ -12,8 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Entities\Base\Interfaces\" />
-    <Folder Include="Entities\Identity\" />
     <Folder Include="Models\Email\" />
   </ItemGroup>
 
