@@ -34,7 +34,7 @@ namespace EasyShop.DAL.Context
         public DbSet<RustItemType> RustItemTypes { get; set; }
         public DbSet<RustUserItem> RustUserItems { get; set; }
         public DbSet<RustCategory> RustCategories { get; set; }
-        public DbSet<RustPurchasedItem> RustItemsPurchased { get; set; }
+        public DbSet<RustPurchasedItem> RustPurchasedItems { get; set; }
 
         public DbSet<RustUser> RustUsers { get; set; }
 
@@ -118,21 +118,6 @@ namespace EasyShop.DAL.Context
                 .HasOne(x => x.Shop)
                 .WithMany(x => x.ServerShops)
                 .HasForeignKey(x => x.ShopId);
-            //===================================================================
-
-            //RustPurchasedItems ------------------------------------------------
-            modelBuilder.Entity<RustPurchasedItem>()
-                .HasKey(x => new { x.RustUserItemId, x.RustUserId });
-
-            modelBuilder.Entity<RustPurchasedItem>()
-                .HasOne(x => x.RustUser)
-                .WithMany(x => x.RustPurchasedItems)
-                .HasForeignKey(x => x.RustUserId);
-
-            modelBuilder.Entity<RustPurchasedItem>()
-                .HasOne(x => x.RustUserItem)
-                .WithMany(x => x.RustPurchasedItems)
-                .HasForeignKey(x => x.RustUserItemId);
             //===================================================================
         }
     }

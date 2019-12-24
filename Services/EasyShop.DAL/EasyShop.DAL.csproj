@@ -5,50 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20191011145545_Initial_AddIdentity.cs" />
-    <Compile Remove="Migrations\20191011145545_Initial_AddIdentity.Designer.cs" />
-    <Compile Remove="Migrations\20191026164331_Added_ProfileImage_In_ApplicationUser.cs" />
-    <Compile Remove="Migrations\20191026164331_Added_ProfileImage_In_ApplicationUser.Designer.cs" />
-    <Compile Remove="Migrations\20191213105221_Added_Tariffs_and_tariffsPptions_Tables.cs" />
-    <Compile Remove="Migrations\20191213105221_Added_Tariffs_and_tariffsPptions_Tables.Designer.cs" />
-    <Compile Remove="Migrations\20191213110134_Added_Tariffs_And_TariffOptions_Tables.cs" />
-    <Compile Remove="Migrations\20191213110134_Added_Tariffs_And_TariffOptions_Tables.Designer.cs" />
-    <Compile Remove="Migrations\20191213110541_Added_Tariffs_And_TariffOprions_Tables.cs" />
-    <Compile Remove="Migrations\20191213110541_Added_Tariffs_And_TariffOprions_Tables.Designer.cs" />
-    <Compile Remove="Migrations\20191213110736_Added_Tariffs_And_TariffOprions_Tables.cs" />
-    <Compile Remove="Migrations\20191213110736_Added_Tariffs_And_TariffOprions_Tables.Designer.cs" />
-    <Compile Remove="Migrations\20191214171526_TariffUpdated_RequiredAnotationsAdded.cs" />
-    <Compile Remove="Migrations\20191214171526_TariffUpdated_RequiredAnotationsAdded.Designer.cs" />
-    <Compile Remove="Migrations\20191214171631_TariffUpdated_RequiredAnnotationsAdded.cs" />
-    <Compile Remove="Migrations\20191214171631_TariffUpdated_RequiredAnnotationsAdded.Designer.cs" />
-    <Compile Remove="Migrations\20191215110822_AppUser_And_TariffTables.cs" />
-    <Compile Remove="Migrations\20191215110822_AppUser_And_TariffTables.Designer.cs" />
-    <Compile Remove="Migrations\20191215111719_AppUser_And_TariffTables.cs" />
-    <Compile Remove="Migrations\20191215111719_AppUser_And_TariffTables.Designer.cs" />
-    <Compile Remove="Migrations\20191215113110_AppUser_Configuration_And_Tariff_Tables.cs" />
-    <Compile Remove="Migrations\20191215113110_AppUser_Configuration_And_Tariff_Tables.Designer.cs" />
-    <Compile Remove="Migrations\20191216185346_AppUser_Configuration_And_Tariff_Tables.cs" />
-    <Compile Remove="Migrations\20191216185346_AppUser_Configuration_And_Tariff_Tables.Designer.cs" />
-    <Compile Remove="Migrations\20191217172452_AddedShopServerTables_And_PurchasedTariffs_In_AppUser.cs" />
-    <Compile Remove="Migrations\20191217172452_AddedShopServerTables_And_PurchasedTariffs_In_AppUser.Designer.cs" />
-    <Compile Remove="Migrations\20191217173652_Added_ShopTables_Edite_dAppUser.cs" />
-    <Compile Remove="Migrations\20191217173652_Added_ShopTables_Edite_dAppUser.Designer.cs" />
-    <Compile Remove="Migrations\20191217173723_Added_ShopTables_Edited_dAppUser.cs" />
-    <Compile Remove="Migrations\20191217173723_Added_ShopTables_Edited_dAppUser.Designer.cs" />
-    <Compile Remove="Migrations\20191219165200_Added_Shop_Tables.cs" />
-    <Compile Remove="Migrations\20191219165200_Added_Shop_Tables.Designer.cs" />
-    <Compile Remove="Migrations\20191221114403_AppUser_AddedColumn_TotalRevenue.cs" />
-    <Compile Remove="Migrations\20191221114403_AppUser_AddedColumn_TotalRevenue.Designer.cs" />
-    <Compile Remove="Migrations\20191221161108_Added_RustItemsCategoriesUser_Tables.cs" />
-    <Compile Remove="Migrations\20191221161108_Added_RustItemsCategoriesUser_Tables.Designer.cs" />
-    <Compile Remove="Migrations\20191221161441_DefaultMigration.cs" />
-    <Compile Remove="Migrations\20191221161441_DefaultMigration.Designer.cs" />
-    <Compile Remove="Migrations\20191221162321_DefaultMigration.cs" />
-    <Compile Remove="Migrations\20191221162321_DefaultMigration.Designer.cs" />
-    <Compile Remove="Migrations\20191222130345_DefaultMigration.cs" />
-    <Compile Remove="Migrations\20191222130345_DefaultMigration.Designer.cs" />
-    <Compile Remove="Migrations\20191222154406_initialize.cs" />
-    <Compile Remove="Migrations\20191222154406_initialize.Designer.cs" />
     <Compile Remove="Startup.cs" />
   </ItemGroup>
 
@@ -60,6 +16,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Common\EasyShop.Domain\EasyShop.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

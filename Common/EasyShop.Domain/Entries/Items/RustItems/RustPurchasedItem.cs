@@ -8,14 +8,15 @@ namespace EasyShop.Domain.Entries.Items.RustItems
     [Table("RustPurchasedItems")]
     public class RustPurchasedItem
     {
-        public Guid RustUserId { get; set; }
-        public RustUser RustUser { get; set; }
+        public Guid Id { get; set; }
 
+        public AppUser AppUser { get; set; }
 
-        public Guid RustUserItemId { get; set; }
-        public RustUserItem RustUserItem { get; set; }
+        public RustItem RustItem { get; set; }
 
         public int Amount { get; set; }
+
+        public int RustUserItemAmount { get; set; }
 
         public DateTime PurchaseDateTime { get; set; }
     }

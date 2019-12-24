@@ -60,7 +60,7 @@ namespace EasyShop.Services.CP.Shop.Rust
         {
             var categories = _context.RustCategories.Include(x => x.AppUser).Include(x => x.Shop).Where(x => x.Shop.Id == shopId).AsEnumerable();
 
-            return categories;
+            return categories.OrderBy(x => x.Name);
         }
 
         public int GetAssignedItemsCountToACategoryInShop(Guid categoryId, Guid shopId)
@@ -90,5 +90,18 @@ namespace EasyShop.Services.CP.Shop.Rust
 
         public RustCategory GetCategoryById(Guid categoryId) => _context.RustCategories
             .Include(x => x.AppUser).Include(x => x.Shop).FirstOrDefault(x => x.Id == categoryId);
+
+        public async Task<bool> DeleteCategory(Guid categoryId)
+        {
+            var category = _context.RustCategories.FirstOrDefault(x => x.Id == categoryId);
+
+            if (category is null)
+                return false;
+
+            _context.RustCategories.Remove(category);
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
     }
 }

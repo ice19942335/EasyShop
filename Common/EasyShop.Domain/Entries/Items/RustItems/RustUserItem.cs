@@ -20,11 +20,6 @@ namespace EasyShop.Domain.Entries.Items.RustItems
         public AppUser AppUser { get; set; }
         #endregion
 
-        #region EF props
-        public ICollection<RustPurchasedItem> RustPurchasedItems { get; set; }
-        #endregion
-
-
         #region Entrie columns
         [Required]
         public string Name { get; set; }

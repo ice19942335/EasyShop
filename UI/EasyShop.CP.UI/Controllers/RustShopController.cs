@@ -115,16 +115,24 @@ namespace EasyShop.CP.UI.Controllers
 
             var result = await _rustShopService.UpdateCategoryAsync(model.EditRustCategoryViewModel);
 
-            if(result is null)
+            if (result is null)
                 return RedirectToAction("SomethingWentWrong", "ControlPanel");
 
             return View(model);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> DeleteCategory(string categoryId)
+        [HttpGet]
+        public async Task<IActionResult> DeleteCategory(string shopId, string categoryId)
         {
-            throw new NotImplementedException();
+            var result = await _rustShopService.DeleteCategory(Guid.Parse(categoryId));
+
+            if (!result)
+                return RedirectToAction("SomethingWentWrong", "ControlPanel");
+
+            var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(shopId));
+            var model = shop.CreateRustShopViewModel();
+
+            return RedirectToAction("Categories", "RustShop", new { shopId = shopId });
         }
 
         [HttpGet]

@@ -22,7 +22,5 @@ namespace EasyShop.Domain.Entries.Identity
         [Required]
         [Column(TypeName = "decimal(18, 2)")]
         public decimal TotalSpent { get; set; }
-
-        public ICollection<RustPurchasedItem> RustPurchasedItems { get; set; }
     }
 }

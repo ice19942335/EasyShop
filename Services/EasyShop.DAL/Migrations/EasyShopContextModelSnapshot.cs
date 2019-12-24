@@ -224,21 +224,30 @@ namespace EasyShop.DAL.Migrations
 
             modelBuilder.Entity("EasyShop.Domain.Entries.Items.RustItems.RustPurchasedItem", b =>
                 {
-                    b.Property<Guid>("RustUserItemId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("RustUserId")
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Amount")
                         .HasColumnType("int");
 
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime>("PurchaseDateTime")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("RustUserItemId", "RustUserId");
+                    b.Property<Guid?>("RustItemId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.HasIndex("RustUserId");
+                    b.Property<int>("RustUserItemAmount")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("RustItemId");
 
                     b.ToTable("RustPurchasedItems");
                 });
@@ -615,17 +624,13 @@ namespace EasyShop.DAL.Migrations
 
             modelBuilder.Entity("EasyShop.Domain.Entries.Items.RustItems.RustPurchasedItem", b =>
                 {
-                    b.HasOne("EasyShop.Domain.Entries.Identity.RustUser", "RustUser")
-                        .WithMany("RustPurchasedItems")
-                        .HasForeignKey("RustUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("EasyShop.Domain.Entries.Identity.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId");
 
-                    b.HasOne("EasyShop.Domain.Entries.Items.RustItems.RustUserItem", "RustUserItem")
-                        .WithMany("RustPurchasedItems")
-                        .HasForeignKey("RustUserItemId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("EasyShop.Domain.Entries.Items.RustItems.RustItem", "RustItem")
+                        .WithMany()
+                        .HasForeignKey("RustItemId");
                 });
 
             modelBuilder.Entity("EasyShop.Domain.Entries.Items.RustItems.RustUserItem", b =>

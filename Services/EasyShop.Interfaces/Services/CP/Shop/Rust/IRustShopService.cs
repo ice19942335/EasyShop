@@ -18,5 +18,7 @@ namespace EasyShop.Interfaces.Services.CP.Shop.Rust
         Task<RustCategory> UpdateCategoryAsync(EditRustCategoryViewModel model);
 
         RustCategory GetCategoryById(Guid categoryId);
+
+        Task<bool> DeleteCategory(Guid categoryId);
     }
 }
