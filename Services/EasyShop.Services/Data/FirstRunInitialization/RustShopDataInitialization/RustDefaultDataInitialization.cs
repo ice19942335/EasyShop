@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using EasyShop.DAL.Context;
 
 namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitialization
@@ -11,6 +12,9 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
 
         public async Task Initialize()
         {
+            if (_dbContext.RustCategories.Any())  
+                return;
+
             await InitializeDefaultCategories();
             await InitializeDefaultItemTypes();
             await InitializeDefaultItems();

@@ -1,6 +1,6 @@
-﻿function deleteShopConfirmationDialog(shopId, isDeleteClicked) {
-    let deleteButton = 'deleteButton_' + shopId;
-    let confirmDeleteSpan = 'confirmDeleteSpan_' + shopId;
+﻿function deleteConfirmationDialog(id, isDeleteClicked) {
+    let deleteButton = 'deleteButton_' + id;
+    let confirmDeleteSpan = 'confirmDeleteSpan_' + id;
 
     if (isDeleteClicked) {
         $('#' + deleteButton).hide();

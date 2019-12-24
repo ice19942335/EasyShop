@@ -34,7 +34,7 @@ namespace EasyShop.DAL.Context
         public DbSet<RustItemType> RustItemTypes { get; set; }
         public DbSet<RustUserItem> RustUserItems { get; set; }
         public DbSet<RustCategory> RustCategories { get; set; }
-        public DbSet<RustPurchasedItem> RustItemsPurchased { get; set; }
+        public DbSet<RustPurchasedItem> RustPurchasedItems { get; set; }
 
         public DbSet<RustUser> RustUsers { get; set; }
 
@@ -46,6 +46,8 @@ namespace EasyShop.DAL.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            #region ManyToMany
 
             //AppUser -----------------------------------------------------------
             modelBuilder.Entity<AppUser>(x =>
@@ -120,20 +122,7 @@ namespace EasyShop.DAL.Context
                 .HasForeignKey(x => x.ShopId);
             //===================================================================
 
-            //RustPurchasedItems ------------------------------------------------
-            modelBuilder.Entity<RustPurchasedItem>()
-                .HasKey(x => new { x.RustUserItemId, x.RustUserId });
-
-            modelBuilder.Entity<RustPurchasedItem>()
-                .HasOne(x => x.RustUser)
-                .WithMany(x => x.RustPurchasedItems)
-                .HasForeignKey(x => x.RustUserId);
-
-            modelBuilder.Entity<RustPurchasedItem>()
-                .HasOne(x => x.RustUserItem)
-                .WithMany(x => x.RustPurchasedItems)
-                .HasForeignKey(x => x.RustUserItemId);
-            //===================================================================
+            #endregion
         }
     }
 }

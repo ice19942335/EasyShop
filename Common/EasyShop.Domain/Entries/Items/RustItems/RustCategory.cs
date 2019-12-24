@@ -12,8 +12,13 @@ namespace EasyShop.Domain.Entries.Items.RustItems
         [Key]
         public Guid Id { get; set; }
 
+        public int Index { get; set; }
+
+        [Required]
         public string Name { get; set; }
 
         public AppUser AppUser { get; set; }
+
+        public Shop.Shop Shop { get; set; }
     }
 }

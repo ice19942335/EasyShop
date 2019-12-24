@@ -4,13 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
+using EasyShop.Domain.Entries.GameType;
 using EasyShop.Domain.Entries.Identity;
+using EasyShop.Domain.Entries.Items.RustItems;
 using EasyShop.Domain.Entries.Shop;
 using EasyShop.Domain.ViewModels.Shop;
 using EasyShop.Domain.ViewModels.Shop.Rust;
 using EasyShop.Interfaces.Services.CP.Shop;
+using EasyShop.Interfaces.Services.CP.Shop.Rust;
+using EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitialization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -23,17 +28,26 @@ namespace EasyShop.Services.CP.Shop
         private readonly UserManager<AppUser> _userManager;
         private readonly IConfiguration _configuration;
         private readonly ILogger<ShopManager> _logger;
+        private readonly IRustDefaultCategoriesWithItemsService _rustDefaultCategoriesWithItemsService;
         private readonly HttpContext _httpContext;
 
-        public ShopManager(EasyShopContext context, UserManager<AppUser> userManager, IHttpContextAccessor httpContext, IConfiguration configuration, ILogger<ShopManager> logger)
+        public ShopManager(EasyShopContext context,
+            UserManager<AppUser> userManager,
+            IHttpContextAccessor httpContext,
+            IConfiguration configuration,
+            ILogger<ShopManager> logger,
+            IRustDefaultCategoriesWithItemsService rustDefaultCategoriesWithItemsService)
         {
             _context = context;
             _userManager = userManager;
             _configuration = configuration;
             _logger = logger;
+            _rustDefaultCategoriesWithItemsService = rustDefaultCategoriesWithItemsService;
             _httpContext = httpContext.HttpContext;
         }
 
+        public string GetShopGameTypeById(Guid shopId) => GetShopByIdAsync(shopId).Result.GameType.Type;
+        
         public async Task<IEnumerable<Domain.Entries.Shop.Shop>> UserShopsByUserEmailAsync(string userEmail)
         {
             var user = await _userManager.FindByEmailAsync(userEmail);
@@ -42,17 +56,17 @@ namespace EasyShop.Services.CP.Shop
                 return null;
 
             var query = from userShop in _context.UserShops
-                join shop in _context.Shops on userShop.ShopId equals shop.Id
-                where userShop.AppUserId == user.Id
-                select new Domain.Entries.Shop.Shop
-                {
-                    Id = shop.Id,
-                    ShopName = shop.ShopName,
-                    GameType = _context.GameTypes.FirstOrDefault(x => x.Id == shop.GameType.Id),
-                    ShopTitle = shop.ShopTitle,
-                    StartBalance = shop.StartBalance,
-                    Secret = shop.Secret
-                };
+                        join shop in _context.Shops on userShop.ShopId equals shop.Id
+                        where userShop.AppUserId == user.Id
+                        select new Domain.Entries.Shop.Shop
+                        {
+                            Id = shop.Id,
+                            ShopName = shop.ShopName,
+                            GameType = _context.GameTypes.FirstOrDefault(x => x.Id == shop.GameType.Id),
+                            ShopTitle = shop.ShopTitle,
+                            StartBalance = shop.StartBalance,
+                            Secret = shop.Secret
+                        };
 
             var result = query.AsEnumerable();
 
@@ -93,7 +107,23 @@ namespace EasyShop.Services.CP.Shop
                     AppUserId = user.Id,
                     AppUser = user
                 };
-                
+
+
+                (List<RustCategory>, List<RustUserItem>) result = default;
+                if (model.AddDefaultItems)
+                {
+                    try
+                    {
+                        result = await CreateDefaultCategoriesWithItemsHandler(user, newShop, gameType);
+                        await _context.RustCategories.AddRangeAsync(result.Item1);
+                        await _context.RustUserItems.AddRangeAsync(result.Item2);
+                    }
+                    catch(Exception e)
+                    {
+                        return false;
+                    }
+                }
+
                 _context.Shops.Add(newShop);
                 _context.UserShops.Add(userShop);
                 await _context.SaveChangesAsync();
@@ -106,22 +136,6 @@ namespace EasyShop.Services.CP.Shop
 
         public async Task<Domain.Entries.Shop.Shop> GetShopByIdAsync(Guid shopId) =>
             _context.Shops.Include(x => x.GameType).FirstOrDefault(x => x.Id == shopId);
-
-        public async Task<bool> DeleteShopAsync(Guid shopId)
-        {
-            var userShop = _context.UserShops.FirstOrDefault(x => x.ShopId == shopId);
-            var shop = _context.Shops.FirstOrDefault(x => x.Id == shopId);
-
-            if (userShop is null || shop is null)
-                return false;
-
-            _context.UserShops.Remove(userShop);
-            _context.Shops.Remove(shop);
-
-            await _context.SaveChangesAsync();
-
-            return true;
-        }
 
         public async Task<bool> NewSecretAsync(Guid shopId)
         {
@@ -138,6 +152,29 @@ namespace EasyShop.Services.CP.Shop
             await _context.SaveChangesAsync();
 
             return true;
+        }
+
+        private async Task<(List<RustCategory>, List<RustUserItem>)> CreateDefaultCategoriesWithItemsHandler(AppUser user, Domain.Entries.Shop.Shop shop, GameType gameType)
+        {
+            switch (gameType.Type)
+            {
+                case "Rust":
+                    return await RustCreateDefaultCategoriesWithItems(user, shop);
+
+                default: throw new ApplicationException($"Game type not exist, you have to add this type <{gameType.Type}> to database and also implement the new case in this switch statement");
+            }
+
+        }
+
+        private async Task<(List<RustCategory>, List<RustUserItem>)> RustCreateDefaultCategoriesWithItems(AppUser user, Domain.Entries.Shop.Shop shop)
+        {
+            var defaultCategories = _context.RustCategories.Include(x => x.AppUser).Where(x => x.AppUser == null).ToList();
+            var rustItems = _context.RustItems.ToList();
+
+            (List<RustCategory>, List<RustUserItem>) result = 
+                await _rustDefaultCategoriesWithItemsService.CreateDefaultCategoriesWithItems(user, shop, defaultCategories, rustItems);
+
+            return result;
         }
     }
 }

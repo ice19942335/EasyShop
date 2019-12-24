@@ -37,10 +37,13 @@ namespace EasyShop.CP.UI.Installers
             services.AddTransient<IShopManager, ShopManager>();
             services.AddTransient<IRustShopService, RustShopService>();
 
+            services.AddTransient<IRustDefaultCategoriesWithItemsService, RustDefaultCategoriesWithItemsService>();
+
             //Scooped ---------------------------------------------------------------------------------
             services.AddScoped<IAccountService, AccountService>();
 
             //SingleTone ------------------------------------------------------------------------------
+
         }
     }
 }

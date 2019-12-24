@@ -2,37 +2,29 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <div class="list-group-divided">
+        <div class="list-group-divided shopManagerSideNavigation">
             <a class="list-group-item" asp-area="" asp-controller="RustShop" asp-action="MainSettings" asp-route-shopId="@Model.Id">
-                <span class="icon icon-user icon-lg icon-fw"></span>
-                Main settings
+                Main
             </a>
-            <a class="list-group-item" asp-area="" asp-controller="RustShop" asp-action="Products">
-                <span class="icon icon-user icon-lg icon-fw"></span>
+            <a class="list-group-item" asp-area="" asp-controller="RustShop" asp-action="Products" asp-route-shopId="@Model.Id">
                 Products
             </a>
-            <a class="list-group-item" asp-area="" asp-controller="RustShop" asp-action="Categories">
-                <span class="icon icon-user icon-lg icon-fw"></span>
+            <a class="list-group-item" asp-area="" asp-controller="RustShop" asp-action="Categories" asp-route-shopId="@Model.Id">
                 Categories
             </a>
             <a class="list-group-item" asp-area="" asp-controller="RustShop" asp-action="Cart">
-                <span class="icon icon-user icon-lg icon-fw"></span>
                 Cart
             </a>
             <a class="list-group-item" asp-area="" asp-controller="RustShop" asp-action="Players">
-                <span class="icon icon-user icon-lg icon-fw"></span>
                 Players
             </a>
             <a class="list-group-item" asp-area="" asp-controller="RustShop" asp-action="PurchaseHistory">
-                <span class="icon icon-user icon-lg icon-fw"></span>
                 Purchase history
             </a>
             <a class="list-group-item" asp-area="" asp-controller="RustShop" asp-action="PromoCodes">
-                <span class="icon icon-user icon-lg icon-fw"></span>
                 Promo codes
             </a>
             <a class="list-group-item" asp-area="" asp-controller="RustShop" asp-action="Bonuses">
-                <span class="icon icon-user icon-lg icon-fw"></span>
                 Bonuses
             </a>
         </div>
