@@ -103,5 +103,26 @@ namespace EasyShop.Services.CP.Shop.Rust
 
             return true;
         }
+
+        public async Task<bool> DeleteShopAsync(Guid shopId)
+        {
+            var userShop = _context.UserShops.FirstOrDefault(x => x.ShopId == shopId);
+            var shop = _context.Shops.FirstOrDefault(x => x.Id == shopId);
+
+            if (userShop is null || shop is null)
+                return false;
+
+            var allAssignedCategoriesToShop = await GetAllAssignedCategoriesByShopIdAsync(shopId);
+
+            _context.RustCategories.RemoveRange(allAssignedCategoriesToShop);
+            await _context.SaveChangesAsync();
+
+            _context.UserShops.Remove(userShop);
+            _context.Shops.Remove(shop);
+
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
     }
 }

@@ -20,5 +20,7 @@ namespace EasyShop.Interfaces.Services.CP.Shop.Rust
         RustCategory GetCategoryById(Guid categoryId);
 
         Task<bool> DeleteCategory(Guid categoryId);
+
+        Task<bool> DeleteShopAsync(Guid shopId);
     }
 }

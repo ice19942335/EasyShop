@@ -103,7 +103,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "bow.hunting",
+                RustItemInGameId = "bow.hunting",
                 Name = "Hunting Bow",
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-853695669"
@@ -111,7 +111,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "crossbow",
+                RustItemInGameId = "crossbow",
                 Name = "Crossbow",
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "2123300234"
@@ -119,7 +119,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "explosive.timed",
+                RustItemInGameId = "explosive.timed",
                 Name = "Timed Explosive Charge",
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "498591726"
@@ -127,7 +127,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "grenade.beancan",
+                RustItemInGameId = "grenade.beancan",
                 Name = "Beancan Grenade",
                 
                 
@@ -137,7 +137,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "grenade.f1",
+                RustItemInGameId = "grenade.f1",
                 Name = "F1 Grenade",
                 
                 
@@ -147,7 +147,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "lmg.m249",
+                RustItemInGameId = "lmg.m249",
                 Name = "M249",
                 
                 
@@ -157,7 +157,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "longsword",
+                RustItemInGameId = "longsword",
                 Name = "Longsword",
                 
                 
@@ -167,7 +167,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "mace",
+                RustItemInGameId = "mace",
                 Name = "Mace",
                 
                 
@@ -177,7 +177,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "machete",
+                RustItemInGameId = "machete",
                 Name = "Machete",
                 
                 
@@ -187,7 +187,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "pistol.semiauto",
+                RustItemInGameId = "pistol.semiauto",
                 Name = "Semi-Automatic Pistol",
                 
                 
@@ -197,7 +197,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "rifle.ak",
+                RustItemInGameId = "rifle.ak",
                 Name = "Assault Rifle",
                 
                 
@@ -207,7 +207,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "rifle.bolt",
+                RustItemInGameId = "rifle.bolt",
                 Name = "Bolt Action Rifle",
                 
                 
@@ -217,7 +217,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "rifle.semiauto",
+                RustItemInGameId = "rifle.semiauto",
                 Name = "Semi-Automatic Rifle",
                 
                 
@@ -227,7 +227,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "rocket.launcher",
+                RustItemInGameId = "rocket.launcher",
                 Name = "Rocket Launcher",
                 
                 
@@ -237,7 +237,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "shotgun.waterpipe",
+                RustItemInGameId = "shotgun.waterpipe",
                 Name = "Waterpipe Shotgun",
                 
                 
@@ -247,7 +247,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "smg.2",
+                RustItemInGameId = "smg.2",
                 Name = "Custom SMG",
                 
                 
@@ -257,7 +257,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "smg.thompson",
+                RustItemInGameId = "smg.thompson",
                 Name = "Thompson",
                 
                 
@@ -267,7 +267,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "flamethrower",
+                RustItemInGameId = "flamethrower",
                 Name = "Flame Thrower",
                 
                 
@@ -277,7 +277,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "rifle.lr300",
+                RustItemInGameId = "rifle.lr300",
                 Name = "LR-300 Assault Rifle",
                 
                 
@@ -287,7 +287,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "smg.mp5",
+                RustItemInGameId = "smg.mp5",
                 Name = "MP5A4",
                 
                 
@@ -297,7 +297,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "pistol.m92",
+                RustItemInGameId = "pistol.m92",
                 Name = "M92 Pistol",
                 
                 
@@ -307,7 +307,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "pistol.python",
+                RustItemInGameId = "pistol.python",
                 Name = "Python Revolver",
                 
                 
@@ -317,7 +317,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "pistol.nailgun",
+                RustItemInGameId = "pistol.nailgun",
                 Name = "Nailgun",
                 
                 
@@ -327,7 +327,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "shotgun.spas12",
+                RustItemInGameId = "shotgun.spas12",
                 Name = "Spas-12 Shotgun",
                 
                 
@@ -337,7 +337,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "rifle.l96",
+                RustItemInGameId = "rifle.l96",
                 Name = "L96 Rifle",
                 
                 
@@ -347,7 +347,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "rifle.m39",
+                RustItemInGameId = "rifle.m39",
                 Name = "M39 Rifle",
                 
                 
@@ -357,7 +357,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "charcoal",
+                RustItemInGameId = "charcoal",
                 Name = "Charcoal",
                 
                 
@@ -367,7 +367,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "cloth",
+                RustItemInGameId = "cloth",
                 Name = "Cloth",
                 
                 
@@ -377,7 +377,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "explosives",
+                RustItemInGameId = "explosives",
                 Name = "Explosives",
                 
                 
@@ -387,7 +387,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "fat.animal",
+                RustItemInGameId = "fat.animal",
                 Name = "Animal Fat",
                 
                 
@@ -397,7 +397,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "gunpowder",
+                RustItemInGameId = "gunpowder",
                 Name = "Gun Powder",
                 
                 
@@ -407,7 +407,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "hq.metal.ore",
+                RustItemInGameId = "hq.metal.ore",
                 Name = "High Quality Metal Ore",
                 
                 
@@ -417,7 +417,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "leather",
+                RustItemInGameId = "leather",
                 Name = "Leather",
                 
                 
@@ -427,7 +427,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "metal.fragments",
+                RustItemInGameId = "metal.fragments",
                 Name = "Metal Fragments",
                 
                 
@@ -437,7 +437,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "metal.ore",
+                RustItemInGameId = "metal.ore",
                 Name = "Metal Ore",
                 
                 
@@ -447,7 +447,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "metal.refined",
+                RustItemInGameId = "metal.refined",
                 Name = "High Quality Metal",
                 
                 
@@ -457,7 +457,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "sulfur",
+                RustItemInGameId = "sulfur",
                 Name = "Sulfur",
                 
                 
@@ -467,7 +467,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "sulfur.ore",
+                RustItemInGameId = "sulfur.ore",
                 Name = "Sulfur Ore",
                 
                 
@@ -477,7 +477,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "wood",
+                RustItemInGameId = "wood",
                 Name = "Wood",
                 
                 
@@ -487,7 +487,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "ammo.handmade.shell",
+                RustItemInGameId = "ammo.handmade.shell",
                 Name = "Handmade Shell",
                 
                 
@@ -497,7 +497,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "ammo.rifle",
+                RustItemInGameId = "ammo.rifle",
                 Name = "5.56 Rifle Ammo",
                 
                 
@@ -507,7 +507,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "ammo.rifle.explosive",
+                RustItemInGameId = "ammo.rifle.explosive",
                 Name = "Explosive 5.56 Rifle Ammo",
                 
                 
@@ -517,7 +517,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "ammo.rifle.hv",
+                RustItemInGameId = "ammo.rifle.hv",
                 Name = "HV 5.56 Rifle Ammo",
                 
                 
@@ -527,7 +527,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "ammo.rifle.incendiary",
+                RustItemInGameId = "ammo.rifle.incendiary",
                 Name = "Incendiary 5.56 Rifle Ammo",
                 
                 
@@ -537,7 +537,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "ammo.rocket.basic",
+                RustItemInGameId = "ammo.rocket.basic",
                 Name = "Rocket",
                 
                 
@@ -547,7 +547,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "ammo.rocket.fire",
+                RustItemInGameId = "ammo.rocket.fire",
                 Name = "Incendiary Rocket",
                 
                 
@@ -557,7 +557,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "ammo.rocket.hv",
+                RustItemInGameId = "ammo.rocket.hv",
                 Name = "High Velocity Rocket",
                 
                 
@@ -567,7 +567,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "ammo.pistol",
+                RustItemInGameId = "ammo.pistol",
                 Name = "Pistol Bullet",
                 
                 
@@ -577,7 +577,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "ammo.pistol.fire",
+                RustItemInGameId = "ammo.pistol.fire",
                 Name = "Incendiary Pistol Bullet",
                 
                 
@@ -587,7 +587,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "ammo.pistol.hv",
+                RustItemInGameId = "ammo.pistol.hv",
                 Name = "HV Pistol Ammo",
                 
                 
@@ -597,7 +597,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "ammo.rocket.smoke",
+                RustItemInGameId = "ammo.rocket.smoke",
                 Name = "Smoke Rocket WIP!!!!",
                 
                 
@@ -607,7 +607,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "ammo.shotgun",
+                RustItemInGameId = "ammo.shotgun",
                 Name = "12 Gauge Buckshot",
                 
                 
@@ -617,7 +617,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "ammo.shotgun.slug",
+                RustItemInGameId = "ammo.shotgun.slug",
                 Name = "12 Gauge Slug",
                 
                 
@@ -627,7 +627,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "ammo.shotgun.fire",
+                RustItemInGameId = "ammo.shotgun.fire",
                 Name = "12 Gauge Incendiary Shell",
                 
                 
@@ -637,7 +637,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "arrow.hv",
+                RustItemInGameId = "arrow.hv",
                 Name = "High Velocity Arrow",
                 
                 
@@ -647,7 +647,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "arrow.wooden",
+                RustItemInGameId = "arrow.wooden",
                 Name = "Wooden Arrow",
                 
                 
@@ -657,7 +657,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "arrow.bone",
+                RustItemInGameId = "arrow.bone",
                 Name = "Bone Arrow",
                 
                 
@@ -667,7 +667,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "arrow.fire",
+                RustItemInGameId = "arrow.fire",
                 Name = "Fire Arrow",
                 
                 
@@ -677,7 +677,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "bucket.helmet",
+                RustItemInGameId = "bucket.helmet",
                 Name = "Bucket Helmet",
                 
                 
@@ -687,7 +687,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "coffeecan.helmet",
+                RustItemInGameId = "coffeecan.helmet",
                 Name = "Coffee Can Helmet",
                 
                 
@@ -697,7 +697,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "hoodie",
+                RustItemInGameId = "hoodie",
                 Name = "Hoodie",
                 
                 
@@ -707,7 +707,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "jacket",
+                RustItemInGameId = "jacket",
                 Name = "Jacket",
                 
                 
@@ -717,7 +717,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "jacket.snow",
+                RustItemInGameId = "jacket.snow",
                 Name = "Snow Jacket - Red",
                 
                 
@@ -727,7 +727,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "jackolantern.angry",
+                RustItemInGameId = "jackolantern.angry",
                 Name = "Jack O Lantern Angry",
                 
                 
@@ -737,7 +737,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "jackolantern.happy",
+                RustItemInGameId = "jackolantern.happy",
                 Name = "Jack O Lantern Happy",
                 
                 
@@ -747,7 +747,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "mask.balaclava",
+                RustItemInGameId = "mask.balaclava",
                 Name = "Improvised Balaclava",
                 
                 
@@ -757,7 +757,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "metal.facemask",
+                RustItemInGameId = "metal.facemask",
                 Name = "Metal Facemask",
                 
                 
@@ -767,7 +767,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "metal.plate.torso",
+                RustItemInGameId = "metal.plate.torso",
                 Name = "Metal Chest Plate",
                 
                 
@@ -777,7 +777,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "riot.helmet",
+                RustItemInGameId = "riot.helmet",
                 Name = "Riot Helmet",
                 
                 
@@ -787,7 +787,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "roadsign.jacket",
+                RustItemInGameId = "roadsign.jacket",
                 Name = "Road Sign Jacket",
                 
                 
@@ -797,7 +797,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "pants.shorts",
+                RustItemInGameId = "pants.shorts",
                 Name = "Shorts",
                 
                 
@@ -807,7 +807,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "shirt.collared",
+                RustItemInGameId = "shirt.collared",
                 Name = "Shirt",
                 
                 
@@ -817,7 +817,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "shirt.tanktop",
+                RustItemInGameId = "shirt.tanktop",
                 Name = "Tank Top",
                 
                 
@@ -827,7 +827,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "heavy.plate.helmet",
+                RustItemInGameId = "heavy.plate.helmet",
                 Name = "Heavy Plate Helmet",
                 
                 
@@ -837,7 +837,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "heavy.plate.jacket",
+                RustItemInGameId = "heavy.plate.jacket",
                 Name = "Heavy Plate Jacket",
                 
                 
@@ -847,7 +847,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "heavy.plate.pants",
+                RustItemInGameId = "heavy.plate.pants",
                 Name = "Heavy Plate Pants",
                 
                 
@@ -857,7 +857,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "facialhair.style01",
+                RustItemInGameId = "facialhair.style01",
                 Name = "Facial Hair Style 01",
                 
                 
@@ -867,7 +867,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "female_hairstyle_01",
+                RustItemInGameId = "female_hairstyle_01",
                 Name = "Female Hairstyle 01",
                 
                 
@@ -877,7 +877,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "female_hairstyle_02",
+                RustItemInGameId = "female_hairstyle_02",
                 Name = "Female Hairstyle 02",
                 
                 
@@ -887,7 +887,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "femalearmpithair.style01",
+                RustItemInGameId = "femalearmpithair.style01",
                 Name = "Female Armpit Hair 01",
                 
                 
@@ -897,7 +897,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "femaleeyebrow.style01",
+                RustItemInGameId = "femaleeyebrow.style01",
                 Name = "Female Eyebrow 01",
                 
                 
@@ -907,7 +907,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "femalepubichair.style01",
+                RustItemInGameId = "femalepubichair.style01",
                 Name = "Female Pubic Hair 01",
                 
                 
@@ -917,7 +917,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "male_hairstyle_01",
+                RustItemInGameId = "male_hairstyle_01",
                 Name = "Male Hairstyle 01",
                 
                 
@@ -927,7 +927,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "male_hairstyle_02",
+                RustItemInGameId = "male_hairstyle_02",
                 Name = "Male Hairstyle 02",
                 
                 
@@ -937,7 +937,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "malearmpithair.style01",
+                RustItemInGameId = "malearmpithair.style01",
                 Name = "Male Armpit Hair 01",
                 
                 
@@ -947,7 +947,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "maleeyebrow.style01",
+                RustItemInGameId = "maleeyebrow.style01",
                 Name = "Male Eyebrow 01",
                 
                 
@@ -957,7 +957,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "malepubichair.style01",
+                RustItemInGameId = "malepubichair.style01",
                 Name = "Male Pubic Hair 01",
                 
                 
@@ -967,7 +967,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "clatter.helmet",
+                RustItemInGameId = "clatter.helmet",
                 Name = "Clatter Helmet",
                 
                 
@@ -977,7 +977,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "barricade.concrete",
+                RustItemInGameId = "barricade.concrete",
                 Name = "Concrete Barricade",
                 
                 
@@ -987,7 +987,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "barricade.metal",
+                RustItemInGameId = "barricade.metal",
                 Name = "Metal Barricade",
                 
                 
@@ -997,7 +997,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "barricade.sandbags",
+                RustItemInGameId = "barricade.sandbags",
                 Name = "Sandbag Barricade",
                 
                 
@@ -1007,7 +1007,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "barricade.stone",
+                RustItemInGameId = "barricade.stone",
                 Name = "Stone Barricade",
                 
                 
@@ -1017,7 +1017,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "barricade.woodwire",
+                RustItemInGameId = "barricade.woodwire",
                 Name = "Barbed Wooden Barricade",
                 
                 
@@ -1027,7 +1027,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "bed",
+                RustItemInGameId = "bed",
                 Name = "Bed",
                 
                 
@@ -1037,7 +1037,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "ceilinglight",
+                RustItemInGameId = "ceilinglight",
                 Name = "Ceiling Light",
                 
                 
@@ -1047,7 +1047,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "furnace.large",
+                RustItemInGameId = "furnace.large",
                 Name = "Large Furnace",
                 
                 
@@ -1057,7 +1057,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "gates.external.high.stone",
+                RustItemInGameId = "gates.external.high.stone",
                 Name = "High External Stone Gate",
                 
                 
@@ -1067,7 +1067,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "	gates.external.high.wood",
+                RustItemInGameId = "	gates.external.high.wood",
                 Name = "High External Wooden Gate",
                 
                 
@@ -1077,7 +1077,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "shelves",
+                RustItemInGameId = "shelves",
                 Name = "Salvaged Shelves",
                 
                 
@@ -1087,7 +1087,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "shutter.metal.embrasure.a",
+                RustItemInGameId = "shutter.metal.embrasure.a",
                 Name = "Metal horizontal embrasure",
                 
                 
@@ -1097,7 +1097,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "shutter.metal.embrasure.b",
+                RustItemInGameId = "shutter.metal.embrasure.b",
                 Name = "Metal Vertical embrasure",
                 
                 
@@ -1107,7 +1107,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "shutter.wood.a",
+                RustItemInGameId = "shutter.wood.a",
                 Name = "Wood Shutters",
                 
                 
@@ -1117,7 +1117,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "wall.external.high",
+                RustItemInGameId = "wall.external.high",
                 Name = "High External Wooden Wall",
                 
                 
@@ -1127,7 +1127,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "wall.external.high.stone",
+                RustItemInGameId = "wall.external.high.stone",
                 Name = "High External Stone Wall",
                 
                 
@@ -1137,7 +1137,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "water.barrel",
+                RustItemInGameId = "water.barrel",
                 Name = "Water Barrel",
                 
                 
@@ -1147,7 +1147,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "planter.large",
+                RustItemInGameId = "planter.large",
                 Name = "Large Planter Box",
                 
                 
@@ -1157,7 +1157,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "planter.small",
+                RustItemInGameId = "planter.small",
                 Name = "Small Planter Box",
                 
                 
@@ -1167,7 +1167,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "chair",
+                RustItemInGameId = "chair",
                 Name = "Chair",
                 
                 
@@ -1177,7 +1177,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "door.closer",
+                RustItemInGameId = "door.closer",
                 Name = "Door Closer",
                 
                 
@@ -1187,7 +1187,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "small.oil.refinery",
+                RustItemInGameId = "small.oil.refinery",
                 Name = "Small Oil Refinery",
                 
                 
@@ -1197,7 +1197,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "table",
+                RustItemInGameId = "table",
                 Name = "Table",
                 
                 
@@ -1207,7 +1207,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "rug",
+                RustItemInGameId = "rug",
                 Name = "Rug",
                 
                 
@@ -1217,7 +1217,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "rug.bear",
+                RustItemInGameId = "rug.bear",
                 Name = "Rug Bear Skin",
                 
                 
@@ -1227,7 +1227,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "locker",
+                RustItemInGameId = "locker",
                 Name = "Locker",
                 
                 
@@ -1237,7 +1237,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "wall.frame.netting",
+                RustItemInGameId = "wall.frame.netting",
                 Name = "Netting",
                 
                 
@@ -1247,7 +1247,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "workbench1",
+                RustItemInGameId = "workbench1",
                 Name = "Work Bench Level 1",
                 
                 
@@ -1257,7 +1257,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "workbench2",
+                RustItemInGameId = "workbench2",
                 Name = "Work Bench Level 2",
                 
                 
@@ -1267,7 +1267,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "workbench3",
+                RustItemInGameId = "workbench3",
                 Name = "Work Bench Level 3",
                 
                 
@@ -1277,7 +1277,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "wall.frame.garagedoor",
+                RustItemInGameId = "wall.frame.garagedoor",
                 Name = "Garage Door",
                 
                 
@@ -1287,7 +1287,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "axe.salvaged",
+                RustItemInGameId = "axe.salvaged",
                 Name = "Salvaged Axe",
                 
                 
@@ -1297,7 +1297,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "hammer.salvaged",
+                RustItemInGameId = "hammer.salvaged",
                 Name = "Salvaged Hammer",
                 
                 
@@ -1307,7 +1307,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "hatchet",
+                RustItemInGameId = "hatchet",
                 Name = "Hatchet",
                 
                 
@@ -1317,7 +1317,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "icepick.salvaged",
+                RustItemInGameId = "icepick.salvaged",
                 Name = "Salvaged Icepick",
                 
                 
@@ -1327,7 +1327,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "pickaxe",
+                RustItemInGameId = "pickaxe",
                 Name = "Pick Axe",
                 
                 
@@ -1337,7 +1337,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "salvaged.cleaver",
+                RustItemInGameId = "salvaged.cleaver",
                 Name = "Salvaged Cleaver",
                 
                 
@@ -1347,7 +1347,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "salvaged.sword",
+                RustItemInGameId = "salvaged.sword",
                 Name = "Salvaged Sword",
                 
                 
@@ -1357,7 +1357,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "surveycharge",
+                RustItemInGameId = "surveycharge",
                 Name = "Survey Charge",
                 
                 
@@ -1367,7 +1367,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "bucket.water",
+                RustItemInGameId = "bucket.water",
                 Name = "Water Bucket",
                 
                 
@@ -1377,7 +1377,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "chainsaw",
+                RustItemInGameId = "chainsaw",
                 Name = "Chainsaw",
                 
                 
@@ -1387,7 +1387,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "antiradpills",
+                RustItemInGameId = "antiradpills",
                 Name = "Anti-Radiation Pills",
                 
                 
@@ -1397,7 +1397,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "bandage",
+                RustItemInGameId = "bandage",
                 Name = "Bandage",
                 
                 
@@ -1407,7 +1407,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "largemedkit",
+                RustItemInGameId = "largemedkit",
                 Name = "Large Medkit",
                 
                 
@@ -1417,7 +1417,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "	syringe.medical",
+                RustItemInGameId = "	syringe.medical",
                 Name = "Medical Syringe",
                 
                 
@@ -1427,7 +1427,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "apple",
+                RustItemInGameId = "apple",
                 Name = "Apple",
                 
                 
@@ -1437,7 +1437,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "bearmeat.cooked",
+                RustItemInGameId = "bearmeat.cooked",
                 Name = "Bear Meat Cooked",
                 
                 
@@ -1447,7 +1447,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "black.raspberries",
+                RustItemInGameId = "black.raspberries",
                 Name = "Black Raspberries",
                 
                 
@@ -1457,7 +1457,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "blueberries",
+                RustItemInGameId = "blueberries",
                 Name = "Blueberries",
                 
                 
@@ -1467,7 +1467,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "chicken.cooked",
+                RustItemInGameId = "chicken.cooked",
                 Name = "Cooked Chicken",
                 
                 
@@ -1477,7 +1477,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "chocholate",
+                RustItemInGameId = "chocholate",
                 Name = "Chocolate Bar",
                 
                 
@@ -1487,7 +1487,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "granolabar",
+                RustItemInGameId = "granolabar",
                 Name = "Granola Bar",
                 
                 
@@ -1497,7 +1497,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "wolfmeat.cooked",
+                RustItemInGameId = "wolfmeat.cooked",
                 Name = "Cooked Wolf Meat",
                 
                 
@@ -1507,7 +1507,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "cakefiveyear",
+                RustItemInGameId = "cakefiveyear",
                 Name = "Birthday Cake",
                 
                 
@@ -1517,7 +1517,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "autoturret",
+                RustItemInGameId = "autoturret",
                 Name = "Auto Turret",
                 
                 
@@ -1527,7 +1527,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "box.wooden.large",
+                RustItemInGameId = "box.wooden.large",
                 Name = "Large Wood Box",
                 
                 
@@ -1537,7 +1537,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "cctv.camera",
+                RustItemInGameId = "cctv.camera",
                 Name = "CCTV Camera",
                 
                 
@@ -1547,7 +1547,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "fun.guitar",
+                RustItemInGameId = "fun.guitar",
                 Name = "Acoustic Guitar",
                 
                 
@@ -1557,7 +1557,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "lock.code",
+                RustItemInGameId = "lock.code",
                 Name = "Code Lock",
                 
                 
@@ -1567,7 +1567,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "targeting.computer",
+                RustItemInGameId = "targeting.computer",
                 Name = "Targeting Computer",
                 
                 
@@ -1577,7 +1577,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "trap.landmine",
+                RustItemInGameId = "trap.landmine",
                 Name = "Land Mine",
                 
                 
@@ -1587,7 +1587,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "weapon.mod.flashlight",
+                RustItemInGameId = "weapon.mod.flashlight",
                 Name = "Weapon Flashlight",
                 
                 
@@ -1597,7 +1597,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "weapon.mod.holosight",
+                RustItemInGameId = "weapon.mod.holosight",
                 Name = "Holosight",
                 
                 
@@ -1607,7 +1607,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "weapon.mod.lasersight",
+                RustItemInGameId = "weapon.mod.lasersight",
                 Name = "Weapon Lasersight",
                 
                 
@@ -1617,7 +1617,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "weapon.mod.silencer",
+                RustItemInGameId = "weapon.mod.silencer",
                 Name = "Silencer",
                 
                 
@@ -1627,7 +1627,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "weapon.mod.8x.scope",
+                RustItemInGameId = "weapon.mod.8x.scope",
                 Name = "8x Zoom Scope",
                 
                 
@@ -1637,7 +1637,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "weapon.mod.muzzlebrake",
+                RustItemInGameId = "weapon.mod.muzzlebrake",
                 Name = "Muzzle Brake",
                 
                 
@@ -1647,7 +1647,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "weapon.mod.muzzleboost",
+                RustItemInGameId = "weapon.mod.muzzleboost",
                 Name = "Muzzle Boost",
                 
                 
@@ -1657,7 +1657,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "flameturret",
+                RustItemInGameId = "flameturret",
                 Name = "Flame Turret",
                 
                 
@@ -1667,7 +1667,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "tunalight",
+                RustItemInGameId = "tunalight",
                 Name = "Tuna Can Lamp",
                 
                 
@@ -1677,7 +1677,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "vending.machine",
+                RustItemInGameId = "vending.machine",
                 Name = "Vending Machine",
                 
                 
@@ -1687,7 +1687,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "wall.frame.shopfront.metal",
+                RustItemInGameId = "wall.frame.shopfront.metal",
                 Name = "Metal Shop Front",
                 
                 
@@ -1697,7 +1697,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "fridge",
+                RustItemInGameId = "fridge",
                 Name = "Fridge",
                 
                 
@@ -1707,7 +1707,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "spinner.wheel",
+                RustItemInGameId = "spinner.wheel",
                 Name = "Spinning wheel",
                 
                 
@@ -1717,7 +1717,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "tool.binoculars",
+                RustItemInGameId = "tool.binoculars",
                 Name = "Binoculars",
                 
                 
@@ -1727,7 +1727,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "weapon.mod.simplesight",
+                RustItemInGameId = "weapon.mod.simplesight",
                 Name = "Simple Handmade Sight",
                 
                 
@@ -1737,7 +1737,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "searchlight",
+                RustItemInGameId = "searchlight",
                 Name = "Search Light",
                 
                 
@@ -1747,7 +1747,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "scrap",
+                RustItemInGameId = "scrap",
                 Name = "Scrap",
                 
                 
@@ -1757,7 +1757,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "mailbox",
+                RustItemInGameId = "mailbox",
                 Name = "Mail Box",
                 
                 
@@ -1767,7 +1767,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "waterjug",
+                RustItemInGameId = "waterjug",
                 Name = "Water Jug",
                 
                 
@@ -1777,7 +1777,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "dropbox",
+                RustItemInGameId = "dropbox",
                 Name = "Drop Box",
                 
                 
@@ -1787,7 +1787,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "guntrap",
+                RustItemInGameId = "guntrap",
                 Name = "Shotgun Trap",
                 
                 
@@ -1797,7 +1797,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "gloweyes",
+                RustItemInGameId = "gloweyes",
                 Name = "Glowing Eyes",
                 
                 
@@ -1807,7 +1807,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "scarecrow",
+                RustItemInGameId = "scarecrow",
                 Name = "Scarecrow",
                 
                 
@@ -1817,7 +1817,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "skull_fire_pit",
+                RustItemInGameId = "skull_fire_pit",
                 Name = "Skull Fire Pit",
                 
                 
@@ -1827,7 +1827,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "bbq",
+                RustItemInGameId = "bbq",
                 Name = "Barbeque",
                 
                 
@@ -1837,7 +1837,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "flashlight.held",
+                RustItemInGameId = "flashlight.held",
                 Name = "Flashlight",
                 
                 
@@ -1847,7 +1847,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "electric.random.switch",
+                RustItemInGameId = "electric.random.switch",
                 Name = "RAND Switch",
                 
                 
@@ -1857,7 +1857,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "electric.battery.rechargable.large",
+                RustItemInGameId = "electric.battery.rechargable.large",
                 Name = "Large Rechargable Battery",
                 
                 
@@ -1867,7 +1867,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "electric.battery.rechargable.small",
+                RustItemInGameId = "electric.battery.rechargable.small",
                 Name = "Small Rechargable Battery",
                 
                 
@@ -1877,7 +1877,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "electric.blocker",
+                RustItemInGameId = "electric.blocker",
                 Name = "Blocker",
                 
                 
@@ -1887,7 +1887,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "electric.cabletunnel",
+                RustItemInGameId = "electric.cabletunnel",
                 Name = "Cable Tunnel",
                 
                 
@@ -1897,7 +1897,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "electric.counter",
+                RustItemInGameId = "electric.counter",
                 Name = "Counter",
                 
                 
@@ -1907,7 +1907,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "electric.doorcontroller",
+                RustItemInGameId = "electric.doorcontroller",
                 Name = "Door Controller",
                 
                 
@@ -1917,7 +1917,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "electric.fuelgenerator.small",
+                RustItemInGameId = "electric.fuelgenerator.small",
                 Name = "Small Generator",
                 
                 
@@ -1927,7 +1927,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "electric.laserdetector",
+                RustItemInGameId = "electric.laserdetector",
                 Name = "Laser Detector",
                 
                 
@@ -1937,7 +1937,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "electric.orswitch",
+                RustItemInGameId = "electric.orswitch",
                 Name = "OR Switch",
                 
                 
@@ -1947,7 +1947,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "electric.pressurepad",
+                RustItemInGameId = "electric.pressurepad",
                 Name = "Pressure Pad",
                 
                 
@@ -1957,7 +1957,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "electric.simplelight",
+                RustItemInGameId = "electric.simplelight",
                 Name = "Simple Light",
                 
                 
@@ -1967,7 +1967,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "electric.solarpanel.large",
+                RustItemInGameId = "electric.solarpanel.large",
                 Name = "Large Solar Panel",
                 
                 
@@ -1977,7 +1977,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "electric.splitter",
+                RustItemInGameId = "electric.splitter",
                 Name = "Splitter",
                 
                 
@@ -1987,7 +1987,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "electric.switch",
+                RustItemInGameId = "electric.switch",
                 Name = "Switch",
                 
                 
@@ -1997,7 +1997,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "electric.timer",
+                RustItemInGameId = "electric.timer",
                 Name = "Timer",
                 
                 
@@ -2007,7 +2007,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "electric.xorswitch",
+                RustItemInGameId = "electric.xorswitch",
                 Name = "XOR Switch",
                 
                 
@@ -2017,7 +2017,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "electrical.branch",
+                RustItemInGameId = "electrical.branch",
                 Name = "Electrical Branch",
                 
                 
@@ -2027,7 +2027,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "electrical.combiner",
+                RustItemInGameId = "electrical.combiner",
                 Name = "Root Combiner",
                 
                 
@@ -2037,7 +2037,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "electrical.memorycell",
+                RustItemInGameId = "electrical.memorycell",
                 Name = "Memory Cell",
                 
                 
@@ -2047,7 +2047,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "partyhat",
+                RustItemInGameId = "partyhat",
                 Name = "Party Hat",
                 
                 
@@ -2057,7 +2057,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "wiretool",
+                RustItemInGameId = "wiretool",
                 Name = "Wire Tool",
                 
                 
@@ -2067,7 +2067,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "bleach",
+                RustItemInGameId = "bleach",
                 Name = "Bleach",
                 
                 
@@ -2077,7 +2077,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "ducttape",
+                RustItemInGameId = "ducttape",
                 Name = "Duct Tape",
                 
                 
@@ -2087,7 +2087,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "gears",
+                RustItemInGameId = "gears",
                 Name = "Gears",
                 
                 
@@ -2097,7 +2097,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "glue",
+                RustItemInGameId = "glue",
                 Name = "Glue",
                 
                 
@@ -2107,7 +2107,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "metalblade",
+                RustItemInGameId = "metalblade",
                 Name = "Metal Blade",
                 
                 
@@ -2117,7 +2117,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "metalpipe",
+                RustItemInGameId = "metalpipe",
                 Name = "Metal Pipe",
                 
                 
@@ -2127,7 +2127,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "metalspring",
+                RustItemInGameId = "metalspring",
                 Name = "Metal Spring",
                 
                 
@@ -2137,7 +2137,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "propanetank",
+                RustItemInGameId = "propanetank",
                 Name = "Empty Propane Tank",
                 
                 
@@ -2147,7 +2147,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "riflebody",
+                RustItemInGameId = "riflebody",
                 Name = "Rifle Body",
                 
                 
@@ -2157,7 +2157,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "roadsigns",
+                RustItemInGameId = "roadsigns",
                 Name = "Road Signs",
                 
                 
@@ -2167,7 +2167,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "rope",
+                RustItemInGameId = "rope",
                 Name = "Rope",
                 
                 
@@ -2177,7 +2177,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "sewingkit",
+                RustItemInGameId = "sewingkit",
                 Name = "Sewing Kit",
                 
                 
@@ -2187,7 +2187,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "sheetmetal",
+                RustItemInGameId = "sheetmetal",
                 Name = "Sheet Metal",
                 
                 
@@ -2197,7 +2197,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "sticks",
+                RustItemInGameId = "sticks",
                 Name = "Sticks",
                 
                 
@@ -2207,7 +2207,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "tarp",
+                RustItemInGameId = "tarp",
                 Name = "Tarp",
                 
                 
@@ -2217,7 +2217,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "techparts",
+                RustItemInGameId = "techparts",
                 Name = "Tech Trash",
                 
                 
@@ -2227,7 +2227,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "attire.reindeer.headband",
+                RustItemInGameId = "attire.reindeer.headband",
                 Name = "Reindeer Antlers",
                 
                 
@@ -2237,7 +2237,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "candycaneclub",
+                RustItemInGameId = "candycaneclub",
                 Name = "Candy Cane Club",
                 
                 
@@ -2247,7 +2247,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "fireplace.stone",
+                RustItemInGameId = "fireplace.stone",
                 Name = "Stone Fireplace",
                 
                 
@@ -2257,7 +2257,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "snowman",
+                RustItemInGameId = "snowman",
                 Name = "Snowman",
                 
                 
@@ -2267,7 +2267,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "xmas.lightstring",
+                RustItemInGameId = "xmas.lightstring",
                 Name = "Christmas Lights",
                 
                 
@@ -2277,7 +2277,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "xmas.tree",
+                RustItemInGameId = "xmas.tree",
                 Name = "Christmas Tree",
                 
                 
@@ -2287,7 +2287,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "xmas.window.garland",
+                RustItemInGameId = "xmas.window.garland",
                 Name = "Festive Window Garland",
                 
                 
@@ -2297,7 +2297,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
             new RustItem
             {
                 Id = Guid.NewGuid(),
-                RustId = "xmasdoorwreath",
+                RustItemInGameId = "xmasdoorwreath",
                 Name = "Christmas Door Wreath",
                 
                 

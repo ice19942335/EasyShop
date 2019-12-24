@@ -12,7 +12,7 @@ namespace EasyShop.Domain.Entries.Items.RustItems
         public Guid Id { get; set; }
 
         [Required]
-        public string RustId { get; set; }
+        public string RustItemInGameId { get; set; }
 
         [Required]
         public string Name { get; set; }
@@ -22,7 +22,5 @@ namespace EasyShop.Domain.Entries.Items.RustItems
 
         [Required]
         public string ImgUrl { get; set; }
-
-        public ICollection<RustUserItem> RustUserItems { get; set; }
     }
 }

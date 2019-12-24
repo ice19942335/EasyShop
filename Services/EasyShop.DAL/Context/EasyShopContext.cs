@@ -47,6 +47,8 @@ namespace EasyShop.DAL.Context
         {
             base.OnModelCreating(modelBuilder);
 
+            #region ManyToMany
+
             //AppUser -----------------------------------------------------------
             modelBuilder.Entity<AppUser>(x =>
             {
@@ -119,6 +121,8 @@ namespace EasyShop.DAL.Context
                 .WithMany(x => x.ServerShops)
                 .HasForeignKey(x => x.ShopId);
             //===================================================================
+
+            #endregion
         }
     }
 }

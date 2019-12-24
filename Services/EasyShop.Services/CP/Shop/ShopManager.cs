@@ -46,6 +46,8 @@ namespace EasyShop.Services.CP.Shop
             _httpContext = httpContext.HttpContext;
         }
 
+        public string GetShopGameTypeById(Guid shopId) => GetShopByIdAsync(shopId).Result.GameType.Type;
+        
         public async Task<IEnumerable<Domain.Entries.Shop.Shop>> UserShopsByUserEmailAsync(string userEmail)
         {
             var user = await _userManager.FindByEmailAsync(userEmail);
@@ -134,22 +136,6 @@ namespace EasyShop.Services.CP.Shop
 
         public async Task<Domain.Entries.Shop.Shop> GetShopByIdAsync(Guid shopId) =>
             _context.Shops.Include(x => x.GameType).FirstOrDefault(x => x.Id == shopId);
-
-        public async Task<bool> DeleteShopAsync(Guid shopId)
-        {
-            var userShop = _context.UserShops.FirstOrDefault(x => x.ShopId == shopId);
-            var shop = _context.Shops.FirstOrDefault(x => x.Id == shopId);
-
-            if (userShop is null || shop is null)
-                return false;
-
-            _context.UserShops.Remove(userShop);
-            _context.Shops.Remove(shop);
-
-            await _context.SaveChangesAsync();
-
-            return true;
-        }
 
         public async Task<bool> NewSecretAsync(Guid shopId)
         {

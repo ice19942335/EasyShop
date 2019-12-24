@@ -5,6 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20191224150117_Initialze.cs" />
+    <Compile Remove="Migrations\20191224150117_Initialze.Designer.cs" />
+    <Compile Remove="Migrations\20191224150218_Initialize.cs" />
+    <Compile Remove="Migrations\20191224150218_Initialize.Designer.cs" />
+    <Compile Remove="Migrations\20191224151653_Initialize.cs" />
+    <Compile Remove="Migrations\20191224151653_Initialize.Designer.cs" />
+    <Compile Remove="Migrations\20191224152204_Initializ.cs" />
+    <Compile Remove="Migrations\20191224152204_Initializ.Designer.cs" />
+    <Compile Remove="Migrations\20191224152820_Initialize.cs" />
+    <Compile Remove="Migrations\20191224152820_Initialize.Designer.cs" />
     <Compile Remove="Startup.cs" />
   </ItemGroup>
 
@@ -16,10 +26,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Common\EasyShop.Domain\EasyShop.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

@@ -11,7 +11,7 @@ namespace EasyShop.Interfaces.Services.CP.Shop
     {
         Task<bool> CreateShopAsync(CreateShopViewModel model);
 
-        Task<bool> DeleteShopAsync(Guid shopId);
+        string GetShopGameTypeById(Guid shopId);
 
         Task<IEnumerable<Domain.Entries.Shop.Shop>> UserShopsByUserEmailAsync(string userEmail);
 

@@ -14,9 +14,13 @@ namespace EasyShop.Domain.Entries.Items.RustItems
         #endregion
 
         #region FK
+        [Required]
         public RustCategory RustCategory { get; set; }
+        [Required]
         public RustItem RustItem { get; set; }
+        [Required]
         public Shop.Shop Shop { get; set; }
+        [Required]
         public AppUser AppUser { get; set; }
         #endregion
 

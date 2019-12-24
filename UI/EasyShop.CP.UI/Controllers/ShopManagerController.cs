@@ -7,6 +7,7 @@ using EasyShop.Domain.StaticEntities.GameTypes;
 using EasyShop.Domain.ViewModels.Shop;
 using EasyShop.Domain.ViewModels.Shop.Rust;
 using EasyShop.Interfaces.Services.CP.Shop;
+using EasyShop.Interfaces.Services.CP.Shop.Rust;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,10 +17,12 @@ namespace EasyShop.CP.UI.Controllers
     public class ShopManagerController : Controller
     {
         private readonly IShopManager _shopManager;
+        private readonly IRustShopService _rustShopService;
 
-        public ShopManagerController(IShopManager shopManager)
+        public ShopManagerController(IShopManager shopManager, IRustShopService rustShopService)
         {
             _shopManager = shopManager;
+            _rustShopService = rustShopService;
         }
 
         public async Task<IActionResult> Index()
@@ -57,7 +60,17 @@ namespace EasyShop.CP.UI.Controllers
         [HttpGet("{shopId}")]
         public async Task<IActionResult> DeleteShop(string shopId)
         {
-            var result = await _shopManager.DeleteShopAsync(Guid.Parse(shopId));
+            bool result = default;
+
+            string gameType = _shopManager.GetShopGameTypeById(Guid.Parse(shopId));
+
+            switch (gameType)
+            {
+                case "Rust":
+                    result = await _rustShopService.DeleteShopAsync(Guid.Parse(shopId));
+                    break;
+                default: throw new ApplicationException($"Game type <{gameType}> not exist!");
+            }
 
             if (!result)
                 return RedirectToAction("SomethingWentWrong", "ControlPanel");
