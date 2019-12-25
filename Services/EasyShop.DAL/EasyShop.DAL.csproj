@@ -15,8 +15,12 @@
     <Compile Remove="Migrations\20191224152204_Initializ.Designer.cs" />
     <Compile Remove="Migrations\20191224152820_Initialize.cs" />
     <Compile Remove="Migrations\20191224152820_Initialize.Designer.cs" />
+    <Compile Remove="Migrations\20191224153237_Initialize.cs" />
+    <Compile Remove="Migrations\20191224153237_Initialize.Designer.cs" />
     <Compile Remove="Migrations\20191224172455_added_Index_To_RustCategory.cs" />
     <Compile Remove="Migrations\20191224172455_added_Index_To_RustCategory.Designer.cs" />
+    <Compile Remove="Migrations\20191225150831_Added_Index_ToRustCategory_Removed_RustUserItemAmount_FromRustPurchasedItem.cs" />
+    <Compile Remove="Migrations\20191225150831_Added_Index_ToRustCategory_Removed_RustUserItemAmount_FromRustPurchasedItem.Designer.cs" />
     <Compile Remove="Startup.cs" />
   </ItemGroup>
 
