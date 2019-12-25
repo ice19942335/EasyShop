@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EasyShop.Domain.ViewModels.Shop.Rust;
@@ -27,7 +26,7 @@ namespace EasyShop.CP.UI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index(string shopId)
+        public async Task<IActionResult> ShopStats(string shopId)
         {
             var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(shopId));
 
@@ -62,7 +61,7 @@ namespace EasyShop.CP.UI.Controllers
                 return View(model);
             }
 
-            var result = await _rustShopService.UpdateShopAsync(model.MainSettingsRustShopViewModel);
+            var result = await _rustShopService.UpdateShopAsync(model.RustShopMainSettingsViewModel);
 
             if (result is null)
                 return RedirectToAction("SomethingWentWrong", "ControlPanel");
@@ -73,12 +72,16 @@ namespace EasyShop.CP.UI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Categories(string shopId)
+        public async Task<IActionResult> CategoriesManager(string shopId)
         {
             var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(shopId));
+
+            if (shop is null)
+                return RedirectToAction("NotFoundPage", "Home");
+
             var model = shop.CreateRustShopViewModel();
 
-            var categories = await _rustShopService.GetAllAssignedItemsToShopByIdAsync(Guid.Parse(shopId));
+            var categories = _rustShopService.GetAllAssignedCategoriesToShopById(Guid.Parse(shopId));
             var categoriesViewModelListTasks = categories
                 .Select(x => x.CreateRustCategoryViewModel(_rustShopService.GetAssignedUserItemsCountToACategoryInShop(x.Id, shop.Id)));
 
@@ -90,17 +93,31 @@ namespace EasyShop.CP.UI.Controllers
             return View(model);
         }
 
+        [HttpGet("CreateCategory/{shopId}")]
+        public async Task<IActionResult> CreateCategory(string shopId)
+        {
+            return RedirectToAction("EditCategory", "RustShop", new {shopId = shopId});
+        }
+
         [HttpGet]
         public async Task<IActionResult> EditCategory(string shopId, string categoryId)
         {
             var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(shopId));
-            var category = _rustShopService.GetCategoryById(Guid.Parse(categoryId));
 
-            if (shop is null || category is null)
+            if (shop is null)
                 return RedirectToAction("SomethingWentWrong", "ControlPanel");
 
             var model = shop.CreateRustShopViewModel();
-            model.EditRustCategoryViewModel.Category =
+
+            if (categoryId is null)
+            {
+                model.RustEditCategoryViewModel = new RustEditCategoryViewModel();
+                return View(model);
+            }
+
+            var category = _rustShopService.GetCategoryById(Guid.Parse(categoryId));
+
+            model.RustEditCategoryViewModel.Category =
                 category.CreateRustCategoryViewModel(_rustShopService.GetAssignedUserItemsCountToACategoryInShop(category.Id, shop.Id));
 
             return View(model);
@@ -116,7 +133,7 @@ namespace EasyShop.CP.UI.Controllers
                 return View(model);
             }
 
-            var result = await _rustShopService.UpdateCategoryAsync(model.EditRustCategoryViewModel);
+            var result = await _rustShopService.UpdateCategoryAsync(model);
 
             if (result is null)
                 return RedirectToAction("SomethingWentWrong", "ControlPanel");
@@ -135,13 +152,62 @@ namespace EasyShop.CP.UI.Controllers
             var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(shopId));
             var model = shop.CreateRustShopViewModel();
 
-            return RedirectToAction("Categories", "RustShop", new { shopId = shopId });
+            return RedirectToAction("CategoriesManager", "RustShop", new { shopId = shopId });
+        }
+
+        [HttpGet("SetDefaultCategoriesAndProducts/{shopId}")]
+        public async Task<IActionResult> SetDefaultCategoriesAndProducts(string shopId)
+        {
+            var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(shopId));
+
+            if (shop is null)
+                return RedirectToAction("SomethingWentWrong", "ControlPanel");
+
+            var result = await _rustShopService.SetDefaultProductsAsync(shop);
+
+            if (!result)
+                return RedirectToAction("SomethingWentWrong", "ControlPanel");
+
+            var model = shop.CreateRustShopViewModel();
+            return View("MainSettings", model);
         }
 
         [HttpGet]
-        public async Task<IActionResult> Products(string shopId)
+        public async Task<IActionResult> ProductsManager(string shopId)
         {
-            throw new NotImplementedException();
+            var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(shopId));
+
+            if (shop is null)
+                return RedirectToAction("NotFoundPage", "Home");
+
+            var model = shop.CreateRustShopViewModel();
+            model.RustProductsManagerViewModel = new RustProductsManagerViewModel();
+
+            var allAssignedUserProducts = _rustShopService.GetAllAssignedProductsToAShopByShopId(Guid.Parse(shopId));
+
+            model.RustProductsManagerViewModel.Products = allAssignedUserProducts.Select(x =>
+            {
+                var rustProductViewModel = new RustProductViewModel
+                {
+                    Id = x.Id.ToString(),
+                    Name = x.RustItem.Name,
+                    Price = x.Price,
+                    Amount = x.Amount,
+                    ImgUrl = x.RustItem.ImgUrl,
+                    Description = x.Description,
+                    BlockedTill = x.BlockedTill,
+                    CategoryViewModel = x.RustCategory
+                        .CreateRustCategoryViewModel(
+                            _rustShopService.GetAssignedUserItemsCountToACategoryInShop(x.RustCategory.Id, Guid.Parse(shopId))),
+                    Discount = x.Discount
+                };
+
+                return rustProductViewModel;
+            });
+
+            return View(model);
         }
+
+
     }
 }

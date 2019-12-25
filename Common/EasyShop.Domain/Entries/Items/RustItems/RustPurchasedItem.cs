@@ -23,9 +23,6 @@ namespace EasyShop.Domain.Entries.Items.RustItems
         public int Amount { get; set; }
 
         [Required]
-        public int RustUserItemAmount { get; set; }
-
-        [Required]
         public DateTime PurchaseDateTime { get; set; }
     }
 }

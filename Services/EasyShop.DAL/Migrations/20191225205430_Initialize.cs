@@ -347,6 +347,7 @@ namespace EasyShop.DAL.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
+                    Index = table.Column<int>(nullable: false),
                     Name = table.Column<string>(nullable: false),
                     AppUserId = table.Column<string>(nullable: true),
                     ShopId = table.Column<Guid>(nullable: true)
@@ -359,13 +360,13 @@ namespace EasyShop.DAL.Migrations
                         column: x => x.AppUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_RustCategories_Shops_ShopId",
                         column: x => x.ShopId,
                         principalTable: "Shops",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateTable(
@@ -425,7 +426,6 @@ namespace EasyShop.DAL.Migrations
                     RustItemId = table.Column<Guid>(nullable: true),
                     HasBeenUsed = table.Column<bool>(nullable: false),
                     Amount = table.Column<int>(nullable: false),
-                    RustUserItemAmount = table.Column<int>(nullable: false),
                     PurchaseDateTime = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>

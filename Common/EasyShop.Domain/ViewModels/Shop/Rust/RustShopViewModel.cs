@@ -13,10 +13,12 @@ namespace EasyShop.Domain.ViewModels.Shop.Rust
 
         public string ShopTitle { get; set; }
 
-        public MainSettingsRustShopViewModel MainSettingsRustShopViewModel { get; set; }
+        public RustShopMainSettingsViewModel RustShopMainSettingsViewModel { get; set; }
 
         public RustShopCategoriesViewModel RustShopCategories { get; set; }
 
-        public EditRustCategoryViewModel EditRustCategoryViewModel { get; set; }
+        public RustEditCategoryViewModel RustEditCategoryViewModel { get; set; }
+
+        public RustProductsManagerViewModel RustProductsManagerViewModel { get; set; }
     }
 }

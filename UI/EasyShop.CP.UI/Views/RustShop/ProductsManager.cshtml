@@ -1,0 +1,72 @@
+﻿@model EasyShop.Domain.ViewModels.Shop.Rust.RustShopViewModel
+@{
+    ViewData["Title"] = "Product manager";
+    Layout = "Partial/_RustEditLayout";
+}
+
+
+<div class="panel">
+    <div class="panel-body">
+        <div class="table-responsive">
+            <div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                <div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row">
+                    <div class="col-sm-12">
+                        <table id="rustProductsTable" class="table table-middle nowrap dataTable no-footer" role="grid">
+                            <thead>
+                                <tr role="row">
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Amount</th>
+                                    <th>Price</th>
+                                    <th>Discount</th>
+                                    <th>Block time</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    int counter = 0;
+                                    foreach (var product in Model.RustProductsManagerViewModel.Products)
+                                    {
+                                        <tr role="row" class="@(counter % 2 == 0 ? "odd" : "even")">
+                                            <td>
+                                                <span class="icon-with-child m-r">
+                                                    <img width="50" height="50" src="~/img/rust/@($"{product.ImgUrl}.png")" alt="@product.ImgUrl">
+                                                </span>
+                                                <strong>@product.Name</strong>
+                                            </td>
+                                            <td><strong>@product.CategoryViewModel.Name</strong></td>
+                                            <td><strong>@product.Amount</strong></td>
+                                            <td><strong>@product.Price</strong></td>
+                                            <td><strong>@product.Discount</strong></td>
+                                            <td><strong>@(product.BlockedTill == default ? "None" : product.BlockedTill.ToString())</strong></td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles
+{
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/custom/ProductsDynamicTableStyles.css" />
+}
+
+@section Scripts
+{
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#rustProductsTable').DataTable();
+        });
+    </script>
+}

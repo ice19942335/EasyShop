@@ -12,6 +12,7 @@ namespace EasyShop.Domain.Entries.Shop
     public class Shop
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
 
         [Required]

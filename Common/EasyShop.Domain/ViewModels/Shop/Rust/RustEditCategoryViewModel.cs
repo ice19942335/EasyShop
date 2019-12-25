@@ -4,7 +4,7 @@ using System.Text;
 
 namespace EasyShop.Domain.ViewModels.Shop.Rust
 {
-    public class EditRustCategoryViewModel
+    public class RustEditCategoryViewModel
     {
         public RustCategoryViewModel Category { get; set; }
     }
