@@ -26,7 +26,7 @@ namespace EasyShop.CP.UI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index(string shopId)
+        public async Task<IActionResult> ShopStats(string shopId)
         {
             var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(shopId));
 
@@ -75,6 +75,10 @@ namespace EasyShop.CP.UI.Controllers
         public async Task<IActionResult> CategoriesManager(string shopId)
         {
             var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(shopId));
+
+            if (shop is null)
+                return RedirectToAction("NotFoundPage", "Home");
+
             var model = shop.CreateRustShopViewModel();
 
             var categories = await _rustShopService.GetAllAssignedItemsToShopByIdAsync(Guid.Parse(shopId));
@@ -169,9 +173,18 @@ namespace EasyShop.CP.UI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Products(string shopId)
+        public async Task<IActionResult> ProductsManager(string shopId)
         {
-            throw new NotImplementedException();
+            var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(shopId));
+
+            if (shop is null)
+                return RedirectToAction("NotFoundPage", "Home");
+
+            var model = shop.CreateRustShopViewModel();
+
+            return View(model);
         }
+
+
     }
 }

@@ -11,7 +11,7 @@ namespace EasyShop.DAL.Migrations
                 table: "RustPurchasedItems");
 
             migrationBuilder.AddColumn<int>(
-                name: "Index",
+                name: "ShopStats",
                 table: "RustCategories",
                 nullable: false,
                 defaultValue: 0);
@@ -20,7 +20,7 @@ namespace EasyShop.DAL.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Index",
+                name: "ShopStats",
                 table: "RustCategories");
 
             migrationBuilder.AddColumn<int>(

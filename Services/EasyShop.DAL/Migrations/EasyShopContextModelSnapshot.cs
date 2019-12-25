@@ -164,7 +164,7 @@ namespace EasyShop.DAL.Migrations
                     b.Property<string>("AppUserId")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("Index")
+                    b.Property<int>("ShopStats")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")

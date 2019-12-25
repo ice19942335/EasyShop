@@ -5,6 +5,6 @@ namespace EasyShop.Domain.ViewModels.Shop.Rust
 {
     public class RustProductsManagerViewModel
     {
-        private IEnumerable<RustProductViewModel> Products { get; set; }
+        public IEnumerable<RustProductViewModel> Products { get; set; }
     }
 }
