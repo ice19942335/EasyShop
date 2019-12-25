@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
@@ -9,14 +8,12 @@ using EasyShop.Domain.Entries.Items.RustItems;
 using EasyShop.Domain.Entries.Shop;
 using EasyShop.Domain.ViewModels.Shop;
 using EasyShop.Domain.ViewModels.Shop.Rust;
-using EasyShop.Interfaces.Services.CP.Shop;
 using EasyShop.Interfaces.Services.CP.Shop.Rust;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Org.BouncyCastle.Security;
 using Guid = System.Guid;
 
 namespace EasyShop.Services.CP.Shop.Rust
