@@ -73,7 +73,7 @@ namespace EasyShop.CP.UI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Categories(string shopId)
+        public async Task<IActionResult> CategoriesManager(string shopId)
         {
             var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(shopId));
             var model = shop.CreateRustShopViewModel();
@@ -149,7 +149,7 @@ namespace EasyShop.CP.UI.Controllers
             var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(shopId));
             var model = shop.CreateRustShopViewModel();
 
-            return RedirectToAction("Categories", "RustShop", new { shopId = shopId });
+            return RedirectToAction("CategoriesManager", "RustShop", new { shopId = shopId });
         }
 
         [HttpGet("SetDefaultCategoriesAndProducts/{shopId}")]
