@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Entries.Shop;
 using EasyShop.Domain.StaticEntities.GameTypes;
 using EasyShop.Domain.ViewModels.Shop;
@@ -9,7 +10,9 @@ using EasyShop.Domain.ViewModels.Shop.Rust;
 using EasyShop.Interfaces.Services.CP.Shop;
 using EasyShop.Interfaces.Services.CP.Shop.Rust;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace EasyShop.CP.UI.Controllers
 {
@@ -18,11 +21,15 @@ namespace EasyShop.CP.UI.Controllers
     {
         private readonly IShopManager _shopManager;
         private readonly IRustShopService _rustShopService;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly IConfiguration _configuration;
 
-        public ShopManagerController(IShopManager shopManager, IRustShopService rustShopService)
+        public ShopManagerController(IShopManager shopManager, IRustShopService rustShopService, UserManager<AppUser> userManager, IConfiguration configuration)
         {
             _shopManager = shopManager;
             _rustShopService = rustShopService;
+            _userManager = userManager;
+            _configuration = configuration;
         }
 
         public async Task<IActionResult> Index()
@@ -49,11 +56,26 @@ namespace EasyShop.CP.UI.Controllers
                 return View(model);
             }
 
-            var result = await _shopManager.CreateShopAsync(model);
+            var result = false;
+            switch (model.GameType)
+            {
+                case "Rust":
+                    result = await _rustShopService.CreateShopAsync(model);
+                    break;
+            }
 
             if (!result)
+            {
+                var user = await _userManager.FindByEmailAsync(User.Identity.Name);
+                var userShops = await _shopManager.UserShopsByUserEmailAsync(user.Email);
+                var userAllowedShops = int.Parse(_configuration["ShopsAllowed"]);
+                if (userAllowedShops > userShops.Count())
+                {
+                    return View("AllowedShopsLimitIsReached");
+                }
                 return RedirectToAction("SomethingWentWrong", "ControlPanel", new { reason = "on shop creating" });
-
+            }
+            
             return RedirectToAction("Index", "ShopManager");
         }
 

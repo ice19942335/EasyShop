@@ -13,6 +13,6 @@ namespace EasyShop.Interfaces.Services.CP.Shop.Rust
             AppUser user,
             Domain.Entries.Shop.Shop shop,
             List<RustCategory> defaultCategories,
-            List<RustItem> rustItems);
+            List<RustItem> defaultRustItems);
     }
 }

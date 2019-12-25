@@ -37,10 +37,10 @@
         <div class="row">
             <div class="col-md-6 col-lg-5">
                 <div>
-                    <span id="deleteButton_@Model.EditRustCategoryViewModel.Category.Id">
+                    <span id="confirmButton_@Model.EditRustCategoryViewModel.Category.Id">
                         <button class="btn btn-danger btn-block m-r-md" onclick="deleteConfirmationDialog('@Model.EditRustCategoryViewModel.Category.Id', true)">Delete category</button>
                     </span>
-                    <span style="display: none" id="confirmDeleteSpan_@Model.EditRustCategoryViewModel.Category.Id">
+                    <span style="display: none" id="confirmSpan_@Model.EditRustCategoryViewModel.Category.Id">
                         <form style="display: inline;" method="get" asp-area="" asp-controller="RustShop" asp-action="DeleteCategory" asp-route-shopId="@Model.Id" asp-route-categoryId="@Model.EditRustCategoryViewModel.Category.Id">
                             <span>Are you sure you want to delete?</span>
                             <button style="max-width: fit-content; display: inline;" class="btn btn-success btn-block" type="submit">Yes</button>

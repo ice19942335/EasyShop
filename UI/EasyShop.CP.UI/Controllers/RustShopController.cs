@@ -152,6 +152,23 @@ namespace EasyShop.CP.UI.Controllers
             return RedirectToAction("Categories", "RustShop", new { shopId = shopId });
         }
 
+        [HttpGet("SetDefaultCategoriesAndProducts/{shopId}")]
+        public async Task<IActionResult> SetDefaultCategoriesAndProducts(string shopId)
+        {
+            var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(shopId));
+
+            if (shop is null)
+                return RedirectToAction("SomethingWentWrong", "ControlPanel");
+
+            var result = await _rustShopService.SetDefaultProductsAsync(shop);
+
+            if (!result)
+                return RedirectToAction("SomethingWentWrong", "ControlPanel");
+
+            var model = shop.CreateRustShopViewModel();
+            return View("MainSettings", model);
+        }
+
         [HttpGet]
         public async Task<IActionResult> Products(string shopId)
         {
