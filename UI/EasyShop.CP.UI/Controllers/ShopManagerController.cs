@@ -39,7 +39,7 @@ namespace EasyShop.CP.UI.Controllers
 
             var userShops = await _shopManager.UserShopsByUserEmailAsync(User.Identity.Name);
 
-            var model = new ShopManagerViewModel { Shops = userShops };
+            var model = new ShopsManagerViewModel { Shops = userShops };
 
             return View(model);
         }

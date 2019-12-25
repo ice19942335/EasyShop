@@ -13,7 +13,7 @@ namespace EasyShop.Interfaces.Services.CP.Shop.Rust
     {
         Task<bool> CreateShopAsync(CreateShopViewModel model);
 
-        Task<Domain.Entries.Shop.Shop> UpdateShopAsync(MainSettingsRustShopViewModel model);
+        Task<Domain.Entries.Shop.Shop> UpdateShopAsync(RustShopMainSettingsViewModel model);
 
         Task<IEnumerable<RustCategory>> GetAllAssignedItemsToShopByIdAsync(Guid shopId);
 

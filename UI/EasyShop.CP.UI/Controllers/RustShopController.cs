@@ -62,7 +62,7 @@ namespace EasyShop.CP.UI.Controllers
                 return View(model);
             }
 
-            var result = await _rustShopService.UpdateShopAsync(model.MainSettingsRustShopViewModel);
+            var result = await _rustShopService.UpdateShopAsync(model.RustShopMainSettingsViewModel);
 
             if (result is null)
                 return RedirectToAction("SomethingWentWrong", "ControlPanel");
@@ -108,13 +108,13 @@ namespace EasyShop.CP.UI.Controllers
 
             if (categoryId is null)
             {
-                model.EditRustCategoryViewModel = new EditRustCategoryViewModel();
+                model.RustEditCategoryViewModel = new RustEditCategoryViewModel();
                 return View(model);
             }
 
             var category = _rustShopService.GetCategoryById(Guid.Parse(categoryId));
 
-            model.EditRustCategoryViewModel.Category =
+            model.RustEditCategoryViewModel.Category =
                 category.CreateRustCategoryViewModel(_rustShopService.GetAssignedUserItemsCountToACategoryInShop(category.Id, shop.Id));
 
             return View(model);

@@ -24,7 +24,7 @@ namespace EasyShop.CP.UI.Components.ControlPanel.SideBarShopsList
         {
             var userShops = _shopManager.UserShopsByUserEmailAsync(User.Identity.Name).Result;
 
-            var model = new ShopManagerViewModel { Shops = userShops };
+            var model = new ShopsManagerViewModel { Shops = userShops };
 
             return View(model);
         }

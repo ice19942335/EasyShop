@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EasyShop.Domain.ViewModels.Shop.Rust
 {
-    public class MainSettingsRustShopViewModel
+    public class RustShopMainSettingsViewModel
     {
         public string Id { get; set; }
 

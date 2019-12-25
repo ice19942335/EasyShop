@@ -8,15 +8,15 @@ namespace EasyShop.Services.Mappers.ViewModels.Rust
 {
     public static class MainSettingsRustShopViewModelMapper
     {
-        public static MainSettingsRustShopViewModel CreateMainSettingsViewModel(this Shop shop)
+        public static RustShopMainSettingsViewModel CreateMainSettingsViewModel(this Shop shop)
         {
             var model = shop.CopyToMainSettingsRustShopViewModel();
             return model;
         }
 
-        private static MainSettingsRustShopViewModel CopyToMainSettingsRustShopViewModel(this Shop shop)
+        private static RustShopMainSettingsViewModel CopyToMainSettingsRustShopViewModel(this Shop shop)
         {
-            var model = new MainSettingsRustShopViewModel
+            var model = new RustShopMainSettingsViewModel
             {
                 Id = shop.Id.ToString(),
                 ShopName = shop.ShopName,

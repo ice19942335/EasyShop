@@ -137,7 +137,7 @@ namespace EasyShop.Services.CP.Shop.Rust
             return result;
         }
 
-        public async Task<Domain.Entries.Shop.Shop> UpdateShopAsync(MainSettingsRustShopViewModel model)
+        public async Task<Domain.Entries.Shop.Shop> UpdateShopAsync(RustShopMainSettingsViewModel model)
         {
             var shop = await GetShopByIdAsync(Guid.Parse(model.Id));
 
@@ -200,7 +200,7 @@ namespace EasyShop.Services.CP.Shop.Rust
 
         public async Task<RustCategory> UpdateCategoryAsync(RustShopViewModel model)
         {
-            if (model.EditRustCategoryViewModel.Category.Id is null)
+            if (model.RustEditCategoryViewModel.Category.Id is null)
             {
                 var shop = await GetShopByIdAsync(Guid.Parse(model.Id));
 
@@ -211,7 +211,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                 {
                     Id = Guid.NewGuid(),
                     Index = 1,
-                    Name = model.EditRustCategoryViewModel.Category.Name,
+                    Name = model.RustEditCategoryViewModel.Category.Name,
                     AppUser = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name),
                     Shop = shop
                 };
@@ -222,13 +222,13 @@ namespace EasyShop.Services.CP.Shop.Rust
                 return newCategory;
             }
 
-            var category = GetCategoryById(Guid.Parse(model.EditRustCategoryViewModel.Category.Id));
+            var category = GetCategoryById(Guid.Parse(model.RustEditCategoryViewModel.Category.Id));
 
             if (category is null)
                 return null;
 
-            category.Index = model.EditRustCategoryViewModel.Category.Index;
-            category.Name = model.EditRustCategoryViewModel.Category.Name;
+            category.Index = model.RustEditCategoryViewModel.Category.Index;
+            category.Name = model.RustEditCategoryViewModel.Category.Name;
 
             _context.RustCategories.Update(category);
             await _context.SaveChangesAsync();
