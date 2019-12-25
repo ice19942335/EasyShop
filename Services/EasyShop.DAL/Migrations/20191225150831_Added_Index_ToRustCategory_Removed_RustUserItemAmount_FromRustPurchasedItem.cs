@@ -2,10 +2,14 @@
 
 namespace EasyShop.DAL.Migrations
 {
-    public partial class added_Index_To_RustCategory : Migration
+    public partial class Added_Index_ToRustCategory_Removed_RustUserItemAmount_FromRustPurchasedItem : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropColumn(
+                name: "RustUserItemAmount",
+                table: "RustPurchasedItems");
+
             migrationBuilder.AddColumn<int>(
                 name: "Index",
                 table: "RustCategories",
@@ -18,6 +22,13 @@ namespace EasyShop.DAL.Migrations
             migrationBuilder.DropColumn(
                 name: "Index",
                 table: "RustCategories");
+
+            migrationBuilder.AddColumn<int>(
+                name: "RustUserItemAmount",
+                table: "RustPurchasedItems",
+                type: "int",
+                nullable: false,
+                defaultValue: 0);
         }
     }
 }

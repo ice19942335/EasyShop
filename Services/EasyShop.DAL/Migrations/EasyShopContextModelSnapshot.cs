@@ -247,9 +247,6 @@ namespace EasyShop.DAL.Migrations
                     b.Property<Guid?>("RustUserId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("RustUserItemAmount")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("RustItemId");

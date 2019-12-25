@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EasyShop.DAL.Migrations
 {
     [DbContext(typeof(EasyShopContext))]
-    [Migration("20191224172455_added_Index_To_RustCategory")]
-    partial class added_Index_To_RustCategory
+    [Migration("20191225150831_Added_Index_ToRustCategory_Removed_RustUserItemAmount_FromRustPurchasedItem")]
+    partial class Added_Index_ToRustCategory_Removed_RustUserItemAmount_FromRustPurchasedItem
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -248,9 +248,6 @@ namespace EasyShop.DAL.Migrations
 
                     b.Property<Guid?>("RustUserId")
                         .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("RustUserItemAmount")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

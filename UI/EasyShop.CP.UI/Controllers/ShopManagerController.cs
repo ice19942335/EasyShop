@@ -32,7 +32,7 @@ namespace EasyShop.CP.UI.Controllers
             _configuration = configuration;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> ShopsManager()
         {
             if (User.Identity.Name is null)
                 return RedirectToAction("Login", "Account");
@@ -76,7 +76,7 @@ namespace EasyShop.CP.UI.Controllers
                 return RedirectToAction("SomethingWentWrong", "ControlPanel", new { reason = "on shop creating" });
             }
             
-            return RedirectToAction("Index", "ShopManager");
+            return RedirectToAction("ShopsManager", "ShopManager");
         }
 
         [HttpGet("{shopId}")]
@@ -97,7 +97,7 @@ namespace EasyShop.CP.UI.Controllers
             if (!result)
                 return RedirectToAction("SomethingWentWrong", "ControlPanel");
 
-            return RedirectToAction("Index");
+            return RedirectToAction("ShopsManager");
         }
 
         public async Task<IActionResult> EditShopHandler(string shopId)
