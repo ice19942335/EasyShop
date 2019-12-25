@@ -14,7 +14,7 @@ namespace EasyShop.Interfaces.Services.CP.Shop.Rust
 
         Task<Domain.Entries.Shop.Shop> UpdateShopAsync(RustShopMainSettingsViewModel model);
 
-        Task<IEnumerable<RustCategory>> GetAllAssignedItemsToShopByIdAsync(Guid shopId);
+        IEnumerable<RustCategory> GetAllAssignedCategoriesToShopById(Guid shopId);
 
         int GetAssignedUserItemsCountToACategoryInShop(Guid categoryId, Guid shopId);
 
@@ -26,9 +26,11 @@ namespace EasyShop.Interfaces.Services.CP.Shop.Rust
 
         Task<bool> DeleteShopAsync(Guid shopId);
 
-        Task<(List<RustCategory>, List<RustUserItem>)> GetDefaultCategoriesWithProducts(AppUser user,
+        Task<(List<RustCategory>, List<RustProduct>)> GetDefaultCategoriesWithProducts(AppUser user,
             Domain.Entries.Shop.Shop shop);
 
         Task<bool> SetDefaultProductsAsync(Domain.Entries.Shop.Shop shop);
+
+        IEnumerable<RustProduct> GetAllAssignedProductsToAShopByShopId(Guid shopId);
     }
 }

@@ -12,7 +12,7 @@ namespace EasyShop.Services.CP.Shop.Rust
 {
     public class RustDefaultCategoriesWithItemsService : IRustDefaultCategoriesWithItemsService
     {
-        public async Task<(List<RustCategory>, List<RustUserItem>)> CreateDefaultCategoriesWithItems(
+        public async Task<(List<RustCategory>, List<RustProduct>)> CreateDefaultCategoriesWithItems(
             AppUser user,
             Domain.Entries.Shop.Shop shop,
             List<RustCategory> defaultCategories,
@@ -27,9 +27,9 @@ namespace EasyShop.Services.CP.Shop.Rust
                 Shop = shop
             }).ToList();
 
-            var userItemsWeapons = new List<RustUserItem>
+            var userItemsWeapons = new List<RustProduct>
             {
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Weapon"),
@@ -43,7 +43,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Weapon"),
@@ -57,7 +57,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Weapon"),
@@ -71,7 +71,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Weapon"),
@@ -85,7 +85,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Weapon"),
@@ -99,7 +99,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Weapon"),
@@ -113,7 +113,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Weapon"),
@@ -127,7 +127,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Weapon"),
@@ -141,7 +141,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Weapon"),
@@ -155,7 +155,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Weapon"),
@@ -169,7 +169,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Weapon"),
@@ -183,7 +183,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Weapon"),
@@ -197,7 +197,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Weapon"),
@@ -211,7 +211,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Weapon"),
@@ -225,7 +225,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Weapon"),
@@ -239,7 +239,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Weapon"),
@@ -253,7 +253,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Weapon"),
@@ -267,7 +267,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Weapon"),
@@ -281,7 +281,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Weapon"),
@@ -295,7 +295,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Weapon"),
@@ -309,7 +309,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Weapon"),
@@ -323,7 +323,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Weapon"),
@@ -337,7 +337,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Weapon"),
@@ -351,7 +351,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Weapon"),
@@ -365,7 +365,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Weapon"),
@@ -379,7 +379,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Weapon"),
@@ -393,7 +393,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Resources"),
@@ -407,7 +407,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Resources"),
@@ -421,7 +421,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Resources"),
@@ -435,7 +435,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Resources"),
@@ -449,7 +449,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Resources"),
@@ -463,7 +463,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Resources"),
@@ -477,7 +477,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Resources"),
@@ -491,7 +491,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Resources"),
@@ -505,7 +505,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Resources"),
@@ -519,7 +519,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Resources"),
@@ -533,7 +533,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Resources"),
@@ -547,7 +547,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Resources"),
@@ -561,7 +561,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Resources"),
@@ -575,7 +575,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Ammunition"),
@@ -589,7 +589,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Ammunition"),
@@ -603,7 +603,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Ammunition"),
@@ -617,7 +617,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Ammunition"),
@@ -631,7 +631,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Ammunition"),
@@ -645,7 +645,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Ammunition"),
@@ -659,7 +659,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Ammunition"),
@@ -673,7 +673,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Ammunition"),
@@ -687,7 +687,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Ammunition"),
@@ -701,7 +701,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Ammunition"),
@@ -715,7 +715,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Ammunition"),
@@ -729,7 +729,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Ammunition"),
@@ -743,7 +743,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Ammunition"),
@@ -757,7 +757,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Ammunition"),
@@ -771,7 +771,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Ammunition"),
@@ -785,7 +785,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Ammunition"),
@@ -799,7 +799,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Ammunition"),
@@ -813,7 +813,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Ammunition"),
@@ -827,7 +827,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Ammunition"),
@@ -841,7 +841,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Clothing"),
@@ -855,7 +855,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Clothing"),
@@ -869,7 +869,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Clothing"),
@@ -883,7 +883,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Clothing"),
@@ -897,7 +897,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Clothing"),
@@ -911,7 +911,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Clothing"),
@@ -925,7 +925,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Clothing"),
@@ -939,7 +939,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Clothing"),
@@ -953,7 +953,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Clothing"),
@@ -967,7 +967,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Clothing"),
@@ -981,7 +981,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Clothing"),
@@ -995,7 +995,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Clothing"),
@@ -1009,7 +1009,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Clothing"),
@@ -1023,7 +1023,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Clothing"),
@@ -1037,7 +1037,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Clothing"),
@@ -1051,7 +1051,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Clothing"),
@@ -1065,7 +1065,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Clothing"),
@@ -1079,7 +1079,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Clothing"),
@@ -1093,7 +1093,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Clothing"),
@@ -1107,7 +1107,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Clothing"),
@@ -1121,7 +1121,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Clothing"),
@@ -1135,7 +1135,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Clothing"),
@@ -1149,7 +1149,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Clothing"),
@@ -1163,7 +1163,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Clothing"),
@@ -1177,7 +1177,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Clothing"),
@@ -1191,7 +1191,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Clothing"),
@@ -1205,7 +1205,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Clothing"),
@@ -1219,7 +1219,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Clothing"),
@@ -1233,7 +1233,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Clothing"),
@@ -1247,7 +1247,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Clothing"),
@@ -1261,7 +1261,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Constructions"),
@@ -1275,7 +1275,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Constructions"),
@@ -1289,7 +1289,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Constructions"),
@@ -1303,7 +1303,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Constructions"),
@@ -1317,7 +1317,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Constructions"),
@@ -1331,7 +1331,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Constructions"),
@@ -1345,7 +1345,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Constructions"),
@@ -1359,7 +1359,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Constructions"),
@@ -1373,7 +1373,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Constructions"),
@@ -1387,7 +1387,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Constructions"),
@@ -1401,7 +1401,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Constructions"),
@@ -1415,7 +1415,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Constructions"),
@@ -1429,7 +1429,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Constructions"),
@@ -1443,7 +1443,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Constructions"),
@@ -1457,7 +1457,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Constructions"),
@@ -1471,7 +1471,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Constructions"),
@@ -1485,7 +1485,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Constructions"),
@@ -1499,7 +1499,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Constructions"),
@@ -1513,7 +1513,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Constructions"),
@@ -1527,7 +1527,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Constructions"),
@@ -1541,7 +1541,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Constructions"),
@@ -1555,7 +1555,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Constructions"),
@@ -1569,7 +1569,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Constructions"),
@@ -1583,7 +1583,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Constructions"),
@@ -1597,7 +1597,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Constructions"),
@@ -1611,7 +1611,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Constructions"),
@@ -1625,7 +1625,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Constructions"),
@@ -1639,7 +1639,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Constructions"),
@@ -1653,7 +1653,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Constructions"),
@@ -1667,7 +1667,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Constructions"),
@@ -1681,7 +1681,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Constructions"),
@@ -1695,7 +1695,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Tools"),
@@ -1709,7 +1709,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Tools"),
@@ -1723,7 +1723,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Tools"),
@@ -1737,7 +1737,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Tools"),
@@ -1751,7 +1751,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Tools"),
@@ -1765,7 +1765,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Tools"),
@@ -1779,7 +1779,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Tools"),
@@ -1793,7 +1793,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Tools"),
@@ -1807,7 +1807,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Tools"),
@@ -1821,7 +1821,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Tools"),
@@ -1835,7 +1835,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Medicines"),
@@ -1849,7 +1849,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Medicines"),
@@ -1863,7 +1863,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Medicines"),
@@ -1877,7 +1877,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Medicines"),
@@ -1891,7 +1891,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Food"),
@@ -1905,7 +1905,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Food"),
@@ -1919,7 +1919,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Food"),
@@ -1933,7 +1933,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Food"),
@@ -1947,7 +1947,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Food"),
@@ -1961,7 +1961,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Food"),
@@ -1975,7 +1975,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Food"),
@@ -1989,7 +1989,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Food"),
@@ -2003,7 +2003,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Food"),
@@ -2017,7 +2017,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
@@ -2031,7 +2031,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
@@ -2045,7 +2045,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
@@ -2059,7 +2059,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
@@ -2073,7 +2073,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
@@ -2087,7 +2087,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
@@ -2101,7 +2101,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
@@ -2115,7 +2115,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "WeaponAttachment"),
@@ -2129,7 +2129,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "WeaponAttachment"),
@@ -2143,7 +2143,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "WeaponAttachment"),
@@ -2157,7 +2157,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "WeaponAttachment"),
@@ -2171,7 +2171,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "WeaponAttachment"),
@@ -2185,7 +2185,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "WeaponAttachment"),
@@ -2199,7 +2199,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "WeaponAttachment"),
@@ -2213,7 +2213,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
@@ -2227,7 +2227,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
@@ -2241,7 +2241,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
@@ -2255,7 +2255,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
@@ -2269,7 +2269,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
@@ -2283,7 +2283,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
@@ -2297,7 +2297,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
@@ -2311,7 +2311,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
@@ -2325,7 +2325,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
@@ -2339,7 +2339,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
@@ -2353,7 +2353,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
@@ -2367,7 +2367,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
@@ -2381,7 +2381,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
@@ -2395,7 +2395,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
@@ -2409,7 +2409,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
@@ -2423,7 +2423,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
@@ -2437,7 +2437,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
@@ -2451,7 +2451,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
@@ -2465,7 +2465,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
@@ -2479,7 +2479,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Electricity"),
@@ -2493,7 +2493,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Electricity"),
@@ -2507,7 +2507,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Electricity"),
@@ -2521,7 +2521,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Electricity"),
@@ -2535,7 +2535,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Electricity"),
@@ -2549,7 +2549,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Electricity"),
@@ -2563,7 +2563,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Electricity"),
@@ -2577,7 +2577,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Electricity"),
@@ -2591,7 +2591,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Electricity"),
@@ -2605,7 +2605,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Electricity"),
@@ -2619,7 +2619,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Electricity"),
@@ -2633,7 +2633,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Electricity"),
@@ -2647,7 +2647,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Electricity"),
@@ -2661,7 +2661,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Electricity"),
@@ -2675,7 +2675,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Electricity"),
@@ -2689,7 +2689,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Electricity"),
@@ -2703,7 +2703,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Electricity"),
@@ -2717,7 +2717,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Electricity"),
@@ -2731,7 +2731,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Electricity"),
@@ -2745,7 +2745,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Electricity"),
@@ -2759,7 +2759,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Electricity"),
@@ -2773,7 +2773,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Electricity"),
@@ -2787,7 +2787,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Components"),
@@ -2801,7 +2801,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Components"),
@@ -2815,7 +2815,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Components"),
@@ -2829,7 +2829,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Components"),
@@ -2843,7 +2843,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Components"),
@@ -2857,7 +2857,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Components"),
@@ -2871,7 +2871,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Components"),
@@ -2885,7 +2885,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Components"),
@@ -2899,7 +2899,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Components"),
@@ -2913,7 +2913,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Components"),
@@ -2927,7 +2927,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Components"),
@@ -2941,7 +2941,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Components"),
@@ -2955,7 +2955,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Components"),
@@ -2969,7 +2969,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Components"),
@@ -2983,7 +2983,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Components"),
@@ -2997,7 +2997,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Components"),
@@ -3011,7 +3011,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Holidays"),
@@ -3025,7 +3025,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Holidays"),
@@ -3039,7 +3039,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Holidays"),
@@ -3053,7 +3053,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Holidays"),
@@ -3067,7 +3067,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Holidays"),
@@ -3081,7 +3081,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Holidays"),
@@ -3095,7 +3095,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Holidays"),
@@ -3109,7 +3109,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Discount = 0,
                     BlockedTill = default
                 },
-                new RustUserItem
+                new RustProduct
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Holidays"),

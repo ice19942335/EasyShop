@@ -7,7 +7,7 @@ using EasyShop.Domain.Entries.Identity;
 namespace EasyShop.Domain.Entries.Items.RustItems
 {
     [Table("RustUserItems")]
-    public class RustUserItem
+    public class RustProduct
     {
         #region PK
         public Guid Id { get; set; }

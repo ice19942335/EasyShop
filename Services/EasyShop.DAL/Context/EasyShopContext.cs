@@ -32,7 +32,7 @@ namespace EasyShop.DAL.Context
 
         public DbSet<RustItem> RustItems { get; set; }
         public DbSet<RustItemType> RustItemTypes { get; set; }
-        public DbSet<RustUserItem> RustUserItems { get; set; }
+        public DbSet<RustProduct> RustUserItems { get; set; }
         public DbSet<RustCategory> RustCategories { get; set; }
         public DbSet<RustPurchasedItem> RustPurchasedItems { get; set; }
 

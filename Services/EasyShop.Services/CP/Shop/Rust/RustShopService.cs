@@ -87,7 +87,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                 {
                     try
                     {
-                        (List<RustCategory>, List<RustUserItem>)? defaultCategoriesAndItems = await SetDefaultProductsAsync(user, newShop);
+                        (List<RustCategory>, List<RustProduct>)? defaultCategoriesAndItems = await SetDefaultProductsAsync(user, newShop);
                         if (defaultCategoriesAndItems != null)
                         {
                             _context.RustCategories.AddRange(defaultCategoriesAndItems?.Item1);
@@ -167,7 +167,7 @@ namespace EasyShop.Services.CP.Shop.Rust
             if (userShop is null || shop is null)
                 return false;
 
-            var allAssignedCategoriesToShop = await GetAllAssignedItemsToShopByIdAsync(shopId);
+            var allAssignedCategoriesToShop = GetAllAssignedCategoriesToShopById(shopId);
 
             _context.RustCategories.RemoveRange(allAssignedCategoriesToShop);
             await _context.SaveChangesAsync();
@@ -183,7 +183,7 @@ namespace EasyShop.Services.CP.Shop.Rust
         #endregion
 
         #region Rust Category
-        public async Task<IEnumerable<RustCategory>> GetAllAssignedItemsToShopByIdAsync(Guid shopId)
+        public IEnumerable<RustCategory> GetAllAssignedCategoriesToShopById(Guid shopId)
         {
             var categories = _context.RustCategories
                 .Include(x => x.AppUser)
@@ -261,7 +261,7 @@ namespace EasyShop.Services.CP.Shop.Rust
             return result;
         }
 
-        public async Task<(List<RustCategory>, List<RustUserItem>)> GetDefaultCategoriesWithProducts(AppUser user, Domain.Entries.Shop.Shop shop)
+        public async Task<(List<RustCategory>, List<RustProduct>)> GetDefaultCategoriesWithProducts(AppUser user, Domain.Entries.Shop.Shop shop)
         {
             var defaultCategories = _context.RustCategories.Include(x => x.AppUser).Where(x => x.AppUser == null).ToList();
             var rustItems = _context.RustItems.ToList();
@@ -275,7 +275,7 @@ namespace EasyShop.Services.CP.Shop.Rust
             {
                 var user = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
 
-                (List<RustCategory>, List<RustUserItem>)? defaultCategoriesAndItems = await SetDefaultProductsAsync(user, shop);
+                (List<RustCategory>, List<RustProduct>)? defaultCategoriesAndItems = await SetDefaultProductsAsync(user, shop);
                 if (defaultCategoriesAndItems != null)
                 {
                     _context.RustCategories.AddRange(defaultCategoriesAndItems?.Item1);
@@ -291,10 +291,20 @@ namespace EasyShop.Services.CP.Shop.Rust
             }
         }
 
-        private async Task<(List<RustCategory>, List<RustUserItem>)?> SetDefaultProductsAsync(AppUser user, Domain.Entries.Shop.Shop shop)
+        private async Task<(List<RustCategory>, List<RustProduct>)?> SetDefaultProductsAsync(AppUser user, Domain.Entries.Shop.Shop shop)
         {
             await RemoveAllCategoriesAndItemsInShopAsync(shop);
             return await GetDefaultCategoriesWithProducts(user, shop);
+        }
+
+        public IEnumerable<RustProduct> GetAllAssignedProductsToAShopByShopId(Guid shopId)
+        {
+            return _context.RustUserItems
+                .Include(x => x.Shop)
+                .Include(x => x.AppUser)
+                .Include(x => x.RustItem)
+                .Include(x => x.RustCategory)
+                .Where(x => x.Shop.Id == shopId);
         }
         #endregion
 

@@ -258,7 +258,7 @@ namespace EasyShop.DAL.Migrations
                     b.ToTable("RustPurchasedItems");
                 });
 
-            modelBuilder.Entity("EasyShop.Domain.Entries.Items.RustItems.RustUserItem", b =>
+            modelBuilder.Entity("EasyShop.Domain.Entries.Items.RustItems.RustProduct", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -640,7 +640,7 @@ namespace EasyShop.DAL.Migrations
                         .HasForeignKey("RustUserId");
                 });
 
-            modelBuilder.Entity("EasyShop.Domain.Entries.Items.RustItems.RustUserItem", b =>
+            modelBuilder.Entity("EasyShop.Domain.Entries.Items.RustItems.RustProduct", b =>
                 {
                     b.HasOne("EasyShop.Domain.Entries.Identity.AppUser", "AppUser")
                         .WithMany()

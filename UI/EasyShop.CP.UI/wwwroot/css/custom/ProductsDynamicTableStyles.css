@@ -1,26 +1,4 @@
-﻿.profile-nav > li > a {
-    color: #fff;
-    display: block;
-    margin: 0 0 20px 10px;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 20px;
-    padding: 5px 2px;
-    position: relative;
-    text-align: center;
-    border-bottom: 2px solid rgba(0, 0, 0, 0);
-}
-
-.profile-nav > li > a:hover {
-    color: #00aced;
-    border-bottom: 2px solid #00aced;
-}
-
-#shopSettingsActiveItem {
-    border-bottom: 2px solid #00aced;
-}
-
-.dataTables_wrapper .dataTables_paginate .paginate_button {
+﻿.dataTables_wrapper .dataTables_paginate .paginate_button {
     box-sizing: border-box;
     display: inline-block;
     min-width: 1.5em;
@@ -36,5 +14,25 @@
 }
 
 .dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter, .dataTables_wrapper .dataTables_info, .dataTables_wrapper .dataTables_processing, .dataTables_wrapper .dataTables_paginate {
-    color: black;
+    color: #dcdcdc;
+}
+
+    .dataTables_wrapper .dataTables_filter input {
+        background: #1d1d1d;
+        border: 1px solid black;
+        outline: none;
+        padding: 2px 5px;
+        margin-left: 0.5em;
+    }
+
+select[name="rustProductsTable_length"] {
+    background-color: #1d1d1d
+}
+
+table.dataTable tbody tr {
+    background-color: #333333;
+}
+
+span[class="ellipsis"] {
+    display: none
 }

@@ -17,6 +17,8 @@ namespace EasyShop.Domain.ViewModels.Shop.Rust
         [Required]
         public int Amount { get; set; }
 
+        public string ImgUrl { get; set; }
+
         public string Description { get; set; }
 
         [RegularExpression("^[0-9]*\\.[0-9]{2}$", ErrorMessage = "Please enter correct value, example (0.99 or 150.00)")]
@@ -25,7 +27,5 @@ namespace EasyShop.Domain.ViewModels.Shop.Rust
         public DateTime BlockedTill { get; set; }
 
         public RustCategoryViewModel CategoryViewModel { get; set; }
-
-        public RustShopViewModel RustShopViewModel { get; set; }
     }
 }

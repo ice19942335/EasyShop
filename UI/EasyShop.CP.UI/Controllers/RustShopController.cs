@@ -81,7 +81,7 @@ namespace EasyShop.CP.UI.Controllers
 
             var model = shop.CreateRustShopViewModel();
 
-            var categories = await _rustShopService.GetAllAssignedItemsToShopByIdAsync(Guid.Parse(shopId));
+            var categories = _rustShopService.GetAllAssignedCategoriesToShopById(Guid.Parse(shopId));
             var categoriesViewModelListTasks = categories
                 .Select(x => x.CreateRustCategoryViewModel(_rustShopService.GetAssignedUserItemsCountToACategoryInShop(x.Id, shop.Id)));
 
@@ -181,6 +181,29 @@ namespace EasyShop.CP.UI.Controllers
                 return RedirectToAction("NotFoundPage", "Home");
 
             var model = shop.CreateRustShopViewModel();
+            model.RustProductsManagerViewModel = new RustProductsManagerViewModel();
+
+            var allAssignedUserProducts = _rustShopService.GetAllAssignedProductsToAShopByShopId(Guid.Parse(shopId));
+
+            model.RustProductsManagerViewModel.Products = allAssignedUserProducts.Select(x =>
+            {
+                var rustProductViewModel = new RustProductViewModel
+                {
+                    Id = x.Id.ToString(),
+                    Name = x.RustItem.Name,
+                    Price = x.Price,
+                    Amount = x.Amount,
+                    ImgUrl = x.RustItem.ImgUrl,
+                    Description = x.Description,
+                    BlockedTill = x.BlockedTill,
+                    CategoryViewModel = x.RustCategory
+                        .CreateRustCategoryViewModel(
+                            _rustShopService.GetAssignedUserItemsCountToACategoryInShop(x.RustCategory.Id, Guid.Parse(shopId))),
+                    Discount = x.Discount
+                };
+
+                return rustProductViewModel;
+            });
 
             return View(model);
         }
