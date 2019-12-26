@@ -6,6 +6,7 @@ using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Entries.Items.RustItems;
 using EasyShop.Domain.Entries.Shop;
+using EasyShop.Domain.Enums;
 using EasyShop.Domain.ViewModels.Shop;
 using EasyShop.Domain.ViewModels.Shop.Rust;
 using EasyShop.Interfaces.Services.CP.Shop.Rust;
@@ -44,7 +45,7 @@ namespace EasyShop.Services.CP.Shop.Rust
         }
 
         #region Rust Shop
-        public async Task<bool> CreateShopAsync(CreateShopViewModel model)
+        public async Task<RustCreateShopResult> CreateShopAsync(CreateShopViewModel model)
         {
             var user = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
 
@@ -52,7 +53,7 @@ namespace EasyShop.Services.CP.Shop.Rust
 
             var userAllowedShops = int.Parse(_configuration["ShopsAllowed"]);
 
-            if (userAllowedShops > userShops.Count())
+            if (userShops.Count() < userAllowedShops)
             {
                 Guid secret;
                 do { secret = Guid.NewGuid(); } while (_context.Shops.FirstOrDefault(x => x.Secret == secret) != null);
@@ -95,18 +96,21 @@ namespace EasyShop.Services.CP.Shop.Rust
                             await _context.SaveChangesAsync();
                         }
 
-                        return true;
+                        return RustCreateShopResult.Success;
                     }
-                    catch
+                    catch(Exception e)
                     {
-                        return false;
+                        _context.Shops.Remove(newShop);
+                        _context.UserShops.Remove(userShop);
+                        await _context.SaveChangesAsync();
+                        return RustCreateShopResult.SomethingWentWrong;
                     }
                 }
 
-                return true;
+                return RustCreateShopResult.Success;
             }
 
-            return false;
+            return RustCreateShopResult.MaxShopLimitIsReached;
         }
 
         private async Task<IEnumerable<Domain.Entries.Shop.Shop>> UserShopsByUserEmailAsync(string userEmail)
@@ -304,7 +308,8 @@ namespace EasyShop.Services.CP.Shop.Rust
                 .Include(x => x.AppUser)
                 .Include(x => x.RustItem)
                 .Include(x => x.RustCategory)
-                .Where(x => x.Shop.Id == shopId);
+                .Where(x => x.Shop.Id == shopId)
+                .OrderBy(x => x.RustCategory.Index);
         }
         #endregion
 

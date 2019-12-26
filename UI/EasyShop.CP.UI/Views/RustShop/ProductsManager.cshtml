@@ -4,16 +4,25 @@
     Layout = "Partial/_RustEditLayout";
 }
 
-
-<div class="panel">
+<div class="panel well">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 text-center">
+            <h2>Products manager</h2>
+        </div>
+    </div>
     <div class="panel-body">
         <div class="table-responsive">
             <div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
-                <div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row">
+                <div class="row">
+                    <div class="col-sm-6"></div>
+                    <div class="col-sm-6"></div>
+                </div>
+                <div class="row">
                     <div class="col-sm-12">
-                        <table id="rustProductsTable" class="table table-middle nowrap dataTable no-footer" role="grid">
+                        <table id="rustProductsTable" data-order='[[ 0, "asc" ]]' class="table table-middle nowrap dataTable no-footer" role="grid">
                             <thead>
                                 <tr role="row">
+                                    <th style="display: none">Category Index</th>
                                     <th>Name</th>
                                     <th>Category</th>
                                     <th>Amount</th>
@@ -28,6 +37,7 @@
                                     foreach (var product in Model.RustProductsManagerViewModel.Products)
                                     {
                                         <tr role="row" class="@(counter % 2 == 0 ? "odd" : "even")">
+                                            <td style="display: none">@product.CategoryViewModel.Index</td>
                                             <td>
                                                 <span class="icon-with-child m-r">
                                                     <img width="50" height="50" src="~/img/rust/@($"{product.ImgUrl}.png")" alt="@product.ImgUrl">

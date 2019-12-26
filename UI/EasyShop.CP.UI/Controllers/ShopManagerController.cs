@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Entries.Shop;
+using EasyShop.Domain.Enums;
 using EasyShop.Domain.StaticEntities.GameTypes;
 using EasyShop.Domain.ViewModels.Shop;
 using EasyShop.Domain.ViewModels.Shop.Rust;
@@ -56,7 +57,7 @@ namespace EasyShop.CP.UI.Controllers
                 return View(model);
             }
 
-            var result = false;
+            RustCreateShopResult result = default;
             switch (model.GameType)
             {
                 case "Rust":
@@ -64,19 +65,22 @@ namespace EasyShop.CP.UI.Controllers
                     break;
             }
 
-            if (!result)
+            if (result == RustCreateShopResult.Success)
             {
-                var user = await _userManager.FindByEmailAsync(User.Identity.Name);
-                var userShops = await _shopManager.UserShopsByUserEmailAsync(user.Email);
-                var userAllowedShops = int.Parse(_configuration["ShopsAllowed"]);
-                if (userAllowedShops > userShops.Count())
-                {
-                    return View("AllowedShopsLimitIsReached");
-                }
+                return RedirectToAction("ShopsManager", "ShopManager");
+            }
+            else if (result == RustCreateShopResult.MaxShopLimitIsReached)
+            {
+                return View("AllowedShopsLimitIsReached");
+            }
+            else if (result == RustCreateShopResult.SomethingWentWrong)
+            {
                 return RedirectToAction("SomethingWentWrong", "ControlPanel", new { reason = "on shop creating" });
             }
-            
-            return RedirectToAction("ShopsManager", "ShopManager");
+            else
+            {
+                return RedirectToAction("SomethingWentWrong", "ControlPanel", new { reason = "on shop creating" });
+            }
         }
 
         [HttpGet("{shopId}")]

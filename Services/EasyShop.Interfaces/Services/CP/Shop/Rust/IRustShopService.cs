@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Entries.Items.RustItems;
+using EasyShop.Domain.Enums;
 using EasyShop.Domain.ViewModels.Shop;
 using EasyShop.Domain.ViewModels.Shop.Rust;
 
@@ -10,7 +11,7 @@ namespace EasyShop.Interfaces.Services.CP.Shop.Rust
 {
     public interface IRustShopService
     {
-        Task<bool> CreateShopAsync(CreateShopViewModel model);
+        Task<RustCreateShopResult> CreateShopAsync(CreateShopViewModel model);
 
         Task<Domain.Entries.Shop.Shop> UpdateShopAsync(RustShopMainSettingsViewModel model);
 
