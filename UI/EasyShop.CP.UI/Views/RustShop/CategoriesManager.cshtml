@@ -42,9 +42,9 @@
                                             <a asp-area="" asp-controller="RustShop" asp-action="EditCategory" asp-route-shopId="@Model.Id" asp-route-categoryId="@categoryModel.Id"><span class="icon icon-pencil icon-lg icon-fw"></span></a>
                                         </td>
                                         <td>
-                                            <a id="deleteButton_@categoryModel.Id" href="#" onclick="deleteConfirmationDialog('@categoryModel.Id', true)" style="color: red"><span class="icon icon-times icon-lg icon-fw"></span></a>
-                                            <span id="confirmDeleteSpan_@categoryModel.Id" style="display: none">
-                                                <span>Are you sure you want to delete?</span>
+                                            <a id="confirmButton_@categoryModel.Id" href="#" onclick="deleteConfirmationDialog('@categoryModel.Id', true)" style="color: red"><span class="icon icon-times icon-lg icon-fw"></span></a>
+                                            <span id="confirmSpan_@categoryModel.Id" style="display: none">
+                                                <span>All assigned products will be deleted!<br>Are you sure you want to delete?</span>
                                                 <span>
                                                     <a asp-area="" asp-controller="RustShop" asp-action="DeleteCategory" asp-route-shopId="@Model.Id" asp-route-categoryId="@categoryModel.Id" style="color: green"><span class="icon icon-check icon-lg icon-fw"></span></a>
                                                 </span>
