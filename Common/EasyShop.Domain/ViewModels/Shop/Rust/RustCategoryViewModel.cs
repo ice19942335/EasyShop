@@ -10,6 +10,6 @@
 
         public string Name { get; set; }
 
-        public int AssignedItemsCount { get; set; }
+        public int? AssignedItemsCount { get; set; }
     }
 }

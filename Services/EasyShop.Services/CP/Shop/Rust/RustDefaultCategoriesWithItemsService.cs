@@ -41,7 +41,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -55,7 +55,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -69,7 +69,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -83,7 +83,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -97,7 +97,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -111,7 +111,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -125,7 +125,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -139,7 +139,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -153,7 +153,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -167,7 +167,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -181,7 +181,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -195,7 +195,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -209,7 +209,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -223,7 +223,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -237,7 +237,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -251,7 +251,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -265,7 +265,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -279,7 +279,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -293,7 +293,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -307,7 +307,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -321,7 +321,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -335,7 +335,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -349,7 +349,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -363,7 +363,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -377,7 +377,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -391,7 +391,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -405,7 +405,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -419,7 +419,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -433,7 +433,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -447,7 +447,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -461,7 +461,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -475,7 +475,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -489,7 +489,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -503,7 +503,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -517,7 +517,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -531,7 +531,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -545,7 +545,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -559,7 +559,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -573,7 +573,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -587,7 +587,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -601,7 +601,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -615,7 +615,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -629,7 +629,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -643,7 +643,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -657,7 +657,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -671,7 +671,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -685,7 +685,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -699,7 +699,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -713,7 +713,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -727,7 +727,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -741,7 +741,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -755,7 +755,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -769,7 +769,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -783,7 +783,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -797,7 +797,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -811,7 +811,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -825,7 +825,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -839,7 +839,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -853,7 +853,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -867,7 +867,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -881,7 +881,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -895,7 +895,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -909,7 +909,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -923,7 +923,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -937,7 +937,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -951,7 +951,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -965,7 +965,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -979,7 +979,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -993,7 +993,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1007,7 +1007,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1021,7 +1021,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1035,7 +1035,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1049,7 +1049,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1063,7 +1063,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1077,7 +1077,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1091,7 +1091,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1105,7 +1105,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1119,7 +1119,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1133,7 +1133,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1147,7 +1147,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1161,7 +1161,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1175,7 +1175,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1189,7 +1189,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1203,7 +1203,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1217,7 +1217,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1231,7 +1231,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1245,7 +1245,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1259,7 +1259,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1273,7 +1273,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1287,7 +1287,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1301,7 +1301,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1315,7 +1315,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1329,7 +1329,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1343,7 +1343,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1357,7 +1357,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1371,7 +1371,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1385,7 +1385,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1399,7 +1399,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1413,7 +1413,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1427,7 +1427,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1441,7 +1441,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1455,7 +1455,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1469,7 +1469,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1483,7 +1483,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1497,7 +1497,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1511,7 +1511,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1525,7 +1525,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1539,7 +1539,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1553,7 +1553,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1567,7 +1567,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1581,7 +1581,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1595,7 +1595,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1609,7 +1609,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1623,7 +1623,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1637,7 +1637,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1651,7 +1651,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1665,7 +1665,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1679,7 +1679,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1693,7 +1693,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1707,7 +1707,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1721,7 +1721,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1735,7 +1735,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1749,7 +1749,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1763,7 +1763,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1777,7 +1777,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1791,7 +1791,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1805,7 +1805,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1819,7 +1819,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1833,7 +1833,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1847,7 +1847,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1861,7 +1861,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1875,7 +1875,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1889,7 +1889,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1903,7 +1903,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1917,7 +1917,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1931,7 +1931,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1945,7 +1945,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1959,7 +1959,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1973,7 +1973,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -1987,7 +1987,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2001,7 +2001,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2015,7 +2015,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2029,7 +2029,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2043,7 +2043,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2057,7 +2057,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2071,7 +2071,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2085,7 +2085,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2099,7 +2099,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2113,7 +2113,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2127,7 +2127,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2141,7 +2141,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2155,7 +2155,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2169,7 +2169,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2183,7 +2183,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2197,7 +2197,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2211,7 +2211,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2225,7 +2225,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2239,7 +2239,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2253,7 +2253,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2267,7 +2267,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2281,7 +2281,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2295,7 +2295,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2309,7 +2309,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2323,7 +2323,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2337,7 +2337,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2351,7 +2351,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2365,7 +2365,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2379,7 +2379,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2393,7 +2393,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2407,7 +2407,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2421,7 +2421,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2435,7 +2435,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2449,7 +2449,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2463,7 +2463,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2477,7 +2477,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2491,7 +2491,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2505,7 +2505,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2519,7 +2519,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2533,7 +2533,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2547,7 +2547,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2561,7 +2561,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2575,7 +2575,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2589,7 +2589,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2603,7 +2603,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2617,7 +2617,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2631,7 +2631,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2645,7 +2645,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2659,7 +2659,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2673,7 +2673,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2687,7 +2687,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2701,7 +2701,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2715,7 +2715,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2729,7 +2729,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2743,7 +2743,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2757,7 +2757,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2771,7 +2771,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2785,7 +2785,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2799,7 +2799,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2813,7 +2813,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2827,7 +2827,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2841,7 +2841,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2855,7 +2855,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2869,7 +2869,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2883,7 +2883,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2897,7 +2897,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2911,7 +2911,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2925,7 +2925,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2939,7 +2939,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2953,7 +2953,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2967,7 +2967,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2981,7 +2981,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -2995,7 +2995,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -3009,7 +3009,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -3023,7 +3023,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -3037,7 +3037,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -3051,7 +3051,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -3065,7 +3065,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -3079,7 +3079,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -3093,7 +3093,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -3107,7 +3107,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 },
                 new RustProduct
                 {
@@ -3121,7 +3121,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                     Amount = 1,
                     Description = null,
                     Discount = 0,
-                    BlockedTill = default
+                    BlockedTill = default, ShowInShop = true
                 }
             };
 

@@ -1,0 +1,116 @@
+﻿@using EasyShop.Domain.Enums.Rust
+@model EasyShop.Domain.ViewModels.Shop.Rust.RustShopViewModel
+@{
+    ViewData["Title"] = "Edit product";
+    Layout = "Partial/_RustEditLayout";
+
+    string categoriesOptionsHtml = String.Empty;
+
+    foreach (var category in Model.RustEditProductViewModel.RustCategories)
+    {
+        categoriesOptionsHtml += $"<option value=\"{category.Id}\">{category.Name}</option>";
+    }
+}
+<div class="well text-center">
+    <h2 class="text-center">Product settings</h2>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+            <div class="m-b-md rustProductImage">
+                <img width="100" height="100" src="~/img/rust/@($"{Model.RustEditProductViewModel.ImgUrl}.png")" alt="@Model.RustEditProductViewModel.ImgUrl">
+            </div>
+            <form asp-antiforgery="true" method="post" asp-area="" asp-controller="RustShop" asp-action="EditProduct">
+                <input asp-for="@Model.Id" type="hidden" />
+                <input asp-for="@Model.ShopName" type="hidden" />
+                <input asp-for="@Model.ShopTitle" type="hidden" />
+                <input asp-for="@Model.RustEditProductViewModel.Id" type="hidden" />
+                <div asp-validation-summary="ModelOnly" class="alert alert-info"></div>
+                <div class="showInShopWrap">
+                    <label>Show in shop</label>
+                    <label class="switch switch-primary m-l-lg">
+                        <input id="ShowInShop"
+                               asp-for="RustEditProductViewModel.ShowInShop"
+                               class="switch-input"
+                               type="checkbox"
+                               value="@Model.RustEditProductViewModel.ShowInShop">
+                        <span class="switch-track"></span>
+                        <span class="switch-thumb"></span>
+                    </label>
+                </div>
+                <div id="EditProductDiv">
+                    <div class="form-group">
+                        <label class="pull-left">Name</label>
+                        <input asp-for="@Model.RustEditProductViewModel.Name" class="form-control" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label class="pull-left">Description</label>
+                        <textarea class="form-control m-b-md" asp-for="@Model.RustEditProductViewModel.Description" placeholder="Enter text here..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="pull-left">Price</label>
+                        <input id="RustEditProductPriceInput" asp-for="@Model.RustEditProductViewModel.Price" class="form-control" type="text">
+                        <span class="help-block">Input example (0.99 or 150.00)</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="pull-left">Discount in percents (%)</label>
+                        <input asp-for="@Model.RustEditProductViewModel.Discount" class="form-control" min="0" max="100" type="number">
+                    </div>
+                    <div class="form-group">
+                        <label class="pull-left">Amount</label>
+                        <input asp-for="@Model.RustEditProductViewModel.Amount" class="form-control" min="1" type="number">
+                    </div>
+                    <div class="form-group rustProductBlockedTillDate">
+                        <label>Block(ed) till</label>
+                        <div class="input-group date">
+                            <input asp-for="RustEditProductViewModel.BlockedTill" id="demo-datepicker-2" class="form-control" type="text">
+                            <span class="input-group-btn">
+                                <button id="demo-datepicker-2-btn" class="btn btn-primary" type="button">
+                                    <span class="icon icon-calendar"></span>
+                                </button>
+                            </span>
+                        </div>
+                        <span class="help-block">Input example (1/1/2000 or 11/12/2000), no need zero's</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="pull-left">Current category</label>
+                        <input asp-for="@Model.RustEditProductViewModel.CurrentCategoryName" class="form-control" min="1" type="text" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="CategoriesList" class="form-label pull-left">Assign to category</label>
+                        <select asp-for="@Model.RustEditProductViewModel.NewCategoryId" id="CategoriesList" class="form-control">
+                            <option selected disabled hidden></option>
+                            @Html.Raw(categoriesOptionsHtml)
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block m-t-md" type="submit">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Styles
+{
+    <link rel="stylesheet" href="~/css/demo.min.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/custom/RustEditProductStyles.css" asp-append-version="true" />
+}
+
+@section Scripts
+{
+    <script src="~/js/demo.min.js" asp-append-version="true"></script>
+    <script src="~/js/customScripts/Rust/RustEditProduct.js" asp-append-version="true"></script>
+
+    @if (Model.RustEditProductViewModel.Success == RustEditProductResult.Success)
+    {
+        <script>
+            toastr.success('Product updated.');
+        </script>
+    }
+    else if(Model.RustEditProductViewModel.Success == RustEditProductResult.Failed)
+    {
+        <script>
+            toastr.warning('Please, check all fields for correct values!');
+        </script>
+    }
+}

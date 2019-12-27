@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Entries.Shop;
 using EasyShop.Domain.Enums;
+using EasyShop.Domain.Enums.Rust;
 using EasyShop.Domain.StaticEntities.GameTypes;
 using EasyShop.Domain.ViewModels.Shop;
 using EasyShop.Domain.ViewModels.Shop.Rust;

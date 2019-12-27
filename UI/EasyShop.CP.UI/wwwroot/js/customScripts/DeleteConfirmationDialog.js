@@ -1,4 +1,6 @@
-﻿function deleteConfirmationDialog(id, isDeleteClicked) {
+﻿'use strict';
+
+function deleteConfirmationDialog(id, isDeleteClicked) {
     let deleteButton = 'confirmButton_' + id;
     let confirmDeleteSpan = 'confirmSpan_' + id;
 

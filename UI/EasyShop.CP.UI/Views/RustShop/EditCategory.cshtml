@@ -7,7 +7,7 @@
 <div class="well text-center">
     <h2 class="text-center">Edit category</h2>
     <div class="row">
-        <div class="col-md-6 col-lg-5">
+        <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
             <div class="demo-form-wrapper">
                 <form method="post" asp-area="" asp-controller="RustShop" asp-action="EditCategory">
                     <input asp-for="@Model.Id" type="hidden" />
@@ -35,7 +35,7 @@
         if (Model?.RustEditCategoryViewModel?.Category?.Id != null)
         {
         <div class="row">
-            <div class="col-md-6 col-lg-5">
+            <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
                 <div>
                     <span id="confirmButton_@Model.RustEditCategoryViewModel.Category.Id">
                         <button class="btn btn-danger btn-block m-r-md" onclick="deleteConfirmationDialog('@Model.RustEditCategoryViewModel.Category.Id', true)">Delete category</button>

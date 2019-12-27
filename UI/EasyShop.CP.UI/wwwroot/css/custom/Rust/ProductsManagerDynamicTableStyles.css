@@ -29,10 +29,6 @@ select[name="rustProductsTable_length"] {
     background-color: #1d1d1d
 }
 
-table.dataTable tbody tr {
-    background-color: #333333;
-}
-
 span[class="ellipsis"] {
     display: none
 }
@@ -47,4 +43,8 @@ table.dataTable thead .sorting_asc {
 
 table.dataTable thead .sorting_desc {
     background-image: none;
+}
+
+table.dataTable tbody tr {
+    background-color: #333;
 }

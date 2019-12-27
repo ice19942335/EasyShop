@@ -20,5 +20,7 @@ namespace EasyShop.Domain.ViewModels.Shop.Rust
         public RustEditCategoryViewModel RustEditCategoryViewModel { get; set; }
 
         public RustProductsManagerViewModel RustProductsManagerViewModel { get; set; }
+
+        public RustEditProductViewModel RustEditProductViewModel { get; set; }
     }
 }
