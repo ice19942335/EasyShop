@@ -8,6 +8,7 @@ namespace EasyShop.Domain.Enums.Rust
     {
         Success,
         Failed,
-        Default
+        Default,
+        Created
     }
 }

@@ -118,7 +118,7 @@ namespace EasyShop.CP.UI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> EditCategory(string shopId, string categoryId)
+        public async Task<IActionResult> EditCategory(string shopId, string categoryId, bool created = false)
         {
             var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(shopId));
 
@@ -138,6 +138,8 @@ namespace EasyShop.CP.UI.Controllers
             model.RustEditCategoryViewModel.Category =
                 category.CreateRustCategoryViewModel(_rustShopService.GetAssignedUserItemsCountToACategoryInShop(category.Id, shop.Id));
 
+            model.RustEditCategoryViewModel.Status = RustEditCategoryResult.Created;
+
             return View(model);
         }
 
@@ -153,12 +155,21 @@ namespace EasyShop.CP.UI.Controllers
             }
 
             var result = await _rustShopService.UpdateCategoryAsync(model);
+            model.RustEditCategoryViewModel.Status = result.Item2;
 
-            if (result is null)
-                return RedirectToAction("SomethingWentWrong", "ControlPanel");
+            switch (result.Item2)
+            {
+                case RustEditCategoryResult.Success:
+                    return View(model);
 
-            model.RustEditCategoryViewModel.Status = RustEditCategoryResult.Success;
-            return View(model);
+                case RustEditCategoryResult.Created:
+                    return RedirectToAction("EditCategory", "RustShop", new { shopId = model.Id, categoryId = result.Item1.Id , created  = true});
+
+                case RustEditCategoryResult.Failed:
+                    return View(model);
+
+                default: return RedirectToAction("SomethingWentWrong", "ControlPanel");
+            }
         }
 
         [HttpGet(template: "{shopId}&{categoryId}")]
@@ -274,10 +285,10 @@ namespace EasyShop.CP.UI.Controllers
             switch (result)
             {
                 case RustEditProductResult.Success:
-                {
-                    model.RustEditProductViewModel.Status = RustEditProductResult.Success;
-                    return View(model);
-                }
+                    {
+                        model.RustEditProductViewModel.Status = RustEditProductResult.Success;
+                        return View(model);
+                    }
                 case RustEditProductResult.NotFound: return RedirectToAction("NotFoundPage", "Home");
 
                 default: return RedirectToAction("SomethingWentWrong", "ControlPanel");

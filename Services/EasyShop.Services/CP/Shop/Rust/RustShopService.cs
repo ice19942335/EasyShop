@@ -200,14 +200,14 @@ namespace EasyShop.Services.CP.Shop.Rust
             return categories;
         }
 
-        public async Task<RustCategory> UpdateCategoryAsync(RustShopViewModel model)
+        public async Task<(RustCategory, RustEditCategoryResult)> UpdateCategoryAsync(RustShopViewModel model)
         {
             if (model.RustEditCategoryViewModel.Category.Id is null)
             {
                 var shop = await GetShopByIdAsync(Guid.Parse(model.Id));
 
                 if (shop is null)
-                    return null;
+                    return (null, RustEditCategoryResult.Failed);
 
                 RustCategory newCategory = new RustCategory
                 {
@@ -221,13 +221,13 @@ namespace EasyShop.Services.CP.Shop.Rust
                 _context.RustCategories.Add(newCategory);
                 await _context.SaveChangesAsync();
 
-                return newCategory;
+                return (newCategory, RustEditCategoryResult.Created);
             }
 
             var category = GetCategoryById(Guid.Parse(model.RustEditCategoryViewModel.Category.Id));
 
             if (category is null)
-                return null;
+                return (null, RustEditCategoryResult.Failed);
 
             category.Index = model.RustEditCategoryViewModel.Category.Index;
             category.Name = model.RustEditCategoryViewModel.Category.Name;
@@ -235,7 +235,7 @@ namespace EasyShop.Services.CP.Shop.Rust
             _context.RustCategories.Update(category);
             await _context.SaveChangesAsync();
 
-            return category;
+            return (category, RustEditCategoryResult.Success);
         }
 
         public RustCategory GetCategoryById(Guid categoryId) => _context.RustCategories

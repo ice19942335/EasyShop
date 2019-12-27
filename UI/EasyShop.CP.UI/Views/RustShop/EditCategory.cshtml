@@ -6,7 +6,7 @@
 }
 
 <div class="well text-center">
-    <h2 class="text-center">Edit category</h2>
+    <h2 class="text-center">Edit / Create category</h2>
     <div class="row">
         <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
             <div class="demo-form-wrapper">
@@ -63,6 +63,12 @@
     {
         <script>
             toastr.success('Category updated.');
+        </script>
+    }
+    @if (Model.RustEditCategoryViewModel.Status == RustEditCategoryResult.Created)
+    {
+        <script>
+            toastr.success('Category created');
         </script>
     }
     else if (Model.RustEditCategoryViewModel.Status == RustEditCategoryResult.Failed)

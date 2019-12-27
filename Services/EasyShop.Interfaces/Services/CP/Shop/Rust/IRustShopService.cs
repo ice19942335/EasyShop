@@ -20,7 +20,7 @@ namespace EasyShop.Interfaces.Services.CP.Shop.Rust
 
         int GetAssignedUserItemsCountToACategoryInShop(Guid categoryId, Guid shopId);
 
-        Task<RustCategory> UpdateCategoryAsync(RustShopViewModel model);
+        Task<(RustCategory, RustEditCategoryResult)> UpdateCategoryAsync(RustShopViewModel model);
 
         RustCategory GetCategoryById(Guid categoryId);
 

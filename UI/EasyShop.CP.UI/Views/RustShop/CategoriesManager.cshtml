@@ -5,9 +5,12 @@
 }
 
 <div class="well text-center">
+    <h2>Categories</h2>
     <div class="row">
-        <div class="col-md-8 col-md-offset-2 text-center">
-            <h2>Categories</h2>
+        <div class="col-md-4">
+            <form method="get" asp-area="" asp-controller="RustShop" asp-action="CreateCategory" asp-route-shopId="@Model.Id">
+                <button class="btn btn-primary btn-block" type="submit">Create category</button>
+            </form>
         </div>
     </div>
     <div class="row">
