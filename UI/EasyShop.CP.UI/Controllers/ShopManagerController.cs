@@ -126,7 +126,7 @@ namespace EasyShop.CP.UI.Controllers
             if (!result)
                 return RedirectToAction("SomethingWentWrong", "ControlPanel");
 
-            return RedirectToAction("MainSettings", "RustShop", new { shopId = shopId });
+            return RedirectToAction("EditMainSettings", "RustShop", new { shopId = shopId });
         }
     }
 }

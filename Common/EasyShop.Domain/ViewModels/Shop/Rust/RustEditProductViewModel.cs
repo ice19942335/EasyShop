@@ -39,6 +39,6 @@ namespace EasyShop.Domain.ViewModels.Shop.Rust
 
         public string ImgUrl { get; set; }
 
-        public RustEditProductResult Success { get; set; } = RustEditProductResult.Default;
+        public RustEditProductResult Status { get; set; } = RustEditProductResult.Default;
     }
 }

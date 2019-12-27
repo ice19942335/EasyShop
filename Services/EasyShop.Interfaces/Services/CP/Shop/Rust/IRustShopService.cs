@@ -14,7 +14,7 @@ namespace EasyShop.Interfaces.Services.CP.Shop.Rust
     {
         Task<RustCreateShopResult> CreateShopAsync(CreateShopViewModel model);
 
-        Task<Domain.Entries.Shop.Shop> UpdateShopAsync(RustShopMainSettingsViewModel model);
+        Task<Domain.Entries.Shop.Shop> UpdateShopAsync(RustEditShopMainSettingsViewModel model);
 
         IEnumerable<RustCategory> GetAllAssignedCategoriesToShopByShopId(Guid shopId);
 

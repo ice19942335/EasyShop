@@ -20,7 +20,7 @@ namespace EasyShop.Services.Mappers.ViewModels.Rust
                 Id = shop.Id.ToString(),
                 ShopName = shop.ShopName,
                 ShopTitle = shop.ShopTitle,
-                RustShopMainSettingsViewModel = shop.CreateMainSettingsViewModel(),
+                RustEditShopMainSettingsViewModel = shop.CreateMainSettingsViewModel(),
                 RustEditCategoryViewModel = new RustEditCategoryViewModel()
             };
 

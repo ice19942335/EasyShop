@@ -1,9 +1,10 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using EasyShop.Domain.Enums.Rust;
 
 namespace EasyShop.Domain.ViewModels.Shop.Rust
 {
-    public class RustShopMainSettingsViewModel
+    public class RustEditShopMainSettingsViewModel
     {
         public string Id { get; set; }
 
@@ -17,5 +18,7 @@ namespace EasyShop.Domain.ViewModels.Shop.Rust
         public decimal StartBalance { get; set; }
 
         public Guid Secret { get; set; }
+
+        public RustEditMainSettingsResult Status { get; set; } = RustEditMainSettingsResult.Default;
     }
 }

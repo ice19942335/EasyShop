@@ -101,13 +101,13 @@
     <script src="~/js/demo.min.js" asp-append-version="true"></script>
     <script src="~/js/customScripts/Rust/RustEditProduct.js" asp-append-version="true"></script>
 
-    @if (Model.RustEditProductViewModel.Success == RustEditProductResult.Success)
+    @if (Model.RustEditProductViewModel.Status == RustEditProductResult.Success)
     {
         <script>
             toastr.success('Product updated.');
         </script>
     }
-    else if(Model.RustEditProductViewModel.Success == RustEditProductResult.Failed)
+    else if(Model.RustEditProductViewModel.Status == RustEditProductResult.Failed)
     {
         <script>
             toastr.warning('Please, check all fields for correct values!');

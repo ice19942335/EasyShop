@@ -139,7 +139,7 @@ namespace EasyShop.Services.CP.Shop.Rust
             return result;
         }
 
-        public async Task<Domain.Entries.Shop.Shop> UpdateShopAsync(RustShopMainSettingsViewModel model)
+        public async Task<Domain.Entries.Shop.Shop> UpdateShopAsync(RustEditShopMainSettingsViewModel model)
         {
             var shop = await GetShopByIdAsync(Guid.Parse(model.Id));
 
