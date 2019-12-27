@@ -4,30 +4,40 @@
     Layout = "Partial/_RustEditLayout";
 }
 
-
-<div class="panel">
+<div class="panel well">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 text-center">
+            <h2>Products manager</h2>
+        </div>
+    </div>
     <div class="panel-body">
         <div class="table-responsive">
             <div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
-                <div class="row"><div class="col-sm-6"></div><div class="col-sm-6"></div></div><div class="row">
+                <div class="row">
+                    <div class="col-sm-6"></div>
+                    <div class="col-sm-6"></div>
+                </div>
+                <div class="row">
                     <div class="col-sm-12">
-                        <table id="rustProductsTable" class="table table-middle nowrap dataTable no-footer" role="grid">
+                        <table id="rustProductsTable" data-order='[[ 0, "asc" ]]' class="table table-middle nowrap dataTable no-footer" role="grid">
                             <thead>
                                 <tr role="row">
+                                    <th style="display: none">Category Index</th>
                                     <th>Name</th>
                                     <th>Category</th>
                                     <th>Amount</th>
                                     <th>Price</th>
                                     <th>Discount</th>
                                     <th>Block time</th>
+                                    <th>Edit</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @{
-                                    int counter = 0;
                                     foreach (var product in Model.RustProductsManagerViewModel.Products)
                                     {
-                                        <tr role="row" class="@(counter % 2 == 0 ? "odd" : "even")">
+                                        <tr id="Row" role="row" class="showProductInShop-@(product.ShopInShop ? "true" : "false")">
+                                            <td style="display: none">@product.CategoryViewModel.Index</td>
                                             <td>
                                                 <span class="icon-with-child m-r">
                                                     <img width="50" height="50" src="~/img/rust/@($"{product.ImgUrl}.png")" alt="@product.ImgUrl">
@@ -39,6 +49,18 @@
                                             <td><strong>@product.Price</strong></td>
                                             <td><strong>@product.Discount</strong></td>
                                             <td><strong>@(product.BlockedTill == default ? "None" : product.BlockedTill.ToString())</strong></td>
+                                            <td class="sorting_disabled">
+                                                <strong>
+                                                    <a asp-area=""
+                                                       asp-controller="RustShop"
+                                                       asp-action="EditProduct"
+                                                       asp-route-shopId="@Model.Id"
+                                                       asp-route-productId="@product.Id"
+                                                       style="color: #00aced">
+                                                        <span class="icon icon-edit icon-lg icon-fw"></span>
+                                                    </a>
+                                                </strong>
+                                            </td>
                                         </tr>
                                     }
                                 }
@@ -54,19 +76,25 @@
 @section Styles
 {
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css" />
-    <link rel="stylesheet" type="text/css" href="~/css/custom/ProductsDynamicTableStyles.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/custom/Rust/ProductsManagerDynamicTableStyles.css" asp-append-version="true" />
 }
 
 @section Scripts
 {
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-            crossorigin="anonymous"></script>
+            crossorigin="anonymous">
+    </script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
-
     <script>
         $(document).ready(function () {
-            $('#rustProductsTable').DataTable();
+            $('#rustProductsTable').DataTable({
+                "columnDefs": [
+                    { "orderable": false, "targets": 7 }
+                ]
+            });
         });
     </script>
+
+    <script src="~/js/customScripts/Rust/ProductManagerShowInShopHighLightRow.js" asp-append-version="true"></script>
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using EasyShop.Domain.Enums.Rust;
 using EasyShop.Domain.ViewModels.Shop.Rust;
 using EasyShop.Interfaces.Services.CP.Shop;
 using EasyShop.Interfaces.Services.CP.Shop.Rust;
@@ -25,6 +26,9 @@ namespace EasyShop.CP.UI.Controllers
             _httpContextAccessor = httpContextAccessor;
         }
 
+
+        #region Shop statis
+
         [HttpGet]
         public async Task<IActionResult> ShopStats(string shopId)
         {
@@ -38,8 +42,12 @@ namespace EasyShop.CP.UI.Controllers
             return View(model);
         }
 
+        #endregion Shop statis
+
+        #region Main settings
+
         [HttpGet]
-        public async Task<IActionResult> MainSettings(string shopId)
+        public async Task<IActionResult> EditMainSettings(string shopId)
         {
             var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(shopId));
 
@@ -52,24 +60,34 @@ namespace EasyShop.CP.UI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> MainSettings([FromForm] RustShopViewModel model)
+        public async Task<IActionResult> EditMainSettings([FromForm] RustShopViewModel model)
         {
             if (!ModelState.IsValid)
             {
                 var errors = ModelState.Values.SelectMany(x => x.Errors.Select(xx => xx.ErrorMessage)).ToList();
                 errors.ForEach(x => ModelState.AddModelError("", x));
+
+                var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(model.Id));
+                model.RustEditShopMainSettingsViewModel.Secret = shop.Secret;
+
+                model.RustEditShopMainSettingsViewModel.Status = RustEditMainSettingsResult.Failed;
                 return View(model);
             }
 
-            var result = await _rustShopService.UpdateShopAsync(model.RustShopMainSettingsViewModel);
+            var result = await _rustShopService.UpdateShopAsync(model.RustEditShopMainSettingsViewModel);
 
             if (result is null)
                 return RedirectToAction("SomethingWentWrong", "ControlPanel");
 
             model = result.CreateRustShopViewModel();
+            model.RustEditShopMainSettingsViewModel.Status = RustEditMainSettingsResult.Success;
 
             return View(model);
         }
+
+        #endregion Main settings
+
+        #region Categories
 
         [HttpGet]
         public async Task<IActionResult> CategoriesManager(string shopId)
@@ -81,7 +99,7 @@ namespace EasyShop.CP.UI.Controllers
 
             var model = shop.CreateRustShopViewModel();
 
-            var categories = _rustShopService.GetAllAssignedCategoriesToShopById(Guid.Parse(shopId));
+            var categories = _rustShopService.GetAllAssignedCategoriesToShopByShopId(Guid.Parse(shopId));
             var categoriesViewModelListTasks = categories
                 .Select(x => x.CreateRustCategoryViewModel(_rustShopService.GetAssignedUserItemsCountToACategoryInShop(x.Id, shop.Id)));
 
@@ -96,7 +114,7 @@ namespace EasyShop.CP.UI.Controllers
         [HttpGet("CreateCategory/{shopId}")]
         public async Task<IActionResult> CreateCategory(string shopId)
         {
-            return RedirectToAction("EditCategory", "RustShop", new {shopId = shopId});
+            return RedirectToAction("EditCategory", "RustShop", new { shopId = shopId });
         }
 
         [HttpGet]
@@ -130,6 +148,7 @@ namespace EasyShop.CP.UI.Controllers
             {
                 var errors = ModelState.Values.SelectMany(x => x.Errors.Select(xx => xx.ErrorMessage)).ToList();
                 errors.ForEach(x => ModelState.AddModelError("", x));
+                model.RustEditCategoryViewModel.Status = RustEditCategoryResult.Failed;
                 return View(model);
             }
 
@@ -138,6 +157,7 @@ namespace EasyShop.CP.UI.Controllers
             if (result is null)
                 return RedirectToAction("SomethingWentWrong", "ControlPanel");
 
+            model.RustEditCategoryViewModel.Status = RustEditCategoryResult.Success;
             return View(model);
         }
 
@@ -169,8 +189,12 @@ namespace EasyShop.CP.UI.Controllers
                 return RedirectToAction("SomethingWentWrong", "ControlPanel");
 
             var model = shop.CreateRustShopViewModel();
-            return View("MainSettings", model);
+            return View("EditMainSettings", model);
         }
+
+        #endregion Categories
+
+        #region Products
 
         [HttpGet]
         public async Task<IActionResult> ProductsManager(string shopId)
@@ -199,7 +223,8 @@ namespace EasyShop.CP.UI.Controllers
                     CategoryViewModel = x.RustCategory
                         .CreateRustCategoryViewModel(
                             _rustShopService.GetAssignedUserItemsCountToACategoryInShop(x.RustCategory.Id, Guid.Parse(shopId))),
-                    Discount = x.Discount
+                    Discount = x.Discount,
+                    ShopInShop = x.ShowInShop
                 };
 
                 return rustProductViewModel;
@@ -208,6 +233,57 @@ namespace EasyShop.CP.UI.Controllers
             return View(model);
         }
 
+        public async Task<IActionResult> EditProduct(string shopId, string productId)
+        {
+            var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(shopId));
+            var product = await _rustShopService.GetProductByIdAsync(Guid.Parse(productId));
 
+            if (shop is null || product is null)
+                return RedirectToAction("NotFoundPage", "Home");
+
+            var userCategories = _rustShopService.GetAllAssignedCategoriesToShopByShopId(Guid.Parse(shopId));
+
+            var model = shop.CreateRustShopViewModel();
+            model.RustEditProductViewModel = product.CreateRustEditProductViewModel(userCategories);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditProduct(RustShopViewModel model)
+        {
+            var userCategories = _rustShopService.GetAllAssignedCategoriesToShopByShopId(Guid.Parse(model.Id));
+            var product = await _rustShopService.GetProductByIdAsync(Guid.Parse(model.RustEditProductViewModel.Id));
+
+            if (!ModelState.IsValid)
+            {
+                var errors = ModelState.Values.SelectMany(x => x.Errors.Select(xx => xx.ErrorMessage)).ToList();
+                errors.ForEach(x => ModelState.AddModelError("", x));
+
+                model.RustEditProductViewModel = product.CreateRustEditProductViewModel(userCategories);
+                model.RustEditProductViewModel.Status = RustEditProductResult.Failed;
+
+                return View(model);
+            }
+
+            var result = await _rustShopService.UpdateRustProductAsync(model);
+
+            var updatedProduct = await _rustShopService.GetProductByIdAsync(Guid.Parse(model.RustEditProductViewModel.Id));
+            model.RustEditProductViewModel = updatedProduct.CreateRustEditProductViewModel(userCategories);
+
+            switch (result)
+            {
+                case RustEditProductResult.Success:
+                {
+                    model.RustEditProductViewModel.Status = RustEditProductResult.Success;
+                    return View(model);
+                }
+                case RustEditProductResult.NotFound: return RedirectToAction("NotFoundPage", "Home");
+
+                default: return RedirectToAction("SomethingWentWrong", "ControlPanel");
+            }
+        }
+
+        #endregion Products
     }
 }

@@ -1,0 +1,45 @@
+﻿textarea {
+    width: 100%;
+    max-width: 100%;
+    resize: vertical;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    height: 113px;
+    background-color: #333333;
+    border: 1px solid #1b1b1b;
+    outline: none;
+}
+
+div[class="datepicker datepicker-dropdown dropdown-menu datepicker-orient-left datepicker-orient-top"] {
+    display: table;
+}
+
+.rustProductImage {
+    display: flex;
+    justify-content: center;
+}
+
+rustProductBlockedTillDate {
+    display: flex;
+    flex-direction: column;
+}
+
+    rustProductBlockedTillDate > label {
+        text-align: left;
+    }
+
+    rustProductBlockedTillDate > div {
+        display: flex
+    }
+
+        rustProductBlockedTillDate > div > input {
+            max-width: calc(100% - 37px);
+        }
+
+.showInShopWrap {
+    display: flex;
+}
+
+    .showInShopWrap > label {
+        text-align: left;
+    }

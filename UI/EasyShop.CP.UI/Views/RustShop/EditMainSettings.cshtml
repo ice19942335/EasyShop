@@ -1,33 +1,34 @@
-﻿@model EasyShop.Domain.ViewModels.Shop.Rust.RustShopViewModel
+﻿@using EasyShop.Domain.Enums.Rust
+@using EasyShop.Domain.ViewModels.Shop.Rust
+@model EasyShop.Domain.ViewModels.Shop.Rust.RustShopViewModel
 @{
     ViewData["Title"] = "Edit Rust shop";
     Layout = "Partial/_RustEditLayout";
 }
 
 <div class="well text-center">
+    <h2>Main settings</h2>
     <div class="row">
-        <div class="col-md-8 col-md-offset-2 text-center">
-            <h2>Main settings</h2>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-10 col-lg-8">
+        <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
             <div class="demo-form-wrapper">
-                <form method="post" asp-area="" asp-controller="RustShop" asp-action="MainSettings">
-                    <input asp-for="RustShopMainSettingsViewModel.Id" type="hidden" />
+                <form method="post" asp-area="" asp-controller="RustShop" asp-action="EditMainSettings">
+                    <input asp-for="@Model.Id" type="hidden" />
+                    <input asp-for="@Model.ShopName" type="hidden" />
+                    <input asp-for="@Model.ShopTitle" type="hidden" />
+                    <input asp-for="RustEditShopMainSettingsViewModel.Id" type="hidden" />
                     <div asp-validation-summary="ModelOnly" class="alert alert-info"></div>
                     <div class="form-group">
                         <label class="pull-left">Shop name</label>
-                        <input asp-for="RustShopMainSettingsViewModel.ShopName" class="form-control" type="text">
+                        <input asp-for="RustEditShopMainSettingsViewModel.ShopName" class="form-control" type="text">
                     </div>
                     <div class="form-group m-b-n">
                         <label class="pull-left">Shop title</label>
-                        <input asp-for="RustShopMainSettingsViewModel.ShopTitle" class="form-control" type="text">
+                        <input asp-for="RustEditShopMainSettingsViewModel.ShopTitle" class="form-control" type="text">
                         <span class="help-block">It will be used on your website as a shop name.</span>
                     </div>
                     <div class="form-group">
                         <label class="pull-left">Start balance</label>
-                        <input asp-for="RustShopMainSettingsViewModel.StartBalance" class="form-control">
+                        <input asp-for="RustEditShopMainSettingsViewModel.StartBalance" class="form-control">
                         <span class="help-block">Input example (0.99 or 150.00)</span>
                     </div>
                     <div class="form-group">
@@ -37,7 +38,7 @@
                 <form class="m-b-md" asp-area="" asp-controller="ShopManager" asp-action="NewSecret" asp-route-shopId="@Model.Id">
                     <div class="form-group">
                         <div style="display: flex">
-                            <input asp-for="RustShopMainSettingsViewModel.Secret" class="form-control" disabled="">
+                            <input asp-for="RustEditShopMainSettingsViewModel.Secret" class="form-control" disabled="">
                             <button class="btn btn-primary" title="" data-container="body" data-placement="top" data-toggle="tooltip" type="submit" data-original-title="Get new secret">
                                 <span class="icon icon-refresh icon-fw"></span>
                             </button>
@@ -49,23 +50,23 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-10 col-lg-8 m-b-md">
+        <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
             <div>
                 <span id="confirmButton_setDefaultProducts">
-                    <button class="btn btn-warning btn-block" onclick="deleteConfirmationDialog('setDefaultProducts', true)">Set default categories and products</button>
+                    <button class="btn btn-warning btn-block m-b-md" onclick="deleteConfirmationDialog('setDefaultProducts', true)">Set default categories and products</button>
                 </span>
                 <span style="display: none" id="confirmSpan_setDefaultProducts">
                     <form style="display: inline;" method="get" asp-area="" asp-controller="RustShop" asp-action="SetDefaultCategoriesAndProducts" asp-route-shopId="@Model.Id">
                         <span>All existing products and categories in the shop will be deleted! Are you sure you want to do that?</span>
-                        <button style="max-width: fit-content; display: inline;" class="btn btn-success btn-block" type="submit">Yes</button>
+                        <button style="max-width: fit-content; display: inline;" class="btn btn-success btn-block m-b-md" type="submit">Yes</button>
                     </form>
-                    <button style="max-width: fit-content; display: inline;" class="btn btn-danger btn-block" onclick="deleteConfirmationDialog('setDefaultProducts', false)">No</button>
+                    <button style="max-width: fit-content; display: inline;" class="btn btn-danger btn-block m-b-md" onclick="deleteConfirmationDialog('setDefaultProducts', false)">No</button>
                 </span>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-10 col-lg-8">
+        <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
             <div>
                 <span id="confirmButton_@Model.Id">
                     <button class="btn btn-danger btn-block" onclick="deleteConfirmationDialog('@Model.Id', true)">Delet shop</button>
@@ -73,9 +74,9 @@
                 <span style="display: none" id="confirmSpan_@Model.Id">
                     <form style="display: inline;" method="get" asp-area="" asp-controller="ShopManager" asp-action="DeleteShop" asp-route-shopId="@Model.Id">
                         <span>This shop will be permanently deleted! You sure you want to do that?</span>
-                        <button style="max-width: fit-content; display: inline;" class="btn btn-success btn-block" type="submit">Yes</button>
+                        <button style="max-width: fit-content; display: inline;" class="btn btn-success btn-block m-b-md" type="submit">Yes</button>
                     </form>
-                    <button style="max-width: fit-content; display: inline;" class="btn btn-danger btn-block" onclick="deleteConfirmationDialog('@Model.Id', false)">No</button>
+                    <button style="max-width: fit-content; display: inline;" class="btn btn-danger btn-block m-b-md" onclick="deleteConfirmationDialog('@Model.Id', false)">No</button>
                 </span>
             </div>
         </div>
@@ -85,4 +86,18 @@
 @section Scripts
 {
     <script src="~/js/customScripts/DeleteConfirmationDialog.js" asp-append-version="true"></script>
+
+    @if (Model.RustEditShopMainSettingsViewModel.Status == RustEditMainSettingsResult.Success)
+    {
+        <script>
+            toastr.success('Settings updated.');
+        </script>
+    }
+    else if (Model.RustEditShopMainSettingsViewModel.Status == RustEditMainSettingsResult.Failed)
+    {
+        <script>
+            toastr.warning('Please, check all fields for correct values!');
+        </script>
+    }
 }
+

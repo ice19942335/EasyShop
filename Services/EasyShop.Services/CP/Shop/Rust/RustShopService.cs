@@ -6,6 +6,8 @@ using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Entries.Items.RustItems;
 using EasyShop.Domain.Entries.Shop;
+using EasyShop.Domain.Enums;
+using EasyShop.Domain.Enums.Rust;
 using EasyShop.Domain.ViewModels.Shop;
 using EasyShop.Domain.ViewModels.Shop.Rust;
 using EasyShop.Interfaces.Services.CP.Shop.Rust;
@@ -44,7 +46,7 @@ namespace EasyShop.Services.CP.Shop.Rust
         }
 
         #region Rust Shop
-        public async Task<bool> CreateShopAsync(CreateShopViewModel model)
+        public async Task<RustCreateShopResult> CreateShopAsync(CreateShopViewModel model)
         {
             var user = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
 
@@ -52,7 +54,7 @@ namespace EasyShop.Services.CP.Shop.Rust
 
             var userAllowedShops = int.Parse(_configuration["ShopsAllowed"]);
 
-            if (userAllowedShops > userShops.Count())
+            if (userShops.Count() < userAllowedShops)
             {
                 Guid secret;
                 do { secret = Guid.NewGuid(); } while (_context.Shops.FirstOrDefault(x => x.Secret == secret) != null);
@@ -95,18 +97,21 @@ namespace EasyShop.Services.CP.Shop.Rust
                             await _context.SaveChangesAsync();
                         }
 
-                        return true;
+                        return RustCreateShopResult.Success;
                     }
-                    catch
+                    catch (Exception e)
                     {
-                        return false;
+                        _context.Shops.Remove(newShop);
+                        _context.UserShops.Remove(userShop);
+                        await _context.SaveChangesAsync();
+                        return RustCreateShopResult.SomethingWentWrong;
                     }
                 }
 
-                return true;
+                return RustCreateShopResult.Success;
             }
 
-            return false;
+            return RustCreateShopResult.MaxShopLimitIsReached;
         }
 
         private async Task<IEnumerable<Domain.Entries.Shop.Shop>> UserShopsByUserEmailAsync(string userEmail)
@@ -134,7 +139,7 @@ namespace EasyShop.Services.CP.Shop.Rust
             return result;
         }
 
-        public async Task<Domain.Entries.Shop.Shop> UpdateShopAsync(RustShopMainSettingsViewModel model)
+        public async Task<Domain.Entries.Shop.Shop> UpdateShopAsync(RustEditShopMainSettingsViewModel model)
         {
             var shop = await GetShopByIdAsync(Guid.Parse(model.Id));
 
@@ -162,12 +167,12 @@ namespace EasyShop.Services.CP.Shop.Rust
         public async Task<bool> DeleteShopAsync(Guid shopId)
         {
             var userShop = _context.UserShops.FirstOrDefault(x => x.ShopId == shopId);
-            var shop = _context.Shops.FirstOrDefault(x => x.Id == shopId);
+            var shop = await GetShopByIdAsync(shopId);
 
             if (userShop is null || shop is null)
                 return false;
 
-            var allAssignedCategoriesToShop = GetAllAssignedCategoriesToShopById(shopId);
+            var allAssignedCategoriesToShop = GetAllAssignedCategoriesToShopByShopId(shopId);
 
             _context.RustCategories.RemoveRange(allAssignedCategoriesToShop);
             await _context.SaveChangesAsync();
@@ -183,7 +188,7 @@ namespace EasyShop.Services.CP.Shop.Rust
         #endregion
 
         #region Rust Category
-        public IEnumerable<RustCategory> GetAllAssignedCategoriesToShopById(Guid shopId)
+        public IEnumerable<RustCategory> GetAllAssignedCategoriesToShopByShopId(Guid shopId)
         {
             var categories = _context.RustCategories
                 .Include(x => x.AppUser)
@@ -304,8 +309,58 @@ namespace EasyShop.Services.CP.Shop.Rust
                 .Include(x => x.AppUser)
                 .Include(x => x.RustItem)
                 .Include(x => x.RustCategory)
-                .Where(x => x.Shop.Id == shopId);
+                .Where(x => x.Shop.Id == shopId)
+                .OrderBy(x => x.RustCategory.Index);
         }
+
+        public async Task<RustProduct> GetProductByIdAsync(Guid productId)
+        {
+            return _context.RustUserItems
+                    .Include(x => x.RustCategory)
+                    .Include(x => x.RustItem)
+                    .FirstOrDefault(x => x.Id == productId);
+        }
+
+        public async Task<RustEditProductResult> UpdateRustProductAsync(RustShopViewModel model)
+        {
+            var shop = await GetShopByIdAsync(Guid.Parse(model.Id));
+            var product =
+                _context.RustUserItems.FirstOrDefault(x => x.Id == Guid.Parse(model.RustEditProductViewModel.Id));
+
+            if (shop is null || product is null)
+                return RustEditProductResult.NotFound;
+
+            if (!model.RustEditProductViewModel.ShowInShop)
+            {
+                product.ShowInShop = false;
+                _context.RustUserItems.Update(product);
+                await _context.SaveChangesAsync();
+                return RustEditProductResult.Success;
+            }
+            else
+            {
+                product.ShowInShop = true;
+                product.Name = model.RustEditProductViewModel.Name;
+                product.Description = model.RustEditProductViewModel.Description;
+                product.Price = model.RustEditProductViewModel.Price;
+                product.Discount = model.RustEditProductViewModel.Discount;
+                product.Amount = model.RustEditProductViewModel.Amount;
+
+                if (model.RustEditProductViewModel.BlockedTill != null)
+                {
+                    var dateFromModel = model.RustEditProductViewModel.BlockedTill.Split('/');
+                    product.BlockedTill = new DateTime(int.Parse(dateFromModel[2]), int.Parse(dateFromModel[0]), int.Parse(dateFromModel[1]));
+                }
+                
+                if (model.RustEditProductViewModel.NewCategoryId != null)
+                    product.RustCategory = GetCategoryById(Guid.Parse(model.RustEditProductViewModel.NewCategoryId));
+
+                _context.RustUserItems.Update(product);
+                await _context.SaveChangesAsync();
+                return RustEditProductResult.Success;
+            }
+        }
+
         #endregion
 
         #region Private methods

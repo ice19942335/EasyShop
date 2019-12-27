@@ -9,18 +9,18 @@ namespace EasyShop.Services.Mappers.ViewModels.Rust
 
         public static RustShopViewModel CreateRustShopViewModel(this Shop shop)
         {
-            var model = shop.RustShopViewModel();
+            var model = shop.CopyToRustShopViewModel();
             return model;
         }
 
-        private static RustShopViewModel RustShopViewModel(this Shop shop)
+        private static RustShopViewModel CopyToRustShopViewModel(this Shop shop)
         {
             var model = new RustShopViewModel
             {
                 Id = shop.Id.ToString(),
                 ShopName = shop.ShopName,
                 ShopTitle = shop.ShopTitle,
-                RustShopMainSettingsViewModel = shop.CreateMainSettingsViewModel(),
+                RustEditShopMainSettingsViewModel = shop.CreateMainSettingsViewModel(),
                 RustEditCategoryViewModel = new RustEditCategoryViewModel()
             };
 

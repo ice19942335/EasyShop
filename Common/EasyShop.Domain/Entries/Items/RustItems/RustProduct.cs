@@ -37,10 +37,12 @@ namespace EasyShop.Domain.Entries.Items.RustItems
 
         public string Description { get; set; }
 
-        [Column(TypeName = "decimal(18, 2)")]
-        public decimal Discount { get; set; }
+        public int Discount { get; set; }
 
         public DateTime BlockedTill { get; set; }
+
+        [Required]
+        public bool ShowInShop { get; set; }
         #endregion
     }
 }

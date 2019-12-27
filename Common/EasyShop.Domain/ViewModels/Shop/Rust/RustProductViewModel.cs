@@ -27,5 +27,7 @@ namespace EasyShop.Domain.ViewModels.Shop.Rust
         public DateTime BlockedTill { get; set; }
 
         public RustCategoryViewModel CategoryViewModel { get; set; }
+
+        public bool ShopInShop { get; set; }
     }
 }

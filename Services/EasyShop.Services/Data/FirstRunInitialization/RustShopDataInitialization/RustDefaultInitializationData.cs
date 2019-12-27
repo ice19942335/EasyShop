@@ -28,7 +28,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 Index = 3,
                 AppUser = null,
-                Name = "WeaponAttachment"
+                Name = "Weapon Attachment"
             },
             new RustCategory
             {

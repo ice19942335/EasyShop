@@ -8,13 +8,13 @@ namespace EasyShop.Services.Mappers.ViewModels.Rust
 {
     public static class RustCategoryViewModelMapper
     {
-        public static RustCategoryViewModel CreateRustCategoryViewModel(this RustCategory category, int assignedItemsCount)
+        public static RustCategoryViewModel CreateRustCategoryViewModel(this RustCategory category, int? assignedItemsCount = null)
         {
             var model = category.CopyToCategoryRustShopViewModel(assignedItemsCount);
             return model;
         }
 
-        private static RustCategoryViewModel CopyToCategoryRustShopViewModel(this RustCategory category, int assignedItemsCount)
+        private static RustCategoryViewModel CopyToCategoryRustShopViewModel(this RustCategory category, int? assignedItemsCount = null)
         {
             var model = new RustCategoryViewModel
             {
