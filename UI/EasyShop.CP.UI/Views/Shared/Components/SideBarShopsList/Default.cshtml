@@ -2,11 +2,11 @@
 
 <li class="sidenav-item has-subnav">
     <a asp-area="" asp-controller="ShopManager" asp-action="ShopsManager" aria-haspopup="true">
-        <span class="sidenav-icon icon icon-briefcase"></span>
-        <span class="sidenav-label">UI Elements</span>
+        <span class="sidenav-icon icon icon-shopping-bag"></span>
+        <span class="sidenav-label">My Shops</span>
     </a>
     <ul class="sidenav-subnav collapse">
-        <li><a asp-area="" asp-controller="ShopManager" asp-action="ShopsManager">Shops manager</a></li>
+        <li><a asp-area="" asp-controller="ShopManager" asp-action="ShopsManager"><span style="color: #00aced;">Shops manager</span></a></li>
         @{
             foreach (var shop in Model.Shops)
             {
