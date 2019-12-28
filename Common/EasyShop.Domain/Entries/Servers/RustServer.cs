@@ -1,14 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using EasyShop.Domain.Entries.Base;
-using EasyShop.Domain.Entries.Base.Interfaces;
 
 namespace EasyShop.Domain.Entries.Servers
 {
-    [Table("Servers")]
-    public class Server : BaseEntity, INamedEntity
+    [Table("RustServers")]
+    public class RustServer
     {
+        public Guid Id { get; set; }
+
         [Required]
         public string Name { get; set; }
 
@@ -16,7 +17,7 @@ namespace EasyShop.Domain.Entries.Servers
         public string NameInShop { get; set; }
 
         [Required]
-        public string IndexInList { get; set; }
+        public int Index { get; set; }
 
         [Required]
         public string IpAddress { get; set; }
@@ -26,6 +27,10 @@ namespace EasyShop.Domain.Entries.Servers
 
         public string Map { get; set; }
 
-        public ICollection<ServerShop> ServerShops { get; set; }
+        [Required]
+        public bool ShowInShop { get; set; }
+
+
+        public ICollection<RustServerShop> RustServerShops { get; set; }
     }
 }

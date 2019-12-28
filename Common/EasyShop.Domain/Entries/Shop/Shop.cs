@@ -32,6 +32,6 @@ namespace EasyShop.Domain.Entries.Shop
 
         public ICollection<UserShop> UserShops { get; set; }
 
-        public ICollection<ServerShop> ServerShops { get; set; }
+        public ICollection<RustServerShop> RustServerShops { get; set; }
     }
 }

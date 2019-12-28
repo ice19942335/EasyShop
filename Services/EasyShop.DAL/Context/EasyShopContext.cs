@@ -26,8 +26,8 @@ namespace EasyShop.DAL.Context
         public DbSet<GameType> GameTypes { get; set; }
 
 
-        public DbSet<ServerShop> ServerShops { get; set; }
-        public DbSet<Server> Servers { get; set; }
+        public DbSet<RustServerShop> RustServerShops { get; set; }
+        public DbSet<RustServer> RustServers { get; set; }
 
 
         public DbSet<RustItem> RustItems { get; set; }
@@ -108,17 +108,17 @@ namespace EasyShop.DAL.Context
             //===================================================================
 
             //ServerShops -------------------------------------------------------
-            modelBuilder.Entity<ServerShop>()
+            modelBuilder.Entity<RustServerShop>()
                 .HasKey(x => new { x.ServerId, x.ShopId });
 
-            modelBuilder.Entity<ServerShop>()
+            modelBuilder.Entity<RustServerShop>()
                 .HasOne(x => x.Server)
-                .WithMany(x => x.ServerShops)
+                .WithMany(x => x.RustServerShops)
                 .HasForeignKey(x => x.ServerId);
 
-            modelBuilder.Entity<ServerShop>()
+            modelBuilder.Entity<RustServerShop>()
                 .HasOne(x => x.Shop)
-                .WithMany(x => x.ServerShops)
+                .WithMany(x => x.RustServerShops)
                 .HasForeignKey(x => x.ShopId);
             //===================================================================
 

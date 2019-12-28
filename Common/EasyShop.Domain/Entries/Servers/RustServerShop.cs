@@ -3,13 +3,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EasyShop.Domain.Entries.Servers
 {
-    [Table("ServerShops")]
-    public class ServerShop
+    [Table("RustServerShops")]
+    public class RustServerShop
     {
         public Guid ShopId { get; set; }
         public Shop.Shop Shop { get; set; }
 
-        public int ServerId { get; set; }
-        public Server Server { get; set; }
+
+        public Guid ServerId { get; set; }
+        public RustServer Server { get; set; }
+
     }
 }
