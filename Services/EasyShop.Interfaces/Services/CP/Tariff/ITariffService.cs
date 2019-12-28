@@ -6,9 +6,9 @@ namespace EasyShop.Interfaces.Services.CP.Tariff
 {
     public interface ITariffService
     {
-        Task<IEnumerable<Domain.Entries.Tariff.Tariff>> GetAllAsync();
+        IEnumerable<Domain.Entries.Tariff.Tariff> GetAll();
 
-        Task<EditTariffViewModel> GetByIdAsync(int id);
+        EditTariffViewModel GetById(int id);
 
         Task<EditTariffViewModel> CreateAsync(EditTariffViewModel model);
 

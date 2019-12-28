@@ -30,10 +30,10 @@ namespace EasyShop.CP.UI.Controllers
             _tariffOptionsService = tariffOptionsService;
         }
 
-        public async Task<IActionResult> TariffManager()
+        public IActionResult TariffManager()
         {
-            var tariffs = await _tariffService.GetAllAsync();
-            var tariffsOptions = await _tariffOptionDescriptionService.GetAllAsync();
+            var tariffs = _tariffService.GetAll();
+            var tariffsOptions = _tariffOptionDescriptionService.GetAll();
 
             var model = new TariffManagerViewModel
             {
@@ -59,16 +59,16 @@ namespace EasyShop.CP.UI.Controllers
         #region Tariff
 
         [HttpGet]
-        public async Task<IActionResult> EditTariff(int? id)
+        public IActionResult EditTariff(int? id)
         {
             if (id != null)
             {
-                var model = await _tariffService.GetByIdAsync((int)id);
+                var model = _tariffService.GetById((int)id);
                 if (model is null)
                     return View("SomethingWentWrong", "on getting tariff by id");
 
-                model.AllOptions = await _tariffOptionDescriptionService.GetAllAsync();
-                model.AssignedOptions = await _tariffOptionsService.GetAllOptionsAssignedToATariffByIdAsync((int)id);
+                model.AllOptions = _tariffOptionDescriptionService.GetAll();
+                model.AssignedOptions = _tariffOptionsService.GetAllOptionsAssignedToATariffById((int)id);
                 return View(model);
             }
 
@@ -97,8 +97,8 @@ namespace EasyShop.CP.UI.Controllers
                 return View("SomethingWentWrong", "on updating existing tariff");
 
 
-            tariffUpdated.AllOptions = await _tariffOptionDescriptionService.GetAllAsync();
-            tariffUpdated.AssignedOptions = await _tariffOptionsService.GetAllOptionsAssignedToATariffByIdAsync((int)model.Id);
+            tariffUpdated.AllOptions = _tariffOptionDescriptionService.GetAll();
+            tariffUpdated.AssignedOptions = _tariffOptionsService.GetAllOptionsAssignedToATariffById((int)model.Id);
             return View(tariffUpdated);
         }
 
@@ -117,11 +117,11 @@ namespace EasyShop.CP.UI.Controllers
         #region TariffOptionDescription
 
         [HttpGet]
-        public async Task<IActionResult> EditTariffOptionDescription(int? id)
+        public IActionResult EditTariffOptionDescription(int? id)
         {
             if (id != null)
             {
-                var model = await _tariffOptionDescriptionService.GetByIdAsync((int)id);
+                var model = _tariffOptionDescriptionService.GetById((int)id);
 
                 if (model is null)
                     return View("SomethingWentWrong", "on getting tariff option by id");
@@ -175,7 +175,7 @@ namespace EasyShop.CP.UI.Controllers
         {
             var result = await _tariffOptionsService.CreateAsync(tariffId, optionId);
 
-            var tariffModel = await _tariffService.GetByIdAsync(tariffId);
+            var tariffModel = _tariffService.GetById(tariffId);
 
             if (result is null)
                 return View("EditTariff", tariffModel);
@@ -187,7 +187,7 @@ namespace EasyShop.CP.UI.Controllers
         {
             var result = await _tariffOptionsService.DeleteAsync(tariffId, optionId);
 
-            var tariffModel = await _tariffService.GetByIdAsync(tariffId);
+            var tariffModel = _tariffService.GetById(tariffId);
 
             if (result is null)
                 return View("EditTariff", tariffModel);

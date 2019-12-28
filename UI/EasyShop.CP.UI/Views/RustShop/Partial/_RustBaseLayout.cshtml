@@ -1,4 +1,4 @@
-﻿@model EasyShop.Domain.ViewModels.Shop.Rust.RustShopViewModel
+﻿@model EasyShop.Domain.ViewModels.Rust.Shop.RustShopViewModel
 @{
     ViewData["Title"] = $"Rust shop {Model.ShopName}";
     Layout = "_ControlPanelLayout";
@@ -13,8 +13,8 @@
 
 
 @section Styles {
-    <link rel="stylesheet" href="~/css/profile.min.css" asp-append-version="true">
-    <link rel="stylesheet" href="~/css/custom/customStyles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/profile.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/custom/Rust/RustShopSettingNavBarStyles.css" asp-append-version="true" />
     @RenderSection("Styles", false)
 }
 

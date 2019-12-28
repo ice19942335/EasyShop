@@ -8,24 +8,25 @@
     <link rel="apple-touch-icon" sizes="180x180" href="~/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="~/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="~/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="~/manifest.json" asp-append-version="true">
+    <link rel="manifest" href="~/manifest.json">
     <link rel="mask-icon" href="~/safari-pinned-tab.svg" color="#00aced">
     <meta name="theme-color" content="#1b1b1b">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,700">
 
-    <environment include="Development">
-        <link rel="stylesheet" href="~/css/vendor.css" asp-append-version="true">
-        <link rel="stylesheet" href="~/css/elephant.css" asp-append-version="true">
-        <link rel="stylesheet" href="~/css/application.css" asp-append-version="true">
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true">
-    </environment>
+    <link rel="stylesheet" href="~/css/vendor.css" asp-append-version="true">
+
+    <link rel="stylesheet" href="~/css/elephant.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/custom/Override/override-elephant.css" asp-append-version="true">
+
+    <link rel="stylesheet" href="~/css/application.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/custom/Override/override-application.css" asp-append-version="true">
+
 
     @RenderSection("Styles", false)
 </head>
 <body>
     @RenderBody()
     @RenderSection("Scripts", false)
+    @await Html.PartialAsync("Partial/_GoogleAnalyticsObject");
 </body>
 </html>

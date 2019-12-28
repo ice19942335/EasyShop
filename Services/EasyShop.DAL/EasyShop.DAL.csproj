@@ -21,8 +21,18 @@
     <Compile Remove="Migrations\20191224172455_added_Index_To_RustCategory.Designer.cs" />
     <Compile Remove="Migrations\20191225150831_Added_Index_ToRustCategory_Removed_RustUserItemAmount_FromRustPurchasedItem.cs" />
     <Compile Remove="Migrations\20191225150831_Added_Index_ToRustCategory_Removed_RustUserItemAmount_FromRustPurchasedItem.Designer.cs" />
+    <Compile Remove="Migrations\20191225205430_Initialize.cs" />
+    <Compile Remove="Migrations\20191225205430_Initialize.Designer.cs" />
     <Compile Remove="Migrations\20191226130137_RustUserItems_DiscountTypeChangedTo_Int.cs" />
     <Compile Remove="Migrations\20191226130137_RustUserItems_DiscountTypeChangedTo_Int.Designer.cs" />
+    <Compile Remove="Migrations\20191226144746_RustTablesUpdated.cs" />
+    <Compile Remove="Migrations\20191226144746_RustTablesUpdated.Designer.cs" />
+    <Compile Remove="Migrations\20191228140842_Reconfigure_RustServerShops_RustServer.cs" />
+    <Compile Remove="Migrations\20191228140842_Reconfigure_RustServerShops_RustServer.Designer.cs" />
+    <Compile Remove="Migrations\20191228163811_Initialize_TariffsTables_ShopsTables_RustTables.cs" />
+    <Compile Remove="Migrations\20191228163811_Initialize_TariffsTables_ShopsTables_RustTables.Designer.cs" />
+    <Compile Remove="Migrations\20191228190712_Initialize_TariffsTables_ShopsTables_RustTables.cs" />
+    <Compile Remove="Migrations\20191228190712_Initialize_TariffsTables_ShopsTables_RustTables.Designer.cs" />
     <Compile Remove="Startup.cs" />
   </ItemGroup>
 

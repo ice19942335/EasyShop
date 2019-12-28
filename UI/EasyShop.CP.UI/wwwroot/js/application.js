@@ -183,44 +183,44 @@
       this[this.mediaQueryMatches() ? 'collapseSidenav' : 'expandSidenav']();
     },
     collapseSidenav: function collapseSidenav() {
-      var startEvent = $.Event('collapse-start');
+      // var startEvent = $.Event('collapse-start');
 
-      this.$layout.addClass(this.CssClasses.LAYOUT_SIDEBAR_COLLAPSED);
-      this.$sidenav.trigger(startEvent).hide();
+      // this.$layout.addClass(this.CssClasses.LAYOUT_SIDEBAR_COLLAPSED);
+      // this.$sidenav.trigger(startEvent).hide();
 
-      this.$sidenav.addClass(this.CssClasses.SIDENAV_COLLAPSED);
-      this.$sidenavBtn.addClass(this.CssClasses.COLLAPSED);
+      // this.$sidenav.addClass(this.CssClasses.SIDENAV_COLLAPSED);
+      // this.$sidenavBtn.addClass(this.CssClasses.COLLAPSED);
 
-      if (this.transitionTimeoutId) {
-        clearTimeout(this.transitionTimeoutId);
-      }
+      // if (this.transitionTimeoutId) {
+      //   clearTimeout(this.transitionTimeoutId);
+      // }
 
-      this.transitionTimeoutId = setTimeout(function () {
-        this.$sidenav.fadeIn(this.Constants.TRANSITION_DURATION).trigger('collapse-end');
-      }.bind(this), this.Constants.TRANSITION_DELAY);
+      // this.transitionTimeoutId = setTimeout(function () {
+      //   this.$sidenav.fadeIn(this.Constants.TRANSITION_DURATION).trigger('collapse-end');
+      // }.bind(this), this.Constants.TRANSITION_DELAY);
 
-      this.$sidenav.attr('aria-expanded', false);
-      this.$sidenavBtn.attr('aria-expanded', false).attr('title', 'Expand sidenav ( [ )');
+      // this.$sidenav.attr('aria-expanded', false);
+      // this.$sidenavBtn.attr('aria-expanded', false).attr('title', 'Expand sidenav ( [ )');
     },
     expandSidenav: function expandSidenav() {
-      var startEvent = $.Event('expand-start');
+      // var startEvent = $.Event('expand-start');
 
-      this.$layout.removeClass(this.CssClasses.LAYOUT_SIDEBAR_COLLAPSED);
-      this.$sidenav.trigger(startEvent).hide();
+      // this.$layout.removeClass(this.CssClasses.LAYOUT_SIDEBAR_COLLAPSED);
+      // this.$sidenav.trigger(startEvent).hide();
 
-      this.$sidenav.removeClass(this.CssClasses.SIDENAV_COLLAPSED);
-      this.$sidenavBtn.removeClass(this.CssClasses.COLLAPSED);
+      // this.$sidenav.removeClass(this.CssClasses.SIDENAV_COLLAPSED);
+      // this.$sidenavBtn.removeClass(this.CssClasses.COLLAPSED);
 
-      if (this.transitionTimeoutId) {
-        clearTimeout(this.transitionTimeoutId);
-      }
+      // if (this.transitionTimeoutId) {
+      //   clearTimeout(this.transitionTimeoutId);
+      // }
 
-      this.transitionTimeoutId = setTimeout(function () {
-        this.$sidenav.fadeIn(this.Constants.TRANSITION_DURATION).trigger('expand-end');
-      }.bind(this), this.Constants.TRANSITION_DELAY);
+      // this.transitionTimeoutId = setTimeout(function () {
+      //   this.$sidenav.fadeIn(this.Constants.TRANSITION_DURATION).trigger('expand-end');
+      // }.bind(this), this.Constants.TRANSITION_DELAY);
 
-      this.$sidenav.attr('aria-expanded', true);
-      this.$sidenavBtn.attr('aria-expanded', true).attr('title', 'Collapse sidenav ( [ )');
+      // this.$sidenav.attr('aria-expanded', true);
+      // this.$sidenavBtn.attr('aria-expanded', true).attr('title', 'Collapse sidenav ( [ )');
     },
     toggleSidenav: function toggleSidenav() {
       this[this.isSidenavCollapsed() ? 'expandSidenav' : 'collapseSidenav']();

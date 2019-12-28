@@ -9,6 +9,8 @@ using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.ViewModels.Account;
 using EasyShop.Interfaces.Email;
 using EasyShop.Interfaces.Services.CP;
+using EasyShop.Interfaces.Services.CP.Account;
+using EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization;
 using EasyShop.Services.Email;
 using EasyShop.Services.ExtensionMethods;
 using EasyShop.Services.Files;
@@ -77,6 +79,8 @@ namespace EasyShop.Services.CP.Account
                 if (creationResult.Succeeded)
                 {
                     _logger.LogInformation($"User: {model.Email} successfully registered in system.");
+
+                    await _userManager.AddToRoleAsync(user, DefaultIdentity.RoleUser);
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     var callbackUrl = url.Action(

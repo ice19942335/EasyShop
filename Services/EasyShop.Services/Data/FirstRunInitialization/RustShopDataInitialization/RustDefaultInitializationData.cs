@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using EasyShop.Domain.Entries.Items.RustItems;
+using EasyShop.Domain.Entries.Rust;
 
 namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitialization
 {

@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using EasyShop.Domain.Entries.GameType;
 using EasyShop.Domain.Entries.Identity;
-using EasyShop.Domain.Entries.Items.RustItems;
-using EasyShop.Domain.Entries.Servers;
+using EasyShop.Domain.Entries.Rust;
 using EasyShop.Domain.Entries.Shop;
 using EasyShop.Domain.Entries.Tariff;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -26,15 +25,13 @@ namespace EasyShop.DAL.Context
         public DbSet<GameType> GameTypes { get; set; }
 
 
-        public DbSet<ServerShop> ServerShops { get; set; }
-        public DbSet<Server> Servers { get; set; }
-
-
+        public DbSet<RustServer> RustServers { get; set; }
         public DbSet<RustItem> RustItems { get; set; }
         public DbSet<RustItemType> RustItemTypes { get; set; }
         public DbSet<RustProduct> RustUserItems { get; set; }
         public DbSet<RustCategory> RustCategories { get; set; }
         public DbSet<RustPurchasedItem> RustPurchasedItems { get; set; }
+        public DbSet<RustServerMap> RustMaps { get; set; }
 
         public DbSet<RustUser> RustUsers { get; set; }
 
@@ -106,22 +103,6 @@ namespace EasyShop.DAL.Context
                 .WithMany(x => x.UserShops)
                 .HasForeignKey(x => x.AppUserId);
             //===================================================================
-
-            //ServerShops -------------------------------------------------------
-            modelBuilder.Entity<ServerShop>()
-                .HasKey(x => new { x.ServerId, x.ShopId });
-
-            modelBuilder.Entity<ServerShop>()
-                .HasOne(x => x.Server)
-                .WithMany(x => x.ServerShops)
-                .HasForeignKey(x => x.ServerId);
-
-            modelBuilder.Entity<ServerShop>()
-                .HasOne(x => x.Shop)
-                .WithMany(x => x.ServerShops)
-                .HasForeignKey(x => x.ShopId);
-            //===================================================================
-
             #endregion
         }
     }

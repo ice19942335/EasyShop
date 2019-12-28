@@ -8,7 +8,7 @@ namespace EasyShop.Interfaces.Services.CP.Tariff
 {
     public interface ITariffOptionsService
     {
-        Task<IEnumerable<TariffOptionDescription>> GetAllOptionsAssignedToATariffByIdAsync(int tariffId);
+        IEnumerable<TariffOptionDescription> GetAllOptionsAssignedToATariffById(int tariffId);
 
         Task<TariffOption> CreateAsync(int tariffId, int optionDescriptionId);
 

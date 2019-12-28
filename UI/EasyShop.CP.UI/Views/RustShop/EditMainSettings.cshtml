@@ -1,6 +1,5 @@
 ﻿@using EasyShop.Domain.Enums.Rust
-@using EasyShop.Domain.ViewModels.Shop.Rust
-@model EasyShop.Domain.ViewModels.Shop.Rust.RustShopViewModel
+@model EasyShop.Domain.ViewModels.Rust.Shop.RustShopViewModel
 @{
     ViewData["Title"] = "Edit Rust shop";
     Layout = "Partial/_RustEditLayout";
@@ -15,20 +14,20 @@
                     <input asp-for="@Model.Id" type="hidden" />
                     <input asp-for="@Model.ShopName" type="hidden" />
                     <input asp-for="@Model.ShopTitle" type="hidden" />
-                    <input asp-for="RustEditShopMainSettingsViewModel.Id" type="hidden" />
+                    <input asp-for="RustShopEditMainSettingsViewModel.Id" type="hidden" />
                     <div asp-validation-summary="ModelOnly" class="alert alert-info"></div>
                     <div class="form-group">
                         <label class="pull-left">Shop name</label>
-                        <input asp-for="RustEditShopMainSettingsViewModel.ShopName" class="form-control" type="text">
+                        <input asp-for="RustShopEditMainSettingsViewModel.ShopName" class="form-control" type="text">
                     </div>
                     <div class="form-group m-b-n">
                         <label class="pull-left">Shop title</label>
-                        <input asp-for="RustEditShopMainSettingsViewModel.ShopTitle" class="form-control" type="text">
+                        <input asp-for="RustShopEditMainSettingsViewModel.ShopTitle" class="form-control" type="text">
                         <span class="help-block">It will be used on your website as a shop name.</span>
                     </div>
                     <div class="form-group">
                         <label class="pull-left">Start balance</label>
-                        <input asp-for="RustEditShopMainSettingsViewModel.StartBalance" class="form-control">
+                        <input asp-for="RustShopEditMainSettingsViewModel.StartBalance" class="form-control">
                         <span class="help-block">Input example (0.99 or 150.00)</span>
                     </div>
                     <div class="form-group">
@@ -38,7 +37,7 @@
                 <form class="m-b-md" asp-area="" asp-controller="ShopManager" asp-action="NewSecret" asp-route-shopId="@Model.Id">
                     <div class="form-group">
                         <div style="display: flex">
-                            <input asp-for="RustEditShopMainSettingsViewModel.Secret" class="form-control" disabled="">
+                            <input asp-for="RustShopEditMainSettingsViewModel.Secret" class="form-control" disabled="">
                             <button class="btn btn-primary" title="" data-container="body" data-placement="top" data-toggle="tooltip" type="submit" data-original-title="Get new secret">
                                 <span class="icon icon-refresh icon-fw"></span>
                             </button>
@@ -87,13 +86,13 @@
 {
     <script src="~/js/customScripts/DeleteConfirmationDialog.js" asp-append-version="true"></script>
 
-    @if (Model.RustEditShopMainSettingsViewModel.Status == RustEditMainSettingsResult.Success)
+    @if (Model.RustShopEditMainSettingsViewModel.Status == RustEditMainSettingsResult.Success)
     {
         <script>
-            toastr.success('Settings updated.');
+            toastr.success('Main settings updated');
         </script>
     }
-    else if (Model.RustEditShopMainSettingsViewModel.Status == RustEditMainSettingsResult.Failed)
+    else if (Model.RustShopEditMainSettingsViewModel.Status == RustEditMainSettingsResult.Failed)
     {
         <script>
             toastr.warning('Please, check all fields for correct values!');

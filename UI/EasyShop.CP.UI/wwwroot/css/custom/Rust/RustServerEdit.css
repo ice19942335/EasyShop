@@ -1,0 +1,7 @@
+﻿.showInShopWrap {
+    display: flex;
+}
+
+.showInShopWrap > label {
+    text-align: left;
+}

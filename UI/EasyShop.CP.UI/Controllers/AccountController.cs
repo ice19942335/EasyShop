@@ -5,6 +5,7 @@ using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.ViewModels.Account;
 using EasyShop.Interfaces.Email;
 using EasyShop.Interfaces.Services.CP;
+using EasyShop.Interfaces.Services.CP.Account;
 using EasyShop.Services.Files;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;

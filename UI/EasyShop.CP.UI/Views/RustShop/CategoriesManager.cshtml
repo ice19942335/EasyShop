@@ -1,13 +1,16 @@
-﻿@model EasyShop.Domain.ViewModels.Shop.Rust.RustShopViewModel
+﻿@model EasyShop.Domain.ViewModels.Rust.Shop.RustShopViewModel
 @{
     ViewData["Title"] = "Edit rust Shop";
     Layout = "Partial/_RustEditLayout";
 }
 
 <div class="well text-center">
+    <h2>Categories</h2>
     <div class="row">
-        <div class="col-md-8 col-md-offset-2 text-center">
-            <h2>Categories</h2>
+        <div class="col-md-4">
+            <form method="get" asp-area="" asp-controller="RustShop" asp-action="CreateCategory" asp-route-shopId="@Model.Id">
+                <button class="btn btn-primary btn-block" type="submit">Add category</button>
+            </form>
         </div>
     </div>
     <div class="row">
@@ -17,7 +20,7 @@
                     <table class="table table-responsive table-center">
                         <thead>
                             <tr>
-                                <th>Id</th>
+                                <th>#</th>
                                 <th>Name</th>
                                 <th>Items in category</th>
                                 <th>Edit</th>

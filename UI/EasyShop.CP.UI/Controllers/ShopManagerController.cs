@@ -7,10 +7,9 @@ using EasyShop.Domain.Entries.Shop;
 using EasyShop.Domain.Enums;
 using EasyShop.Domain.Enums.Rust;
 using EasyShop.Domain.StaticEntities.GameTypes;
+using EasyShop.Domain.ViewModels.Rust.Shop;
 using EasyShop.Domain.ViewModels.Shop;
-using EasyShop.Domain.ViewModels.Shop.Rust;
-using EasyShop.Interfaces.Services.CP.Shop;
-using EasyShop.Interfaces.Services.CP.Shop.Rust;
+using EasyShop.Interfaces.Services.CP.Rust.Shop;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -46,7 +45,7 @@ namespace EasyShop.CP.UI.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> CreateShop() => View(new CreateShopViewModel());
+        public IActionResult CreateShop() => View(new CreateShopViewModel());
 
         [HttpPost]
         public async Task<IActionResult> CreateShop(CreateShopViewModel model)
@@ -105,9 +104,9 @@ namespace EasyShop.CP.UI.Controllers
             return RedirectToAction("ShopsManager");
         }
 
-        public async Task<IActionResult> EditShopHandler(string shopId)
+        public IActionResult EditShopHandler(string shopId)
         {
-            var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(shopId));
+            var shop = _shopManager.GetShopById(Guid.Parse(shopId));
 
             if (shop is null)
                 return RedirectToAction("NotFoundPage", "Home");

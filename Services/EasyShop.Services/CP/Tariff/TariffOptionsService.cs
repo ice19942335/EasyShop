@@ -19,7 +19,7 @@ namespace EasyShop.Services.CP.Tariff
             _context = context;
         }
 
-        public async Task<IEnumerable<TariffOptionDescription>> GetAllOptionsAssignedToATariffByIdAsync(int tariffId)
+        public IEnumerable<TariffOptionDescription> GetAllOptionsAssignedToATariffById(int tariffId)
         {
             var query = from tariffOption in _context.TariffOptions
                         join optionDescription in _context.TariffOptionsDescriptions on tariffOption.TariffOptionDescriptionId equals optionDescription.Id
