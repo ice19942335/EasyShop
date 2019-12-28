@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
   font-family: sans-serif;
@@ -9471,9 +9471,7 @@ select.md-form-control option {
   position: relative;
 }
 .navbar-brand-logo {
-  position: relative;
-  bottom: 15px;
-  /* height: 20px; */
+  height: 20px;
   width: auto;
 }
 .navbar-toggler {
