@@ -9,6 +9,7 @@ using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.ViewModels.Account;
 using EasyShop.Interfaces.Email;
 using EasyShop.Interfaces.Services.CP;
+using EasyShop.Interfaces.Services.CP.Account;
 using EasyShop.Services.Email;
 using EasyShop.Services.ExtensionMethods;
 using EasyShop.Services.Files;

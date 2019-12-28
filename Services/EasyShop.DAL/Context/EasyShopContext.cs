@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using EasyShop.Domain.Entries.GameType;
 using EasyShop.Domain.Entries.Identity;
-using EasyShop.Domain.Entries.Items.RustItems;
-using EasyShop.Domain.Entries.Servers;
+using EasyShop.Domain.Entries.Rust;
 using EasyShop.Domain.Entries.Shop;
 using EasyShop.Domain.Entries.Tariff;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -26,7 +25,6 @@ namespace EasyShop.DAL.Context
         public DbSet<GameType> GameTypes { get; set; }
 
 
-        public DbSet<RustServerShop> RustServerShops { get; set; }
         public DbSet<RustServer> RustServers { get; set; }
 
 
@@ -106,22 +104,6 @@ namespace EasyShop.DAL.Context
                 .WithMany(x => x.UserShops)
                 .HasForeignKey(x => x.AppUserId);
             //===================================================================
-
-            //ServerShops -------------------------------------------------------
-            modelBuilder.Entity<RustServerShop>()
-                .HasKey(x => new { x.ServerId, x.ShopId });
-
-            modelBuilder.Entity<RustServerShop>()
-                .HasOne(x => x.Server)
-                .WithMany(x => x.RustServerShops)
-                .HasForeignKey(x => x.ServerId);
-
-            modelBuilder.Entity<RustServerShop>()
-                .HasOne(x => x.Shop)
-                .WithMany(x => x.RustServerShops)
-                .HasForeignKey(x => x.ShopId);
-            //===================================================================
-
             #endregion
         }
     }

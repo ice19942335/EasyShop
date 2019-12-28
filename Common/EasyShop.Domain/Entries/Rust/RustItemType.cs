@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EasyShop.Domain.Entries.Items.RustItems
+namespace EasyShop.Domain.Entries.Rust
 {
     [Table("RustItemTypes")]
     public class RustItemType

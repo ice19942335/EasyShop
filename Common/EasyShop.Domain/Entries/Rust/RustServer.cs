@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace EasyShop.Domain.Entries.Servers
+namespace EasyShop.Domain.Entries.Rust
 {
     [Table("RustServers")]
     public class RustServer
@@ -29,8 +29,5 @@ namespace EasyShop.Domain.Entries.Servers
 
         [Required]
         public bool ShowInShop { get; set; }
-
-
-        public ICollection<RustServerShop> RustServerShops { get; set; }
     }
 }

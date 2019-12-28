@@ -3,7 +3,7 @@ using EasyShop.Domain.Dto.CP.Account;
 using EasyShop.Domain.ViewModels.Account;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EasyShop.Interfaces.Services.CP
+namespace EasyShop.Interfaces.Services.CP.Account
 {
     public interface IAccountService
     {

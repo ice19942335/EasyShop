@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Security.Policy;
 using EasyShop.Domain.Entries.Identity;
 
-namespace EasyShop.Domain.Entries.Items.RustItems
+namespace EasyShop.Domain.Entries.Rust
 {
     [Table("RustPurchasedItems")]
     public class RustPurchasedItem

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Identity;
-using EasyShop.Domain.Entries.Items.RustItems;
+using EasyShop.Domain.Entries.Rust;
 
 namespace EasyShop.Interfaces.Services.CP.Shop.Rust
 {

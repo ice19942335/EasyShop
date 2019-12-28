@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
-using EasyShop.Domain.Entries.Items.RustItems;
+using EasyShop.Domain.Entries.Rust;
 using EasyShop.Domain.Entries.Shop;
 using EasyShop.Domain.Enums;
 using EasyShop.Domain.Enums.Rust;

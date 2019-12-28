@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
-using EasyShop.Domain.Entries.Items.RustItems;
 
 namespace EasyShop.Domain.Entries.Identity
 {

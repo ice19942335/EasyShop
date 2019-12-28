@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Identity;
-using EasyShop.Domain.Entries.Items.RustItems;
+using EasyShop.Domain.Entries.Rust;
 using EasyShop.Domain.Enums;
 using EasyShop.Domain.Enums.Rust;
 using EasyShop.Domain.ViewModels.Shop;

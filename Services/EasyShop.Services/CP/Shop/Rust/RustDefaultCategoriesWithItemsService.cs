@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
-using EasyShop.Domain.Entries.Items.RustItems;
+using EasyShop.Domain.Entries.Rust;
 using EasyShop.Interfaces.Services.CP.Shop.Rust;
 
 namespace EasyShop.Services.CP.Shop.Rust

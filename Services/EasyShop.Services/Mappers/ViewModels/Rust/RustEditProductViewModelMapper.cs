@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using EasyShop.Domain.Entries.Items.RustItems;
+using EasyShop.Domain.Entries.Rust;
 using EasyShop.Domain.ViewModels.Shop.Rust;
 
 namespace EasyShop.Services.Mappers.ViewModels.Rust
