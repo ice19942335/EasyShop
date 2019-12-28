@@ -4,7 +4,9 @@ using System.Threading.Tasks;
 using EasyShop.Domain.Enums.Rust;
 using EasyShop.Domain.ViewModels.Rust.Category;
 using EasyShop.Domain.ViewModels.Rust.Product;
+using EasyShop.Domain.ViewModels.Rust.Server;
 using EasyShop.Domain.ViewModels.Rust.Shop;
+using EasyShop.Interfaces.Services.CP.Rust.Server;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
 using EasyShop.Services.Mappers.ViewModels.Rust;
 using Microsoft.AspNetCore.Authorization;
@@ -19,12 +21,17 @@ namespace EasyShop.CP.UI.Controllers
         private readonly IShopManager _shopManager;
         private readonly IRustShopService _rustShopService;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IRustServerService _rustServerService;
 
-        public RustShopController(IShopManager shopManager, IRustShopService rustShopService, IHttpContextAccessor httpContextAccessor)
+        public RustShopController(IShopManager shopManager, 
+            IRustShopService rustShopService, 
+            IHttpContextAccessor httpContextAccessor,
+            IRustServerService rustServerService)
         {
             _shopManager = shopManager;
             _rustShopService = rustShopService;
             _httpContextAccessor = httpContextAccessor;
+            _rustServerService = rustServerService;
         }
 
 
@@ -308,7 +315,16 @@ namespace EasyShop.CP.UI.Controllers
             if (shop is null)
                 return RedirectToAction("NotFoundPage", "Home");
 
-            throw new NotImplementedException();
+            var shopServers = _rustServerService.GetAllShopServersById(Guid.Parse(shopId));
+
+            var model = shop.CreateRustShopViewModel();
+
+            model.RustServerManagerViewModel = new RustServerManagerViewModel
+            {
+                RustServers = shopServers.Select(x => x.CreateRustServerViewModel())
+            };
+
+            return View(model);
         }
 
         #endregion Servers

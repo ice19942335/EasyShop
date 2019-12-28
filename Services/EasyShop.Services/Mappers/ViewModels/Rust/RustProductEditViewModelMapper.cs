@@ -7,7 +7,7 @@ using EasyShop.Domain.ViewModels.Rust.Product;
 
 namespace EasyShop.Services.Mappers.ViewModels.Rust
 {
-    public static class RustEditProductViewModelMapper
+    public static class RustProductEditViewModelMapper
     {
         public static RustProductEditViewModel CreateRustEditProductViewModel(this RustProduct product, IEnumerable<RustCategory> userCategories)
         {

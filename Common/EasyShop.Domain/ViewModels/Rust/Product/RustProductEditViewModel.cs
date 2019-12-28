@@ -15,7 +15,7 @@ namespace EasyShop.Domain.ViewModels.Rust.Product
 
         public string Description { get; set; }
 
-        [RegularExpression("^[0-9]*\\.[0-9]{2}$", ErrorMessage = "Please enter correct value, example (0.99 or 150.00)")]
+        [RegularExpression("^[0-9]*\\.[0-9]{2}$", ErrorMessage = "Please enter a correct value, for example (0.99 or 150.00)")]
         public decimal Price { get; set; }
 
         public int Discount { get; set; }
@@ -23,7 +23,7 @@ namespace EasyShop.Domain.ViewModels.Rust.Product
         [Required]
         public int Amount { get; set; }
 
-        [RegularExpression("^[0-9]{1,2}/[0-9]{1,2}/[0-9]{4}$", ErrorMessage = "Please enter correct value, example (1/1/2000 or 11/12/2000), no need zero's")]
+        [RegularExpression("^[0-9]{1,2}/[0-9]{1,2}/[0-9]{4}$", ErrorMessage = "Please enter a correct value, for example (1/1/2000 or 11/12/2000), no need zero's")]
         public string BlockedTill { get; set; }
 
         public string CurrentCategoryName { get; set; }

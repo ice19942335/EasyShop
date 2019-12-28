@@ -6,7 +6,7 @@ using EasyShop.Domain.ViewModels.Rust.Shop;
 
 namespace EasyShop.Services.Mappers.ViewModels.Rust
 {
-    public static class MainSettingsRustShopViewModelMapper
+    public static class RustShopMainSettingsViewModelMapper
     {
         public static RustShopEditMainSettingsViewModel CreateMainSettingsViewModel(this Shop shop)
         {

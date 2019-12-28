@@ -1,5 +1,6 @@
 ﻿using EasyShop.Domain.ViewModels.Rust.Category;
 using EasyShop.Domain.ViewModels.Rust.Product;
+using EasyShop.Domain.ViewModels.Rust.Server;
 
 namespace EasyShop.Domain.ViewModels.Rust.Shop
 {
@@ -20,5 +21,7 @@ namespace EasyShop.Domain.ViewModels.Rust.Shop
         public RustProductsManagerViewModel RustProductsManagerViewModel { get; set; }
 
         public RustProductEditViewModel RustProductEditViewModel { get; set; }
+
+        public RustServerManagerViewModel RustServerManagerViewModel { get; set; }
     }
 }

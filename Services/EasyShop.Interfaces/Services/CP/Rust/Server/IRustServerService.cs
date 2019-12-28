@@ -14,6 +14,8 @@ namespace EasyShop.Interfaces.Services.CP.Rust.Server
 
         RustServer GetRustServerById(Guid serverId);
 
+        IEnumerable<RustServer> GetAllShopServersById(Guid shopId);
+
         Task<RustCreateServerResult> UpdateAsync(RustShopViewModel model);
 
         Task<bool> DeleteAsync(Guid serverId);

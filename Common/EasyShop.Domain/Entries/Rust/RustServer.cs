@@ -29,5 +29,8 @@ namespace EasyShop.Domain.Entries.Rust
 
         [Required]
         public bool ShowInShop { get; set; }
+
+
+        public Shop.Shop Shop { get; set; }
     }
 }
