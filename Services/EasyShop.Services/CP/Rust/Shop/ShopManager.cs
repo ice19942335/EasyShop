@@ -1,25 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
-using EasyShop.Domain.Entries.GameType;
 using EasyShop.Domain.Entries.Identity;
-using EasyShop.Domain.Entries.Shop;
-using EasyShop.Domain.ViewModels.Shop;
-using EasyShop.Domain.ViewModels.Shop.Rust;
-using EasyShop.Interfaces.Services.CP.Shop;
-using EasyShop.Interfaces.Services.CP.Shop.Rust;
-using EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitialization;
+using EasyShop.Interfaces.Services.CP.Rust.Data;
+using EasyShop.Interfaces.Services.CP.Rust.Shop;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace EasyShop.Services.CP.Shop
+namespace EasyShop.Services.CP.Rust.Shop
 {
     public class ShopManager : IShopManager
     {

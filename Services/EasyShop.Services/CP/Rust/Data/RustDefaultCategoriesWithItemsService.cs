@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Entries.Rust;
-using EasyShop.Interfaces.Services.CP.Shop.Rust;
+using EasyShop.Interfaces.Services.CP.Rust.Data;
 
-namespace EasyShop.Services.CP.Shop.Rust
+namespace EasyShop.Services.CP.Rust.Data
 {
     public class RustDefaultCategoriesWithItemsService : IRustDefaultCategoriesWithItemsService
     {

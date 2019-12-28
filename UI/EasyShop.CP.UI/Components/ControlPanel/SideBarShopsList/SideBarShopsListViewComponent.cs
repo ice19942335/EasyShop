@@ -6,7 +6,7 @@ using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Entries.Shop;
 using EasyShop.Domain.ViewModels.Shop;
-using EasyShop.Interfaces.Services.CP.Shop;
+using EasyShop.Interfaces.Services.CP.Rust.Shop;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;

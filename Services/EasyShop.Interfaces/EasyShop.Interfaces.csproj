@@ -12,4 +12,8 @@
     <ProjectReference Include="..\..\Common\EasyShop.Domain\EasyShop.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\CP\Rust\Server\" />
+  </ItemGroup>
+
 </Project>

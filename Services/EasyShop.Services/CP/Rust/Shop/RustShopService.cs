@@ -6,11 +6,11 @@ using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Entries.Rust;
 using EasyShop.Domain.Entries.Shop;
-using EasyShop.Domain.Enums;
 using EasyShop.Domain.Enums.Rust;
 using EasyShop.Domain.ViewModels.Shop;
 using EasyShop.Domain.ViewModels.Shop.Rust;
-using EasyShop.Interfaces.Services.CP.Shop.Rust;
+using EasyShop.Interfaces.Services.CP.Rust.Data;
+using EasyShop.Interfaces.Services.CP.Rust.Shop;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -18,7 +18,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Guid = System.Guid;
 
-namespace EasyShop.Services.CP.Shop.Rust
+namespace EasyShop.Services.CP.Rust.Shop
 {
     public class RustShopService : IRustShopService
     {
