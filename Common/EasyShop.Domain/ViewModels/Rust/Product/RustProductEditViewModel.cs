@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Security.Permissions;
-using System.Text;
 using EasyShop.Domain.Enums.Rust;
+using EasyShop.Domain.ViewModels.Rust.Category;
 
-namespace EasyShop.Domain.ViewModels.Shop.Rust
+namespace EasyShop.Domain.ViewModels.Rust.Product
 {
-    public class RustEditProductViewModel
+    public class RustProductEditViewModel
     {
         [Required]
         public string Id { get; set; }

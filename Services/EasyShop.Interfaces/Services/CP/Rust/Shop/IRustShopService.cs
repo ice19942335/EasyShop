@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Entries.Rust;
 using EasyShop.Domain.Enums.Rust;
+using EasyShop.Domain.ViewModels.Rust.Shop;
 using EasyShop.Domain.ViewModels.Shop;
-using EasyShop.Domain.ViewModels.Shop.Rust;
 
 namespace EasyShop.Interfaces.Services.CP.Rust.Shop
 {
@@ -13,7 +13,7 @@ namespace EasyShop.Interfaces.Services.CP.Rust.Shop
     {
         Task<RustCreateShopResult> CreateShopAsync(CreateShopViewModel model);
 
-        Task<Domain.Entries.Shop.Shop> UpdateShopAsync(RustEditShopMainSettingsViewModel model);
+        Task<Domain.Entries.Shop.Shop> UpdateShopAsync(RustShopEditMainSettingsViewModel model);
 
         IEnumerable<RustCategory> GetAllAssignedCategoriesToShopByShopId(Guid shopId);
 

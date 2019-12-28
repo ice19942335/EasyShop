@@ -17,8 +17,4 @@
     <ProjectReference Include="..\EasyShop.Interfaces\EasyShop.Interfaces.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="CP\Rust\Server\" />
-  </ItemGroup>
-
 </Project>

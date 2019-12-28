@@ -1,5 +1,5 @@
 ﻿@using EasyShop.Domain.Enums.Rust
-@model EasyShop.Domain.ViewModels.Shop.Rust.RustShopViewModel
+@model EasyShop.Domain.ViewModels.Rust.Shop.RustShopViewModel
 @{
     ViewData["Title"] = "EditCategory";
     Layout = "Partial/_RustEditLayout";
@@ -14,16 +14,16 @@
                     <input asp-for="@Model.Id" type="hidden" />
                     <input asp-for="@Model.ShopName" type="hidden" />
                     <input asp-for="@Model.ShopTitle" type="hidden" />
-                    <input asp-for="@Model.RustEditCategoryViewModel.Category.Id" type="hidden" />
+                    <input asp-for="@Model.RustCategoryEditViewModel.Category.Id" type="hidden" />
                     <div asp-validation-summary="ModelOnly" class="alert alert-info"></div>
                     <div class="form-group">
                         <label class="pull-left">Category index</label>
-                        <input asp-for="@Model.RustEditCategoryViewModel.Category.Index" class="form-control" type="number">
+                        <input asp-for="@Model.RustCategoryEditViewModel.Category.Index" class="form-control" type="number">
                         <span class="help-block">Smaller index make category higher in list</span>
                     </div>
                     <div class="form-group">
                         <label class="pull-left">Category name</label>
-                        <input asp-for="@Model.RustEditCategoryViewModel.Category.Name" class="form-control" type="text">
+                        <input asp-for="@Model.RustCategoryEditViewModel.Category.Name" class="form-control" type="text">
                     </div>
                     <div class="form-group">
                         <button class="btn btn-primary btn-block" type="submit">Save changes</button>
@@ -33,20 +33,20 @@
         </div>
     </div>
     @{
-        if (Model?.RustEditCategoryViewModel?.Category?.Id != null)
+        if (Model?.RustCategoryEditViewModel?.Category?.Id != null)
         {
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
                     <div>
-                        <span id="confirmButton_@Model.RustEditCategoryViewModel.Category.Id">
-                            <button class="btn btn-danger btn-block m-r-md" onclick="deleteConfirmationDialog('@Model.RustEditCategoryViewModel.Category.Id', true)">Delete category</button>
+                        <span id="confirmButton_@Model.RustCategoryEditViewModel.Category.Id">
+                            <button class="btn btn-danger btn-block m-r-md" onclick="deleteConfirmationDialog('@Model.RustCategoryEditViewModel.Category.Id', true)">Delete category</button>
                         </span>
-                        <span style="display: none" id="confirmSpan_@Model.RustEditCategoryViewModel.Category.Id">
-                            <form style="display: inline;" method="get" asp-area="" asp-controller="RustShop" asp-action="DeleteCategory" asp-route-shopId="@Model.Id" asp-route-categoryId="@Model.RustEditCategoryViewModel.Category.Id">
+                        <span style="display: none" id="confirmSpan_@Model.RustCategoryEditViewModel.Category.Id">
+                            <form style="display: inline;" method="get" asp-area="" asp-controller="RustShop" asp-action="DeleteCategory" asp-route-shopId="@Model.Id" asp-route-categoryId="@Model.RustCategoryEditViewModel.Category.Id">
                                 <span>Are you sure you want to delete?</span>
                                 <button style="max-width: fit-content; display: inline;" class="btn btn-success btn-block" type="submit">Yes</button>
                             </form>
-                            <button style="max-width: fit-content; display: inline;" class="btn btn-danger btn-block" onclick="deleteConfirmationDialog('@Model.RustEditCategoryViewModel.Category.Id', false)">No</button>
+                            <button style="max-width: fit-content; display: inline;" class="btn btn-danger btn-block" onclick="deleteConfirmationDialog('@Model.RustCategoryEditViewModel.Category.Id', false)">No</button>
                         </span>
                     </div>
                 </div>
@@ -59,19 +59,19 @@
 {
     <script src="~/js/customScripts/DeleteConfirmationDialog.js" asp-append-version="true"></script>
 
-    @if (Model.RustEditCategoryViewModel.Status == RustEditCategoryResult.Success)
+    @if (Model.RustCategoryEditViewModel.Status == RustEditCategoryResult.Success)
     {
         <script>
             toastr.success('Category updated.');
         </script>
     }
-    @if (Model.RustEditCategoryViewModel.Status == RustEditCategoryResult.Created)
+    @if (Model.RustCategoryEditViewModel.Status == RustEditCategoryResult.Created)
     {
         <script>
             toastr.success('Category created');
         </script>
     }
-    else if (Model.RustEditCategoryViewModel.Status == RustEditCategoryResult.Failed)
+    else if (Model.RustCategoryEditViewModel.Status == RustEditCategoryResult.Failed)
     {
         <script>
             toastr.warning('Please, check all fields for correct values!');

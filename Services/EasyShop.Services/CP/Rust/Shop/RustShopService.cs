@@ -7,8 +7,8 @@ using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Entries.Rust;
 using EasyShop.Domain.Entries.Shop;
 using EasyShop.Domain.Enums.Rust;
+using EasyShop.Domain.ViewModels.Rust.Shop;
 using EasyShop.Domain.ViewModels.Shop;
-using EasyShop.Domain.ViewModels.Shop.Rust;
 using EasyShop.Interfaces.Services.CP.Rust.Data;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
 using Microsoft.AspNetCore.Http;
@@ -139,7 +139,7 @@ namespace EasyShop.Services.CP.Rust.Shop
             return result;
         }
 
-        public async Task<Domain.Entries.Shop.Shop> UpdateShopAsync(RustEditShopMainSettingsViewModel model)
+        public async Task<Domain.Entries.Shop.Shop> UpdateShopAsync(RustShopEditMainSettingsViewModel model)
         {
             var shop = GetShopById(Guid.Parse(model.Id));
 
@@ -202,7 +202,7 @@ namespace EasyShop.Services.CP.Rust.Shop
 
         public async Task<(RustCategory, RustEditCategoryResult)> UpdateCategoryAsync(RustShopViewModel model)
         {
-            if (model.RustEditCategoryViewModel.Category.Id is null)
+            if (model.RustCategoryEditViewModel.Category.Id is null)
             {
                 var shop = GetShopById(Guid.Parse(model.Id));
 
@@ -213,7 +213,7 @@ namespace EasyShop.Services.CP.Rust.Shop
                 {
                     Id = Guid.NewGuid(),
                     Index = 1,
-                    Name = model.RustEditCategoryViewModel.Category.Name,
+                    Name = model.RustCategoryEditViewModel.Category.Name,
                     AppUser = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name),
                     Shop = shop
                 };
@@ -224,13 +224,13 @@ namespace EasyShop.Services.CP.Rust.Shop
                 return (newCategory, RustEditCategoryResult.Created);
             }
 
-            var category = GetCategoryById(Guid.Parse(model.RustEditCategoryViewModel.Category.Id));
+            var category = GetCategoryById(Guid.Parse(model.RustCategoryEditViewModel.Category.Id));
 
             if (category is null)
                 return (null, RustEditCategoryResult.Failed);
 
-            category.Index = model.RustEditCategoryViewModel.Category.Index;
-            category.Name = model.RustEditCategoryViewModel.Category.Name;
+            category.Index = model.RustCategoryEditViewModel.Category.Index;
+            category.Name = model.RustCategoryEditViewModel.Category.Name;
 
             _context.RustCategories.Update(category);
             await _context.SaveChangesAsync();
@@ -325,12 +325,12 @@ namespace EasyShop.Services.CP.Rust.Shop
         {
             var shop = GetShopById(Guid.Parse(model.Id));
             var product =
-                _context.RustUserItems.FirstOrDefault(x => x.Id == Guid.Parse(model.RustEditProductViewModel.Id));
+                _context.RustUserItems.FirstOrDefault(x => x.Id == Guid.Parse(model.RustProductEditViewModel.Id));
 
             if (shop is null || product is null)
                 return RustEditProductResult.NotFound;
 
-            if (!model.RustEditProductViewModel.ShowInShop)
+            if (!model.RustProductEditViewModel.ShowInShop)
             {
                 product.ShowInShop = false;
                 _context.RustUserItems.Update(product);
@@ -340,20 +340,20 @@ namespace EasyShop.Services.CP.Rust.Shop
             else
             {
                 product.ShowInShop = true;
-                product.Name = model.RustEditProductViewModel.Name;
-                product.Description = model.RustEditProductViewModel.Description;
-                product.Price = model.RustEditProductViewModel.Price;
-                product.Discount = model.RustEditProductViewModel.Discount;
-                product.Amount = model.RustEditProductViewModel.Amount;
+                product.Name = model.RustProductEditViewModel.Name;
+                product.Description = model.RustProductEditViewModel.Description;
+                product.Price = model.RustProductEditViewModel.Price;
+                product.Discount = model.RustProductEditViewModel.Discount;
+                product.Amount = model.RustProductEditViewModel.Amount;
 
-                if (model.RustEditProductViewModel.BlockedTill != null)
+                if (model.RustProductEditViewModel.BlockedTill != null)
                 {
-                    var dateFromModel = model.RustEditProductViewModel.BlockedTill.Split('/');
+                    var dateFromModel = model.RustProductEditViewModel.BlockedTill.Split('/');
                     product.BlockedTill = new DateTime(int.Parse(dateFromModel[2]), int.Parse(dateFromModel[0]), int.Parse(dateFromModel[1]));
                 }
                 
-                if (model.RustEditProductViewModel.NewCategoryId != null)
-                    product.RustCategory = GetCategoryById(Guid.Parse(model.RustEditProductViewModel.NewCategoryId));
+                if (model.RustProductEditViewModel.NewCategoryId != null)
+                    product.RustCategory = GetCategoryById(Guid.Parse(model.RustProductEditViewModel.NewCategoryId));
 
                 _context.RustUserItems.Update(product);
                 await _context.SaveChangesAsync();

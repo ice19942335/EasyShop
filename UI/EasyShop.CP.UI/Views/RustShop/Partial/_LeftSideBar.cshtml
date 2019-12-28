@@ -1,4 +1,4 @@
-﻿@model EasyShop.Domain.ViewModels.Shop.Rust.RustShopViewModel
+﻿@model EasyShop.Domain.ViewModels.Rust.Shop.RustShopViewModel
 
 <div class="row">
     <div class="col-lg-12">
@@ -12,8 +12,8 @@
             <a class="list-group-item" asp-area="" asp-controller="RustShop" asp-action="CategoriesManager" asp-route-shopId="@Model.Id">
                 Categories
             </a>
-            <a class="list-group-item" asp-area="" asp-controller="RustShop" asp-action="Cart">
-                Cart
+            <a class="list-group-item" asp-area="" asp-controller="RustShop" asp-action="ServersManager" asp-route-shopId="@Model.Id">
+                Shop servers
             </a>
             <a class="list-group-item" asp-area="" asp-controller="RustShop" asp-action="Players">
                 Players

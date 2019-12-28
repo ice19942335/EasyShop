@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Text;
 
-namespace EasyShop.Domain.ViewModels.Shop.Rust
+namespace EasyShop.Domain.ViewModels.Rust.Product
 {
     public class RustProductsManagerViewModel
     {

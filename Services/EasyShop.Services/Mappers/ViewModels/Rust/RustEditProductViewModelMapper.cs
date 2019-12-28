@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using EasyShop.Domain.Entries.Rust;
-using EasyShop.Domain.ViewModels.Shop.Rust;
+using EasyShop.Domain.ViewModels.Rust.Product;
 
 namespace EasyShop.Services.Mappers.ViewModels.Rust
 {
     public static class RustEditProductViewModelMapper
     {
-        public static RustEditProductViewModel CreateRustEditProductViewModel(this RustProduct product, IEnumerable<RustCategory> userCategories)
+        public static RustProductEditViewModel CreateRustEditProductViewModel(this RustProduct product, IEnumerable<RustCategory> userCategories)
         {
             var model = product.CopyToEditProductViewModel(userCategories);
             return model;
         }
 
-        private static RustEditProductViewModel CopyToEditProductViewModel(this RustProduct product, IEnumerable<RustCategory> userCategories)
+        private static RustProductEditViewModel CopyToEditProductViewModel(this RustProduct product, IEnumerable<RustCategory> userCategories)
         {
-            var model = new RustEditProductViewModel
+            var model = new RustProductEditViewModel
             {
                 Id = product.Id.ToString(),
                 Name = product.Name,

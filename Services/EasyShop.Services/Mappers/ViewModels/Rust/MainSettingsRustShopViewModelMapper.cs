@@ -2,21 +2,21 @@
 using System.Collections.Generic;
 using System.Text;
 using EasyShop.Domain.Entries.Shop;
-using EasyShop.Domain.ViewModels.Shop.Rust;
+using EasyShop.Domain.ViewModels.Rust.Shop;
 
 namespace EasyShop.Services.Mappers.ViewModels.Rust
 {
     public static class MainSettingsRustShopViewModelMapper
     {
-        public static RustEditShopMainSettingsViewModel CreateMainSettingsViewModel(this Shop shop)
+        public static RustShopEditMainSettingsViewModel CreateMainSettingsViewModel(this Shop shop)
         {
             var model = shop.CopyToMainSettingsRustShopViewModel();
             return model;
         }
 
-        private static RustEditShopMainSettingsViewModel CopyToMainSettingsRustShopViewModel(this Shop shop)
+        private static RustShopEditMainSettingsViewModel CopyToMainSettingsRustShopViewModel(this Shop shop)
         {
-            var model = new RustEditShopMainSettingsViewModel
+            var model = new RustShopEditMainSettingsViewModel
             {
                 Id = shop.Id.ToString(),
                 ShopName = shop.ShopName,

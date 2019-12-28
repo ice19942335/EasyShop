@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace EasyShop.Domain.ViewModels.Shop.Rust
+namespace EasyShop.Domain.ViewModels.Rust.Category
 {
     public class RustCategoryViewModel
     {

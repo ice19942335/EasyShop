@@ -1,10 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Data.Common;
-using System.Linq;
-using EasyShop.Domain.Entries.Base;
-using EasyShop.Domain.Enums.Rust;
+using EasyShop.Domain.ViewModels.Rust.Category;
 
-namespace EasyShop.Domain.ViewModels.Shop.Rust
+namespace EasyShop.Domain.ViewModels.Rust.Shop
 {
     public class RustShopCategoriesViewModel
     {
