@@ -28,14 +28,14 @@ namespace EasyShop.Interfaces.Services.CP.Shop.Rust
 
         Task<bool> DeleteShopAsync(Guid shopId);
 
-        Task<(List<RustCategory>, List<RustProduct>)> GetDefaultCategoriesWithProducts(AppUser user,
+        (List<RustCategory>, List<RustProduct>) GetDefaultCategoriesWithProducts(AppUser user,
             Domain.Entries.Shop.Shop shop);
 
         Task<bool> SetDefaultProductsAsync(Domain.Entries.Shop.Shop shop);
 
         IEnumerable<RustProduct> GetAllAssignedProductsToAShopByShopId(Guid shopId);
 
-        Task<RustProduct> GetProductByIdAsync(Guid productId);
+        RustProduct GetProductById(Guid productId);
 
         Task<RustEditProductResult> UpdateRustProductAsync(RustShopViewModel model);
     }

@@ -4,6 +4,7 @@ using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.ViewModels.User.UserData;
 using EasyShop.Domain.ViewModels.User.UserProfile;
 using EasyShop.Interfaces.Services.CP;
+using EasyShop.Interfaces.Services.CP.FileImage;
 using EasyShop.Services.Mappers.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;

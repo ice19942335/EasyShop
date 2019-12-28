@@ -16,9 +16,9 @@ namespace EasyShop.Services.CP.Tariff
 
         public TariffOptionDescriptionService(EasyShopContext context) => _context = context;
 
-        public async Task<IEnumerable<TariffOptionDescription>> GetAllAsync() => _context.TariffOptionsDescriptions;
+        public IEnumerable<TariffOptionDescription> GetAll() => _context.TariffOptionsDescriptions;
 
-        public async Task<TariffOptionDescriptionViewModel> GetByIdAsync(int id)
+        public TariffOptionDescriptionViewModel GetById(int id)
         {
             var tariffOptionDescription = _context.TariffOptionsDescriptions.FirstOrDefault(x => x.Id == id);
 

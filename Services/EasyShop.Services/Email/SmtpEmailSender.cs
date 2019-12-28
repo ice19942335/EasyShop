@@ -52,7 +52,7 @@ namespace EasyShop.Services.Email
                     await smtp.SendMailAsync(mail);
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 return false;
             }

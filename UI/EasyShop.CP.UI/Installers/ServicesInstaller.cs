@@ -1,6 +1,7 @@
 ﻿using EasyShop.Domain.Entries.Tariff;
 using EasyShop.Interfaces.Email;
 using EasyShop.Interfaces.Services.CP;
+using EasyShop.Interfaces.Services.CP.FileImage;
 using EasyShop.Interfaces.Services.CP.Shop;
 using EasyShop.Interfaces.Services.CP.Shop.Rust;
 using EasyShop.Interfaces.Services.CP.Tariff;

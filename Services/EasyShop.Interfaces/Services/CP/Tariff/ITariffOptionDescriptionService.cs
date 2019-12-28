@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using EasyShop.Domain.Entries.Tariff;
 using EasyShop.Domain.ViewModels.ControlPanel.Tariff;
 
 namespace EasyShop.Interfaces.Services.CP.Tariff
 {
     public interface ITariffOptionDescriptionService
     {
-        Task<IEnumerable<Domain.Entries.Tariff.TariffOptionDescription>> GetAllAsync();
+        IEnumerable<TariffOptionDescription> GetAll();
 
-        Task<TariffOptionDescriptionViewModel> GetByIdAsync(int id);
+        TariffOptionDescriptionViewModel GetById(int id);
 
         Task<TariffOptionDescriptionViewModel> CreateAsync(TariffOptionDescriptionViewModel model);
 

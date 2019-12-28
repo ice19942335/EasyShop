@@ -44,7 +44,7 @@ namespace EasyShop.Services.CP.Shop
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public string GetShopGameTypeById(Guid shopId) => GetShopByIdAsync(shopId).Result.GameType.Type;
+        public string GetShopGameTypeById(Guid shopId) => GetShopById(shopId).GameType.Type;
 
         public async Task<IEnumerable<Domain.Entries.Shop.Shop>> UserShopsByUserEmailAsync(string userEmail)
         {
@@ -71,7 +71,7 @@ namespace EasyShop.Services.CP.Shop
             return result;
         }
 
-        public async Task<Domain.Entries.Shop.Shop> GetShopByIdAsync(Guid shopId) =>
+        public Domain.Entries.Shop.Shop GetShopById(Guid shopId) =>
             _context.Shops.Include(x => x.GameType).FirstOrDefault(x => x.Id == shopId);
 
         public async Task<bool> NewSecretAsync(Guid shopId)

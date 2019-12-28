@@ -9,7 +9,7 @@ namespace EasyShop.Interfaces.Services.CP.Shop.Rust
 {
     public interface IRustDefaultCategoriesWithItemsService
     {
-        Task<(List<RustCategory>, List<RustProduct>)> CreateDefaultCategoriesWithItems(
+        (List<RustCategory>, List<RustProduct>) CreateDefaultCategoriesWithItems(
             AppUser user,
             Domain.Entries.Shop.Shop shop,
             List<RustCategory> defaultCategories,

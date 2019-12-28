@@ -12,7 +12,7 @@ namespace EasyShop.Services.CP.Shop.Rust
 {
     public class RustDefaultCategoriesWithItemsService : IRustDefaultCategoriesWithItemsService
     {
-        public async Task<(List<RustCategory>, List<RustProduct>)> CreateDefaultCategoriesWithItems(
+        public (List<RustCategory>, List<RustProduct>) CreateDefaultCategoriesWithItems(
             AppUser user,
             Domain.Entries.Shop.Shop shop,
             List<RustCategory> defaultCategories,

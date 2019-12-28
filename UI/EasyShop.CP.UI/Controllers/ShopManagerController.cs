@@ -46,7 +46,7 @@ namespace EasyShop.CP.UI.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> CreateShop() => View(new CreateShopViewModel());
+        public IActionResult CreateShop() => View(new CreateShopViewModel());
 
         [HttpPost]
         public async Task<IActionResult> CreateShop(CreateShopViewModel model)
@@ -105,9 +105,9 @@ namespace EasyShop.CP.UI.Controllers
             return RedirectToAction("ShopsManager");
         }
 
-        public async Task<IActionResult> EditShopHandler(string shopId)
+        public IActionResult EditShopHandler(string shopId)
         {
-            var shop = await _shopManager.GetShopByIdAsync(Guid.Parse(shopId));
+            var shop = _shopManager.GetShopById(Guid.Parse(shopId));
 
             if (shop is null)
                 return RedirectToAction("NotFoundPage", "Home");

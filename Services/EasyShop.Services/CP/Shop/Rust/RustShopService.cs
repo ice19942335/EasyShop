@@ -99,7 +99,7 @@ namespace EasyShop.Services.CP.Shop.Rust
 
                         return RustCreateShopResult.Success;
                     }
-                    catch (Exception e)
+                    catch
                     {
                         _context.Shops.Remove(newShop);
                         _context.UserShops.Remove(userShop);
@@ -141,7 +141,7 @@ namespace EasyShop.Services.CP.Shop.Rust
 
         public async Task<Domain.Entries.Shop.Shop> UpdateShopAsync(RustEditShopMainSettingsViewModel model)
         {
-            var shop = await GetShopByIdAsync(Guid.Parse(model.Id));
+            var shop = GetShopById(Guid.Parse(model.Id));
 
             if (shop is null)
                 return null;
@@ -167,7 +167,7 @@ namespace EasyShop.Services.CP.Shop.Rust
         public async Task<bool> DeleteShopAsync(Guid shopId)
         {
             var userShop = _context.UserShops.FirstOrDefault(x => x.ShopId == shopId);
-            var shop = await GetShopByIdAsync(shopId);
+            var shop = GetShopById(shopId);
 
             if (userShop is null || shop is null)
                 return false;
@@ -204,7 +204,7 @@ namespace EasyShop.Services.CP.Shop.Rust
         {
             if (model.RustEditCategoryViewModel.Category.Id is null)
             {
-                var shop = await GetShopByIdAsync(Guid.Parse(model.Id));
+                var shop = GetShopById(Guid.Parse(model.Id));
 
                 if (shop is null)
                     return (null, RustEditCategoryResult.Failed);
@@ -266,12 +266,12 @@ namespace EasyShop.Services.CP.Shop.Rust
             return result;
         }
 
-        public async Task<(List<RustCategory>, List<RustProduct>)> GetDefaultCategoriesWithProducts(AppUser user, Domain.Entries.Shop.Shop shop)
+        public (List<RustCategory>, List<RustProduct>) GetDefaultCategoriesWithProducts(AppUser user, Domain.Entries.Shop.Shop shop)
         {
             var defaultCategories = _context.RustCategories.Include(x => x.AppUser).Where(x => x.AppUser == null).ToList();
             var rustItems = _context.RustItems.ToList();
 
-            return await _rustDefaultCategoriesWithItemsService.CreateDefaultCategoriesWithItems(user, shop, defaultCategories, rustItems);
+            return _rustDefaultCategoriesWithItemsService.CreateDefaultCategoriesWithItems(user, shop, defaultCategories, rustItems);
         }
 
         public async Task<bool> SetDefaultProductsAsync(Domain.Entries.Shop.Shop shop)
@@ -299,7 +299,7 @@ namespace EasyShop.Services.CP.Shop.Rust
         private async Task<(List<RustCategory>, List<RustProduct>)?> SetDefaultProductsAsync(AppUser user, Domain.Entries.Shop.Shop shop)
         {
             await RemoveAllCategoriesAndItemsInShopAsync(shop);
-            return await GetDefaultCategoriesWithProducts(user, shop);
+            return GetDefaultCategoriesWithProducts(user, shop);
         }
 
         public IEnumerable<RustProduct> GetAllAssignedProductsToAShopByShopId(Guid shopId)
@@ -313,7 +313,7 @@ namespace EasyShop.Services.CP.Shop.Rust
                 .OrderBy(x => x.RustCategory.Index);
         }
 
-        public async Task<RustProduct> GetProductByIdAsync(Guid productId)
+        public RustProduct GetProductById(Guid productId)
         {
             return _context.RustUserItems
                     .Include(x => x.RustCategory)
@@ -323,7 +323,7 @@ namespace EasyShop.Services.CP.Shop.Rust
 
         public async Task<RustEditProductResult> UpdateRustProductAsync(RustShopViewModel model)
         {
-            var shop = await GetShopByIdAsync(Guid.Parse(model.Id));
+            var shop = GetShopById(Guid.Parse(model.Id));
             var product =
                 _context.RustUserItems.FirstOrDefault(x => x.Id == Guid.Parse(model.RustEditProductViewModel.Id));
 
@@ -370,7 +370,7 @@ namespace EasyShop.Services.CP.Shop.Rust
             await _context.SaveChangesAsync();
         }
 
-        private async Task<Domain.Entries.Shop.Shop> GetShopByIdAsync(Guid shopId) => _context.Shops.FirstOrDefault(x => x.Id == shopId);
+        private Domain.Entries.Shop.Shop GetShopById(Guid shopId) => _context.Shops.FirstOrDefault(x => x.Id == shopId);
         #endregion
     }
 }
