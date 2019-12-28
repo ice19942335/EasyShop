@@ -10,13 +10,11 @@ namespace EasyShop.Interfaces.Services.CP.Rust.Server
 {
     public interface IRustServerService
     {
-        Task<RustServer> CreateAsync(RustShopViewModel model);
+        Task<RustEditServerResult> UpdateAsync(RustShopViewModel model);
 
         RustServer GetRustServerById(Guid serverId);
 
         IEnumerable<RustServer> GetAllShopServersById(Guid shopId);
-
-        Task<RustCreateServerResult> UpdateAsync(RustShopViewModel model);
 
         Task<bool> DeleteAsync(Guid serverId);
     }

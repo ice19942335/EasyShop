@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-document.getElementById('ShowInShop').addEventListener("click", rustShopInShop);
+document.getElementById('ShowInShop').addEventListener("click", rustShowInShop);
 document.getElementById('demo-datepicker-2').addEventListener("input", checkInputMask);
 document.getElementById('demo-datepicker-2-btn').addEventListener("click", clearBlockedTillInputInput);
 document.getElementById('RustEditProductPriceInput').addEventListener("input", checkPriceInputIsCorrect);
@@ -14,7 +14,7 @@ if (showInShopToggle.value.toLowerCase() === "true") {
     editProductDiv.style.display = 'none';
 }
 
-function rustShopInShop(event) {
+function rustShowInShop(event) {
     let toggle = event.target;
     let editProductDiv = document.getElementById('EditProductDiv');
     if (toggle.value.toLowerCase() === "true") {

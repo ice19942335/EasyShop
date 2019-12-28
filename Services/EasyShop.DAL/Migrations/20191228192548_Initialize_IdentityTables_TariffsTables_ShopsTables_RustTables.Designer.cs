@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EasyShop.DAL.Migrations
 {
     [DbContext(typeof(EasyShopContext))]
-    [Migration("20191228163811_Initialize_TariffsTables_ShopsTables_RustTables")]
-    partial class Initialize_TariffsTables_ShopsTables_RustTables
+    [Migration("20191228192548_Initialize_IdentityTables_TariffsTables_ShopsTables_RustTables")]
+    partial class Initialize_IdentityTables_TariffsTables_ShopsTables_RustTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -325,9 +325,6 @@ namespace EasyShop.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Map")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -339,7 +336,10 @@ namespace EasyShop.DAL.Migrations
                     b.Property<int>("Port")
                         .HasColumnType("int");
 
-                    b.Property<Guid?>("ShopId")
+                    b.Property<Guid>("ServerMapId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("ShopId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("ShowInShop")
@@ -347,9 +347,26 @@ namespace EasyShop.DAL.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ServerMapId");
+
                     b.HasIndex("ShopId");
 
                     b.ToTable("RustServers");
+                });
+
+            modelBuilder.Entity("EasyShop.Domain.Entries.Rust.RustServerMap", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RustServerMaps");
                 });
 
             modelBuilder.Entity("EasyShop.Domain.Entries.Shop.Shop", b =>
@@ -663,9 +680,17 @@ namespace EasyShop.DAL.Migrations
 
             modelBuilder.Entity("EasyShop.Domain.Entries.Rust.RustServer", b =>
                 {
+                    b.HasOne("EasyShop.Domain.Entries.Rust.RustServerMap", "ServerMap")
+                        .WithMany()
+                        .HasForeignKey("ServerMapId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("EasyShop.Domain.Entries.Shop.Shop", "Shop")
                         .WithMany()
-                        .HasForeignKey("ShopId");
+                        .HasForeignKey("ShopId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("EasyShop.Domain.Entries.Shop.Shop", b =>

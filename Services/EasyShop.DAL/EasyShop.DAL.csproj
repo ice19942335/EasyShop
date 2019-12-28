@@ -29,6 +29,10 @@
     <Compile Remove="Migrations\20191226144746_RustTablesUpdated.Designer.cs" />
     <Compile Remove="Migrations\20191228140842_Reconfigure_RustServerShops_RustServer.cs" />
     <Compile Remove="Migrations\20191228140842_Reconfigure_RustServerShops_RustServer.Designer.cs" />
+    <Compile Remove="Migrations\20191228163811_Initialize_TariffsTables_ShopsTables_RustTables.cs" />
+    <Compile Remove="Migrations\20191228163811_Initialize_TariffsTables_ShopsTables_RustTables.Designer.cs" />
+    <Compile Remove="Migrations\20191228190712_Initialize_TariffsTables_ShopsTables_RustTables.cs" />
+    <Compile Remove="Migrations\20191228190712_Initialize_TariffsTables_ShopsTables_RustTables.Designer.cs" />
     <Compile Remove="Startup.cs" />
   </ItemGroup>
 

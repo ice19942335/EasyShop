@@ -32,7 +32,6 @@ namespace EasyShop.Domain.ViewModels.Rust.Product
 
         public IEnumerable<RustCategoryViewModel> RustCategories { get; set; }
 
-        [Required]
         public bool ShowInShop { get; set; }
 
         public string ImgUrl { get; set; }

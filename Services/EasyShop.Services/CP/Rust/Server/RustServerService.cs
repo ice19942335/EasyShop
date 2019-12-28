@@ -10,6 +10,7 @@ using EasyShop.Domain.ViewModels.Rust.Shop;
 using EasyShop.Interfaces.Services.CP.Rust.Server;
 using Microsoft.AspNetCore.Identity.UI.V3.Pages.Internal.Account;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query;
 
 namespace EasyShop.Services.CP.Rust.Server
 {
@@ -22,11 +23,6 @@ namespace EasyShop.Services.CP.Rust.Server
             _context = context;
         }
 
-        public Task<RustServer> CreateAsync(RustShopViewModel model)
-        {
-            throw new NotImplementedException();
-        }
-
         public RustServer GetRustServerById(Guid serverId)
         {
             throw new NotImplementedException();
@@ -34,10 +30,14 @@ namespace EasyShop.Services.CP.Rust.Server
 
         public IEnumerable<RustServer> GetAllShopServersById(Guid shopId)
         {
-            return _context.RustServers.Include(x => x.Shop).Where(x => x.Shop.Id == shopId);
+            return _context.RustServers
+                .Include(x => x.Shop)
+                .Include(x => x.ServerMap)
+                .Where(x => x.Shop.Id == shopId)
+                .OrderBy(x => x.Index);
         }
 
-        public Task<RustCreateServerResult> UpdateAsync(RustShopViewModel model)
+        public Task<RustEditServerResult> UpdateAsync(RustShopViewModel model)
         {
             throw new NotImplementedException();
         }

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EasyShop.DAL.Migrations
 {
-    public partial class Initialize_TariffsTables_ShopsTables_RustTables : Migration
+    public partial class Initialize_IdentityTables_TariffsTables_ShopsTables_RustTables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -80,6 +80,18 @@ namespace EasyShop.DAL.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_RustItemTypes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RustServerMaps",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    Name = table.Column<string>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RustServerMaps", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -361,19 +373,25 @@ namespace EasyShop.DAL.Migrations
                     Index = table.Column<int>(nullable: false),
                     IpAddress = table.Column<string>(nullable: false),
                     Port = table.Column<int>(nullable: false),
-                    Map = table.Column<string>(nullable: true),
                     ShowInShop = table.Column<bool>(nullable: false),
-                    ShopId = table.Column<Guid>(nullable: true)
+                    ShopId = table.Column<Guid>(nullable: false),
+                    ServerMapId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_RustServers", x => x.Id);
                     table.ForeignKey(
+                        name: "FK_RustServers_RustServerMaps_ServerMapId",
+                        column: x => x.ServerMapId,
+                        principalTable: "RustServerMaps",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_RustServers_Shops_ShopId",
                         column: x => x.ShopId,
                         principalTable: "Shops",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -539,6 +557,11 @@ namespace EasyShop.DAL.Migrations
                 column: "RustUserId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_RustServers_ServerMapId",
+                table: "RustServers",
+                column: "ServerMapId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_RustServers_ShopId",
                 table: "RustServers",
                 column: "ShopId");
@@ -624,6 +647,9 @@ namespace EasyShop.DAL.Migrations
 
             migrationBuilder.DropTable(
                 name: "RustUsers");
+
+            migrationBuilder.DropTable(
+                name: "RustServerMaps");
 
             migrationBuilder.DropTable(
                 name: "RustCategories");

@@ -1,0 +1,104 @@
+﻿@using EasyShop.Domain.Enums.Rust
+@model EasyShop.Domain.ViewModels.Rust.Shop.RustShopViewModel
+@{
+    ViewData["Title"] = "Edit server";
+    Layout = "Partial/_RustEditLayout";
+
+    string mapNameOptionsHtml = $"<option value=\"Value1\">MapName name 1</option>";
+    mapNameOptionsHtml += $"<option value=\"Value2\">MapName name 2</option>";
+    mapNameOptionsHtml += $"<option value=\"Value3\">MapName name 3</option>";
+    mapNameOptionsHtml += $"<option value=\"Value4\">MapName name 4</option>";
+}
+
+<div class="well text-center">
+    <h2 class="text-center">Add / Edit server</h2>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+            <div class="demo-form-wrapper">
+                <form method="post" asp-area="" asp-controller="RustShop" asp-action="EditCategory">
+                    <input asp-for="@Model.Id" type="hidden" />
+                    <input asp-for="@Model.ShopName" type="hidden" />
+                    <input asp-for="@Model.ShopTitle" type="hidden" />
+                    <input asp-for="@Model.RustServerEditViewModel.Id" type="hidden" />
+                    <div asp-validation-summary="ModelOnly" class="alert alert-info"></div>
+                    <div class="showInShopWrap">
+                        <label>Show in shop</label>
+                        <label class="switch switch-primary m-l-lg">
+                            <input id="ShowInShop"
+                                   asp-for="RustServerEditViewModel.ShowInShop"
+                                   class="switch-input"
+                                   type="checkbox"
+                                   value="@Model.RustServerEditViewModel.ShowInShop">
+                            <span class="switch-track"></span>
+                            <span class="switch-thumb"></span>
+                        </label>
+                    </div>
+                    <div id="EditServerDiv">
+                        <div class="form-group">
+                            <label class="pull-left">Name</label>
+                            <input asp-for="@Model.RustServerEditViewModel.Name" class="form-control" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label class="pull-left">Name in shop</label>
+                            <input asp-for="@Model.RustServerEditViewModel.NameInShop" class="form-control" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label class="pull-left">Index</label>
+                            <input asp-for="@Model.RustServerEditViewModel.Index" class="form-control" type="number">
+                            <span class="help-block">Smaller index make category higher in list</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="pull-left">IP Address</label>
+                            <input asp-for="@Model.RustServerEditViewModel.IpAddress" class="form-control" type="text">
+                            <span class="help-block">Input example (192.0.2.222)</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="pull-left">Port</label>
+                            <input asp-for="@Model.RustServerEditViewModel.Port" class="form-control" type="number">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label pull-left">Map</label>
+                            <select asp-for="@Model.RustServerEditViewModel.MapName" class="form-control">
+                                <option selected disabled hidden></option>
+                                @Html.Raw(mapNameOptionsHtml)
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-block m-t-md" type="submit">Add / Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles
+{
+    <link rel="stylesheet" href="~/css/custom/Rust/RustServerEdit.css" asp-append-version="true" />
+}
+
+@section Scripts
+{
+    <script src="~/js/customScripts/Rust/RustServerEdit.js" asp-append-version="true"></script>
+    <script src="~/js/customScripts/DeleteConfirmationDialog.js" asp-append-version="true"></script>
+
+    @if (Model.RustServerEditViewModel.Status == RustEditServerResult.Updated)
+    {
+        <script>
+            toastr.success('Server updated');
+        </script>
+    }
+    else if (Model.RustServerEditViewModel.Status == RustEditServerResult.Created)
+    {
+        <script>
+            toastr.success('Server created');
+        </script>
+    }
+    else if (Model.RustServerEditViewModel.Status == RustEditServerResult.Failed)
+    {
+        <script>
+            toastr.warning('Please, check all fields for correct values!');
+        </script>
+    }
+}

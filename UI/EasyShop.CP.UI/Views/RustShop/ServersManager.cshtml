@@ -4,5 +4,54 @@
     Layout = "Partial/_RustEditLayout";
 }
 
-<h1>ServersManager</h1>
-
+<div class="panel well">
+    <h2 class="text-center">Servers manager</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <form method="get" asp-area="" asp-controller="RustShop" asp-action="CreateServer" asp-route-shopId="@Model.Id">
+                <button class="btn btn-primary btn-block" type="submit">Add server</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-middle">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Name in shop</th>
+                                    <th>IP:Port</th>
+                                    <th>ServerMapNameName</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    foreach (var server in Model.RustServerManagerViewModel.RustServers)
+                                    {
+                                        <tr>
+                                            <td>@server.Index</td>
+                                            <td>@server.Name</td>
+                                            <td>@server.NameInShop</td>
+                                            <td>@server.IpAddress:@server.Port</td>
+                                            <td>@server.MapName</td>
+                                            <td>
+                                                <span class="label @(server.ShowInShop ? "label-success" : "label-danger") label-pill">
+                                                    @(server.ShowInShop ? "On" : "Off")
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

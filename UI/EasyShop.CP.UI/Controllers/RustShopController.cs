@@ -327,6 +327,51 @@ namespace EasyShop.CP.UI.Controllers
             return View(model);
         }
 
+        [HttpGet("CreateServer/{shopId}")]
+        public IActionResult CreateServer(string shopId)
+        {
+            return RedirectToAction("EditServer", "RustShop", new { shopId = shopId });
+        }
+
+        public IActionResult EditServer(string shopId, string? serverId)
+        {
+            var shop = _shopManager.GetShopById(Guid.Parse(shopId));
+
+            if (shop is null)
+                return RedirectToAction("NotFoundPage", "Home");
+
+            var model = shop.CreateRustShopViewModel();
+
+            if (serverId is null)
+            {
+                model.RustServerEditViewModel = new RustServerEditViewModel();
+                model.RustServerEditViewModel.ShowInShop = true;
+                return View(model);
+            }
+            
+            var server = _rustServerService.GetRustServerById(Guid.Parse(serverId));
+
+            model.RustServerEditViewModel = new RustServerEditViewModel
+            {
+                Id = server.Id.ToString(),
+                Name = server.Name,
+                NameInShop = server.NameInShop,
+                Index = server.Index,
+                IpAddress = server.IpAddress,
+                Port = server.Port,
+                MapName = server.ServerMap.ToString(),
+                ShowInShop = server.ShowInShop
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> EditServer([FromForm] RustShopViewModel model)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion Servers
     }
 }

@@ -25,9 +25,8 @@ namespace EasyShop.Services.Mappers.ViewModels.Rust
                 Index = server.Index,
                 IpAddress = server.IpAddress,
                 Port = server.Port,
-                Map = server.Map,
-                ShowInShop = server.ShowInShop,
-                Shop = server.Shop
+                MapName = server.ServerMap.Name,
+                ShowInShop = server.ShowInShop
             };
 
             return model;

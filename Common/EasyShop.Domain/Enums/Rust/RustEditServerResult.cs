@@ -4,9 +4,10 @@ using System.Text;
 
 namespace EasyShop.Domain.Enums.Rust
 {
-    public enum RustCreateServerResult
+    public enum RustEditServerResult
     {
-        Success,
+        Updated,
+        Created,
         Failed,
         Default
     }

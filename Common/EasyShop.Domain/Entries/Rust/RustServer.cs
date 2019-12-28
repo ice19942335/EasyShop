@@ -8,29 +8,31 @@ namespace EasyShop.Domain.Entries.Rust
     [Table("RustServers")]
     public class RustServer
     {
+        [Key] 
         public Guid Id { get; set; }
 
-        [Required]
+        [Required] 
         public string Name { get; set; }
 
-        [Required]
+        [Required] 
         public string NameInShop { get; set; }
 
-        [Required]
+        [Required] 
         public int Index { get; set; }
 
-        [Required]
+        [Required] 
         public string IpAddress { get; set; }
 
-        [Required]
+        [Required] 
         public int Port { get; set; }
 
-        public string Map { get; set; }
-
-        [Required]
+        [Required] 
         public bool ShowInShop { get; set; }
 
-
+        [Required] 
         public Shop.Shop Shop { get; set; }
+
+        [Required] 
+        public RustServerMap ServerMap { get; set; }
     }
 }
