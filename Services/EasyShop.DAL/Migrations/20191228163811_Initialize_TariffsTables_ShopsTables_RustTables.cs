@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EasyShop.DAL.Migrations
 {
-    public partial class Initialize : Migration
+    public partial class Initialize_TariffsTables_ShopsTables_RustTables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -94,24 +94,6 @@ namespace EasyShop.DAL.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_RustUsers", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Servers",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: false),
-                    NameInShop = table.Column<string>(nullable: false),
-                    IndexInList = table.Column<string>(nullable: false),
-                    IpAddress = table.Column<string>(nullable: false),
-                    Port = table.Column<int>(nullable: false),
-                    Map = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Servers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -360,37 +342,38 @@ namespace EasyShop.DAL.Migrations
                         column: x => x.AppUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_RustCategories_Shops_ShopId",
                         column: x => x.ShopId,
                         principalTable: "Shops",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "ServerShops",
+                name: "RustServers",
                 columns: table => new
                 {
-                    ShopId = table.Column<Guid>(nullable: false),
-                    ServerId = table.Column<int>(nullable: false)
+                    Id = table.Column<Guid>(nullable: false),
+                    Name = table.Column<string>(nullable: false),
+                    NameInShop = table.Column<string>(nullable: false),
+                    Index = table.Column<int>(nullable: false),
+                    IpAddress = table.Column<string>(nullable: false),
+                    Port = table.Column<int>(nullable: false),
+                    Map = table.Column<string>(nullable: true),
+                    ShowInShop = table.Column<bool>(nullable: false),
+                    ShopId = table.Column<Guid>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ServerShops", x => new { x.ServerId, x.ShopId });
+                    table.PrimaryKey("PK_RustServers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ServerShops_Servers_ServerId",
-                        column: x => x.ServerId,
-                        principalTable: "Servers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ServerShops_Shops_ShopId",
+                        name: "FK_RustServers_Shops_ShopId",
                         column: x => x.ShopId,
                         principalTable: "Shops",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -458,8 +441,9 @@ namespace EasyShop.DAL.Migrations
                     Price = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
                     Amount = table.Column<int>(nullable: false),
                     Description = table.Column<string>(nullable: true),
-                    Discount = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
-                    BlockedTill = table.Column<DateTime>(nullable: false)
+                    Discount = table.Column<int>(nullable: false),
+                    BlockedTill = table.Column<DateTime>(nullable: false),
+                    ShowInShop = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -555,6 +539,11 @@ namespace EasyShop.DAL.Migrations
                 column: "RustUserId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_RustServers_ShopId",
+                table: "RustServers",
+                column: "ShopId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_RustUserItems_AppUserId",
                 table: "RustUserItems",
                 column: "AppUserId");
@@ -572,11 +561,6 @@ namespace EasyShop.DAL.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_RustUserItems_ShopId",
                 table: "RustUserItems",
-                column: "ShopId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_ServerShops_ShopId",
-                table: "ServerShops",
                 column: "ShopId");
 
             migrationBuilder.CreateIndex(
@@ -621,10 +605,10 @@ namespace EasyShop.DAL.Migrations
                 name: "RustPurchasedItems");
 
             migrationBuilder.DropTable(
-                name: "RustUserItems");
+                name: "RustServers");
 
             migrationBuilder.DropTable(
-                name: "ServerShops");
+                name: "RustUserItems");
 
             migrationBuilder.DropTable(
                 name: "TariffOptions");
@@ -646,9 +630,6 @@ namespace EasyShop.DAL.Migrations
 
             migrationBuilder.DropTable(
                 name: "RustItems");
-
-            migrationBuilder.DropTable(
-                name: "Servers");
 
             migrationBuilder.DropTable(
                 name: "TariffOptionDescriptions");

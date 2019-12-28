@@ -155,7 +155,7 @@ namespace EasyShop.DAL.Migrations
                     b.ToTable("RustUsers");
                 });
 
-            modelBuilder.Entity("EasyShop.Domain.Entries.Items.RustItems.RustCategory", b =>
+            modelBuilder.Entity("EasyShop.Domain.Entries.Rust.RustCategory", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -183,7 +183,7 @@ namespace EasyShop.DAL.Migrations
                     b.ToTable("RustCategories");
                 });
 
-            modelBuilder.Entity("EasyShop.Domain.Entries.Items.RustItems.RustItem", b =>
+            modelBuilder.Entity("EasyShop.Domain.Entries.Rust.RustItem", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -211,7 +211,7 @@ namespace EasyShop.DAL.Migrations
                     b.ToTable("RustItems");
                 });
 
-            modelBuilder.Entity("EasyShop.Domain.Entries.Items.RustItems.RustItemType", b =>
+            modelBuilder.Entity("EasyShop.Domain.Entries.Rust.RustItemType", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -226,7 +226,7 @@ namespace EasyShop.DAL.Migrations
                     b.ToTable("RustItemTypes");
                 });
 
-            modelBuilder.Entity("EasyShop.Domain.Entries.Items.RustItems.RustProduct", b =>
+            modelBuilder.Entity("EasyShop.Domain.Entries.Rust.RustProduct", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -280,7 +280,7 @@ namespace EasyShop.DAL.Migrations
                     b.ToTable("RustUserItems");
                 });
 
-            modelBuilder.Entity("EasyShop.Domain.Entries.Items.RustItems.RustPurchasedItem", b =>
+            modelBuilder.Entity("EasyShop.Domain.Entries.Rust.RustPurchasedItem", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -310,7 +310,7 @@ namespace EasyShop.DAL.Migrations
                     b.ToTable("RustPurchasedItems");
                 });
 
-            modelBuilder.Entity("EasyShop.Domain.Entries.Servers.RustServer", b =>
+            modelBuilder.Entity("EasyShop.Domain.Entries.Rust.RustServer", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -337,27 +337,17 @@ namespace EasyShop.DAL.Migrations
                     b.Property<int>("Port")
                         .HasColumnType("int");
 
+                    b.Property<Guid?>("ShopId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<bool>("ShowInShop")
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
 
-                    b.ToTable("RustServers");
-                });
-
-            modelBuilder.Entity("EasyShop.Domain.Entries.Servers.RustServerShop", b =>
-                {
-                    b.Property<Guid>("ServerId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("ShopId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("ServerId", "ShopId");
-
                     b.HasIndex("ShopId");
 
-                    b.ToTable("RustServerShops");
+                    b.ToTable("RustServers");
                 });
 
             modelBuilder.Entity("EasyShop.Domain.Entries.Shop.Shop", b =>
@@ -611,7 +601,7 @@ namespace EasyShop.DAL.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("EasyShop.Domain.Entries.Items.RustItems.RustCategory", b =>
+            modelBuilder.Entity("EasyShop.Domain.Entries.Rust.RustCategory", b =>
                 {
                     b.HasOne("EasyShop.Domain.Entries.Identity.AppUser", "AppUser")
                         .WithMany()
@@ -622,16 +612,16 @@ namespace EasyShop.DAL.Migrations
                         .HasForeignKey("ShopId");
                 });
 
-            modelBuilder.Entity("EasyShop.Domain.Entries.Items.RustItems.RustItem", b =>
+            modelBuilder.Entity("EasyShop.Domain.Entries.Rust.RustItem", b =>
                 {
-                    b.HasOne("EasyShop.Domain.Entries.Items.RustItems.RustItemType", "RustItemType")
+                    b.HasOne("EasyShop.Domain.Entries.Rust.RustItemType", "RustItemType")
                         .WithMany()
                         .HasForeignKey("RustItemTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("EasyShop.Domain.Entries.Items.RustItems.RustProduct", b =>
+            modelBuilder.Entity("EasyShop.Domain.Entries.Rust.RustProduct", b =>
                 {
                     b.HasOne("EasyShop.Domain.Entries.Identity.AppUser", "AppUser")
                         .WithMany()
@@ -639,13 +629,13 @@ namespace EasyShop.DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EasyShop.Domain.Entries.Items.RustItems.RustCategory", "RustCategory")
+                    b.HasOne("EasyShop.Domain.Entries.Rust.RustCategory", "RustCategory")
                         .WithMany()
                         .HasForeignKey("RustCategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EasyShop.Domain.Entries.Items.RustItems.RustItem", "RustItem")
+                    b.HasOne("EasyShop.Domain.Entries.Rust.RustItem", "RustItem")
                         .WithMany()
                         .HasForeignKey("RustItemId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -658,9 +648,9 @@ namespace EasyShop.DAL.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("EasyShop.Domain.Entries.Items.RustItems.RustPurchasedItem", b =>
+            modelBuilder.Entity("EasyShop.Domain.Entries.Rust.RustPurchasedItem", b =>
                 {
-                    b.HasOne("EasyShop.Domain.Entries.Items.RustItems.RustItem", "RustItem")
+                    b.HasOne("EasyShop.Domain.Entries.Rust.RustItem", "RustItem")
                         .WithMany()
                         .HasForeignKey("RustItemId");
 
@@ -669,19 +659,11 @@ namespace EasyShop.DAL.Migrations
                         .HasForeignKey("RustUserId");
                 });
 
-            modelBuilder.Entity("EasyShop.Domain.Entries.Servers.RustServerShop", b =>
+            modelBuilder.Entity("EasyShop.Domain.Entries.Rust.RustServer", b =>
                 {
-                    b.HasOne("EasyShop.Domain.Entries.Servers.RustServer", "Server")
-                        .WithMany("RustServerShops")
-                        .HasForeignKey("ServerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("EasyShop.Domain.Entries.Shop.Shop", "Shop")
-                        .WithMany("RustServerShops")
-                        .HasForeignKey("ShopId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany()
+                        .HasForeignKey("ShopId");
                 });
 
             modelBuilder.Entity("EasyShop.Domain.Entries.Shop.Shop", b =>
