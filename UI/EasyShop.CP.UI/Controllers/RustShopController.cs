@@ -348,7 +348,8 @@ namespace EasyShop.CP.UI.Controllers
                 model.RustServerEditViewModel = new RustServerEditViewModel
                 {
                     ShowInShop = true,
-                    MapsDict = _rustServerService.GetAllMaps()
+                    MapsDict = _rustServerService.GetAllMaps(),
+                    IsNewServer = true
                 };
                 return View(model);
             }

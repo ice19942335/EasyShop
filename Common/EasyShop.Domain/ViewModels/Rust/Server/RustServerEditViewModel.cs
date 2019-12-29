@@ -36,5 +36,6 @@ namespace EasyShop.Domain.ViewModels.Rust.Server
         public bool ShowInShop { get; set; }
 
         public RustEditServerResult Status { get; set; } = RustEditServerResult.Default;
+        public bool IsNewServer { get; set; }
     }
 }
