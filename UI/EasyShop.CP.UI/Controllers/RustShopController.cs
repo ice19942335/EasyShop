@@ -23,8 +23,8 @@ namespace EasyShop.CP.UI.Controllers
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IRustServerService _rustServerService;
 
-        public RustShopController(IShopManager shopManager, 
-            IRustShopService rustShopService, 
+        public RustShopController(IShopManager shopManager,
+            IRustShopService rustShopService,
             IHttpContextAccessor httpContextAccessor,
             IRustServerService rustServerService)
         {
@@ -145,8 +145,8 @@ namespace EasyShop.CP.UI.Controllers
 
             model.RustCategoryEditViewModel.Category =
                 category.CreateRustCategoryViewModel(_rustShopService.GetAssignedUserItemsCountToACategoryInShop(category.Id, shop.Id));
-            
-            if(created)
+
+            if (created)
                 model.RustCategoryEditViewModel.Status = RustEditCategoryResult.Created;
 
             return View(model);
@@ -172,7 +172,7 @@ namespace EasyShop.CP.UI.Controllers
                     return View(model);
 
                 case RustEditCategoryResult.Created:
-                    return RedirectToAction("EditCategory", "RustShop", new { shopId = model.Id, categoryId = result.Item1.Id , created  = true});
+                    return RedirectToAction("EditCategory", "RustShop", new { shopId = model.Id, categoryId = result.Item1.Id, created = true });
 
                 case RustEditCategoryResult.Failed:
                     return View(model);
@@ -291,17 +291,18 @@ namespace EasyShop.CP.UI.Controllers
             var updatedProduct = _rustShopService.GetProductById(Guid.Parse(model.RustProductEditViewModel.Id));
             model.RustProductEditViewModel = updatedProduct.CreateRustEditProductViewModel(userCategories);
 
-            switch (result)
-            {
-                case RustEditProductResult.Success:
-                    {
-                        model.RustProductEditViewModel.Status = RustEditProductResult.Success;
-                        return View(model);
-                    }
-                case RustEditProductResult.NotFound: return RedirectToAction("NotFoundPage", "Home");
 
-                default: return RedirectToAction("SomethingWentWrong", "ControlPanel");
+            if (result == RustEditProductResult.Success)
+            {
+                model.RustProductEditViewModel.Status = RustEditProductResult.Success;
+                return View(model);
             }
+            else if(result == RustEditProductResult.NotFound)
+            {
+                return RedirectToAction("NotFoundPage", "Home");
+            }
+
+            return RedirectToAction("SomethingWentWrong", "ControlPanel");
         }
 
         #endregion Products
@@ -333,7 +334,7 @@ namespace EasyShop.CP.UI.Controllers
             return RedirectToAction("EditServer", "RustShop", new { shopId = shopId });
         }
 
-        public IActionResult EditServer(string shopId, string? serverId)
+        public IActionResult EditServer(string shopId, string serverId, RustEditServerResult status = RustEditServerResult.Default)
         {
             var shop = _shopManager.GetShopById(Guid.Parse(shopId));
 
@@ -344,12 +345,16 @@ namespace EasyShop.CP.UI.Controllers
 
             if (serverId is null)
             {
-                model.RustServerEditViewModel = new RustServerEditViewModel();
-                model.RustServerEditViewModel.ShowInShop = true;
+                model.RustServerEditViewModel = new RustServerEditViewModel
+                {
+                    ShowInShop = true, MapsDict = _rustServerService.GetAllMaps()
+                };
                 return View(model);
             }
-            
+
             var server = _rustServerService.GetRustServerById(Guid.Parse(serverId));
+            if (server is null)
+                return RedirectToAction("NotFoundPage", "Home");
 
             model.RustServerEditViewModel = new RustServerEditViewModel
             {
@@ -359,8 +364,11 @@ namespace EasyShop.CP.UI.Controllers
                 Index = server.Index,
                 IpAddress = server.IpAddress,
                 Port = server.Port,
-                MapName = server.ServerMap.ToString(),
-                ShowInShop = server.ShowInShop
+                MapId = server.ServerMap.Id.ToString(),
+                ShowInShop = server.ShowInShop,
+                MapsDict = _rustServerService.GetAllMaps(),
+                Status = status,
+                CurrentMap = server.ServerMap.Type
             };
 
             return View(model);
@@ -369,7 +377,34 @@ namespace EasyShop.CP.UI.Controllers
         [HttpPost]
         public async Task<IActionResult> EditServer([FromForm] RustShopViewModel model)
         {
-            throw new NotImplementedException();
+            if (!ModelState.IsValid)
+            {
+                var errors = ModelState.Values.SelectMany(x => x.Errors.Select(xx => xx.ErrorMessage)).ToList();
+                errors.ForEach(x => ModelState.AddModelError("", x));
+
+                model.RustServerEditViewModel.Status = RustEditServerResult.Failed;
+                model.RustServerEditViewModel.MapsDict = _rustServerService.GetAllMaps();
+                return View(model);
+            }
+
+            var resultPair = await _rustServerService.UpdateAsync(model);
+            var status = resultPair.Item1;
+            var serverId = resultPair.Item2;
+
+            model.RustServerEditViewModel.MapsDict = _rustServerService.GetAllMaps();
+
+            if (status == RustEditServerResult.Updated)
+            {
+                return RedirectToAction("EditServer",
+                    new { shopId = model.Id, serverId = serverId, status = RustEditServerResult.Updated });
+            }
+            else if (status == RustEditServerResult.Created)
+            {
+                return RedirectToAction("EditServer",
+                    new { shopId = model.Id, serverId = serverId, status = RustEditServerResult.Created });
+            }
+
+            return RedirectToAction("SomethingWentWrong", "ControlPanel");
         }
 
         #endregion Servers

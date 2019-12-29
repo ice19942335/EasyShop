@@ -1,13 +1,15 @@
 ﻿@using EasyShop.Domain.Enums.Rust
+@using log4net.Util
 @model EasyShop.Domain.ViewModels.Rust.Shop.RustShopViewModel
 @{
     ViewData["Title"] = "Edit server";
     Layout = "Partial/_RustEditLayout";
 
-    string mapNameOptionsHtml = $"<option value=\"Value1\">MapName name 1</option>";
-    mapNameOptionsHtml += $"<option value=\"Value2\">MapName name 2</option>";
-    mapNameOptionsHtml += $"<option value=\"Value3\">MapName name 3</option>";
-    mapNameOptionsHtml += $"<option value=\"Value4\">MapName name 4</option>";
+    string mapNameOptionsHtml = string.Empty;
+    foreach(var item in Model.RustServerEditViewModel.MapsDict)
+    {
+        mapNameOptionsHtml += $"<option value=\"{item.Key}\">{item.Value}</option>";
+    }
 }
 
 <div class="well text-center">
@@ -15,7 +17,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
             <div class="demo-form-wrapper">
-                <form method="post" asp-area="" asp-controller="RustShop" asp-action="EditCategory">
+                <form method="post" asp-area="" asp-controller="RustShop" asp-action="EditServer">
                     <input asp-for="@Model.Id" type="hidden" />
                     <input asp-for="@Model.ShopName" type="hidden" />
                     <input asp-for="@Model.ShopTitle" type="hidden" />
@@ -57,8 +59,12 @@
                             <input asp-for="@Model.RustServerEditViewModel.Port" class="form-control" type="number">
                         </div>
                         <div class="form-group">
-                            <label class="form-label pull-left">Map</label>
-                            <select asp-for="@Model.RustServerEditViewModel.MapName" class="form-control">
+                            <label class="pull-left">Current map type</label>
+                            <input asp-for="@Model.RustServerEditViewModel.CurrentMap" class="form-control" type="text" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label pull-left">Set map type</label>
+                            <select asp-for="@Model.RustServerEditViewModel.MapId" class="form-control">
                                 <option selected disabled hidden></option>
                                 @Html.Raw(mapNameOptionsHtml)
                             </select>

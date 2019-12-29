@@ -33,6 +33,10 @@
     <Compile Remove="Migrations\20191228163811_Initialize_TariffsTables_ShopsTables_RustTables.Designer.cs" />
     <Compile Remove="Migrations\20191228190712_Initialize_TariffsTables_ShopsTables_RustTables.cs" />
     <Compile Remove="Migrations\20191228190712_Initialize_TariffsTables_ShopsTables_RustTables.Designer.cs" />
+    <Compile Remove="Migrations\20191228192548_Initialize_IdentityTables_TariffsTables_ShopsTables_RustTables.cs" />
+    <Compile Remove="Migrations\20191228192548_Initialize_IdentityTables_TariffsTables_ShopsTables_RustTables.Designer.cs" />
+    <Compile Remove="Migrations\20191229123718_Initialize_IdentityTables_TariffsTables_ShopsTables_RustTables.cs" />
+    <Compile Remove="Migrations\20191229123718_Initialize_IdentityTables_TariffsTables_ShopsTables_RustTables.Designer.cs" />
     <Compile Remove="Startup.cs" />
   </ItemGroup>
 

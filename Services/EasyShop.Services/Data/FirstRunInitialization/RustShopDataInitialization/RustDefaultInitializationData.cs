@@ -7,6 +7,30 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
 {
     public static class RustDefaultInitializationData
     {
+        public static readonly List<RustServerMap> DefaultRustServerMaps = new List<RustServerMap>
+        {
+            new RustServerMap
+            {
+                Id = Guid.NewGuid(),
+                Type = "Savas Island"
+            },
+            new RustServerMap
+            {
+                Id = Guid.NewGuid(),
+                Type = "Hapis Island"
+            },
+            new RustServerMap
+            {
+                Id = Guid.NewGuid(),
+                Type = "Environment"
+            },
+            new RustServerMap
+            {
+                Id = Guid.NewGuid(),
+                Type = "Procedural Map"
+            }
+        };
+
         public static readonly List<RustCategory> DefaultRustCategories = new List<RustCategory>
         {
             new RustCategory
@@ -142,8 +166,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "grenade.beancan",
                 Name = "Beancan Grenade",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "384204160"
             },
@@ -152,8 +176,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "grenade.f1",
                 Name = "F1 Grenade",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1308622549"
             },
@@ -162,8 +186,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "lmg.m249",
                 Name = "M249",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "193190034"
             },
@@ -172,8 +196,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "longsword",
                 Name = "Longsword",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "146685185"
             },
@@ -182,8 +206,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "mace",
                 Name = "Mace",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "3343606"
             },
@@ -192,8 +216,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "machete",
                 Name = "Machete",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "825308669"
             },
@@ -202,8 +226,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "pistol.semiauto",
                 Name = "Semi-Automatic Pistol",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "548699316"
             },
@@ -212,8 +236,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "rifle.ak",
                 Name = "Assault Rifle",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1461508848"
             },
@@ -222,8 +246,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "rifle.bolt",
                 Name = "Bolt Action Rifle",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-55660037"
             },
@@ -232,8 +256,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "rifle.semiauto",
                 Name = "Semi-Automatic Rifle",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1745053053"
             },
@@ -242,8 +266,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "rocket.launcher",
                 Name = "Rocket Launcher",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "649603450"
             },
@@ -252,8 +276,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "shotgun.waterpipe",
                 Name = "Waterpipe Shotgun",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "2077983581"
             },
@@ -262,8 +286,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "smg.2",
                 Name = "Custom SMG",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "109552593"
             },
@@ -272,8 +296,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "smg.thompson",
                 Name = "Thompson",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "456448245"
             },
@@ -282,8 +306,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "flamethrower",
                 Name = "Flame Thrower",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1045869440"
             },
@@ -292,8 +316,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "rifle.lr300",
                 Name = "LR-300 Assault Rifle",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1716193401"
             },
@@ -302,8 +326,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "smg.mp5",
                 Name = "MP5A4",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-2094080303"
             },
@@ -312,8 +336,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "pistol.m92",
                 Name = "M92 Pistol",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "371156815"
             },
@@ -322,8 +346,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "pistol.python",
                 Name = "Python Revolver",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "2033918259"
             },
@@ -332,8 +356,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "pistol.nailgun",
                 Name = "Nailgun",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "449769971"
             },
@@ -342,8 +366,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "shotgun.spas12",
                 Name = "Spas-12 Shotgun",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "621575320"
             },
@@ -352,8 +376,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "rifle.l96",
                 Name = "L96 Rifle",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-778367295"
             },
@@ -362,8 +386,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "rifle.m39",
                 Name = "M39 Rifle",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "28201841"
             },
@@ -372,8 +396,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "charcoal",
                 Name = "Charcoal",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1436001773"
             },
@@ -382,8 +406,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "cloth",
                 Name = "Cloth",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "94756378"
             },
@@ -392,8 +416,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "explosives",
                 Name = "Explosives",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1755466030"
             },
@@ -402,8 +426,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "fat.animal",
                 Name = "Animal Fat",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1034048911"
             },
@@ -412,8 +436,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "gunpowder",
                 Name = "Gun Powder",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1580059655"
             },
@@ -422,8 +446,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "hq.metal.ore",
                 Name = "High Quality Metal Ore",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "2133577942"
             },
@@ -432,8 +456,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "leather",
                 Name = "Leather",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "50834473"
             },
@@ -442,8 +466,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "metal.fragments",
                 Name = "Metal Fragments",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "688032252"
             },
@@ -452,8 +476,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "metal.ore",
                 Name = "Metal Ore",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1059362949"
             },
@@ -462,8 +486,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "metal.refined",
                 Name = "High Quality Metal",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "374890416"
             },
@@ -472,8 +496,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "sulfur",
                 Name = "Sulfur",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-891243783"
             },
@@ -482,8 +506,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "sulfur.ore",
                 Name = "Sulfur Ore",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "889398893"
             },
@@ -492,8 +516,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "wood",
                 Name = "Wood",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "3655341"
             },
@@ -502,8 +526,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "ammo.handmade.shell",
                 Name = "Handmade Shell",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "2115555558"
             },
@@ -512,8 +536,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "ammo.rifle",
                 Name = "5.56 Rifle Ammo",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "815896488"
             },
@@ -522,8 +546,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "ammo.rifle.explosive",
                 Name = "Explosive 5.56 Rifle Ammo",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "805088543"
             },
@@ -532,8 +556,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "ammo.rifle.hv",
                 Name = "HV 5.56 Rifle Ammo",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1152393492"
             },
@@ -542,8 +566,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "ammo.rifle.incendiary",
                 Name = "Incendiary 5.56 Rifle Ammo",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "449771810"
             },
@@ -552,8 +576,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "ammo.rocket.basic",
                 Name = "Rocket",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1578894260"
             },
@@ -562,8 +586,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "ammo.rocket.fire",
                 Name = "Incendiary Rocket",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1436532208"
             },
@@ -572,8 +596,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "ammo.rocket.hv",
                 Name = "High Velocity Rocket",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "542276424"
             },
@@ -582,8 +606,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "ammo.pistol",
                 Name = "Pistol Bullet",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-533875561"
             },
@@ -592,8 +616,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "ammo.pistol.fire",
                 Name = "Incendiary Pistol Bullet",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1621541165"
             },
@@ -602,8 +626,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "ammo.pistol.hv",
                 Name = "HV Pistol Ammo",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-422893115"
             },
@@ -612,8 +636,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "ammo.rocket.smoke",
                 Name = "Smoke Rocket WIP!!!!",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1594947829"
             },
@@ -622,8 +646,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "ammo.shotgun",
                 Name = "12 Gauge Buckshot",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1035059994"
             },
@@ -632,8 +656,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "ammo.shotgun.slug",
                 Name = "12 Gauge Slug",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1819281075"
             },
@@ -642,8 +666,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "ammo.shotgun.fire",
                 Name = "12 Gauge Incendiary Shell",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1818890814"
             },
@@ -652,8 +676,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "arrow.hv",
                 Name = "High Velocity Arrow",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1280058093"
             },
@@ -662,8 +686,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "arrow.wooden",
                 Name = "Wooden Arrow",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-420273765"
             },
@@ -672,8 +696,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "arrow.bone",
                 Name = "Bone Arrow",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1775362679"
             },
@@ -682,8 +706,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "arrow.fire",
                 Name = "Fire Arrow",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1775249157"
             },
@@ -692,8 +716,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "bucket.helmet",
                 Name = "Bucket Helmet",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1260209393"
             },
@@ -702,8 +726,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "coffeecan.helmet",
                 Name = "Coffee Can Helmet",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-2128719593"
             },
@@ -712,8 +736,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "hoodie",
                 Name = "Hoodie",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1211618504"
             },
@@ -722,8 +746,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "jacket",
                 Name = "Jacket",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1167640370"
             },
@@ -732,8 +756,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "jacket.snow",
                 Name = "Snow Jacket - Red",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1616887133"
             },
@@ -742,8 +766,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "jackolantern.angry",
                 Name = "Jack O Lantern Angry",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1284735799"
             },
@@ -752,8 +776,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "jackolantern.happy",
                 Name = "Jack O Lantern Happy",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1278649848"
             },
@@ -762,8 +786,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "mask.balaclava",
                 Name = "Improvised Balaclava",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "997973965"
             },
@@ -772,8 +796,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "metal.facemask",
                 Name = "Metal Facemask",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-46848560"
             },
@@ -782,8 +806,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "metal.plate.torso",
                 Name = "Metal Chest Plate",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1265861812"
             },
@@ -792,8 +816,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "riot.helmet",
                 Name = "Riot Helmet",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "340009023"
             },
@@ -802,8 +826,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "roadsign.jacket",
                 Name = "Road Sign Jacket",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-288010497"
             },
@@ -812,8 +836,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "pants.shorts",
                 Name = "Shorts",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-459156023"
             },
@@ -822,8 +846,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "shirt.collared",
                 Name = "Shirt",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "24576628"
             },
@@ -832,8 +856,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "shirt.tanktop",
                 Name = "Tank Top",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1659202509"
             },
@@ -842,8 +866,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "heavy.plate.helmet",
                 Name = "Heavy Plate Helmet",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1351172108"
             },
@@ -852,8 +876,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "heavy.plate.jacket",
                 Name = "Heavy Plate Jacket",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1404466285"
             },
@@ -862,8 +886,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "heavy.plate.pants",
                 Name = "Heavy Plate Pants",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1334615971"
             },
@@ -872,8 +896,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "facialhair.style01",
                 Name = "Facial Hair Style 01",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "726730162"
             },
@@ -882,8 +906,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "female_hairstyle_01",
                 Name = "Female Hairstyle 01",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "305916740"
             },
@@ -892,8 +916,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "female_hairstyle_02",
                 Name = "Female Hairstyle 02",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "305916741"
             },
@@ -902,8 +926,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "femalearmpithair.style01",
                 Name = "Female Armpit Hair 01",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "252529905"
             },
@@ -912,8 +936,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "femaleeyebrow.style01",
                 Name = "Female Eyebrow 01",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "471582113"
             },
@@ -922,8 +946,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "femalepubichair.style01",
                 Name = "Female Pubic Hair 01",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1138648591"
             },
@@ -932,8 +956,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "male_hairstyle_01",
                 Name = "Male Hairstyle 01",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1832205789"
             },
@@ -942,8 +966,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "male_hairstyle_02",
                 Name = "Male Hairstyle 02",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1832205788"
             },
@@ -952,8 +976,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "malearmpithair.style01",
                 Name = "Male Armpit Hair 01",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1625090418"
             },
@@ -962,8 +986,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "maleeyebrow.style01",
                 Name = "Male Eyebrow 01",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1269800768"
             },
@@ -972,8 +996,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "malepubichair.style01",
                 Name = "Male Pubic Hair 01",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "429648208"
             },
@@ -982,8 +1006,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "clatter.helmet",
                 Name = "Clatter Helmet",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "968019378"
             },
@@ -992,8 +1016,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "barricade.concrete",
                 Name = "Concrete Barricade",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "498312426"
             },
@@ -1002,8 +1026,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "barricade.metal",
                 Name = "Metal Barricade",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "504904386"
             },
@@ -1012,8 +1036,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "barricade.sandbags",
                 Name = "Sandbag Barricade",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1221200300"
             },
@@ -1022,8 +1046,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "barricade.stone",
                 Name = "Stone Barricade",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "510887968"
             },
@@ -1032,8 +1056,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "barricade.woodwire",
                 Name = "Barbed Wooden Barricade",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1024486167"
             },
@@ -1042,8 +1066,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "bed",
                 Name = "Bed",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "97409"
             },
@@ -1052,8 +1076,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "ceilinglight",
                 Name = "Ceiling Light",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-2095387015"
             },
@@ -1062,8 +1086,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "furnace.large",
                 Name = "Large Furnace",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1598149413"
             },
@@ -1072,8 +1096,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "gates.external.high.stone",
                 Name = "High External Stone Gate",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1779401418"
             },
@@ -1082,8 +1106,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "	gates.external.high.wood",
                 Name = "High External Wooden Gate",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-57285700"
             },
@@ -1092,8 +1116,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "shelves",
                 Name = "Salvaged Shelves",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "2057749608"
             },
@@ -1102,8 +1126,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "shutter.metal.embrasure.a",
                 Name = "Metal horizontal embrasure",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-529054135"
             },
@@ -1112,8 +1136,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "shutter.metal.embrasure.b",
                 Name = "Metal Vertical embrasure",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-529054134"
             },
@@ -1122,8 +1146,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "shutter.wood.a",
                 Name = "Wood Shutters",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "486166145"
             },
@@ -1132,8 +1156,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "wall.external.high",
                 Name = "High External Wooden Wall",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1792066367"
             },
@@ -1142,8 +1166,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "wall.external.high.stone",
                 Name = "High External Stone Wall",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-496055048"
             },
@@ -1152,8 +1176,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "water.barrel",
                 Name = "Water Barrel",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1628526499"
             },
@@ -1162,8 +1186,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "planter.large",
                 Name = "Large Planter Box",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "142147109"
             },
@@ -1172,8 +1196,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "planter.small",
                 Name = "Small Planter Box",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "148953073"
             },
@@ -1182,8 +1206,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "chair",
                 Name = "Chair",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "94623429"
             },
@@ -1192,8 +1216,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "door.closer",
                 Name = "Door Closer",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-778796102"
             },
@@ -1202,8 +1226,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "small.oil.refinery",
                 Name = "Small Oil Refinery",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "470729623"
             },
@@ -1212,8 +1236,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "table",
                 Name = "Table",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "110115790"
             },
@@ -1222,8 +1246,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "rug",
                 Name = "Rug",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "113284"
             },
@@ -1232,8 +1256,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "rug.bear",
                 Name = "Rug Bear Skin",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "569935070"
             },
@@ -1242,8 +1266,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "locker",
                 Name = "Locker",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1097452776"
             },
@@ -1252,8 +1276,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "wall.frame.netting",
                 Name = "Netting",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "313836902"
             },
@@ -1262,8 +1286,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "workbench1",
                 Name = "Work Bench Level 1",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-481416622"
             },
@@ -1272,8 +1296,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "workbench2",
                 Name = "Work Bench Level 2",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-481416621"
             },
@@ -1282,8 +1306,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "workbench3",
                 Name = "Work Bench Level 3",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-481416620"
             },
@@ -1292,8 +1316,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "wall.frame.garagedoor",
                 Name = "Garage Door",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "447918618"
             },
@@ -1302,8 +1326,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "axe.salvaged",
                 Name = "Salvaged Axe",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "790921853"
             },
@@ -1312,8 +1336,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "hammer.salvaged",
                 Name = "Salvaged Hammer",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1976561211"
             },
@@ -1322,8 +1346,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "hatchet",
                 Name = "Hatchet",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "698310895"
             },
@@ -1332,8 +1356,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "icepick.salvaged",
                 Name = "Salvaged Icepick",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1440143841"
             },
@@ -1342,8 +1366,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "pickaxe",
                 Name = "Pick Axe",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-578028723"
             },
@@ -1352,8 +1376,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "salvaged.cleaver",
                 Name = "Salvaged Cleaver",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1775234707"
             },
@@ -1362,8 +1386,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "salvaged.sword",
                 Name = "Salvaged Sword",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-388967316"
             },
@@ -1372,8 +1396,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "surveycharge",
                 Name = "Survey Charge",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1293049486"
             },
@@ -1382,8 +1406,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "bucket.water",
                 Name = "Water Bucket",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1192532973"
             },
@@ -1392,8 +1416,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "chainsaw",
                 Name = "Chainsaw",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1428021640"
             },
@@ -1402,8 +1426,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "antiradpills",
                 Name = "Anti-Radiation Pills",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1685058759"
             },
@@ -1412,8 +1436,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "bandage",
                 Name = "Bandage",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-337261910"
             },
@@ -1422,8 +1446,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "largemedkit",
                 Name = "Large Medkit",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-789202811"
             },
@@ -1432,8 +1456,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "	syringe.medical",
                 Name = "Medical Syringe",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "586484018"
             },
@@ -1442,8 +1466,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "apple",
                 Name = "Apple",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "93029210"
             },
@@ -1452,8 +1476,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "bearmeat.cooked",
                 Name = "Bear Meat Cooked",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-2043730634"
             },
@@ -1462,8 +1486,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "black.raspberries",
                 Name = "Black Raspberries",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1611480185"
             },
@@ -1472,8 +1496,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "blueberries",
                 Name = "Blueberries",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1063412582"
             },
@@ -1482,8 +1506,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "chicken.cooked",
                 Name = "Cooked Chicken",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1734319168"
             },
@@ -1492,8 +1516,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "chocholate",
                 Name = "Chocolate Bar",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-341443994"
             },
@@ -1502,8 +1526,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "granolabar",
                 Name = "Granola Bar",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "718197703"
             },
@@ -1512,8 +1536,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "wolfmeat.cooked",
                 Name = "Cooked Wolf Meat",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1691991080"
             },
@@ -1522,8 +1546,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "cakefiveyear",
                 Name = "Birthday Cake",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1973165031"
             },
@@ -1532,8 +1556,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "autoturret",
                 Name = "Auto Turret",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "563023711"
             },
@@ -1542,8 +1566,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "box.wooden.large",
                 Name = "Large Wood Box",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "271534758"
             },
@@ -1552,8 +1576,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "cctv.camera",
                 Name = "CCTV Camera",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1300054961"
             },
@@ -1562,8 +1586,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "fun.guitar",
                 Name = "Acoustic Guitar",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-217113639"
             },
@@ -1572,8 +1596,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "lock.code",
                 Name = "Code Lock",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-975723312"
             },
@@ -1582,8 +1606,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "targeting.computer",
                 Name = "Targeting Computer",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1490499512"
             },
@@ -1592,8 +1616,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "trap.landmine",
                 Name = "Land Mine",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "255101535"
             },
@@ -1602,8 +1626,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "weapon.mod.flashlight",
                 Name = "Weapon Flashlight",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1229879204"
             },
@@ -1612,8 +1636,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "weapon.mod.holosight",
                 Name = "Holosight",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-465236267"
             },
@@ -1622,8 +1646,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "weapon.mod.lasersight",
                 Name = "Weapon Lasersight",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "516382256"
             },
@@ -1632,8 +1656,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "weapon.mod.silencer",
                 Name = "Silencer",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1213686767"
             },
@@ -1642,8 +1666,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "weapon.mod.8x.scope",
                 Name = "8x Zoom Scope",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-141135377"
             },
@@ -1652,8 +1676,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "weapon.mod.muzzlebrake",
                 Name = "Muzzle Brake",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1569280852"
             },
@@ -1662,8 +1686,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "weapon.mod.muzzleboost",
                 Name = "Muzzle Boost",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1569356508"
             },
@@ -1672,8 +1696,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "flameturret",
                 Name = "Flame Turret",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1985408483"
             },
@@ -1682,8 +1706,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "tunalight",
                 Name = "Tuna Can Lamp",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "260214178"
             },
@@ -1692,8 +1716,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "vending.machine",
                 Name = "Vending Machine",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1847536522"
             },
@@ -1702,8 +1726,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "wall.frame.shopfront.metal",
                 Name = "Metal Shop Front",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "525244071"
             },
@@ -1712,8 +1736,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "fridge",
                 Name = "Fridge",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1266285051"
             },
@@ -1722,8 +1746,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "spinner.wheel",
                 Name = "Spinning wheel",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "552706886"
             },
@@ -1732,8 +1756,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "tool.binoculars",
                 Name = "Binoculars",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1480119738"
             },
@@ -1742,8 +1766,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "weapon.mod.simplesight",
                 Name = "Simple Handmade Sight",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "386382445"
             },
@@ -1752,8 +1776,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "searchlight",
                 Name = "Search Light",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-527558546"
             },
@@ -1762,8 +1786,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "scrap",
                 Name = "Scrap",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "109266897"
             },
@@ -1772,8 +1796,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "mailbox",
                 Name = "Mail Box",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "830965940"
             },
@@ -1782,8 +1806,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "waterjug",
                 Name = "Water Jug",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "547302405"
             },
@@ -1792,8 +1816,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "dropbox",
                 Name = "Drop Box",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1925723260"
             },
@@ -1802,8 +1826,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "guntrap",
                 Name = "Shotgun Trap",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "378365037"
             },
@@ -1812,8 +1836,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "gloweyes",
                 Name = "Glowing Eyes",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-522149009"
             },
@@ -1822,8 +1846,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "scarecrow",
                 Name = "Scarecrow",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1705696613"
             },
@@ -1832,8 +1856,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "skull_fire_pit",
                 Name = "Skull Fire Pit",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1859976884"
             },
@@ -1842,8 +1866,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "bbq",
                 Name = "Barbeque",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "97329"
             },
@@ -1852,8 +1876,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "flashlight.held",
                 Name = "Flashlight",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1496470781"
             },
@@ -1862,8 +1886,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "electric.random.switch",
                 Name = "RAND Switch",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1171735914"
             },
@@ -1872,8 +1896,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "electric.battery.rechargable.large",
                 Name = "Large Rechargable Battery",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "553270375"
             },
@@ -1882,8 +1906,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "electric.battery.rechargable.small",
                 Name = "Small Rechargable Battery",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-692338819"
             },
@@ -1892,8 +1916,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "electric.blocker",
                 Name = "Blocker",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-690968985"
             },
@@ -1902,8 +1926,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "electric.cabletunnel",
                 Name = "Cable Tunnel",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1835946060"
             },
@@ -1912,8 +1936,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "electric.counter",
                 Name = "Counter",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-216999575"
             },
@@ -1922,8 +1946,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "electric.doorcontroller",
                 Name = "Door Controller",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-502177121"
             },
@@ -1932,8 +1956,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "electric.fuelgenerator.small",
                 Name = "Small Generator",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-295829489"
             },
@@ -1942,8 +1966,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "electric.laserdetector",
                 Name = "Laser Detector",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-798293154"
             },
@@ -1952,8 +1976,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "electric.orswitch",
                 Name = "OR Switch",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1286302544"
             },
@@ -1962,8 +1986,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "electric.pressurepad",
                 Name = "Pressure Pad",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-2049214035"
             },
@@ -1972,8 +1996,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "electric.simplelight",
                 Name = "Simple Light",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-282113991"
             },
@@ -1982,8 +2006,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "electric.solarpanel.large",
                 Name = "Large Solar Panel",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "2090395347"
             },
@@ -1992,8 +2016,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "electric.splitter",
                 Name = "Splitter",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-563624462"
             },
@@ -2002,8 +2026,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "electric.switch",
                 Name = "Switch",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1951603367"
             },
@@ -2012,8 +2036,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "electric.timer",
                 Name = "Timer",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "665332906"
             },
@@ -2022,8 +2046,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "electric.xorswitch",
                 Name = "XOR Switch",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1293102274"
             },
@@ -2032,8 +2056,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "electrical.branch",
                 Name = "Electrical Branch",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1448252298"
             },
@@ -2042,8 +2066,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "electrical.combiner",
                 Name = "Root Combiner",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-458565393"
             },
@@ -2052,8 +2076,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "electrical.memorycell",
                 Name = "Memory Cell",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-746647361"
             },
@@ -2062,8 +2086,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "partyhat",
                 Name = "Party Hat",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-575744869"
             },
@@ -2072,8 +2096,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "wiretool",
                 Name = "Wire Tool",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-144417939"
             },
@@ -2082,8 +2106,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "bleach",
                 Name = "Bleach",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1386464949"
             },
@@ -2092,8 +2116,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "ducttape",
                 Name = "Duct Tape",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1891056868"
             },
@@ -2102,8 +2126,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "gears",
                 Name = "Gears",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "98228420"
             },
@@ -2112,8 +2136,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "glue",
                 Name = "Glue",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "3175989"
             },
@@ -2122,8 +2146,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "metalblade",
                 Name = "Metal Blade",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1567404401"
             },
@@ -2132,8 +2156,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "metalpipe",
                 Name = "Metal Pipe",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1057402571"
             },
@@ -2142,8 +2166,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "metalspring",
                 Name = "Metal Spring",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1835797460"
             },
@@ -2152,8 +2176,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "propanetank",
                 Name = "Empty Propane Tank",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1974032895"
             },
@@ -2162,8 +2186,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "riflebody",
                 Name = "Rifle Body",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1939428458"
             },
@@ -2172,8 +2196,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "roadsigns",
                 Name = "Road Signs",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-847065290"
             },
@@ -2182,8 +2206,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "rope",
                 Name = "Rope",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "3506418"
             },
@@ -2192,8 +2216,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "sewingkit",
                 Name = "Sewing Kit",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-419069863"
             },
@@ -2202,8 +2226,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "sheetmetal",
                 Name = "Sheet Metal",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1617374968"
             },
@@ -2212,8 +2236,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "sticks",
                 Name = "Sticks",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-892259869"
             },
@@ -2222,8 +2246,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "tarp",
                 Name = "Tarp",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "3552619"
             },
@@ -2232,8 +2256,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "techparts",
                 Name = "Tech Trash",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1471284746"
             },
@@ -2242,8 +2266,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "attire.reindeer.headband",
                 Name = "Reindeer Antlers",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-966287254"
             },
@@ -2252,8 +2276,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "candycaneclub",
                 Name = "Candy Cane Club",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1693683664"
             },
@@ -2262,8 +2286,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "fireplace.stone",
                 Name = "Stone Fireplace",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1908328648"
             },
@@ -2272,8 +2296,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "snowman",
                 Name = "Snowman",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-2055888649"
             },
@@ -2282,8 +2306,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "xmas.lightstring",
                 Name = "Christmas Lights",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1151126752"
             },
@@ -2292,8 +2316,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "xmas.tree",
                 Name = "Christmas Tree",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-1926458555"
             },
@@ -2302,8 +2326,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "xmas.window.garland",
                 Name = "Festive Window Garland",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "-460592212"
             },
@@ -2312,8 +2336,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 Id = Guid.NewGuid(),
                 RustItemInGameId = "xmasdoorwreath",
                 Name = "Christmas Door Wreath",
-                
-                
+
+
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
                 ImgUrl = "1540879296"
             }
