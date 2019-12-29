@@ -95,9 +95,17 @@ namespace EasyShop.Services.CP.Rust.Server
             return (RustEditServerResult.Updated, server.Id.ToString());
         }
 
-        public Task<bool> DeleteAsync(Guid serverId)
+        public async Task<bool> DeleteAsync(Guid serverId)
         {
-            throw new NotImplementedException();
+            var server = _context.RustServers.FirstOrDefault(x => x.Id == serverId);
+
+            if (server is null)
+                return false;
+
+            _context.RustServers.Remove(server);
+            await _context.SaveChangesAsync();
+
+            return true;
         }
 
         public Dictionary<string, string> GetAllMaps()

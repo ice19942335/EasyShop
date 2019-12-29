@@ -297,7 +297,7 @@ namespace EasyShop.CP.UI.Controllers
                 model.RustProductEditViewModel.Status = RustEditProductResult.Success;
                 return View(model);
             }
-            else if(result == RustEditProductResult.NotFound)
+            else if (result == RustEditProductResult.NotFound)
             {
                 return RedirectToAction("NotFoundPage", "Home");
             }
@@ -347,7 +347,8 @@ namespace EasyShop.CP.UI.Controllers
             {
                 model.RustServerEditViewModel = new RustServerEditViewModel
                 {
-                    ShowInShop = true, MapsDict = _rustServerService.GetAllMaps()
+                    ShowInShop = true,
+                    MapsDict = _rustServerService.GetAllMaps()
                 };
                 return View(model);
             }
@@ -405,6 +406,17 @@ namespace EasyShop.CP.UI.Controllers
             }
 
             return RedirectToAction("SomethingWentWrong", "ControlPanel");
+        }
+
+        [HttpGet("DeleteServer/{shopId}&{serverId}")]
+        public async Task<IActionResult> DeleteServer(string shopId, string serverId)
+        {
+            var result = await _rustServerService.DeleteAsync(Guid.Parse(serverId));
+
+            if (!result)
+                return RedirectToAction("SomethingWentWrong", "ControlPanel");
+
+            return RedirectToAction("ServersManager", "RustShop", new { shopId = shopId });
         }
 
         #endregion Servers

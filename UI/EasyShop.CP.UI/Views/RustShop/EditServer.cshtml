@@ -6,7 +6,7 @@
     Layout = "Partial/_RustEditLayout";
 
     string mapNameOptionsHtml = string.Empty;
-    foreach(var item in Model.RustServerEditViewModel.MapsDict)
+    foreach (var item in Model.RustServerEditViewModel.MapsDict)
     {
         mapNameOptionsHtml += $"<option value=\"{item.Key}\">{item.Value}</option>";
     }
@@ -74,6 +74,20 @@
                         <button class="btn btn-primary btn-block m-t-md" type="submit">Add / Save</button>
                     </div>
                 </form>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+            <div>
+                <span id="confirmButton_@Model.Id">
+                    <button class="btn btn-danger btn-block" onclick="deleteConfirmationDialog('@Model.Id', true)">Delete server</button>
+                </span>
+                <span style="display: none" id="confirmSpan_@Model.Id">
+                    <form style="display: inline;" method="get" asp-area="" asp-controller="RustShop" asp-action="DeleteServer" asp-route-shopId="@Model.Id" asp-route-serverId="@Model.RustServerEditViewModel.Id">
+                        <span>This server will be permanently deleted! You sure you want to do that?</span>
+                        <button style="max-width: fit-content; display: inline;" class="btn btn-success btn-block m-b-md" type="submit">Yes</button>
+                    </form>
+                    <button style="max-width: fit-content; display: inline;" class="btn btn-danger btn-block m-b-md" onclick="deleteConfirmationDialog('@Model.Id', false)">No</button>
+                </span>
             </div>
         </div>
     </div>
