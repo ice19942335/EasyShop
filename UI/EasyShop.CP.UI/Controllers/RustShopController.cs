@@ -280,8 +280,10 @@ namespace EasyShop.CP.UI.Controllers
                 var errors = ModelState.Values.SelectMany(x => x.Errors.Select(xx => xx.ErrorMessage)).ToList();
                 errors.ForEach(x => ModelState.AddModelError("", x));
 
+                bool showInShopValue = model.RustProductEditViewModel.ShowInShop;
                 model.RustProductEditViewModel = product.CreateRustEditProductViewModel(userCategories);
                 model.RustProductEditViewModel.Status = RustEditProductResult.Failed;
+                model.RustProductEditViewModel.ShowInShop = showInShopValue;
 
                 return View(model);
             }
