@@ -55,7 +55,7 @@
                                                     @(product.ShowInShop ? "On" : "Off")
                                                 </span>
                                             </td>
-                                            <td class="sorting_disabled">
+                                            <td>
                                                 <strong>
                                                     <a asp-area=""
                                                        asp-controller="RustShop"
@@ -96,7 +96,7 @@
         $(document).ready(function () {
             $('#rustProductsTable').DataTable({
                 "columnDefs": [
-                    { "orderable": false, "targets": 7 }
+                    { "orderable": false, "targets": 8 }
                 ]
             });
         });
