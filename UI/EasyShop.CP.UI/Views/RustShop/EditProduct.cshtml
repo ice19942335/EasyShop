@@ -93,11 +93,13 @@
 @section Styles
 {
     <link rel="stylesheet" href="~/css/custom/Rust/RustEditProductStyles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/demo.min.css" asp-append-version="true" />
 }
 
 @section Scripts
 {
     <script src="~/js/customScripts/Rust/RustEditProduct.js" asp-append-version="true"></script>
+    <script src="~/js/demo.min.js" asp-append-version="true"></script>
 
     @if (Model.RustProductEditViewModel.Status == RustEditProductResult.Success)
     {
@@ -105,7 +107,7 @@
             toastr.success('Product updated');
         </script>
     }
-    else if(Model.RustProductEditViewModel.Status == RustEditProductResult.Failed)
+    else if (Model.RustProductEditViewModel.Status == RustEditProductResult.Failed)
     {
         <script>
             toastr.warning('Please, check all fields for correct values!');
