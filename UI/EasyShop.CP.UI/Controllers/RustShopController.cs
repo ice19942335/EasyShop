@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Enums.Rust;
 using EasyShop.Domain.ViewModels.Rust.Category;
 using EasyShop.Domain.ViewModels.Rust.Product;
@@ -11,6 +12,7 @@ using EasyShop.Interfaces.Services.CP.Rust.Shop;
 using EasyShop.Services.Mappers.ViewModels.Rust;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EasyShop.CP.UI.Controllers
@@ -22,16 +24,20 @@ namespace EasyShop.CP.UI.Controllers
         private readonly IRustShopService _rustShopService;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IRustServerService _rustServerService;
+        private readonly UserManager<AppUser> _userManager;
 
-        public RustShopController(IShopManager shopManager,
-            IRustShopService rustShopService,
-            IHttpContextAccessor httpContextAccessor,
-            IRustServerService rustServerService)
+        public RustShopController(
+            IShopManager shopManager, 
+            IRustShopService rustShopService, 
+            IHttpContextAccessor httpContextAccessor, 
+            IRustServerService rustServerService, 
+            UserManager<AppUser> userManager)
         {
             _shopManager = shopManager;
             _rustShopService = rustShopService;
             _httpContextAccessor = httpContextAccessor;
             _rustServerService = rustServerService;
+            _userManager = userManager;
         }
 
 
@@ -55,7 +61,7 @@ namespace EasyShop.CP.UI.Controllers
         #region Main settings
 
         [HttpGet]
-        public IActionResult EditMainSettings(string shopId)
+        public IActionResult EditMainSettings(string shopId, RustEditMainSettingsResult status = RustEditMainSettingsResult.Default)
         {
             var shop = _shopManager.GetShopById(Guid.Parse(shopId));
 
@@ -63,6 +69,8 @@ namespace EasyShop.CP.UI.Controllers
                 return RedirectToAction("NotFoundPage", "Home");
 
             var model = shop.CreateRustShopViewModel();
+            if (status != RustEditMainSettingsResult.Default)
+                model.RustShopEditMainSettingsViewModel.Status = status;
 
             return View(model);
         }
@@ -88,9 +96,19 @@ namespace EasyShop.CP.UI.Controllers
                 return RedirectToAction("SomethingWentWrong", "ControlPanel");
 
             model = result.CreateRustShopViewModel();
-            model.RustShopEditMainSettingsViewModel.Status = RustEditMainSettingsResult.Success;
+            model.RustShopEditMainSettingsViewModel.Status = RustEditMainSettingsResult.Updated;
 
             return View(model);
+        }
+
+        public async Task<IActionResult> NewSecret(string shopId)
+        {
+            var result = await _shopManager.NewSecretAsync(Guid.Parse(shopId));
+
+            if (!result)
+                return RedirectToAction("SomethingWentWrong", "ControlPanel");
+
+            return RedirectToAction("EditMainSettings", "RustShop", new { shopId = shopId, status = RustEditMainSettingsResult.SecurityKeyUpdated });
         }
 
         #endregion Main settings
@@ -203,12 +221,13 @@ namespace EasyShop.CP.UI.Controllers
             if (shop is null)
                 return RedirectToAction("SomethingWentWrong", "ControlPanel");
 
-            var result = await _rustShopService.SetDefaultProductsAsync(shop);
+            var result = await _rustShopService.SetDefaultProductsAsync(await _userManager.FindByEmailAsync(User.Identity.Name), shop);
 
             if (!result)
                 return RedirectToAction("SomethingWentWrong", "ControlPanel");
 
             var model = shop.CreateRustShopViewModel();
+            model.RustShopEditMainSettingsViewModel.Status = RustEditMainSettingsResult.KategoriesReseted;
             return View("EditMainSettings", model);
         }
 
@@ -244,7 +263,8 @@ namespace EasyShop.CP.UI.Controllers
                         .CreateRustCategoryViewModel(
                             _rustShopService.GetAssignedUserItemsCountToACategoryInShop(x.RustCategory.Id, Guid.Parse(shopId))),
                     Discount = x.Discount,
-                    ShowInShop = x.ShowInShop
+                    ShowInShop = x.ShowInShop,
+                    Index = x.Index
                 };
 
                 return rustProductViewModel;

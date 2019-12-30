@@ -22,7 +22,7 @@
                         <table id="rustProductsTable" data-order='[[ 0, "asc" ]]' class="table table-middle nowrap dataTable no-footer" role="grid">
                             <thead>
                                 <tr role="row">
-                                    <th style="display: none">Category Index</th>
+                                    <th>#</th>
                                     <th>Name</th>
                                     <th>Category</th>
                                     <th>Amount</th>
@@ -38,7 +38,7 @@
                                     foreach (var product in Model.RustProductsManagerViewModel.Products)
                                     {
                                         <tr role="row">
-                                            <td style="display: none">@product.CategoryViewModel.Index</td>
+                                            <td>@product.Index</td>
                                             <td>
                                                 <span class="icon-with-child m-r">
                                                     <img width="50" height="50" src="~/img/rust/@($"{product.ImgUrl}.png")" alt="@product.ImgUrl">

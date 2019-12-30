@@ -36,6 +36,11 @@
                         <span class="switch-thumb"></span>
                     </label>
                 </div>
+                <div class="form-group">
+                    <label class="pull-left">Index</label>
+                    <input asp-for="@Model.RustProductEditViewModel.Index" class="form-control" type="number">
+                    <span class="help-block">Smaller index make product higher in list</span>
+                </div>
                 <div class="form-overlay-parent">
                     <div class="form-overlay"></div>
                     <div class="form-group">

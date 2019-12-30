@@ -117,15 +117,5 @@ namespace EasyShop.CP.UI.Controllers
                 default: return RedirectToAction("NotFoundPage", "Home");
             }
         }
-
-        public async Task<IActionResult> NewSecret(string shopId)
-        {
-            var result = await _shopManager.NewSecretAsync(Guid.Parse(shopId));
-
-            if (!result)
-                return RedirectToAction("SomethingWentWrong", "ControlPanel");
-
-            return RedirectToAction("EditMainSettings", "RustShop", new { shopId = shopId });
-        }
     }
 }

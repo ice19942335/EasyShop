@@ -34,7 +34,7 @@
                         <button class="btn btn-primary btn-block" type="submit">Save changes</button>
                     </div>
                 </form>
-                <form class="m-b-md" asp-area="" asp-controller="ShopManager" asp-action="NewSecret" asp-route-shopId="@Model.Id">
+                <form class="m-b-md" asp-area="" asp-controller="RustShop" asp-action="NewSecret" asp-route-shopId="@Model.Id">
                     <div class="form-group">
                         <div style="display: flex">
                             <input asp-for="RustShopEditMainSettingsViewModel.Secret" class="form-control" disabled="">
@@ -86,16 +86,28 @@
 {
     <script src="~/js/customScripts/DeleteConfirmationDialog.js" asp-append-version="true"></script>
 
-    @if (Model.RustShopEditMainSettingsViewModel.Status == RustEditMainSettingsResult.Success)
+    @if (Model.RustShopEditMainSettingsViewModel.Status == RustEditMainSettingsResult.Updated)
     {
         <script>
-            toastr.success('Main settings updated');
+            toastr.success('Updated!');
         </script>
     }
     else if (Model.RustShopEditMainSettingsViewModel.Status == RustEditMainSettingsResult.Failed)
     {
         <script>
             toastr.warning('Please, check all fields for correct values!');
+        </script>
+    }
+    else if (Model.RustShopEditMainSettingsViewModel.Status == RustEditMainSettingsResult.SecurityKeyUpdated)
+    {
+        <script>
+            toastr.success('Security key has been updated!');
+        </script>
+    }
+    else if (Model.RustShopEditMainSettingsViewModel.Status == RustEditMainSettingsResult.KategoriesReseted)
+    {
+        <script>
+            toastr.success('Categories and products have been reset!');
         </script>
     }
 }

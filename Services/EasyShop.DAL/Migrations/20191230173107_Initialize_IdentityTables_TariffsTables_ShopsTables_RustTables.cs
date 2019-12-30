@@ -461,7 +461,8 @@ namespace EasyShop.DAL.Migrations
                     Description = table.Column<string>(nullable: true),
                     Discount = table.Column<int>(nullable: false),
                     BlockedTill = table.Column<DateTime>(nullable: false),
-                    ShowInShop = table.Column<bool>(nullable: false)
+                    ShowInShop = table.Column<bool>(nullable: false),
+                    Index = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

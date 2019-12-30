@@ -248,6 +248,9 @@ namespace EasyShop.DAL.Migrations
                     b.Property<int>("Discount")
                         .HasColumnType("int");
 
+                    b.Property<int>("Index")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

@@ -29,7 +29,8 @@ namespace EasyShop.Services.Mappers.ViewModels.Rust
                 CurrentCategoryName = product.RustCategory.Name,
                 RustCategories = userCategories.Select(x => x.CreateRustCategoryViewModel()),
                 ShowInShop = product.ShowInShop,
-                ImgUrl = product.RustItem.ImgUrl
+                ImgUrl = product.RustItem.ImgUrl,
+                Index = product.Index
             };
 
             return model;

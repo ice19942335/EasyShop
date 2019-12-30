@@ -42,6 +42,10 @@ namespace EasyShop.Domain.Entries.Rust
 
         [Required]
         public bool ShowInShop { get; set; }
+
+        [Required]
+        public int Index { get; set; }
+
         #endregion
     }
 }

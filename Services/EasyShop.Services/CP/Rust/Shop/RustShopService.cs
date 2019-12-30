@@ -89,20 +89,15 @@ namespace EasyShop.Services.CP.Rust.Shop
                 {
                     try
                     {
-                        (List<RustCategory>, List<RustProduct>)? defaultCategoriesAndItems = await SetDefaultProductsAsync(user, newShop);
-                        if (defaultCategoriesAndItems != null)
-                        {
-                            _context.RustCategories.AddRange(defaultCategoriesAndItems?.Item1);
-                            _context.RustUserItems.AddRange(defaultCategoriesAndItems?.Item2);
-                            await _context.SaveChangesAsync();
-                        }
-
+                        await SetDefaultProductsAsync(user, newShop);
+                        await _context.SaveChangesAsync();
                         return RustCreateShopResult.Success;
                     }
-                    catch
+                    catch(Exception e)
                     {
                         _context.Shops.Remove(newShop);
                         _context.UserShops.Remove(userShop);
+                        await RemoveAllCategoriesAndItemsInShopAsync(newShop);
                         await _context.SaveChangesAsync();
                         return RustCreateShopResult.SomethingWentWrong;
                     }
@@ -274,32 +269,24 @@ namespace EasyShop.Services.CP.Rust.Shop
             return _rustDefaultCategoriesWithItemsService.CreateDefaultCategoriesWithItems(user, shop, defaultCategories, rustItems);
         }
 
-        public async Task<bool> SetDefaultProductsAsync(Domain.Entries.Shop.Shop shop)
+        public async Task<bool> SetDefaultProductsAsync(AppUser user, Domain.Entries.Shop.Shop shop)
         {
+            await RemoveAllCategoriesAndItemsInShopAsync(shop);
+            (List<RustCategory>, List<RustProduct>)? defaultData = GetDefaultCategoriesWithProducts(user, shop);
+
             try
             {
-                var user = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
+                _context.RustCategories.AddRange(defaultData?.Item1);
+                _context.RustUserItems.AddRange(defaultData?.Item2);
 
-                (List<RustCategory>, List<RustProduct>)? defaultCategoriesAndItems = await SetDefaultProductsAsync(user, shop);
-                if (defaultCategoriesAndItems != null)
-                {
-                    _context.RustCategories.AddRange(defaultCategoriesAndItems?.Item1);
-                    _context.RustUserItems.AddRange(defaultCategoriesAndItems?.Item2);
-                    await _context.SaveChangesAsync();
-                }
+                await _context.SaveChangesAsync();
 
                 return true;
             }
-            catch
+            catch(Exception e)
             {
                 return false;
             }
-        }
-
-        private async Task<(List<RustCategory>, List<RustProduct>)?> SetDefaultProductsAsync(AppUser user, Domain.Entries.Shop.Shop shop)
-        {
-            await RemoveAllCategoriesAndItemsInShopAsync(shop);
-            return GetDefaultCategoriesWithProducts(user, shop);
         }
 
         public IEnumerable<RustProduct> GetAllAssignedProductsToAShopByShopId(Guid shopId)
@@ -310,7 +297,7 @@ namespace EasyShop.Services.CP.Rust.Shop
                 .Include(x => x.RustItem)
                 .Include(x => x.RustCategory)
                 .Where(x => x.Shop.Id == shopId)
-                .OrderBy(x => x.RustCategory.Index);
+                .OrderBy(x => x.Index);
         }
 
         public RustProduct GetProductById(Guid productId)
@@ -351,7 +338,7 @@ namespace EasyShop.Services.CP.Rust.Shop
                     var dateFromModel = model.RustProductEditViewModel.BlockedTill.Split('/');
                     product.BlockedTill = new DateTime(int.Parse(dateFromModel[2]), int.Parse(dateFromModel[0]), int.Parse(dateFromModel[1]));
                 }
-                
+
                 if (model.RustProductEditViewModel.NewCategoryId != null)
                     product.RustCategory = GetCategoryById(Guid.Parse(model.RustProductEditViewModel.NewCategoryId));
 
