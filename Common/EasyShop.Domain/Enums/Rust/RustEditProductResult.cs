@@ -9,6 +9,7 @@ namespace EasyShop.Domain.Enums.Rust
         Success,
         Failed,
         NotFound,
-        Default
+        Default,
+        DateHaveToBeBiggerThanCurrentMoment
     }
 }

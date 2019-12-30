@@ -324,29 +324,35 @@ namespace EasyShop.Services.CP.Rust.Shop
                 await _context.SaveChangesAsync();
                 return RustEditProductResult.Success;
             }
-            else
+
+            product.ShowInShop = true;
+            product.Name = model.RustProductEditViewModel.Name;
+            product.Description = model.RustProductEditViewModel.Description;
+            product.Price = model.RustProductEditViewModel.Price;
+            product.Discount = model.RustProductEditViewModel.Discount;
+            product.Amount = model.RustProductEditViewModel.Amount;
+            product.Index = model.RustProductEditViewModel.Index;
+
+            if (model.RustProductEditViewModel.BlockedTill != null)
             {
-                product.ShowInShop = true;
-                product.Name = model.RustProductEditViewModel.Name;
-                product.Description = model.RustProductEditViewModel.Description;
-                product.Price = model.RustProductEditViewModel.Price;
-                product.Discount = model.RustProductEditViewModel.Discount;
-                product.Amount = model.RustProductEditViewModel.Amount;
-                product.Index = model.RustProductEditViewModel.Index;
+                var dateFromModel = model.RustProductEditViewModel.BlockedTill.Split('/');
+                var blockedTillDate = new DateTime(int.Parse(dateFromModel[2]), int.Parse(dateFromModel[0]), int.Parse(dateFromModel[1]));
 
-                if (model.RustProductEditViewModel.BlockedTill != null)
-                {
-                    var dateFromModel = model.RustProductEditViewModel.BlockedTill.Split('/');
-                    product.BlockedTill = new DateTime(int.Parse(dateFromModel[2]), int.Parse(dateFromModel[0]), int.Parse(dateFromModel[1]));
-                }
+                long blockedTillTicks = blockedTillDate.Ticks;
+                long currentMoment = DateTime.Now.Ticks;
 
-                if (model.RustProductEditViewModel.NewCategoryId != null)
-                    product.RustCategory = GetCategoryById(Guid.Parse(model.RustProductEditViewModel.NewCategoryId));
+                if (blockedTillTicks - currentMoment < 1)
+                    return RustEditProductResult.DateHaveToBeBiggerThanCurrentMoment;
 
-                _context.RustUserItems.Update(product);
-                await _context.SaveChangesAsync();
-                return RustEditProductResult.Success;
+                product.BlockedTill = blockedTillDate;
             }
+
+            if (model.RustProductEditViewModel.NewCategoryId != null)
+                product.RustCategory = GetCategoryById(Guid.Parse(model.RustProductEditViewModel.NewCategoryId));
+
+            _context.RustUserItems.Update(product);
+            await _context.SaveChangesAsync();
+            return RustEditProductResult.Success;
         }
 
         #endregion

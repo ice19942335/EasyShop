@@ -319,6 +319,11 @@ namespace EasyShop.CP.UI.Controllers
                 model.RustProductEditViewModel.Status = RustEditProductResult.Success;
                 return View(model);
             }
+            else if (result == RustEditProductResult.DateHaveToBeBiggerThanCurrentMoment)
+            {
+                model.RustProductEditViewModel.Status = RustEditProductResult.DateHaveToBeBiggerThanCurrentMoment;
+                return View(model);
+            }
             else if (result == RustEditProductResult.NotFound)
             {
                 return RedirectToAction("NotFoundPage", "Home");

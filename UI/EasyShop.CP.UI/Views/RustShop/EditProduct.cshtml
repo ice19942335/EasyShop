@@ -119,4 +119,10 @@
             toastr.warning('Please, check all fields for correct values!');
         </script>
     }
+    else if (Model.RustProductEditViewModel.Status == RustEditProductResult.DateHaveToBeBiggerThanCurrentMoment)
+    {
+        <script>
+            toastr.warning('Date have to be bigger than current moment in time!');
+        </script>
+    }
 }
