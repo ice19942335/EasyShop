@@ -4,10 +4,20 @@ document.getElementById('ShowInShop').addEventListener("click", rustShowInShop);
 document.getElementById('IpAddressInput').addEventListener("input", checkInputMaskIp);
 document.getElementById('PortInput').addEventListener("input", checkInputMaskPort);
 
+// SaveChanges button Activate-Deactivate-------------------------------------
 let saveBtn = document.getElementById('SaveBtn');
 
 let ipInputValueCorrect = true;
 let portInputValueCorrect = true;
+
+function canSaveChanges() {
+    if (ipInputValueCorrect === true && portInputValueCorrect === true) {
+        saveBtn.removeAttribute("disabled");
+    } else {
+        saveBtn.setAttribute("disabled", "disabled");
+    }
+}
+//-----------------------------------------------------------------------------
 
 let showInShopToggle = document.getElementById('ShowInShop');
 let overlayDiv = document.getElementsByClassName('form-overlay')[0];
@@ -42,7 +52,7 @@ function checkInputMaskIp(event) {
         ipInputValueCorrect = true;
     }
 
-    canSaveServer();
+    canSaveChanges();
 }
 
 function checkInputMaskPort(event) {
@@ -57,13 +67,5 @@ function checkInputMaskPort(event) {
         portInputValueCorrect = true;
     }
 
-    canSaveServer();
-}
-
-function canSaveServer() {
-    if (ipInputValueCorrect === true && portInputValueCorrect === true) {
-        saveBtn.removeAttribute("disabled");
-    } else {
-        saveBtn.setAttribute("disabled", "disabled");
-    }
+    canSaveChanges();
 }
