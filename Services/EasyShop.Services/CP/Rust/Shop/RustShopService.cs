@@ -332,6 +332,7 @@ namespace EasyShop.Services.CP.Rust.Shop
                 product.Price = model.RustProductEditViewModel.Price;
                 product.Discount = model.RustProductEditViewModel.Discount;
                 product.Amount = model.RustProductEditViewModel.Amount;
+                product.Index = model.RustProductEditViewModel.Index;
 
                 if (model.RustProductEditViewModel.BlockedTill != null)
                 {
