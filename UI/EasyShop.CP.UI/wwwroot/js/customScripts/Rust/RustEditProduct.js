@@ -6,25 +6,25 @@ document.getElementById('demo-datepicker-2-btn').addEventListener("click", clear
 document.getElementById('RustEditProductPriceInput').addEventListener("input", checkPriceInputIsCorrect);
 
 let showInShopToggle = document.getElementById('ShowInShop');
-let editProductDiv = document.getElementById('EditProductDiv');
+
+let overlayDiv = document.getElementsByClassName('form-overlay')[0];
 
 if (showInShopToggle.value.toLowerCase() === "true") {
-    editProductDiv.style.display = 'block';
+    overlayDiv.style.display = 'none';
 } else {
-    editProductDiv.style.display = 'none';
+    overlayDiv.style.display = 'block';
 }
 
 function rustShowInShop(event) {
     let toggle = event.target;
-    let editProductDiv = document.getElementById('EditProductDiv');
+    let overlayDiv = document.getElementsByClassName('form-overlay')[0];
     if (toggle.value.toLowerCase() === "true") {
         toggle.value = "false";
-        editProductDiv.style.display = 'none';
+        overlayDiv.style.display = 'block';
     } else {
-        editProductDiv.style.display = 'block';
         toggle.value = "true";
+        overlayDiv.style.display = 'none';
     }
-    console.log(toggle.value);
 }
 
 function checkInputMask(event) {
