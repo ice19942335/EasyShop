@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
 
@@ -12,12 +14,20 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
 
         public async Task Initialize()
         {
-            if (_dbContext.RustCategories.Any())  
+            if (_dbContext.RustCategories.Any())
                 return;
 
-            await InitializeDefaultCategories();
-            await InitializeDefaultItemTypes();
-            await InitializeDefaultItems();
+            try
+            {
+                await InitializeDefaultCategories();
+                await InitializeDefaultItemTypes();
+                await InitializeDefaultItems();
+                await InitializeDefaultMaps();
+            }
+            catch (Exception e)
+            {
+                throw new ApplicationException($"Error on initializing Rust data. Stacktrace: {e.StackTrace}", e);
+            }
         }
 
         private async Task InitializeDefaultCategories()
@@ -35,6 +45,12 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
         private async Task InitializeDefaultItems()
         {
             await _dbContext.RustItems.AddRangeAsync(RustDefaultInitializationData.DefaultRustItems);
+            await _dbContext.SaveChangesAsync();
+        }
+
+        private async Task InitializeDefaultMaps()
+        {
+            await _dbContext.RustServerMaps.AddRangeAsync(RustDefaultInitializationData.DefaultRustServerMaps);
             await _dbContext.SaveChangesAsync();
         }
     }

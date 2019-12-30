@@ -25,8 +25,9 @@
                                     <th>Name</th>
                                     <th>Name in shop</th>
                                     <th>IP:Port</th>
-                                    <th>ServerMapNameName</th>
+                                    <th>ServerMap</th>
                                     <th>Status</th>
+                                    <th>Edit</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -43,6 +44,18 @@
                                                 <span class="label @(server.ShowInShop ? "label-success" : "label-danger") label-pill">
                                                     @(server.ShowInShop ? "On" : "Off")
                                                 </span>
+                                            </td>
+                                            <td>
+                                                <strong>
+                                                    <a asp-area=""
+                                                       asp-controller="RustShop"
+                                                       asp-action="EditServer"
+                                                       asp-route-shopId="@Model.Id"
+                                                       asp-route-serverId="@server.Id"
+                                                       style="color: #00aced">
+                                                        <span class="icon icon-edit icon-lg icon-fw"></span>
+                                                    </a>
+                                                </strong>
                                             </td>
                                         </tr>
                                     }

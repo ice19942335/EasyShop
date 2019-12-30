@@ -8,7 +8,8 @@ namespace EasyShop.Domain.Entries.Rust
     [Table("RustServers")]
     public class RustServer
     {
-        [Key] 
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
 
         [Required] 

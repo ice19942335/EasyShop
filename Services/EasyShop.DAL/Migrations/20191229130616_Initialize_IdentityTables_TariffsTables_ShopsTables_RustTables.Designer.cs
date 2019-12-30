@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EasyShop.DAL.Migrations
 {
     [DbContext(typeof(EasyShopContext))]
-    [Migration("20191228192548_Initialize_IdentityTables_TariffsTables_ShopsTables_RustTables")]
+    [Migration("20191229130616_Initialize_IdentityTables_TariffsTables_ShopsTables_RustTables")]
     partial class Initialize_IdentityTables_TariffsTables_ShopsTables_RustTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -360,7 +360,7 @@ namespace EasyShop.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Type")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

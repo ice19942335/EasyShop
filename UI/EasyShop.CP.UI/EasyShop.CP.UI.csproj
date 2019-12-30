@@ -6,9 +6,13 @@
 
   <ItemGroup>
     <Compile Remove="Areas\**" />
+    <Compile Remove="wwwroot\lib\jquery\**" />
     <Content Remove="Areas\**" />
+    <Content Remove="wwwroot\lib\jquery\**" />
     <EmbeddedResource Remove="Areas\**" />
+    <EmbeddedResource Remove="wwwroot\lib\jquery\**" />
     <None Remove="Areas\**" />
+    <None Remove="wwwroot\lib\jquery\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,7 +35,6 @@
   <ItemGroup>
     <Folder Include="Views\Admin\" />
     <Folder Include="Views\Shared\Components\EmailConfirmation\" />
-    <Folder Include="wwwroot\lib\jquery\" />
   </ItemGroup>
 
   <ItemGroup>

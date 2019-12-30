@@ -1,4 +1,19 @@
-﻿textarea {
+﻿.form-overlay {
+    position: absolute;
+    top: calc(0px - 0.5%);
+    left: calc(0px - 1%);
+    border-radius: 5px;
+    width: 102%;
+    height: 102%;
+    z-index: 10;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.form-overlay-parent {
+    position: relative;
+}
+
+textarea {
     width: 100%;
     max-width: 100%;
     resize: vertical;
@@ -24,22 +39,22 @@ rustProductBlockedTillDate {
     flex-direction: column;
 }
 
-    rustProductBlockedTillDate > label {
-        text-align: left;
-    }
+rustProductBlockedTillDate > label {
+    text-align: left;
+}
 
-    rustProductBlockedTillDate > div {
-        display: flex
-    }
+rustProductBlockedTillDate > div {
+    display: flex
+}
 
-        rustProductBlockedTillDate > div > input {
-            max-width: calc(100% - 37px);
-        }
+rustProductBlockedTillDate > div > input {
+    max-width: calc(100% - 37px);
+}
 
 .showInShopWrap {
     display: flex;
 }
 
-    .showInShopWrap > label {
-        text-align: left;
-    }
+.showInShopWrap > label {
+    text-align: left;
+}

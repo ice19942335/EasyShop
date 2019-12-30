@@ -9,6 +9,7 @@ namespace EasyShop.Domain.Enums.Rust
         Updated,
         Created,
         Failed,
-        Default
+        Default,
+        NotFound
     }
 }

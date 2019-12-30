@@ -87,7 +87,7 @@ namespace EasyShop.DAL.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    Name = table.Column<string>(nullable: false)
+                    Type = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
