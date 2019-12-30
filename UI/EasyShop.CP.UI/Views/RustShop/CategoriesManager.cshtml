@@ -5,7 +5,7 @@
     Layout = "Partial/_RustEditLayout";
 }
 
-<div class="well text-center">
+<div class="well">
     <h2>Categories</h2>
     <div class="row">
         <div class="col-md-4 m-b-md">
@@ -65,6 +65,10 @@
                             }
                         </tbody>
                     </table>
+                    @if (!Model.RustShopCategories.Categories.Any())
+                    {
+                        <h4 class="text-center">No categories found in shop: <strong style="color: #00aced;">@Model.ShopName</strong>. You can add categories by pressing the button below.</h4>
+                    }
                 </div>
             </div>
         </div>
@@ -72,7 +76,7 @@
 </div>
 
 @section Styles {
-    <link rel="stylesheet" href="~/css/custom/Rust/CategoriesManager.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/custom/Rust/CategoriesManager.css" asp-append-version="true" />
 }
 
 @section Scripts
