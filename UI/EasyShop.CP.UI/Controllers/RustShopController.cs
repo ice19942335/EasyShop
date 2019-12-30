@@ -244,7 +244,7 @@ namespace EasyShop.CP.UI.Controllers
                         .CreateRustCategoryViewModel(
                             _rustShopService.GetAssignedUserItemsCountToACategoryInShop(x.RustCategory.Id, Guid.Parse(shopId))),
                     Discount = x.Discount,
-                    ShopInShop = x.ShowInShop
+                    ShowInShop = x.ShowInShop
                 };
 
                 return rustProductViewModel;

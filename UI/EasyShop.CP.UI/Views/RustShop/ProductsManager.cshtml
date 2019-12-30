@@ -29,6 +29,7 @@
                                     <th>Price</th>
                                     <th>Discount</th>
                                     <th>Block time</th>
+                                    <th>Status</th>
                                     <th>Edit</th>
                                 </tr>
                             </thead>
@@ -36,7 +37,7 @@
                                 @{
                                     foreach (var product in Model.RustProductsManagerViewModel.Products)
                                     {
-                                        <tr id="Row" role="row" class="showProductInShop-@(product.ShopInShop ? "true" : "false")">
+                                        <tr role="row">
                                             <td style="display: none">@product.CategoryViewModel.Index</td>
                                             <td>
                                                 <span class="icon-with-child m-r">
@@ -49,6 +50,11 @@
                                             <td><strong>@product.Price</strong></td>
                                             <td><strong>@product.Discount</strong></td>
                                             <td><strong>@(product.BlockedTill == default ? "None" : product.BlockedTill.ToString())</strong></td>
+                                            <td>
+                                                <span class="label @(product.ShowInShop ? "label-success" : "label-danger") label-pill">
+                                                    @(product.ShowInShop ? "On" : "Off")
+                                                </span>
+                                            </td>
                                             <td class="sorting_disabled">
                                                 <strong>
                                                     <a asp-area=""
@@ -95,6 +101,4 @@
             });
         });
     </script>
-
-    <script src="~/js/customScripts/Rust/ProductManagerShowInShopHighLightRow.js" asp-append-version="true"></script>
 }
