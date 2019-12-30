@@ -20,7 +20,7 @@
                 </span>
                 <span style="display: none" id="confirmSpan_setDefaultProducts">
                     <form style="display: inline;" method="get" asp-area="" asp-controller="RustShop" asp-action="SetDefaultCategoriesAndProducts" asp-route-shopId="@Model.Id" asp-route-redirectTo="@RustSetDefaultCategoriesAndProductsRedirect.Categories">
-                        <span>All existing products and categories in <strong style="color: #00aced;">@Model.ShopName</strong> will be deleted! Are you sure you want to do that?</span>
+                        <span>All existing products and categories in shop: <strong style="color: #00aced;">@Model.ShopName</strong> will be deleted! Are you sure you want to do that?</span>
                         <div class="deleteConfirmationButtonsDiv">
                             <button class="btn btn-success btn-block" type="submit">Yes</button>
                             <button class="btn btn-block btn-danger" type="button" onclick="deleteConfirmationDialog('setDefaultProducts', false)">No</button>
