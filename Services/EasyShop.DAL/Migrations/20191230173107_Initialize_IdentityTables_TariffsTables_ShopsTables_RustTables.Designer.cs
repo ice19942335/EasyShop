@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EasyShop.DAL.Migrations
 {
     [DbContext(typeof(EasyShopContext))]
-    [Migration("20191229130616_Initialize_IdentityTables_TariffsTables_ShopsTables_RustTables")]
+    [Migration("20191230173107_Initialize_IdentityTables_TariffsTables_ShopsTables_RustTables")]
     partial class Initialize_IdentityTables_TariffsTables_ShopsTables_RustTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -248,6 +248,9 @@ namespace EasyShop.DAL.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Discount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Index")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")

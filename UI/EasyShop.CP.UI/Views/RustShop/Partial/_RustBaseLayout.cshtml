@@ -4,11 +4,11 @@
     Layout = "_ControlPanelLayout";
 }
 
-@await Html.PartialAsync("Partial/_RustShopNavBar", Model)
 <div class="m-b-lg">
     <h3 class="m-t-sm">@Model.ShopName</h3>
     <a href="#"><span class="icon icon-external-link icon-lg icon-fw"></span> Server: http://www.abirula.com/@Model.ShopTitle</a>
 </div>
+@await Html.PartialAsync("Partial/_RustShopNavBar", Model)
 @RenderBody()
 
 

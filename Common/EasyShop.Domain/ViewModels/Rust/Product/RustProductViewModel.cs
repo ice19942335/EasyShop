@@ -29,6 +29,8 @@ namespace EasyShop.Domain.ViewModels.Rust.Product
 
         public RustCategoryViewModel CategoryViewModel { get; set; }
 
-        public bool ShopInShop { get; set; }
+        public bool ShowInShop { get; set; }
+
+        public int Index { get; set; }
     }
 }

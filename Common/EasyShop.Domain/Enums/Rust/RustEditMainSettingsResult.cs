@@ -6,8 +6,10 @@ namespace EasyShop.Domain.Enums.Rust
 {
     public enum RustEditMainSettingsResult
     {
-        Success,
+        Updated,
         Failed,
-        Default
+        Default,
+        SecurityKeyUpdated,
+        KategoriesReseted
     }
 }

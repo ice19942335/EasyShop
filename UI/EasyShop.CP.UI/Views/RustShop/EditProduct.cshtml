@@ -24,7 +24,7 @@
                 <input asp-for="@Model.ShopTitle" type="hidden" />
                 <input asp-for="@Model.RustProductEditViewModel.Id" type="hidden" />
                 <div asp-validation-summary="ModelOnly" class="alert alert-info"></div>
-                <div class="showInShopWrap">
+                <div class="showInShopWrap m-b-md">
                     <label>Show in shop</label>
                     <label class="switch switch-primary m-l-lg">
                         <input id="ShowInShop"
@@ -38,6 +38,11 @@
                 </div>
                 <div class="form-overlay-parent">
                     <div class="form-overlay"></div>
+                    <div class="form-group">
+                        <label class="pull-left">Index</label>
+                        <input asp-for="@Model.RustProductEditViewModel.Index" class="form-control" type="number">
+                        <span class="help-block">Smaller index make product higher in list</span>
+                    </div>
                     <div class="form-group">
                         <label class="pull-left">Name</label>
                         <input asp-for="@Model.RustProductEditViewModel.Name" class="form-control" type="text">
@@ -112,6 +117,12 @@
     {
         <script>
             toastr.warning('Please, check all fields for correct values!');
+        </script>
+    }
+    else if (Model.RustProductEditViewModel.Status == RustEditProductResult.DateHaveToBeBiggerThanCurrentMoment)
+    {
+        <script>
+            toastr.warning('Date have to be bigger than current moment in time!');
         </script>
     }
 }

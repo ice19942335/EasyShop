@@ -34,20 +34,21 @@ div[class="datepicker datepicker-dropdown dropdown-menu datepicker-orient-left d
     justify-content: center;
 }
 
-rustProductBlockedTillDate {
+.rustProductBlockedTillDate {
     display: flex;
     flex-direction: column;
 }
 
-rustProductBlockedTillDate > label {
+.rustProductBlockedTillDate > label {
+    display: block;
     text-align: left;
 }
 
-rustProductBlockedTillDate > div {
+.rustProductBlockedTillDate > div {
     display: flex
 }
 
-rustProductBlockedTillDate > div > input {
+.rustProductBlockedTillDate > div > input {
     max-width: calc(100% - 37px);
 }
 

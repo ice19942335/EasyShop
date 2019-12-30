@@ -1,4 +1,5 @@
 ﻿@using EasyShop.Domain.Enums.Rust
+@using EasyShop.Domain.Enums.Rust.RedirectEnums
 @model EasyShop.Domain.ViewModels.Rust.Shop.RustShopViewModel
 @{
     ViewData["Title"] = "Edit Rust shop";
@@ -34,7 +35,7 @@
                         <button class="btn btn-primary btn-block" type="submit">Save changes</button>
                     </div>
                 </form>
-                <form class="m-b-md" asp-area="" asp-controller="ShopManager" asp-action="NewSecret" asp-route-shopId="@Model.Id">
+                <form class="m-b-md" asp-area="" asp-controller="RustShop" asp-action="NewSecret" asp-route-shopId="@Model.Id">
                     <div class="form-group">
                         <div style="display: flex">
                             <input asp-for="RustShopEditMainSettingsViewModel.Secret" class="form-control" disabled="">
@@ -55,11 +56,13 @@
                     <button class="btn btn-warning btn-block m-b-md" onclick="deleteConfirmationDialog('setDefaultProducts', true)">Set default categories and products</button>
                 </span>
                 <span style="display: none" id="confirmSpan_setDefaultProducts">
-                    <form style="display: inline;" method="get" asp-area="" asp-controller="RustShop" asp-action="SetDefaultCategoriesAndProducts" asp-route-shopId="@Model.Id">
-                        <span>All existing products and categories in the shop will be deleted! Are you sure you want to do that?</span>
-                        <button style="max-width: fit-content; display: inline;" class="btn btn-success btn-block m-b-md" type="submit">Yes</button>
+                    <form style="display: inline;" method="get" asp-area="" asp-controller="RustShop" asp-action="SetDefaultCategoriesAndProducts" asp-route-shopId="@Model.Id" asp-route-redirectTo="@RustSetDefaultCategoriesAndProductsRedirect.MainSettings">
+                        <span>All existing products and categories in shop: <strong style="color: #00aced;">@Model.ShopName</strong> will be deleted! Are you sure you want to do that?</span>
+                        <div class="deleteConfirmationButtonsDiv">
+                            <button class="btn btn-success btn-block" type="submit">Yes</button>
+                            <button class="btn btn-block btn-danger m-b-lg" type="button" onclick="deleteConfirmationDialog('setDefaultProducts', false)">No</button>
+                        </div>
                     </form>
-                    <button style="max-width: fit-content; display: inline;" class="btn btn-danger btn-block m-b-md" onclick="deleteConfirmationDialog('setDefaultProducts', false)">No</button>
                 </span>
             </div>
         </div>
@@ -72,7 +75,7 @@
                 </span>
                 <span style="display: none" id="confirmSpan_@Model.Id">
                     <form style="display: inline;" method="get" asp-area="" asp-controller="ShopManager" asp-action="DeleteShop" asp-route-shopId="@Model.Id">
-                        <span>This shop will be permanently deleted! You sure you want to do that?</span>
+                        <span>Shop: <strong style="color: #00aced;">@Model.ShopName</strong> will be permanently deleted! You sure you want to do that?</span>
                         <button style="max-width: fit-content; display: inline;" class="btn btn-success btn-block m-b-md" type="submit">Yes</button>
                     </form>
                     <button style="max-width: fit-content; display: inline;" class="btn btn-danger btn-block m-b-md" onclick="deleteConfirmationDialog('@Model.Id', false)">No</button>
@@ -86,16 +89,28 @@
 {
     <script src="~/js/customScripts/DeleteConfirmationDialog.js" asp-append-version="true"></script>
 
-    @if (Model.RustShopEditMainSettingsViewModel.Status == RustEditMainSettingsResult.Success)
+    @if (Model.RustShopEditMainSettingsViewModel.Status == RustEditMainSettingsResult.Updated)
     {
         <script>
-            toastr.success('Main settings updated');
+            toastr.success('Updated!');
         </script>
     }
     else if (Model.RustShopEditMainSettingsViewModel.Status == RustEditMainSettingsResult.Failed)
     {
         <script>
             toastr.warning('Please, check all fields for correct values!');
+        </script>
+    }
+    else if (Model.RustShopEditMainSettingsViewModel.Status == RustEditMainSettingsResult.SecurityKeyUpdated)
+    {
+        <script>
+            toastr.success('Security key has been updated!');
+        </script>
+    }
+    else if (Model.RustShopEditMainSettingsViewModel.Status == RustEditMainSettingsResult.KategoriesReseted)
+    {
+        <script>
+            toastr.success('Categories and products have been reset!');
         </script>
     }
 }

@@ -43,7 +43,7 @@
                         </span>
                         <span style="display: none" id="confirmSpan_@Model.RustCategoryEditViewModel.Category.Id">
                             <form style="display: inline;" method="get" asp-area="" asp-controller="RustShop" asp-action="DeleteCategory" asp-route-shopId="@Model.Id" asp-route-categoryId="@Model.RustCategoryEditViewModel.Category.Id">
-                                <span>Are you sure you want to delete?</span>
+                                <span>All products in this category will be deleted! Are you sure you want to delete?</span>
                                 <button style="max-width: fit-content; display: inline;" class="btn btn-success btn-block" type="submit">Yes</button>
                             </form>
                             <button style="max-width: fit-content; display: inline;" class="btn btn-danger btn-block" onclick="deleteConfirmationDialog('@Model.RustCategoryEditViewModel.Category.Id', false)">No</button>

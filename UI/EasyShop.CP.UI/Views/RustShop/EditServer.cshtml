@@ -38,17 +38,17 @@
                     <div class="form-overlay-parent">
                         <div class="form-overlay"></div>
                         <div class="form-group">
+                            <label class="pull-left">Index</label>
+                            <input asp-for="@Model.RustServerEditViewModel.Index" class="form-control" type="number">
+                            <span class="help-block">Smaller index make category higher in list</span>
+                        </div>
+                        <div class="form-group">
                             <label class="pull-left">Name</label>
                             <input asp-for="@Model.RustServerEditViewModel.Name" class="form-control" type="text">
                         </div>
                         <div class="form-group">
                             <label class="pull-left">Name in shop</label>
                             <input asp-for="@Model.RustServerEditViewModel.NameInShop" class="form-control" type="text">
-                        </div>
-                        <div class="form-group">
-                            <label class="pull-left">Index</label>
-                            <input asp-for="@Model.RustServerEditViewModel.Index" class="form-control" type="number">
-                            <span class="help-block">Smaller index make category higher in list</span>
                         </div>
                         <div class="form-group">
                             <label class="pull-left">IP Address</label>
