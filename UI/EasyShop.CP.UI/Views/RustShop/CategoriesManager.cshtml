@@ -1,4 +1,5 @@
-﻿@model EasyShop.Domain.ViewModels.Rust.Shop.RustShopViewModel
+﻿@using EasyShop.Domain.Enums.Rust.RedirectEnums
+@model EasyShop.Domain.ViewModels.Rust.Shop.RustShopViewModel
 @{
     ViewData["Title"] = "Edit rust Shop";
     Layout = "Partial/_RustEditLayout";
@@ -7,10 +8,26 @@
 <div class="well text-center">
     <h2>Categories</h2>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 m-b-md">
             <form method="get" asp-area="" asp-controller="RustShop" asp-action="CreateCategory" asp-route-shopId="@Model.Id">
                 <button class="btn btn-primary btn-block" type="submit">Add category</button>
             </form>
+        </div>
+        <div class="col-md-6 col-md-offset-2 col-lg-5 col-lg-offset-3">
+            <div>
+                <span id="confirmButton_setDefaultProducts">
+                    <button class="btn btn-warning btn-block m-b-md" onclick="deleteConfirmationDialog('setDefaultProducts', true)">Set default categories and products</button>
+                </span>
+                <span style="display: none" id="confirmSpan_setDefaultProducts">
+                    <form style="display: inline;" method="get" asp-area="" asp-controller="RustShop" asp-action="SetDefaultCategoriesAndProducts" asp-route-shopId="@Model.Id" asp-route-redirectTo="@RustSetDefaultCategoriesAndProductsRedirect.Categories">
+                        <span>All existing products and categories in <strong style="color: #00aced;">@Model.ShopName</strong> will be deleted! Are you sure you want to do that?</span>
+                        <div class="deleteConfirmationButtonsDiv">
+                            <button class="btn btn-success btn-block" type="submit">Yes</button>
+                            <button class="btn btn-block btn-danger" type="button" onclick="deleteConfirmationDialog('setDefaultProducts', false)">No</button>
+                        </div>
+                    </form>
+                </span>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -53,6 +70,10 @@
         </div>
     </div>
 </div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/custom/Rust/CategoriesManager.css" asp-append-version="true"/>
+}
 
 @section Scripts
 {

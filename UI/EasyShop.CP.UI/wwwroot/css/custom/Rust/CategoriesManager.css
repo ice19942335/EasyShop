@@ -1,0 +1,18 @@
+﻿.deleteConfirmationButtonsDiv {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.deleteConfirmationButtonsDiv > button {
+    max-width: fit-content;
+}
+
+button[type="button"] {
+    display: inline;
+    height: fit-content;
+    margin-top: 0
+}
+
+.btn-block + .btn-block {
+    margin-top: 0;
+}

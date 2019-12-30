@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Enums.Rust;
+using EasyShop.Domain.Enums.Rust.RedirectEnums;
 using EasyShop.Domain.ViewModels.Rust.Category;
 using EasyShop.Domain.ViewModels.Rust.Product;
 using EasyShop.Domain.ViewModels.Rust.Server;
@@ -27,10 +28,10 @@ namespace EasyShop.CP.UI.Controllers
         private readonly UserManager<AppUser> _userManager;
 
         public RustShopController(
-            IShopManager shopManager, 
-            IRustShopService rustShopService, 
-            IHttpContextAccessor httpContextAccessor, 
-            IRustServerService rustServerService, 
+            IShopManager shopManager,
+            IRustShopService rustShopService,
+            IHttpContextAccessor httpContextAccessor,
+            IRustServerService rustServerService,
             UserManager<AppUser> userManager)
         {
             _shopManager = shopManager;
@@ -199,7 +200,7 @@ namespace EasyShop.CP.UI.Controllers
             }
         }
 
-        [HttpGet(template: "{shopId}&{categoryId}")]
+        [HttpGet("DeleteCategory/{shopId}&{categoryId}")]
         public async Task<IActionResult> DeleteCategory(string shopId, string categoryId)
         {
             var result = await _rustShopService.DeleteCategory(Guid.Parse(categoryId));
@@ -213,8 +214,8 @@ namespace EasyShop.CP.UI.Controllers
             return RedirectToAction("CategoriesManager", "RustShop", new { shopId = shopId });
         }
 
-        [HttpGet("SetDefaultCategoriesAndProducts/{shopId}")]
-        public async Task<IActionResult> SetDefaultCategoriesAndProducts(string shopId)
+        [HttpGet("SetDefaultCategoriesAndProducts/{shopId}&{redirectTo}")]
+        public async Task<IActionResult> SetDefaultCategoriesAndProducts(string shopId, RustSetDefaultCategoriesAndProductsRedirect redirectTo)
         {
             var shop = _shopManager.GetShopById(Guid.Parse(shopId));
 
@@ -228,6 +229,10 @@ namespace EasyShop.CP.UI.Controllers
 
             var model = shop.CreateRustShopViewModel();
             model.RustShopEditMainSettingsViewModel.Status = RustEditMainSettingsResult.KategoriesReseted;
+
+            if (redirectTo == RustSetDefaultCategoriesAndProductsRedirect.Categories)
+                return RedirectToAction("CategoriesManager", "RustShop", new { shopId = model.Id });
+
             return View("EditMainSettings", model);
         }
 
