@@ -1,0 +1,22 @@
+﻿.showInShopWrap {
+    display: flex;
+}
+
+.showInShopWrap > label {
+    text-align: left;
+}
+
+.form-overlay {
+    position: absolute;
+    top: calc(0px - 0.5%);
+    left: calc(0px - 1%);
+    border-radius: 5px;
+    width: 102%;
+    height: 102%;
+    z-index: 10;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.form-overlay-parent {
+    position: relative;
+}
