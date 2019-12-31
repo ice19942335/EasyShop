@@ -39,7 +39,7 @@ namespace EasyShop.Services.CP.Tariff
             _tariffOptionDescriptionService = tariffOptionDescriptionService;
             _tariffOptionsService = tariffOptionsService;
             _userManager = userManager;
-            _logger = logger;
+            _logger = logger; 
             _httpContext = httpContextAccessor.HttpContext;
         }
 
