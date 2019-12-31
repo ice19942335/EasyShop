@@ -22,5 +22,9 @@ namespace EasyShop.Domain.Entries.Rust
 
         [Required]
         public DateTime PurchaseDateTime { get; set; }
+
+        [Required]
+        [Column(TypeName = "decimal(18, 2)")]
+        public Decimal TotalPaid { get; set; }
     }
 }
