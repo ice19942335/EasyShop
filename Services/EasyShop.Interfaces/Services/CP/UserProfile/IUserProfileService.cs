@@ -3,7 +3,7 @@ using EasyShop.Domain.ViewModels.User.UserProfile;
 
 namespace EasyShop.Interfaces.Services.CP.UserProfile
 {
-    public interface IUserProfileServiceSql
+    public interface IUserProfileService
     {
         Task<UserProfileViewModel> UpdateUserData(UserProfileViewModel model);
     }

@@ -15,16 +15,16 @@ using Microsoft.Extensions.Logging;
 
 namespace EasyShop.Services.CP.UserProfile
 {
-    public class UserProfileServiceSql : IUserProfileServiceSql
+    public class UserProfileService : IUserProfileService
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly EasyShopContext _context;
-        private readonly ILogger<UserProfileServiceSql> _logger;
+        private readonly ILogger<UserProfileService> _logger;
 
-        public UserProfileServiceSql(
+        public UserProfileService(
             UserManager<AppUser> userManager,
             EasyShopContext context,
-            ILogger<UserProfileServiceSql> logger)
+            ILogger<UserProfileService> logger)
         {
             _userManager = userManager;
             _context = context;
@@ -48,11 +48,6 @@ namespace EasyShop.Services.CP.UserProfile
 
                 return updatedUser.CreateViewModel();
             }
-        }
-
-        public bool UploadProfilePicture(IFormFile file)
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -28,7 +28,7 @@ namespace EasyShop.CP.UI.Installers
         public void InstallServices(IServiceCollection services, IConfiguration configuration)
         {
             //Transient ------------------------------------------------------------------------------
-            services.AddTransient<IUserProfileServiceSql, UserProfileServiceSql>();
+            services.AddTransient<IUserProfileService, UserProfileServiceSql>();
 
             services.AddTransient<IFileImageService, FileImageService>();
 
