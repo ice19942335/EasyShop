@@ -35,9 +35,6 @@ namespace EasyShop.CP.UI.Controllers
 
         public async Task<IActionResult> ShopsManager()
         {
-            if (User.Identity.Name is null)
-                return RedirectToAction("Login", "Account");
-
             var userShops = await _shopManager.UserShopsByUserEmailAsync(User.Identity.Name);
 
             var model = new ShopsManagerViewModel { Shops = userShops };
