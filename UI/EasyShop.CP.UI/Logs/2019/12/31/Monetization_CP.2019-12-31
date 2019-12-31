@@ -6546,3 +6546,454 @@ WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
 
 2019-12-31 20:32:15,129 [21] ?     - Request finished in 39.6531ms 200 text/html; charset=utf-8
 
+2019-12-31 20:49:12,020 [5] ?     - Application started. Press Ctrl+C to shut down.
+
+2019-12-31 20:49:12,032 [5] ?     - Hosting environment: Development
+
+2019-12-31 20:49:12,033 [5] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2019-12-31 20:49:12,041 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ShopManager/ShopsManager  
+
+2019-12-31 20:49:12,130 [9] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-12-31 20:49:12,147 [9] ?     - Executing DbCommand [Parameters=[@__p_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE ([a].[Id] = @__p_0) AND @__p_0 IS NOT NULL
+
+2019-12-31 20:49:12,179 [4] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE ([a].[UserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2019-12-31 20:49:12,249 [16] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2019-12-31 20:49:12,255 [4] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2019-12-31 20:49:12,275 [4] ?     - Executing DbCommand [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE ([a].[RoleId] = @__role_Id_0) AND @__role_Id_0 IS NOT NULL
+
+2019-12-31 20:49:12,280 [5] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2019-12-31 20:49:12,283 [9] ?     - Executing DbCommand [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE ([a].[RoleId] = @__role_Id_0) AND @__role_Id_0 IS NOT NULL
+
+2019-12-31 20:49:12,324 [14] ?     - Authorization was successful.
+
+2019-12-31 20:49:12,326 [14] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ShopManagerController.ShopsManager (EasyShop.CP.UI)'
+
+2019-12-31 20:49:12,366 [14] ?     - Route matched with {action = "ShopsManager", controller = "ShopManager"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ShopsManager() on controller EasyShop.CP.UI.Controllers.ShopManagerController (EasyShop.CP.UI).
+
+2019-12-31 20:49:12,384 [14] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 20:49:12,406 [14] ?     - Executing ViewResult, running view ShopsManager.
+
+2019-12-31 20:49:12,571 [14] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2019-12-31 20:49:12,583 [14] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2019-12-31 20:49:12,624 [14] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 20:49:12,632 [14] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 20:49:12,635 [14] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2019-12-31 20:49:12,655 [14] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 20:49:12,666 [14] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2019-12-31 20:49:12,817 [14] ?     - Executed ViewResult - view ShopsManager executed in 403.1529ms.
+
+2019-12-31 20:49:12,820 [14] ?     - Executed action EasyShop.CP.UI.Controllers.ShopManagerController.ShopsManager (EasyShop.CP.UI) in 451.6309ms
+
+2019-12-31 20:49:12,822 [14] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ShopManagerController.ShopsManager (EasyShop.CP.UI)'
+
+2019-12-31 20:49:12,861 [14] ?     - Request finished in 808.3301ms 200 text/html; charset=utf-8
+
+2019-12-31 20:49:17,717 [17] ?     - Request starting HTTP/2.0 GET https://localhost:44374/Account/LogOut  
+
+2019-12-31 20:49:17,725 [17] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.LogOut (EasyShop.CP.UI)'
+
+2019-12-31 20:49:17,731 [17] ?     - Route matched with {action = "LogOut", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LogOut() on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2019-12-31 20:49:17,748 [17] ?     - AuthenticationScheme: Identity.Application signed out.
+
+2019-12-31 20:49:17,751 [17] ?     - AuthenticationScheme: Identity.External signed out.
+
+2019-12-31 20:49:17,753 [17] ?     - AuthenticationScheme: Identity.TwoFactorUserId signed out.
+
+2019-12-31 20:49:17,754 [17] ?     - User: aleksejbirula@gmail.com has been logged out.
+
+2019-12-31 20:49:17,765 [17] ?     - Executing RedirectResult, redirecting to /.
+
+2019-12-31 20:49:17,766 [17] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.LogOut (EasyShop.CP.UI) in 33.8646ms
+
+2019-12-31 20:49:17,768 [17] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.LogOut (EasyShop.CP.UI)'
+
+2019-12-31 20:49:17,771 [17] ?     - Request finished in 53.8393ms 302 
+
+2019-12-31 20:49:17,776 [5] ?     - Request starting HTTP/2.0 GET https://localhost:44374/  
+
+2019-12-31 20:49:17,780 [5] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI)'
+
+2019-12-31 20:49:17,783 [5] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.HomeController (EasyShop.CP.UI).
+
+2019-12-31 20:49:17,786 [5] ?     - Executing ViewResult, running view Index.
+
+2019-12-31 20:49:18,263 [5] ?     - Executed ViewResult - view Index executed in 476.9558ms.
+
+2019-12-31 20:49:18,264 [5] ?     - Executed action EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI) in 479.6773ms
+
+2019-12-31 20:49:18,265 [5] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI)'
+
+2019-12-31 20:49:18,267 [5] ?     - Request finished in 491.5726ms 200 text/html; charset=utf-8
+
+2019-12-31 20:49:18,295 [13] ?     - Request starting HTTP/2.0 GET https://localhost:44374/img/4299815763.png  
+
+2019-12-31 20:49:18,300 [13] ?     - Request finished in 4.8276ms 404 
+
+2019-12-31 20:49:18,383 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/img/4148866741.png  
+
+2019-12-31 20:49:18,385 [4] ?     - Request finished in 2.4068ms 404 
+
+2019-12-31 20:49:20,693 [12] ?     - Request starting HTTP/2.0 GET https://localhost:44374/Account/Register  
+
+2019-12-31 20:49:20,698 [12] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2019-12-31 20:49:20,702 [12] ?     - Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register() on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2019-12-31 20:49:20,709 [12] ?     - Executing ViewResult, running view Register.
+
+2019-12-31 20:49:20,810 [12] ?     - Executed ViewResult - view Register executed in 101.0779ms.
+
+2019-12-31 20:49:20,813 [12] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI) in 108.0941ms
+
+2019-12-31 20:49:20,814 [12] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2019-12-31 20:49:20,816 [12] ?     - Request finished in 123.4071ms 200 text/html; charset=utf-8
+
+2019-12-31 20:49:20,844 [14] ?     - Request starting HTTP/2.0 GET https://localhost:44374/css/custom/Override/override-signup-2.css?v=50pRk7guA1zKHW_gVWegR-WerNdUrI4EOpCKktWNPmA  
+
+2019-12-31 20:49:20,853 [14] ?     - The file /css/custom/Override/override-signup-2.css was not modified
+
+2019-12-31 20:49:20,856 [14] ?     - Request finished in 12.6098ms 304 text/css
+
+2019-12-31 20:49:20,910 [14] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/customScripts/AccountRegistrationCheckPasswordToBeTheSame.js?v=5XUQVASGtXlFqEQJht3VhIcb61GLVsTTZ9z3mdbK6Tg  
+
+2019-12-31 20:49:20,919 [14] ?     - Sending file. Request path: '/js/customScripts/AccountRegistrationCheckPasswordToBeTheSame.js'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\wwwroot\js\customScripts\AccountRegistrationCheckPasswordToBeTheSame.js'
+
+2019-12-31 20:49:20,921 [14] ?     - Request finished in 11.7216ms 200 application/javascript
+
+2019-12-31 20:50:51,461 [10] ?     - Application started. Press Ctrl+C to shut down.
+
+2019-12-31 20:50:51,533 [10] ?     - Hosting environment: Development
+
+2019-12-31 20:50:51,535 [10] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2019-12-31 20:50:51,558 [7] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ShopManager/ShopsManager  
+
+2019-12-31 20:50:51,645 [7] ?     - Authorization failed.
+
+2019-12-31 20:50:51,683 [7] ?     - AuthenticationScheme: Identity.Application was challenged.
+
+2019-12-31 20:50:51,756 [10] ?     - Request starting HTTP/2.0 GET https://localhost:44374/Account/Login?ReturnUrl=%2FShopManager%2FShopsManager  
+
+2019-12-31 20:50:51,792 [7] ?     - Request finished in 213.8679ms 302 
+
+2019-12-31 20:50:51,833 [10] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI)'
+
+2019-12-31 20:50:51,877 [10] ?     - Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2019-12-31 20:50:51,915 [10] ?     - Executing ViewResult, running view Login.
+
+2019-12-31 20:50:52,209 [10] ?     - Executed ViewResult - view Login executed in 295.4803ms.
+
+2019-12-31 20:50:52,214 [10] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI) in 333.8778ms
+
+2019-12-31 20:50:52,219 [10] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI)'
+
+2019-12-31 20:50:52,253 [10] ?     - Request finished in 481.0759ms 200 text/html; charset=utf-8
+
+2019-12-31 20:50:52,255 [7] ?     - Request starting HTTP/2.0 GET https://localhost:44374/css/custom/Override/override-login-2.css?v=pP8GzjabeHuuY4A2w7jP89pi1DPfUBxFKyLUkE9Fss8  
+
+2019-12-31 20:50:52,264 [7] ?     - The file /css/custom/Override/override-login-2.css was not modified
+
+2019-12-31 20:50:52,269 [7] ?     - Request finished in 14.2672ms 304 text/css
+
+2019-12-31 20:50:54,231 [7] ?     - Request starting HTTP/2.0 GET https://localhost:44374/Account/Register  
+
+2019-12-31 20:50:54,238 [7] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2019-12-31 20:50:54,244 [7] ?     - Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register() on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2019-12-31 20:50:54,252 [7] ?     - Executing ViewResult, running view Register.
+
+2019-12-31 20:50:54,324 [7] ?     - Executed ViewResult - view Register executed in 72.6119ms.
+
+2019-12-31 20:50:54,326 [7] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI) in 80.0532ms
+
+2019-12-31 20:50:54,328 [7] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2019-12-31 20:50:54,330 [7] ?     - Request finished in 100.3531ms 200 text/html; charset=utf-8
+
+2019-12-31 20:50:54,364 [15] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/customScripts/AccountRegistrationCheckPasswordToBeTheSame.js?v=5XUQVASGtXlFqEQJht3VhIcb61GLVsTTZ9z3mdbK6Tg  
+
+2019-12-31 20:50:54,367 [15] ?     - The file /js/customScripts/AccountRegistrationCheckPasswordToBeTheSame.js was not modified
+
+2019-12-31 20:50:54,370 [15] ?     - Request finished in 4.7438ms 304 application/javascript
+
+2019-12-31 20:52:09,078 [12] ?     - Application started. Press Ctrl+C to shut down.
+
+2019-12-31 20:52:09,086 [12] ?     - Hosting environment: Development
+
+2019-12-31 20:52:09,089 [12] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2019-12-31 20:52:09,098 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ShopManager/ShopsManager  
+
+2019-12-31 20:52:09,169 [4] ?     - Authorization failed.
+
+2019-12-31 20:52:09,182 [4] ?     - AuthenticationScheme: Identity.Application was challenged.
+
+2019-12-31 20:52:09,195 [12] ?     - Request starting HTTP/2.0 GET https://localhost:44374/Account/Login?ReturnUrl=%2FShopManager%2FShopsManager  
+
+2019-12-31 20:52:09,198 [4] ?     - Request finished in 100.5039ms 302 
+
+2019-12-31 20:52:09,226 [12] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI)'
+
+2019-12-31 20:52:09,259 [12] ?     - Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2019-12-31 20:52:09,290 [12] ?     - Executing ViewResult, running view Login.
+
+2019-12-31 20:52:09,525 [12] ?     - Executed ViewResult - view Login executed in 236.1515ms.
+
+2019-12-31 20:52:09,527 [12] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI) in 266.4929ms
+
+2019-12-31 20:52:09,529 [12] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI)'
+
+2019-12-31 20:52:09,533 [12] ?     - Request finished in 337.9033ms 200 text/html; charset=utf-8
+
+2019-12-31 20:52:11,859 [18] ?     - Request starting HTTP/2.0 GET https://localhost:44374/Account/Register  
+
+2019-12-31 20:52:11,865 [18] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2019-12-31 20:52:11,871 [18] ?     - Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register() on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2019-12-31 20:52:11,884 [18] ?     - Executing ViewResult, running view Register.
+
+2019-12-31 20:52:11,961 [18] ?     - Executed ViewResult - view Register executed in 80.6537ms.
+
+2019-12-31 20:52:11,966 [18] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI) in 90.0915ms
+
+2019-12-31 20:52:11,968 [18] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2019-12-31 20:52:11,971 [18] ?     - Request finished in 111.8946ms 200 text/html; charset=utf-8
+
+2019-12-31 20:52:11,999 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/customScripts/AccountRegistrationCheckPasswordToBeTheSame.js?v=6_2d73NaqzeyMwr0KPvqTuyteviaGlShwQpBhGmZR1U  
+
+2019-12-31 20:52:12,018 [4] ?     - Sending file. Request path: '/js/customScripts/AccountRegistrationCheckPasswordToBeTheSame.js'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\wwwroot\js\customScripts\AccountRegistrationCheckPasswordToBeTheSame.js'
+
+2019-12-31 20:52:12,019 [4] ?     - Request finished in 22.4635ms 200 application/javascript
+
+2019-12-31 20:54:08,994 [8] ?     - Application started. Press Ctrl+C to shut down.
+
+2019-12-31 20:54:09,005 [8] ?     - Hosting environment: Development
+
+2019-12-31 20:54:09,007 [8] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2019-12-31 20:54:09,013 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ShopManager/ShopsManager  
+
+2019-12-31 20:54:09,088 [4] ?     - Authorization failed.
+
+2019-12-31 20:54:09,107 [4] ?     - AuthenticationScheme: Identity.Application was challenged.
+
+2019-12-31 20:54:09,125 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/Account/Login?ReturnUrl=%2FShopManager%2FShopsManager  
+
+2019-12-31 20:54:09,129 [4] ?     - Request finished in 116.4039ms 302 
+
+2019-12-31 20:54:09,197 [9] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI)'
+
+2019-12-31 20:54:09,237 [9] ?     - Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2019-12-31 20:54:09,263 [9] ?     - Executing ViewResult, running view Login.
+
+2019-12-31 20:54:09,513 [9] ?     - Executed ViewResult - view Login executed in 251.4202ms.
+
+2019-12-31 20:54:09,518 [9] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI) in 276.7744ms
+
+2019-12-31 20:54:09,519 [9] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI)'
+
+2019-12-31 20:54:09,524 [9] ?     - Request finished in 398.3895ms 200 text/html; charset=utf-8
+
+2019-12-31 20:54:44,139 [5] ?     - Application started. Press Ctrl+C to shut down.
+
+2019-12-31 20:54:44,148 [5] ?     - Hosting environment: Development
+
+2019-12-31 20:54:44,149 [5] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2019-12-31 20:54:44,157 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ShopManager/ShopsManager  
+
+2019-12-31 20:54:44,242 [4] ?     - Authorization failed.
+
+2019-12-31 20:54:44,257 [4] ?     - AuthenticationScheme: Identity.Application was challenged.
+
+2019-12-31 20:54:44,334 [5] ?     - Request starting HTTP/2.0 GET https://localhost:44374/Account/Login?ReturnUrl=%2FShopManager%2FShopsManager  
+
+2019-12-31 20:54:44,339 [4] ?     - Request finished in 182.8321ms 302 
+
+2019-12-31 20:54:44,353 [5] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI)'
+
+2019-12-31 20:54:44,398 [5] ?     - Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2019-12-31 20:54:44,430 [5] ?     - Executing ViewResult, running view Login.
+
+2019-12-31 20:54:44,659 [5] ?     - Executed ViewResult - view Login executed in 232.5315ms.
+
+2019-12-31 20:54:44,661 [5] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI) in 260.845ms
+
+2019-12-31 20:54:44,664 [5] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI)'
+
+2019-12-31 20:54:44,671 [5] ?     - Request finished in 335.0806ms 200 text/html; charset=utf-8
+
+2019-12-31 20:54:46,239 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/Account/Register  
+
+2019-12-31 20:54:46,245 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2019-12-31 20:54:46,251 [4] ?     - Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register() on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2019-12-31 20:54:46,263 [4] ?     - Executing ViewResult, running view Register.
+
+2019-12-31 20:54:46,320 [4] ?     - Executed ViewResult - view Register executed in 59.8464ms.
+
+2019-12-31 20:54:46,321 [4] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI) in 68.9893ms
+
+2019-12-31 20:54:46,323 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2019-12-31 20:54:46,325 [4] ?     - Request finished in 86.496ms 200 text/html; charset=utf-8
+
+2019-12-31 20:54:46,356 [14] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/customScripts/AccountRegistrationCheckPasswordToBeTheSame.js?v=5XUQVASGtXlFqEQJht3VhIcb61GLVsTTZ9z3mdbK6Tg  
+
+2019-12-31 20:54:46,370 [14] ?     - Sending file. Request path: '/js/customScripts/AccountRegistrationCheckPasswordToBeTheSame.js'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\wwwroot\js\customScripts\AccountRegistrationCheckPasswordToBeTheSame.js'
+
+2019-12-31 20:54:46,372 [14] ?     - Request finished in 16.0899ms 200 application/javascript
+
+2019-12-31 20:55:21,057 [12] ?     - Application started. Press Ctrl+C to shut down.
+
+2019-12-31 20:55:21,067 [12] ?     - Hosting environment: Development
+
+2019-12-31 20:55:21,070 [12] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2019-12-31 20:55:21,079 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ShopManager/ShopsManager  
+
+2019-12-31 20:55:21,146 [4] ?     - Authorization failed.
+
+2019-12-31 20:55:21,185 [4] ?     - AuthenticationScheme: Identity.Application was challenged.
+
+2019-12-31 20:55:21,198 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/Account/Login?ReturnUrl=%2FShopManager%2FShopsManager  
+
+2019-12-31 20:55:21,209 [4] ?     - Request finished in 131.6822ms 302 
+
+2019-12-31 20:55:21,220 [9] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI)'
+
+2019-12-31 20:55:21,264 [9] ?     - Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2019-12-31 20:55:21,294 [9] ?     - Executing ViewResult, running view Login.
+
+2019-12-31 20:55:21,511 [9] ?     - Executed ViewResult - view Login executed in 220.2229ms.
+
+2019-12-31 20:55:21,514 [9] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI) in 247.2918ms
+
+2019-12-31 20:55:21,515 [9] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI)'
+
+2019-12-31 20:55:21,519 [9] ?     - Request finished in 321.8901ms 200 text/html; charset=utf-8
+
+2019-12-31 20:55:23,336 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/Account/Register  
+
+2019-12-31 20:55:23,343 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2019-12-31 20:55:23,347 [4] ?     - Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register() on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2019-12-31 20:55:23,355 [4] ?     - Executing ViewResult, running view Register.
+
+2019-12-31 20:55:23,442 [4] ?     - Executed ViewResult - view Register executed in 72.0691ms.
+
+2019-12-31 20:55:23,444 [4] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI) in 94.3706ms
+
+2019-12-31 20:55:23,445 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2019-12-31 20:55:23,447 [4] ?     - Request finished in 111.8359ms 200 text/html; charset=utf-8
+
+2019-12-31 20:55:23,480 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/customScripts/AccountRegistrationCheckPasswordToBeTheSame.js?v=5XUQVASGtXlFqEQJht3VhIcb61GLVsTTZ9z3mdbK6Tg  
+
+2019-12-31 20:55:23,494 [9] ?     - The file /js/customScripts/AccountRegistrationCheckPasswordToBeTheSame.js was not modified
+
+2019-12-31 20:55:23,500 [9] ?     - Request finished in 17.6287ms 304 application/javascript
+
