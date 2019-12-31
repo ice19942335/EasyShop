@@ -17,7 +17,7 @@ namespace EasyShop.Domain.ViewModels.ControlPanel.Tariff
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Price required.")]
-        [RegularExpression("^[0-9]*,[0-9]{2}$", ErrorMessage = "Please enter correct value, example (9,99 or 150,00)")]
+        [RegularExpression("^[0-9]*\\.[0-9]{2}$", ErrorMessage = "Please enter a correct value, for example (0.99 or 150.00)")]
         public decimal Price { get; set; }
 
         [Required(ErrorMessage = "Days active required")]

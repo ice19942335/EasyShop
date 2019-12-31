@@ -37,6 +37,7 @@ namespace EasyShop.Services.CP.Tariff
         {
             var tariffOptionDescription = new TariffOptionDescription
             {
+                Name = model.Name,
                 Description = model.Description
             };
 

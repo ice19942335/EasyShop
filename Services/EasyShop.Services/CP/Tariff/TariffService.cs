@@ -4,11 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
+using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.ViewModels.ControlPanel.Tariff;
 using EasyShop.Interfaces.Services.CP;
 using EasyShop.Interfaces.Services.CP.Tariff;
+using EasyShop.Services.ExtensionMethods;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using Org.BouncyCastle.Math.EC.Rfc7748;
 
 namespace EasyShop.Services.CP.Tariff
@@ -18,12 +24,23 @@ namespace EasyShop.Services.CP.Tariff
         private readonly EasyShopContext _context;
         private readonly ITariffOptionDescriptionService _tariffOptionDescriptionService;
         private readonly ITariffOptionsService _tariffOptionsService;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly ILogger<TariffService> _logger;
+        private readonly HttpContext _httpContext;
 
-        public TariffService(EasyShopContext context, ITariffOptionDescriptionService tariffOptionDescriptionService, ITariffOptionsService tariffOptionsService)
+        public TariffService(EasyShopContext context, 
+            ITariffOptionDescriptionService tariffOptionDescriptionService, 
+            ITariffOptionsService tariffOptionsService,
+            IHttpContextAccessor httpContextAccessor,
+            UserManager<AppUser> userManager,
+            ILogger<TariffService> _logger)
         {
             _context = context;
             _tariffOptionDescriptionService = tariffOptionDescriptionService;
             _tariffOptionsService = tariffOptionsService;
+            _userManager = userManager;
+            this._logger = _logger;
+            _httpContext = httpContextAccessor.HttpContext;
         }
 
         public IEnumerable<Domain.Entries.Tariff.Tariff> GetAll() => _context.Tariffs;
@@ -61,6 +78,13 @@ namespace EasyShop.Services.CP.Tariff
             _context.Tariffs.Add(newTariff);
             await _context.SaveChangesAsync();
 
+            var userForLog = await _userManager.FindByEmailAsync(_httpContext.User.Identity.Name);
+            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                userForLog.UserName,
+                userForLog.Id,
+                _httpContext.Request.GetRawTarget(),
+                $"Tariff: {JsonConvert.SerializeObject(newTariff)} was successfully created");
+
             return model;
         }
 
@@ -79,7 +103,7 @@ namespace EasyShop.Services.CP.Tariff
             _context.Update(tariff);
             await _context.SaveChangesAsync();
 
-            return new EditTariffViewModel
+            var updatedTariff = new EditTariffViewModel
             {
                 Id = tariff.Id,
                 Name = tariff.Name,
@@ -87,6 +111,15 @@ namespace EasyShop.Services.CP.Tariff
                 DaysActive = tariff.DaysActive,
                 Description = tariff.Description
             };
+
+            var userForLog = await _userManager.FindByEmailAsync(_httpContext.User.Identity.Name);
+            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                userForLog.UserName,
+                userForLog.Id,
+                _httpContext.Request.GetRawTarget(),
+                $"Tariff: {JsonConvert.SerializeObject(updatedTariff)} was successfully updated");
+
+            return updatedTariff;
         }
 
         public async Task<bool> DeleteByIdAsync(int id)
@@ -98,6 +131,13 @@ namespace EasyShop.Services.CP.Tariff
 
             _context.Remove(tariff);
             await _context.SaveChangesAsync();
+
+            var userForLog = await _userManager.FindByEmailAsync(_httpContext.User.Identity.Name);
+            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                userForLog.UserName,
+                userForLog.Id,
+                _httpContext.Request.GetRawTarget(),
+                $"Tariff: {JsonConvert.SerializeObject(tariff)} was successfully deleted");
 
             return true;
         }
