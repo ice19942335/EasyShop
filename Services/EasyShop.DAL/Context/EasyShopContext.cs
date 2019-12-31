@@ -13,18 +13,21 @@ namespace EasyShop.DAL.Context
 {
     public class EasyShopContext : IdentityDbContext<AppUser>
     {
-        //Tables
+
+        //Tariffs
         public DbSet<Tariff> Tariffs { get; set; }
         public DbSet<TariffOption> TariffOptions { get; set; }
         public DbSet<TariffOptionDescription> TariffOptionsDescriptions { get; set; }
         public DbSet<UserTariff> UserTariffs { get; set; }
 
 
+        //Shops
         public DbSet<UserShop> UserShops { get; set; }
         public DbSet<Shop> Shops { get; set; }
         public DbSet<GameType> GameTypes { get; set; }
 
 
+        //Rust
         public DbSet<RustServer> RustServers { get; set; }
         public DbSet<RustItem> RustItems { get; set; }
         public DbSet<RustItemType> RustItemTypes { get; set; }
@@ -32,7 +35,7 @@ namespace EasyShop.DAL.Context
         public DbSet<RustCategory> RustCategories { get; set; }
         public DbSet<RustPurchasedItem> RustPurchasedItems { get; set; }
         public DbSet<RustServerMap> RustServerMaps { get; set; }
-
+        public DbSet<RustPurchaseStats> RustPurchaseStats { get; set; }
         public DbSet<RustUser> RustUsers { get; set; }
 
 

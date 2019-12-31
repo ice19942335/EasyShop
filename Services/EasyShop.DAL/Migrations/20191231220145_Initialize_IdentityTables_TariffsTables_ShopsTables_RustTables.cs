@@ -427,7 +427,8 @@ namespace EasyShop.DAL.Migrations
                     RustItemId = table.Column<Guid>(nullable: true),
                     HasBeenUsed = table.Column<bool>(nullable: false),
                     Amount = table.Column<int>(nullable: false),
-                    PurchaseDateTime = table.Column<DateTime>(nullable: false)
+                    PurchaseDateTime = table.Column<DateTime>(nullable: false),
+                    TotalPaid = table.Column<decimal>(type: "decimal(18, 2)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -493,6 +494,38 @@ namespace EasyShop.DAL.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "RustPurchaseStats",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    AppUserId = table.Column<string>(nullable: false),
+                    RustPurchasedItemId = table.Column<Guid>(nullable: false),
+                    ShopId = table.Column<Guid>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RustPurchaseStats", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_RustPurchaseStats_AspNetUsers_AppUserId",
+                        column: x => x.AppUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
+                    table.ForeignKey(
+                        name: "FK_RustPurchaseStats_RustPurchasedItems_RustPurchasedItemId",
+                        column: x => x.RustPurchasedItemId,
+                        principalTable: "RustPurchasedItems",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
+                    table.ForeignKey(
+                        name: "FK_RustPurchaseStats_Shops_ShopId",
+                        column: x => x.ShopId,
+                        principalTable: "Shops",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -556,6 +589,21 @@ namespace EasyShop.DAL.Migrations
                 name: "IX_RustPurchasedItems_RustUserId",
                 table: "RustPurchasedItems",
                 column: "RustUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RustPurchaseStats_AppUserId",
+                table: "RustPurchaseStats",
+                column: "AppUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RustPurchaseStats_RustPurchasedItemId",
+                table: "RustPurchaseStats",
+                column: "RustPurchasedItemId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RustPurchaseStats_ShopId",
+                table: "RustPurchaseStats",
+                column: "ShopId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_RustServers_ServerMapId",
@@ -626,7 +674,7 @@ namespace EasyShop.DAL.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "RustPurchasedItems");
+                name: "RustPurchaseStats");
 
             migrationBuilder.DropTable(
                 name: "RustServers");
@@ -647,7 +695,7 @@ namespace EasyShop.DAL.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "RustUsers");
+                name: "RustPurchasedItems");
 
             migrationBuilder.DropTable(
                 name: "RustServerMaps");
@@ -656,13 +704,16 @@ namespace EasyShop.DAL.Migrations
                 name: "RustCategories");
 
             migrationBuilder.DropTable(
-                name: "RustItems");
-
-            migrationBuilder.DropTable(
                 name: "TariffOptionDescriptions");
 
             migrationBuilder.DropTable(
                 name: "Tariffs");
+
+            migrationBuilder.DropTable(
+                name: "RustItems");
+
+            migrationBuilder.DropTable(
+                name: "RustUsers");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
