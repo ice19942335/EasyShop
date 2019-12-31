@@ -80,11 +80,11 @@ namespace EasyShop.Services.CP.Account
                 await _userManager.AddToRoleAsync(newUser, DefaultIdentity.RoleUser);
 
                 var userForLog = await _userManager.FindByEmailAsync(newUser.Email);
-                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | InformationMessage: {3}",
+                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                     userForLog.UserName,
                     userForLog.Id,
                     _httpContextAccessor.HttpContext.Request.GetRawTarget(),
-                    "Successfully registered in system");
+                    "Successfully registered in system.");
 
                 var code = await _userManager.GenerateEmailConfirmationTokenAsync(newUser);
 
@@ -106,7 +106,7 @@ namespace EasyShop.Services.CP.Account
                 return new AccountDto { ReturnToView = View("SomethingWentWrong", "link sending") };
             }
 
-            _logger.LogWarning("UserName: {0} | UserId: {1} | Request: {2} | WarningMessage: {3}",
+            _logger.LogWarning("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                 "Null",
                 "Null",
                 _httpContextAccessor.HttpContext.Request.GetRawTarget(),
@@ -123,9 +123,15 @@ namespace EasyShop.Services.CP.Account
             var loginResult = await _signInManager
                 .PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, false);
 
+            var userForLog = await _userManager.FindByEmailAsync(model.UserName);
+
             if (loginResult.Succeeded)
             {
-                _logger.LogInformation($"User: {model.UserName}, successfully logged in.");
+                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                    userForLog.UserName,
+                    userForLog.Id,
+                    _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                    "Successfully logged in.");
 
                 var user = await _userManager.FindByNameAsync(model.UserName);
 
@@ -138,7 +144,11 @@ namespace EasyShop.Services.CP.Account
                 return new AccountDto { RedirectToAction = RedirectToAction("Index", "Home"), };
             }
 
-            _logger.LogWarning($"User: {model.UserName} login error. Is locked out: {loginResult.IsLockedOut}. Is not allowed: {loginResult.IsNotAllowed}");
+            _logger.LogWarning("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                userForLog != null ? userForLog.FirstName : "Null",
+                userForLog != null ? userForLog.Id : "Null",
+                _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                $"Login error! Is locked out: {loginResult.IsLockedOut}. Is not allowed: {loginResult.IsNotAllowed}");
 
             ModelState.AddModelError("", "Username or password is incorrect, please try again.");
 
@@ -166,7 +176,12 @@ namespace EasyShop.Services.CP.Account
 
             if (sendEmailConfirmationLinkResponse)
             {
-                _logger.LogInformation($"Confirmation link was sent to User: {userName}, UserId: {user.Id}. Confirmation link: {callbackUrl}");
+                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                    user.FirstName,
+                    user.Id,
+                    _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                    "Confirmation link was sent");
+
                 return new AccountDto
                 {
                     RedirectToAction = RedirectToAction("EmailConfirmationRequestHasBeenSent", "UserProfile")
@@ -185,7 +200,11 @@ namespace EasyShop.Services.CP.Account
 
             if (user is null)
             {
-                _logger.LogWarning($"User not found. HttpContext: {JsonConvert.SerializeObject(HttpContext)}");
+                _logger.LogWarning("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                    "Null",
+                    "Null",
+                    _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                    "User not found.");
                 return new AccountDto { RedirectToAction = RedirectToAction("AccessDenied", "Account") };
             }
 
@@ -194,16 +213,21 @@ namespace EasyShop.Services.CP.Account
 
             if (!result.Succeeded)
             {
-                _logger.LogWarning(
-                    "Date ({0}) User: {1} email confirmation failed. Errors: {2}",
-                    DateTime.Now,
-                    user.UserName,
-                    string.Join(", ", result.Errors.Select(e => e.Description))
-                );
+                _logger.LogWarning("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                    user.FirstName,
+                    user.Id,
+                    _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                    string.Join(", ", result.Errors.Select(e => e.Description)));
+
                 return new AccountDto { RedirectToAction = RedirectToAction("AccessDenied", "Account") };
             }
 
-            _logger.LogInformation($"User: {user.UserName} successfully confirmed email");
+            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                user.FirstName,
+                user.Id,
+                _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                "Email success-fully confirmed.");
+
             return new AccountDto
             {
                 RedirectToAction = RedirectToAction("EmailConfirmation", "UserProfile"),
@@ -235,11 +259,21 @@ namespace EasyShop.Services.CP.Account
             {
                 if (model.Authenticated)
                 {
-                    _logger.LogInformation($"Password reset request link was sent to User: {user.UserName}, Link: {callbackUrl}");
+                    _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                        user != null ? user.FirstName : "Null",
+                        user != null ? user.Id : "Null",
+                        _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                        $"Password reset request link was sent to user, Callback-link: {callbackUrl}");
+
                     return new AccountDto { RedirectToAction = RedirectToAction("PasswordResetRequestHasBeenSent", "UserProfile") };
                 }
 
-                _logger.LogInformation($"Password reset request link was sent to User: {user.UserName}, Link: {callbackUrl}");
+                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                    user != null ? user.FirstName : "Null",
+                    user != null ? user.Id : "Null",
+                    _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                    $"Password reset request link was sent to user, Callback-link: {callbackUrl}");
+
                 return new AccountDto { RedirectToAction = RedirectToAction("PasswordResetRequestHasBeenSent", "Account") };
             }
 
@@ -251,11 +285,7 @@ namespace EasyShop.Services.CP.Account
             var user = await _userManager.FindByIdAsync(userId);
 
             if (user == null)
-                return new AccountDto
-                {
-                    RedirectToAction = RedirectToAction("ErrorStatus", "Home", new { id = 404 }, null)
-                };
-
+                return new AccountDto { RedirectToAction = RedirectToAction("ErrorStatus", "Home", new { id = 404 }) };
 
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
 
@@ -272,23 +302,28 @@ namespace EasyShop.Services.CP.Account
 
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation($"User: {user.UserName}, Password has been successfully changed.");
+                    _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                        user.FirstName,
+                        user.Id,
+                        _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                        "Password has been successfully changed.");
+
                     return new AccountDto { RedirectToAction = RedirectToAction("ResetPasswordConfirmation", "Account") };
                 }
-                else
-                {
-                    foreach (var error in result.Errors)
-                        ModelState.AddModelError("", error.Description);
 
-                    _logger.LogWarning($"User: {user.UserName}, Password reset fail, Errors: {string.Join(", ", result.Errors.Select(e => e.Description))}");
-                    return new AccountDto { ReturnToView = View(model) };
-                }
+                foreach (var error in result.Errors)
+                    ModelState.AddModelError("", error.Description);
+
+                _logger.LogWarning("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                    user.FirstName,
+                    user.Id,
+                    _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                    $"Password reset fail, Errors: {string.Join(", ", result.Errors.Select(e => e.Description))}");
+
+                return new AccountDto { ReturnToView = View(model) };
             }
-            else
-            {
-                _logger.LogWarning($"User: {user.UserName}, $Password reset fail, Errors: Email was not delivered.");
-                return new AccountDto { ReturnToView = View("SomethingWentWrong", "link sending") };
-            }
+
+            return new AccountDto { ReturnToView = View("SomethingWentWrong", "link sending") };
         }
 
         private async Task<bool> SendMailAsync(AppUser user, string subject, string filename, string fileType, string folderNameInRoot, string key, string value)

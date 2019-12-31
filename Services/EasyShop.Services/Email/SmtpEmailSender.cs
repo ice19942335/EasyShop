@@ -57,7 +57,7 @@ namespace EasyShop.Services.Email
                 await smtp.SendMailAsync(mail);
 
                 
-                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | InformationMessage: {3}",
+                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                     userForLog != null ? userForLog.UserName : "Null",
                     userForLog != null ? userForLog.Id : "Null",
                     _httpContextAccessor.HttpContext.Request.GetRawTarget(),
@@ -67,7 +67,7 @@ namespace EasyShop.Services.Email
             }
             catch (Exception e)
             {
-                _logger.LogError("UserName: {0} | UserId: {1} | Request: {2} | ErrorMessage: {3}",
+                _logger.LogError("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                     userForLog != null ? userForLog.UserName : "Null",
                     userForLog != null ? userForLog.Id : "Null",
                     _httpContextAccessor.HttpContext.Request.GetRawTarget(),
