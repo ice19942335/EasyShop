@@ -77,23 +77,6 @@ namespace EasyShop.CP.UI.Controllers
             return View(result);
         }
 
-        public async Task<IActionResult> Main()
-        {
-            var user = await _userManager.FindByEmailAsync(User.Identity.Name);
-
-            if (user is null)
-                return RedirectToAction("SomethingWentWrong", "UserProfile");
-
-            var model = new AppUserViewModel
-            {
-                TransactionPercent = user.TransactionPercent,
-                ShopsAllowed = user.ShopsAllowed,
-                TotalRevenue = user.TotalRevenue
-            };
-
-            return View(model);
-        }
-
         public IActionResult PasswordResetRequest() => View();
 
         public IActionResult PasswordResetRequestHasBeenSent() => View();

@@ -6997,3 +6997,1349 @@ WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
 
 2019-12-31 20:55:23,500 [9] ?     - Request finished in 17.6287ms 304 application/javascript
 
+2019-12-31 20:57:12,917 [9] ?     - Application started. Press Ctrl+C to shut down.
+
+2019-12-31 20:57:12,928 [9] ?     - Hosting environment: Development
+
+2019-12-31 20:57:12,930 [9] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2019-12-31 20:57:12,938 [5] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ShopManager/ShopsManager  
+
+2019-12-31 20:57:13,010 [5] ?     - Authorization failed.
+
+2019-12-31 20:57:13,022 [5] ?     - AuthenticationScheme: Identity.Application was challenged.
+
+2019-12-31 20:57:13,035 [14] ?     - Request starting HTTP/2.0 GET https://localhost:44374/Account/Login?ReturnUrl=%2FShopManager%2FShopsManager  
+
+2019-12-31 20:57:13,039 [5] ?     - Request finished in 102.1868ms 302 
+
+2019-12-31 20:57:13,048 [14] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI)'
+
+2019-12-31 20:57:13,082 [14] ?     - Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2019-12-31 20:57:13,105 [14] ?     - Executing ViewResult, running view Login.
+
+2019-12-31 20:57:13,300 [14] ?     - Executed ViewResult - view Login executed in 196.7527ms.
+
+2019-12-31 20:57:13,303 [14] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI) in 218.7185ms
+
+2019-12-31 20:57:13,305 [14] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI)'
+
+2019-12-31 20:57:13,310 [14] ?     - Request finished in 274.6196ms 200 text/html; charset=utf-8
+
+2019-12-31 20:57:15,447 [18] ?     - Request starting HTTP/2.0 GET https://localhost:44374/Account/Register  
+
+2019-12-31 20:57:15,453 [18] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2019-12-31 20:57:15,458 [18] ?     - Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register() on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2019-12-31 20:57:15,467 [18] ?     - Executing ViewResult, running view Register.
+
+2019-12-31 20:57:15,516 [18] ?     - Executed ViewResult - view Register executed in 49.8702ms.
+
+2019-12-31 20:57:15,517 [18] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI) in 57.5691ms
+
+2019-12-31 20:57:15,519 [18] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2019-12-31 20:57:15,520 [18] ?     - Request finished in 73.6288ms 200 text/html; charset=utf-8
+
+2019-12-31 20:57:15,549 [12] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/customScripts/AccountRegistrationCheckPasswordToBeTheSame.js?v=5XUQVASGtXlFqEQJht3VhIcb61GLVsTTZ9z3mdbK6Tg  
+
+2019-12-31 20:57:15,565 [12] ?     - Sending file. Request path: '/js/customScripts/AccountRegistrationCheckPasswordToBeTheSame.js'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\wwwroot\js\customScripts\AccountRegistrationCheckPasswordToBeTheSame.js'
+
+2019-12-31 20:57:15,567 [12] ?     - Request finished in 17.2147ms 200 application/javascript
+
+2019-12-31 20:58:13,824 [20] ?     - Request starting HTTP/2.0 POST https://localhost:44374/Account/Register application/x-www-form-urlencoded 351
+
+2019-12-31 20:58:13,827 [20] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2019-12-31 20:58:13,862 [20] ?     - Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(EasyShop.Domain.ViewModels.Account.RegisterUserViewModel) on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2019-12-31 20:58:13,954 [20] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-12-31 20:58:13,965 [20] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-12-31 20:58:14,010 [26] ?     - User 8499af3b-f68f-441b-b09f-5485dac63b65 validation failed: DuplicateUserName.
+
+2019-12-31 20:58:14,015 [26] ?     - UserName: Null | UserId: Null | Request: /Account/Register | Message: 
+User name 'ice19942335@gmail.com' is already taken.
+
+2019-12-31 20:58:14,024 [26] ?     - Executing ViewResult, running view Register.
+
+2019-12-31 20:58:14,037 [26] ?     - Executed ViewResult - view Register executed in 12.4632ms.
+
+2019-12-31 20:58:14,040 [26] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI) in 176.1425ms
+
+2019-12-31 20:58:14,043 [26] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2019-12-31 20:58:14,048 [26] ?     - Request finished in 226.8116ms 200 text/html; charset=utf-8
+
+2019-12-31 20:58:14,073 [26] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/customScripts/AccountRegistrationCheckPasswordToBeTheSame.js?v=5XUQVASGtXlFqEQJht3VhIcb61GLVsTTZ9z3mdbK6Tg  
+
+2019-12-31 20:58:14,075 [26] ?     - The file /js/customScripts/AccountRegistrationCheckPasswordToBeTheSame.js was not modified
+
+2019-12-31 20:58:14,078 [26] ?     - Request finished in 4.7343ms 304 application/javascript
+
+2019-12-31 20:59:05,095 [29] ?     - Request starting HTTP/2.0 GET https://localhost:44374/Account/Login  
+
+2019-12-31 20:59:05,100 [29] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI)'
+
+2019-12-31 20:59:05,103 [29] ?     - Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2019-12-31 20:59:05,106 [29] ?     - Executing ViewResult, running view Login.
+
+2019-12-31 20:59:05,114 [29] ?     - Executed ViewResult - view Login executed in 8.0185ms.
+
+2019-12-31 20:59:05,115 [29] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI) in 10.7311ms
+
+2019-12-31 20:59:05,117 [29] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI)'
+
+2019-12-31 20:59:05,118 [29] ?     - Request finished in 24.413ms 200 text/html; charset=utf-8
+
+2019-12-31 20:59:08,918 [31] ?     - Request starting HTTP/2.0 POST https://localhost:44374/Account/Login application/x-www-form-urlencoded 268
+
+2019-12-31 20:59:08,922 [31] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI)'
+
+2019-12-31 20:59:08,928 [31] ?     - Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(EasyShop.Domain.ViewModels.Account.LoginUserViewModel) on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2019-12-31 20:59:08,960 [31] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-12-31 20:59:08,964 [31] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-12-31 20:59:09,011 [29] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE ([a].[UserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2019-12-31 20:59:09,052 [31] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2019-12-31 20:59:09,059 [30] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2019-12-31 20:59:09,070 [34] ?     - Executing DbCommand [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE ([a].[RoleId] = @__role_Id_0) AND @__role_Id_0 IS NOT NULL
+
+2019-12-31 20:59:09,082 [35] ?     - AuthenticationScheme: Identity.Application signed in.
+
+2019-12-31 20:59:09,085 [35] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 20:59:09,089 [35] ?     - UserName: ice19942335@gmail.com | UserId: 816deb18-2d26-42dd-ac13-27d40cf56046 | Request: /Account/Login | Message: Successfully logged in.
+
+2019-12-31 20:59:09,091 [35] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-12-31 20:59:09,107 [35] ?     - Executing RedirectResult, redirecting to /UserProfile/EmailConfirmation.
+
+2019-12-31 20:59:09,109 [35] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI) in 178.6719ms
+
+2019-12-31 20:59:09,111 [35] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI)'
+
+2019-12-31 20:59:09,114 [35] ?     - Request finished in 196.0878ms 302 
+
+2019-12-31 20:59:09,121 [35] ?     - Request starting HTTP/2.0 GET https://localhost:44374/UserProfile/EmailConfirmation  
+
+2019-12-31 20:59:09,135 [35] ?     - Authorization was successful.
+
+2019-12-31 20:59:09,137 [35] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.EmailConfirmation (EasyShop.CP.UI)'
+
+2019-12-31 20:59:09,140 [35] ?     - Route matched with {action = "EmailConfirmation", controller = "UserProfile"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult EmailConfirmation() on controller EasyShop.CP.UI.Controllers.UserProfileController (EasyShop.CP.UI).
+
+2019-12-31 20:59:09,150 [35] ?     - Executing ViewResult, running view EmailConfirmation.
+
+2019-12-31 20:59:09,160 [35] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-12-31 20:59:09,162 [35] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-12-31 20:59:09,186 [35] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 20:59:09,193 [35] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 20:59:09,197 [35] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2019-12-31 20:59:09,221 [35] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 20:59:09,253 [35] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2019-12-31 20:59:09,270 [35] ?     - Executed ViewResult - view EmailConfirmation executed in 120.7112ms.
+
+2019-12-31 20:59:09,272 [35] ?     - Executed action EasyShop.CP.UI.Controllers.UserProfileController.EmailConfirmation (EasyShop.CP.UI) in 130.1012ms
+
+2019-12-31 20:59:09,274 [35] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.EmailConfirmation (EasyShop.CP.UI)'
+
+2019-12-31 20:59:09,276 [35] ?     - Request finished in 154.9419ms 200 text/html; charset=utf-8
+
+2019-12-31 20:59:18,447 [29] ?     - Request starting HTTP/2.0 GET https://localhost:44374/UserProfile/Profile  
+
+2019-12-31 20:59:18,455 [29] ?     - Authorization was successful.
+
+2019-12-31 20:59:18,457 [29] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI)'
+
+2019-12-31 20:59:18,464 [29] ?     - Route matched with {action = "Profile", controller = "UserProfile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Profile() on controller EasyShop.CP.UI.Controllers.UserProfileController (EasyShop.CP.UI).
+
+2019-12-31 20:59:18,468 [29] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-12-31 20:59:18,471 [29] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-12-31 20:59:18,478 [31] ?     - Executing ViewResult, running view Profile.
+
+2019-12-31 20:59:18,509 [31] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 20:59:18,512 [31] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 20:59:18,514 [31] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2019-12-31 20:59:18,517 [31] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 20:59:18,521 [31] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2019-12-31 20:59:18,547 [31] ?     - Executed ViewResult - view Profile executed in 70.042ms.
+
+2019-12-31 20:59:18,548 [31] ?     - Executed action EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI) in 82.5997ms
+
+2019-12-31 20:59:18,550 [31] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI)'
+
+2019-12-31 20:59:18,551 [31] ?     - Request finished in 104.7449ms 200 text/html; charset=utf-8
+
+2019-12-31 20:59:18,577 [31] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/demo.js?v=j-kqCA-yhwNEujeGvUibM_L0vsx375ta-EPbYbdle58  
+
+2019-12-31 20:59:18,580 [31] ?     - Sending file. Request path: '/js/demo.js'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\wwwroot\js\demo.js'
+
+2019-12-31 20:59:18,581 [31] ?     - Request finished in 4.8628ms 200 application/javascript
+
+2019-12-31 20:59:27,170 [29] ?     - Request starting HTTP/2.0 POST https://localhost:44374/UserProfile/Profile multipart/form-data; boundary=----WebKitFormBoundaryp9JiZqk6hiWWBA0B 160311
+
+2019-12-31 20:59:27,175 [29] ?     - Authorization was successful.
+
+2019-12-31 20:59:27,177 [29] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI)'
+
+2019-12-31 20:59:27,192 [29] ?     - Route matched with {action = "Profile", controller = "UserProfile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Profile(EasyShop.Domain.ViewModels.User.UserProfile.UserProfileViewModel) on controller EasyShop.CP.UI.Controllers.UserProfileController (EasyShop.CP.UI).
+
+2019-12-31 20:59:27,246 [33] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-12-31 20:59:27,249 [33] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 20:59:27,252 [33] ?     - UserName: ice19942335@gmail.com | UserId: 816deb18-2d26-42dd-ac13-27d40cf56046 | Request: /UserProfile/Profile | Message: New picture was successfully saved. Picture name: image_ice19942335@gmail.com_Me_6bb3.jpg
+
+2019-12-31 20:59:27,255 [33] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 20:59:27,259 [33] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-12-31 20:59:27,285 [34] ?     - Executing DbCommand [Parameters=[@p25='?' (Size = 450), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p26='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (DbType = Int32), @p7='?' (Size = 4000), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 4000), @p16='?' (Size = 4000), @p17='?' (DbType = DateTime2), @p18='?' (Size = 4000), @p19='?' (DbType = Int32), @p20='?' (DbType = Decimal), @p21='?' (DbType = Decimal), @p22='?' (DbType = Boolean), @p23='?' (Size = 256), @p24='?' (DbType = Boolean)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [BirthDate] = @p1, [ConcurrencyStamp] = @p2, [Email] = @p3, [EmailConfirmed] = @p4, [FirstName] = @p5, [Gender] = @p6, [LastName] = @p7, [LockoutEnabled] = @p8, [LockoutEnd] = @p9, [NormalizedEmail] = @p10, [NormalizedUserName] = @p11, [PasswordHash] = @p12, [PhoneNumber] = @p13, [PhoneNumberConfirmed] = @p14, [ProfileImage] = @p15, [PurchasedTariffs] = @p16, [RegistrationDate] = @p17, [SecurityStamp] = @p18, [ShopsAllowed] = @p19, [TotalRevenue] = @p20, [TransactionPercent] = @p21, [TwoFactorEnabled] = @p22, [UserName] = @p23, [UsingTariff] = @p24
+WHERE [Id] = @p25 AND [ConcurrencyStamp] = @p26;
+SELECT @@ROWCOUNT;
+
+2019-12-31 20:59:27,303 [30] ?     - UserName: ice19942335@gmail.com | UserId: 816deb18-2d26-42dd-ac13-27d40cf56046 | Request: /UserProfile/Profile | Message: User data was successfully updated
+
+2019-12-31 20:59:27,304 [30] ?     - Executing ViewResult, running view Profile.
+
+2019-12-31 20:59:27,310 [30] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 20:59:27,313 [30] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 20:59:27,315 [30] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2019-12-31 20:59:27,319 [30] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 20:59:27,323 [30] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2019-12-31 20:59:27,327 [30] ?     - Executed ViewResult - view Profile executed in 22.1151ms.
+
+2019-12-31 20:59:27,328 [30] ?     - Executed action EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI) in 134.2846ms
+
+2019-12-31 20:59:27,330 [30] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI)'
+
+2019-12-31 20:59:27,332 [30] ?     - Request finished in 163.684ms 200 text/html; charset=utf-8
+
+2019-12-31 20:59:27,354 [29] ?     - Request starting HTTP/2.0 GET https://localhost:44374/UserImages/image_ice19942335@gmail.com_Me_6bb3.jpg  
+
+2019-12-31 20:59:27,362 [30] ?     - Sending file. Request path: '/UserImages/image_ice19942335@gmail.com_Me_6bb3.jpg'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\wwwroot\UserImages\image_ice19942335@gmail.com_Me_6bb3.jpg'
+
+2019-12-31 20:59:27,364 [30] ?     - Request finished in 9.9439ms 200 image/jpeg
+
+2019-12-31 20:59:46,697 [29] ?     - Request starting HTTP/2.0 POST https://localhost:44374/UserProfile/Profile multipart/form-data; boundary=----WebKitFormBoundarynDWuoher0AnSpdqE 1157
+
+2019-12-31 20:59:46,701 [29] ?     - Authorization was successful.
+
+2019-12-31 20:59:46,702 [29] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI)'
+
+2019-12-31 20:59:46,705 [29] ?     - Route matched with {action = "Profile", controller = "UserProfile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Profile(EasyShop.Domain.ViewModels.User.UserProfile.UserProfileViewModel) on controller EasyShop.CP.UI.Controllers.UserProfileController (EasyShop.CP.UI).
+
+2019-12-31 20:59:46,709 [29] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-12-31 20:59:46,712 [29] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 20:59:46,715 [29] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-12-31 20:59:46,720 [33] ?     - Executing DbCommand [Parameters=[@p25='?' (Size = 450), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p26='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (DbType = Int32), @p7='?' (Size = 4000), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 4000), @p16='?' (Size = 4000), @p17='?' (DbType = DateTime2), @p18='?' (Size = 4000), @p19='?' (DbType = Int32), @p20='?' (DbType = Decimal), @p21='?' (DbType = Decimal), @p22='?' (DbType = Boolean), @p23='?' (Size = 256), @p24='?' (DbType = Boolean)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [BirthDate] = @p1, [ConcurrencyStamp] = @p2, [Email] = @p3, [EmailConfirmed] = @p4, [FirstName] = @p5, [Gender] = @p6, [LastName] = @p7, [LockoutEnabled] = @p8, [LockoutEnd] = @p9, [NormalizedEmail] = @p10, [NormalizedUserName] = @p11, [PasswordHash] = @p12, [PhoneNumber] = @p13, [PhoneNumberConfirmed] = @p14, [ProfileImage] = @p15, [PurchasedTariffs] = @p16, [RegistrationDate] = @p17, [SecurityStamp] = @p18, [ShopsAllowed] = @p19, [TotalRevenue] = @p20, [TransactionPercent] = @p21, [TwoFactorEnabled] = @p22, [UserName] = @p23, [UsingTariff] = @p24
+WHERE [Id] = @p25 AND [ConcurrencyStamp] = @p26;
+SELECT @@ROWCOUNT;
+
+2019-12-31 20:59:46,724 [34] ?     - UserName: ice19942335@gmail.com | UserId: 816deb18-2d26-42dd-ac13-27d40cf56046 | Request: /UserProfile/Profile | Message: User data was successfully updated
+
+2019-12-31 20:59:46,726 [34] ?     - Executing ViewResult, running view Profile.
+
+2019-12-31 20:59:46,731 [34] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 20:59:46,733 [34] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 20:59:46,736 [34] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2019-12-31 20:59:46,739 [34] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 20:59:46,742 [34] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2019-12-31 20:59:46,745 [34] ?     - Executed ViewResult - view Profile executed in 18.5697ms.
+
+2019-12-31 20:59:46,747 [34] ?     - Executed action EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI) in 40.5301ms
+
+2019-12-31 20:59:46,748 [34] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI)'
+
+2019-12-31 20:59:46,750 [34] ?     - Request finished in 53.5324ms 200 text/html; charset=utf-8
+
+2019-12-31 20:59:56,734 [31] ?     - Request starting HTTP/2.0 POST https://localhost:44374/UserProfile/Profile multipart/form-data; boundary=----WebKitFormBoundaryhQQxic80oiCBNwyF 1157
+
+2019-12-31 20:59:56,739 [31] ?     - Authorization was successful.
+
+2019-12-31 20:59:56,740 [31] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI)'
+
+2019-12-31 20:59:56,755 [31] ?     - Route matched with {action = "Profile", controller = "UserProfile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Profile(EasyShop.Domain.ViewModels.User.UserProfile.UserProfileViewModel) on controller EasyShop.CP.UI.Controllers.UserProfileController (EasyShop.CP.UI).
+
+2019-12-31 20:59:56,763 [31] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-12-31 20:59:56,766 [31] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 20:59:56,770 [31] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-12-31 20:59:56,776 [33] ?     - Executing DbCommand [Parameters=[@p25='?' (Size = 450), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p26='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (DbType = Int32), @p7='?' (Size = 4000), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 4000), @p16='?' (Size = 4000), @p17='?' (DbType = DateTime2), @p18='?' (Size = 4000), @p19='?' (DbType = Int32), @p20='?' (DbType = Decimal), @p21='?' (DbType = Decimal), @p22='?' (DbType = Boolean), @p23='?' (Size = 256), @p24='?' (DbType = Boolean)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [BirthDate] = @p1, [ConcurrencyStamp] = @p2, [Email] = @p3, [EmailConfirmed] = @p4, [FirstName] = @p5, [Gender] = @p6, [LastName] = @p7, [LockoutEnabled] = @p8, [LockoutEnd] = @p9, [NormalizedEmail] = @p10, [NormalizedUserName] = @p11, [PasswordHash] = @p12, [PhoneNumber] = @p13, [PhoneNumberConfirmed] = @p14, [ProfileImage] = @p15, [PurchasedTariffs] = @p16, [RegistrationDate] = @p17, [SecurityStamp] = @p18, [ShopsAllowed] = @p19, [TotalRevenue] = @p20, [TransactionPercent] = @p21, [TwoFactorEnabled] = @p22, [UserName] = @p23, [UsingTariff] = @p24
+WHERE [Id] = @p25 AND [ConcurrencyStamp] = @p26;
+SELECT @@ROWCOUNT;
+
+2019-12-31 20:59:56,778 [30] ?     - UserName: ice19942335@gmail.com | UserId: 816deb18-2d26-42dd-ac13-27d40cf56046 | Request: /UserProfile/Profile | Message: User data was successfully updated
+
+2019-12-31 20:59:56,780 [30] ?     - Executing ViewResult, running view Profile.
+
+2019-12-31 20:59:56,784 [30] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 20:59:56,787 [30] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 20:59:56,790 [30] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2019-12-31 20:59:56,793 [30] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 20:59:56,797 [30] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2019-12-31 20:59:56,800 [30] ?     - Executed ViewResult - view Profile executed in 19.8812ms.
+
+2019-12-31 20:59:56,802 [30] ?     - Executed action EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI) in 45.8238ms
+
+2019-12-31 20:59:56,804 [30] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI)'
+
+2019-12-31 20:59:56,808 [30] ?     - Request finished in 73.1309ms 200 text/html; charset=utf-8
+
+2019-12-31 21:00:03,097 [29] ?     - Request starting HTTP/2.0 GET https://localhost:44374/UserProfile/Main  
+
+2019-12-31 21:00:03,100 [29] ?     - Authorization was successful.
+
+2019-12-31 21:00:03,102 [29] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Main (EasyShop.CP.UI)'
+
+2019-12-31 21:00:03,108 [29] ?     - Route matched with {action = "Main", controller = "UserProfile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Main() on controller EasyShop.CP.UI.Controllers.UserProfileController (EasyShop.CP.UI).
+
+2019-12-31 21:00:03,111 [29] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-12-31 21:00:03,114 [29] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:00:03,118 [29] ?     - Executing ViewResult, running view Main.
+
+2019-12-31 21:00:03,124 [29] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:00:03,126 [29] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:00:03,129 [29] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2019-12-31 21:00:03,133 [29] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:00:03,136 [29] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2019-12-31 21:00:03,139 [29] ?     - Executed ViewResult - view Main executed in 21.4603ms.
+
+2019-12-31 21:00:03,141 [29] ?     - Executed action EasyShop.CP.UI.Controllers.UserProfileController.Main (EasyShop.CP.UI) in 31.2768ms
+
+2019-12-31 21:00:03,142 [29] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Main (EasyShop.CP.UI)'
+
+2019-12-31 21:00:03,144 [29] ?     - Request finished in 47.4317ms 200 text/html; charset=utf-8
+
+2019-12-31 21:00:04,716 [34] ?     - Request starting HTTP/2.0 GET https://localhost:44374/UserProfile/Profile  
+
+2019-12-31 21:00:04,720 [34] ?     - Authorization was successful.
+
+2019-12-31 21:00:04,721 [34] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI)'
+
+2019-12-31 21:00:04,723 [34] ?     - Route matched with {action = "Profile", controller = "UserProfile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Profile() on controller EasyShop.CP.UI.Controllers.UserProfileController (EasyShop.CP.UI).
+
+2019-12-31 21:00:04,725 [34] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-12-31 21:00:04,728 [34] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-12-31 21:00:04,734 [33] ?     - Executing ViewResult, running view Profile.
+
+2019-12-31 21:00:04,739 [33] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:00:04,741 [33] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:00:04,743 [33] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2019-12-31 21:00:04,746 [33] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:00:04,749 [33] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2019-12-31 21:00:04,752 [33] ?     - Executed ViewResult - view Profile executed in 17.697ms.
+
+2019-12-31 21:00:04,753 [33] ?     - Executed action EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI) in 28.7802ms
+
+2019-12-31 21:00:04,755 [33] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI)'
+
+2019-12-31 21:00:04,757 [33] ?     - Request finished in 41.3911ms 200 text/html; charset=utf-8
+
+2019-12-31 21:00:05,455 [36] ?     - Request starting HTTP/2.0 GET https://localhost:44374/UserProfile/PasswordResetRequest  
+
+2019-12-31 21:00:05,459 [36] ?     - Authorization was successful.
+
+2019-12-31 21:00:05,461 [36] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.PasswordResetRequest (EasyShop.CP.UI)'
+
+2019-12-31 21:00:05,465 [36] ?     - Route matched with {action = "PasswordResetRequest", controller = "UserProfile"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PasswordResetRequest() on controller EasyShop.CP.UI.Controllers.UserProfileController (EasyShop.CP.UI).
+
+2019-12-31 21:00:05,468 [36] ?     - Executing ViewResult, running view PasswordResetRequest.
+
+2019-12-31 21:00:05,480 [36] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-12-31 21:00:05,483 [36] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:00:05,486 [36] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:00:05,489 [36] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2019-12-31 21:00:05,493 [36] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:00:05,495 [36] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2019-12-31 21:00:05,498 [36] ?     - Executed ViewResult - view PasswordResetRequest executed in 31.5789ms.
+
+2019-12-31 21:00:05,500 [36] ?     - Executed action EasyShop.CP.UI.Controllers.UserProfileController.PasswordResetRequest (EasyShop.CP.UI) in 33.7447ms
+
+2019-12-31 21:00:05,501 [36] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.PasswordResetRequest (EasyShop.CP.UI)'
+
+2019-12-31 21:00:05,503 [36] ?     - Request finished in 48.5042ms 200 text/html; charset=utf-8
+
+2019-12-31 21:00:06,119 [31] ?     - Request starting HTTP/2.0 GET https://localhost:44374/UserProfile/EmailConfirmation  
+
+2019-12-31 21:00:06,123 [31] ?     - Authorization was successful.
+
+2019-12-31 21:00:06,124 [31] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.EmailConfirmation (EasyShop.CP.UI)'
+
+2019-12-31 21:00:06,126 [31] ?     - Route matched with {action = "EmailConfirmation", controller = "UserProfile"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult EmailConfirmation() on controller EasyShop.CP.UI.Controllers.UserProfileController (EasyShop.CP.UI).
+
+2019-12-31 21:00:06,128 [31] ?     - Executing ViewResult, running view EmailConfirmation.
+
+2019-12-31 21:00:06,131 [31] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-12-31 21:00:06,134 [31] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-12-31 21:00:06,141 [31] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:00:06,145 [31] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:00:06,149 [31] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2019-12-31 21:00:06,155 [31] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:00:06,160 [31] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2019-12-31 21:00:06,165 [31] ?     - Executed ViewResult - view EmailConfirmation executed in 36.6225ms.
+
+2019-12-31 21:00:06,167 [31] ?     - Executed action EasyShop.CP.UI.Controllers.UserProfileController.EmailConfirmation (EasyShop.CP.UI) in 38.9897ms
+
+2019-12-31 21:00:06,169 [31] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.EmailConfirmation (EasyShop.CP.UI)'
+
+2019-12-31 21:00:06,171 [31] ?     - Request finished in 52.4388ms 200 text/html; charset=utf-8
+
+2019-12-31 21:00:08,522 [33] ?     - Request starting HTTP/2.0 GET https://localhost:44374/UserProfile/Main  
+
+2019-12-31 21:00:08,525 [33] ?     - Authorization was successful.
+
+2019-12-31 21:00:08,527 [33] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Main (EasyShop.CP.UI)'
+
+2019-12-31 21:00:08,528 [33] ?     - Route matched with {action = "Main", controller = "UserProfile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Main() on controller EasyShop.CP.UI.Controllers.UserProfileController (EasyShop.CP.UI).
+
+2019-12-31 21:00:08,530 [33] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-12-31 21:00:08,533 [33] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:00:08,537 [33] ?     - Executing ViewResult, running view Main.
+
+2019-12-31 21:00:08,541 [33] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:00:08,544 [33] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:00:08,547 [33] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2019-12-31 21:00:08,550 [33] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:00:08,553 [33] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2019-12-31 21:00:08,555 [33] ?     - Executed ViewResult - view Main executed in 19.0788ms.
+
+2019-12-31 21:00:08,557 [33] ?     - Executed action EasyShop.CP.UI.Controllers.UserProfileController.Main (EasyShop.CP.UI) in 26.9764ms
+
+2019-12-31 21:00:08,559 [33] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Main (EasyShop.CP.UI)'
+
+2019-12-31 21:00:08,560 [33] ?     - Request finished in 39.0098ms 200 text/html; charset=utf-8
+
+2019-12-31 21:00:09,873 [29] ?     - Request starting HTTP/2.0 GET https://localhost:44374/UserProfile/Profile  
+
+2019-12-31 21:00:09,875 [29] ?     - Authorization was successful.
+
+2019-12-31 21:00:09,877 [29] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI)'
+
+2019-12-31 21:00:09,879 [29] ?     - Route matched with {action = "Profile", controller = "UserProfile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Profile() on controller EasyShop.CP.UI.Controllers.UserProfileController (EasyShop.CP.UI).
+
+2019-12-31 21:00:09,880 [29] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-12-31 21:00:09,883 [29] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-12-31 21:00:09,886 [34] ?     - Executing ViewResult, running view Profile.
+
+2019-12-31 21:00:09,892 [34] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:00:09,895 [34] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:00:09,897 [34] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2019-12-31 21:00:09,901 [34] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:00:09,904 [34] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2019-12-31 21:00:09,908 [34] ?     - Executed ViewResult - view Profile executed in 21.2226ms.
+
+2019-12-31 21:00:09,910 [34] ?     - Executed action EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI) in 29.5109ms
+
+2019-12-31 21:00:09,911 [34] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI)'
+
+2019-12-31 21:00:09,913 [34] ?     - Request finished in 40.7725ms 200 text/html; charset=utf-8
+
+2019-12-31 21:00:11,018 [33] ?     - Request starting HTTP/2.0 GET https://localhost:44374/UserProfile/PasswordResetRequest  
+
+2019-12-31 21:00:11,021 [33] ?     - Authorization was successful.
+
+2019-12-31 21:00:11,023 [33] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.PasswordResetRequest (EasyShop.CP.UI)'
+
+2019-12-31 21:00:11,025 [33] ?     - Route matched with {action = "PasswordResetRequest", controller = "UserProfile"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PasswordResetRequest() on controller EasyShop.CP.UI.Controllers.UserProfileController (EasyShop.CP.UI).
+
+2019-12-31 21:00:11,027 [33] ?     - Executing ViewResult, running view PasswordResetRequest.
+
+2019-12-31 21:00:11,030 [33] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-12-31 21:00:11,033 [33] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:00:11,036 [33] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:00:11,039 [33] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2019-12-31 21:00:11,042 [33] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:00:11,045 [33] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2019-12-31 21:00:11,048 [33] ?     - Executed ViewResult - view PasswordResetRequest executed in 21.0123ms.
+
+2019-12-31 21:00:11,050 [33] ?     - Executed action EasyShop.CP.UI.Controllers.UserProfileController.PasswordResetRequest (EasyShop.CP.UI) in 23.0971ms
+
+2019-12-31 21:00:11,052 [33] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.PasswordResetRequest (EasyShop.CP.UI)'
+
+2019-12-31 21:00:11,053 [33] ?     - Request finished in 35.3228ms 200 text/html; charset=utf-8
+
+2019-12-31 21:00:11,698 [31] ?     - Request starting HTTP/2.0 GET https://localhost:44374/UserProfile/EmailConfirmation  
+
+2019-12-31 21:00:11,701 [31] ?     - Authorization was successful.
+
+2019-12-31 21:00:11,702 [31] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.EmailConfirmation (EasyShop.CP.UI)'
+
+2019-12-31 21:00:11,704 [31] ?     - Route matched with {action = "EmailConfirmation", controller = "UserProfile"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult EmailConfirmation() on controller EasyShop.CP.UI.Controllers.UserProfileController (EasyShop.CP.UI).
+
+2019-12-31 21:00:11,706 [31] ?     - Executing ViewResult, running view EmailConfirmation.
+
+2019-12-31 21:00:11,708 [31] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-12-31 21:00:11,710 [31] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-12-31 21:00:11,715 [31] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:00:11,718 [31] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:00:11,722 [31] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2019-12-31 21:00:11,726 [31] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:00:11,729 [31] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2019-12-31 21:00:11,732 [31] ?     - Executed ViewResult - view EmailConfirmation executed in 26.3512ms.
+
+2019-12-31 21:00:11,734 [31] ?     - Executed action EasyShop.CP.UI.Controllers.UserProfileController.EmailConfirmation (EasyShop.CP.UI) in 28.6537ms
+
+2019-12-31 21:00:11,736 [31] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.EmailConfirmation (EasyShop.CP.UI)'
+
+2019-12-31 21:00:11,739 [31] ?     - Request finished in 39.7842ms 200 text/html; charset=utf-8
+
+2019-12-31 21:04:58,378 [4] ?     - Application started. Press Ctrl+C to shut down.
+
+2019-12-31 21:04:58,388 [4] ?     - Hosting environment: Development
+
+2019-12-31 21:04:58,390 [4] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2019-12-31 21:04:58,397 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ShopManager/ShopsManager  
+
+2019-12-31 21:04:58,494 [8] ?     - Authorization was successful.
+
+2019-12-31 21:04:58,498 [8] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ShopManagerController.ShopsManager (EasyShop.CP.UI)'
+
+2019-12-31 21:04:58,541 [8] ?     - Route matched with {action = "ShopsManager", controller = "ShopManager"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ShopsManager() on controller EasyShop.CP.UI.Controllers.ShopManagerController (EasyShop.CP.UI).
+
+2019-12-31 21:04:58,562 [8] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-12-31 21:04:58,565 [8] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:04:58,588 [8] ?     - Executing ViewResult, running view ShopsManager.
+
+2019-12-31 21:04:58,737 [8] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2019-12-31 21:04:58,777 [8] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:04:58,787 [8] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:04:58,815 [8] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2019-12-31 21:04:58,839 [8] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:04:58,847 [8] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2019-12-31 21:04:58,950 [8] ?     - Executed ViewResult - view ShopsManager executed in 364.2536ms.
+
+2019-12-31 21:04:58,952 [8] ?     - Executed action EasyShop.CP.UI.Controllers.ShopManagerController.ShopsManager (EasyShop.CP.UI) in 409.9613ms
+
+2019-12-31 21:04:58,954 [8] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ShopManagerController.ShopsManager (EasyShop.CP.UI)'
+
+2019-12-31 21:04:58,960 [8] ?     - Request finished in 563.5295ms 200 text/html; charset=utf-8
+
+2019-12-31 21:05:09,823 [16] ?     - Request starting HTTP/2.0 GET https://localhost:44374/UserProfile/Profile  
+
+2019-12-31 21:05:09,833 [16] ?     - Authorization was successful.
+
+2019-12-31 21:05:09,836 [16] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI)'
+
+2019-12-31 21:05:09,843 [16] ?     - Route matched with {action = "Profile", controller = "UserProfile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Profile() on controller EasyShop.CP.UI.Controllers.UserProfileController (EasyShop.CP.UI).
+
+2019-12-31 21:05:09,895 [16] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-12-31 21:05:09,907 [16] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-12-31 21:05:09,925 [4] ?     - Executing ViewResult, running view Profile.
+
+2019-12-31 21:05:09,985 [4] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:05:09,989 [4] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:05:09,992 [4] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2019-12-31 21:05:09,997 [4] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:05:10,001 [4] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2019-12-31 21:05:10,013 [4] ?     - Executed ViewResult - view Profile executed in 89.1445ms.
+
+2019-12-31 21:05:10,016 [4] ?     - Executed action EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI) in 171.617ms
+
+2019-12-31 21:05:10,018 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI)'
+
+2019-12-31 21:05:10,021 [4] ?     - Request finished in 198.338ms 200 text/html; charset=utf-8
+
+2019-12-31 21:05:17,436 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/UserProfile/Main  
+
+2019-12-31 21:05:17,451 [8] ?     - Authorization was successful.
+
+2019-12-31 21:05:17,453 [8] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Main (EasyShop.CP.UI)'
+
+2019-12-31 21:05:17,458 [8] ?     - Route matched with {action = "Main", controller = "UserProfile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Main() on controller EasyShop.CP.UI.Controllers.UserProfileController (EasyShop.CP.UI).
+
+2019-12-31 21:05:17,461 [8] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-12-31 21:05:17,464 [8] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:05:17,468 [8] ?     - Executing ViewResult, running view Main.
+
+2019-12-31 21:05:17,474 [8] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:05:17,476 [8] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:05:17,479 [8] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2019-12-31 21:05:17,482 [8] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:05:17,484 [8] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2019-12-31 21:05:17,487 [8] ?     - Executed ViewResult - view Main executed in 20.2555ms.
+
+2019-12-31 21:05:17,489 [8] ?     - Executed action EasyShop.CP.UI.Controllers.UserProfileController.Main (EasyShop.CP.UI) in 29.2227ms
+
+2019-12-31 21:05:17,490 [8] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Main (EasyShop.CP.UI)'
+
+2019-12-31 21:05:17,491 [8] ?     - Request finished in 55.2677ms 200 text/html; charset=utf-8
+
+2019-12-31 21:09:40,632 [9] ?     - Application started. Press Ctrl+C to shut down.
+
+2019-12-31 21:09:40,644 [9] ?     - Hosting environment: Development
+
+2019-12-31 21:09:40,645 [9] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2019-12-31 21:09:40,653 [14] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ShopManager/ShopsManager  
+
+2019-12-31 21:09:40,762 [14] ?     - Authorization was successful.
+
+2019-12-31 21:09:40,766 [14] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ShopManagerController.ShopsManager (EasyShop.CP.UI)'
+
+2019-12-31 21:09:40,838 [14] ?     - Route matched with {action = "ShopsManager", controller = "ShopManager"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ShopsManager() on controller EasyShop.CP.UI.Controllers.ShopManagerController (EasyShop.CP.UI).
+
+2019-12-31 21:09:40,861 [14] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-12-31 21:09:40,866 [14] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:09:40,889 [14] ?     - Executing ViewResult, running view ShopsManager.
+
+2019-12-31 21:09:41,074 [14] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2019-12-31 21:09:41,115 [14] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:09:41,128 [14] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:09:41,153 [14] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2019-12-31 21:09:41,176 [14] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:09:41,185 [14] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2019-12-31 21:09:41,284 [14] ?     - Executed ViewResult - view ShopsManager executed in 398.4621ms.
+
+2019-12-31 21:09:41,287 [14] ?     - Executed action EasyShop.CP.UI.Controllers.ShopManagerController.ShopsManager (EasyShop.CP.UI) in 446.6908ms
+
+2019-12-31 21:09:41,288 [14] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ShopManagerController.ShopsManager (EasyShop.CP.UI)'
+
+2019-12-31 21:09:41,294 [14] ?     - Request finished in 641.4768ms 200 text/html; charset=utf-8
+
+2019-12-31 21:09:43,728 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/UserProfile/Profile  
+
+2019-12-31 21:09:43,738 [9] ?     - Authorization was successful.
+
+2019-12-31 21:09:43,740 [9] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI)'
+
+2019-12-31 21:09:43,747 [9] ?     - Route matched with {action = "Profile", controller = "UserProfile"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Profile() on controller EasyShop.CP.UI.Controllers.UserProfileController (EasyShop.CP.UI).
+
+2019-12-31 21:09:43,794 [9] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-12-31 21:09:43,804 [9] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-12-31 21:09:43,819 [4] ?     - Executing ViewResult, running view Profile.
+
+2019-12-31 21:09:43,878 [4] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:09:43,882 [4] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:09:43,884 [4] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2019-12-31 21:09:43,890 [4] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 21:09:43,893 [4] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2019-12-31 21:09:43,907 [4] ?     - Executed ViewResult - view Profile executed in 89.0708ms.
+
+2019-12-31 21:09:43,910 [4] ?     - Executed action EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI) in 161.2005ms
+
+2019-12-31 21:09:43,912 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.UserProfileController.Profile (EasyShop.CP.UI)'
+
+2019-12-31 21:09:43,916 [4] ?     - Request finished in 187.8002ms 200 text/html; charset=utf-8
+
