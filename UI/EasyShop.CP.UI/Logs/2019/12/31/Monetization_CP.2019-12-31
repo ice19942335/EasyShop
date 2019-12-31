@@ -1,0 +1,507 @@
+2019-12-31 13:21:25,767 [15] ?     - Application started. Press Ctrl+C to shut down.
+
+2019-12-31 13:21:25,778 [15] ?     - Hosting environment: Development
+
+2019-12-31 13:21:25,779 [15] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2019-12-31 13:21:25,786 [5] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ShopManager/ShopsManager  
+
+2019-12-31 13:21:25,859 [5] ?     - Authorization failed.
+
+2019-12-31 13:21:25,872 [5] ?     - AuthenticationScheme: Identity.Application was challenged.
+
+2019-12-31 13:21:25,886 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/Account/Login?ReturnUrl=%2FShopManager%2FShopsManager  
+
+2019-12-31 13:21:25,891 [5] ?     - Request finished in 104.3952ms 302 
+
+2019-12-31 13:21:25,903 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI)'
+
+2019-12-31 13:21:25,940 [4] ?     - Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2019-12-31 13:21:25,966 [4] ?     - Executing ViewResult, running view Login.
+
+2019-12-31 13:21:26,189 [4] ?     - Executed ViewResult - view Login executed in 225.4102ms.
+
+2019-12-31 13:21:26,191 [4] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI) in 249.1563ms
+
+2019-12-31 13:21:26,192 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI)'
+
+2019-12-31 13:21:26,197 [4] ?     - Request finished in 310.7578ms 200 text/html; charset=utf-8
+
+2019-12-31 13:21:28,569 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/Account/Register  
+
+2019-12-31 13:21:28,577 [9] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2019-12-31 13:21:28,582 [9] ?     - Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register() on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2019-12-31 13:21:28,591 [9] ?     - Executing ViewResult, running view Register.
+
+2019-12-31 13:21:28,640 [9] ?     - Executed ViewResult - view Register executed in 50.4738ms.
+
+2019-12-31 13:21:28,642 [9] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI) in 58.4912ms
+
+2019-12-31 13:21:28,643 [9] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2019-12-31 13:21:28,645 [9] ?     - Request finished in 75.8944ms 200 text/html; charset=utf-8
+
+2019-12-31 13:21:44,885 [14] ?     - Request starting HTTP/2.0 POST https://localhost:44374/Account/Register application/x-www-form-urlencoded 357
+
+2019-12-31 13:21:44,887 [14] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2019-12-31 13:21:44,922 [14] ?     - Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(EasyShop.Domain.ViewModels.Account.RegisterUserViewModel) on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2019-12-31 13:21:44,992 [14] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-12-31 13:21:45,001 [14] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-12-31 13:21:45,022 [5] ?     - Executing DbCommand [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (Size = 256), @p5='?' (DbType = Boolean), @p6='?' (Size = 4000), @p7='?' (DbType = Int32), @p8='?' (Size = 4000), @p9='?' (DbType = Boolean), @p10='?' (DbType = DateTimeOffset), @p11='?' (Size = 256), @p12='?' (Size = 256), @p13='?' (Size = 4000), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 4000), @p17='?' (Size = 4000), @p18='?' (DbType = DateTime2), @p19='?' (Size = 4000), @p20='?' (DbType = Int32), @p21='?' (DbType = Decimal), @p22='?' (DbType = Decimal), @p23='?' (DbType = Boolean), @p24='?' (Size = 256), @p25='?' (DbType = Boolean)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [BirthDate], [ConcurrencyStamp], [Email], [EmailConfirmed], [FirstName], [Gender], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [ProfileImage], [PurchasedTariffs], [RegistrationDate], [SecurityStamp], [ShopsAllowed], [TotalRevenue], [TransactionPercent], [TwoFactorEnabled], [UserName], [UsingTariff])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25);
+
+2019-12-31 13:21:45,042 [5] ?     - Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedRoleName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedRoleName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedRoleName_0 IS NULL)
+
+2019-12-31 13:21:45,059 [4] ?     - Executing DbCommand [Parameters=[@__p_0='?' (Size = 450), @__p_1='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE (([a].[UserId] = @__p_0) AND @__p_0 IS NOT NULL) AND (([a].[RoleId] = @__p_1) AND @__p_1 IS NOT NULL)
+
+2019-12-31 13:21:45,065 [4] ?     - Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedRoleName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedRoleName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedRoleName_0 IS NULL)
+
+2019-12-31 13:21:45,079 [9] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-12-31 13:21:45,096 [19] ?     - Executing DbCommand [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUserRoles] ([UserId], [RoleId])
+VALUES (@p0, @p1);
+
+2019-12-31 13:21:45,102 [19] ?     - Executing DbCommand [Parameters=[@p25='?' (Size = 450), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p26='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (DbType = Int32), @p7='?' (Size = 4000), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 4000), @p16='?' (Size = 4000), @p17='?' (DbType = DateTime2), @p18='?' (Size = 4000), @p19='?' (DbType = Int32), @p20='?' (DbType = Decimal), @p21='?' (DbType = Decimal), @p22='?' (DbType = Boolean), @p23='?' (Size = 256), @p24='?' (DbType = Boolean)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [BirthDate] = @p1, [ConcurrencyStamp] = @p2, [Email] = @p3, [EmailConfirmed] = @p4, [FirstName] = @p5, [Gender] = @p6, [LastName] = @p7, [LockoutEnabled] = @p8, [LockoutEnd] = @p9, [NormalizedEmail] = @p10, [NormalizedUserName] = @p11, [PasswordHash] = @p12, [PhoneNumber] = @p13, [PhoneNumberConfirmed] = @p14, [ProfileImage] = @p15, [PurchasedTariffs] = @p16, [RegistrationDate] = @p17, [SecurityStamp] = @p18, [ShopsAllowed] = @p19, [TotalRevenue] = @p20, [TransactionPercent] = @p21, [TwoFactorEnabled] = @p22, [UserName] = @p23, [UsingTariff] = @p24
+WHERE [Id] = @p25 AND [ConcurrencyStamp] = @p26;
+SELECT @@ROWCOUNT;
+
+2019-12-31 13:21:45,114 [4] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 13:21:45,118 [4] ?     - UserName: kbjggnkjhnjklghjkl@fksbvjkshb | UserId: 97afc803-049f-47e5-9822-92c5385579de | Request: /Account/Register | InformationMessage: Successfully registered in system
+
+2019-12-31 13:21:45,138 [19] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 13:21:46,549 [19] ?     - UserName: Null | UserId: Null | Request: /Account/Register | InformationMessage: Mail has been sent to receiver: kbjggnkjhnjklghjkl@fksbvjkshb; Subject: Monetization | Email confirmation; Message: <div style="-webkit-tap-highlight-color: transparent;
+font-family: Roboto,sans-serif;
+font-size: 13px;
+line-height: 1.538462;
+color: #ccc;
+visibility: visible;
+box-sizing: border-box;
+padding: 15px;">
+        <div class="well text-center col-md-8 col-md-offset-2" style="-webkit-tap-highlight-color: transparent;
+font-family: Roboto,sans-serif;
+font-size: 13px;
+line-height: 1.538462;
+color: #ccc;
+visibility: visible;
+box-sizing: border-box;
+text-align: center;
+position: relative;
+float: left;
+width: 66.666667%;
+margin-left: 16.666667%;
+min-height: 20px;
+margin-bottom: 20px;
+background-color: #2a2a2a;
+border: 1px solid #212121;
+border-radius: 0;
+box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+padding: 15px;">
+            <h3 style="-webkit-tap-highlight-color: transparent;
+visibility: visible;
+text-align: center;
+box-sizing: border-box;
+font-family: inherit;
+font-weight: 500;
+line-height: 1.1;
+color: inherit;
+margin-top: 20px;
+margin-bottom: 10px;
+font-size: 24px;">Monetization confirmation link</h3>
+            <h5 style="-webkit-tap-highlight-color: transparent;
+visibility: visible;
+text-align: center;
+box-sizing: border-box;
+font-family: inherit;
+font-weight: 500;
+line-height: 1.1;
+color: inherit;
+margin-top: 10px;
+margin-bottom: 10px;
+font-size: 13px;">If you have been registered at Monetization please, press the button below. If it wasn't you ignore this letter.</h5>
+            <a aria-pressed="true" class="btn btn-success btn-lg active" href="https://localhost:44374/Account/ConfirmEmail?userId=97afc803-049f-47e5-9822-92c5385579de&token=CfDJ8LLATCsIIItHq%2BcvMuCVLPEluqu%2F1QLUjBXqwx4WaTfHfXQzyfmpNFQ3PoluCC2EX6Kuo7ST6EjpukNMzkXo8mC7DMre3fzMrkn11BvN5DS2QwaqwA7v%2BdXl5hLvnUsmF4Nq6LTfs10nT5RbZQEfG13W%2Ff2IPBctICjnSGeOoVOXZxAtPkVFhArbGvAoUNA4AQn%2FAWAfNyd9s93xAyM%2BlfOKI1y87vyQTU%2Bce9mfgB0TlZH9gdc%2FODuDj9LK8CpTOA%3D%3D" role="button" style="-webkit-tap-highlight-color: transparent;
+font-family: Roboto,sans-serif;
+visibility: visible;
+box-sizing: border-box;
+display: inline-block;
+margin-bottom: 0;
+font-weight: 400;
+text-align: center;
+vertical-align: middle;
+cursor: pointer;
+border: 1px solid transparent;
+white-space: nowrap;
+user-select: none;
+padding: 10px 16px;
+font-size: 18px;
+line-height: 1.333333;
+border-radius: 0;
+touch-action: manipulation;
+position: relative;
+text-decoration: none;
+text-transform: none;
+transition: all .3s;
+outline: 0;
+background-color: #75ac00;
+border-color: #75ac00;
+color: #fff;
+background-image: none;
+box-shadow: none;">Confirm email <span class="icon icon-check"></span></a>
+        </div>
+    </div>;
+
+2019-12-31 13:21:46,640 [19] ?     - UserName: Null | UserId: Null | Request: /Account/Register | ErrorMessage: Error on sending email. Error Test exception; Inner exception: ; Stacktrace:    at EasyShop.Services.Email.SmtpEmailSender.Execute(String email, String subject, String message) in C:\Users\Administrator\source\repos\ice19942335\EasyShop\Services\EasyShop.Services\Email\SmtpEmailSender.cs:line 66;
+
+2019-12-31 13:21:46,658 [19] ?     - Executing DbCommand [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [AspNetUserRoles]
+WHERE [UserId] = @p0 AND [RoleId] = @p1;
+SELECT @@ROWCOUNT;
+
+2019-12-31 13:21:46,662 [5] ?     - Executing DbCommand [Parameters=[@p2='?' (Size = 450), @p3='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [AspNetUsers]
+WHERE [Id] = @p2 AND [ConcurrencyStamp] = @p3;
+SELECT @@ROWCOUNT;
+
+2019-12-31 13:21:46,682 [5] ?     - Executing ViewResult, running view SomethingWentWrong.
+
+2019-12-31 13:21:46,692 [5] ?     - Executed ViewResult - view SomethingWentWrong executed in 11.2122ms.
+
+2019-12-31 13:21:46,695 [5] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI) in 1771.1641ms
+
+2019-12-31 13:21:46,698 [5] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2019-12-31 13:21:46,702 [5] ?     - Request finished in 1817.555ms 200 text/html; charset=utf-8
+
+2019-12-31 13:23:34,980 [14] ?     - Application started. Press Ctrl+C to shut down.
+
+2019-12-31 13:23:34,991 [14] ?     - Hosting environment: Development
+
+2019-12-31 13:23:34,993 [14] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2019-12-31 13:23:35,002 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ShopManager/ShopsManager  
+
+2019-12-31 13:23:35,080 [4] ?     - Authorization failed.
+
+2019-12-31 13:23:35,094 [4] ?     - AuthenticationScheme: Identity.Application was challenged.
+
+2019-12-31 13:23:35,113 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/Account/Login?ReturnUrl=%2FShopManager%2FShopsManager  
+
+2019-12-31 13:23:35,117 [4] ?     - Request finished in 115.589ms 302 
+
+2019-12-31 13:23:35,127 [8] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI)'
+
+2019-12-31 13:23:35,165 [8] ?     - Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2019-12-31 13:23:35,189 [8] ?     - Executing ViewResult, running view Login.
+
+2019-12-31 13:23:35,398 [8] ?     - Executed ViewResult - view Login executed in 208.1805ms.
+
+2019-12-31 13:23:35,400 [8] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI) in 233.379ms
+
+2019-12-31 13:23:35,402 [8] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI)'
+
+2019-12-31 13:23:35,405 [8] ?     - Request finished in 292.2981ms 200 text/html; charset=utf-8
+
+2019-12-31 13:23:39,391 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/Account/Register  
+
+2019-12-31 13:23:39,398 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2019-12-31 13:23:39,402 [4] ?     - Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register() on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2019-12-31 13:23:39,413 [4] ?     - Executing ViewResult, running view Register.
+
+2019-12-31 13:23:39,466 [4] ?     - Executed ViewResult - view Register executed in 53.8962ms.
+
+2019-12-31 13:23:39,468 [4] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI) in 63.9194ms
+
+2019-12-31 13:23:39,470 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2019-12-31 13:23:39,472 [4] ?     - Request finished in 80.7983ms 200 text/html; charset=utf-8
+
+2019-12-31 13:24:01,644 [23] ?     - Request starting HTTP/2.0 POST https://localhost:44374/Account/Register application/x-www-form-urlencoded 373
+
+2019-12-31 13:24:01,646 [23] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2019-12-31 13:24:01,681 [23] ?     - Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(EasyShop.Domain.ViewModels.Account.RegisterUserViewModel) on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2019-12-31 13:24:01,757 [23] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-12-31 13:24:01,767 [23] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-12-31 13:24:01,792 [25] ?     - Executing DbCommand [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (Size = 256), @p5='?' (DbType = Boolean), @p6='?' (Size = 4000), @p7='?' (DbType = Int32), @p8='?' (Size = 4000), @p9='?' (DbType = Boolean), @p10='?' (DbType = DateTimeOffset), @p11='?' (Size = 256), @p12='?' (Size = 256), @p13='?' (Size = 4000), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 4000), @p17='?' (Size = 4000), @p18='?' (DbType = DateTime2), @p19='?' (Size = 4000), @p20='?' (DbType = Int32), @p21='?' (DbType = Decimal), @p22='?' (DbType = Decimal), @p23='?' (DbType = Boolean), @p24='?' (Size = 256), @p25='?' (DbType = Boolean)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [BirthDate], [ConcurrencyStamp], [Email], [EmailConfirmed], [FirstName], [Gender], [LastName], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [ProfileImage], [PurchasedTariffs], [RegistrationDate], [SecurityStamp], [ShopsAllowed], [TotalRevenue], [TransactionPercent], [TwoFactorEnabled], [UserName], [UsingTariff])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25);
+
+2019-12-31 13:24:01,811 [24] ?     - Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedRoleName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedRoleName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedRoleName_0 IS NULL)
+
+2019-12-31 13:24:01,828 [28] ?     - Executing DbCommand [Parameters=[@__p_0='?' (Size = 450), @__p_1='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE (([a].[UserId] = @__p_0) AND @__p_0 IS NOT NULL) AND (([a].[RoleId] = @__p_1) AND @__p_1 IS NOT NULL)
+
+2019-12-31 13:24:01,836 [28] ?     - Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedRoleName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedRoleName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedRoleName_0 IS NULL)
+
+2019-12-31 13:24:01,851 [25] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-12-31 13:24:01,867 [23] ?     - Executing DbCommand [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUserRoles] ([UserId], [RoleId])
+VALUES (@p0, @p1);
+
+2019-12-31 13:24:01,874 [23] ?     - Executing DbCommand [Parameters=[@p25='?' (Size = 450), @p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (Size = 4000), @p26='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (DbType = Int32), @p7='?' (Size = 4000), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 4000), @p16='?' (Size = 4000), @p17='?' (DbType = DateTime2), @p18='?' (Size = 4000), @p19='?' (DbType = Int32), @p20='?' (DbType = Decimal), @p21='?' (DbType = Decimal), @p22='?' (DbType = Boolean), @p23='?' (Size = 256), @p24='?' (DbType = Boolean)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [BirthDate] = @p1, [ConcurrencyStamp] = @p2, [Email] = @p3, [EmailConfirmed] = @p4, [FirstName] = @p5, [Gender] = @p6, [LastName] = @p7, [LockoutEnabled] = @p8, [LockoutEnd] = @p9, [NormalizedEmail] = @p10, [NormalizedUserName] = @p11, [PasswordHash] = @p12, [PhoneNumber] = @p13, [PhoneNumberConfirmed] = @p14, [ProfileImage] = @p15, [PurchasedTariffs] = @p16, [RegistrationDate] = @p17, [SecurityStamp] = @p18, [ShopsAllowed] = @p19, [TotalRevenue] = @p20, [TransactionPercent] = @p21, [TwoFactorEnabled] = @p22, [UserName] = @p23, [UsingTariff] = @p24
+WHERE [Id] = @p25 AND [ConcurrencyStamp] = @p26;
+SELECT @@ROWCOUNT;
+
+2019-12-31 13:24:01,885 [23] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 13:24:01,889 [23] ?     - UserName: dwdadakjbggnkt@glkjnfbhkjybfjky | UserId: e0143638-b9f5-47d4-8ad0-6df49eaddc50 | Request: /Account/Register | InformationMessage: Successfully registered in system
+
+2019-12-31 13:24:01,912 [27] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2019-12-31 13:24:03,033 [30] ?     - UserName: Null | UserId: Null | Request: /Account/Register | InformationMessage: Mail has been sent to receiver: dwdadakjbggnkt@glkjnfbhkjybfjky; Subject: Monetization | Email confirmation; Message: <div style="-webkit-tap-highlight-color: transparent;
+font-family: Roboto,sans-serif;
+font-size: 13px;
+line-height: 1.538462;
+color: #ccc;
+visibility: visible;
+box-sizing: border-box;
+padding: 15px;">
+        <div class="well text-center col-md-8 col-md-offset-2" style="-webkit-tap-highlight-color: transparent;
+font-family: Roboto,sans-serif;
+font-size: 13px;
+line-height: 1.538462;
+color: #ccc;
+visibility: visible;
+box-sizing: border-box;
+text-align: center;
+position: relative;
+float: left;
+width: 66.666667%;
+margin-left: 16.666667%;
+min-height: 20px;
+margin-bottom: 20px;
+background-color: #2a2a2a;
+border: 1px solid #212121;
+border-radius: 0;
+box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+padding: 15px;">
+            <h3 style="-webkit-tap-highlight-color: transparent;
+visibility: visible;
+text-align: center;
+box-sizing: border-box;
+font-family: inherit;
+font-weight: 500;
+line-height: 1.1;
+color: inherit;
+margin-top: 20px;
+margin-bottom: 10px;
+font-size: 24px;">Monetization confirmation link</h3>
+            <h5 style="-webkit-tap-highlight-color: transparent;
+visibility: visible;
+text-align: center;
+box-sizing: border-box;
+font-family: inherit;
+font-weight: 500;
+line-height: 1.1;
+color: inherit;
+margin-top: 10px;
+margin-bottom: 10px;
+font-size: 13px;">If you have been registered at Monetization please, press the button below. If it wasn't you ignore this letter.</h5>
+            <a aria-pressed="true" class="btn btn-success btn-lg active" href="https://localhost:44374/Account/ConfirmEmail?userId=e0143638-b9f5-47d4-8ad0-6df49eaddc50&token=CfDJ8LLATCsIIItHq%2BcvMuCVLPGC%2FgM%2BSL%2BxS9Wu2xfiFKWAnQ87t0uYYFekB%2BbJX7suthPzY1cjHxYuKKQlkGLBVPQZgk1ZL%2FzPOrHL%2FF3hZefUDKLWWt3mieEc0UqUkGXM2EXQkue7j0WHoT%2BNe2kWgnqk1j6tZgPdhHXK45cbjWfRlg%2Fqb5p9PuRvqOhtn79L0Z7nF0OAlseZVxJz5YW3qQ5COsIdQQdA%2FTyaDYX2h2HwjbyAB5GbtD%2BO5lMWE1Sq1Q%3D%3D" role="button" style="-webkit-tap-highlight-color: transparent;
+font-family: Roboto,sans-serif;
+visibility: visible;
+box-sizing: border-box;
+display: inline-block;
+margin-bottom: 0;
+font-weight: 400;
+text-align: center;
+vertical-align: middle;
+cursor: pointer;
+border: 1px solid transparent;
+white-space: nowrap;
+user-select: none;
+padding: 10px 16px;
+font-size: 18px;
+line-height: 1.333333;
+border-radius: 0;
+touch-action: manipulation;
+position: relative;
+text-decoration: none;
+text-transform: none;
+transition: all .3s;
+outline: 0;
+background-color: #75ac00;
+border-color: #75ac00;
+color: #fff;
+background-image: none;
+box-shadow: none;">Confirm email <span class="icon icon-check"></span></a>
+        </div>
+    </div>;
+
+2019-12-31 13:24:03,146 [30] ?     - UserName: Null | UserId: Null | Request: /Account/Register | ErrorMessage: Error on sending email. Error Test exception; Inner exception: ; Stacktrace:    at EasyShop.Services.Email.SmtpEmailSender.Execute(String email, String subject, String message) in C:\Users\Administrator\source\repos\ice19942335\EasyShop\Services\EasyShop.Services\Email\SmtpEmailSender.cs:line 66;
+
+2019-12-31 13:24:03,164 [30] ?     - Executing DbCommand [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [AspNetUserRoles]
+WHERE [UserId] = @p0 AND [RoleId] = @p1;
+SELECT @@ROWCOUNT;
+
+2019-12-31 13:24:03,168 [27] ?     - Executing DbCommand [Parameters=[@p2='?' (Size = 450), @p3='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [AspNetUsers]
+WHERE [Id] = @p2 AND [ConcurrencyStamp] = @p3;
+SELECT @@ROWCOUNT;
+
+2019-12-31 13:24:03,185 [24] ?     - Executing ViewResult, running view SomethingWentWrong.
+
+2019-12-31 13:24:03,195 [24] ?     - Executed ViewResult - view SomethingWentWrong executed in 11.1714ms.
+
+2019-12-31 13:24:03,198 [24] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI) in 1515.222ms
+
+2019-12-31 13:24:03,201 [24] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2019-12-31 13:24:03,205 [24] ?     - Request finished in 1562.7244ms 200 text/html; charset=utf-8
+
+2019-12-31 13:24:14,712 [23] ?     - Request starting HTTP/2.0 GET https://localhost:44374/Account/Register  
+
+2019-12-31 13:24:14,715 [23] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2019-12-31 13:24:14,718 [23] ?     - Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register() on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2019-12-31 13:24:14,720 [23] ?     - Executing ViewResult, running view Register.
+
+2019-12-31 13:24:14,725 [23] ?     - Executed ViewResult - view Register executed in 5.1578ms.
+
+2019-12-31 13:24:14,727 [23] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI) in 7.6896ms
+
+2019-12-31 13:24:14,728 [23] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2019-12-31 13:24:14,730 [23] ?     - Request finished in 17.8357ms 200 text/html; charset=utf-8
+
+2019-12-31 13:27:09,448 [26] ?     - Request starting HTTP/2.0 POST https://localhost:44374/Account/Register application/x-www-form-urlencoded 356
+
+2019-12-31 13:27:09,450 [26] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2019-12-31 13:27:09,452 [26] ?     - Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(EasyShop.Domain.ViewModels.Account.RegisterUserViewModel) on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2019-12-31 13:27:09,491 [26] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2019-12-31 13:27:09,498 [26] ?     - Executing DbCommand [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedUserName] = @__normalizedUserName_0) AND ([a].[NormalizedUserName] IS NOT NULL AND @__normalizedUserName_0 IS NOT NULL)) OR ([a].[NormalizedUserName] IS NULL AND @__normalizedUserName_0 IS NULL)
+
+2019-12-31 13:27:09,505 [37] ?     - User a22556fa-d77e-4d55-8bb9-0c58ad28f2ac validation failed: DuplicateUserName.
+
+2019-12-31 13:27:09,507 [37] ?     - UserName: Null | UserId: Null | Request: /Account/Register | WarningMessage User name 'aleksejbirula@gmail.com' is already taken.
+
+2019-12-31 13:27:09,509 [37] ?     - Executing ViewResult, running view Register.
+
+2019-12-31 13:27:09,520 [37] ?     - Executed ViewResult - view Register executed in 8.6399ms.
+
+2019-12-31 13:27:09,522 [37] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI) in 67.8572ms
+
+2019-12-31 13:27:09,523 [37] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2019-12-31 13:27:09,526 [37] ?     - Request finished in 79.9954ms 200 text/html; charset=utf-8
+
+2019-12-31 13:28:22,307 [40] ?     - Request starting HTTP/2.0 POST https://localhost:44374/Account/Register application/x-www-form-urlencoded 370
+
+2019-12-31 13:28:22,309 [40] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2019-12-31 13:28:22,311 [40] ?     - Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(EasyShop.Domain.ViewModels.Account.RegisterUserViewModel) on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2019-12-31 13:28:22,317 [40] ?     - User ede6300e-661f-4985-a545-c14d90f3f86f password validation failed: PasswordRequiresDigit.
+
+2019-12-31 13:28:22,319 [40] ?     - UserName: Null | UserId: Null | Request: /Account/Register | WarningMessage Passwords must have at least one digit ('0'-'9').
+
+2019-12-31 13:28:22,322 [40] ?     - Executing ViewResult, running view Register.
+
+2019-12-31 13:28:22,329 [40] ?     - Executed ViewResult - view Register executed in 8.276ms.
+
+2019-12-31 13:28:22,330 [40] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI) in 18.5038ms
+
+2019-12-31 13:28:22,332 [40] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2019-12-31 13:28:22,334 [40] ?     - Request finished in 29.0671ms 200 text/html; charset=utf-8
+
+2019-12-31 13:28:48,258 [43] ?     - Request starting HTTP/2.0 POST https://localhost:44374/Account/Register application/x-www-form-urlencoded 362
+
+2019-12-31 13:28:48,261 [43] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2019-12-31 13:28:48,263 [43] ?     - Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Register(EasyShop.Domain.ViewModels.Account.RegisterUserViewModel) on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2019-12-31 13:28:48,267 [43] ?     - User 001b83e6-8b7b-46f5-a17e-d2a6c91de678 password validation failed: PasswordRequiresDigit;PasswordRequiresUpper;PasswordRequiresUniqueChars.
+
+2019-12-31 13:28:48,269 [43] ?     - UserName: Null | UserId: Null | Request: /Account/Register | WarningMessage Passwords must have at least one digit ('0'-'9').
+Passwords must have at least one uppercase ('A'-'Z').
+Passwords must use at least 3 different characters.
+
+2019-12-31 13:28:48,270 [43] ?     - Executing ViewResult, running view Register.
+
+2019-12-31 13:28:48,275 [43] ?     - Executed ViewResult - view Register executed in 4.5125ms.
+
+2019-12-31 13:28:48,276 [43] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI) in 12.1915ms
+
+2019-12-31 13:28:48,278 [43] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2019-12-31 13:28:48,280 [43] ?     - Request finished in 22.4997ms 200 text/html; charset=utf-8
+

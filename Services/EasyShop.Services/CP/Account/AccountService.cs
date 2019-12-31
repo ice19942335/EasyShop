@@ -19,6 +19,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using SendGrid;
 
 // ReSharper disable Mvc.ViewNotResolved
@@ -27,7 +28,7 @@ namespace EasyShop.Services.CP.Account
 {
     public class AccountService : Controller, IAccountService
     {
-        private readonly IHttpContextAccessor _httpContext;
+        private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IWebHostEnvironment _environment;
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
@@ -36,7 +37,7 @@ namespace EasyShop.Services.CP.Account
         private readonly ISmtpEmailSender _smtpEmailSender;
 
         public AccountService(
-            IHttpContextAccessor httpContext,
+            IHttpContextAccessor httpContextAccessor,
             IWebHostEnvironment environment,
             UserManager<AppUser> userManager,
             SignInManager<AppUser> signInManager,
@@ -44,7 +45,7 @@ namespace EasyShop.Services.CP.Account
             ISendGridEmailSender sendGridEmailSender,
             ISmtpEmailSender smtpEmailSender)
         {
-            _httpContext = httpContext;
+            _httpContextAccessor = httpContextAccessor;
             _environment = environment;
             _userManager = userManager;
             _signInManager = signInManager;
@@ -55,63 +56,66 @@ namespace EasyShop.Services.CP.Account
 
         public async Task<AccountDto> RegisterAsync(RegisterUserViewModel model, IUrlHelper url)
         {
-            using (_logger.BeginScope($"New user registration: {model.Email}"))
+            var profileImage = DefaultPictureNameHelper.GetDefaultPictureName(model.Gender);
+
+            var newUser = new AppUser
             {
-                var profileImage = DefaultPictureNameHelper.GetDefaultPictureName(model.Gender);
+                UserName = model.Email,
+                Email = model.Email,
+                FirstName = model.Firstname,
+                LastName = model.LastName,
+                BirthDate = new DateTime(model.Year, model.Day, int.Parse(model.Month)),
+                Gender = model.Gender,
+                RegistrationDate = DateTime.Now,
+                ProfileImage = profileImage,
+                TransactionPercent = 3,
+                ShopsAllowed = 10,
+                UsingTariff = false
+            };
 
-                var user = new AppUser
+            var creationResult = await _userManager.CreateAsync(newUser, model.Password);
+
+            if (creationResult.Succeeded)
+            {
+                await _userManager.AddToRoleAsync(newUser, DefaultIdentity.RoleUser);
+
+                var userForLog = await _userManager.FindByEmailAsync(newUser.Email);
+                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | InformationMessage: {3}",
+                    userForLog.UserName,
+                    userForLog.Id,
+                    _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                    "Successfully registered in system");
+
+                var code = await _userManager.GenerateEmailConfirmationTokenAsync(newUser);
+
+                var callbackUrl = url.Action(
+                    "ConfirmEmail",
+                    "Account",
+                    new { userId = newUser.Id, token = code },
+                    protocol: _httpContextAccessor.HttpContext.Request.Scheme);
+
+                var sendEmailConfirmationResponse = await SendMailAsync(newUser, "Email confirmation", "EmailConfirmationLink", "txt", "Interpolation", "callbackUrl", callbackUrl);
+
+                if (sendEmailConfirmationResponse)
                 {
-                    UserName = model.Email,
-                    Email = model.Email,
-                    FirstName = model.Firstname,
-                    LastName = model.LastName,
-                    BirthDate = new DateTime(model.Year, model.Day, int.Parse(model.Month)),
-                    Gender = model.Gender,
-                    RegistrationDate = DateTime.Now,
-                    ProfileImage = profileImage,
-                    TransactionPercent = 3,
-                    ShopsAllowed = 10,
-                    UsingTariff = false
-                };
-
-                var creationResult = await _userManager.CreateAsync(user, model.Password);
-
-                if (creationResult.Succeeded)
-                {
-                    _logger.LogInformation($"User: {model.Email} successfully registered in system.");
-
-                    await _userManager.AddToRoleAsync(user, DefaultIdentity.RoleUser);
-
-                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    var callbackUrl = url.Action(
-                        "ConfirmEmail",
-                        "Account",
-                        new { userId = user.Id, token = code },
-                        protocol: _httpContext.HttpContext.Request.Scheme);
-
-                    var response = await SendMailAsync(user, "Email confirmation", "EmailConfirmationLink", "txt", "Interpolation", "callbackUrl", callbackUrl);
-
-                    if (response)
-                    {
-                        await _signInManager.SignInAsync(user, false);
-                        return new AccountDto { RedirectToAction = RedirectToAction("EmailConfirmation", "UserProfile") };
-                    }
-
-                    await _userManager.DeleteAsync(user);
-                    return new AccountDto { ReturnToView = View("SomethingWentWrong", "link sending") };
+                    await _signInManager.SignInAsync(newUser, false);
+                    return new AccountDto { RedirectToAction = RedirectToAction("EmailConfirmation", "UserProfile") };
                 }
 
-                _logger.LogWarning(
-                    "Registration error, User: {0}, Errors: {1}",
-                    model.Email,
-                    string.Join(",\n", creationResult.Errors.Select(err => err.Description))
-                );
-
-                foreach (var error in creationResult.Errors)
-                    ModelState.AddModelError("", error.Description);
-
-                return new AccountDto { ReturnToView = View(model) };
+                await _userManager.DeleteAsync(newUser);
+                return new AccountDto { ReturnToView = View("SomethingWentWrong", "link sending") };
             }
+
+            _logger.LogWarning("UserName: {0} | UserId: {1} | Request: {2} | WarningMessage: {3}",
+                "Null",
+                "Null",
+                _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                string.Join("", creationResult.Errors.Select(x => "\n" + x.Description)));
+
+            foreach (var error in creationResult.Errors)
+                ModelState.AddModelError("", error.Description);
+
+            return new AccountDto { ReturnToView = View(model) };
         }
 
         public async Task<AccountDto> LoginAsync(LoginUserViewModel model, IUrlHelper url)
@@ -121,7 +125,7 @@ namespace EasyShop.Services.CP.Account
 
             if (loginResult.Succeeded)
             {
-                _logger.LogInformation($"User: {model.UserName} successfully logged in.");
+                _logger.LogInformation($"User: {model.UserName}, successfully logged in.");
 
                 var user = await _userManager.FindByNameAsync(model.UserName);
 
@@ -134,7 +138,7 @@ namespace EasyShop.Services.CP.Account
                 return new AccountDto { RedirectToAction = RedirectToAction("Index", "Home"), };
             }
 
-            _logger.LogWarning($"User: {model.UserName} login error.");
+            _logger.LogWarning($"User: {model.UserName} login error. Is locked out: {loginResult.IsLockedOut}. Is not allowed: {loginResult.IsNotAllowed}");
 
             ModelState.AddModelError("", "Username or password is incorrect, please try again.");
 
@@ -156,13 +160,13 @@ namespace EasyShop.Services.CP.Account
                 "ConfirmEmail",
                 "Account",
                 new { userId = user.Id, token = token },
-                protocol: _httpContext.HttpContext.Request.Scheme);
+                protocol: _httpContextAccessor.HttpContext.Request.Scheme);
 
-            var response = await SendMailAsync(user, "Email confirmation", "EmailConfirmationLink", "txt", "Interpolation", "callbackUrl", callbackUrl);
+            var sendEmailConfirmationLinkResponse = await SendMailAsync(user, "Email confirmation", "EmailConfirmationLink", "txt", "Interpolation", "callbackUrl", callbackUrl);
 
-            if (response)
+            if (sendEmailConfirmationLinkResponse)
             {
-                _logger.LogInformation($"Confirmation link was sent to User: {userName}, Confirmation link: {callbackUrl}");
+                _logger.LogInformation($"Confirmation link was sent to User: {userName}, UserId: {user.Id}. Confirmation link: {callbackUrl}");
                 return new AccountDto
                 {
                     RedirectToAction = RedirectToAction("EmailConfirmationRequestHasBeenSent", "UserProfile")
@@ -180,10 +184,11 @@ namespace EasyShop.Services.CP.Account
             var user = await _userManager.FindByIdAsync(userId);
 
             if (user is null)
-                return new AccountDto
-                {
-                    RedirectToAction = RedirectToAction("AccessDenied", "Account")
-                };
+            {
+                _logger.LogWarning($"User not found. HttpContext: {JsonConvert.SerializeObject(HttpContext)}");
+                return new AccountDto { RedirectToAction = RedirectToAction("AccessDenied", "Account") };
+            }
+
 
             var result = await _userManager.ConfirmEmailAsync(user, token);
 
@@ -222,7 +227,7 @@ namespace EasyShop.Services.CP.Account
             var callbackUrl = url.Action("ResetPassword",
                 "Account",
                 new { userId = user.Id, token = token },
-                protocol: _httpContext.HttpContext.Request.Scheme);
+                protocol: _httpContextAccessor.HttpContext.Request.Scheme);
 
             var response = await SendMailAsync(user, "Password reset", "PasswordResetLink", "txt", "Interpolation", "callbackUrl", callbackUrl);
 
@@ -257,7 +262,7 @@ namespace EasyShop.Services.CP.Account
             var callbackUrl = url.Action("ResetPassword",
                 "Account",
                 new { userId = user.Id, token = token },
-                protocol: _httpContext.HttpContext.Request.Scheme);
+                protocol: _httpContextAccessor.HttpContext.Request.Scheme);
 
             var response = await SendMailAsync(user, "Password reset", "PasswordHasBeenChangedNotification", "txt", "Interpolation", "callbackUrl", callbackUrl);
 
@@ -302,7 +307,6 @@ namespace EasyShop.Services.CP.Account
             var result = await _smtpEmailSender.SendEmailAsync(user.Email, $"Monetization | {subject}", html);
 
             return result;
-
         }
     }
 }
