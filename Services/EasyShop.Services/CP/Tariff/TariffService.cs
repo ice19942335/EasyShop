@@ -33,13 +33,13 @@ namespace EasyShop.Services.CP.Tariff
             ITariffOptionsService tariffOptionsService,
             IHttpContextAccessor httpContextAccessor,
             UserManager<AppUser> userManager,
-            ILogger<TariffService> _logger)
+            ILogger<TariffService> logger)
         {
             _context = context;
             _tariffOptionDescriptionService = tariffOptionDescriptionService;
             _tariffOptionsService = tariffOptionsService;
             _userManager = userManager;
-            this._logger = _logger;
+            _logger = logger;
             _httpContext = httpContextAccessor.HttpContext;
         }
 
@@ -83,7 +83,7 @@ namespace EasyShop.Services.CP.Tariff
                 userForLog.UserName,
                 userForLog.Id,
                 _httpContext.Request.GetRawTarget(),
-                $"Tariff: {JsonConvert.SerializeObject(newTariff)} was successfully created");
+                $"Tariff: {JsonConvert.SerializeObject(newTariff)} was successfully created.");
 
             return model;
         }
@@ -117,7 +117,7 @@ namespace EasyShop.Services.CP.Tariff
                 userForLog.UserName,
                 userForLog.Id,
                 _httpContext.Request.GetRawTarget(),
-                $"Tariff: {JsonConvert.SerializeObject(updatedTariff)} was successfully updated");
+                $"Tariff: {JsonConvert.SerializeObject(updatedTariff)} was successfully updated.");
 
             return updatedTariff;
         }
@@ -137,7 +137,7 @@ namespace EasyShop.Services.CP.Tariff
                 userForLog.UserName,
                 userForLog.Id,
                 _httpContext.Request.GetRawTarget(),
-                $"Tariff: {JsonConvert.SerializeObject(tariff)} was successfully deleted");
+                $"Tariff: {JsonConvert.SerializeObject(tariff)} was successfully deleted.");
 
             return true;
         }

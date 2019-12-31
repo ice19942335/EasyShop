@@ -4,17 +4,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
+using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Entries.Tariff;
 using EasyShop.Domain.ViewModels.ControlPanel.Tariff;
 using EasyShop.Interfaces.Services.CP.Tariff;
+using EasyShop.Services.ExtensionMethods;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 
 namespace EasyShop.Services.CP.Tariff
 {
     public class TariffOptionDescriptionService : ITariffOptionDescriptionService
     {
         private readonly EasyShopContext _context;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly ILogger<TariffOptionDescriptionService> _logger;
+        private readonly HttpContext _httpContext;
 
-        public TariffOptionDescriptionService(EasyShopContext context) => _context = context;
+        public TariffOptionDescriptionService(
+            EasyShopContext context, 
+            IHttpContextAccessor httpContextAccessor, 
+            UserManager<AppUser> userManager, 
+            ILogger<TariffOptionDescriptionService> logger)
+        {
+            _context = context;
+            _userManager = userManager;
+            _logger = logger;
+            _httpContext = httpContextAccessor.HttpContext;
+        }
 
         public IEnumerable<TariffOptionDescription> GetAll() => _context.TariffOptionsDescriptions;
 
@@ -44,6 +63,13 @@ namespace EasyShop.Services.CP.Tariff
             _context.TariffOptionsDescriptions.Add(tariffOptionDescription);
             await _context.SaveChangesAsync();
 
+            var userForLog = await _userManager.FindByEmailAsync(_httpContext.User.Identity.Name);
+            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                userForLog.UserName,
+                userForLog.Id,
+                _httpContext.Request.GetRawTarget(),
+                $"TariffOptionDescription: {JsonConvert.SerializeObject(tariffOptionDescription)} was successfully created.");
+
             return model;
         }
 
@@ -60,12 +86,21 @@ namespace EasyShop.Services.CP.Tariff
             _context.Update(tariffOptionDescription);
             await _context.SaveChangesAsync();
 
-            return new TariffOptionDescriptionViewModel
+            var newTariffOptionDescription = new TariffOptionDescriptionViewModel
             {
                 Id = tariffOptionDescription.Id,
                 Name = tariffOptionDescription.Name,
                 Description = tariffOptionDescription.Description
             };
+
+            var userForLog = await _userManager.FindByEmailAsync(_httpContext.User.Identity.Name);
+            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                userForLog.UserName,
+                userForLog.Id,
+                _httpContext.Request.GetRawTarget(),
+                $"TariffOptionDescription: {JsonConvert.SerializeObject(newTariffOptionDescription)} was successfully updated.");
+
+            return newTariffOptionDescription;
         }
 
         public async Task<bool> DeleteByIdAsync(int id)
@@ -77,6 +112,13 @@ namespace EasyShop.Services.CP.Tariff
 
             _context.Remove(tariff);
             await _context.SaveChangesAsync();
+
+            var userForLog = await _userManager.FindByEmailAsync(_httpContext.User.Identity.Name);
+            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                userForLog.UserName,
+                userForLog.Id,
+                _httpContext.Request.GetRawTarget(),
+                $"TariffOptionDescription: {JsonConvert.SerializeObject(tariff)} was successfully deleted.");
 
             return true;
         }
