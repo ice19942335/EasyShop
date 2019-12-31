@@ -56,6 +56,8 @@ namespace EasyShop.CP.UI.Controllers
             return View(model);
         }
 
+        public IActionResult SomethingWentWrong() => View();
+
         #region Tariff
         [HttpGet]
         public IActionResult EditTariff(int? id)
@@ -190,7 +192,5 @@ namespace EasyShop.CP.UI.Controllers
             return View("EditTariff", tariffModel);
         }
         #endregion
-
-        public IActionResult SomethingWentWrong() => View();
     }
 }
