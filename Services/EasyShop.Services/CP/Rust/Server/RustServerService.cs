@@ -4,24 +4,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
+using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Entries.Rust;
 using EasyShop.Domain.Enums.Rust;
 using EasyShop.Domain.ViewModels.Rust.Shop;
 using EasyShop.Interfaces.Services.CP.Rust.Server;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
+using EasyShop.Services.ExtensionMethods;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.V3.Pages.Internal.Account;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
+using Microsoft.Extensions.Logging;
 
 namespace EasyShop.Services.CP.Rust.Server
 {
     public class RustServerService : IRustServerService
     {
         private readonly EasyShopContext _context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly ILogger<RustServerService> _logger;
 
-        public RustServerService(EasyShopContext context)
+        public RustServerService(EasyShopContext context, IHttpContextAccessor httpContextAccessor, UserManager<AppUser> userManager, ILogger<RustServerService> logger)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
+            _userManager = userManager;
+            _logger = logger;
         }
 
         public RustServer GetRustServerById(Guid serverId)
@@ -43,8 +54,10 @@ namespace EasyShop.Services.CP.Rust.Server
         {
             var shop = _context.Shops.FirstOrDefault(x => x.Id == Guid.Parse(model.Id));
 
+            var userForLog = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
+
             if (shop is null)
-                return (RustEditServerResult.NotFound, String.Empty);
+                return (RustEditServerResult.NotFound, string.Empty);
 
             if (model.RustServerEditViewModel.Id is null)
             {
@@ -65,6 +78,12 @@ namespace EasyShop.Services.CP.Rust.Server
 
                 _context.RustServers.Add(newServer);
                 await _context.SaveChangesAsync();
+
+                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                    userForLog.UserName,
+                    userForLog.Id,
+                    _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                    $"Server was successfully created. ServerId: {newServer.Id}");
 
                 return (RustEditServerResult.Created, newServerId.ToString());
             }
@@ -92,6 +111,12 @@ namespace EasyShop.Services.CP.Rust.Server
             _context.RustServers.Update(server);
             await _context.SaveChangesAsync();
 
+            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                userForLog.UserName,
+                userForLog.Id,
+                _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                $"Server was successfully updated. ServerId: {server.Id}");
+
             return (RustEditServerResult.Updated, server.Id.ToString());
         }
 
@@ -104,6 +129,13 @@ namespace EasyShop.Services.CP.Rust.Server
 
             _context.RustServers.Remove(server);
             await _context.SaveChangesAsync();
+
+            var userForLog = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
+            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                userForLog.UserName,
+                userForLog.Id,
+                _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                $"Server was successfully deleted. ServerId: {server.Id}");
 
             return true;
         }
