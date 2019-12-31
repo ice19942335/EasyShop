@@ -6,6 +6,7 @@ using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Interfaces.Services.CP.Rust.Data;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
+using EasyShop.Services.ExtensionMethods;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -78,6 +79,13 @@ namespace EasyShop.Services.CP.Rust.Shop
             shop.Secret = secret;
             _context.Shops.Update(shop);
             await _context.SaveChangesAsync();
+
+            var userForLog = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
+            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                userForLog.UserName,
+                userForLog.Id,
+                _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                $"Secret was successfully updated. shopId: {shop.Id}");
 
             return true;
         }

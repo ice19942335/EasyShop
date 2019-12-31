@@ -4,19 +4,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
+using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Entries.Tariff;
 using EasyShop.Interfaces.Services.CP.Tariff;
+using EasyShop.Services.ExtensionMethods;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using Org.BouncyCastle.Math.EC.Rfc7748;
 
 namespace EasyShop.Services.CP.Tariff
 {
     public class TariffOptionsService : ITariffOptionsService
     {
         private readonly EasyShopContext _context;
+        private readonly UserManager<AppUser> _userManager;
+        private readonly ILogger<TariffOptionsService> _logger;
+        private readonly HttpContext _httpContext;
 
-        public TariffOptionsService(EasyShopContext context)
+        public TariffOptionsService(
+            EasyShopContext context,
+            IHttpContextAccessor httpContextAccessor,
+            UserManager<AppUser> userManager,
+            ILogger<TariffOptionsService> logger)
         {
             _context = context;
+            _userManager = userManager;
+            _logger = logger;
+            _httpContext = httpContextAccessor.HttpContext;
         }
 
         public IEnumerable<TariffOptionDescription> GetAllOptionsAssignedToATariffById(int tariffId)
@@ -59,9 +76,16 @@ namespace EasyShop.Services.CP.Tariff
                 TariffId = tariffId,
                 Tariff = tariff
             };
-            _context.TariffOptions.Add(tariffOption);
 
+            _context.TariffOptions.Add(tariffOption);
             await _context.SaveChangesAsync();
+
+            var userForLog = await _userManager.FindByEmailAsync(_httpContext.User.Identity.Name);
+            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                userForLog.UserName,
+                userForLog.Id,
+                _httpContext.Request.GetRawTarget(),
+                $"An option Name:{tariffOptionDescription.Name}, Id: {tariffOptionDescription.Id} was assigned to a tariff Name: {tariff.Name}, Id: {tariff.Id}");
 
             return tariffOption;
         }
@@ -86,6 +110,16 @@ namespace EasyShop.Services.CP.Tariff
 
             _context.TariffOptions.Remove(queryResult);
             await _context.SaveChangesAsync();
+
+            var tariff = _context.Tariffs.FirstOrDefault(x => x.Id == queryResult.TariffId);
+            var tariffOptionDescription = _context.TariffOptionsDescriptions.FirstOrDefault(x => x.Id == queryResult.TariffOptionDescriptionId);
+
+            var userForLog = await _userManager.FindByEmailAsync(_httpContext.User.Identity.Name);
+            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                userForLog.UserName,
+                userForLog.Id,
+                _httpContext.Request.GetRawTarget(),
+                $"An option Name:{tariffOptionDescription.Name}, Id: {tariffOptionDescription.Id} was removed from tariff Name: {tariff.Name}, Id: {tariff.Id}");
 
             return queryResult;
         }

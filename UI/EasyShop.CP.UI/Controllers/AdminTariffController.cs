@@ -56,8 +56,9 @@ namespace EasyShop.CP.UI.Controllers
             return View(model);
         }
 
-        #region Tariff
+        public IActionResult SomethingWentWrong() => View();
 
+        #region Tariff
         [HttpGet]
         public IActionResult EditTariff(int? id)
         {
@@ -111,11 +112,9 @@ namespace EasyShop.CP.UI.Controllers
 
             return View("SomethingWentWrong", "tariff deletion");
         }
-
         #endregion
 
         #region TariffOptionDescription
-
         [HttpGet]
         public IActionResult EditTariffOptionDescription(int? id)
         {
@@ -165,11 +164,9 @@ namespace EasyShop.CP.UI.Controllers
 
             return View("SomethingWentWrong", "tariff option deletion");
         }
-
         #endregion
 
         #region TarifOptionManipulation
-
         [HttpGet]
         public async Task<IActionResult> AddAnOptionToATariff(int tariffId, int optionId)
         {
@@ -194,9 +191,6 @@ namespace EasyShop.CP.UI.Controllers
 
             return View("EditTariff", tariffModel);
         }
-
         #endregion
-
-        public IActionResult SomethingWentWrong() => View();
     }
 }

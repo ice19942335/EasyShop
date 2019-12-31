@@ -6,10 +6,12 @@ using EasyShop.Domain.ViewModels.User.UserProfile;
 using EasyShop.Interfaces.Services.CP;
 using EasyShop.Interfaces.Services.CP.FileImage;
 using EasyShop.Interfaces.Services.CP.UserProfile;
+using EasyShop.Services.ExtensionMethods;
 using EasyShop.Services.Mappers.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace EasyShop.CP.UI.Controllers
 {
@@ -17,17 +19,20 @@ namespace EasyShop.CP.UI.Controllers
     public class UserProfileController : Controller
     {
         private readonly UserManager<AppUser> _userManager;
-        private readonly IUserProfileServiceSql _userProfileService;
+        private readonly IUserProfileService _userProfileService;
         private readonly IFileImageService _fileImageService;
+        private readonly ILogger<UserProfileController> _logger;
 
         public UserProfileController(
             UserManager<AppUser> userManager, 
-            IUserProfileServiceSql userProfileService,
-            IFileImageService fileImageService)
+            IUserProfileService userProfileService,
+            IFileImageService fileImageService,
+            ILogger<UserProfileController> logger)
         {
             _userManager = userManager;
             _userProfileService = userProfileService;
             _fileImageService = fileImageService;
+            _logger = logger;
         }
 
         public async Task<IActionResult> Profile()
@@ -58,6 +63,13 @@ namespace EasyShop.CP.UI.Controllers
                     ModelState.AddModelError("", "Can't save selected picture, max size 10MB, picture type should be .jpeg .jpg or .png ");
                     return View(model);
                 }
+
+                var userForLog = await _userManager.FindByEmailAsync(HttpContext.User.Identity.Name);
+                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                    userForLog.UserName,
+                    userForLog.Id,
+                    HttpContext.Request.GetRawTarget(),
+                    $"New picture was successfully saved. Picture name: {saveFileResult}");
             }
 
             var result = await _userProfileService.UpdateUserData(model);
@@ -78,7 +90,7 @@ namespace EasyShop.CP.UI.Controllers
                 ShopsAllowed = user.ShopsAllowed,
                 TotalRevenue = user.TotalRevenue
             };
-            
+
             return View(model);
         }
 

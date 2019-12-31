@@ -11,11 +11,13 @@ using EasyShop.Domain.ViewModels.Rust.Shop;
 using EasyShop.Domain.ViewModels.Shop;
 using EasyShop.Interfaces.Services.CP.Rust.Data;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
+using EasyShop.Services.ExtensionMethods;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using Guid = System.Guid;
 
 namespace EasyShop.Services.CP.Rust.Shop
@@ -61,8 +63,12 @@ namespace EasyShop.Services.CP.Rust.Shop
 
                 var gameType = _context.GameTypes.First(x => x.Type == model.GameType);
 
+                Guid newShopId;
+                do { newShopId = Guid.NewGuid(); } while (_context.UserShops.FirstOrDefault(x => x.ShopId == newShopId) != null);
+
                 var newShop = new Domain.Entries.Shop.Shop
                 {
+                    Id = newShopId,
                     ShopName = model.ShopName,
                     GameType = gameType,
                     ShopTitle = model.ShopTitle,
@@ -70,12 +76,9 @@ namespace EasyShop.Services.CP.Rust.Shop
                     Secret = secret
                 };
 
-                Guid newUserShopId;
-                do { newUserShopId = Guid.NewGuid(); } while (_context.UserShops.FirstOrDefault(x => x.ShopId == newUserShopId) != null);
-
                 var userShop = new UserShop
                 {
-                    ShopId = newUserShopId,
+                    ShopId = newShopId,
                     Shop = newShop,
                     AppUserId = user.Id,
                     AppUser = user
@@ -91,6 +94,13 @@ namespace EasyShop.Services.CP.Rust.Shop
                     {
                         await SetDefaultProductsAsync(user, newShop);
                         await _context.SaveChangesAsync();
+
+                        _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                            user.UserName,
+                            user.Id,
+                            _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                            $"Rust shop has been successfully created! ShopId: {newShopId}");
+
                         return RustCreateShopResult.Success;
                     }
                     catch(Exception e)
@@ -99,39 +109,27 @@ namespace EasyShop.Services.CP.Rust.Shop
                         _context.UserShops.Remove(userShop);
                         await RemoveAllCategoriesAndItemsInShopAsync(newShop);
                         await _context.SaveChangesAsync();
+
+                        _logger.LogError("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                            user.UserName,
+                            user.Id,
+                            _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                            $"Error on adding default products and categories. Error message: {e.Message}; Inner exception: {e.InnerException?.Message}; Stacktrace: {e.StackTrace};");
+
                         return RustCreateShopResult.SomethingWentWrong;
                     }
                 }
+
+                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                    user.UserName,
+                    user.Id,
+                    _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                    $"Rust shop has been successfully created! ShopId: {newShop.Id}");
 
                 return RustCreateShopResult.Success;
             }
 
             return RustCreateShopResult.MaxShopLimitIsReached;
-        }
-
-        private async Task<IEnumerable<Domain.Entries.Shop.Shop>> UserShopsByUserEmailAsync(string userEmail)
-        {
-            var user = await _userManager.FindByEmailAsync(userEmail);
-
-            if (user is null)
-                return null;
-
-            var query = from userShop in _context.UserShops
-                        join shop in _context.Shops on userShop.ShopId equals shop.Id
-                        where userShop.AppUserId == user.Id
-                        select new Domain.Entries.Shop.Shop
-                        {
-                            Id = shop.Id,
-                            ShopName = shop.ShopName,
-                            GameType = _context.GameTypes.FirstOrDefault(x => x.Id == shop.GameType.Id),
-                            ShopTitle = shop.ShopTitle,
-                            StartBalance = shop.StartBalance,
-                            Secret = shop.Secret
-                        };
-
-            var result = query.AsEnumerable();
-
-            return result;
         }
 
         public async Task<Domain.Entries.Shop.Shop> UpdateShopAsync(RustShopEditMainSettingsViewModel model)
@@ -145,16 +143,29 @@ namespace EasyShop.Services.CP.Rust.Shop
             shop.ShopTitle = model.ShopTitle;
             shop.StartBalance = model.StartBalance;
 
+            var userForLog = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
+
             try
             {
                 _context.Shops.Update(shop);
                 await _context.SaveChangesAsync();
 
+                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                    userForLog.UserName,
+                    userForLog.Id,
+                    _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                    $"Shop has been successfully updated! ShopId: {shop.Id}");
+
                 return shop;
             }
             catch (Exception e)
             {
-                _logger.LogCritical(e.Message);
+                _logger.LogError("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                    userForLog.UserName,
+                    userForLog.Id,
+                    _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                    $"Error on updating shop. Error message: {e.Message}; Inner exception: {e.InnerException?.Message}; Stacktrace: {e.StackTrace};");
+
                 return null;
             }
         }
@@ -177,6 +188,13 @@ namespace EasyShop.Services.CP.Rust.Shop
 
             await _context.SaveChangesAsync();
 
+            var userForLog = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
+            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                userForLog.UserName,
+                userForLog.Id,
+                _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                $"Shop was successfully deleted. ShopId: {shop.Id}");
+
             return true;
         }
 
@@ -197,6 +215,8 @@ namespace EasyShop.Services.CP.Rust.Shop
 
         public async Task<(RustCategory, RustEditCategoryResult)> UpdateCategoryAsync(RustShopViewModel model)
         {
+            var userForLog = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
+
             if (model.RustCategoryEditViewModel.Category.Id is null)
             {
                 var shop = GetShopById(Guid.Parse(model.Id));
@@ -216,6 +236,12 @@ namespace EasyShop.Services.CP.Rust.Shop
                 _context.RustCategories.Add(newCategory);
                 await _context.SaveChangesAsync();
 
+                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                    userForLog.UserName,
+                    userForLog.Id,
+                    _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                    $"Category was successfully created. CategoryId: {newCategory.Id}");
+
                 return (newCategory, RustEditCategoryResult.Created);
             }
 
@@ -229,6 +255,12 @@ namespace EasyShop.Services.CP.Rust.Shop
 
             _context.RustCategories.Update(category);
             await _context.SaveChangesAsync();
+
+            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                userForLog.UserName,
+                userForLog.Id,
+                _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                $"Category was successfully updated. CategoryId: {category.Id}");
 
             return (category, RustEditCategoryResult.Success);
         }
@@ -245,6 +277,13 @@ namespace EasyShop.Services.CP.Rust.Shop
 
             _context.RustCategories.Remove(category);
             await _context.SaveChangesAsync();
+
+            var userForLog = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
+            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                userForLog.UserName,
+                userForLog.Id,
+                _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                $"Category was successfully deleted. CategoryId: {category.Id}");
 
             return true;
         }
@@ -281,10 +320,21 @@ namespace EasyShop.Services.CP.Rust.Shop
 
                 await _context.SaveChangesAsync();
 
+                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                    user.UserName,
+                    user.Id,
+                    _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                    $"Default categories and products have been successfully installed. ShopId: {shop.Id}");
+
                 return true;
             }
             catch(Exception e)
             {
+                _logger.LogError("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                    user.UserName,
+                    user.Id,
+                    _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                    $"Error on default categories and products installing. Error message: {e.Message}; Inner exception: {e.InnerException?.Message}; Stacktrace: {e.StackTrace};");
                 return false;
             }
         }
@@ -314,14 +364,24 @@ namespace EasyShop.Services.CP.Rust.Shop
             var product =
                 _context.RustUserItems.FirstOrDefault(x => x.Id == Guid.Parse(model.RustProductEditViewModel.Id));
 
+            var userForLog = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
+
             if (shop is null || product is null)
                 return RustEditProductResult.NotFound;
 
             if (!model.RustProductEditViewModel.ShowInShop)
             {
                 product.ShowInShop = false;
+
                 _context.RustUserItems.Update(product);
                 await _context.SaveChangesAsync();
+
+                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                    userForLog.UserName,
+                    userForLog.Id,
+                    _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                    $"Rust product was successfully updated. ProductId: {product.Id}");
+
                 return RustEditProductResult.Success;
             }
 
@@ -352,6 +412,13 @@ namespace EasyShop.Services.CP.Rust.Shop
 
             _context.RustUserItems.Update(product);
             await _context.SaveChangesAsync();
+
+            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                userForLog.UserName,
+                userForLog.Id,
+                _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                $"Rust product was successfully updated. ProductId: {product.Id}");
+
             return RustEditProductResult.Success;
         }
 
@@ -362,9 +429,41 @@ namespace EasyShop.Services.CP.Rust.Shop
         {
             _context.RustCategories.RemoveRange(_context.RustCategories.Where(x => x.Shop.Id == shop.Id));
             await _context.SaveChangesAsync();
+
+            var userForLog = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
+            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                userForLog.UserName,
+                userForLog.Id,
+                _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                $"All categories and products was removed. shopId: {shop.Id}");
         }
 
         private Domain.Entries.Shop.Shop GetShopById(Guid shopId) => _context.Shops.FirstOrDefault(x => x.Id == shopId);
+
+        private async Task<IEnumerable<Domain.Entries.Shop.Shop>> UserShopsByUserEmailAsync(string userEmail)
+        {
+            var user = await _userManager.FindByEmailAsync(userEmail);
+
+            if (user is null)
+                return null;
+
+            var query = from userShop in _context.UserShops
+                join shop in _context.Shops on userShop.ShopId equals shop.Id
+                where userShop.AppUserId == user.Id
+                select new Domain.Entries.Shop.Shop
+                {
+                    Id = shop.Id,
+                    ShopName = shop.ShopName,
+                    GameType = _context.GameTypes.FirstOrDefault(x => x.Id == shop.GameType.Id),
+                    ShopTitle = shop.ShopTitle,
+                    StartBalance = shop.StartBalance,
+                    Secret = shop.Secret
+                };
+
+            var result = query.AsEnumerable();
+
+            return result;
+        }
         #endregion
     }
 }

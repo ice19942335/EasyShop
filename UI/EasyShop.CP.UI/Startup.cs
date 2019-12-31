@@ -51,7 +51,7 @@ namespace EasyShop.CP.UI
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                    "default", "{controller}/{action}/{id?}");
+                    "default", "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

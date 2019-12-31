@@ -7,6 +7,7 @@ using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.ViewModels.User.UserProfile;
 using EasyShop.Interfaces.Services.CP;
 using EasyShop.Interfaces.Services.CP.UserProfile;
+using EasyShop.Services.ExtensionMethods;
 using EasyShop.Services.Mappers.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -15,20 +16,23 @@ using Microsoft.Extensions.Logging;
 
 namespace EasyShop.Services.CP.UserProfile
 {
-    public class UserProfileServiceSql : IUserProfileServiceSql
+    public class UserProfileService : IUserProfileService
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly EasyShopContext _context;
-        private readonly ILogger<UserProfileServiceSql> _logger;
+        private readonly ILogger<UserProfileService> _logger;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public UserProfileServiceSql(
+        public UserProfileService(
             UserManager<AppUser> userManager,
             EasyShopContext context,
-            ILogger<UserProfileServiceSql> logger)
+            ILogger<UserProfileService> logger,
+            IHttpContextAccessor httpContextAccessor)
         {
             _userManager = userManager;
             _context = context;
             _logger = logger;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<UserProfileViewModel> UpdateUserData(UserProfileViewModel model)
@@ -44,15 +48,16 @@ namespace EasyShop.Services.CP.UserProfile
 
                 await _userManager.UpdateAsync(updatedUser);
 
-                _logger.LogInformation($"User: {user.Email} data was successfully updated.");
+
+                //var userForLog = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
+                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                    user.UserName,
+                    user.Id,
+                    _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                    $"User data was successfully updated");
 
                 return updatedUser.CreateViewModel();
             }
-        }
-
-        public bool UploadProfilePicture(IFormFile file)
-        {
-            throw new NotImplementedException();
         }
     }
 }
