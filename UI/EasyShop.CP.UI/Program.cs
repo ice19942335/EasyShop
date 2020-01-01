@@ -33,6 +33,7 @@ namespace EasyShop.CP.UI
                 var basicIdentityInitializer = new IdentityInitializer(dbContext, roleManager, userManager);
                 await basicIdentityInitializer.InitializeIdentity();
                 
+
                 //Default Rust data initialization
                 var rustDefaultDataInitialization = new RustDefaultDataInitialization(dbContext);
                 await rustDefaultDataInitialization.Initialize();

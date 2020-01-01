@@ -57,6 +57,8 @@ namespace EasyShop.CP.UI.Controllers
             return View(model);
         }
 
+
+
         #endregion Shop statis
 
         #region Main settings
