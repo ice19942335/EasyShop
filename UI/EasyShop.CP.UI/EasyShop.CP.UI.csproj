@@ -36,6 +36,7 @@
     <Folder Include="Logs\2019\12\31\" />
     <Folder Include="Views\Admin\" />
     <Folder Include="Views\Shared\Components\EmailConfirmation\" />
+    <Folder Include="wwwroot\js\customScripts\Profile\" />
   </ItemGroup>
 
   <ItemGroup>
