@@ -51,6 +51,7 @@ namespace EasyShop.CP.UI.Installers
             services.AddTransient<IRustDefaultCategoriesWithItemsService, RustDefaultCategoriesWithItemsService>();
             services.AddTransient<IRustServerService, RustServerService>();
             services.AddTransient<IRustTestStatsData, RustTestStatsData>();
+            services.AddTransient<IRustShopStatsService, RustShopStatsService>();
 
             //Scooped ---------------------------------------------------------------------------------
             services.AddScoped<IAccountService, AccountService>();
