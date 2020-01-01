@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
             <div class="demo-form-wrapper">
-                <form method="post" asp-area="" asp-controller="AdminTariff" asp-action="EditTariff">
+                <form method="post" asp-area="" asp-controller="Admin" asp-action="EditTariff">
                     <div asp-validation-summary="ModelOnly" class="alert alert-info"></div>
                     <input asp-for="Id" type="hidden" />
                     <div class="form-group">
@@ -75,11 +75,11 @@
                                         <td>
                                             @if (Model.AssignedOptions.FirstOrDefault(x => x.Id == tariffOptionDescription.Id) is null)
                                             {
-                                                <a asp-area="" asp-controller="AdminTariff" asp-action="AddAnOptionToATariff" asp-route-tariffId="@Model.Id" asp-route-optionId="@tariffOptionDescription.Id"><span class="icon icon-plus icon-lg icon-fw" style="color: green"></span></a>
+                                                <a asp-area="" asp-controller="Admin" asp-action="AddAnOptionToATariff" asp-route-tariffId="@Model.Id" asp-route-optionId="@tariffOptionDescription.Id"><span class="icon icon-plus icon-lg icon-fw" style="color: green"></span></a>
                                             }
                                             else
                                             {
-                                                <a asp-area="" asp-controller="AdminTariff" asp-action="RemoveAnOptionFromATariff" asp-route-tariffId="@Model.Id" asp-route-optionId="@tariffOptionDescription.Id"><span class="icon icon-times icon-lg icon-fw" style="color: red"></span></a>
+                                                <a asp-area="" asp-controller="Admin" asp-action="RemoveAnOptionFromATariff" asp-route-tariffId="@Model.Id" asp-route-optionId="@tariffOptionDescription.Id"><span class="icon icon-times icon-lg icon-fw" style="color: red"></span></a>
                                             }
                                         </td>
                                     </tr>

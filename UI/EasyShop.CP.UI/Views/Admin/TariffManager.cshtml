@@ -19,7 +19,7 @@
     <hr />
     <div class="row">
         <div class="col-sm-4 col-md-3">
-            <form method="get" asp-area="" asp-controller="AdminTariff" asp-action="EditTariff">
+            <form method="get" asp-area="" asp-controller="Admin" asp-action="EditTariff">
                 <div class="form-group">
                     <button class="btn btn-primary btn-block" type="submit">New Tariff</button>
                 </div>
@@ -57,10 +57,10 @@
                                     <strong>@tariff.DaysActive</strong>
                                 </td>
                                 <td>
-                                    <a asp-area="" asp-controller="AdminTariff" asp-action="EditTariff" asp-route-id="@tariff.Id"><span class="icon icon-pencil icon-lg icon-fw"></span></a>
+                                    <a asp-area="" asp-controller="Admin" asp-action="EditTariff" asp-route-id="@tariff.Id"><span class="icon icon-pencil icon-lg icon-fw"></span></a>
                                 </td>
                                 <td>
-                                    <a asp-area="" asp-controller="AdminTariff" asp-action="DeleteTariff" asp-route-id="@tariff.Id"><span class="icon icon-times icon-lg icon-fw" style="color: red"></span></a>
+                                    <a asp-area="" asp-controller="Admin" asp-action="DeleteTariff" asp-route-id="@tariff.Id"><span class="icon icon-times icon-lg icon-fw" style="color: red"></span></a>
                                 </td>
                             </tr>
                         }
@@ -79,7 +79,7 @@
     <hr />
     <div class="row">
         <div class="col-sm-4 col-md-3">
-            <form method="get" asp-area="" asp-controller="AdminTariff" asp-action="EditTariffOptionDescription">
+            <form method="get" asp-area="" asp-controller="Admin" asp-action="EditTariffOptionDescription">
                 <div class="form-group">
                     <button class="btn btn-primary btn-block" type="submit">New Option</button>
                 </div>
@@ -113,10 +113,10 @@
                                     <strong>@tariffOptionDescription.Description</strong>
                                 </td>
                                 <td>
-                                    <a asp-area="" asp-controller="AdminTariff" asp-action="EditTariffOptionDescription" asp-route-id="@tariffOptionDescription.Id"><span class="icon icon-pencil icon-lg icon-fw"></span></a>
+                                    <a asp-area="" asp-controller="Admin" asp-action="EditTariffOptionDescription" asp-route-id="@tariffOptionDescription.Id"><span class="icon icon-pencil icon-lg icon-fw"></span></a>
                                 </td>
                                 <td>
-                                    <a asp-area="" asp-controller="AdminTariff" asp-action="DeleteTariffOptionDescription" asp-route-id="@tariffOptionDescription.Id"><span class="icon icon-times icon-lg icon-fw" style="color: red"></span></a>
+                                    <a asp-area="" asp-controller="Admin" asp-action="DeleteTariffOptionDescription" asp-route-id="@tariffOptionDescription.Id"><span class="icon icon-times icon-lg icon-fw" style="color: red"></span></a>
                                 </td>
                             </tr>
                         }

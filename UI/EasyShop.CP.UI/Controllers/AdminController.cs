@@ -86,7 +86,7 @@ namespace EasyShop.CP.UI.Controllers
             if (model.Id is null)
             {
                 await _tariffService.CreateAsync(model);
-                return View("TariffManager");
+                return RedirectToAction("TariffManager");
             }
 
             var tariffUpdated = await _tariffService.UpdateAsync(model);
@@ -105,7 +105,7 @@ namespace EasyShop.CP.UI.Controllers
             var result = await _tariffService.DeleteByIdAsync(id);
 
             if (result)
-                return View("TariffManager");
+                return RedirectToAction("TariffManager");
 
             return View("SomethingWentWrong", "tariff deletion");
         }
@@ -141,7 +141,7 @@ namespace EasyShop.CP.UI.Controllers
             if (model.Id is null)
             {
                 await _tariffOptionDescriptionService.CreateAsync(model);
-                return View("TariffManager");
+                return RedirectToAction("TariffManager");
             }
 
             var tariffUpdated = await _tariffOptionDescriptionService.UpdateAsync(model);
@@ -157,7 +157,7 @@ namespace EasyShop.CP.UI.Controllers
             var result = await _tariffOptionDescriptionService.DeleteByIdAsync(id);
 
             if (result)
-                return View("TariffManager");
+                return RedirectToAction("TariffManager");
 
             return View("SomethingWentWrong", "tariff option deletion");
         }
