@@ -36,8 +36,11 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData
 
         public async Task InitializeDefaultStatsData()
         {
-            Guid shopId = await CreateDefaultShopForAdmin();
-            await CreateTestStats(shopId);
+            if (!_context.RustPurchaseStats.Any())
+            {
+                Guid shopId = await CreateDefaultShopForAdmin();
+                await CreateTestStats(shopId);
+            }
         }
 
         private async Task<Guid> CreateDefaultShopForAdmin()

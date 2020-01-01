@@ -37,6 +37,7 @@ namespace EasyShop.CP.UI
                 //Default Rust data initialization
                 var rustDefaultDataInitialization = new RustDefaultDataInitialization(dbContext);
                 await rustDefaultDataInitialization.Initialize();
+
                 //RustTestStats initialization
                 await rustTestStatsData.InitializeDefaultStatsData();
 
