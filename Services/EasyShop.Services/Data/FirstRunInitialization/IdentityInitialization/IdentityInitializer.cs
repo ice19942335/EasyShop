@@ -54,19 +54,5 @@ namespace EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization
                 await _dbContext.SaveChangesAsync();
             }
         }
-
-        public async Task InitializeGameTypes()
-        {
-            var gameTypes = new List<GameType>
-            {
-                new GameType
-                {
-                    Type = "Rust"
-                }
-            };
-
-            await _dbContext.GameTypes.AddRangeAsync(gameTypes);
-            await _dbContext.SaveChangesAsync();
-        }
     }
 }

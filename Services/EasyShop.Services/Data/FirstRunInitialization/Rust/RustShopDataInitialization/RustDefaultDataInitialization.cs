@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata.Ecma335;
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
+using EasyShop.Domain.Entries.GameType;
 
-namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitialization
+namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitialization
 {
     public class RustDefaultDataInitialization
     {
@@ -23,6 +24,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
                 await InitializeDefaultItemTypes();
                 await InitializeDefaultItems();
                 await InitializeDefaultMaps();
+                await InitializeGameTypes();
             }
             catch (Exception e)
             {
@@ -51,6 +53,20 @@ namespace EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitializati
         private async Task InitializeDefaultMaps()
         {
             await _dbContext.RustServerMaps.AddRangeAsync(RustDefaultInitializationData.DefaultRustServerMaps);
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task InitializeGameTypes()
+        {
+            var gameTypes = new List<GameType>
+            {
+                new GameType
+                {
+                    Type = "Rust"
+                }
+            };
+
+            await _dbContext.GameTypes.AddRangeAsync(gameTypes);
             await _dbContext.SaveChangesAsync();
         }
     }

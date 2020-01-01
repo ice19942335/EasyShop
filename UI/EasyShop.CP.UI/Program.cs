@@ -1,8 +1,9 @@
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
+using EasyShop.Interfaces.Services.CP.Rust.Data;
 using EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization;
-using EasyShop.Services.Data.FirstRunInitialization.RustShopDataInitialization;
+using EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitialization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -23,16 +24,20 @@ namespace EasyShop.CP.UI
 
                 await dbContext.Database.MigrateAsync();
 
+                //Services
                 var roleManager = serviceScope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
                 var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
-
+                var rustTestStatsData = serviceScope.ServiceProvider.GetRequiredService<IRustTestStatsData>();
+                
+                //Default Identity initialization
                 var basicIdentityInitializer = new IdentityInitializer(dbContext, roleManager, userManager);
                 await basicIdentityInitializer.InitializeIdentity();
-                await basicIdentityInitializer.InitializeGameTypes();
-
-
+                
+                //Default Rust data initialization
                 var rustDefaultDataInitialization = new RustDefaultDataInitialization(dbContext);
                 await rustDefaultDataInitialization.Initialize();
+                //RustTestStats initialization
+                await rustTestStatsData.InitializeDefaultStatsData();
 
                 await dbContext.SaveChangesAsync();
             }
