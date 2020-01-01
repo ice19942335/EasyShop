@@ -37,6 +37,7 @@
     <Folder Include="Views\Admin\" />
     <Folder Include="Views\Shared\Components\EmailConfirmation\" />
     <Folder Include="wwwroot\js\customScripts\Profile\" />
+    <Folder Include="wwwroot\js\customScripts\Shop\" />
   </ItemGroup>
 
   <ItemGroup>
