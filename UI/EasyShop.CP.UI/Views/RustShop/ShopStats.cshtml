@@ -1,20 +1,32 @@
-﻿@model EasyShop.Domain.ViewModels.Rust.Shop.RustShopViewModel
+﻿@using EasyShop.Domain.Enums.Rust
+@using Microsoft.AspNetCore.Http
+@model EasyShop.Domain.ViewModels.Rust.Shop.RustShopViewModel
 @{
     ViewData["Title"] = "Rust shop";
     Layout = "Partial/_RustBaseLayout";
+
+    string selectOptions = string.Empty;
+
+    foreach (var item in Model.StatsPeriodList)
+    {
+        if (item == Model.StatsPeriod)
+        {
+            selectOptions += $@"<option value=""{item}"" selected=""selected"">{item.ToString().Replace("_", " ")}</option>";
+        }
+        else
+        {
+            selectOptions += $@"<option value=""{item}"">{item.ToString().Replace("_", " ")}</option>";
+        }
+    }
 }
 
 <div class="row">
-    <div class="col-lg-12 m-b-md">
+    <div class="col-xs-2 col-xs-offset-10 m-b-md">
         <div class="title-bar">
             <div class="title-bar-actions">
                 <div class="btn-group bootstrap-select dropdown fit-width">
-                    <select class="selectpicker dropdown" name="period" data-dropdown-align-right="true" data-style="btn-default btn-sm" data-width="fit" tabindex="-98">
-                        <option value="today">Today</option>
-                        <option value="yesterday">Yesterday</option>
-                        <option value="last_7d" selected="selected">Last 7 days</option>
-                        <option value="last_1m">Last 30 days</option>
-                        <option value="last_3m">Last 90 days</option>
+                    <select id="selectPeriod" class="selectpicker dropdown" name="period" data-dropdown-align-right="true" data-style="btn-default btn-sm" data-width="fit" tabindex="-98">
+                        @Html.Raw(selectOptions)
                     </select>
                 </div>
             </div>
@@ -26,12 +38,18 @@
         <div class="card">
             <div class="card-values">
                 <div class="p-x">
-                    <small>Visitors</small>
+                    <small>Revenue</small>
                     <h3 class="card-title fw-l">185,118</h3>
                 </div>
             </div>
             <div class="card-chart">
-                <canvas data-chart="line" data-animation="false" data-labels='["Jun 21", "Jun 20", "Jun 19", "Jun 18", "Jun 17", "Jun 16", "Jun 15"]' data-values='[{"backgroundColor": "rgba(255, 255, 255, 0.1)", "borderColor": "#00aced", "data": [32327, 23370, 25568, 28961, 26762, 30072, 25135]}]' data-scales='{"yAxes": [{ "ticks": {"max": 32327}}]}' data-hide='["legend", "points", "scalesX", "scalesY", "tooltips"]' height="35"></canvas>
+                <canvas data-chart="line"
+                        data-animation="false"
+                        data-labels='["Jun 21", "Jun 20", "Jun 19", "Jun 18", "Jun 17", "Jun 16", "Jun 15"]'
+                        data-values='[{"backgroundColor": "rgba(255, 255, 255, 0.1)", "borderColor": "#00aced", "data": [32327, 23370, 25568, 28961, 26762, 30072, 25135]}]'
+                        data-scales='{"yAxes": [{ "ticks": {"max": 32327}}]}'
+                        data-hide='["legend", "points", "scalesX", "scalesY", "tooltips"]'
+                        height="35"></canvas>
             </div>
         </div>
     </div>
@@ -39,12 +57,18 @@
         <div class="card">
             <div class="card-values">
                 <div class="p-x">
-                    <small>New visitors</small>
+                    <small>Orders</small>
                     <h3 class="card-title fw-l">68,494</h3>
                 </div>
             </div>
             <div class="card-chart">
-                <canvas data-chart="line" data-animation="false" data-labels='["Jun 21", "Jun 20", "Jun 19", "Jun 18", "Jun 17", "Jun 16", "Jun 15"]' data-values='[{"backgroundColor": "rgba(255, 255, 255, 0.1)", "borderColor": "#00aced", "data": [8796, 11317, 8678, 9452, 8453, 11853, 9945]}]' data-scales='{"yAxes": [{ "ticks": {"max": 12742}}]}' data-hide='["legend", "points", "scalesX", "scalesY", "tooltips"]' height="35"></canvas>
+                <canvas data-chart="line"
+                        data-animation="false"
+                        data-labels='["Jun 21", "Jun 20", "Jun 19", "Jun 18", "Jun 17", "Jun 16", "Jun 15"]'
+                        data-values='[{"backgroundColor": "rgba(255, 255, 255, 0.1)", "borderColor": "#00aced", "data": [8796, 11317, 8678, 9452, 8453, 11853, 9945]}]'
+                        data-scales='{"yAxes": [{ "ticks": {"max": 12742}}]}'
+                        data-hide='["legend", "points", "scalesX", "scalesY", "tooltips"]'
+                        height="35"></canvas>
             </div>
         </div>
     </div>
@@ -52,12 +76,18 @@
         <div class="card">
             <div class="card-values">
                 <div class="p-x">
-                    <small>Pageviews</small>
+                    <small>Items Sold</small>
                     <h3 class="card-title fw-l">925,590</h3>
                 </div>
             </div>
             <div class="card-chart">
-                <canvas data-chart="line" data-animation="false" data-labels='["Jun 21", "Jun 20", "Jun 19", "Jun 18", "Jun 17", "Jun 16", "Jun 15"]' data-values='[{"backgroundColor": "rgba(255, 255, 255, 0.1)", "borderColor": "#00aced", "data": [116196, 145160, 124419, 147004, 134740, 120846, 137225]}]' data-scales='{"yAxes": [{ "ticks": {"max": 158029}}]}' data-hide='["legend", "points", "scalesX", "scalesY", "tooltips"]' height="35"></canvas>
+                <canvas data-chart="line"
+                        data-animation="false"
+                        data-labels='["Jun 21", "Jun 20", "Jun 19", "Jun 18", "Jun 17", "Jun 16", "Jun 15"]'
+                        data-values='[{"backgroundColor": "rgba(255, 255, 255, 0.1)", "borderColor": "#00aced", "data": [116196, 145160, 124419, 147004, 134740, 120846, 137225]}]'
+                        data-scales='{"yAxes": [{ "ticks": {"max": 158029}}]}'
+                        data-hide='["legend", "points", "scalesX", "scalesY", "tooltips"]'
+                        height="35"></canvas>
             </div>
         </div>
     </div>
@@ -65,21 +95,27 @@
         <div class="card">
             <div class="card-values">
                 <div class="p-x">
-                    <small>Average duration</small>
+                    <small>Buyers</small>
                     <h3 class="card-title fw-l">00:07:56</h3>
                 </div>
             </div>
             <div class="card-chart">
-                <canvas data-chart="line" data-animation="false" data-labels='["Jun 21", "Jun 20", "Jun 19", "Jun 18", "Jun 17", "Jun 16", "Jun 15"]' data-values='[{"backgroundColor": "rgba(255, 255, 255, 0.1)", "borderColor": "#00aced", "data": [13590442, 12362934, 13639564, 13055677, 12915203, 11009940, 11542408]}]' data-scales='{"yAxes": [{ "ticks": {"max": 14662531}}]}' data-hide='["legend", "points", "scalesX", "scalesY", "tooltips"]' height="35"></canvas>
+                <canvas data-chart="line"
+                        data-animation="false"
+                        data-labels='["Jun 21", "Jun 20", "Jun 19", "Jun 18", "Jun 17", "Jun 16", "Jun 15"]'
+                        data-values='[{"backgroundColor": "rgba(255, 255, 255, 0.1)", "borderColor": "#00aced", "data": [13590442, 12362934, 13639564, 13055677, 12915203, 11009940, 11542408]}]'
+                        data-scales='{"yAxes": [{ "ticks": {"max": 14662531}}]}'
+                        data-hide='["legend", "points", "scalesX", "scalesY", "tooltips"]'
+                        height="35"></canvas>
             </div>
         </div>
     </div>
 </div>
 <div class="row gutter-xs">
-    <div class="col-xs-12 col-md-6">
+    <div class="col-lg-6">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Audience Overview</h4>
+                <h4 class="card-title">Revenue Overview</h4>
             </div>
             <div class="card-body">
                 <div class="card-chart">
@@ -88,16 +124,21 @@
             </div>
         </div>
     </div>
-    <div class="col-xs-12 col-md-6">
+    <div class="col-lg-6">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">19,429 Signups</h4>
+                <h4 class="card-title">Unique visits overview</h4>
             </div>
             <div class="card-body">
                 <div class="card-chart">
-                    <canvas data-chart="bar" data-animation="false" data-labels='["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]' data-values='[{"label": "This week", "backgroundColor": "#00aced", "borderColor": "#00aced", "data": [3089, 2132, 1854, 2326, 3274, 3679, 3075]}, {"label": "Last week", "backgroundColor": "#75ac00", "borderColor": "#75ac00", "data": [983, 2232, 3057, 2238, 1613, 2194, 3874]}]' data-tooltips='{"mode": "label"}' data-hide='["gridLinesX", "legend"]' height="150"></canvas>
+                    <canvas data-chart="bar" data-animation="false" data-labels='["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]' data-values='[{"label": "This week", "backgroundColor": "#00aced", "borderColor": "#00aced", "data": [3089, 2132, 1854, 2326, 3274, 3679, 3075]}, {"label": "Last week", "backgroundColor": "#75ac00", "borderColor": "#75ac00", "data": [983, 2232, 3057, 2238, 1613, 2194, 11980]}]' data-tooltips='{"mode": "label"}' data-hide='["gridLinesX", "legend"]' height="150"></canvas>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+@section Scripts
+{
+    <script src="~/js/customScripts/Rust/RustShopStatsSetLocationHref.js" asp-append-version="true"></script>
+}

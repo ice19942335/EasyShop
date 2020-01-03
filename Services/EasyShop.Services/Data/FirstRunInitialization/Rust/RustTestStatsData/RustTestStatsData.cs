@@ -25,7 +25,12 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData
         private readonly EasyShopContext _context;
         private readonly IRustDefaultCategoriesWithItemsService _rustDefaultCategoriesWithItemsService;
 
-        public RustTestStatsData(IShopManager shopManager, UserManager<AppUser> userManager, IRustShopService rustShopService, EasyShopContext context, IRustDefaultCategoriesWithItemsService rustDefaultCategoriesWithItemsService)
+        public RustTestStatsData(
+            IShopManager shopManager, 
+            UserManager<AppUser> userManager, 
+            IRustShopService rustShopService, 
+            EasyShopContext context, 
+            IRustDefaultCategoriesWithItemsService rustDefaultCategoriesWithItemsService)
         {
             _shopManager = shopManager;
             _userManager = userManager;
