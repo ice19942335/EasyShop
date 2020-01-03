@@ -84,7 +84,7 @@
                 </span>
                 <span style="display: none" id="confirmSpan_@Model.Id">
                     <form style="display: inline;" method="get" asp-area="" asp-controller="RustShop" asp-action="DeleteServer" asp-route-shopId="@Model.Id" asp-route-serverId="@Model.RustServerEditViewModel.Id">
-                        <span>This server will be permanently deleted! You sure you want to do that?</span>
+                        <span>Server <strong style="color: #00aced;">@Model.RustServerEditViewModel.Name</strong> will be permanently deleted! Are you sure you want to do that?</span>
                         <button style="max-width: fit-content; display: inline;" class="btn btn-success btn-block m-b-md" type="submit">Yes</button>
                     </form>
                     <button style="max-width: fit-content; display: inline;" class="btn btn-danger btn-block m-b-md" onclick="deleteConfirmationDialog('@Model.Id', false)">No</button>
