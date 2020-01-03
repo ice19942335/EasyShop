@@ -45,7 +45,7 @@ namespace EasyShop.CP.UI.Controllers
         #region Shop statis
 
         [HttpGet]
-        public IActionResult ShopStats(string shopId)
+        public IActionResult ShopStats(string shopId, RustShopStatsEnum statsPeriod = RustShopStatsEnum.Last_week)
         {
             var shop = _shopManager.GetShopById(Guid.Parse(shopId));
 
@@ -53,6 +53,7 @@ namespace EasyShop.CP.UI.Controllers
                 return RedirectToAction("NotFoundPage", "Home");
 
             var model = shop.CreateRustShopViewModel();
+            model.StatsPeriod = statsPeriod;
 
             return View(model);
         }
