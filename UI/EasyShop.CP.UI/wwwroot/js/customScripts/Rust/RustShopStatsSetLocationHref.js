@@ -7,13 +7,13 @@ function setLocationHref() {
     let selectedValue = selectBox.options[selectBox.selectedIndex].value;
 
     let url = new URL(window.location.href);
-    let query_string = url.search;
-    let search_params = new URLSearchParams(query_string);
+    let queryString = url.search;
+    let searchParams = new URLSearchParams(queryString);
 
-    search_params.set('statsPeriod', selectedValue);
-    url.search = search_params.toString();
+    searchParams.set('statsPeriod', selectedValue);
+    url.search = searchParams.toString();
 
-    let new_url = url.toString();
+    let newUrl = url.toString();
 
-    window.location.href = new_url;
+    window.location.href = newUrl;
 }
