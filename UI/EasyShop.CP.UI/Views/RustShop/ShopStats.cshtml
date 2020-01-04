@@ -30,7 +30,7 @@
     string revenueTotal = revenueData.Value.Item2.Select(x => Decimal.Parse(x)).Sum().ToString();
     string revenueValues = string.Join(", ", revenueData.Value.Item2);
     Decimal revenueValuesMax = revenueData.Value.Item2.Select(x => Decimal.Parse(x)).Max();
-    Decimal tenPercentsFromRevenueValuesMax = revenueValuesMax / 100 * 10;
+    Decimal tenPercentsFromRevenueValuesMax = revenueValuesMax / 100 * 10 > 0 ? revenueValuesMax / 100 * 10 : 1;
     revenueValuesMax += tenPercentsFromRevenueValuesMax;
 
     for (int i = 0; i < revenueData.Value.Item1.Count(); i++)
@@ -279,17 +279,30 @@
     <div class="col-lg-6">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">19,429 Signups</h4>
+                <h4 class="card-title">Unique visitors</h4>
             </div>
             <div class="card-body">
                 <div class="card-chart">
                     <iframe class="chartjs-hidden-iframe" style="width: 100%; display: block; border: 0px; height: 0px; margin: 0px; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px;"></iframe>
                     <canvas data-chart="bar"
                             data-animation="false"
-                            data-labels="[&quot;Sun&quot;, &quot;Mon&quot;, &quot;Tue&quot;, &quot;Wed&quot;, &quot;Thu&quot;, &quot;Fri&quot;, &quot;Sat&quot;]"
-                            data-values="[{&quot;label&quot;: &quot;This week&quot;, &quot;backgroundColor&quot;: &quot;#00aced&quot;, &quot;borderColor&quot;: &quot;#00aced&quot;, &quot;data&quot;: [3089, 2132, 1854, 2326, 3274, 3679, 3075]}, {&quot;label&quot;: &quot;Last week&quot;, &quot;backgroundColor&quot;: &quot;#75ac00&quot;, &quot;borderColor&quot;: &quot;#75ac00&quot;, &quot;data&quot;: [983, 2232, 3057, 2238, 1613, 2194, 3874]}]"
-                            data-tooltips="{&quot;mode&quot;: &quot;label&quot;}"
-                            data-hide="[&quot;gridLinesX&quot;, &quot;legend&quot;]"
+                            data-labels='["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]'
+                            data-values='[
+                            {
+                                "label": "This week", 
+                                "backgroundColor": "#00aced", 
+                                "borderColor": 
+                                "#00aced",
+                                "data": [3089, 2132, 1854, 2326, 3274, 3679, 3075]
+                            }, 
+                            {
+                                "label": "Last week", 
+                                "backgroundColor": "#75ac00", 
+                                "borderColor": "#75ac00", 
+                                "data": [983, 2232, 3057, 2238, 1613, 2194, 3874]
+                            }]'
+                            data-tooltips='{"mode": "label"}'
+                            data-hide='["gridLinesX", "legend"]'
                             height="650"
                             width="1302"
                             style="display: block;
