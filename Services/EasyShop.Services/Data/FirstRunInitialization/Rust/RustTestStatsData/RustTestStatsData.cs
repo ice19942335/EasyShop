@@ -135,11 +135,11 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData
                 };
 
                 if (i >= 0 && i < 50) //Last week
-                    rustPurchasedItem.PurchaseDateTime = dateWeekAgo.AddDays(rnd.Next(1, 7));
+                    rustPurchasedItem.PurchaseDateTime = dateWeekAgo.AddDays(rnd.Next(0, 7));
                 else if (i >= 50 && i < 400) //Last month
-                    rustPurchasedItem.PurchaseDateTime = dateMonthAgo.AddDays(rnd.Next(1, 23));
+                    rustPurchasedItem.PurchaseDateTime = dateMonthAgo.AddDays(rnd.Next(0, 24));
                 else if (i >= 400 && i < 1000) //Last three months
-                    rustPurchasedItem.PurchaseDateTime = dateThreeMonthsAgo.AddDays(rnd.Next(1, 50));
+                    rustPurchasedItem.PurchaseDateTime = dateThreeMonthsAgo.AddDays(rnd.Next(0, 60));
 
 
                 purchasedItemsList.Add(rustPurchasedItem);
