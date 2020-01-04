@@ -19429,3 +19429,654 @@ WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
 
 2020-01-03 18:35:13,261 [10] ?     - Request finished in 7.6109ms 304 application/javascript
 
+2020-01-03 19:36:21,002 [14] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-03 19:36:21,013 [14] ?     - Hosting environment: Development
+
+2020-01-03 19:36:21,014 [14] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-03 19:36:21,022 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/RustShop/ShopStats?shopId=f234d18b-e288-412a-82ea-966da58b471f  
+
+2020-01-03 19:36:21,122 [8] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-03 19:36:21,148 [8] ?     - Executing DbCommand [Parameters=[@__p_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE ([a].[Id] = @__p_0) AND @__p_0 IS NOT NULL
+
+2020-01-03 19:36:21,196 [14] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE ([a].[UserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2020-01-03 19:36:21,237 [4] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2020-01-03 19:36:21,245 [13] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2020-01-03 19:36:21,259 [17] ?     - Executing DbCommand [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE ([a].[RoleId] = @__role_Id_0) AND @__role_Id_0 IS NOT NULL
+
+2020-01-03 19:36:21,265 [17] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2020-01-03 19:36:21,269 [4] ?     - Executing DbCommand [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE ([a].[RoleId] = @__role_Id_0) AND @__role_Id_0 IS NOT NULL
+
+2020-01-03 19:36:21,291 [4] ?     - Authorization was successful.
+
+2020-01-03 19:36:21,294 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.RustShopController.ShopStats (EasyShop.CP.UI)'
+
+2020-01-03 19:36:21,348 [4] ?     - Route matched with {action = "ShopStats", controller = "RustShop"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ShopStats(System.String, EasyShop.Domain.Enums.Rust.RustShopStatsEnum) on controller EasyShop.CP.UI.Controllers.RustShopController (EasyShop.CP.UI).
+
+2020-01-03 19:36:21,402 [4] ?     - Executing DbCommand [Parameters=[@__shopId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [g].[Id], [g].[Type]
+FROM [Shops] AS [s]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+WHERE ([s].[Id] = @__shopId_0) AND @__shopId_0 IS NOT NULL
+
+2020-01-03 19:36:21,481 [4] ?     - Executing ViewResult, running view ShopStats.
+
+2020-01-03 19:36:21,615 [4] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-03 19:36:21,625 [4] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-03 19:36:21,629 [4] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2020-01-03 19:36:21,654 [4] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-03 19:36:21,690 [4] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2020-01-03 19:36:21,808 [4] ?     - Executed ViewResult - view ShopStats executed in 328.495ms.
+
+2020-01-03 19:36:21,812 [4] ?     - Executed action EasyShop.CP.UI.Controllers.RustShopController.ShopStats (EasyShop.CP.UI) in 461.4998ms
+
+2020-01-03 19:36:21,813 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.RustShopController.ShopStats (EasyShop.CP.UI)'
+
+2020-01-03 19:36:21,820 [4] ?     - Request finished in 798.2833ms 200 text/html; charset=utf-8
+
+2020-01-03 19:36:22,096 [17] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/customScripts/Rust/RustShopStatsSetLocationHref.js?v=x70_l2VFMarOAMHYMQ4vb314SH5abspAd63gu393bUw  
+
+2020-01-03 19:36:22,097 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/application.js?v=uMP9fDC8oDzcV6BKz0I-3WfDxQYdM109b1pr85jMFk4  
+
+2020-01-03 19:36:22,107 [17] ?     - The file /js/customScripts/Rust/RustShopStatsSetLocationHref.js was not modified
+
+2020-01-03 19:36:22,108 [9] ?     - The file /js/application.js was not modified
+
+2020-01-03 19:36:22,113 [17] ?     - Request finished in 19.5401ms 304 application/javascript
+
+2020-01-03 19:36:22,137 [9] ?     - Request finished in 19.5145ms 304 application/javascript
+
+2020-01-03 19:37:22,549 [14] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-03 19:37:22,560 [14] ?     - Hosting environment: Development
+
+2020-01-03 19:37:22,562 [14] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-03 19:37:22,572 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/RustShop/ShopStats?shopId=f234d18b-e288-412a-82ea-966da58b471f  
+
+2020-01-03 19:37:22,669 [4] ?     - Authorization was successful.
+
+2020-01-03 19:37:22,672 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.RustShopController.ShopStats (EasyShop.CP.UI)'
+
+2020-01-03 19:37:22,720 [4] ?     - Route matched with {action = "ShopStats", controller = "RustShop"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ShopStats(System.String, EasyShop.Domain.Enums.Rust.RustShopStatsEnum) on controller EasyShop.CP.UI.Controllers.RustShopController (EasyShop.CP.UI).
+
+2020-01-03 19:37:22,744 [4] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-03 19:37:22,780 [4] ?     - Executing DbCommand [Parameters=[@__shopId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [g].[Id], [g].[Type]
+FROM [Shops] AS [s]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+WHERE ([s].[Id] = @__shopId_0) AND @__shopId_0 IS NOT NULL
+
+2020-01-03 19:37:22,848 [4] ?     - Executing ViewResult, running view ShopStats.
+
+2020-01-03 19:37:22,974 [4] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-03 19:37:22,985 [4] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-03 19:37:23,021 [4] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2020-01-03 19:37:23,049 [4] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-03 19:37:23,082 [4] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2020-01-03 19:37:23,188 [4] ?     - Executed ViewResult - view ShopStats executed in 340.7517ms.
+
+2020-01-03 19:37:23,190 [4] ?     - Executed action EasyShop.CP.UI.Controllers.RustShopController.ShopStats (EasyShop.CP.UI) in 467.6426ms
+
+2020-01-03 19:37:23,192 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.RustShopController.ShopStats (EasyShop.CP.UI)'
+
+2020-01-03 19:37:23,198 [4] ?     - Request finished in 626.4938ms 200 text/html; charset=utf-8
+
+2020-01-03 19:41:16,931 [9] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-03 19:41:16,941 [9] ?     - Hosting environment: Development
+
+2020-01-03 19:41:16,942 [9] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-03 19:41:16,948 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/RustShop/ShopStats?shopId=f234d18b-e288-412a-82ea-966da58b471f  
+
+2020-01-03 19:41:17,038 [8] ?     - Authorization was successful.
+
+2020-01-03 19:41:17,041 [8] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.RustShopController.ShopStats (EasyShop.CP.UI)'
+
+2020-01-03 19:41:17,095 [8] ?     - Route matched with {action = "ShopStats", controller = "RustShop"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ShopStats(System.String, EasyShop.Domain.Enums.Rust.RustShopStatsEnum) on controller EasyShop.CP.UI.Controllers.RustShopController (EasyShop.CP.UI).
+
+2020-01-03 19:41:17,118 [8] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-03 19:41:17,155 [8] ?     - Executing DbCommand [Parameters=[@__shopId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [g].[Id], [g].[Type]
+FROM [Shops] AS [s]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+WHERE ([s].[Id] = @__shopId_0) AND @__shopId_0 IS NOT NULL
+
+2020-01-03 19:41:17,220 [8] ?     - Executing ViewResult, running view ShopStats.
+
+2020-01-03 19:41:17,386 [8] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-03 19:41:17,394 [8] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-03 19:41:17,426 [8] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2020-01-03 19:41:17,990 [8] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-03 19:41:18,020 [8] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2020-01-03 19:41:18,341 [8] ?     - Executed ViewResult - view ShopStats executed in 1124.1218ms.
+
+2020-01-03 19:41:18,351 [8] ?     - Executed action EasyShop.CP.UI.Controllers.RustShopController.ShopStats (EasyShop.CP.UI) in 1247.3256ms
+
+2020-01-03 19:41:18,381 [8] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.RustShopController.ShopStats (EasyShop.CP.UI)'
+
+2020-01-03 19:41:18,388 [8] ?     - Request finished in 1441.2583ms 200 text/html; charset=utf-8
+
+2020-01-03 19:42:07,949 [4] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-03 19:42:07,960 [4] ?     - Hosting environment: Development
+
+2020-01-03 19:42:07,963 [4] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-03 19:42:07,970 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/RustShop/ShopStats?shopId=f234d18b-e288-412a-82ea-966da58b471f  
+
+2020-01-03 19:42:08,077 [9] ?     - Authorization was successful.
+
+2020-01-03 19:42:08,080 [9] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.RustShopController.ShopStats (EasyShop.CP.UI)'
+
+2020-01-03 19:42:08,127 [9] ?     - Route matched with {action = "ShopStats", controller = "RustShop"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ShopStats(System.String, EasyShop.Domain.Enums.Rust.RustShopStatsEnum) on controller EasyShop.CP.UI.Controllers.RustShopController (EasyShop.CP.UI).
+
+2020-01-03 19:42:08,153 [9] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-03 19:42:08,192 [9] ?     - Executing DbCommand [Parameters=[@__shopId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [g].[Id], [g].[Type]
+FROM [Shops] AS [s]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+WHERE ([s].[Id] = @__shopId_0) AND @__shopId_0 IS NOT NULL
+
+2020-01-03 19:42:08,259 [9] ?     - Executing ViewResult, running view ShopStats.
+
+2020-01-03 19:42:08,375 [9] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-03 19:42:08,384 [9] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-03 19:42:08,417 [9] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2020-01-03 19:42:08,443 [9] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-03 19:42:08,480 [9] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2020-01-03 19:42:08,603 [9] ?     - Executed ViewResult - view ShopStats executed in 346.2397ms.
+
+2020-01-03 19:42:08,605 [9] ?     - Executed action EasyShop.CP.UI.Controllers.RustShopController.ShopStats (EasyShop.CP.UI) in 476.762ms
+
+2020-01-03 19:42:08,607 [9] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.RustShopController.ShopStats (EasyShop.CP.UI)'
+
+2020-01-03 19:42:08,612 [9] ?     - Request finished in 643.2397ms 200 text/html; charset=utf-8
+
+2020-01-03 19:42:23,010 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/RustShop/EditMainSettings?shopId=f234d18b-e288-412a-82ea-966da58b471f  
+
+2020-01-03 19:42:23,023 [9] ?     - Authorization was successful.
+
+2020-01-03 19:42:23,025 [9] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.RustShopController.EditMainSettings (EasyShop.CP.UI)'
+
+2020-01-03 19:42:23,030 [9] ?     - Route matched with {action = "EditMainSettings", controller = "RustShop"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult EditMainSettings(System.String, EasyShop.Domain.Enums.Rust.RustEditMainSettingsResult) on controller EasyShop.CP.UI.Controllers.RustShopController (EasyShop.CP.UI).
+
+2020-01-03 19:42:23,060 [9] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-03 19:42:23,064 [9] ?     - Executing DbCommand [Parameters=[@__shopId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [g].[Id], [g].[Type]
+FROM [Shops] AS [s]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+WHERE ([s].[Id] = @__shopId_0) AND @__shopId_0 IS NOT NULL
+
+2020-01-03 19:42:23,067 [9] ?     - Executing ViewResult, running view EditMainSettings.
+
+2020-01-03 19:42:23,140 [9] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-03 19:42:23,143 [9] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-03 19:42:23,147 [9] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2020-01-03 19:42:23,151 [9] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-03 19:42:23,154 [9] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2020-01-03 19:42:23,162 [9] ?     - Executed ViewResult - view EditMainSettings executed in 95.7281ms.
+
+2020-01-03 19:42:23,164 [9] ?     - Executed action EasyShop.CP.UI.Controllers.RustShopController.EditMainSettings (EasyShop.CP.UI) in 132.6543ms
+
+2020-01-03 19:42:23,166 [9] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.RustShopController.EditMainSettings (EasyShop.CP.UI)'
+
+2020-01-03 19:42:23,168 [9] ?     - Request finished in 157.6364ms 200 text/html; charset=utf-8
+
+2020-01-03 19:42:23,957 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/RustShop/ShopStats?shopId=f234d18b-e288-412a-82ea-966da58b471f  
+
+2020-01-03 19:42:23,971 [9] ?     - Authorization was successful.
+
+2020-01-03 19:42:23,973 [9] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.RustShopController.ShopStats (EasyShop.CP.UI)'
+
+2020-01-03 19:42:23,975 [9] ?     - Route matched with {action = "ShopStats", controller = "RustShop"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ShopStats(System.String, EasyShop.Domain.Enums.Rust.RustShopStatsEnum) on controller EasyShop.CP.UI.Controllers.RustShopController (EasyShop.CP.UI).
+
+2020-01-03 19:42:23,979 [9] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-03 19:42:23,981 [9] ?     - Executing DbCommand [Parameters=[@__shopId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [g].[Id], [g].[Type]
+FROM [Shops] AS [s]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+WHERE ([s].[Id] = @__shopId_0) AND @__shopId_0 IS NOT NULL
+
+2020-01-03 19:42:23,984 [9] ?     - Executing ViewResult, running view ShopStats.
+
+2020-01-03 19:42:23,987 [9] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-03 19:42:23,990 [9] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-03 19:42:23,993 [9] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2020-01-03 19:42:23,997 [9] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-03 19:42:24,000 [9] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2020-01-03 19:42:24,003 [9] ?     - Executed ViewResult - view ShopStats executed in 19.4607ms.
+
+2020-01-03 19:42:24,005 [9] ?     - Executed action EasyShop.CP.UI.Controllers.RustShopController.ShopStats (EasyShop.CP.UI) in 28.6665ms
+
+2020-01-03 19:42:24,006 [9] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.RustShopController.ShopStats (EasyShop.CP.UI)'
+
+2020-01-03 19:42:24,008 [9] ?     - Request finished in 51.6064ms 200 text/html; charset=utf-8
+
+2020-01-03 20:15:42,270 [4] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-03 20:15:42,280 [4] ?     - Hosting environment: Development
+
+2020-01-03 20:15:42,281 [4] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-03 20:15:42,289 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/RustShop/ShopStats?shopId=f234d18b-e288-412a-82ea-966da58b471f  
+
+2020-01-03 20:15:42,398 [8] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-03 20:15:42,413 [8] ?     - Executing DbCommand [Parameters=[@__p_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE ([a].[Id] = @__p_0) AND @__p_0 IS NOT NULL
+
+2020-01-03 20:15:42,448 [12] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE ([a].[UserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2020-01-03 20:15:42,484 [4] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2020-01-03 20:15:42,494 [12] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2020-01-03 20:15:42,518 [12] ?     - Executing DbCommand [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE ([a].[RoleId] = @__role_Id_0) AND @__role_Id_0 IS NOT NULL
+
+2020-01-03 20:15:42,522 [16] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2020-01-03 20:15:42,525 [8] ?     - Executing DbCommand [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE ([a].[RoleId] = @__role_Id_0) AND @__role_Id_0 IS NOT NULL
+
+2020-01-03 20:15:42,542 [8] ?     - Authorization was successful.
+
+2020-01-03 20:15:42,546 [8] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.RustShopController.ShopStats (EasyShop.CP.UI)'
+
+2020-01-03 20:15:42,588 [8] ?     - Route matched with {action = "ShopStats", controller = "RustShop"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ShopStats(System.String, EasyShop.Domain.Enums.Rust.RustShopStatsEnum) on controller EasyShop.CP.UI.Controllers.RustShopController (EasyShop.CP.UI).
+
+2020-01-03 20:15:42,630 [8] ?     - Executing DbCommand [Parameters=[@__shopId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [g].[Id], [g].[Type]
+FROM [Shops] AS [s]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+WHERE ([s].[Id] = @__shopId_0) AND @__shopId_0 IS NOT NULL
+
+2020-01-03 20:15:42,700 [8] ?     - Executing ViewResult, running view ShopStats.
+
+2020-01-03 20:15:42,800 [8] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-03 20:15:42,811 [8] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-03 20:15:42,815 [8] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2020-01-03 20:15:42,836 [8] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-03 20:15:42,882 [8] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2020-01-03 20:15:43,005 [8] ?     - Executed ViewResult - view ShopStats executed in 305.697ms.
+
+2020-01-03 20:15:43,008 [8] ?     - Executed action EasyShop.CP.UI.Controllers.RustShopController.ShopStats (EasyShop.CP.UI) in 416.9258ms
+
+2020-01-03 20:15:43,010 [8] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.RustShopController.ShopStats (EasyShop.CP.UI)'
+
+2020-01-03 20:15:43,018 [8] ?     - Request finished in 730.8768ms 200 text/html; charset=utf-8
+
+2020-01-03 20:15:43,259 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/application.js?v=uMP9fDC8oDzcV6BKz0I-3WfDxQYdM109b1pr85jMFk4  
+
+2020-01-03 20:15:43,263 [13] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/customScripts/Rust/RustShopStatsSetLocationHref.js?v=x70_l2VFMarOAMHYMQ4vb314SH5abspAd63gu393bUw  
+
+2020-01-03 20:15:43,270 [8] ?     - The file /js/application.js was not modified
+
+2020-01-03 20:15:43,272 [13] ?     - The file /js/customScripts/Rust/RustShopStatsSetLocationHref.js was not modified
+
+2020-01-03 20:15:43,276 [8] ?     - Request finished in 17.8425ms 304 application/javascript
+
+2020-01-03 20:15:43,277 [13] ?     - Request finished in 12.5724ms 304 application/javascript
+
+2020-01-03 20:16:16,552 [4] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-03 20:16:16,565 [4] ?     - Hosting environment: Development
+
+2020-01-03 20:16:16,567 [4] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-03 20:16:16,576 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/RustShop/ShopStats?shopId=f234d18b-e288-412a-82ea-966da58b471f  
+
+2020-01-03 20:16:16,670 [9] ?     - Authorization was successful.
+
+2020-01-03 20:16:16,673 [9] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.RustShopController.ShopStats (EasyShop.CP.UI)'
+
+2020-01-03 20:16:16,728 [9] ?     - Route matched with {action = "ShopStats", controller = "RustShop"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ShopStats(System.String, EasyShop.Domain.Enums.Rust.RustShopStatsEnum) on controller EasyShop.CP.UI.Controllers.RustShopController (EasyShop.CP.UI).
+
+2020-01-03 20:16:16,760 [9] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-03 20:16:16,800 [9] ?     - Executing DbCommand [Parameters=[@__shopId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [g].[Id], [g].[Type]
+FROM [Shops] AS [s]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+WHERE ([s].[Id] = @__shopId_0) AND @__shopId_0 IS NOT NULL
+
+2020-01-03 20:16:26,863 [9] ?     - Executing DbCommand [Parameters=[@__p_0='?' (DbType = Boolean)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE @__p_0 = CAST(1 AS bit)
+
+2020-01-03 20:19:51,193 [8] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-03 20:19:51,202 [8] ?     - Hosting environment: Development
+
+2020-01-03 20:19:51,204 [8] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-03 20:19:51,213 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/RustShop/ShopStats?shopId=f234d18b-e288-412a-82ea-966da58b471f  
+
+2020-01-03 20:19:51,308 [9] ?     - Authorization was successful.
+
+2020-01-03 20:19:51,311 [9] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.RustShopController.ShopStats (EasyShop.CP.UI)'
+
+2020-01-03 20:19:51,357 [9] ?     - Route matched with {action = "ShopStats", controller = "RustShop"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ShopStats(System.String, EasyShop.Domain.Enums.Rust.RustShopStatsEnum) on controller EasyShop.CP.UI.Controllers.RustShopController (EasyShop.CP.UI).
+
+2020-01-03 20:19:51,390 [9] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-03 20:19:51,424 [9] ?     - Executing DbCommand [Parameters=[@__shopId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [g].[Id], [g].[Type]
+FROM [Shops] AS [s]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+WHERE ([s].[Id] = @__shopId_0) AND @__shopId_0 IS NOT NULL
+
+2020-01-03 20:19:59,015 [9] ?     - Executing DbCommand [Parameters=[@__dateNow_0='?' (DbType = DateTime2), @__dateWeekAgo_1='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[PurchaseDateTime] <= @__dateNow_0) AND ([r0].[PurchaseDateTime] >= @__dateWeekAgo_1)
+
+2020-01-03 20:23:07,525 [14] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-03 20:23:07,535 [14] ?     - Hosting environment: Development
+
+2020-01-03 20:23:07,537 [14] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-03 20:23:07,544 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/RustShop/ShopStats?shopId=f234d18b-e288-412a-82ea-966da58b471f  
+
+2020-01-03 20:23:07,627 [4] ?     - Authorization was successful.
+
+2020-01-03 20:23:07,631 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.RustShopController.ShopStats (EasyShop.CP.UI)'
+
+2020-01-03 20:23:07,687 [4] ?     - Route matched with {action = "ShopStats", controller = "RustShop"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ShopStats(System.String, EasyShop.Domain.Enums.Rust.RustShopStatsEnum) on controller EasyShop.CP.UI.Controllers.RustShopController (EasyShop.CP.UI).
+
+2020-01-03 20:23:07,714 [4] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-03 20:23:07,752 [4] ?     - Executing DbCommand [Parameters=[@__shopId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [g].[Id], [g].[Type]
+FROM [Shops] AS [s]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+WHERE ([s].[Id] = @__shopId_0) AND @__shopId_0 IS NOT NULL
+
+2020-01-03 20:23:13,063 [4] ?     - Executing DbCommand [Parameters=[@__dateNow_0='?' (DbType = DateTime2), @__dateWeekAgo_1='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[PurchaseDateTime] <= @__dateNow_0) AND ([r0].[PurchaseDateTime] >= @__dateWeekAgo_1)
+

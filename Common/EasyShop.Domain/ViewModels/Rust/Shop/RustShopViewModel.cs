@@ -27,6 +27,8 @@ namespace EasyShop.Domain.ViewModels.Rust.Shop
             RustShopStatsEnum.Last_year
         };
 
+        public Dictionary<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> Stats { get; set; }
+
         public RustShopEditMainSettingsViewModel RustShopEditMainSettingsViewModel { get; set; }
 
         public RustShopCategoriesViewModel RustShopCategories { get; set; }

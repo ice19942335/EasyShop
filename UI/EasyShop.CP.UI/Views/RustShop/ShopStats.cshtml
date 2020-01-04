@@ -1,12 +1,14 @@
 ﻿@using EasyShop.Domain.Enums.Rust
 @using Microsoft.AspNetCore.Http
+@using Microsoft.EntityFrameworkCore.Internal
 @model EasyShop.Domain.ViewModels.Rust.Shop.RustShopViewModel
 @{
     ViewData["Title"] = "Rust shop";
     Layout = "Partial/_RustBaseLayout";
 
-    string selectOptions = string.Empty;
+    #region SelectPeriod
 
+    string selectOptions = string.Empty;
     foreach (var item in Model.StatsPeriodList)
     {
         if (item == Model.StatsPeriod)
@@ -18,6 +20,38 @@
             selectOptions += $@"<option value=""{item}"">{item.ToString().Replace("_", " ")}</option>";
         }
     }
+
+    #endregion SelectPeriod
+
+    #region RevenueData
+
+    var revenueData = Model.Stats.FirstOrDefault(x => x.Key == RustShopStatsUnitEnum.Revenue);
+    string revenueDates = string.Empty;
+    string revenueTotal = revenueData.Value.Item2.Select(x => Decimal.Parse(x)).Sum().ToString();
+    string revenueValues = string.Join(", ", revenueData.Value.Item2);
+    string revenueValuesMax = (revenueData.Value.Item2.Select(x => Decimal.Parse(x)).Max() + 1).ToString();
+    for (int i = 0; i < revenueData.Value.Item1.Count(); i++)
+    {
+        string item = revenueData.Value.Item1.ElementAt(i);
+
+        if (i != revenueData.Value.Item1.Count() - 1)
+        {
+            revenueDates += $"\"{item}\", ";
+        }
+        else
+        {
+            revenueDates += $"\"{item}\"";
+        }
+    }
+
+    #endregion RevenueData
+
+    #region OrdersData
+
+
+
+    #endregion OrdersData
+
 }
 
 <div class="row">
@@ -39,15 +73,15 @@
             <div class="card-values">
                 <div class="p-x">
                     <small>Revenue</small>
-                    <h3 class="card-title fw-l">185,118</h3>
+                    <h3 class="card-title fw-l">$@revenueTotal</h3>
                 </div>
             </div>
             <div class="card-chart">
                 <canvas data-chart="line"
                         data-animation="false"
-                        data-labels='["Jun 21", "Jun 20", "Jun 19", "Jun 18", "Jun 17", "Jun 16", "Jun 15"]'
-                        data-values='[{"backgroundColor": "rgba(255, 255, 255, 0.1)", "borderColor": "#00aced", "data": [32327, 23370, 25568, 28961, 26762, 30072, 25135]}]'
-                        data-scales='{"yAxes": [{ "ticks": {"max": 32327}}]}'
+                        data-labels='[@revenueDates]'
+                        data-values='[{"backgroundColor": "rgba(255, 255, 255, 0.1)", "borderColor": "#00aced", "data": [@revenueValues]}]'
+                        data-scales='{"yAxes": [{ "ticks": {"max": @revenueValuesMax}}]}'
                         data-hide='["legend", "points", "scalesX", "scalesY", "tooltips"]'
                         height="35"></canvas>
             </div>
@@ -119,7 +153,27 @@
             </div>
             <div class="card-body">
                 <div class="card-chart">
-                    <canvas data-chart="line" data-animation="false" data-labels='["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]' data-values='[{"label": "This week", "backgroundColor": "transparent", "borderColor": "#00aced", "pointBackgroundColor": "#00aced", "data": [29432, 20314, 17665, 22162, 31194, 35053, 29298]}, {"label": "Last week", "backgroundColor": "transparent", "borderColor": "#75ac00", "pointBackgroundColor": "#75ac00", "data": [9956, 22607, 30963, 22668, 16338, 22222, 39238]}]' data-tooltips='{"mode": "label"}' data-hide='["gridLinesX", "legend"]' height="150"></canvas>
+                    <canvas data-chart="line"
+                            data-animation="false"
+                            data-labels='["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]'
+                            data-values='[
+                            {
+                                "label": "This week",
+                                "backgroundColor": "transparent",
+                                "borderColor": "#00aced",
+                                "pointBackgroundColor": "#00aced",
+                                "data": [29432, 20314, 17665, 22162, 31194, 35053, 29298]
+                            },
+                            {
+                                "label": "Last week",
+                                "backgroundColor": "transparent",
+                                "borderColor": "#75ac00",
+                                "pointBackgroundColor": "#75ac00",
+                                "data": [9956, 22607, 30963, 22668, 16338, 22222, 39238]
+                            }]'
+                            data-tooltips='{"mode": "label"}'
+                            data-hide='["gridLinesX", "legend"]'
+                            height="150"></canvas>
                 </div>
             </div>
         </div>
@@ -127,7 +181,7 @@
     <div class="col-lg-6">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Unique visits overview</h4>
+                <h4 class="card-title">Unique Visits Overview</h4>
             </div>
             <div class="card-body">
                 <div class="card-chart">

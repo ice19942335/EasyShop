@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Identity;
@@ -26,19 +27,22 @@ namespace EasyShop.CP.UI.Controllers
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IRustServerService _rustServerService;
         private readonly UserManager<AppUser> _userManager;
+        private readonly IRustShopStatsService _rustShopStatsService;
 
         public RustShopController(
             IShopManager shopManager,
             IRustShopService rustShopService,
             IHttpContextAccessor httpContextAccessor,
             IRustServerService rustServerService,
-            UserManager<AppUser> userManager)
+            UserManager<AppUser> userManager,
+            IRustShopStatsService rustShopStatsService)
         {
             _shopManager = shopManager;
             _rustShopService = rustShopService;
             _httpContextAccessor = httpContextAccessor;
             _rustServerService = rustServerService;
             _userManager = userManager;
+            _rustShopStatsService = rustShopStatsService;
         }
 
 
@@ -52,8 +56,20 @@ namespace EasyShop.CP.UI.Controllers
             if (shop is null)
                 return RedirectToAction("NotFoundPage", "Home");
 
+            var stats = statsPeriod switch
+            {
+                RustShopStatsEnum.Yesterday => _rustShopStatsService.GetYesterdayStats(Guid.Parse(shopId)),
+                RustShopStatsEnum.Today => _rustShopStatsService.GetTodayStats(Guid.Parse(shopId)),
+                RustShopStatsEnum.Last_week => _rustShopStatsService.GetLastWeekStats(Guid.Parse(shopId)),
+                RustShopStatsEnum.Last_month => _rustShopStatsService.GetLastMonthStats(Guid.Parse(shopId)),
+                RustShopStatsEnum.Last_three_months => _rustShopStatsService.GetLastThreeMonthStats(Guid.Parse(shopId)),
+                RustShopStatsEnum.Last_six_months => _rustShopStatsService.GetLastSixMonthStats(Guid.Parse(shopId)),
+                RustShopStatsEnum.Last_year => _rustShopStatsService.GetLastYearStats(Guid.Parse(shopId)),
+            };
+
             var model = shop.CreateRustShopViewModel();
             model.StatsPeriod = statsPeriod;
+            model.Stats = stats;
 
             return View(model);
         }
