@@ -23,13 +23,16 @@
 
     #endregion SelectPeriod
 
-    #region RevenueData
+    #region RevenueData 
 
     var revenueData = Model.Stats.FirstOrDefault(x => x.Key == RustShopStatsUnitEnum.Revenue);
     string revenueDates = string.Empty;
     string revenueTotal = revenueData.Value.Item2.Select(x => Decimal.Parse(x)).Sum().ToString();
     string revenueValues = string.Join(", ", revenueData.Value.Item2);
-    string revenueValuesMax = (revenueData.Value.Item2.Select(x => Decimal.Parse(x)).Max() + 1).ToString();
+    Decimal revenueValuesMax = revenueData.Value.Item2.Select(x => Decimal.Parse(x)).Max();
+    Decimal tenPercentsFromRevenueValuesMax = revenueValuesMax / 100 * 10;
+    revenueValuesMax += tenPercentsFromRevenueValuesMax;
+
     for (int i = 0; i < revenueData.Value.Item1.Count(); i++)
     {
         string item = revenueData.Value.Item1.ElementAt(i);
@@ -48,7 +51,27 @@
 
     #region OrdersData
 
+    var ordersData = Model.Stats.FirstOrDefault(x => x.Key == RustShopStatsUnitEnum.Orders);
+    string ordersDates = string.Empty;
+    string ordersTotal = ordersData.Value.Item2.Select(x => Int32.Parse(x)).Sum().ToString();
+    string ordersValues = string.Join(", ", ordersData.Value.Item2);
+    int ordersValuesMax = ordersData.Value.Item2.Select(x => Int32.Parse(x)).Max();
+    int tenPercentsFromOrdersValuesMax = (ordersValuesMax / 100 * 10) > 0 ? ordersValuesMax / 100 * 10 : 1;
+    ordersValuesMax += tenPercentsFromOrdersValuesMax;
 
+    for (int i = 0; i < ordersData.Value.Item1.Count(); i++)
+    {
+        string item = ordersData.Value.Item1.ElementAt(i);
+
+        if (i != ordersData.Value.Item1.Count() - 1)
+        {
+            ordersDates += $"\"{item}\", ";
+        }
+        else
+        {
+            ordersDates += $"\"{item}\"";
+        }
+    }
 
     #endregion OrdersData
 
@@ -92,15 +115,15 @@
             <div class="card-values">
                 <div class="p-x">
                     <small>Orders</small>
-                    <h3 class="card-title fw-l">68,494</h3>
+                    <h3 class="card-title fw-l">@ordersTotal</h3>
                 </div>
             </div>
             <div class="card-chart">
                 <canvas data-chart="line"
                         data-animation="false"
-                        data-labels='["Jun 21", "Jun 20", "Jun 19", "Jun 18", "Jun 17", "Jun 16", "Jun 15"]'
-                        data-values='[{"backgroundColor": "rgba(255, 255, 255, 0.1)", "borderColor": "#00aced", "data": [8796, 11317, 8678, 9452, 8453, 11853, 9945]}]'
-                        data-scales='{"yAxes": [{ "ticks": {"max": 12742}}]}'
+                        data-labels='[@ordersDates]'
+                        data-values='[{"backgroundColor": "rgba(255, 255, 255, 0.1)", "borderColor": "#00aced", "data": [@ordersValues]}]'
+                        data-scales='{"yAxes": [{ "ticks": {"max": @ordersValuesMax}}]}'
                         data-hide='["legend", "points", "scalesX", "scalesY", "tooltips"]'
                         height="35"></canvas>
             </div>

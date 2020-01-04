@@ -36,6 +36,9 @@ namespace EasyShop.Services.CP.Rust.Shop
             var revenueData = GetRevenueWeeklyStats();
             result.Add(revenueData.Key, revenueData.Value);
 
+            var ordersData = GetOrdersWeeklyStats();
+            result.Add(ordersData.Key, ordersData.Value);
+
             return result;
         }
 
@@ -81,16 +84,45 @@ namespace EasyShop.Services.CP.Rust.Shop
                 revenueDates.Add(selectedDay.DayOfWeek.ToString());
                 var soldProductOfSelectedDate = rustPurchaseStats.Where(x => x.RustPurchasedItem.PurchaseDateTime.Date == selectedDay.Date);
 
-                decimal totalRevenueOfSelectedDate = 0m;
+                decimal totalRevenueInSelectedDate = 0m;
                 foreach (var item in soldProductOfSelectedDate)
-                    totalRevenueOfSelectedDate += item.RustPurchasedItem.TotalPaid;
-                revenueValues.Add(totalRevenueOfSelectedDate.ToString());
+                    totalRevenueInSelectedDate += item.RustPurchasedItem.TotalPaid;
+                revenueValues.Add(totalRevenueInSelectedDate.ToString());
             }
 
             revenueDates.Reverse();
             revenueValues.Reverse();
 
             return new KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>(RustShopStatsUnitEnum.Revenue, (revenueDates, revenueValues, revenueEmpty));
+        }
+
+        private KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetOrdersWeeklyStats()
+        {
+            DateTime dateWeekAgo = DateTime.Now.Subtract(TimeSpan.FromDays(7));
+            var rustPurchaseStats = _context.RustPurchaseStats
+                .Include(x => x.AppUser)
+                .Include(x => x.RustPurchasedItem.RustItem)
+                .Include(x => x.Shop)
+                .Where(x => x.RustPurchasedItem.PurchaseDateTime > dateWeekAgo && x.RustPurchasedItem.PurchaseDateTime <= DateTime.Now);
+
+            List<string> ordersDates = new List<string>();
+            List<string> ordersValues = new List<string>();
+            List<string> ordersEmpty = new List<string>();
+
+            for (int i = 0; i < 7; i++)
+            {
+                var selectedDay = DateTime.Now.Subtract(TimeSpan.FromDays(i));
+
+                ordersDates.Add(selectedDay.DayOfWeek.ToString());
+                var soldProductOfSelectedDate = rustPurchaseStats.Where(x => x.RustPurchasedItem.PurchaseDateTime.Date == selectedDay.Date).ToList();
+
+                ordersValues.Add(soldProductOfSelectedDate.Count.ToString());
+            }
+
+            ordersDates.Reverse();
+            ordersValues.Reverse();
+
+            return new KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>(RustShopStatsUnitEnum.Orders, (ordersDates, ordersValues, ordersEmpty));
         }
 
         #endregion WeeklyStats
