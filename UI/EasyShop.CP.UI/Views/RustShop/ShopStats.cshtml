@@ -75,6 +75,32 @@
 
     #endregion OrdersData
 
+    #region SoldItems
+
+    var soldItemsData = Model.Stats.FirstOrDefault(x => x.Key == RustShopStatsUnitEnum.ItemsSold);
+    string soldItemsDates = string.Empty;
+    string soldItemsTotal = soldItemsData.Value.Item2.Select(x => Int32.Parse(x)).Sum().ToString();
+    string soldItemsValues = string.Join(", ", soldItemsData.Value.Item2);
+    int soldItemsValuesMax = soldItemsData.Value.Item2.Select(x => Int32.Parse(x)).Max();
+    int tenPercentsFromSoldItemsValuesMax = (soldItemsValuesMax / 100 * 10) > 0 ? soldItemsValuesMax / 100 * 10 : 1;
+    soldItemsValuesMax += tenPercentsFromSoldItemsValuesMax;
+
+    for (int i = 0; i < soldItemsData.Value.Item1.Count(); i++)
+    {
+        string item = soldItemsData.Value.Item1.ElementAt(i);
+
+        if (i != soldItemsData.Value.Item1.Count() - 1)
+        {
+            soldItemsDates += $"\"{item}\", ";
+        }
+        else
+        {
+            soldItemsDates += $"\"{item}\"";
+        }
+    }
+
+    #endregion SoldItems
+
 }
 
 <div class="row">
@@ -133,16 +159,16 @@
         <div class="card">
             <div class="card-values">
                 <div class="p-x">
-                    <small>Items Sold</small>
-                    <h3 class="card-title fw-l">925,590</h3>
+                    <small>Items</small>
+                    <h3 class="card-title fw-l">@soldItemsTotal</h3>
                 </div>
             </div>
             <div class="card-chart">
                 <canvas data-chart="line"
                         data-animation="false"
-                        data-labels='["Jun 21", "Jun 20", "Jun 19", "Jun 18", "Jun 17", "Jun 16", "Jun 15"]'
-                        data-values='[{"backgroundColor": "rgba(255, 255, 255, 0.1)", "borderColor": "#00aced", "data": [116196, 145160, 124419, 147004, 134740, 120846, 137225]}]'
-                        data-scales='{"yAxes": [{ "ticks": {"max": 158029}}]}'
+                        data-labels='[@soldItemsDates]'
+                        data-values='[{"backgroundColor": "rgba(255, 255, 255, 0.1)", "borderColor": "#00aced", "data": [@soldItemsValues]}]'
+                        data-scales='{"yAxes": [{ "ticks": {"max": @soldItemsValuesMax}}]}'
                         data-hide='["legend", "points", "scalesX", "scalesY", "tooltips"]'
                         height="35"></canvas>
             </div>
