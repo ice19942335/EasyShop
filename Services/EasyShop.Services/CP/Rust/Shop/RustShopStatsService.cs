@@ -6,6 +6,7 @@ using EasyShop.DAL.Context;
 using EasyShop.Domain.Enums.Rust;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 
 namespace EasyShop.Services.CP.Rust.Shop
 {
@@ -41,6 +42,9 @@ namespace EasyShop.Services.CP.Rust.Shop
 
             var itemsSoldData = GetItemsSoldWeeklyStats();
             result.Add(itemsSoldData.Key, itemsSoldData.Value);
+
+            var buyersData = GetBuyersWeeklyStats();
+            result.Add(buyersData.Key, buyersData.Value);
 
             return result;
         }
@@ -161,6 +165,37 @@ namespace EasyShop.Services.CP.Rust.Shop
             itemsSoldValues.Reverse();
 
             return new KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>(RustShopStatsUnitEnum.ItemsSold, (itemsSoldDates, itemsSoldValues, itemsSoldEmpty));
+        }
+
+        private KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetBuyersWeeklyStats()
+        {
+            DateTime dateWeekAgo = DateTime.Now.Subtract(TimeSpan.FromDays(7));
+            var rustPurchaseStats = _context.RustPurchaseStats
+                .Include(x => x.AppUser)
+                .Include(x => x.RustPurchasedItem.RustItem)
+                .Include(x => x.Shop)
+                .Where(x => x.RustPurchasedItem.PurchaseDateTime > dateWeekAgo && x.RustPurchasedItem.PurchaseDateTime <= DateTime.Now);
+
+            List<string> buyersDates = new List<string>();
+            List<string> buyersValues = new List<string>();
+            List<string> buyersEmpty = new List<string>();
+
+            for (int i = 0; i < 7; i++)
+            {
+                var selectedDay = DateTime.Now.Subtract(TimeSpan.FromDays(i));
+
+                buyersDates.Add(selectedDay.DayOfWeek.ToString());
+                var soldProductInSelectedDate = rustPurchaseStats.Where(x => x.RustPurchasedItem.PurchaseDateTime.Date == selectedDay.Date).ToList();
+
+                var buyersInSelectedDate = soldProductInSelectedDate.Select(x => x.RustPurchasedItem.RustUser).ToList().Distinct();
+
+                buyersValues.Add(buyersInSelectedDate.Count().ToString());
+            }
+
+            buyersDates.Reverse();
+            buyersValues.Reverse();
+
+            return new KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>(RustShopStatsUnitEnum.Buyers, (buyersDates, buyersValues, buyersEmpty));
         }
 
         #endregion WeeklyStats

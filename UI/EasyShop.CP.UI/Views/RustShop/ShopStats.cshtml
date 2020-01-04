@@ -101,6 +101,32 @@
 
     #endregion SoldItems
 
+    #region Buyers
+
+    var buyersData = Model.Stats.FirstOrDefault(x => x.Key == RustShopStatsUnitEnum.Buyers);
+    string buyersDates = string.Empty;
+    string buyersTotal = buyersData.Value.Item2.Select(x => Int32.Parse(x)).ToList().Distinct().Sum().ToString();
+    string buyersValues = string.Join(", ", buyersData.Value.Item2);
+    int buyersValuesMax = buyersData.Value.Item2.Select(x => Int32.Parse(x)).Max();
+    int tenPercentsFromBuyersValuesMax = (buyersValuesMax / 100 * 10) > 0 ? buyersValuesMax / 100 * 10 : 1;
+    buyersValuesMax += tenPercentsFromBuyersValuesMax;
+
+    for (int i = 0; i < buyersData.Value.Item1.Count(); i++)
+    {
+        string item = buyersData.Value.Item1.ElementAt(i);
+
+        if (i != buyersData.Value.Item1.Count() - 1)
+        {
+            buyersDates += $"\"{item}\", ";
+        }
+        else
+        {
+            buyersDates += $"\"{item}\"";
+        }
+    }
+
+    #endregion Buyers
+
 }
 
 <div class="row">
@@ -179,15 +205,15 @@
             <div class="card-values">
                 <div class="p-x">
                     <small>Buyers</small>
-                    <h3 class="card-title fw-l">00:07:56</h3>
+                    <h3 class="card-title fw-l">@buyersTotal</h3>
                 </div>
             </div>
             <div class="card-chart">
                 <canvas data-chart="line"
                         data-animation="false"
-                        data-labels='["Jun 21", "Jun 20", "Jun 19", "Jun 18", "Jun 17", "Jun 16", "Jun 15"]'
-                        data-values='[{"backgroundColor": "rgba(255, 255, 255, 0.1)", "borderColor": "#00aced", "data": [13590442, 12362934, 13639564, 13055677, 12915203, 11009940, 11542408]}]'
-                        data-scales='{"yAxes": [{ "ticks": {"max": 14662531}}]}'
+                        data-labels='[@buyersDates]'
+                        data-values='[{"backgroundColor": "rgba(255, 255, 255, 0.1)", "borderColor": "#00aced", "data": [@buyersValues]}]'
+                        data-scales='{"yAxes": [{ "ticks": {"max": @buyersValuesMax}}]}'
                         data-hide='["legend", "points", "scalesX", "scalesY", "tooltips"]'
                         height="35"></canvas>
             </div>
@@ -223,18 +249,6 @@
                             data-tooltips='{"mode": "label"}'
                             data-hide='["gridLinesX", "legend"]'
                             height="150"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-6">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">Unique Visits Overview</h4>
-            </div>
-            <div class="card-body">
-                <div class="card-chart">
-                    <canvas data-chart="bar" data-animation="false" data-labels='["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]' data-values='[{"label": "This week", "backgroundColor": "#00aced", "borderColor": "#00aced", "data": [3089, 2132, 1854, 2326, 3274, 3679, 3075]}, {"label": "Last week", "backgroundColor": "#75ac00", "borderColor": "#75ac00", "data": [983, 2232, 3057, 2238, 1613, 2194, 11980]}]' data-tooltips='{"mode": "label"}' data-hide='["gridLinesX", "legend"]' height="150"></canvas>
                 </div>
             </div>
         </div>
