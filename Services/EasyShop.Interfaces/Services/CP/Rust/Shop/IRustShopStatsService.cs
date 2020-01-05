@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using EasyShop.Domain.Enums.Rust;
+using EasyShop.Domain.Enums.CP.Rust;
 
 namespace EasyShop.Interfaces.Services.CP.Rust.Shop
 {

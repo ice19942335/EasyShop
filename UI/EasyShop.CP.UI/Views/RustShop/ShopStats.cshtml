@@ -1,4 +1,4 @@
-﻿@using EasyShop.Domain.Enums.Rust
+﻿@using EasyShop.Domain.Enums.CP.Rust
 @using Microsoft.AspNetCore.Http
 @using Microsoft.EntityFrameworkCore.Internal
 @model EasyShop.Domain.ViewModels.Rust.Shop.RustShopViewModel
@@ -78,22 +78,22 @@
 
     var revenueOverviewDotDialogLast = Model.StatsPeriod switch
     {
-        RustShopStatsEnum.Today => "",
-        RustShopStatsEnum.Over_the_last_week => "Last week",
-        RustShopStatsEnum.Over_the_last_30_days => "Last month",
-        RustShopStatsEnum.Over_the_last_90_days => "Last 90 days",
-        RustShopStatsEnum.Over_the_last_180_days => "Last 180 days",
-        RustShopStatsEnum.Over_the_last_year => "Last year",
+        RustShopStatsPeriodEnum.Today => "",
+        RustShopStatsPeriodEnum.Over_the_last_week => "Last week",
+        RustShopStatsPeriodEnum.Over_the_last_30_days => "Last month",
+        RustShopStatsPeriodEnum.Over_the_last_90_days => "Last 90 days",
+        RustShopStatsPeriodEnum.Over_the_last_180_days => "Last 180 days",
+        RustShopStatsPeriodEnum.Over_the_last_year => "Last year",
     };
 
     var revenueOverviewDotDialogPrevious = Model.StatsPeriod switch
     {
-        RustShopStatsEnum.Today => "",
-        RustShopStatsEnum.Over_the_last_week => "Previous week",
-        RustShopStatsEnum.Over_the_last_30_days => "Previous month",
-        RustShopStatsEnum.Over_the_last_90_days => "Previous 90 days",
-        RustShopStatsEnum.Over_the_last_180_days => "Previous 180 days",
-        RustShopStatsEnum.Over_the_last_year => "Previous year",
+        RustShopStatsPeriodEnum.Today => "",
+        RustShopStatsPeriodEnum.Over_the_last_week => "Previous week",
+        RustShopStatsPeriodEnum.Over_the_last_30_days => "Previous month",
+        RustShopStatsPeriodEnum.Over_the_last_90_days => "Previous 90 days",
+        RustShopStatsPeriodEnum.Over_the_last_180_days => "Previous 180 days",
+        RustShopStatsPeriodEnum.Over_the_last_year => "Previous year",
     };
 
     #endregion
@@ -101,7 +101,7 @@
 
     #region VariablesInitializationLogic
 
-    if (Model.StatsPeriod == RustShopStatsEnum.Today)
+    if (Model.StatsPeriod == RustShopStatsPeriodEnum.Today)
     {
         revenueData = Model.Stats.First(x => x.Key == RustShopStatsUnitEnum.Revenue);
         revenueTotal = revenueData.Value.Item2.First();
@@ -343,7 +343,7 @@
     </div>
 </div>
 
-@if (Model.StatsPeriod != RustShopStatsEnum.Today)
+@if (Model.StatsPeriod != RustShopStatsPeriodEnum.Today)
 {
     <div class="row gutter-xs">
         <div class="col-lg-12">

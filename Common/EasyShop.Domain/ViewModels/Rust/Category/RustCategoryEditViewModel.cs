@@ -1,4 +1,4 @@
-﻿using EasyShop.Domain.Enums.Rust;
+﻿using EasyShop.Domain.Enums.CP.Rust;
 
 namespace EasyShop.Domain.ViewModels.Rust.Category
 {

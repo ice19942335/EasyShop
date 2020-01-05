@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Entries.Rust;
-using EasyShop.Domain.Enums.Rust;
+using EasyShop.Domain.Enums.CP.Rust;
 using EasyShop.Domain.ViewModels.Rust.Shop;
 using EasyShop.Interfaces.Services.CP.Rust.Server;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;

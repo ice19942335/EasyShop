@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Rust;
-using EasyShop.Domain.Enums.Rust;
+using EasyShop.Domain.Enums.CP.Rust;
 using EasyShop.Domain.ViewModels.Rust.Shop;
 
 namespace EasyShop.Interfaces.Services.CP.Rust.Server

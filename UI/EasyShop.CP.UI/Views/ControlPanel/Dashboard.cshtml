@@ -1,9 +1,395 @@
-﻿
+﻿@using EasyShop.Domain.Enums.CP.DashBoard
+@using EasyShop.Domain.Enums.CP.Rust
+@model EasyShop.Domain.ViewModels.ControlPanel.DashBoard.DashBoardViewModel
 @{
     ViewData["Title"] = "Dashboard";
     Layout = "_ControlPanelLayout";
+
+    #region SelectPeriod
+
+    string selectOptions = string.Empty;
+    foreach (var item in Model.StatsPeriodList)
+    {
+        if (item == Model.StatsPeriod)
+        {
+            selectOptions += $@"<option value=""{item}"" selected=""selected"">{item.ToString().Replace("_", " ")}</option>";
+        }
+        else
+        {
+            selectOptions += $@"<option value=""{item}"">{item.ToString().Replace("_", " ")}</option>";
+        }
+    }
+
+    #endregion SelectPeriod
+
+
+    #region RevenueDataVariables
+
+    KeyValuePair<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> revenueData;
+    string revenueDates = string.Empty;
+    string revenueTotal = string.Empty;
+    string revenueValues = string.Empty;
+    Decimal revenueValuesMax = default;
+
+    #endregion RevenueDataVariables
+
+    #region OrdersDataVariables
+
+    KeyValuePair<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> ordersData;
+    string ordersDates = string.Empty;
+    string ordersTotal = string.Empty;
+    string ordersValues = string.Empty;
+    int ordersValuesMax = 0;
+
+    #endregion OrdersDataVariables
+
+    #region SoldItemsVariables
+
+    KeyValuePair<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> soldItemsData;
+    string soldItemsDates = string.Empty;
+    string soldItemsTotal = string.Empty;
+    string soldItemsValues = string.Empty;
+    int soldItemsValuesMax = 0;
+
+    #endregion SoldItemsVariables
+
+    #region BuyersVariables
+
+    KeyValuePair<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> buyersData;
+    string buyersDates = string.Empty;
+    string buyersTotal = string.Empty;
+    string buyersValues = string.Empty;
+    int buyersValuesMax = 0;
+
+    #endregion BuyersVariables
+
+    #region RevenueOverviewVariables
+
+    KeyValuePair<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> revenueOverviewData;
+    string revenueOverviewDates = string.Empty;
+    string revenueOverviewValues = string.Empty;
+    string revenueOverviewPreviousWeekValues = string.Empty;
+
+    #endregion RevenueOverviewVariables
+
+
+    #region RevenueOverviewDotDialogDisplayedTextLogic
+
+    var revenueOverviewDotDialogLast = Model.StatsPeriod switch
+    {
+        DashBoardStatsPeriodEnum.Today => "",
+        DashBoardStatsPeriodEnum.Over_the_last_week => "Last week",
+        DashBoardStatsPeriodEnum.Over_the_last_30_days => "Last month",
+        DashBoardStatsPeriodEnum.Over_the_last_90_days => "Last 90 days",
+        DashBoardStatsPeriodEnum.Over_the_last_180_days => "Last 180 days",
+        DashBoardStatsPeriodEnum.Over_the_last_year => "Last year",
+    };
+
+    var revenueOverviewDotDialogPrevious = Model.StatsPeriod switch
+    {
+        DashBoardStatsPeriodEnum.Today => "",
+        DashBoardStatsPeriodEnum.Over_the_last_week => "Previous week",
+        DashBoardStatsPeriodEnum.Over_the_last_30_days => "Previous month",
+        DashBoardStatsPeriodEnum.Over_the_last_90_days => "Previous 90 days",
+        DashBoardStatsPeriodEnum.Over_the_last_180_days => "Previous 180 days",
+        DashBoardStatsPeriodEnum.Over_the_last_year => "Previous year",
+    };
+
+    #endregion
+
+
+    #region VariablesInitializationLogic
+
+    if (Model.StatsPeriod == DashBoardStatsPeriodEnum.Today)
+    {
+        revenueData = Model.Stats.First(x => x.Key == DashBoardStatsUnitEnum.Revenue);
+        revenueTotal = revenueData.Value.Item2.First();
+
+        ordersData = Model.Stats.First(x => x.Key == DashBoardStatsUnitEnum.Orders);
+        ordersTotal = ordersData.Value.Item2.First();
+
+        soldItemsData = Model.Stats.First(x => x.Key == DashBoardStatsUnitEnum.ItemsSold);
+        soldItemsTotal = soldItemsData.Value.Item2.First();
+
+        buyersData = Model.Stats.First(x => x.Key == DashBoardStatsUnitEnum.Buyers);
+        buyersTotal = buyersData.Value.Item2.First();
+    }
+    else
+    {
+        #region RevenueData
+
+        revenueData = Model.Stats.FirstOrDefault(x => x.Key == DashBoardStatsUnitEnum.Revenue);
+        revenueTotal = revenueData.Value.Item2.Select(x => Decimal.Parse(x)).Sum().ToString();
+        revenueValues = string.Join(", ", revenueData.Value.Item2);
+        revenueValuesMax = revenueData.Value.Item2.Select(x => Decimal.Parse(x)).Max();
+        var tenPercentsFromRevenueValuesMax = revenueValuesMax / 100 * 10 > 0 ? revenueValuesMax / 100 * 10 : 1;
+        revenueValuesMax += tenPercentsFromRevenueValuesMax;
+
+        for (int i = 0; i < revenueData.Value.Item1.Count(); i++)
+        {
+            string item = revenueData.Value.Item1.ElementAt(i);
+
+            if (i != revenueData.Value.Item1.Count() - 1)
+            {
+                revenueDates += $"\"{item}\", ";
+            }
+            else
+            {
+                revenueDates += $"\"{item}\"";
+            }
+        }
+
+        #endregion RevenueData
+
+        #region OrdersData
+
+        ordersData = Model.Stats.FirstOrDefault(x => x.Key == DashBoardStatsUnitEnum.Orders);
+        ordersDates = string.Empty;
+        ordersTotal = ordersData.Value.Item2.Select(x => Int32.Parse(x)).Sum().ToString();
+        ordersValues = string.Join(", ", ordersData.Value.Item2);
+        ordersValuesMax = ordersData.Value.Item2.Select(x => Int32.Parse(x)).Max();
+        int tenPercentsFromOrdersValuesMax = (ordersValuesMax / 100 * 10) > 0 ? ordersValuesMax / 100 * 10 : 1;
+        ordersValuesMax += tenPercentsFromOrdersValuesMax;
+
+        for (int i = 0; i < ordersData.Value.Item1.Count(); i++)
+        {
+            string item = ordersData.Value.Item1.ElementAt(i);
+
+            if (i != ordersData.Value.Item1.Count() - 1)
+            {
+                ordersDates += $"\"{item}\", ";
+            }
+            else
+            {
+                ordersDates += $"\"{item}\"";
+            }
+        }
+
+        #endregion OrdersData
+
+        #region SoldItems
+
+        soldItemsData = Model.Stats.FirstOrDefault(x => x.Key == DashBoardStatsUnitEnum.ItemsSold);
+        soldItemsDates = string.Empty;
+        soldItemsTotal = soldItemsData.Value.Item2.Select(x => Int32.Parse(x)).Sum().ToString();
+        soldItemsValues = string.Join(", ", soldItemsData.Value.Item2);
+        soldItemsValuesMax = soldItemsData.Value.Item2.Select(x => Int32.Parse(x)).Max();
+        int tenPercentsFromSoldItemsValuesMax = (soldItemsValuesMax / 100 * 10) > 0 ? soldItemsValuesMax / 100 * 10 : 1;
+        soldItemsValuesMax += tenPercentsFromSoldItemsValuesMax;
+
+        for (int i = 0; i < soldItemsData.Value.Item1.Count(); i++)
+        {
+            string item = soldItemsData.Value.Item1.ElementAt(i);
+
+            if (i != soldItemsData.Value.Item1.Count() - 1)
+            {
+                soldItemsDates += $"\"{item}\", ";
+            }
+            else
+            {
+                soldItemsDates += $"\"{item}\"";
+            }
+        }
+
+        #endregion SoldItems
+
+        #region Buyers
+
+        buyersData = Model.Stats.FirstOrDefault(x => x.Key == DashBoardStatsUnitEnum.Buyers);
+        buyersDates = string.Empty;
+        buyersTotal = buyersData.Value.Item2.Select(x => Int32.Parse(x)).ToList().Distinct().Sum().ToString();
+        buyersValues = string.Join(", ", buyersData.Value.Item2);
+        buyersValuesMax = buyersData.Value.Item2.Select(x => Int32.Parse(x)).Max();
+        int tenPercentsFromBuyersValuesMax = (buyersValuesMax / 100 * 10) > 0 ? buyersValuesMax / 100 * 10 : 1;
+        buyersValuesMax += tenPercentsFromBuyersValuesMax;
+
+        for (int i = 0; i < buyersData.Value.Item1.Count(); i++)
+        {
+            string item = buyersData.Value.Item1.ElementAt(i);
+
+            if (i != buyersData.Value.Item1.Count() - 1)
+            {
+                buyersDates += $"\"{item}\", ";
+            }
+            else
+            {
+                buyersDates += $"\"{item}\"";
+            }
+        }
+
+        #endregion Buyers
+
+        #region Revenue Overview
+
+        revenueOverviewData = Model.Stats.FirstOrDefault(x => x.Key == DashBoardStatsUnitEnum.RevenueOverview);
+        revenueOverviewDates = string.Empty;
+        revenueOverviewValues = string.Join(", ", revenueOverviewData.Value.Item2);
+        revenueOverviewPreviousWeekValues = string.Join(", ", revenueOverviewData.Value.Item3);
+
+        for (int i = 0; i < revenueOverviewData.Value.Item1.Count(); i++)
+        {
+            string item = revenueOverviewData.Value.Item1.ElementAt(i);
+
+            if (i != revenueOverviewData.Value.Item1.Count() - 1)
+            {
+                revenueOverviewDates += $"\"{item}\", ";
+            }
+            else
+            {
+                revenueOverviewDates += $"\"{item}\"";
+            }
+        }
+
+        #endregion Revenue Overview
+    }
+
+    #endregion
+
 }
 
-<h1>Dashboard</h1>
-<h2>Username:</h2>
+
+
+<div class="row">
+    <div class="col-xs-2 col-xs-offset-10 m-b-md">
+        <div class="title-bar">
+            <div class="title-bar-actions">
+                <div class="btn-group bootstrap-select dropdown fit-width">
+                    <select id="selectPeriod" class="selectpicker dropdown" name="period" data-dropdown-align-right="true" data-style="btn-default btn-sm" data-width="fit" tabindex="-98">
+                        @Html.Raw(selectOptions)
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row gutter-xs">
+    <div class="col-xs-6 col-md-3">
+        <div class="card">
+            <div class="card-values">
+                <div class="p-x">
+                    <small>Revenue</small>
+                    <h3 class="card-title fw-l"><span class="icon icon-dollar"></span> @revenueTotal</h3>
+                </div>
+            </div>
+            <div class="card-chart">
+                <canvas data-chart="line"
+                        data-animation="false"
+                        data-labels='[@revenueDates]'
+                        data-values='[{"backgroundColor": "rgba(255, 255, 255, 0.1)", "borderColor": "#00aced", "data": [@revenueValues]}]'
+                        data-scales='{"yAxes": [{ "ticks": {"max": @revenueValuesMax}}]}'
+                        data-hide='["legend", "points", "scalesX", "scalesY", "tooltips"]'
+                        height="35"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 col-md-3">
+        <div class="card">
+            <div class="card-values">
+                <div class="p-x">
+                    <small>Orders</small>
+                    <h3 class="card-title fw-l"><span class="icon icon-shopping-bag"></span> @ordersTotal</h3>
+                </div>
+            </div>
+            <div class="card-chart">
+                <canvas data-chart="line"
+                        data-animation="false"
+                        data-labels='[@ordersDates]'
+                        data-values='[{"backgroundColor": "rgba(255, 255, 255, 0.1)", "borderColor": "#00aced", "data": [@ordersValues]}]'
+                        data-scales='{"yAxes": [{ "ticks": {"max": @ordersValuesMax}}]}'
+                        data-hide='["legend", "points", "scalesX", "scalesY", "tooltips"]'
+                        height="35"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 col-md-3">
+        <div class="card">
+            <div class="card-values">
+                <div class="p-x">
+                    <small>Items</small>
+                    <h3 class="card-title fw-l"><span class="icon icon-check-circle"></span> @soldItemsTotal</h3>
+                </div>
+            </div>
+            <div class="card-chart">
+                <canvas data-chart="line"
+                        data-animation="false"
+                        data-labels='[@soldItemsDates]'
+                        data-values='[{"backgroundColor": "rgba(255, 255, 255, 0.1)", "borderColor": "#00aced", "data": [@soldItemsValues]}]'
+                        data-scales='{"yAxes": [{ "ticks": {"max": @soldItemsValuesMax}}]}'
+                        data-hide='["legend", "points", "scalesX", "scalesY", "tooltips"]'
+                        height="35"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 col-md-3">
+        <div class="card">
+            <div class="card-values">
+                <div class="p-x">
+                    <small>Buyers</small>
+                    <h3 class="card-title fw-l"><span class="icon icon-group"></span> @buyersTotal</h3>
+                </div>
+            </div>
+            <div class="card-chart">
+                <canvas data-chart="line"
+                        data-animation="false"
+                        data-labels='[@buyersDates]'
+                        data-values='[{"backgroundColor": "rgba(255, 255, 255, 0.1)", "borderColor": "#00aced", "data": [@buyersValues]}]'
+                        data-scales='{"yAxes": [{ "ticks": {"max": @buyersValuesMax}}]}'
+                        data-hide='["legend", "points", "scalesX", "scalesY", "tooltips"]'
+                        height="35"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (Model.StatsPeriod != DashBoardStatsPeriodEnum.Today)
+{
+    <div class="row gutter-xs">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Revenue Overview</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-chart">
+                        <canvas data-chart="line"
+                                data-animation="false"
+                                data-labels='[@revenueOverviewDates]'
+                                data-values='[
+                            {
+                                "label": "@revenueOverviewDotDialogLast $",
+                                "backgroundColor": "transparent",
+                                "borderColor": "#00aced",
+                                "pointBackgroundColor": "#00aced",
+                                "data": [@revenueOverviewValues]
+                            },
+                            {
+                                "label": "@revenueOverviewDotDialogPrevious $",
+                                "backgroundColor": "transparent",
+                                "borderColor": "#75ac00",
+                                "pointBackgroundColor": "#75ac00",
+                                "data": [@revenueOverviewPreviousWeekValues]
+                            }]'
+                                data-tooltips='{"mode": "label"}'
+                                data-hide='["gridLinesX", "legend"]'
+                                height="150"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="well text-center">
+        <span class="icon icon-area-chart icon-lg"></span> The graph can be seen starting with weekly statistics.
+    </div>
+}
+
+
+@section Scripts
+{
+    <script src="~/js/customScripts/CP/DashBoardStatsSetLocationHref.js" asp-append-version="true"></script>
+}
+
 

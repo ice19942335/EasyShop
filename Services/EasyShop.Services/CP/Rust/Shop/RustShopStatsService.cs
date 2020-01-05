@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
-using EasyShop.Domain.Enums.Rust;
+using EasyShop.Domain.Enums.CP.Rust;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;

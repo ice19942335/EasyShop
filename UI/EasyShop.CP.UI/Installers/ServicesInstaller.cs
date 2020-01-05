@@ -3,6 +3,7 @@ using EasyShop.Interfaces.Email;
 using EasyShop.Interfaces.Services.CP;
 using EasyShop.Interfaces.Services.CP.Account;
 using EasyShop.Interfaces.Services.CP.FileImage;
+using EasyShop.Interfaces.Services.CP.Rust.Dashboard;
 using EasyShop.Interfaces.Services.CP.Rust.Data;
 using EasyShop.Interfaces.Services.CP.Rust.Server;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
@@ -10,6 +11,7 @@ using EasyShop.Interfaces.Services.CP.Tariff;
 using EasyShop.Interfaces.Services.CP.UserProfile;
 using EasyShop.Services.CP.Account;
 using EasyShop.Services.CP.FileImage;
+using EasyShop.Services.CP.Rust.Dashboard;
 using EasyShop.Services.CP.Rust.Data;
 using EasyShop.Services.CP.Rust.Server;
 using EasyShop.Services.CP.Rust.Shop;
@@ -52,6 +54,9 @@ namespace EasyShop.CP.UI.Installers
             services.AddTransient<IRustServerService, RustServerService>();
             services.AddTransient<IRustTestStatsData, RustTestStatsData>();
             services.AddTransient<IRustShopStatsService, RustShopStatsService>();
+
+            //DashBoard services
+            services.AddTransient<IDashBoardStatsService, DashBoardStatsService>();
 
             //Scooped ---------------------------------------------------------------------------------
             services.AddScoped<IAccountService, AccountService>();
