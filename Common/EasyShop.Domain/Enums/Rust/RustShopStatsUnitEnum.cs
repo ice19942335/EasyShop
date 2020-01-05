@@ -10,7 +10,6 @@ namespace EasyShop.Domain.Enums.Rust
         Orders,
         ItemsSold,
         Buyers,
-        RevenueOverview,
-        UniqueVisitsOverview
+        RevenueOverview
     }
 }
