@@ -118,7 +118,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData
 
             DateTime dateWeekAgo = DateTime.Now.Subtract(TimeSpan.FromDays(7));
             DateTime dateMonthAgo = DateTime.Now.Subtract(TimeSpan.FromDays(31));
-            DateTime dateThreeMonthsAgo = DateTime.Now.Subtract(TimeSpan.FromDays(92));
+            DateTime dateYearAgo = DateTime.Now.Subtract(TimeSpan.FromDays(365));
 
             Random rnd = new Random();
 
@@ -130,16 +130,16 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData
                     RustUser = rustUser,
                     RustItem = _context.RustItems.First(),
                     HasBeenUsed = false,
-                    Amount = 1,
-                    TotalPaid = 1
+                    Amount = rnd.Next(1, 3),
+                    TotalPaid = rnd.Next(1, 5),
                 };
 
                 if (i >= 0 && i < 50) //Last week
                     rustPurchasedItem.PurchaseDateTime = dateWeekAgo.AddDays(rnd.Next(0, 7));
-                else if (i >= 50 && i < 400) //Last month
+                else if (i >= 50 && i < 200) //Last month
                     rustPurchasedItem.PurchaseDateTime = dateMonthAgo.AddDays(rnd.Next(0, 24));
-                else if (i >= 400 && i < 1000) //Last three months
-                    rustPurchasedItem.PurchaseDateTime = dateThreeMonthsAgo.AddDays(rnd.Next(0, 60));
+                else if (i >= 200 && i < 1000) //Last three months
+                    rustPurchasedItem.PurchaseDateTime = dateYearAgo.AddDays(rnd.Next(0, 330));
 
 
                 purchasedItemsList.Add(rustPurchasedItem);
