@@ -24,7 +24,7 @@ namespace EasyShop.Services.CP.Rust.Dashboard
             _user = userManager.FindByEmailAsync(contextAccessor.HttpContext.User.Identity.Name).Result;
         }
 
-        public Dictionary<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetTodayStats(Guid shopId)
+        public Dictionary<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetTodayStats()
         {
             Dictionary<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> result =
                 new Dictionary<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>();
@@ -44,7 +44,7 @@ namespace EasyShop.Services.CP.Rust.Dashboard
             return result;
         }
 
-        public Dictionary<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetOverTheLastWeekStats(Guid shopId)
+        public Dictionary<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetOverTheLastWeekStats()
         {
             Dictionary<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> result =
                 new Dictionary<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>();
@@ -67,7 +67,7 @@ namespace EasyShop.Services.CP.Rust.Dashboard
             return result;
         }
 
-        public Dictionary<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetOverTheLast30DaysStats(Guid shopId)
+        public Dictionary<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetOverTheLast30DaysStats()
         {
             Dictionary<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> result =
                 new Dictionary<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>();
@@ -90,7 +90,7 @@ namespace EasyShop.Services.CP.Rust.Dashboard
             return result;
         }
 
-        public Dictionary<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetOverTheLast90DaysStats(Guid shopId)
+        public Dictionary<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetOverTheLast90DaysStats()
         {
             Dictionary<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> result =
                 new Dictionary<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>();
@@ -113,7 +113,7 @@ namespace EasyShop.Services.CP.Rust.Dashboard
             return result;
         }
 
-        public Dictionary<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetOverTheLast180DaysStats(Guid shopId)
+        public Dictionary<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetOverTheLast180DaysStats()
         {
             Dictionary<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> result =
                 new Dictionary<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>();
@@ -136,7 +136,7 @@ namespace EasyShop.Services.CP.Rust.Dashboard
             return result;
         }
 
-        public Dictionary<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetOverTheLastYearStats(Guid shopId)
+        public Dictionary<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetOverTheLastYearStats()
         {
             Dictionary<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> result =
                 new Dictionary<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>();
@@ -281,7 +281,10 @@ namespace EasyShop.Services.CP.Rust.Dashboard
                 .Include(x => x.AppUser)
                 .Include(x => x.RustPurchasedItem.RustItem)
                 .Include(x => x.Shop)
-                .Where(x => x.RustPurchasedItem.PurchaseDateTime.Date > datePeriodAgo.Date && x.RustPurchasedItem.PurchaseDateTime.Date <= DateTime.Today.Date && x.AppUser == _user);
+                .Where(x =>
+                    x.RustPurchasedItem.PurchaseDateTime.Date > datePeriodAgo.Date &&
+                    x.RustPurchasedItem.PurchaseDateTime.Date <= DateTime.Today.Date
+                    && x.AppUser == _user);
 
             List<string> ordersDates = new List<string>();
             List<string> ordersValues = new List<string>();
@@ -310,7 +313,10 @@ namespace EasyShop.Services.CP.Rust.Dashboard
                 .Include(x => x.AppUser)
                 .Include(x => x.RustPurchasedItem.RustItem)
                 .Include(x => x.Shop)
-                .Where(x => x.RustPurchasedItem.PurchaseDateTime.Date > datePeriodAgo.Date && x.RustPurchasedItem.PurchaseDateTime.Date <= DateTime.Today.Date && x.AppUser == _user);
+                .Where(x =>
+                    x.RustPurchasedItem.PurchaseDateTime.Date > datePeriodAgo.Date &&
+                    x.RustPurchasedItem.PurchaseDateTime.Date <= DateTime.Today.Date
+                    && x.AppUser == _user);
 
             List<string> itemsSoldDates = new List<string>();
             List<string> itemsSoldValues = new List<string>();
@@ -345,7 +351,10 @@ namespace EasyShop.Services.CP.Rust.Dashboard
                 .Include(x => x.AppUser)
                 .Include(x => x.RustPurchasedItem.RustItem)
                 .Include(x => x.Shop)
-                .Where(x => x.RustPurchasedItem.PurchaseDateTime.Date > datePeriodAgo.Date && x.RustPurchasedItem.PurchaseDateTime.Date <= DateTime.Today.Date && x.AppUser == _user);
+                .Where(x =>
+                    x.RustPurchasedItem.PurchaseDateTime.Date > datePeriodAgo.Date &&
+                    x.RustPurchasedItem.PurchaseDateTime.Date <= DateTime.Today.Date
+                    && x.AppUser == _user);
 
             List<string> buyersDates = new List<string>();
             List<string> buyersValues = new List<string>();
@@ -376,7 +385,10 @@ namespace EasyShop.Services.CP.Rust.Dashboard
                 .Include(x => x.AppUser)
                 .Include(x => x.RustPurchasedItem.RustItem)
                 .Include(x => x.Shop)
-                .Where(x => x.RustPurchasedItem.PurchaseDateTime.Date > datePeriodAgo.Date && x.RustPurchasedItem.PurchaseDateTime.Date <= DateTime.Today.Date && x.AppUser == _user);
+                .Where(x =>
+                    x.RustPurchasedItem.PurchaseDateTime.Date > datePeriodAgo.Date &&
+                    x.RustPurchasedItem.PurchaseDateTime.Date <= DateTime.Today.Date
+                    && x.AppUser == _user);
 
             List<string> revenueOverviewDates = new List<string>();
             List<string> revenueOverviewValues = new List<string>();

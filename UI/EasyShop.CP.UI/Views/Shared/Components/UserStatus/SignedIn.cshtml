@@ -12,7 +12,7 @@
         <li><a href="#">Contact</a></li>
         <li>
             <div class="navbar-btn-group">
-                <a class="navbar-btn btn btn-outline-success btn-block" asp-area="" asp-controller="ControlPanel" asp-action="Dashboard" asp-route-userId="@UserManager.FindByEmailAsync(User.Identity.Name).Result.Id">Control panel</a>
+                <a class="navbar-btn btn btn-outline-success btn-block" asp-area="" asp-controller="ControlPanel" asp-action="Dashboard">Control panel</a>
             </div>
             <div class="navbar-btn-group">
                 <a class="navbar-btn btn btn-primary btn-block" asp-area="" asp-controller="Account" asp-action="LogOut">Sign out</a>

@@ -27,21 +27,16 @@ namespace EasyShop.CP.UI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Dashboard(string userId, DashBoardStatsPeriodEnum statsPeriod = DashBoardStatsPeriodEnum.Over_the_last_week)
+        public async Task<IActionResult> Dashboard(DashBoardStatsPeriodEnum statsPeriod = DashBoardStatsPeriodEnum.Over_the_last_week)
         {
-            var user = await _userManager.FindByIdAsync(userId);
-
-            if (user is null)
-                return RedirectToAction("NotFoundPage", "Home");
-
             var stats = statsPeriod switch
             {
-                DashBoardStatsPeriodEnum.Today => _dashBoardStatsService.GetTodayStats(Guid.Parse(userId)),
-                DashBoardStatsPeriodEnum.Over_the_last_week => _dashBoardStatsService.GetOverTheLastWeekStats(Guid.Parse(userId)),
-                DashBoardStatsPeriodEnum.Over_the_last_30_days => _dashBoardStatsService.GetOverTheLast30DaysStats(Guid.Parse(userId)),
-                DashBoardStatsPeriodEnum.Over_the_last_90_days => _dashBoardStatsService.GetOverTheLast90DaysStats(Guid.Parse(userId)),
-                DashBoardStatsPeriodEnum.Over_the_last_180_days => _dashBoardStatsService.GetOverTheLast180DaysStats(Guid.Parse(userId)),
-                DashBoardStatsPeriodEnum.Over_the_last_year => _dashBoardStatsService.GetOverTheLastYearStats(Guid.Parse(userId)),
+                DashBoardStatsPeriodEnum.Today => _dashBoardStatsService.GetTodayStats(),
+                DashBoardStatsPeriodEnum.Over_the_last_week => _dashBoardStatsService.GetOverTheLastWeekStats(),
+                DashBoardStatsPeriodEnum.Over_the_last_30_days => _dashBoardStatsService.GetOverTheLast30DaysStats(),
+                DashBoardStatsPeriodEnum.Over_the_last_90_days => _dashBoardStatsService.GetOverTheLast90DaysStats(),
+                DashBoardStatsPeriodEnum.Over_the_last_180_days => _dashBoardStatsService.GetOverTheLast180DaysStats(),
+                DashBoardStatsPeriodEnum.Over_the_last_year => _dashBoardStatsService.GetOverTheLastYearStats(),
             };
 
             var model = new DashBoardViewModel
