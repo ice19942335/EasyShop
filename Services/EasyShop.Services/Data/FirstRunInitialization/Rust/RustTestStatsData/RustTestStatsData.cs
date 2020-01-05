@@ -7,7 +7,6 @@ using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Entries.Rust;
 using EasyShop.Domain.Entries.Shop;
-using EasyShop.Domain.Enums.Rust;
 using EasyShop.Domain.ViewModels.Shop;
 using EasyShop.Interfaces.Services.CP.Rust.Data;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
@@ -26,10 +25,10 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData
         private readonly IRustDefaultCategoriesWithItemsService _rustDefaultCategoriesWithItemsService;
 
         public RustTestStatsData(
-            IShopManager shopManager, 
-            UserManager<AppUser> userManager, 
-            IRustShopService rustShopService, 
-            EasyShopContext context, 
+            IShopManager shopManager,
+            UserManager<AppUser> userManager,
+            IRustShopService rustShopService,
+            EasyShopContext context,
             IRustDefaultCategoriesWithItemsService rustDefaultCategoriesWithItemsService)
         {
             _shopManager = shopManager;
@@ -116,91 +115,43 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData
             var shop = _shopManager.GetShopById(shopId);
             var rustUser = await CreateDefaultRustUser();
 
-            DateTime dateNow = DateTime.Now;
-            DateTime dateWeekAgo = dateNow.AddDays(-7);
-            DateTime dateMonthAgo = dateNow.Subtract(TimeSpan.FromDays(31));
-            DateTime dateThreeMonthsAgo = dateNow.Subtract(TimeSpan.FromDays(92));
+            DateTime dateWeekAgo = DateTime.Now.Subtract(TimeSpan.FromDays(7));
+            DateTime dateMonthAgo = DateTime.Now.Subtract(TimeSpan.FromDays(31));
+            DateTime dateYearAgo = DateTime.Now.Subtract(TimeSpan.FromDays(365));
 
             Random rnd = new Random();
 
             for (int i = 0; i < 1000; i++)
             {
-                if (i < 100) //Last week
+                var rustPurchasedItem = new RustPurchasedItem
                 {
-                    var rustPurchasedItem = new RustPurchasedItem
-                    {
-                        Id = Guid.NewGuid(),
-                        RustUser = rustUser,
-                        RustItem = _context.RustItems.First(),
-                        HasBeenUsed = false,
-                        Amount = 1,
-                        PurchaseDateTime = dateWeekAgo.AddDays(rnd.Next(1, 6)),
-                        TotalPaid = 1
-                    };
+                    Id = Guid.NewGuid(),
+                    RustUser = rustUser,
+                    RustItem = _context.RustItems.First(),
+                    HasBeenUsed = false,
+                    Amount = rnd.Next(1, 3),
+                    TotalPaid = rnd.Next(1, 5),
+                };
 
-                    purchasedItemsList.Add(rustPurchasedItem);
+                if (i >= 0 && i < 50) //Last week
+                    rustPurchasedItem.PurchaseDateTime = dateWeekAgo.AddDays(rnd.Next(0, 7));
+                else if (i >= 50 && i < 200) //Last month
+                    rustPurchasedItem.PurchaseDateTime = dateMonthAgo.AddDays(rnd.Next(0, 24));
+                else if (i >= 200 && i < 1000) //Last three months
+                    rustPurchasedItem.PurchaseDateTime = dateYearAgo.AddDays(rnd.Next(0, 330));
 
-                    var rustPurchaseStats = new RustPurchaseStats
-                    {
-                        Id = Guid.NewGuid(),
-                        AppUser = user,
-                        RustPurchasedItem = rustPurchasedItem,
-                        Shop = shop
-                    };
 
-                    rustPurchaseStatsList.Add(rustPurchaseStats);
+                purchasedItemsList.Add(rustPurchasedItem);
 
-                }
-                else if (i < 400)//Last month
+                var rustPurchaseStats = new RustPurchaseStats
                 {
-                    var rustPurchasedItem = new RustPurchasedItem
-                    {
-                        Id = Guid.NewGuid(),
-                        RustUser = rustUser,
-                        RustItem = _context.RustItems.First(),
-                        HasBeenUsed = false,
-                        Amount = 1,
-                        PurchaseDateTime = dateMonthAgo.AddDays(rnd.Next(1, 22)),
-                        TotalPaid = 1
-                    };
+                    Id = Guid.NewGuid(),
+                    AppUser = user,
+                    RustPurchasedItem = rustPurchasedItem,
+                    Shop = shop
+                };
 
-                    purchasedItemsList.Add(rustPurchasedItem);
-
-                    var rustPurchaseStats = new RustPurchaseStats
-                    {
-                        Id = Guid.NewGuid(),
-                        AppUser = user,
-                        RustPurchasedItem = rustPurchasedItem,
-                        Shop = shop
-                    };
-
-                    rustPurchaseStatsList.Add(rustPurchaseStats);
-                }
-                else //Last three months
-                {
-                    var rustPurchasedItem = new RustPurchasedItem
-                    {
-                        Id = Guid.NewGuid(),
-                        RustUser = rustUser,
-                        RustItem = _context.RustItems.First(),
-                        HasBeenUsed = false,
-                        Amount = 1,
-                        PurchaseDateTime = dateThreeMonthsAgo.AddDays(rnd.Next(1, 58)),
-                        TotalPaid = 1
-                    };
-
-                    purchasedItemsList.Add(rustPurchasedItem);
-
-                    var rustPurchaseStats = new RustPurchaseStats
-                    {
-                        Id = Guid.NewGuid(),
-                        AppUser = user,
-                        RustPurchasedItem = rustPurchasedItem,
-                        Shop = shop
-                    };
-
-                    rustPurchaseStatsList.Add(rustPurchaseStats);
-                }
+                rustPurchaseStatsList.Add(rustPurchaseStats);
             }
 
             await _context.RustPurchasedItems.AddRangeAsync(purchasedItemsList);

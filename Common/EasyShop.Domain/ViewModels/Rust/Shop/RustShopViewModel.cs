@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using EasyShop.Domain.Enums.Rust;
+using EasyShop.Domain.Enums.CP.Rust;
 using EasyShop.Domain.ViewModels.Rust.Category;
 using EasyShop.Domain.ViewModels.Rust.Product;
 using EasyShop.Domain.ViewModels.Rust.Server;
@@ -14,18 +14,19 @@ namespace EasyShop.Domain.ViewModels.Rust.Shop
 
         public string ShopTitle { get; set; }
 
-        public RustShopStatsEnum StatsPeriod { get; set; } = RustShopStatsEnum.Last_week;
+        public RustShopStatsPeriodEnum StatsPeriod { get; set; } = RustShopStatsPeriodEnum.Over_the_last_week;
 
-        public List<RustShopStatsEnum> StatsPeriodList { get; set; } = new List<RustShopStatsEnum>
+        public List<RustShopStatsPeriodEnum> StatsPeriodList { get; set; } = new List<RustShopStatsPeriodEnum>
         {
-            RustShopStatsEnum.Today,
-            RustShopStatsEnum.Yesterday,
-            RustShopStatsEnum.Last_week,
-            RustShopStatsEnum.Last_month,
-            RustShopStatsEnum.Last_three_months,
-            RustShopStatsEnum.Last_six_months,
-            RustShopStatsEnum.Last_year
+            RustShopStatsPeriodEnum.Today,
+            RustShopStatsPeriodEnum.Over_the_last_week,
+            RustShopStatsPeriodEnum.Over_the_last_30_days,
+            RustShopStatsPeriodEnum.Over_the_last_90_days,
+            RustShopStatsPeriodEnum.Over_the_last_180_days,
+            RustShopStatsPeriodEnum.Over_the_last_year
         };
+
+        public Dictionary<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> Stats { get; set; }
 
         public RustShopEditMainSettingsViewModel RustShopEditMainSettingsViewModel { get; set; }
 

@@ -1,12 +1,14 @@
-﻿@using EasyShop.Domain.Enums.Rust
+﻿@using EasyShop.Domain.Enums.CP.Rust
 @using Microsoft.AspNetCore.Http
+@using Microsoft.EntityFrameworkCore.Internal
 @model EasyShop.Domain.ViewModels.Rust.Shop.RustShopViewModel
 @{
     ViewData["Title"] = "Rust shop";
     Layout = "Partial/_RustBaseLayout";
 
-    string selectOptions = string.Empty;
+    #region SelectPeriod
 
+    string selectOptions = string.Empty;
     foreach (var item in Model.StatsPeriodList)
     {
         if (item == Model.StatsPeriod)
@@ -18,7 +20,235 @@
             selectOptions += $@"<option value=""{item}"">{item.ToString().Replace("_", " ")}</option>";
         }
     }
+
+    #endregion SelectPeriod
+
+
+    #region RevenueDataVariables
+
+    KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> revenueData;
+    string revenueDates = string.Empty;
+    string revenueTotal = string.Empty;
+    string revenueValues = string.Empty;
+    Decimal revenueValuesMax = default;
+
+    #endregion RevenueDataVariables
+
+    #region OrdersDataVariables
+
+    KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> ordersData;
+    string ordersDates = string.Empty;
+    string ordersTotal = string.Empty;
+    string ordersValues = string.Empty;
+    int ordersValuesMax = 0;
+
+    #endregion OrdersDataVariables
+
+    #region SoldItemsVariables
+
+    KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> soldItemsData;
+    string soldItemsDates = string.Empty;
+    string soldItemsTotal = string.Empty;
+    string soldItemsValues = string.Empty;
+    int soldItemsValuesMax = 0;
+
+    #endregion SoldItemsVariables
+
+    #region BuyersVariables
+
+    KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> buyersData;
+    string buyersDates = string.Empty;
+    string buyersTotal = string.Empty;
+    string buyersValues = string.Empty;
+    int buyersValuesMax = 0;
+
+    #endregion BuyersVariables
+
+    #region RevenueOverviewVariables
+
+    KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> revenueOverviewData;
+    string revenueOverviewDates = string.Empty;
+    string revenueOverviewValues = string.Empty;
+    string revenueOverviewPreviousWeekValues = string.Empty;
+
+    #endregion RevenueOverviewVariables
+
+
+    #region RevenueOverviewDotDialogDisplayedTextLogic
+
+    var revenueOverviewDotDialogLast = Model.StatsPeriod switch
+    {
+        RustShopStatsPeriodEnum.Today => "",
+        RustShopStatsPeriodEnum.Over_the_last_week => "Last week",
+        RustShopStatsPeriodEnum.Over_the_last_30_days => "Last month",
+        RustShopStatsPeriodEnum.Over_the_last_90_days => "Last 90 days",
+        RustShopStatsPeriodEnum.Over_the_last_180_days => "Last 180 days",
+        RustShopStatsPeriodEnum.Over_the_last_year => "Last year",
+    };
+
+    var revenueOverviewDotDialogPrevious = Model.StatsPeriod switch
+    {
+        RustShopStatsPeriodEnum.Today => "",
+        RustShopStatsPeriodEnum.Over_the_last_week => "Previous week",
+        RustShopStatsPeriodEnum.Over_the_last_30_days => "Previous month",
+        RustShopStatsPeriodEnum.Over_the_last_90_days => "Previous 90 days",
+        RustShopStatsPeriodEnum.Over_the_last_180_days => "Previous 180 days",
+        RustShopStatsPeriodEnum.Over_the_last_year => "Previous year",
+    };
+
+    #endregion
+
+
+    #region VariablesInitializationLogic
+
+    if (Model.StatsPeriod == RustShopStatsPeriodEnum.Today)
+    {
+        revenueData = Model.Stats.First(x => x.Key == RustShopStatsUnitEnum.Revenue);
+        revenueTotal = revenueData.Value.Item2.First();
+
+        ordersData = Model.Stats.First(x => x.Key == RustShopStatsUnitEnum.Orders);
+        ordersTotal = ordersData.Value.Item2.First();
+
+        soldItemsData = Model.Stats.First(x => x.Key == RustShopStatsUnitEnum.ItemsSold);
+        soldItemsTotal = soldItemsData.Value.Item2.First();
+
+        buyersData = Model.Stats.First(x => x.Key == RustShopStatsUnitEnum.Buyers);
+        buyersTotal = buyersData.Value.Item2.First();
+    }
+    else
+    {
+        #region RevenueData
+
+        revenueData = Model.Stats.FirstOrDefault(x => x.Key == RustShopStatsUnitEnum.Revenue);
+        revenueTotal = revenueData.Value.Item2.Select(x => Decimal.Parse(x)).Sum().ToString();
+        revenueValues = string.Join(", ", revenueData.Value.Item2);
+        revenueValuesMax = revenueData.Value.Item2.Select(x => Decimal.Parse(x)).Max();
+        var tenPercentsFromRevenueValuesMax = revenueValuesMax / 100 * 10 > 0 ? revenueValuesMax / 100 * 10 : 1;
+        revenueValuesMax += tenPercentsFromRevenueValuesMax;
+
+        for (int i = 0; i < revenueData.Value.Item1.Count(); i++)
+        {
+            string item = revenueData.Value.Item1.ElementAt(i);
+
+            if (i != revenueData.Value.Item1.Count() - 1)
+            {
+                revenueDates += $"\"{item}\", ";
+            }
+            else
+            {
+                revenueDates += $"\"{item}\"";
+            }
+        }
+
+        #endregion RevenueData
+
+        #region OrdersData
+
+        ordersData = Model.Stats.FirstOrDefault(x => x.Key == RustShopStatsUnitEnum.Orders);
+        ordersDates = string.Empty;
+        ordersTotal = ordersData.Value.Item2.Select(x => Int32.Parse(x)).Sum().ToString();
+        ordersValues = string.Join(", ", ordersData.Value.Item2);
+        ordersValuesMax = ordersData.Value.Item2.Select(x => Int32.Parse(x)).Max();
+        int tenPercentsFromOrdersValuesMax = (ordersValuesMax / 100 * 10) > 0 ? ordersValuesMax / 100 * 10 : 1;
+        ordersValuesMax += tenPercentsFromOrdersValuesMax;
+
+        for (int i = 0; i < ordersData.Value.Item1.Count(); i++)
+        {
+            string item = ordersData.Value.Item1.ElementAt(i);
+
+            if (i != ordersData.Value.Item1.Count() - 1)
+            {
+                ordersDates += $"\"{item}\", ";
+            }
+            else
+            {
+                ordersDates += $"\"{item}\"";
+            }
+        }
+
+        #endregion OrdersData
+
+        #region SoldItems
+
+        soldItemsData = Model.Stats.FirstOrDefault(x => x.Key == RustShopStatsUnitEnum.ItemsSold);
+        soldItemsDates = string.Empty;
+        soldItemsTotal = soldItemsData.Value.Item2.Select(x => Int32.Parse(x)).Sum().ToString();
+        soldItemsValues = string.Join(", ", soldItemsData.Value.Item2);
+        soldItemsValuesMax = soldItemsData.Value.Item2.Select(x => Int32.Parse(x)).Max();
+        int tenPercentsFromSoldItemsValuesMax = (soldItemsValuesMax / 100 * 10) > 0 ? soldItemsValuesMax / 100 * 10 : 1;
+        soldItemsValuesMax += tenPercentsFromSoldItemsValuesMax;
+
+        for (int i = 0; i < soldItemsData.Value.Item1.Count(); i++)
+        {
+            string item = soldItemsData.Value.Item1.ElementAt(i);
+
+            if (i != soldItemsData.Value.Item1.Count() - 1)
+            {
+                soldItemsDates += $"\"{item}\", ";
+            }
+            else
+            {
+                soldItemsDates += $"\"{item}\"";
+            }
+        }
+
+        #endregion SoldItems
+
+        #region Buyers
+
+        buyersData = Model.Stats.FirstOrDefault(x => x.Key == RustShopStatsUnitEnum.Buyers);
+        buyersDates = string.Empty;
+        buyersTotal = buyersData.Value.Item2.Select(x => Int32.Parse(x)).ToList().Distinct().Sum().ToString();
+        buyersValues = string.Join(", ", buyersData.Value.Item2);
+        buyersValuesMax = buyersData.Value.Item2.Select(x => Int32.Parse(x)).Max();
+        int tenPercentsFromBuyersValuesMax = (buyersValuesMax / 100 * 10) > 0 ? buyersValuesMax / 100 * 10 : 1;
+        buyersValuesMax += tenPercentsFromBuyersValuesMax;
+
+        for (int i = 0; i < buyersData.Value.Item1.Count(); i++)
+        {
+            string item = buyersData.Value.Item1.ElementAt(i);
+
+            if (i != buyersData.Value.Item1.Count() - 1)
+            {
+                buyersDates += $"\"{item}\", ";
+            }
+            else
+            {
+                buyersDates += $"\"{item}\"";
+            }
+        }
+
+        #endregion Buyers
+
+        #region Revenue Overview
+
+        revenueOverviewData = Model.Stats.FirstOrDefault(x => x.Key == RustShopStatsUnitEnum.RevenueOverview);
+        revenueOverviewDates = string.Empty;
+        revenueOverviewValues = string.Join(", ", revenueOverviewData.Value.Item2);
+        revenueOverviewPreviousWeekValues = string.Join(", ", revenueOverviewData.Value.Item3);
+
+        for (int i = 0; i < revenueOverviewData.Value.Item1.Count(); i++)
+        {
+            string item = revenueOverviewData.Value.Item1.ElementAt(i);
+
+            if (i != revenueOverviewData.Value.Item1.Count() - 1)
+            {
+                revenueOverviewDates += $"\"{item}\", ";
+            }
+            else
+            {
+                revenueOverviewDates += $"\"{item}\"";
+            }
+        }
+
+        #endregion Revenue Overview
+    }
+
+    #endregion
+
 }
+
+
 
 <div class="row">
     <div class="col-xs-2 col-xs-offset-10 m-b-md">
@@ -33,21 +263,22 @@
         </div>
     </div>
 </div>
+
 <div class="row gutter-xs">
     <div class="col-xs-6 col-md-3">
         <div class="card">
             <div class="card-values">
                 <div class="p-x">
                     <small>Revenue</small>
-                    <h3 class="card-title fw-l">185,118</h3>
+                    <h3 class="card-title fw-l"><span class="icon icon-dollar"></span> @revenueTotal</h3>
                 </div>
             </div>
             <div class="card-chart">
                 <canvas data-chart="line"
                         data-animation="false"
-                        data-labels='["Jun 21", "Jun 20", "Jun 19", "Jun 18", "Jun 17", "Jun 16", "Jun 15"]'
-                        data-values='[{"backgroundColor": "rgba(255, 255, 255, 0.1)", "borderColor": "#00aced", "data": [32327, 23370, 25568, 28961, 26762, 30072, 25135]}]'
-                        data-scales='{"yAxes": [{ "ticks": {"max": 32327}}]}'
+                        data-labels='[@revenueDates]'
+                        data-values='[{"backgroundColor": "rgba(255, 255, 255, 0.1)", "borderColor": "#00aced", "data": [@revenueValues]}]'
+                        data-scales='{"yAxes": [{ "ticks": {"max": @revenueValuesMax}}]}'
                         data-hide='["legend", "points", "scalesX", "scalesY", "tooltips"]'
                         height="35"></canvas>
             </div>
@@ -58,15 +289,15 @@
             <div class="card-values">
                 <div class="p-x">
                     <small>Orders</small>
-                    <h3 class="card-title fw-l">68,494</h3>
+                    <h3 class="card-title fw-l"><span class="icon icon-shopping-bag"></span> @ordersTotal</h3>
                 </div>
             </div>
             <div class="card-chart">
                 <canvas data-chart="line"
                         data-animation="false"
-                        data-labels='["Jun 21", "Jun 20", "Jun 19", "Jun 18", "Jun 17", "Jun 16", "Jun 15"]'
-                        data-values='[{"backgroundColor": "rgba(255, 255, 255, 0.1)", "borderColor": "#00aced", "data": [8796, 11317, 8678, 9452, 8453, 11853, 9945]}]'
-                        data-scales='{"yAxes": [{ "ticks": {"max": 12742}}]}'
+                        data-labels='[@ordersDates]'
+                        data-values='[{"backgroundColor": "rgba(255, 255, 255, 0.1)", "borderColor": "#00aced", "data": [@ordersValues]}]'
+                        data-scales='{"yAxes": [{ "ticks": {"max": @ordersValuesMax}}]}'
                         data-hide='["legend", "points", "scalesX", "scalesY", "tooltips"]'
                         height="35"></canvas>
             </div>
@@ -76,16 +307,16 @@
         <div class="card">
             <div class="card-values">
                 <div class="p-x">
-                    <small>Items Sold</small>
-                    <h3 class="card-title fw-l">925,590</h3>
+                    <small>Items</small>
+                    <h3 class="card-title fw-l"><span class="icon icon-check-circle"></span> @soldItemsTotal</h3>
                 </div>
             </div>
             <div class="card-chart">
                 <canvas data-chart="line"
                         data-animation="false"
-                        data-labels='["Jun 21", "Jun 20", "Jun 19", "Jun 18", "Jun 17", "Jun 16", "Jun 15"]'
-                        data-values='[{"backgroundColor": "rgba(255, 255, 255, 0.1)", "borderColor": "#00aced", "data": [116196, 145160, 124419, 147004, 134740, 120846, 137225]}]'
-                        data-scales='{"yAxes": [{ "ticks": {"max": 158029}}]}'
+                        data-labels='[@soldItemsDates]'
+                        data-values='[{"backgroundColor": "rgba(255, 255, 255, 0.1)", "borderColor": "#00aced", "data": [@soldItemsValues]}]'
+                        data-scales='{"yAxes": [{ "ticks": {"max": @soldItemsValuesMax}}]}'
                         data-hide='["legend", "points", "scalesX", "scalesY", "tooltips"]'
                         height="35"></canvas>
             </div>
@@ -96,47 +327,66 @@
             <div class="card-values">
                 <div class="p-x">
                     <small>Buyers</small>
-                    <h3 class="card-title fw-l">00:07:56</h3>
+                    <h3 class="card-title fw-l"><span class="icon icon-group"></span> @buyersTotal</h3>
                 </div>
             </div>
             <div class="card-chart">
                 <canvas data-chart="line"
                         data-animation="false"
-                        data-labels='["Jun 21", "Jun 20", "Jun 19", "Jun 18", "Jun 17", "Jun 16", "Jun 15"]'
-                        data-values='[{"backgroundColor": "rgba(255, 255, 255, 0.1)", "borderColor": "#00aced", "data": [13590442, 12362934, 13639564, 13055677, 12915203, 11009940, 11542408]}]'
-                        data-scales='{"yAxes": [{ "ticks": {"max": 14662531}}]}'
+                        data-labels='[@buyersDates]'
+                        data-values='[{"backgroundColor": "rgba(255, 255, 255, 0.1)", "borderColor": "#00aced", "data": [@buyersValues]}]'
+                        data-scales='{"yAxes": [{ "ticks": {"max": @buyersValuesMax}}]}'
                         data-hide='["legend", "points", "scalesX", "scalesY", "tooltips"]'
                         height="35"></canvas>
             </div>
         </div>
     </div>
 </div>
-<div class="row gutter-xs">
-    <div class="col-lg-6">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">Revenue Overview</h4>
-            </div>
-            <div class="card-body">
-                <div class="card-chart">
-                    <canvas data-chart="line" data-animation="false" data-labels='["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]' data-values='[{"label": "This week", "backgroundColor": "transparent", "borderColor": "#00aced", "pointBackgroundColor": "#00aced", "data": [29432, 20314, 17665, 22162, 31194, 35053, 29298]}, {"label": "Last week", "backgroundColor": "transparent", "borderColor": "#75ac00", "pointBackgroundColor": "#75ac00", "data": [9956, 22607, 30963, 22668, 16338, 22222, 39238]}]' data-tooltips='{"mode": "label"}' data-hide='["gridLinesX", "legend"]' height="150"></canvas>
+
+@if (Model.StatsPeriod != RustShopStatsPeriodEnum.Today)
+{
+    <div class="row gutter-xs">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Revenue Overview</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-chart">
+                        <canvas data-chart="line"
+                                data-animation="false"
+                                data-labels='[@revenueOverviewDates]'
+                                data-values='[
+                            {
+                                "label": "@revenueOverviewDotDialogLast $",
+                                "backgroundColor": "transparent",
+                                "borderColor": "#00aced",
+                                "pointBackgroundColor": "#00aced",
+                                "data": [@revenueOverviewValues]
+                            },
+                            {
+                                "label": "@revenueOverviewDotDialogPrevious $",
+                                "backgroundColor": "transparent",
+                                "borderColor": "#75ac00",
+                                "pointBackgroundColor": "#75ac00",
+                                "data": [@revenueOverviewPreviousWeekValues]
+                            }]'
+                                data-tooltips='{"mode": "label"}'
+                                data-hide='["gridLinesX", "legend"]'
+                                height="150"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-lg-6">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">Unique visits overview</h4>
-            </div>
-            <div class="card-body">
-                <div class="card-chart">
-                    <canvas data-chart="bar" data-animation="false" data-labels='["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]' data-values='[{"label": "This week", "backgroundColor": "#00aced", "borderColor": "#00aced", "data": [3089, 2132, 1854, 2326, 3274, 3679, 3075]}, {"label": "Last week", "backgroundColor": "#75ac00", "borderColor": "#75ac00", "data": [983, 2232, 3057, 2238, 1613, 2194, 11980]}]' data-tooltips='{"mode": "label"}' data-hide='["gridLinesX", "legend"]' height="150"></canvas>
-                </div>
-            </div>
-        </div>
+}
+else
+{
+    <div class="well text-center">
+        <span class="icon icon-area-chart icon-lg"></span> The graph can be seen starting with weekly statistics.
     </div>
-</div>
+}
+
 
 @section Scripts
 {

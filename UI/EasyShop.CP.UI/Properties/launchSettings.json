@@ -11,9 +11,8 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "https://localhost:44374/RustShop/ShopStats?shopId=f234d18b-e288-412a-82ea-966da58b471f",
+      "launchUrl": "https://localhost:44374/ControlPanel/Dashboard",
       "environmentVariables": {
-        "SENDGRID_API_KEY": "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",
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },

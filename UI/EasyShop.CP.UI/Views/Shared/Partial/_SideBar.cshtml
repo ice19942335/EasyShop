@@ -3,7 +3,7 @@
     <div class="layout-sidebar-body">
         <div class="custom-scrollbar">
             <nav id="sidenav" class="sidenav-collapse collapse">
-                <ul class="sidenav">
+                <ul id="controlPanelSideNavigation" class="sidenav">
                     <li class="sidenav-heading">Menu</li>
                     <li class="sidenav-item">
                         <a asp-area="" asp-controller="ControlPanel" asp-action="Dashboard">
@@ -17,3 +17,5 @@
         </div>
     </div>
 </div>
+
+<script src="~/js/customScripts/CP/ControlPanelSideNavigationActiveLink.js" asp-append-version="true"></script>

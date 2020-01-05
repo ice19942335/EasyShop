@@ -1,5 +1,5 @@
-﻿@using EasyShop.Domain.Enums.Rust
-@using EasyShop.Domain.Enums.Rust.RedirectEnums
+﻿@using EasyShop.Domain.Enums.CP.Rust
+@using EasyShop.Domain.Enums.CP.Rust.RedirectEnums
 @model EasyShop.Domain.ViewModels.Rust.Shop.RustShopViewModel
 @{
     ViewData["Title"] = "Edit Rust shop";
@@ -107,7 +107,7 @@
             toastr.success('Security key has been updated!');
         </script>
     }
-    else if (Model.RustShopEditMainSettingsViewModel.Status == RustEditMainSettingsResult.KategoriesReseted)
+    else if (Model.RustShopEditMainSettingsViewModel.Status == RustEditMainSettingsResult.CategoriesReseted)
     {
         <script>
             toastr.success('Categories and products have been reset!');

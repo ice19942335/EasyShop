@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Identity;
-using EasyShop.Domain.Enums.Rust;
-using EasyShop.Domain.Enums.Rust.RedirectEnums;
+using EasyShop.Domain.Enums.CP.Rust;
+using EasyShop.Domain.Enums.CP.Rust.RedirectEnums;
 using EasyShop.Domain.ViewModels.Rust.Category;
 using EasyShop.Domain.ViewModels.Rust.Product;
 using EasyShop.Domain.ViewModels.Rust.Server;
@@ -26,34 +27,48 @@ namespace EasyShop.CP.UI.Controllers
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IRustServerService _rustServerService;
         private readonly UserManager<AppUser> _userManager;
+        private readonly IRustShopStatsService _rustShopStatsService;
 
         public RustShopController(
             IShopManager shopManager,
             IRustShopService rustShopService,
             IHttpContextAccessor httpContextAccessor,
             IRustServerService rustServerService,
-            UserManager<AppUser> userManager)
+            UserManager<AppUser> userManager,
+            IRustShopStatsService rustShopStatsService)
         {
             _shopManager = shopManager;
             _rustShopService = rustShopService;
             _httpContextAccessor = httpContextAccessor;
             _rustServerService = rustServerService;
             _userManager = userManager;
+            _rustShopStatsService = rustShopStatsService;
         }
 
 
         #region Shop statis
 
         [HttpGet]
-        public IActionResult ShopStats(string shopId, RustShopStatsEnum statsPeriod = RustShopStatsEnum.Last_week)
+        public IActionResult ShopStats(string shopId, RustShopStatsPeriodEnum statsPeriod = RustShopStatsPeriodEnum.Over_the_last_week)
         {
             var shop = _shopManager.GetShopById(Guid.Parse(shopId));
 
             if (shop is null)
                 return RedirectToAction("NotFoundPage", "Home");
 
+            var stats = statsPeriod switch
+            {
+                RustShopStatsPeriodEnum.Today => _rustShopStatsService.GetTodayStats(Guid.Parse(shopId)),
+                RustShopStatsPeriodEnum.Over_the_last_week => _rustShopStatsService.GetOverTheLastWeekStats(Guid.Parse(shopId)),
+                RustShopStatsPeriodEnum.Over_the_last_30_days => _rustShopStatsService.GetOverTheLast30DaysStats(Guid.Parse(shopId)),
+                RustShopStatsPeriodEnum.Over_the_last_90_days => _rustShopStatsService.GetOverTheLast90DaysStats(Guid.Parse(shopId)),
+                RustShopStatsPeriodEnum.Over_the_last_180_days => _rustShopStatsService.GetOverTheLast180DaysStats(Guid.Parse(shopId)),
+                RustShopStatsPeriodEnum.Over_the_last_year => _rustShopStatsService.GetOverTheLastYearStats(Guid.Parse(shopId)),
+            };
+
             var model = shop.CreateRustShopViewModel();
             model.StatsPeriod = statsPeriod;
+            model.Stats = stats;
 
             return View(model);
         }
@@ -231,7 +246,7 @@ namespace EasyShop.CP.UI.Controllers
                 return RedirectToAction("SomethingWentWrong", "ControlPanel");
 
             var model = shop.CreateRustShopViewModel();
-            model.RustShopEditMainSettingsViewModel.Status = RustEditMainSettingsResult.KategoriesReseted;
+            model.RustShopEditMainSettingsViewModel.Status = RustEditMainSettingsResult.CategoriesReseted;
 
             if (redirectTo == RustSetDefaultCategoriesAndProductsRedirect.Categories)
                 return RedirectToAction("CategoriesManager", "RustShop", new { shopId = model.Id });
@@ -421,6 +436,7 @@ namespace EasyShop.CP.UI.Controllers
 
                 model.RustServerEditViewModel.Status = RustEditServerResult.Failed;
                 model.RustServerEditViewModel.MapsDict = _rustServerService.GetAllMaps();
+                model.RustServerEditViewModel.IsNewServer = true;
                 return View(model);
             }
 
