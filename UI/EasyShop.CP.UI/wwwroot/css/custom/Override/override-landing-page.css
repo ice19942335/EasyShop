@@ -1,0 +1,15 @@
+﻿.navbar-btn-group {
+    display: inline-block;
+}
+
+@media(max-width: 767px) {
+    .navbar-btn-group {
+        display: flex;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .navbar-header {
+        display: none;
+    }
+}

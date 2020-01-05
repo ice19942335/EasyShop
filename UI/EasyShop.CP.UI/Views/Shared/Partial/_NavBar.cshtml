@@ -2,7 +2,7 @@
     <div class="navbar navbar-default">
         <div class="navbar-header">
             <a class="navbar-brand navbar-brand-center" asp-area="" asp-controller="Home" asp-action="Index">
-                <img class="navbar-brand-logo" src="~/img/LogoName.png" alt="Elephant">
+                <img class="navbar-brand-logo" src="~/img/LogoName.png" alt="LogoName.png">
             </a>
             <button class="navbar-toggler visible-xs-block collapsed" type="button" data-toggle="collapse" data-target="#sidenav">
                 <span class="sr-only">Toggle navigation</span>
@@ -44,3 +44,13 @@
         </div>
     </div>
 </div>
+
+@section Styles
+{
+    @RenderSection("Styles", false)
+}
+
+@section Scripts
+{
+    @RenderSection("Scripts", false)
+}
