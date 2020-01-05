@@ -29,16 +29,16 @@ namespace EasyShop.Services.CP.Rust.Shop
             Dictionary<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> result =
                 new Dictionary<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>();
 
-            var revenueData = GetRevenueDailyStats();
+            var revenueData = GetRevenueDailyStats(shopId);
             result.Add(revenueData.Key, revenueData.Value);
 
-            var ordersData = GetOrdersDailyStats();
+            var ordersData = GetOrdersDailyStats(shopId);
             result.Add(ordersData.Key, ordersData.Value);
 
-            var itemsSoldData = GetSoldItemsDailyStats();
+            var itemsSoldData = GetSoldItemsDailyStats(shopId);
             result.Add(itemsSoldData.Key, itemsSoldData.Value);
 
-            var buyersData = GetBuyersDailyStats();
+            var buyersData = GetBuyersDailyStats(shopId);
             result.Add(buyersData.Key, buyersData.Value);
 
             return result;
@@ -49,19 +49,19 @@ namespace EasyShop.Services.CP.Rust.Shop
             Dictionary<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> result =
                 new Dictionary<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>();
 
-            var revenueData = GetRevenueStats(7);
+            var revenueData = GetRevenueStats(shopId, 7);
             result.Add(revenueData.Key, revenueData.Value);
 
-            var ordersData = GetOrdersStats(7);
+            var ordersData = GetOrdersStats(shopId, 7);
             result.Add(ordersData.Key, ordersData.Value);
 
-            var itemsSoldData = GetSoldItemsStats(7);
+            var itemsSoldData = GetSoldItemsStats(shopId, 7);
             result.Add(itemsSoldData.Key, itemsSoldData.Value);
 
-            var buyersData = GetBuyersStats(7);
+            var buyersData = GetBuyersStats(shopId, 7);
             result.Add(buyersData.Key, buyersData.Value);
 
-            var revenueOverviewData = GetRevenueOverviewStats(7);
+            var revenueOverviewData = GetRevenueOverviewStats(shopId, 7);
             result.Add(revenueOverviewData.Key, revenueOverviewData.Value);
 
             return result;
@@ -72,19 +72,19 @@ namespace EasyShop.Services.CP.Rust.Shop
             Dictionary<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> result =
                 new Dictionary<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>();
 
-            var revenueData = GetRevenueStats(30);
+            var revenueData = GetRevenueStats(shopId, 30);
             result.Add(revenueData.Key, revenueData.Value);
 
-            var ordersData = GetOrdersStats(30);
+            var ordersData = GetOrdersStats(shopId, 30);
             result.Add(ordersData.Key, ordersData.Value);
 
-            var itemsSoldData = GetSoldItemsStats(30);
+            var itemsSoldData = GetSoldItemsStats(shopId, 30);
             result.Add(itemsSoldData.Key, itemsSoldData.Value);
 
-            var buyersData = GetBuyersStats(30);
+            var buyersData = GetBuyersStats(shopId, 30);
             result.Add(buyersData.Key, buyersData.Value);
 
-            var revenueOverviewData = GetRevenueOverviewStats(30);
+            var revenueOverviewData = GetRevenueOverviewStats(shopId, 30);
             result.Add(revenueOverviewData.Key, revenueOverviewData.Value);
 
             return result;
@@ -95,19 +95,19 @@ namespace EasyShop.Services.CP.Rust.Shop
             Dictionary<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> result =
                 new Dictionary<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>();
 
-            var revenueData = GetRevenueStats(90);
+            var revenueData = GetRevenueStats(shopId, 90);
             result.Add(revenueData.Key, revenueData.Value);
 
-            var ordersData = GetOrdersStats(90);
+            var ordersData = GetOrdersStats(shopId, 90);
             result.Add(ordersData.Key, ordersData.Value);
 
-            var itemsSoldData = GetSoldItemsStats(90);
+            var itemsSoldData = GetSoldItemsStats(shopId, 90);
             result.Add(itemsSoldData.Key, itemsSoldData.Value);
 
-            var buyersData = GetBuyersStats(90);
+            var buyersData = GetBuyersStats(shopId, 90);
             result.Add(buyersData.Key, buyersData.Value);
 
-            var revenueOverviewData = GetRevenueOverviewStats(90);
+            var revenueOverviewData = GetRevenueOverviewStats(shopId, 90);
             result.Add(revenueOverviewData.Key, revenueOverviewData.Value);
 
             return result;
@@ -118,19 +118,19 @@ namespace EasyShop.Services.CP.Rust.Shop
             Dictionary<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> result =
                 new Dictionary<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>();
 
-            var revenueData = GetRevenueStats(180);
+            var revenueData = GetRevenueStats(shopId, 180);
             result.Add(revenueData.Key, revenueData.Value);
 
-            var ordersData = GetOrdersStats(180);
+            var ordersData = GetOrdersStats(shopId, 180);
             result.Add(ordersData.Key, ordersData.Value);
 
-            var itemsSoldData = GetSoldItemsStats(180);
+            var itemsSoldData = GetSoldItemsStats(shopId, 180);
             result.Add(itemsSoldData.Key, itemsSoldData.Value);
 
-            var buyersData = GetBuyersStats(180);
+            var buyersData = GetBuyersStats(shopId, 180);
             result.Add(buyersData.Key, buyersData.Value);
 
-            var revenueOverviewData = GetRevenueOverviewStats(180);
+            var revenueOverviewData = GetRevenueOverviewStats(shopId, 180);
             result.Add(revenueOverviewData.Key, revenueOverviewData.Value);
 
             return result;
@@ -141,19 +141,19 @@ namespace EasyShop.Services.CP.Rust.Shop
             Dictionary<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> result =
                 new Dictionary<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>();
 
-            var revenueData = GetRevenueStats(360);
+            var revenueData = GetRevenueStats(shopId, 360);
             result.Add(revenueData.Key, revenueData.Value);
 
-            var ordersData = GetOrdersStats(360);
+            var ordersData = GetOrdersStats(shopId, 360);
             result.Add(ordersData.Key, ordersData.Value);
 
-            var itemsSoldData = GetSoldItemsStats(360);
+            var itemsSoldData = GetSoldItemsStats(shopId, 360);
             result.Add(itemsSoldData.Key, itemsSoldData.Value);
 
-            var buyersData = GetBuyersStats(360);
+            var buyersData = GetBuyersStats(shopId, 360);
             result.Add(buyersData.Key, buyersData.Value);
 
-            var revenueOverviewData = GetRevenueOverviewStats(360);
+            var revenueOverviewData = GetRevenueOverviewStats(shopId, 360);
             result.Add(revenueOverviewData.Key, revenueOverviewData.Value);
 
             return result;
@@ -162,13 +162,13 @@ namespace EasyShop.Services.CP.Rust.Shop
 
         #region DailyStats
 
-        private KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetRevenueDailyStats()
+        private KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetRevenueDailyStats(Guid shopId)
         {
             var rustPurchaseStats = _context.RustPurchaseStats
                 .Include(x => x.AppUser)
                 .Include(x => x.RustPurchasedItem.RustItem)
                 .Include(x => x.Shop)
-                .Where(x => x.RustPurchasedItem.PurchaseDateTime.Date == DateTime.Today.Date && x.AppUser == _user);
+                .Where(x => x.RustPurchasedItem.PurchaseDateTime.Date == DateTime.Today.Date && x.AppUser == _user && x.Shop.Id == shopId);
 
             List<string> revenueDates = new List<string>();
             List<string> revenueValues = new List<string>();
@@ -179,13 +179,13 @@ namespace EasyShop.Services.CP.Rust.Shop
             return new KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>(RustShopStatsUnitEnum.Revenue, (revenueDates, revenueValues, revenueEmpty));
         }
 
-        private KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetOrdersDailyStats()
+        private KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetOrdersDailyStats(Guid shopId)
         {
             var rustPurchaseStats = _context.RustPurchaseStats
                 .Include(x => x.AppUser)
                 .Include(x => x.RustPurchasedItem.RustItem)
                 .Include(x => x.Shop)
-                .Where(x => x.RustPurchasedItem.PurchaseDateTime.Date == DateTime.Today.Date && x.AppUser == _user);
+                .Where(x => x.RustPurchasedItem.PurchaseDateTime.Date == DateTime.Today.Date && x.AppUser == _user && x.Shop.Id == shopId);
 
             List<string> ordersDates = new List<string>();
             List<string> ordersValues = new List<string>();
@@ -196,13 +196,13 @@ namespace EasyShop.Services.CP.Rust.Shop
             return new KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>(RustShopStatsUnitEnum.Orders, (ordersDates, ordersValues, ordersEmpty));
         }
 
-        private KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetSoldItemsDailyStats()
+        private KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetSoldItemsDailyStats(Guid shopId)
         {
             var rustPurchaseStats = _context.RustPurchaseStats
                 .Include(x => x.AppUser)
                 .Include(x => x.RustPurchasedItem.RustItem)
                 .Include(x => x.Shop)
-                .Where(x => x.RustPurchasedItem.PurchaseDateTime.Date == DateTime.Today.Date && x.AppUser == _user);
+                .Where(x => x.RustPurchasedItem.PurchaseDateTime.Date == DateTime.Today.Date && x.AppUser == _user && x.Shop.Id == shopId);
 
             List<string> itemsSoldDates = new List<string>();
             List<string> itemsSoldValues = new List<string>();
@@ -213,13 +213,13 @@ namespace EasyShop.Services.CP.Rust.Shop
             return new KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>(RustShopStatsUnitEnum.ItemsSold, (itemsSoldDates, itemsSoldValues, itemsSoldEmpty));
         }
 
-        private KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetBuyersDailyStats()
+        private KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetBuyersDailyStats(Guid shopId)
         {
             var rustPurchaseStats = _context.RustPurchaseStats
                 .Include(x => x.AppUser)
                 .Include(x => x.RustPurchasedItem.RustItem)
                 .Include(x => x.Shop)
-                .Where(x => x.RustPurchasedItem.PurchaseDateTime.Date == DateTime.Today.Date && x.AppUser == _user);
+                .Where(x => x.RustPurchasedItem.PurchaseDateTime.Date == DateTime.Today.Date && x.AppUser == _user && x.Shop.Id == shopId);
 
             List<string> buyersDates = new List<string>();
             List<string> buyersValues = new List<string>();
@@ -239,7 +239,7 @@ namespace EasyShop.Services.CP.Rust.Shop
 
         #region StatsByPeriod
 
-        private KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetRevenueStats(int daysPeriod)
+        private KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetRevenueStats(Guid shopId, int daysPeriod)
         {
             DateTime datePeriodAgo = DateTime.Today.Subtract(TimeSpan.FromDays(daysPeriod));
             var rustPurchaseStats = _context.RustPurchaseStats
@@ -249,7 +249,7 @@ namespace EasyShop.Services.CP.Rust.Shop
                 .Where(x =>
                     x.RustPurchasedItem.PurchaseDateTime.Date > datePeriodAgo.Date &&
                     x.RustPurchasedItem.PurchaseDateTime.Date <= DateTime.Today.Date
-                    && x.AppUser == _user);
+                    && x.AppUser == _user && x.Shop.Id == shopId);
 
             List<string> revenueDates = new List<string>();
             List<string> revenueValues = new List<string>();
@@ -274,14 +274,18 @@ namespace EasyShop.Services.CP.Rust.Shop
             return new KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>(RustShopStatsUnitEnum.Revenue, (revenueDates, revenueValues, revenueEmpty));
         }
 
-        private KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetOrdersStats(int daysPeriod)
+        private KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetOrdersStats(Guid shopId, int daysPeriod)
         {
             DateTime datePeriodAgo = DateTime.Today.Subtract(TimeSpan.FromDays(daysPeriod));
             var rustPurchaseStats = _context.RustPurchaseStats
                 .Include(x => x.AppUser)
                 .Include(x => x.RustPurchasedItem.RustItem)
                 .Include(x => x.Shop)
-                .Where(x => x.RustPurchasedItem.PurchaseDateTime.Date > datePeriodAgo.Date && x.RustPurchasedItem.PurchaseDateTime.Date <= DateTime.Today.Date && x.AppUser == _user);
+                .Where(x => 
+                    x.RustPurchasedItem.PurchaseDateTime.Date > datePeriodAgo.Date && 
+                    x.RustPurchasedItem.PurchaseDateTime.Date <= DateTime.Today.Date && 
+                    x.AppUser == _user &&
+                    x.Shop.Id == shopId);
 
             List<string> ordersDates = new List<string>();
             List<string> ordersValues = new List<string>();
@@ -303,14 +307,18 @@ namespace EasyShop.Services.CP.Rust.Shop
             return new KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>(RustShopStatsUnitEnum.Orders, (ordersDates, ordersValues, ordersEmpty));
         }
 
-        private KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetSoldItemsStats(int daysPeriod)
+        private KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetSoldItemsStats(Guid shopId, int daysPeriod)
         {
             DateTime datePeriodAgo = DateTime.Today.Subtract(TimeSpan.FromDays(daysPeriod));
             var rustPurchaseStats = _context.RustPurchaseStats
                 .Include(x => x.AppUser)
                 .Include(x => x.RustPurchasedItem.RustItem)
                 .Include(x => x.Shop)
-                .Where(x => x.RustPurchasedItem.PurchaseDateTime.Date > datePeriodAgo.Date && x.RustPurchasedItem.PurchaseDateTime.Date <= DateTime.Today.Date && x.AppUser == _user);
+                .Where(x => 
+                    x.RustPurchasedItem.PurchaseDateTime.Date > datePeriodAgo.Date && 
+                    x.RustPurchasedItem.PurchaseDateTime.Date <= DateTime.Today.Date && 
+                    x.AppUser == _user &&
+                    x.Shop.Id == shopId);
 
             List<string> itemsSoldDates = new List<string>();
             List<string> itemsSoldValues = new List<string>();
@@ -338,14 +346,18 @@ namespace EasyShop.Services.CP.Rust.Shop
             return new KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>(RustShopStatsUnitEnum.ItemsSold, (itemsSoldDates, itemsSoldValues, itemsSoldEmpty));
         }
 
-        private KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetBuyersStats(int daysPeriod)
+        private KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetBuyersStats(Guid shopId, int daysPeriod)
         {
             DateTime datePeriodAgo = DateTime.Today.Subtract(TimeSpan.FromDays(daysPeriod));
             var rustPurchaseStats = _context.RustPurchaseStats
                 .Include(x => x.AppUser)
                 .Include(x => x.RustPurchasedItem.RustItem)
                 .Include(x => x.Shop)
-                .Where(x => x.RustPurchasedItem.PurchaseDateTime.Date > datePeriodAgo.Date && x.RustPurchasedItem.PurchaseDateTime.Date <= DateTime.Today.Date && x.AppUser == _user);
+                .Where(x => 
+                    x.RustPurchasedItem.PurchaseDateTime.Date > datePeriodAgo.Date && 
+                    x.RustPurchasedItem.PurchaseDateTime.Date <= DateTime.Today.Date && 
+                    x.AppUser == _user &&
+                    x.Shop.Id == shopId);
 
             List<string> buyersDates = new List<string>();
             List<string> buyersValues = new List<string>();
@@ -369,14 +381,18 @@ namespace EasyShop.Services.CP.Rust.Shop
             return new KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>(RustShopStatsUnitEnum.Buyers, (buyersDates, buyersValues, buyersEmpty));
         }
 
-        private KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetRevenueOverviewStats(int daysPeriod)
+        private KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetRevenueOverviewStats(Guid shopId, int daysPeriod)
         {
             DateTime datePeriodAgo = DateTime.Today.Subtract(TimeSpan.FromDays(daysPeriod * 2));
             var rustPurchaseStats = _context.RustPurchaseStats
                 .Include(x => x.AppUser)
                 .Include(x => x.RustPurchasedItem.RustItem)
                 .Include(x => x.Shop)
-                .Where(x => x.RustPurchasedItem.PurchaseDateTime.Date > datePeriodAgo.Date && x.RustPurchasedItem.PurchaseDateTime.Date <= DateTime.Today.Date && x.AppUser == _user);
+                .Where(x => 
+                    x.RustPurchasedItem.PurchaseDateTime.Date > datePeriodAgo.Date && 
+                    x.RustPurchasedItem.PurchaseDateTime.Date <= DateTime.Today.Date && 
+                    x.AppUser == _user &&
+                    x.Shop.Id == shopId);
 
             List<string> revenueOverviewDates = new List<string>();
             List<string> revenueOverviewValues = new List<string>();
