@@ -436,6 +436,7 @@ namespace EasyShop.CP.UI.Controllers
 
                 model.RustServerEditViewModel.Status = RustEditServerResult.Failed;
                 model.RustServerEditViewModel.MapsDict = _rustServerService.GetAllMaps();
+                model.RustServerEditViewModel.IsNewServer = true;
                 return View(model);
             }
 
