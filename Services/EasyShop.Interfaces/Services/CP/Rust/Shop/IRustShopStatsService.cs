@@ -7,8 +7,6 @@ namespace EasyShop.Interfaces.Services.CP.Rust.Shop
 {
     public interface IRustShopStatsService
     {
-        Dictionary<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetYesterdayStats(Guid shopId);
-
         Dictionary<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetTodayStats(Guid shopId);
 
         Dictionary<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetLastWeekStats(Guid shopId);

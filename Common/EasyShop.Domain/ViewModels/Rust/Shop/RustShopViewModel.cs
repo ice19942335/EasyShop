@@ -19,7 +19,6 @@ namespace EasyShop.Domain.ViewModels.Rust.Shop
         public List<RustShopStatsEnum> StatsPeriodList { get; set; } = new List<RustShopStatsEnum>
         {
             RustShopStatsEnum.Today,
-            RustShopStatsEnum.Yesterday,
             RustShopStatsEnum.Last_week,
             RustShopStatsEnum.Last_month,
             RustShopStatsEnum.Last_three_months,

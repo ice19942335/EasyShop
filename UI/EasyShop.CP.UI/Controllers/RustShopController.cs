@@ -58,7 +58,6 @@ namespace EasyShop.CP.UI.Controllers
 
             var stats = statsPeriod switch
             {
-                RustShopStatsEnum.Yesterday => _rustShopStatsService.GetYesterdayStats(Guid.Parse(shopId)),
                 RustShopStatsEnum.Today => _rustShopStatsService.GetTodayStats(Guid.Parse(shopId)),
                 RustShopStatsEnum.Last_week => _rustShopStatsService.GetLastWeekStats(Guid.Parse(shopId)),
                 RustShopStatsEnum.Last_month => _rustShopStatsService.GetLastMonthStats(Guid.Parse(shopId)),

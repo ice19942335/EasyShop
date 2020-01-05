@@ -24,11 +24,6 @@ namespace EasyShop.Services.CP.Rust.Shop
             _user = userManager.FindByEmailAsync(contextAccessor.HttpContext.User.Identity.Name).Result;
         }
 
-        public Dictionary<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetYesterdayStats(Guid shopId)
-        {
-            throw new NotImplementedException();
-        }
-
         public Dictionary<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetTodayStats(Guid shopId)
         {
             throw new NotImplementedException();

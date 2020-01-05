@@ -6,7 +6,6 @@ namespace EasyShop.Domain.Enums.Rust
 {
     public enum RustShopStatsEnum
     {
-        Yesterday,
         Today,
         Last_week,
         Last_month,
