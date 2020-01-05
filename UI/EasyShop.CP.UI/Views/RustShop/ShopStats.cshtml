@@ -34,7 +34,7 @@
 
     #endregion RevenueDataVariables
 
-    #region OrdersData Variables
+    #region OrdersDataVariables
 
     KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> ordersData;
     string ordersDates = string.Empty;
@@ -42,9 +42,9 @@
     string ordersValues = string.Empty;
     int ordersValuesMax = 0;
 
-    #endregion OrdersData Variables
+    #endregion OrdersDataVariables
 
-    #region SoldItems Variables
+    #region SoldItemsVariables
 
     KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> soldItemsData;
     string soldItemsDates = string.Empty;
@@ -52,9 +52,9 @@
     string soldItemsValues = string.Empty;
     int soldItemsValuesMax = 0;
 
-    #endregion SoldItems Variables
+    #endregion SoldItemsVariables
 
-    #region Buyers Variables
+    #region BuyersVariables
 
     KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> buyersData;
     string buyersDates = string.Empty;
@@ -62,7 +62,7 @@
     string buyersValues = string.Empty;
     int buyersValuesMax = 0;
 
-    #endregion Buyers Variables
+    #endregion BuyersVariables
 
     #region RevenueOverviewVariables
 
@@ -74,19 +74,46 @@
     #endregion RevenueOverviewVariables
 
 
+    #region RevenueOverviewDotDialogDisplayedTextLogic
+
+    var revenueOverviewDotDialogLast = Model.StatsPeriod switch
+    {
+        RustShopStatsEnum.Today => "",
+        RustShopStatsEnum.Over_the_last_week => "Last week",
+        RustShopStatsEnum.Over_the_last_30_days => "Last month",
+        RustShopStatsEnum.Over_the_last_90_days => "Last 90 days",
+        RustShopStatsEnum.Over_the_last_180_days => "Last 180 days",
+        RustShopStatsEnum.Over_the_last_year => "Last year",
+    };
+
+    var revenueOverviewDotDialogPrevious = Model.StatsPeriod switch
+    {
+        RustShopStatsEnum.Today => "",
+        RustShopStatsEnum.Over_the_last_week => "Previous week",
+        RustShopStatsEnum.Over_the_last_30_days => "Previous month",
+        RustShopStatsEnum.Over_the_last_90_days => "Previous 90 days",
+        RustShopStatsEnum.Over_the_last_180_days => "Previous 180 days",
+        RustShopStatsEnum.Over_the_last_year => "Previous year",
+    };
+
+    #endregion
+
+
+    #region VariablesInitializationLogic
+
     if (Model.StatsPeriod == RustShopStatsEnum.Today)
     {
         revenueData = Model.Stats.First(x => x.Key == RustShopStatsUnitEnum.Revenue);
         revenueTotal = revenueData.Value.Item2.First();
 
         ordersData = Model.Stats.First(x => x.Key == RustShopStatsUnitEnum.Orders);
-        ordersTotal = revenueData.Value.Item2.First();
+        ordersTotal = ordersData.Value.Item2.First();
 
         soldItemsData = Model.Stats.First(x => x.Key == RustShopStatsUnitEnum.ItemsSold);
-        soldItemsTotal = revenueData.Value.Item2.First();
+        soldItemsTotal = soldItemsData.Value.Item2.First();
 
         buyersData = Model.Stats.First(x => x.Key == RustShopStatsUnitEnum.Buyers);
-        buyersTotal = revenueData.Value.Item2.First();
+        buyersTotal = buyersData.Value.Item2.First();
     }
     else
     {
@@ -216,6 +243,9 @@
 
         #endregion Revenue Overview
     }
+
+    #endregion
+
 }
 
 
@@ -233,6 +263,7 @@
         </div>
     </div>
 </div>
+
 <div class="row gutter-xs">
     <div class="col-xs-6 col-md-3">
         <div class="card">
@@ -327,14 +358,14 @@
                                 data-labels='[@revenueOverviewDates]'
                                 data-values='[
                             {
-                                "label": "This week",
+                                "label": "@revenueOverviewDotDialogLast",
                                 "backgroundColor": "transparent",
                                 "borderColor": "#00aced",
                                 "pointBackgroundColor": "#00aced",
                                 "data": [@revenueOverviewValues]
                             },
                             {
-                                "label": "Last week",
+                                "label": "@revenueOverviewDotDialogPrevious",
                                 "backgroundColor": "transparent",
                                 "borderColor": "#75ac00",
                                 "pointBackgroundColor": "#75ac00",
@@ -347,6 +378,12 @@
                 </div>
             </div>
         </div>
+    </div>
+}
+else
+{
+    <div class="well text-center">
+        <span class="icon icon-area-chart icon-lg"></span> The graph can be seen starting with weekly statistics.
     </div>
 }
 

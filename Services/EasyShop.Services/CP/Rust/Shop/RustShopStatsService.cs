@@ -119,7 +119,7 @@ namespace EasyShop.Services.CP.Rust.Shop
             List<string> ordersValues = new List<string>();
             List<string> ordersEmpty = new List<string>();
 
-            ordersValues.Add(rustPurchaseStats.Count().ToString());
+            ordersValues.Add(rustPurchaseStats.Count().ToString("G29"));
 
             return new KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>(RustShopStatsUnitEnum.Orders, (ordersDates, ordersValues, ordersEmpty));
         }
@@ -136,7 +136,7 @@ namespace EasyShop.Services.CP.Rust.Shop
             List<string> itemsSoldValues = new List<string>();
             List<string> itemsSoldEmpty = new List<string>();
 
-            itemsSoldValues.Add(rustPurchaseStats.Select(x => x.RustPurchasedItem.Amount).Sum().ToString());
+            itemsSoldValues.Add(rustPurchaseStats.Select(x => x.RustPurchasedItem.Amount).Sum().ToString("G29"));
 
             return new KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>(RustShopStatsUnitEnum.ItemsSold, (itemsSoldDates, itemsSoldValues, itemsSoldEmpty));
         }
@@ -158,7 +158,7 @@ namespace EasyShop.Services.CP.Rust.Shop
                 .ToList()
                 .Distinct()
                 .Count()
-                .ToString());
+                .ToString("G29"));
 
             return new KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>(RustShopStatsUnitEnum.Buyers, (buyersDates, buyersValues, buyersEmpty));
         }
