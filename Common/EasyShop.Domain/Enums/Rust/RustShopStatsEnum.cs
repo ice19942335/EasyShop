@@ -7,10 +7,10 @@ namespace EasyShop.Domain.Enums.Rust
     public enum RustShopStatsEnum
     {
         Today,
-        Last_week,
-        Last_month,
-        Last_three_months,
-        Last_six_months,
-        Last_year
+        Over_the_last_week,
+        Over_the_last_30_days,
+        Over_the_last_90_days,
+        Over_the_last_180_days,
+        Over_the_last_year
     }
 }

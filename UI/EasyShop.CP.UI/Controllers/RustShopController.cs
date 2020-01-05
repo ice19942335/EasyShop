@@ -49,7 +49,7 @@ namespace EasyShop.CP.UI.Controllers
         #region Shop statis
 
         [HttpGet]
-        public IActionResult ShopStats(string shopId, RustShopStatsEnum statsPeriod = RustShopStatsEnum.Last_week)
+        public IActionResult ShopStats(string shopId, RustShopStatsEnum statsPeriod = RustShopStatsEnum.Over_the_last_week)
         {
             var shop = _shopManager.GetShopById(Guid.Parse(shopId));
 
@@ -59,11 +59,11 @@ namespace EasyShop.CP.UI.Controllers
             var stats = statsPeriod switch
             {
                 RustShopStatsEnum.Today => _rustShopStatsService.GetTodayStats(Guid.Parse(shopId)),
-                RustShopStatsEnum.Last_week => _rustShopStatsService.GetLastWeekStats(Guid.Parse(shopId)),
-                RustShopStatsEnum.Last_month => _rustShopStatsService.GetLastMonthStats(Guid.Parse(shopId)),
-                RustShopStatsEnum.Last_three_months => _rustShopStatsService.GetLastThreeMonthStats(Guid.Parse(shopId)),
-                RustShopStatsEnum.Last_six_months => _rustShopStatsService.GetLastSixMonthStats(Guid.Parse(shopId)),
-                RustShopStatsEnum.Last_year => _rustShopStatsService.GetLastYearStats(Guid.Parse(shopId)),
+                RustShopStatsEnum.Over_the_last_week => _rustShopStatsService.GetOverTheLastWeekStats(Guid.Parse(shopId)),
+                RustShopStatsEnum.Over_the_last_30_days => _rustShopStatsService.GetOverTheLast30DaysStats(Guid.Parse(shopId)),
+                RustShopStatsEnum.Over_the_last_90_days => _rustShopStatsService.GetOverTheLast90DaysStats(Guid.Parse(shopId)),
+                RustShopStatsEnum.Over_the_last_180_days => _rustShopStatsService.GetOverTheLast180DaysStats(Guid.Parse(shopId)),
+                RustShopStatsEnum.Over_the_last_year => _rustShopStatsService.GetOverTheLastYearStats(Guid.Parse(shopId)),
             };
 
             var model = shop.CreateRustShopViewModel();

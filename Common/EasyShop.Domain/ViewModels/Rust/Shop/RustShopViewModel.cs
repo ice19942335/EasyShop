@@ -14,16 +14,16 @@ namespace EasyShop.Domain.ViewModels.Rust.Shop
 
         public string ShopTitle { get; set; }
 
-        public RustShopStatsEnum StatsPeriod { get; set; } = RustShopStatsEnum.Last_week;
+        public RustShopStatsEnum StatsPeriod { get; set; } = RustShopStatsEnum.Over_the_last_week;
 
         public List<RustShopStatsEnum> StatsPeriodList { get; set; } = new List<RustShopStatsEnum>
         {
             RustShopStatsEnum.Today,
-            RustShopStatsEnum.Last_week,
-            RustShopStatsEnum.Last_month,
-            RustShopStatsEnum.Last_three_months,
-            RustShopStatsEnum.Last_six_months,
-            RustShopStatsEnum.Last_year
+            RustShopStatsEnum.Over_the_last_week,
+            RustShopStatsEnum.Over_the_last_30_days,
+            RustShopStatsEnum.Over_the_last_90_days,
+            RustShopStatsEnum.Over_the_last_180_days,
+            RustShopStatsEnum.Over_the_last_year
         };
 
         public Dictionary<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> Stats { get; set; }

@@ -23,134 +23,202 @@
 
     #endregion SelectPeriod
 
-    #region RevenueData
 
-    var revenueData = Model.Stats.FirstOrDefault(x => x.Key == RustShopStatsUnitEnum.Revenue);
+    #region RevenueDataVariables
+
+    KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> revenueData;
     string revenueDates = string.Empty;
-    string revenueTotal = revenueData.Value.Item2.Select(x => Decimal.Parse(x)).Sum().ToString();
-    string revenueValues = string.Join(", ", revenueData.Value.Item2);
-    Decimal revenueValuesMax = revenueData.Value.Item2.Select(x => Decimal.Parse(x)).Max();
-    Decimal tenPercentsFromRevenueValuesMax = revenueValuesMax / 100 * 10 > 0 ? revenueValuesMax / 100 * 10 : 1;
-    revenueValuesMax += tenPercentsFromRevenueValuesMax;
+    string revenueTotal = string.Empty;
+    string revenueValues = string.Empty;
+    Decimal revenueValuesMax = default;
 
-    for (int i = 0; i < revenueData.Value.Item1.Count(); i++)
-    {
-        string item = revenueData.Value.Item1.ElementAt(i);
+    #endregion RevenueDataVariables
 
-        if (i != revenueData.Value.Item1.Count() - 1)
-        {
-            revenueDates += $"\"{item}\", ";
-        }
-        else
-        {
-            revenueDates += $"\"{item}\"";
-        }
-    }
+    #region OrdersData Variables
 
-    #endregion RevenueData
-
-    #region OrdersData
-
-    var ordersData = Model.Stats.FirstOrDefault(x => x.Key == RustShopStatsUnitEnum.Orders);
+    KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> ordersData;
     string ordersDates = string.Empty;
-    string ordersTotal = ordersData.Value.Item2.Select(x => Int32.Parse(x)).Sum().ToString();
-    string ordersValues = string.Join(", ", ordersData.Value.Item2);
-    int ordersValuesMax = ordersData.Value.Item2.Select(x => Int32.Parse(x)).Max();
-    int tenPercentsFromOrdersValuesMax = (ordersValuesMax / 100 * 10) > 0 ? ordersValuesMax / 100 * 10 : 1;
-    ordersValuesMax += tenPercentsFromOrdersValuesMax;
+    string ordersTotal = string.Empty;
+    string ordersValues = string.Empty;
+    int ordersValuesMax = 0;
 
-    for (int i = 0; i < ordersData.Value.Item1.Count(); i++)
-    {
-        string item = ordersData.Value.Item1.ElementAt(i);
+    #endregion OrdersData Variables
 
-        if (i != ordersData.Value.Item1.Count() - 1)
-        {
-            ordersDates += $"\"{item}\", ";
-        }
-        else
-        {
-            ordersDates += $"\"{item}\"";
-        }
-    }
+    #region SoldItems Variables
 
-    #endregion OrdersData
-
-    #region SoldItems
-
-    var soldItemsData = Model.Stats.FirstOrDefault(x => x.Key == RustShopStatsUnitEnum.ItemsSold);
+    KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> soldItemsData;
     string soldItemsDates = string.Empty;
-    string soldItemsTotal = soldItemsData.Value.Item2.Select(x => Int32.Parse(x)).Sum().ToString();
-    string soldItemsValues = string.Join(", ", soldItemsData.Value.Item2);
-    int soldItemsValuesMax = soldItemsData.Value.Item2.Select(x => Int32.Parse(x)).Max();
-    int tenPercentsFromSoldItemsValuesMax = (soldItemsValuesMax / 100 * 10) > 0 ? soldItemsValuesMax / 100 * 10 : 1;
-    soldItemsValuesMax += tenPercentsFromSoldItemsValuesMax;
+    string soldItemsTotal = string.Empty;
+    string soldItemsValues = string.Empty;
+    int soldItemsValuesMax = 0;
 
-    for (int i = 0; i < soldItemsData.Value.Item1.Count(); i++)
-    {
-        string item = soldItemsData.Value.Item1.ElementAt(i);
+    #endregion SoldItems Variables
 
-        if (i != soldItemsData.Value.Item1.Count() - 1)
-        {
-            soldItemsDates += $"\"{item}\", ";
-        }
-        else
-        {
-            soldItemsDates += $"\"{item}\"";
-        }
-    }
+    #region Buyers Variables
 
-    #endregion SoldItems
-
-    #region Buyers
-
-    var buyersData = Model.Stats.FirstOrDefault(x => x.Key == RustShopStatsUnitEnum.Buyers);
+    KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> buyersData;
     string buyersDates = string.Empty;
-    string buyersTotal = buyersData.Value.Item2.Select(x => Int32.Parse(x)).ToList().Distinct().Sum().ToString();
-    string buyersValues = string.Join(", ", buyersData.Value.Item2);
-    int buyersValuesMax = buyersData.Value.Item2.Select(x => Int32.Parse(x)).Max();
-    int tenPercentsFromBuyersValuesMax = (buyersValuesMax / 100 * 10) > 0 ? buyersValuesMax / 100 * 10 : 1;
-    buyersValuesMax += tenPercentsFromBuyersValuesMax;
+    string buyersTotal = string.Empty;
+    string buyersValues = string.Empty;
+    int buyersValuesMax = 0;
 
-    for (int i = 0; i < buyersData.Value.Item1.Count(); i++)
-    {
-        string item = buyersData.Value.Item1.ElementAt(i);
+    #endregion Buyers Variables
 
-        if (i != buyersData.Value.Item1.Count() - 1)
-        {
-            buyersDates += $"\"{item}\", ";
-        }
-        else
-        {
-            buyersDates += $"\"{item}\"";
-        }
-    }
+    #region RevenueOverviewVariables
 
-    #endregion Buyers
-
-    #region Revenue Overview
-
-    var revenueOverviewData = Model.Stats.FirstOrDefault(x => x.Key == RustShopStatsUnitEnum.RevenueOverview);
+    KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> revenueOverviewData;
     string revenueOverviewDates = string.Empty;
-    string revenueOverviewValues = string.Join(", ", revenueOverviewData.Value.Item2);
-    string revenueOverviewPreviousWeekValues = string.Join(", ", revenueOverviewData.Value.Item3);
+    string revenueOverviewValues = string.Empty;
+    string revenueOverviewPreviousWeekValues = string.Empty;
 
-    for (int i = 0; i < revenueOverviewData.Value.Item1.Count(); i++)
+    #endregion RevenueOverviewVariables
+
+
+    if (Model.StatsPeriod == RustShopStatsEnum.Today)
     {
-        string item = revenueOverviewData.Value.Item1.ElementAt(i);
+        revenueData = Model.Stats.First(x => x.Key == RustShopStatsUnitEnum.Revenue);
+        revenueTotal = revenueData.Value.Item2.First();
 
-        if (i != revenueOverviewData.Value.Item1.Count() - 1)
-        {
-            revenueOverviewDates += $"\"{item}\", ";
-        }
-        else
-        {
-            revenueOverviewDates += $"\"{item}\"";
-        }
+        ordersData = Model.Stats.First(x => x.Key == RustShopStatsUnitEnum.Orders);
+        ordersTotal = revenueData.Value.Item2.First();
+
+        soldItemsData = Model.Stats.First(x => x.Key == RustShopStatsUnitEnum.ItemsSold);
+        soldItemsTotal = revenueData.Value.Item2.First();
+
+        buyersData = Model.Stats.First(x => x.Key == RustShopStatsUnitEnum.Buyers);
+        buyersTotal = revenueData.Value.Item2.First();
     }
+    else
+    {
+        #region RevenueData
 
-    #endregion Revenue Overview
+        revenueData = Model.Stats.FirstOrDefault(x => x.Key == RustShopStatsUnitEnum.Revenue);
+        revenueTotal = revenueData.Value.Item2.Select(x => Decimal.Parse(x)).Sum().ToString();
+        revenueValues = string.Join(", ", revenueData.Value.Item2);
+        revenueValuesMax = revenueData.Value.Item2.Select(x => Decimal.Parse(x)).Max();
+        var tenPercentsFromRevenueValuesMax = revenueValuesMax / 100 * 10 > 0 ? revenueValuesMax / 100 * 10 : 1;
+        revenueValuesMax += tenPercentsFromRevenueValuesMax;
 
+        for (int i = 0; i < revenueData.Value.Item1.Count(); i++)
+        {
+            string item = revenueData.Value.Item1.ElementAt(i);
+
+            if (i != revenueData.Value.Item1.Count() - 1)
+            {
+                revenueDates += $"\"{item}\", ";
+            }
+            else
+            {
+                revenueDates += $"\"{item}\"";
+            }
+        }
+
+        #endregion RevenueData
+
+        #region OrdersData
+
+        ordersData = Model.Stats.FirstOrDefault(x => x.Key == RustShopStatsUnitEnum.Orders);
+        ordersDates = string.Empty;
+        ordersTotal = ordersData.Value.Item2.Select(x => Int32.Parse(x)).Sum().ToString();
+        ordersValues = string.Join(", ", ordersData.Value.Item2);
+        ordersValuesMax = ordersData.Value.Item2.Select(x => Int32.Parse(x)).Max();
+        int tenPercentsFromOrdersValuesMax = (ordersValuesMax / 100 * 10) > 0 ? ordersValuesMax / 100 * 10 : 1;
+        ordersValuesMax += tenPercentsFromOrdersValuesMax;
+
+        for (int i = 0; i < ordersData.Value.Item1.Count(); i++)
+        {
+            string item = ordersData.Value.Item1.ElementAt(i);
+
+            if (i != ordersData.Value.Item1.Count() - 1)
+            {
+                ordersDates += $"\"{item}\", ";
+            }
+            else
+            {
+                ordersDates += $"\"{item}\"";
+            }
+        }
+
+        #endregion OrdersData
+
+        #region SoldItems
+
+        soldItemsData = Model.Stats.FirstOrDefault(x => x.Key == RustShopStatsUnitEnum.ItemsSold);
+        soldItemsDates = string.Empty;
+        soldItemsTotal = soldItemsData.Value.Item2.Select(x => Int32.Parse(x)).Sum().ToString();
+        soldItemsValues = string.Join(", ", soldItemsData.Value.Item2);
+        soldItemsValuesMax = soldItemsData.Value.Item2.Select(x => Int32.Parse(x)).Max();
+        int tenPercentsFromSoldItemsValuesMax = (soldItemsValuesMax / 100 * 10) > 0 ? soldItemsValuesMax / 100 * 10 : 1;
+        soldItemsValuesMax += tenPercentsFromSoldItemsValuesMax;
+
+        for (int i = 0; i < soldItemsData.Value.Item1.Count(); i++)
+        {
+            string item = soldItemsData.Value.Item1.ElementAt(i);
+
+            if (i != soldItemsData.Value.Item1.Count() - 1)
+            {
+                soldItemsDates += $"\"{item}\", ";
+            }
+            else
+            {
+                soldItemsDates += $"\"{item}\"";
+            }
+        }
+
+        #endregion SoldItems
+
+        #region Buyers
+
+        buyersData = Model.Stats.FirstOrDefault(x => x.Key == RustShopStatsUnitEnum.Buyers);
+        buyersDates = string.Empty;
+        buyersTotal = buyersData.Value.Item2.Select(x => Int32.Parse(x)).ToList().Distinct().Sum().ToString();
+        buyersValues = string.Join(", ", buyersData.Value.Item2);
+        buyersValuesMax = buyersData.Value.Item2.Select(x => Int32.Parse(x)).Max();
+        int tenPercentsFromBuyersValuesMax = (buyersValuesMax / 100 * 10) > 0 ? buyersValuesMax / 100 * 10 : 1;
+        buyersValuesMax += tenPercentsFromBuyersValuesMax;
+
+        for (int i = 0; i < buyersData.Value.Item1.Count(); i++)
+        {
+            string item = buyersData.Value.Item1.ElementAt(i);
+
+            if (i != buyersData.Value.Item1.Count() - 1)
+            {
+                buyersDates += $"\"{item}\", ";
+            }
+            else
+            {
+                buyersDates += $"\"{item}\"";
+            }
+        }
+
+        #endregion Buyers
+
+        #region Revenue Overview
+
+        revenueOverviewData = Model.Stats.FirstOrDefault(x => x.Key == RustShopStatsUnitEnum.RevenueOverview);
+        revenueOverviewDates = string.Empty;
+        revenueOverviewValues = string.Join(", ", revenueOverviewData.Value.Item2);
+        revenueOverviewPreviousWeekValues = string.Join(", ", revenueOverviewData.Value.Item3);
+
+        for (int i = 0; i < revenueOverviewData.Value.Item1.Count(); i++)
+        {
+            string item = revenueOverviewData.Value.Item1.ElementAt(i);
+
+            if (i != revenueOverviewData.Value.Item1.Count() - 1)
+            {
+                revenueOverviewDates += $"\"{item}\", ";
+            }
+            else
+            {
+                revenueOverviewDates += $"\"{item}\"";
+            }
+        }
+
+        #endregion Revenue Overview
+    }
 }
+
+
 
 <div class="row">
     <div class="col-xs-2 col-xs-offset-10 m-b-md">
@@ -171,7 +239,7 @@
             <div class="card-values">
                 <div class="p-x">
                     <small>Revenue</small>
-                    <h3 class="card-title fw-l">$@revenueTotal</h3>
+                    <h3 class="card-title fw-l"><span class="icon icon-dollar"></span> @revenueTotal</h3>
                 </div>
             </div>
             <div class="card-chart">
@@ -190,7 +258,7 @@
             <div class="card-values">
                 <div class="p-x">
                     <small>Orders</small>
-                    <h3 class="card-title fw-l">@ordersTotal</h3>
+                    <h3 class="card-title fw-l"><span class="icon icon-shopping-bag"></span> @ordersTotal</h3>
                 </div>
             </div>
             <div class="card-chart">
@@ -209,7 +277,7 @@
             <div class="card-values">
                 <div class="p-x">
                     <small>Items</small>
-                    <h3 class="card-title fw-l">@soldItemsTotal</h3>
+                    <h3 class="card-title fw-l"><span class="icon icon-check-circle"></span> @soldItemsTotal</h3>
                 </div>
             </div>
             <div class="card-chart">
@@ -228,7 +296,7 @@
             <div class="card-values">
                 <div class="p-x">
                     <small>Buyers</small>
-                    <h3 class="card-title fw-l">@buyersTotal</h3>
+                    <h3 class="card-title fw-l"><span class="icon icon-group"></span> @buyersTotal</h3>
                 </div>
             </div>
             <div class="card-chart">
@@ -243,18 +311,21 @@
         </div>
     </div>
 </div>
-<div class="row gutter-xs">
-    <div class="col-lg-12">
-        <div class="card">
-            <div class="card-body">
-                <h4 class="card-title">Revenue Overview</h4>
-            </div>
-            <div class="card-body">
-                <div class="card-chart">
-                    <canvas data-chart="line"
-                            data-animation="false"
-                            data-labels='[@revenueOverviewDates]'
-                            data-values='[
+
+@if (Model.StatsPeriod != RustShopStatsEnum.Today)
+{
+    <div class="row gutter-xs">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Revenue Overview</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-chart">
+                        <canvas data-chart="line"
+                                data-animation="false"
+                                data-labels='[@revenueOverviewDates]'
+                                data-values='[
                             {
                                 "label": "This week",
                                 "backgroundColor": "transparent",
@@ -269,14 +340,16 @@
                                 "pointBackgroundColor": "#75ac00",
                                 "data": [@revenueOverviewPreviousWeekValues]
                             }]'
-                            data-tooltips='{"mode": "label"}'
-                            data-hide='["gridLinesX", "legend"]'
-                            height="150"></canvas>
+                                data-tooltips='{"mode": "label"}'
+                                data-hide='["gridLinesX", "legend"]'
+                                height="150"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+}
+
 
 @section Scripts
 {
