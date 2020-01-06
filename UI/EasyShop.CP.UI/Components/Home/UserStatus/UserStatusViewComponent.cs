@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EasyShop.CP.UI.Components.Home
+namespace EasyShop.CP.UI.Components.Home.UserStatus
 {
     public class UserStatusViewComponent : ViewComponent
     {
