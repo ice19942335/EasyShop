@@ -18,9 +18,9 @@ namespace EasyShop.CP.UI.Components.ControlPanel.UserProfile
             var user = _userManager.FindByNameAsync(User.Identity.Name).Result;
 
             if (user is null)
-                return View(EmailConfirmationEnum.SomethingWentWrong);
+                return View("EmailConfirmStatus", EmailConfirmationEnum.SomethingWentWrong);
 
-            return View(user.EmailConfirmed ? EmailConfirmationEnum.EmailIsConfirmed : EmailConfirmationEnum.EmailNotConfirmed);
+            return View("EmailConfirmStatus", user.EmailConfirmed ? EmailConfirmationEnum.EmailIsConfirmed : EmailConfirmationEnum.EmailNotConfirmed);
         }
     }
 }

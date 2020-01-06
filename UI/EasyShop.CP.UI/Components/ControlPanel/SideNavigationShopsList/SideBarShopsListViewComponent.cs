@@ -12,13 +12,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
-namespace EasyShop.CP.UI.Components.ControlPanel.SideBarShopsList
+namespace EasyShop.CP.UI.Components.ControlPanel.SideNavigationShopsList
 {
-    public class SideBarShopsListViewComponent : ViewComponent
+    public class SideNavigationShopsListViewComponent : ViewComponent
     {
         private readonly IShopManager _shopManager;
 
-        public SideBarShopsListViewComponent(IShopManager shop) => _shopManager = shop;
+        public SideNavigationShopsListViewComponent(IShopManager shop) => _shopManager = shop;
 
         public IViewComponentResult Invoke()
         {
@@ -26,7 +26,7 @@ namespace EasyShop.CP.UI.Components.ControlPanel.SideBarShopsList
 
             var model = new ShopsManagerViewModel { Shops = userShops };
 
-            return View(model);
+            return View("ShopsList", model);
         }
     }
 }
