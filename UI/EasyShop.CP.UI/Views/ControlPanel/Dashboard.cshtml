@@ -345,6 +345,7 @@
     </div>
 </div>
 
+
 @if (Model.StatsPeriod != DashBoardStatsPeriodEnum.Today)
 {
     <div class="row gutter-xs">
@@ -373,7 +374,8 @@
                                 "backgroundColor": "transparent",
                                 "borderColor": "#75ac00",
                                 "pointBackgroundColor": "#75ac00",
-                                "data": [@revenueOverviewPreviousWeekValues]
+                                "data": [@revenueOverviewPreviousWeekValues],
+                                "borderDash": [5, 5]
                             }]'
                                 data-tooltips='{"mode": "label"}'
                                 data-hide='["gridLinesX", "legend"]'
