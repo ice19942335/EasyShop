@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Dev blog";
+    Layout = "Partial/_DevBlogLayout";
+}
+
+<div class="devBlogWrap">
+    <div class="profile">
+        <div class="profile-body">
+            <div class="profile-container">
+                <ol class="feed">
+                    @for (int i = 0; i < 10; i++)
+                    {
+                        <li class="feed-item">
+                            <div class="post">
+                                <div class="post-header">
+                                    <div class="post-author">
+                                        <div class="post-author-avatar">
+                                            <img class="img-circle" width="48" height="48" src="~/UserImages/default-admin.jpg" alt="default-admin.jpg">
+                                        </div>
+                                        <div class="post-author-info">
+                                            <span class="post-author-name">Aleksejs Birula</span>
+                                            <span class="post-timestamp">53 minutes ago</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="post-body">
+                                    <div class="post-content">
+                                        <p>
+                                            Intel announced the Project Alloy virtual-reality headset on Tuesday at its Intel Developer Forum.
+                                            <small><a href="http://goo.gl/kjbToS" target="_blank">#pcworld</a></small>
+                                        </p>
+                                    </div>
+                                    <div class="post-img">
+                                        <a href="http://goo.gl/kjbToS" target="_blank">
+                                            <img class="img-responsive" src="~/img/5477829604.jpg" alt="Worldwide Partner Conference in Toronto in July 2016">
+                                        </a>
+                                    </div>
+                                    <div class="post-actions">
+                                        <a class="post-action" href="#">
+                                            <span class="icon icon-thumbs-up icon-fw"></span>
+                                            Like
+                                        </a>
+                                        <a class="post-action" href="#">
+                                            <span class="icon icon-share icon-fw"></span>
+                                            Share
+                                        </a>
+                                        <div class="post-summary">
+                                            <small class="truncate">
+                                                <a class="link-muted" href="#">Likes: 535k</a>
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <link href="~/css/custom/DevBlog/devBlog.css" rel="stylesheet" asp-append-version="true" />
+}

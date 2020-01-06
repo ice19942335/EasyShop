@@ -6,11 +6,11 @@
     @await Html.PartialAsync("Partial/_NavBar")
     @RenderBody()
     @await Html.PartialAsync("_Scripts")
-    @await Html.PartialAsync("Partial/_GoogleAnalyticsObject")
 </body>
 
 @section Styles {
     @await Html.PartialAsync("_Styles")
+    @RenderSection("Styles", false)
 }
 
 @section Scripts {
