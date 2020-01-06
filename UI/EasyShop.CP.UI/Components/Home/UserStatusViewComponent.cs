@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EasyShop.CP.UI.Components.MainPage
+namespace EasyShop.CP.UI.Components.Home
 {
     public class UserStatusViewComponent : ViewComponent
     {
@@ -13,7 +13,7 @@ namespace EasyShop.CP.UI.Components.MainPage
             if (User.Identity.IsAuthenticated)
                 return View("SignedIn");
 
-            return View();
+            return View("SignedOut");
         }
     }
 }
