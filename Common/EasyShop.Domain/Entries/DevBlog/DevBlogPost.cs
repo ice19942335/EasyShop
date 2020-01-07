@@ -26,7 +26,7 @@ namespace EasyShop.Domain.Entries.DevBlog
         public DateTime DateTimePosted { get; set; }
 
         [Required]
-        public int LikeCounter { get; set; }
+        public int LikesCounter { get; set; }
 
         [Required]
         public ICollection<DevBlogPostsLike> DevBlogPostsLikes { get; set; }

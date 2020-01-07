@@ -21,5 +21,10 @@ namespace EasyShop.CP.UI.Controllers
         {
             return View();
         }
+
+        public async Task<IActionResult> EditPost(string postId)
+        {
+            return View();
+        }
     }
 }
