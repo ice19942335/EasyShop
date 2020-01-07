@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
-
-namespace EasyShop.Domain.ViewModels.Rust.Server
+﻿namespace EasyShop.Domain.ViewModels.ControlPanel.Rust.Server
 {
     public class RustServerViewModel
     {

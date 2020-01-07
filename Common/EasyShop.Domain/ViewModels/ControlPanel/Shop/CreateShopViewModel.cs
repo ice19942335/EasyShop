@@ -1,13 +1,9 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using EasyShop.Domain.Enums.CP.Rust;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace EasyShop.Domain.ViewModels.Rust.Shop
+namespace EasyShop.Domain.ViewModels.ControlPanel.Shop
 {
-    public class RustShopEditMainSettingsViewModel
+    public class CreateShopViewModel
     {
-        public string Id { get; set; }
-
         [Required(ErrorMessage = "Shop name is required")]
         public string ShopName { get; set; }
 
@@ -17,8 +13,9 @@ namespace EasyShop.Domain.ViewModels.Rust.Shop
         [RegularExpression("^[0-9]*\\.[0-9]{2}$", ErrorMessage = "Please enter a correct value, for example (0.99 or 150.00)")]
         public decimal StartBalance { get; set; }
 
-        public Guid Secret { get; set; }
+        [Required(ErrorMessage = "Game type is required")]
+        public string GameType { get; set; }
 
-        public RustEditMainSettingsResult Status { get; set; } = RustEditMainSettingsResult.Default;
+        public bool AddDefaultItems { get; set; }
     }
 }

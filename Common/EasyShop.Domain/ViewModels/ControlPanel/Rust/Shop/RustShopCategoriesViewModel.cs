@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using EasyShop.Domain.ViewModels.Rust.Category;
+using EasyShop.Domain.ViewModels.ControlPanel.Rust.Category;
 
-namespace EasyShop.Domain.ViewModels.Rust.Shop
+namespace EasyShop.Domain.ViewModels.ControlPanel.Rust.Shop
 {
     public class RustShopCategoriesViewModel
     {

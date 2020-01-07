@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using EasyShop.Domain.Enums.CP.Rust;
-using EasyShop.Domain.ViewModels.Rust.Category;
-using EasyShop.Domain.ViewModels.Rust.Product;
-using EasyShop.Domain.ViewModels.Rust.Server;
+using EasyShop.Domain.ViewModels.ControlPanel.Rust.Category;
+using EasyShop.Domain.ViewModels.ControlPanel.Rust.Product;
+using EasyShop.Domain.ViewModels.ControlPanel.Rust.Server;
 
-namespace EasyShop.Domain.ViewModels.Rust.Shop
+namespace EasyShop.Domain.ViewModels.ControlPanel.Rust.Shop
 {
     public class RustShopViewModel
     {

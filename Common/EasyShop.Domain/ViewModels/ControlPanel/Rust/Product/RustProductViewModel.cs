@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using EasyShop.Domain.ViewModels.Rust.Category;
+using EasyShop.Domain.ViewModels.ControlPanel.Rust.Category;
 
-namespace EasyShop.Domain.ViewModels.Rust.Product
+namespace EasyShop.Domain.ViewModels.ControlPanel.Rust.Product
 {
     public class RustProductViewModel
     {

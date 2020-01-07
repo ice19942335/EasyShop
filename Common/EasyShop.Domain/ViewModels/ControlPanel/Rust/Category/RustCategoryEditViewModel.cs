@@ -1,6 +1,6 @@
 ﻿using EasyShop.Domain.Enums.CP.Rust;
 
-namespace EasyShop.Domain.ViewModels.Rust.Category
+namespace EasyShop.Domain.ViewModels.ControlPanel.Rust.Category
 {
     public class RustCategoryEditViewModel
     {
