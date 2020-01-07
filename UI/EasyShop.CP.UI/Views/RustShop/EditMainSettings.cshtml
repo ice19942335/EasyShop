@@ -1,6 +1,6 @@
 ﻿@using EasyShop.Domain.Enums.CP.Rust
 @using EasyShop.Domain.Enums.CP.Rust.RedirectEnums
-@model EasyShop.Domain.ViewModels.Rust.Shop.RustShopViewModel
+@model EasyShop.Domain.ViewModels.ControlPanel.Rust.Shop.RustShopViewModel
 @{
     ViewData["Title"] = "Edit Rust shop";
     Layout = "Partial/_RustEditLayout";
@@ -46,24 +46,6 @@
                         <span class="help-block">After each change of secret, you have to download a new plugin package.</span>
                     </div>
                 </form>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-            <div>
-                <span id="confirmButton_setDefaultProducts">
-                    <button class="btn btn-warning btn-block m-b-md" onclick="deleteConfirmationDialog('setDefaultProducts', true)">Set default categories and products</button>
-                </span>
-                <span style="display: none" id="confirmSpan_setDefaultProducts">
-                    <form style="display: inline;" method="get" asp-area="" asp-controller="RustShop" asp-action="SetDefaultCategoriesAndProducts" asp-route-shopId="@Model.Id" asp-route-redirectTo="@RustSetDefaultCategoriesAndProductsRedirect.MainSettings">
-                        <span>All existing products and categories in shop: <strong style="color: #00aced;">@Model.ShopName</strong> will be deleted! Are you sure you want to do that?</span>
-                        <div class="deleteConfirmationButtonsDiv">
-                            <button class="btn btn-success btn-block" type="submit">Yes</button>
-                            <button class="btn btn-block btn-danger m-b-lg" type="button" onclick="deleteConfirmationDialog('setDefaultProducts', false)">No</button>
-                        </div>
-                    </form>
-                </span>
             </div>
         </div>
     </div>

@@ -271,7 +271,7 @@
         <div class="card">
             <div class="card-values">
                 <div class="p-x">
-                    <small>Revenue</small>
+                    <h4>Total Revenue</h4>
                     <h3 class="card-title fw-l"><span class="icon icon-dollar"></span> @revenueTotal</h3>
                 </div>
             </div>
@@ -290,7 +290,7 @@
         <div class="card">
             <div class="card-values">
                 <div class="p-x">
-                    <small>Orders</small>
+                    <h4>Total Orders</h4>
                     <h3 class="card-title fw-l"><span class="icon icon-shopping-bag"></span> @ordersTotal</h3>
                 </div>
             </div>
@@ -309,7 +309,7 @@
         <div class="card">
             <div class="card-values">
                 <div class="p-x">
-                    <small>Items</small>
+                    <h4>Total Items</h4>
                     <h3 class="card-title fw-l"><span class="icon icon-check-circle"></span> @soldItemsTotal</h3>
                 </div>
             </div>
@@ -328,7 +328,7 @@
         <div class="card">
             <div class="card-values">
                 <div class="p-x">
-                    <small>Buyers</small>
+                    <h4>Total Buyers</h4>
                     <h3 class="card-title fw-l"><span class="icon icon-group"></span> @buyersTotal</h3>
                 </div>
             </div>
@@ -345,13 +345,16 @@
     </div>
 </div>
 
+
 @if (Model.StatsPeriod != DashBoardStatsPeriodEnum.Today)
 {
     <div class="row gutter-xs">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Revenue Overview</h4>
+                    <h4 class="card-title">
+                        Total Revenue Overview
+                    </h4>
                 </div>
                 <div class="card-body">
                     <div class="card-chart">
@@ -371,7 +374,8 @@
                                 "backgroundColor": "transparent",
                                 "borderColor": "#75ac00",
                                 "pointBackgroundColor": "#75ac00",
-                                "data": [@revenueOverviewPreviousWeekValues]
+                                "data": [@revenueOverviewPreviousWeekValues],
+                                "borderDash": [5, 5]
                             }]'
                                 data-tooltips='{"mode": "label"}'
                                 data-hide='["gridLinesX", "legend"]'

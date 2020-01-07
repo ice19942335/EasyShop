@@ -1,0 +1,18 @@
+﻿<nav id="navbar" class="navbar-collapse collapse">
+    <ul class="nav navbar-nav navbar-right">
+        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Faq</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a asp-area="" asp-controller="DevBlog" asp-action="PostsList">Dev-Blog</a></li>
+        <li><a href="#">Contact</a></li>
+        <li>
+            <div class="navbar-btn-group">
+                <a class="navbar-btn btn btn-primary btn-block" asp-area="" asp-controller="Account" asp-action="Register">Sign Up</a>
+            </div>
+            <div class="navbar-btn-group">
+                <a class="navbar-btn btn btn-outline-info btn-block" asp-area="" asp-controller="Account" asp-action="Login">Sign In</a>
+            </div>
+        </li>
+    </ul>
+</nav>

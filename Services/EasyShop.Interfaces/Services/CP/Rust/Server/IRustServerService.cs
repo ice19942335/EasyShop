@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Rust;
 using EasyShop.Domain.Enums.CP.Rust;
-using EasyShop.Domain.ViewModels.Rust.Shop;
+using EasyShop.Domain.ViewModels.ControlPanel.Rust.Shop;
 
 namespace EasyShop.Interfaces.Services.CP.Rust.Server
 {

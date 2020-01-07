@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Entries.Rust;
 using EasyShop.Domain.Enums.CP.Rust;
-using EasyShop.Domain.ViewModels.Rust.Shop;
-using EasyShop.Domain.ViewModels.Shop;
+using EasyShop.Domain.ViewModels.ControlPanel.Rust.Shop;
+using EasyShop.Domain.ViewModels.ControlPanel.Shop;
 
 namespace EasyShop.Interfaces.Services.CP.Rust.Shop
 {

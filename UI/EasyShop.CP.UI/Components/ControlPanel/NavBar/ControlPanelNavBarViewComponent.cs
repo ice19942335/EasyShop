@@ -21,7 +21,7 @@ namespace EasyShop.CP.UI.Components.ControlPanel.NavBar
             var appUser = _userManager.FindByEmailAsync(User.Identity.Name).Result;
 
             if (appUser is null)
-                return View(new AppUserViewModel { FirstName = User.Identity.Name });
+                return View("ControlPanelNavBar", new AppUserViewModel { FirstName = User.Identity.Name });
 
             var model = new AppUserViewModel
             {
@@ -35,7 +35,7 @@ namespace EasyShop.CP.UI.Components.ControlPanel.NavBar
                 Roles = _userManager.GetRolesAsync(appUser).Result
             };
 
-            return View(model);
+            return View("ControlPanelNavBar", model);
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using EasyShop.Domain.Entries.DevBlog;
 using EasyShop.Domain.Entries.Shop;
 using EasyShop.Domain.Entries.Tariff;
 using Microsoft.AspNetCore.Identity;
@@ -40,5 +41,7 @@ namespace EasyShop.Domain.Entries.Identity
         public ICollection<UserTariff> UserTariffs { get; set; }
 
         public ICollection<UserShop> UserShops { get; set; }
+
+        public ICollection<DevBlogPostsLike> DevBlogPostsLikes { get; set; }
     }
 }
