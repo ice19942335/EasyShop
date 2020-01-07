@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EasyShop.CP.UI.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class DevBlogController : Controller
     {
         private readonly IDevBlogService _devBlogService;
@@ -17,6 +18,7 @@ namespace EasyShop.CP.UI.Controllers
             _devBlogService = devBlogService;
         }
 
+        [AllowAnonymous]
         public IActionResult PostsList()
         {
             return View();
@@ -25,6 +27,17 @@ namespace EasyShop.CP.UI.Controllers
         public async Task<IActionResult> EditPost(string postId)
         {
             return View();
+        }
+
+        public async Task<IActionResult> DeletePost(string postId)
+        {
+            throw new NotImplementedException();
+        }
+
+        [Authorize(Roles = "Admin, User")]
+        public IActionResult IncrementLike()
+        {
+            throw new NotImplementedException();
         }
     }
 }

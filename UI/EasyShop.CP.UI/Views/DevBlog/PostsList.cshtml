@@ -1,4 +1,5 @@
-﻿@using EasyShop.Domain.Entries.Identity
+﻿@model EasyShop.Domain.ViewModels.ControlPanel.DevBlog.DevBlogViewModel
+@using EasyShop.Domain.Entries.Identity
 @using EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization
 @using Microsoft.AspNetCore.Identity
 @inject UserManager<AppUser> UserManager
@@ -29,25 +30,28 @@
                     </div>
                 }
                 <ol class="feed">
-                    @for (int i = 0; i < 10; i++)
+                    @foreach (var post in Model.Posts)
                     {
                         <li class="feed-item">
                             <div class="post">
                                 <div class="post-body">
                                     <div class="post-content">
-                                        <h4>Title</h4>
+                                        <h4>@post.Title</h4>
                                         <p>
-                                            Intel announced the Project Alloy virtual-reality headset on Tuesday at its Intel Developer Forum.
-                                            <small><a href="http://goo.gl/kjbToS" target="_blank">#pcworld</a></small>
+                                            @post.PostMessage
+                                            @if (string.IsNullOrEmpty(post.Link))
+                                            {
+                                                <small><a href="@post.Link" target="_blank">@post.LinkTitle</a></small>
+                                            }
                                         </p>
                                     </div>
                                     <div class="post-img">
-                                        <a href="http://goo.gl/kjbToS" target="_blank">
-                                            <img class="img-responsive" src="~/img/5477829604.jpg" alt="Worldwide Partner Conference in Toronto in July 2016">
-                                        </a>
+                                        @*<a href="" target="_blank">*@
+                                            <img class="img-responsive" src="~/img/devBlog/@($"{post.ImgUrl}")" alt="@post.ImgUrl">
+                                        @*</a>*@
                                     </div>
                                     <div class="post-actions">
-                                        <a class="post-action" href="#">
+                                        <a class="post-action" asp-area="" asp-controller="DevBlog" asp-action="IncrementLike" asp-route="@User?.Identity?.Name">
                                             <span class="icon icon-thumbs-up icon-fw"></span>
                                             Like
                                         </a>

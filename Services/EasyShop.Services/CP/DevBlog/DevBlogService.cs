@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using EasyShop.Domain.Entries.DevBlog;
 using EasyShop.Domain.ViewModels.ControlPanel.DevBlog;
 using EasyShop.Interfaces.Services.CP.DevBlog;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EasyShop.Services.CP.DevBlog
 {
@@ -21,6 +22,11 @@ namespace EasyShop.Services.CP.DevBlog
         }
 
         public Task<bool> DeletePost(Guid postId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> IncrementLike(Guid postId)
         {
             throw new NotImplementedException();
         }

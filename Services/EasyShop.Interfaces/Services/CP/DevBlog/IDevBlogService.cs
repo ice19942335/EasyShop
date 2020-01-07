@@ -14,5 +14,7 @@ namespace EasyShop.Interfaces.Services.CP.DevBlog
         IEnumerable<DevBlogPost> GetAllPosts();
 
         Task<bool> DeletePost(Guid postId);
+
+        Task<bool> IncrementLike(Guid postId);
     }
 }

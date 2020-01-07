@@ -22,6 +22,10 @@ namespace EasyShop.Domain.Entries.DevBlog
         [Required]
         public string ImgUrl { get; set; }
 
+        public string Link { get; set; }
+
+        public string LinkTitle { get; set; }
+
         [Required]
         public DateTime DateTimePosted { get; set; }
 
