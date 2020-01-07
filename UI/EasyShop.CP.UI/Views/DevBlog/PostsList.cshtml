@@ -8,11 +8,10 @@
     ViewData["Title"] = "Dev blog";
     Layout = "Partial/_DevBlogLayout";
 
-    AppUser user;
     bool isAdmin = false;
     if (User?.Identity?.Name != null)
     {
-        user = await UserManager.FindByEmailAsync(User.Identity.Name);
+        var user = await UserManager.FindByEmailAsync(User.Identity.Name);
         isAdmin = await UserManager.IsInRoleAsync(user, DefaultIdentity.RoleAdmin);
     }
 }
@@ -60,8 +59,8 @@
                                             Share
                                         </a>
                                         <div class="post-summary">
-                                            <small class="truncate">Likes: 535k</small>
-                                            <small class="post-timestamp">53 minutes ago</small>
+                                            <small class="truncate">Likes: @post.LikesCounter</small>
+                                            <small class="post-timestamp">@post.DateTimePosted.Date</small>
                                         </div>
                                     </div>
                                 </div>
