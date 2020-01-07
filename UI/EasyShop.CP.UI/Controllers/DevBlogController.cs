@@ -17,7 +17,7 @@ namespace EasyShop.CP.UI.Controllers
             _devBlogService = devBlogService;
         }
 
-        public IActionResult BlogList()
+        public IActionResult PostsList()
         {
             return View();
         }

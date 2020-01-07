@@ -11225,3 +11225,405 @@ WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
 
 2020-01-07 11:22:44,271 [12] ?     - Request finished in 109.0201ms 200 text/html; charset=utf-8
 
+2020-01-07 11:30:31,557 [12] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-07 11:30:31,567 [12] ?     - Hosting environment: Development
+
+2020-01-07 11:30:31,568 [12] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-07 11:30:31,577 [13] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/BlogList  
+
+2020-01-07 11:30:31,667 [13] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.BlogList (EasyShop.CP.UI)'
+
+2020-01-07 11:30:31,710 [13] ?     - Route matched with {action = "BlogList", controller = "DevBlog"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult BlogList() on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-07 11:30:31,725 [13] ?     - Executing ViewResult, running view BlogList.
+
+2020-01-07 11:30:31,738 [13] ?     - The view 'BlogList' was not found. Searched locations: /Views/DevBlog/BlogList.cshtml, /Views/Shared/BlogList.cshtml, /Pages/Shared/BlogList.cshtml
+
+2020-01-07 11:30:31,750 [13] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.BlogList (EasyShop.CP.UI) in 33.2151ms
+
+2020-01-07 11:30:31,752 [13] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.BlogList (EasyShop.CP.UI)'
+
+2020-01-07 11:30:31,846 [13] ?     - An unhandled exception occurred while processing an incoming request. Error: The view 'BlogList' was not found. The following locations were searched:
+/Views/DevBlog/BlogList.cshtml
+/Views/Shared/BlogList.cshtml
+/Pages/Shared/BlogList.cshtml. Stack trace:    at Microsoft.AspNetCore.Mvc.ViewEngines.ViewEngineResult.EnsureSuccessful(IEnumerable`1 originalLocations)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at EasyShop.CP.UI.Infrastructure.Middleware.ErrorHandlingMiddleware.Invoke(HttpContext context) in C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\Infrastructure\Middleware\ErrorHandlingMiddleware.cs:line 26
+
+2020-01-07 11:30:31,872 [13] ?     - An unhandled exception has occurred while executing the request.
+
+2020-01-07 11:30:31,917 [13] ?     - Request finished in 341.4521ms 500 text/html; charset=utf-8
+
+2020-01-07 11:31:10,896 [7] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-07 11:31:10,905 [7] ?     - Hosting environment: Development
+
+2020-01-07 11:31:10,907 [7] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-07 11:31:10,914 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/BlogList  
+
+2020-01-07 11:31:11,000 [4] ?     - Request finished in 86.2759ms 404 
+
+2020-01-07 11:31:17,241 [17] ?     - Request starting HTTP/2.0 GET https://localhost:44374/  
+
+2020-01-07 11:31:17,247 [17] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI)'
+
+2020-01-07 11:31:17,284 [17] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.HomeController (EasyShop.CP.UI).
+
+2020-01-07 11:31:17,301 [17] ?     - Executing ViewResult, running view Index.
+
+2020-01-07 11:31:17,520 [17] ?     - Executed ViewResult - view Index executed in 219.1746ms.
+
+2020-01-07 11:31:17,523 [17] ?     - Executed action EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI) in 236.1598ms
+
+2020-01-07 11:31:17,524 [17] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI)'
+
+2020-01-07 11:31:17,528 [17] ?     - Request finished in 286.7304ms 200 text/html; charset=utf-8
+
+2020-01-07 11:31:17,554 [7] ?     - Request starting HTTP/2.0 GET https://localhost:44374/css/custom/Override/override-landing-page.css?v=6eJLoxNtNtqI4k1vzh6FOYZLsUGcziro-f2snFXmwEY  
+
+2020-01-07 11:31:17,561 [7] ?     - The file /css/custom/Override/override-landing-page.css was not modified
+
+2020-01-07 11:31:17,565 [7] ?     - Request finished in 10.6633ms 304 text/css
+
+2020-01-07 11:31:20,281 [17] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/BlogList  
+
+2020-01-07 11:31:20,296 [17] ?     - Request finished in 15.5232ms 404 
+
+2020-01-07 11:31:28,079 [15] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/PostsList  
+
+2020-01-07 11:31:28,083 [15] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI)'
+
+2020-01-07 11:31:28,086 [15] ?     - Route matched with {action = "PostsList", controller = "DevBlog"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PostsList() on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-07 11:31:28,089 [15] ?     - Executing ViewResult, running view PostsList.
+
+2020-01-07 11:31:28,096 [15] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-07 11:31:28,100 [15] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-07 11:31:28,112 [15] ?     - Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedRoleName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedRoleName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedRoleName_0 IS NULL)
+
+2020-01-07 11:31:28,133 [16] ?     - Executing DbCommand [Parameters=[@__p_0='?' (Size = 450), @__p_1='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE (([a].[UserId] = @__p_0) AND @__p_0 IS NOT NULL) AND (([a].[RoleId] = @__p_1) AND @__p_1 IS NOT NULL)
+
+2020-01-07 11:31:28,172 [16] ?     - Executed ViewResult - view PostsList executed in 83.7997ms.
+
+2020-01-07 11:31:28,177 [16] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI) in 89.0882ms
+
+2020-01-07 11:31:28,180 [16] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI)'
+
+2020-01-07 11:31:28,185 [16] ?     - Request finished in 105.4296ms 200 text/html; charset=utf-8
+
+2020-01-07 11:31:28,258 [12] ?     - Request starting HTTP/2.0 GET https://localhost:44374/css/custom/DevBlog/devBlog.css?v=ICDIWtXAxZttzEONSCNNjKn1bF1pnQdY2QJLmVtdjRc  
+
+2020-01-07 11:31:28,267 [12] ?     - Sending file. Request path: '/css/custom/DevBlog/devBlog.css'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\wwwroot\css\custom\DevBlog\devBlog.css'
+
+2020-01-07 11:31:28,268 [12] ?     - Request finished in 9.7353ms 200 text/css
+
+2020-01-07 11:32:44,797 [8] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-07 11:32:44,809 [8] ?     - Hosting environment: Development
+
+2020-01-07 11:32:44,810 [8] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-07 11:32:44,819 [13] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/PostsList  
+
+2020-01-07 11:32:44,926 [13] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI)'
+
+2020-01-07 11:32:44,999 [13] ?     - Route matched with {action = "PostsList", controller = "DevBlog"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PostsList() on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-07 11:32:45,028 [13] ?     - Executing ViewResult, running view PostsList.
+
+2020-01-07 11:32:45,110 [13] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-07 11:32:45,114 [13] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-07 11:32:45,125 [13] ?     - Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedRoleName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedRoleName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedRoleName_0 IS NULL)
+
+2020-01-07 11:32:45,160 [4] ?     - Executing DbCommand [Parameters=[@__p_0='?' (Size = 450), @__p_1='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE (([a].[UserId] = @__p_0) AND @__p_0 IS NOT NULL) AND (([a].[RoleId] = @__p_1) AND @__p_1 IS NOT NULL)
+
+2020-01-07 11:32:45,463 [12] ?     - Executed ViewResult - view PostsList executed in 439.5353ms.
+
+2020-01-07 11:32:45,469 [12] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI) in 466.8539ms
+
+2020-01-07 11:32:45,472 [12] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI)'
+
+2020-01-07 11:32:45,500 [12] ?     - Request finished in 666.7511ms 200 text/html; charset=utf-8
+
+2020-01-07 11:32:49,780 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/PostsList  
+
+2020-01-07 11:32:49,791 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI)'
+
+2020-01-07 11:32:49,794 [4] ?     - Route matched with {action = "PostsList", controller = "DevBlog"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PostsList() on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-07 11:32:49,796 [4] ?     - Executing ViewResult, running view PostsList.
+
+2020-01-07 11:32:49,837 [4] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-07 11:32:49,841 [4] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-07 11:32:49,844 [4] ?     - Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedRoleName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedRoleName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedRoleName_0 IS NULL)
+
+2020-01-07 11:32:49,850 [12] ?     - Executing DbCommand [Parameters=[@__p_0='?' (Size = 450), @__p_1='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE (([a].[UserId] = @__p_0) AND @__p_0 IS NOT NULL) AND (([a].[RoleId] = @__p_1) AND @__p_1 IS NOT NULL)
+
+2020-01-07 11:32:49,857 [8] ?     - Executed ViewResult - view PostsList executed in 60.9605ms.
+
+2020-01-07 11:32:49,859 [8] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI) in 63.4955ms
+
+2020-01-07 11:32:49,860 [8] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI)'
+
+2020-01-07 11:32:49,862 [8] ?     - Request finished in 83.4553ms 200 text/html; charset=utf-8
+
+2020-01-07 11:33:57,764 [22] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/canvas-to-blob.min.js.map  
+
+2020-01-07 11:33:57,782 [22] ?     - Request finished in 15.5861ms 404 
+
+2020-01-07 11:34:24,400 [4] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-07 11:34:24,409 [4] ?     - Hosting environment: Development
+
+2020-01-07 11:34:24,411 [4] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-07 11:34:24,420 [13] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/PostsList  
+
+2020-01-07 11:34:24,523 [13] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI)'
+
+2020-01-07 11:34:24,569 [13] ?     - Route matched with {action = "PostsList", controller = "DevBlog"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PostsList() on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-07 11:34:24,593 [13] ?     - Executing ViewResult, running view PostsList.
+
+2020-01-07 11:34:24,638 [13] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-07 11:34:24,641 [13] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-07 11:34:24,649 [13] ?     - Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedRoleName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedRoleName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedRoleName_0 IS NULL)
+
+2020-01-07 11:34:24,675 [14] ?     - Executing DbCommand [Parameters=[@__p_0='?' (Size = 450), @__p_1='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE (([a].[UserId] = @__p_0) AND @__p_0 IS NOT NULL) AND (([a].[RoleId] = @__p_1) AND @__p_1 IS NOT NULL)
+
+2020-01-07 11:34:24,914 [4] ?     - Executed ViewResult - view PostsList executed in 319.9572ms.
+
+2020-01-07 11:34:24,919 [4] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI) in 349.1044ms
+
+2020-01-07 11:34:24,922 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI)'
+
+2020-01-07 11:34:24,941 [4] ?     - Request finished in 518.0266ms 200 text/html; charset=utf-8
+
+2020-01-07 11:34:24,954 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/img/5477829604.jpg  
+
+2020-01-07 11:34:24,962 [9] ?     - The file /img/5477829604.jpg was not modified
+
+2020-01-07 11:34:24,967 [9] ?     - Request finished in 11.6556ms 304 image/jpeg
+
+2020-01-07 11:35:05,884 [9] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-07 11:35:05,892 [9] ?     - Hosting environment: Development
+
+2020-01-07 11:35:05,894 [9] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-07 11:35:05,902 [10] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/PostsList  
+
+2020-01-07 11:35:05,995 [10] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI)'
+
+2020-01-07 11:35:06,036 [10] ?     - Route matched with {action = "PostsList", controller = "DevBlog"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PostsList() on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-07 11:35:06,055 [10] ?     - Executing ViewResult, running view PostsList.
+
+2020-01-07 11:35:06,103 [10] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-07 11:35:06,111 [10] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-07 11:35:06,119 [10] ?     - Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedRoleName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedRoleName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedRoleName_0 IS NULL)
+
+2020-01-07 11:35:06,141 [9] ?     - Executing DbCommand [Parameters=[@__p_0='?' (Size = 450), @__p_1='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE (([a].[UserId] = @__p_0) AND @__p_0 IS NOT NULL) AND (([a].[RoleId] = @__p_1) AND @__p_1 IS NOT NULL)
+
+2020-01-07 11:35:06,358 [14] ?     - Executed ViewResult - view PostsList executed in 304.6664ms.
+
+2020-01-07 11:35:06,362 [14] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI) in 324.4263ms
+
+2020-01-07 11:35:06,364 [14] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI)'
+
+2020-01-07 11:35:06,375 [14] ?     - Request finished in 472.7946ms 200 text/html; charset=utf-8
+
+2020-01-07 11:35:06,794 [10] ?     - Request starting HTTP/2.0 GET https://localhost:44374/img/3456253426432.jpg  
+
+2020-01-07 11:35:06,803 [10] ?     - The file /img/3456253426432.jpg was not modified
+
+2020-01-07 11:35:06,807 [10] ?     - Request finished in 13.202ms 304 image/jpeg
+
+2020-01-07 11:35:44,365 [7] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-07 11:35:44,377 [7] ?     - Hosting environment: Development
+
+2020-01-07 11:35:44,378 [7] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-07 11:35:44,386 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/PostsList  
+
+2020-01-07 11:35:44,492 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI)'
+
+2020-01-07 11:35:44,538 [4] ?     - Route matched with {action = "PostsList", controller = "DevBlog"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PostsList() on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-07 11:35:44,557 [4] ?     - Executing ViewResult, running view PostsList.
+
+2020-01-07 11:35:44,599 [4] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-07 11:35:44,604 [4] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-07 11:35:44,613 [4] ?     - Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedRoleName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedRoleName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedRoleName_0 IS NULL)
+
+2020-01-07 11:35:44,636 [7] ?     - Executing DbCommand [Parameters=[@__p_0='?' (Size = 450), @__p_1='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE (([a].[UserId] = @__p_0) AND @__p_0 IS NOT NULL) AND (([a].[RoleId] = @__p_1) AND @__p_1 IS NOT NULL)
+
+2020-01-07 11:35:44,918 [7] ?     - Executed ViewResult - view PostsList executed in 361.6972ms.
+
+2020-01-07 11:35:44,925 [7] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI) in 384.8551ms
+
+2020-01-07 11:35:44,938 [7] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI)'
+
+2020-01-07 11:35:44,953 [7] ?     - Request finished in 567.0569ms 200 text/html; charset=utf-8
+
+2020-01-07 11:36:18,011 [13] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-07 11:36:18,027 [13] ?     - Hosting environment: Development
+
+2020-01-07 11:36:18,028 [13] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-07 11:36:18,037 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/PostsList  
+
+2020-01-07 11:36:18,139 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI)'
+
+2020-01-07 11:36:18,181 [4] ?     - Route matched with {action = "PostsList", controller = "DevBlog"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PostsList() on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-07 11:36:18,204 [4] ?     - Executing ViewResult, running view PostsList.
+
+2020-01-07 11:36:18,252 [4] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-07 11:36:18,258 [4] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-07 11:36:18,266 [4] ?     - Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedRoleName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedRoleName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedRoleName_0 IS NULL)
+
+2020-01-07 11:36:18,288 [14] ?     - Executing DbCommand [Parameters=[@__p_0='?' (Size = 450), @__p_1='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE (([a].[UserId] = @__p_0) AND @__p_0 IS NOT NULL) AND (([a].[RoleId] = @__p_1) AND @__p_1 IS NOT NULL)
+
+2020-01-07 11:36:18,529 [13] ?     - Executed ViewResult - view PostsList executed in 325.874ms.
+
+2020-01-07 11:36:18,534 [13] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI) in 350.2724ms
+
+2020-01-07 11:36:18,537 [13] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI)'
+
+2020-01-07 11:36:18,553 [13] ?     - Request finished in 513.3525ms 200 text/html; charset=utf-8
+
+2020-01-07 11:37:00,617 [4] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-07 11:37:00,628 [4] ?     - Hosting environment: Development
+
+2020-01-07 11:37:00,629 [4] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-07 11:37:00,637 [10] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/PostsList  
+
+2020-01-07 11:37:00,720 [10] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI)'
+
+2020-01-07 11:37:00,758 [10] ?     - Route matched with {action = "PostsList", controller = "DevBlog"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PostsList() on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-07 11:37:00,781 [10] ?     - Executing ViewResult, running view PostsList.
+
+2020-01-07 11:37:00,839 [10] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-07 11:37:00,842 [10] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-07 11:37:00,852 [10] ?     - Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedRoleName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedRoleName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedRoleName_0 IS NULL)
+
+2020-01-07 11:37:00,877 [9] ?     - Executing DbCommand [Parameters=[@__p_0='?' (Size = 450), @__p_1='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE (([a].[UserId] = @__p_0) AND @__p_0 IS NOT NULL) AND (([a].[RoleId] = @__p_1) AND @__p_1 IS NOT NULL)
+
+2020-01-07 11:37:01,106 [4] ?     - Executed ViewResult - view PostsList executed in 328.826ms.
+
+2020-01-07 11:37:01,111 [4] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI) in 351.0502ms
+
+2020-01-07 11:37:01,114 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI)'
+
+2020-01-07 11:37:01,128 [4] ?     - Request finished in 486.6685ms 200 text/html; charset=utf-8
+
