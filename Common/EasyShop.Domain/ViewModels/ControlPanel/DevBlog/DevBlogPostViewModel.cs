@@ -9,8 +9,6 @@ namespace EasyShop.Domain.ViewModels.ControlPanel.DevBlog
     {
         public string Id { get; set; }
 
-        public AppUser AppUser { get; set; }
-
         public string Title { get; set; }
 
         public string PostMessage { get; set; }
