@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using EasyShop.Domain.Entries.DevBlog;
 using EasyShop.Domain.Entries.GameType;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Entries.Rust;
@@ -37,6 +38,10 @@ namespace EasyShop.DAL.Context
         public DbSet<RustServerMap> RustServerMaps { get; set; }
         public DbSet<RustPurchaseStats> RustPurchaseStats { get; set; }
         public DbSet<RustUser> RustUsers { get; set; }
+
+        //DevBlog
+        public DbSet<DevBlogPost> DevBlogPosts { get; set; }
+        public DbSet<DevBlogPostsLike> DevBlogPostsLikes { get; set; }
 
 
         //Constructor
@@ -106,6 +111,22 @@ namespace EasyShop.DAL.Context
                 .WithMany(x => x.UserShops)
                 .HasForeignKey(x => x.AppUserId);
             //===================================================================
+
+            //DevBlogPostsLike ----------------------------------------------------------
+            modelBuilder.Entity<DevBlogPostsLike>()
+                .HasKey(x => new { x.AppUserId, x.DevBlogPostId });
+
+            modelBuilder.Entity<DevBlogPostsLike>()
+                .HasOne(x => x.DevBlogPost)
+                .WithMany(x => x.DevBlogPostsLikes)
+                .HasForeignKey(x => x.DevBlogPostId);
+
+            modelBuilder.Entity<DevBlogPostsLike>()
+                .HasOne(x => x.AppUser)
+                .WithMany(x => x.DevBlogPostsLikes)
+                .HasForeignKey(x => x.AppUserId);
+            //===================================================================
+
             #endregion
         }
     }

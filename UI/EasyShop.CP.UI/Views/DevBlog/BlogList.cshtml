@@ -1,12 +1,33 @@
-﻿@{
+﻿@using EasyShop.Domain.Entries.Identity
+@using EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<AppUser> UserManager
+
+@{
     ViewData["Title"] = "Dev blog";
     Layout = "Partial/_DevBlogLayout";
+
+    AppUser user;
+    bool isAdmin = false;
+    if (User?.Identity?.Name != null)
+    {
+        user = await UserManager.FindByEmailAsync(User.Identity.Name);
+        isAdmin = await UserManager.IsInRoleAsync(user, DefaultIdentity.RoleAdmin);
+    }
 }
 
 <div class="devBlogWrap">
     <div class="profile">
         <div class="profile-body">
             <div class="profile-container">
+                @if (isAdmin)
+                {
+                    <div class="row m-b-md">
+                        <div class="col-lg-3">
+                            <a class="btn btn-default" asp-area="" asp-controller="DevBlog" asp-action="CreatePost">Create post</a>
+                        </div>
+                    </div>
+                }
                 <ol class="feed">
                     @for (int i = 0; i < 10; i++)
                     {
@@ -25,6 +46,7 @@
                                 </div>
                                 <div class="post-body">
                                     <div class="post-content">
+                                        <h4>Title</h4>
                                         <p>
                                             Intel announced the Project Alloy virtual-reality headset on Tuesday at its Intel Developer Forum.
                                             <small><a href="http://goo.gl/kjbToS" target="_blank">#pcworld</a></small>
@@ -46,7 +68,7 @@
                                         </a>
                                         <div class="post-summary">
                                             <small class="truncate">
-                                                <a class="link-muted" href="#">Likes: 535k</a>
+                                                Likes: 535k
                                             </small>
                                         </div>
                                     </div>
