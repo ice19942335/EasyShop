@@ -57,17 +57,17 @@ namespace EasyShop.Services.Email
                 await smtp.SendMailAsync(mail);
 
                 
-                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
                     userForLog != null ? userForLog.UserName : "Null",
                     userForLog != null ? userForLog.Id : "Null",
                     _httpContextAccessor.HttpContext.Request.GetRawTarget(),
-                    $"Mail has been sent to receiver: {email}; Subject: {subject}; Message: {message};");
+                    $"Mail has been sent to receiver: {email}; Subject: {subject}; PostMessage: {message};");
 
                 return true;
             }
             catch (Exception e)
             {
-                _logger.LogError("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                _logger.LogError("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
                     userForLog != null ? userForLog.UserName : "Null",
                     userForLog != null ? userForLog.Id : "Null",
                     _httpContextAccessor.HttpContext.Request.GetRawTarget(),

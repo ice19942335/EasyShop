@@ -4,7 +4,9 @@
 
 
 @await Html.PartialAsync("Partial/_DevBlogNavBar")
-@RenderBody()
+<div class="contentWrap">
+    @RenderBody()
+</div>
 
 
 @section Styles
@@ -12,6 +14,7 @@
     <link href="~/css/landing-page.css" rel="stylesheet" asp-append-version="true">
     <link href="~/css/custom/Override/override-landing-page.css" rel="stylesheet" asp-append-version="true" />
     <link href="~/css/profile.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/custom/DevBlog/devBlog.css" rel="stylesheet" asp-append-version="true" />
     @RenderSection("Styles", false)
 }
 

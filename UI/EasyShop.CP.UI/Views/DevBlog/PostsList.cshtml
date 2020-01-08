@@ -28,52 +28,50 @@
                         </div>
                     </div>
                 }
-                <ol class="feed">
-                    @foreach (var post in Model.Posts)
-                    {
-                        <li class="feed-item">
-                            <div class="post">
-                                <div class="post-body">
-                                    <div class="post-content">
-                                        <h4>@post.Title</h4>
-                                        <p>
-                                            @post.PostMessage
-                                            @if (string.IsNullOrEmpty(post.Link))
-                                            {
-                                                <small><a href="@post.Link" target="_blank">@post.LinkTitle</a></small>
-                                            }
-                                        </p>
-                                    </div>
-                                    <div class="post-img">
-                                        @*<a href="" target="_blank">*@
+                @if (Model.Posts.Any())
+                {
+                    <ol class="feed">
+                        @foreach (var post in Model.Posts)
+                        {
+                            <li class="feed-item">
+                                <div class="post">
+                                    <div class="post-body">
+                                        <div class="post-content">
+                                            <h4>@post.Title</h4>
+                                            <p>
+                                                @post.PostMessage
+                                                @if (string.IsNullOrEmpty(post.Link))
+                                                {
+                                                    <small><a href="@post.Link" target="_blank">@post.LinkTitle</a></small>
+                                                }
+                                            </p>
+                                        </div>
+                                        <div class="post-img">
+                                            @*<a href="" target="_blank">*@
                                             <img class="img-responsive" src="~/img/devBlog/@($"{post.ImgUrl}")" alt="@post.ImgUrl">
-                                        @*</a>*@
-                                    </div>
-                                    <div class="post-actions">
-                                        <a class="post-action" asp-area="" asp-controller="DevBlog" asp-action="IncrementLike" asp-route="@User?.Identity?.Name">
-                                            <span class="icon icon-thumbs-up icon-fw"></span>
-                                            Like
-                                        </a>
-                                        <a class="post-action" href="#">
-                                            <span class="icon icon-share icon-fw"></span>
-                                            Share
-                                        </a>
-                                        <div class="post-summary">
-                                            <small class="truncate">Likes: @post.LikesCounter</small>
-                                            <small class="post-timestamp">@post.DateTimePosted.Date</small>
+                                            @*</a>*@
+                                        </div>
+                                        <div class="post-actions">
+                                            <a class="post-action" asp-area="" asp-controller="DevBlog" asp-action="IncrementLike" asp-route="@User?.Identity?.Name">
+                                                <span class="icon icon-thumbs-up icon-fw"></span>
+                                                Like
+                                            </a>
+                                            <a class="post-action" href="#">
+                                                <span class="icon icon-share icon-fw"></span>
+                                                Share
+                                            </a>
+                                            <div class="post-summary">
+                                                <small class="truncate">Likes: @post.LikesCounter</small>
+                                                <small class="post-timestamp">@post.DateTimePosted.Date</small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
-                    }
-                </ol>
+                            </li>
+                        }
+                    </ol>
+                }
             </div>
         </div>
     </div>
 </div>
-
-@section Scripts
-{
-    <link href="~/css/custom/DevBlog/devBlog.css" rel="stylesheet" asp-append-version="true" />
-}

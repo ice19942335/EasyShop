@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using EasyShop.Domain.Entries.Identity;
 
 namespace EasyShop.Domain.ViewModels.ControlPanel.DevBlog
 {

@@ -81,7 +81,7 @@ namespace EasyShop.Services.CP.Rust.Shop
             await _context.SaveChangesAsync();
 
             var userForLog = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
-            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
                 userForLog.UserName,
                 userForLog.Id,
                 _httpContextAccessor.HttpContext.Request.GetRawTarget(),

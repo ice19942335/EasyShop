@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.ViewModels.User.UserData;
@@ -51,7 +52,12 @@ namespace EasyShop.CP.UI.Controllers
         public async Task<IActionResult> Profile([FromForm] UserProfileViewModel model)
         {
             if (!ModelState.IsValid)
+            {
+                var errors = ModelState.Values.SelectMany(x => x.Errors.Select(xx => xx.ErrorMessage)).ToList();
+                errors.ForEach(x => ModelState.AddModelError("", x));
                 return View(model);
+            }
+                
 
             if (model.ImageToUpload != null)
             {
@@ -65,7 +71,7 @@ namespace EasyShop.CP.UI.Controllers
                 }
 
                 var userForLog = await _userManager.FindByEmailAsync(HttpContext.User.Identity.Name);
-                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
                     userForLog.UserName,
                     userForLog.Id,
                     HttpContext.Request.GetRawTarget(),

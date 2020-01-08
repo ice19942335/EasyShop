@@ -50,7 +50,7 @@ namespace EasyShop.Services.CP.UserProfile
 
 
                 //var userForLog = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
-                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
                     user.UserName,
                     user.Id,
                     _httpContextAccessor.HttpContext.Request.GetRawTarget(),

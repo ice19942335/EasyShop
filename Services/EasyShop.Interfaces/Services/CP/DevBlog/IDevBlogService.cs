@@ -13,6 +13,8 @@ namespace EasyShop.Interfaces.Services.CP.DevBlog
 
         IEnumerable<DevBlogPost> GetAllPosts();
 
+        DevBlogPost GetPostById(Guid postId);
+
         Task<bool> DeletePost(Guid postId);
 
         Task<bool> IncrementLike(Guid postId);

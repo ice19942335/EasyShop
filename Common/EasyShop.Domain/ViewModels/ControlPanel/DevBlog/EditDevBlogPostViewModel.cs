@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using EasyShop.Domain.Entries.Identity;
+using Microsoft.AspNetCore.Http;
 
 namespace EasyShop.Domain.ViewModels.ControlPanel.DevBlog
 {
@@ -14,6 +12,8 @@ namespace EasyShop.Domain.ViewModels.ControlPanel.DevBlog
         public string PostMessage { get; set; }
 
         public string ImgUrl { get; set; }
+
+        public IFormFile ImageToUpload { get; set; }
 
         public string Link { get; set; }
 

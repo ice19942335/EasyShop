@@ -17,7 +17,7 @@ namespace EasyShop.Domain.Entries.DevBlog
         public string Title { get; set; }
 
         [Required]
-        public string Message { get; set; }
+        public string PostMessage { get; set; }
 
         [Required]
         public string ImgUrl { get; set; }

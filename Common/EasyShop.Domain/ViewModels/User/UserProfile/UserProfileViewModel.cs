@@ -9,19 +9,19 @@ namespace EasyShop.Domain.ViewModels.User.UserProfile
 {
     public class UserProfileViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "The name is required.")]
         public string FirstName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "The last name is required.")]
         public string LastName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "The email is required.")]
         public string Email { get; set; }
 
         public DateTime BirthDate { get; set; }
 
-        [Required(ErrorMessage = "Please enter correct birth date")]
-        [RegularExpression("[0-9]{2}-[0-9]{2}-[0-9]{4}", ErrorMessage = "Please enter correct birth date")]
+        [Required(ErrorMessage = "The birth date is required.")]
+        [RegularExpression("[0-9]{2}-[0-9]{2}-[0-9]{4}", ErrorMessage = "Please enter a correct birth date.")]
         public string BirthDateToUpdate { get; set; }
 
         public int Gender { get; set; }

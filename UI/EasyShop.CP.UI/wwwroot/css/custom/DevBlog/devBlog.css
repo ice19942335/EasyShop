@@ -1,4 +1,7 @@
-﻿.devBlogWrap {
-    background: url(../../../img/3456253426432.jpg) repeat;
+﻿.contentWrap {
     padding-top: 50px;
+}
+
+body {
+    background: url(../../../img/3456253426432.jpg) repeat;
 }

@@ -79,7 +79,7 @@ namespace EasyShop.Services.CP.Rust.Server
                 _context.RustServers.Add(newServer);
                 await _context.SaveChangesAsync();
 
-                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
                     userForLog.UserName,
                     userForLog.Id,
                     _httpContextAccessor.HttpContext.Request.GetRawTarget(),
@@ -111,7 +111,7 @@ namespace EasyShop.Services.CP.Rust.Server
             _context.RustServers.Update(server);
             await _context.SaveChangesAsync();
 
-            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
                 userForLog.UserName,
                 userForLog.Id,
                 _httpContextAccessor.HttpContext.Request.GetRawTarget(),
@@ -131,7 +131,7 @@ namespace EasyShop.Services.CP.Rust.Server
             await _context.SaveChangesAsync();
 
             var userForLog = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
-            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
                 userForLog.UserName,
                 userForLog.Id,
                 _httpContextAccessor.HttpContext.Request.GetRawTarget(),
