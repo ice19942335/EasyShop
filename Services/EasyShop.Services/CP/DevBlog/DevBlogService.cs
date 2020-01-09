@@ -72,9 +72,17 @@ namespace EasyShop.Services.CP.DevBlog
 
         public DevBlogPost GetPostById(Guid postId) => _context.DevBlogPosts.FirstOrDefault(x => x.Id == postId);
 
-        public Task<bool> DeletePost(Guid postId)
+        public async Task<bool> DeletePost(Guid postId)
         {
-            throw new NotImplementedException();
+            var post = _context.DevBlogPosts.FirstOrDefault(x => x.Id == postId);
+
+            if (post is null)
+                return false;
+
+            _context.Remove(post);
+            await _context.SaveChangesAsync();
+
+            return true;
         }
 
         public Task<bool> IncrementLike(Guid postId)

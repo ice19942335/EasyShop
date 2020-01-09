@@ -85,7 +85,12 @@ namespace EasyShop.CP.UI.Controllers
 
         public async Task<IActionResult> DeletePost(string postId)
         {
-            throw new NotImplementedException();
+            var result = await _devBlogService.DeletePost(Guid.Parse(postId));
+
+            if (!result)
+                return RedirectToAction("SomethingWentWrong", "Home");
+
+            return RedirectToAction("PostsList");
         }
 
         [Authorize(Roles = "Admin, User")]

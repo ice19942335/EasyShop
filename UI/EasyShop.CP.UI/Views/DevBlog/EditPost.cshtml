@@ -40,7 +40,22 @@
                         <button class="btn btn-primary btn-block m-t-md" type="submit">Add / Save</button>
                     </div>
                 </form>
+                <div>
+                    <span id="confirmButton_@Model.Id">
+                        <button class="btn btn-danger btn-block" onclick="deleteConfirmationDialog('@Model.Id', true)">Delete post</button>
+                    </span>
+                    <span style="display: none" id="confirmSpan_@Model.Id">
+                        <span>Post: <strong style="color: #00aced;">@Model.Title</strong> will be permanently deleted! You sure you want to do that?</span>
+                        <a style="background-color: #75ac00; border: none;" class="btn btn-default" asp-area="" asp-controller="DevBlog" asp-action="DeletePost" asp-route-postId="@Model.Id">Yes</a>
+                        <a href="#" style="border: none;" class="btn btn-danger" onclick="deleteConfirmationDialog('@Model.Id', false)">No</a>
+                    </span>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+@section Scripts
+{
+    <script src="~/js/customScripts/DeleteConfirmationDialog.js" asp-append-version="true"></script>
+}
