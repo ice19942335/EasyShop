@@ -93,10 +93,18 @@ namespace EasyShop.CP.UI.Controllers
             return RedirectToAction("PostsList");
         }
 
-        [Authorize(Roles = "Admin, User")]
-        public IActionResult IncrementLike(string userId)
+        [AllowAnonymous]
+        public async Task<IActionResult> IncrementLike(string postId)
         {
-            throw new NotImplementedException();
+            if (!User.Identity.IsAuthenticated)
+                return RedirectToAction("Register", "Account");
+
+            var result = await _devBlogService.IncrementLike(Guid.Parse(postId));
+
+            if (!result)
+                return RedirectToAction("SomethingWentWrong", "Home");
+
+            return RedirectToAction("PostsList");
         }
     }
 }

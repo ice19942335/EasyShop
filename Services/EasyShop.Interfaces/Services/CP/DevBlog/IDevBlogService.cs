@@ -19,5 +19,9 @@ namespace EasyShop.Interfaces.Services.CP.DevBlog
         Task<bool> DeletePost(Guid postId);
 
         Task<bool> IncrementLike(Guid postId);
+
+        int GetLikesCount(Guid postId);
+
+        bool UserHasAlreadyLikedThePost(Guid postId);
     }
 }

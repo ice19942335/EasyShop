@@ -5,11 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.DevBlog;
+using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Enums.DevBlog;
 using EasyShop.Domain.ViewModels.ControlPanel.DevBlog;
 using EasyShop.Interfaces.Services.CP.DevBlog;
 using EasyShop.Interfaces.Services.CP.FileImage;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace EasyShop.Services.CP.DevBlog
 {
@@ -17,11 +21,15 @@ namespace EasyShop.Services.CP.DevBlog
     {
         private readonly EasyShopContext _context;
         private readonly IFileImageService _fileImageService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly UserManager<AppUser> _userManager;
 
-        public DevBlogService(EasyShopContext context, IFileImageService fileImageService)
+        public DevBlogService(EasyShopContext context, IFileImageService fileImageService, IHttpContextAccessor httpContextAccessor, UserManager<AppUser> userManager)
         {
             _context = context;
             _fileImageService = fileImageService;
+            _httpContextAccessor = httpContextAccessor;
+            _userManager = userManager;
         }
 
         public async Task<DevBlogPostUpdateResult> UpdatePost(EditDevBlogPostViewModel model)
@@ -35,7 +43,7 @@ namespace EasyShop.Services.CP.DevBlog
                     PostMessage = model.PostMessage,
                     Link = model.Link,
                     LinkTitle = model.LinkTitle,
-                    DateTimePosted = DateTime.Today.Date,
+                    DateTimePosted = DateTime.Today,
                     LikesCounter = 0
                 };
 
@@ -57,8 +65,6 @@ namespace EasyShop.Services.CP.DevBlog
             post.LinkTitle = model.LinkTitle;
             post.Link = model.Link;
             post.ImgUrl = model.ImgUrl;
-            post.DateTimePosted = model.DateTimePosted;
-            post.LikesCounter = model.LikesCounter;
 
             if (model.ImageToUpload != null)
                 post.ImgUrl = await _fileImageService.SaveFile(model.ImageToUpload, "DevBlogImages");
@@ -85,7 +91,48 @@ namespace EasyShop.Services.CP.DevBlog
             return true;
         }
 
-        public Task<bool> IncrementLike(Guid postId)
+        public async Task<bool> IncrementLike(Guid postId)
+        {
+            var user = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
+            var post = GetPostById(postId);
+
+            var likeEntry = _context.DevBlogPostsLikes
+                .Include(x => x.AppUser)
+                .Include(x => x.DevBlogPost)
+                .FirstOrDefault(x => x.AppUserId == user.Id && x.DevBlogPostId == postId);
+
+            if (likeEntry is null)
+            {
+                var newLikeEntry = new DevBlogPostsLike
+                {
+                    DevBlogPostId = postId,
+                    DevBlogPost = post,
+                    AppUserId = user.Id,
+                    AppUser = user
+                };
+
+                post.LikesCounter += 1;
+
+                _context.DevBlogPosts.Update(post);
+                _context.DevBlogPostsLikes.Add(newLikeEntry);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+
+            post.LikesCounter -= 1;
+
+            _context.DevBlogPosts.Update(post);
+            _context.DevBlogPostsLikes.Remove(likeEntry);
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
+        public int GetLikesCount(Guid postId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UserHasAlreadyLikedThePost(Guid postId)
         {
             throw new NotImplementedException();
         }

@@ -56,7 +56,7 @@
                                             @*</a>*@
                                         </div>
                                         <div class="post-actions">
-                                            <a class="post-action" asp-area="" asp-controller="DevBlog" asp-action="IncrementLike" asp-route-userId="@User?.Identity?.Name">
+                                            <a class="post-action" asp-area="" asp-controller="DevBlog" asp-action="IncrementLike" asp-route-postId="@post.Id">
                                                 <span class="icon icon-thumbs-up icon-fw"></span>
                                                 Like
                                             </a>
