@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EasyShop.Domain.Enums.DevBlog;
 using EasyShop.Domain.ViewModels.ControlPanel.DevBlog;
 using EasyShop.Interfaces.Services.CP.DevBlog;
 using Microsoft.AspNetCore.Authorization;
@@ -63,7 +64,23 @@ namespace EasyShop.CP.UI.Controllers
         [HttpPost]
         public async Task<IActionResult> EditPost([FromForm] EditDevBlogPostViewModel model)
         {
-            return View();
+            if (!ModelState.IsValid)
+            {
+                var errors = ModelState.Values.SelectMany(x => x.Errors.Select(xx => xx.ErrorMessage)).ToList();
+                errors.ForEach(x => ModelState.AddModelError("", x));
+                return View(model);
+            }
+
+            var result = await _devBlogService.UpdatePost(model);
+
+            if (result == DevBlogPostUpdateResult.NotFound)
+                return RedirectToAction("NotFoundPage", "Home");
+            else if(result == DevBlogPostUpdateResult.Created)
+                return RedirectToAction("PostsList");
+            else if (result == DevBlogPostUpdateResult.Updated)
+                return View(model);
+            else 
+                return RedirectToAction("SomethingWentWrong", "Home");
         }
 
         public async Task<IActionResult> DeletePost(string postId)
@@ -72,7 +89,7 @@ namespace EasyShop.CP.UI.Controllers
         }
 
         [Authorize(Roles = "Admin, User")]
-        public IActionResult IncrementLike()
+        public IActionResult IncrementLike(string userId)
         {
             throw new NotImplementedException();
         }

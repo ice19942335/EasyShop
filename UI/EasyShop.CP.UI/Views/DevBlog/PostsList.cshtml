@@ -37,10 +37,14 @@
                                 <div class="post">
                                     <div class="post-body">
                                         <div class="post-content">
+                                            @if (isAdmin)
+                                            {
+                                                <a class="btn btn-default pull-right" asp-area="" asp-controller="DevBlog" asp-action="EditPost" asp-route-postId="@post.Id">Edit</a>
+                                            }
                                             <h4>@post.Title</h4>
                                             <p>
                                                 @post.PostMessage
-                                                @if (string.IsNullOrEmpty(post.Link))
+                                                @if (!string.IsNullOrEmpty(post.Link))
                                                 {
                                                     <small><a href="@post.Link" target="_blank">@post.LinkTitle</a></small>
                                                 }
@@ -48,11 +52,11 @@
                                         </div>
                                         <div class="post-img">
                                             @*<a href="" target="_blank">*@
-                                            <img class="img-responsive" src="~/img/devBlog/@($"{post.ImgUrl}")" alt="@post.ImgUrl">
+                                            <img class="img-responsive" src="~/DevBlogImages/@($"{post.ImgUrl}")" alt="@post.ImgUrl">
                                             @*</a>*@
                                         </div>
                                         <div class="post-actions">
-                                            <a class="post-action" asp-area="" asp-controller="DevBlog" asp-action="IncrementLike" asp-route="@User?.Identity?.Name">
+                                            <a class="post-action" asp-area="" asp-controller="DevBlog" asp-action="IncrementLike" asp-route-userId="@User?.Identity?.Name">
                                                 <span class="icon icon-thumbs-up icon-fw"></span>
                                                 Like
                                             </a>
@@ -61,8 +65,11 @@
                                                 Share
                                             </a>
                                             <div class="post-summary">
-                                                <small class="truncate">Likes: @post.LikesCounter</small>
-                                                <small class="post-timestamp">@post.DateTimePosted.Date</small>
+                                                @if (post.LikesCounter > 0)
+                                                {
+                                                    <small class="truncate">Likes: @post.LikesCounter</small>
+                                                }
+                                                <small class="post-timestamp">@post.DateTimePosted.ToString("D")</small>
                                             </div>
                                         </div>
                                     </div>

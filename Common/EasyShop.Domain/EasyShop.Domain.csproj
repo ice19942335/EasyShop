@@ -12,6 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Dto\Account\" />
+    <Folder Include="Dto\CP\" />
     <Folder Include="Models\" />
   </ItemGroup>
 

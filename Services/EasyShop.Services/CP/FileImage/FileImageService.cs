@@ -15,8 +15,13 @@ namespace EasyShop.Services.CP.FileImage
     public class FileImageService : IFileImageService
     {
         private readonly IWebHostEnvironment _environment;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public FileImageService(IWebHostEnvironment environment) => _environment = environment;
+        public FileImageService(IWebHostEnvironment environment, IHttpContextAccessor httpContextAccessor)
+        {
+            _environment = environment;
+            _httpContextAccessor = httpContextAccessor;
+        }
 
         public string GetUniqueFileName(string filename)
         {
@@ -33,22 +38,22 @@ namespace EasyShop.Services.CP.FileImage
                 .Select(path => Path.GetFileName(path));
         }
 
-        public async Task<string> SaveFile(UserProfileViewModel model, string folder)
+        public async Task<string> SaveFile(IFormFile imgFile, string folder)
         {
             var imagesFolder = Path.Combine(_environment.WebRootPath, folder);
 
-            if (model.ImageToUpload.Length <= 0)
+            if (imgFile.Length <= 0)
                 return null;
 
-            var type = model.ImageToUpload.ContentType.Split("/")[1];
+            var type = imgFile.ContentType.Split("/")[1];
 
-            if (type == "jpeg" || type == "jpg" || type == "png" || model.ImageToUpload.Length < 10000000)
+            if (type == "jpeg" || type == "jpg" || type == "png" || imgFile.Length < 10000000)
             {
-                var uniqueFileName = GetUniqueFileName($"image_{model.Email}_{model.ImageToUpload.FileName}");
+                var uniqueFileName = GetUniqueFileName($"image_{_httpContextAccessor.HttpContext.User.Identity.Name}_{imgFile.FileName}");
                 var filePathUploadsImages = Path.Combine(imagesFolder, uniqueFileName);
 
                 await using var stream = new FileStream(filePathUploadsImages, FileMode.Create);
-                await model.ImageToUpload.CopyToAsync(stream);
+                await imgFile.CopyToAsync(stream);
 
                 return uniqueFileName;
             }

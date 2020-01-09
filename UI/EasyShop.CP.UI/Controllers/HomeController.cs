@@ -29,5 +29,7 @@ namespace EasyShop.CP.UI.Controllers
                     return RedirectToAction(nameof(ServerErrorPage), "Home", new {statusCode = id});
             }
         }
+
+        public IActionResult SomethingWentWrong() => View();
     }
 }

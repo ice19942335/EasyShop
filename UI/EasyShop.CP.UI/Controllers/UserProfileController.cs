@@ -61,7 +61,7 @@ namespace EasyShop.CP.UI.Controllers
 
             if (model.ImageToUpload != null)
             {
-                var saveFileResult = await _fileImageService.SaveFile(model, "UserImages");
+                var saveFileResult = await _fileImageService.SaveFile(model.ImageToUpload, "UserImages");
                 model.ProfileImage = saveFileResult;
 
                 if(saveFileResult is null)

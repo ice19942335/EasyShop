@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
             <div class="demo-form-wrapper">
-                <form enctype="multipart/form-data" asp-area="" asp-controller="Admin" asp-action="EditTariff">
+                <form enctype="multipart/form-data" asp-area="" asp-controller="DevBlog" asp-action="EditPost">
                     <div asp-validation-summary="ModelOnly" class="alert alert-info"></div>
                     <input asp-for="Id" type="hidden" />
                     <input asp-for="ImgUrl" hidden="" />
@@ -29,12 +29,12 @@
                         <textarea class="form-control m-b-md" asp-for="PostMessage" placeholder="Enter text here..."></textarea>
                     </div>
                     <div class="form-group">
-                        <label class="pull-left">Link</label>
-                        <input asp-for="Link" class="form-control" type="text">
-                    </div>
-                    <div class="form-group">
                         <label class="pull-left">Link title</label>
                         <input asp-for="LinkTitle" class="form-control" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label class="pull-left">Link</label>
+                        <input asp-for="Link" class="form-control" type="text">
                     </div>
                     <div class="form-group">
                         <button class="btn btn-primary btn-block m-t-md" type="submit">Add / Save</button>
