@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Http;
 
 namespace EasyShop.Domain.ViewModels.CP.ControlPanel.DevBlog
@@ -7,8 +8,10 @@ namespace EasyShop.Domain.ViewModels.CP.ControlPanel.DevBlog
     {
         public string Id { get; set; }
 
+        [Required(ErrorMessage = "The post title is required.")]
         public string Title { get; set; }
 
+        [Required(ErrorMessage = "The post message is required.")]
         public string PostMessage { get; set; }
 
         public string ImgUrl { get; set; }
