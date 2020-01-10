@@ -1,4 +1,5 @@
-﻿@model EasyShop.Domain.ViewModels.CP.User.UserProfile.UserProfileViewModel
+﻿@using EasyShop.Domain.Enums.CP.Profile
+@model EasyShop.Domain.ViewModels.CP.User.UserProfile.UserProfileViewModel
 @{
     ViewData["Title"] = "User profile main";
     Layout = "Partial/_Layout";
@@ -21,7 +22,7 @@
         selectedNetSpec = selected;
     }
 
-    string options = 
+    string options =
         $"<option value=\"1\" {selectedMale}>Male</option>\r\n    " +
         $"<option value=\"2\" {selectedFemale}>Female</option>\r\n    " +
         $"<option value=\"3\" {selectedNetSpec}>Not specified</option>";
@@ -29,11 +30,11 @@
 
 <div class="well text-center">
     <div class="userImage">
-        <img src="~/UserImages/@Model.ProfileImage" alt="@Model.ProfileImage" width="225" height="225">
+        <img src="~/UserImages/@Model.ImgUrl" alt="@Model.ImgUrl" width="225" height="225">
         <h4>@($"{Model.FirstName} {Model.LastName}")</h4>
     </div>
     <form method="post" id="demo-inputmask" class="form-horizontal" enctype="multipart/form-data" asp-area="" asp-controller="UserProfile" asp-action="Profile">
-        <input asp-for="ProfileImage" hidden="" />
+        <input asp-for="ImgUrl" hidden="" />
         <span asp-validation-for="ImageToUpload" class="warning text-warning"></span>
         <div class="form-group">
             <label class="file-upload-btn btn btn-primary">
@@ -95,4 +96,11 @@
 @section Scripts
 {
     <script src="~/js/demo.js" asp-append-version="true"></script>
+
+    @if (Model.Status == UpdateUserProfileEnum.Updated)
+    {
+        <script>
+            toastr.success('Profile updated');
+        </script>
+    }
 }

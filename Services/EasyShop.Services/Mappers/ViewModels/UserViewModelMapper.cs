@@ -13,7 +13,7 @@ namespace EasyShop.Services.Mappers.ViewModels
             model.LastName = user.LastName;
             model.BirthDate = user.BirthDate;
             model.Gender = user.Gender;
-            model.ProfileImage = user.ProfileImage;
+            model.ImgUrl = user.ProfileImage;
             model.Email = user.Email;
         }
 
@@ -34,14 +34,14 @@ namespace EasyShop.Services.Mappers.ViewModels
             var dateArr = model.BirthDateToUpdate.Split('-');
             var birthDate = new DateTime(Int32.Parse(dateArr[2]), Int32.Parse(dateArr[0]), Int32.Parse(dateArr[1]));
 
-            if (DefaultPictureNameHelper.IsPictureDefault(model.ProfileImage))
+            if (DefaultPictureNameHelper.IsPictureDefault(model.ImgUrl))
                 user.ProfileImage = DefaultPictureNameHelper.GetDefaultPictureName(model.Gender);
             
             user.FirstName = model.FirstName;
             user.LastName = model.LastName;
             user.BirthDate = birthDate;
             user.Gender = model.Gender;
-            user.ProfileImage = model.ProfileImage;
+            user.ProfileImage = model.ImgUrl;
         }
 
         /// <summary>

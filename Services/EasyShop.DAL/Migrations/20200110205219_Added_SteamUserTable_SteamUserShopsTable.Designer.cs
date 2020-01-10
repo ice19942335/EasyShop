@@ -30,7 +30,7 @@ namespace EasyShop.DAL.Migrations
                     b.Property<DateTime>("DateTimePosted")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("ImgUrl")
+                    b.Property<string>("ProfileImage")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("LikesCounter")
@@ -238,7 +238,7 @@ namespace EasyShop.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("ImgUrl")
+                    b.Property<string>("ProfileImage")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

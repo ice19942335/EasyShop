@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using EasyShop.Domain.Enums.CP.Profile;
 using EasyShop.Domain.ViewModels.CP.ViewModelValidation;
 using Microsoft.AspNetCore.Http;
 
@@ -24,9 +25,11 @@ namespace EasyShop.Domain.ViewModels.CP.User.UserProfile
 
         public int Gender { get; set; }
 
-        public string ProfileImage { get; set; }
+        public string ImgUrl { get; set; }
 
         [UserPictureToUploadValidation(new string[] { "png", "jpg", "jpeg" })]
         public IFormFile ImageToUpload { get; set; }
+
+        public UpdateUserProfileEnum Status { get; set; }
     }
 }

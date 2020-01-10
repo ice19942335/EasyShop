@@ -11,5 +11,7 @@ namespace EasyShop.Interfaces.Services.CP.FileImage
         IEnumerable<string> GetImageNames(string folder);
 
         Task<string> SaveFile(IFormFile imgFile, string folder);
+
+        void DeleteImage(string fileName, string folder);
     }
 }

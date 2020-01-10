@@ -191,7 +191,7 @@ namespace EasyShop.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("ImgUrl")
+                    b.Property<string>("ProfileImage")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

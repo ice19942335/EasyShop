@@ -59,5 +59,14 @@ namespace EasyShop.Services.CP.FileImage
 
             return null;
         }
+
+        public void DeleteImage(string fileName, string folder)
+        {
+            var imagesFolder = Path.Combine(_environment.WebRootPath, folder);
+            var pathToImage = Path.Combine(imagesFolder, fileName);
+
+            if (File.Exists(pathToImage))
+                File.Delete(pathToImage);
+        }
     }
 }
