@@ -43,19 +43,12 @@ class DevBlogLikes {
         let splitedText = likesCounterNode.innerText.split(' ');
         let likesCounter = parseInt(splitedText[1])
 
-        console.log(likesCounterNode);
-        console.log(splitedText);
-        console.log(likesCounter);
-        console.log(response);
-
         if(response.result.toLowerCase() === 'true'){
             likesCounter = likesCounter + 1;
-            console.log(likesCounter);
             likesCounterNode.innerText = `Likes: ${likesCounter}`;
         }
         if(response.result.toLowerCase() === 'false'){
             likesCounter = likesCounter - 1;
-            console.log(likesCounter);
             likesCounterNode.innerText = `Likes: ${likesCounter}`;
         }
 
