@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Entries.Shop;
-using EasyShop.Domain.ViewModels.ControlPanel.Shop;
+using EasyShop.Domain.ViewModels.CP.ControlPanel.Shop;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;

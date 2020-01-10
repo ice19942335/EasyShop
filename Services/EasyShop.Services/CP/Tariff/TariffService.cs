@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
-using EasyShop.Domain.ViewModels.ControlPanel.Tariff;
+using EasyShop.Domain.ViewModels.CP.ControlPanel.Tariff;
 using EasyShop.Interfaces.Services.CP;
 using EasyShop.Interfaces.Services.CP.Tariff;
 using EasyShop.Services.ExtensionMethods;

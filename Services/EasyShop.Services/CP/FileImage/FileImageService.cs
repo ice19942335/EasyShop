@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using EasyShop.Domain.ViewModels.User.UserProfile;
 using EasyShop.Interfaces.Services.CP;
 using EasyShop.Interfaces.Services.CP.FileImage;
 using Microsoft.AspNetCore.Hosting;

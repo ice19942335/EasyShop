@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Enums;
-using EasyShop.Domain.ViewModels.User.UserData;
+using EasyShop.Domain.ViewModels.CP.User.UserData;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 

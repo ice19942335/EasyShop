@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
-using EasyShop.Domain.ViewModels.User.UserProfile;
+using EasyShop.Domain.ViewModels.CP.User.UserProfile;
 using EasyShop.Interfaces.Services.CP;
 using EasyShop.Interfaces.Services.CP.UserProfile;
 using EasyShop.Services.ExtensionMethods;

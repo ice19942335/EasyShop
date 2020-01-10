@@ -1,7 +1,7 @@
 ﻿using System;
 using EasyShop.Domain.Entries.Shop;
-using EasyShop.Domain.ViewModels.ControlPanel.Rust.Category;
-using EasyShop.Domain.ViewModels.ControlPanel.Rust.Shop;
+using EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Category;
+using EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Shop;
 
 namespace EasyShop.Services.Mappers.ViewModels.Rust
 {

@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using EasyShop.Domain.ViewModels.User.UserProfile;
+using EasyShop.Domain.ViewModels.CP.User.UserProfile;
 
 namespace EasyShop.Interfaces.Services.CP.UserProfile
 {

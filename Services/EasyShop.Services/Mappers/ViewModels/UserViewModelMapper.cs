@@ -1,6 +1,6 @@
 ﻿using System;
 using EasyShop.Domain.Entries.Identity;
-using EasyShop.Domain.ViewModels.User.UserProfile;
+using EasyShop.Domain.ViewModels.CP.User.UserProfile;
 using EasyShop.Services.ExtensionMethods;
 
 namespace EasyShop.Services.Mappers.ViewModels

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using EasyShop.Domain.ViewModels.ControlPanel.Tariff;
+using EasyShop.Domain.ViewModels.CP.ControlPanel.Tariff;
 using EasyShop.Interfaces.Services.CP;
 using EasyShop.Interfaces.Services.CP.Tariff;
 using Microsoft.AspNetCore.Authorization;

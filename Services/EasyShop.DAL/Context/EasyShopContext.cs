@@ -6,6 +6,7 @@ using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Entries.Rust;
 using EasyShop.Domain.Entries.Shop;
 using EasyShop.Domain.Entries.Tariff;
+using EasyShop.Domain.Entries.Users;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -42,6 +43,9 @@ namespace EasyShop.DAL.Context
         //DevBlog
         public DbSet<DevBlogPost> DevBlogPosts { get; set; }
         public DbSet<DevBlogPostsLike> DevBlogPostsLikes { get; set; }
+
+        //Users
+        public DbSet<SteamUser> SteamUsers { get; set; }
 
 
         //Constructor
@@ -124,6 +128,21 @@ namespace EasyShop.DAL.Context
             modelBuilder.Entity<DevBlogPostsLike>()
                 .HasOne(x => x.AppUser)
                 .WithMany(x => x.DevBlogPostsLikes)
+                .HasForeignKey(x => x.AppUserId);
+            //===================================================================
+
+            //SteamUserShop ----------------------------------------------------------
+            modelBuilder.Entity<SteamUserShop>()
+                .HasKey(x => new { x.AppUserId, x.StemUserId });
+
+            modelBuilder.Entity<SteamUserShop>()
+                .HasOne(x => x.SteamUser)
+                .WithMany(x => x.SteamUserShops)
+                .HasForeignKey(x => x.SteamUser);
+
+            modelBuilder.Entity<SteamUserShop>()
+                .HasOne(x => x.AppUser)
+                .WithMany(x => x.SteamUserShops)
                 .HasForeignKey(x => x.AppUserId);
             //===================================================================
 

@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
-using EasyShop.Domain.Dto.Account;
-using EasyShop.Domain.ViewModels.Account;
+using EasyShop.Domain.Dto.CP.Account;
+using EasyShop.Domain.ViewModels.CP.Account;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EasyShop.Interfaces.Services.CP.Account

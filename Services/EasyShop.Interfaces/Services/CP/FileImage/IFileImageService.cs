@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using EasyShop.Domain.ViewModels.User.UserProfile;
 using Microsoft.AspNetCore.Http;
 
 namespace EasyShop.Interfaces.Services.CP.FileImage

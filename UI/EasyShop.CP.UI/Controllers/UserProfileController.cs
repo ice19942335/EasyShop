@@ -2,8 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Identity;
-using EasyShop.Domain.ViewModels.User.UserData;
-using EasyShop.Domain.ViewModels.User.UserProfile;
+using EasyShop.Domain.ViewModels.CP.User.UserProfile;
 using EasyShop.Interfaces.Services.CP;
 using EasyShop.Interfaces.Services.CP.FileImage;
 using EasyShop.Interfaces.Services.CP.UserProfile;

@@ -8,7 +8,7 @@ using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.DevBlog;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Enums.DevBlog;
-using EasyShop.Domain.ViewModels.ControlPanel.DevBlog;
+using EasyShop.Domain.ViewModels.CP.ControlPanel.DevBlog;
 using EasyShop.Interfaces.Services.CP.DevBlog;
 using EasyShop.Interfaces.Services.CP.FileImage;
 using Microsoft.AspNetCore.Authorization;
