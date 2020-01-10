@@ -12,9 +12,9 @@ namespace EasyShop.DAL.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    Title = table.Column<string>(nullable: false),
-                    PostMessage = table.Column<string>(nullable: false),
-                    ImgUrl = table.Column<string>(nullable: false),
+                    Title = table.Column<string>(nullable: true),
+                    PostMessage = table.Column<string>(nullable: true),
+                    ImgUrl = table.Column<string>(nullable: true),
                     Link = table.Column<string>(nullable: true),
                     LinkTitle = table.Column<string>(nullable: true),
                     DateTimePosted = table.Column<DateTime>(nullable: false),

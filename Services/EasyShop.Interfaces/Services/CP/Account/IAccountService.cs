@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using EasyShop.Domain.Dto.CP.Account;
+using EasyShop.Domain.Dto.Account;
 using EasyShop.Domain.ViewModels.Account;
 using Microsoft.AspNetCore.Mvc;
 

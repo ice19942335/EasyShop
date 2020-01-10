@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EasyShop.Domain.Contracts.CP.Response;
 using EasyShop.Domain.Enums.DevBlog;
 using EasyShop.Domain.ViewModels.ControlPanel.DevBlog;
 using EasyShop.Interfaces.Services.CP.DevBlog;
@@ -94,17 +95,27 @@ namespace EasyShop.CP.UI.Controllers
         }
 
         [AllowAnonymous]
+        [HttpGet]
         public async Task<IActionResult> IncrementLike(string postId)
         {
             if (!User.Identity.IsAuthenticated)
-                return RedirectToAction("Register", "Account");
+                return Ok(new IncrementLikesCounterResponse { Result = "NotAuthenticated" });
 
             var result = await _devBlogService.IncrementLike(Guid.Parse(postId));
 
-            if (!result)
-                return RedirectToAction("SomethingWentWrong", "Home");
+            return Ok(new IncrementLikesCounterResponse { Result = result.ToString() });
+        }
 
-            return RedirectToAction("PostsList");
+        [AllowAnonymous]
+        [HttpGet]
+        public async Task<IActionResult> UserHasAlreadyLikedThePost(string postId)
+        {
+            if(!User.Identity.IsAuthenticated)
+                return Ok(new UserAlreadyLikedThePostResponse { Result = "NotAuthenticated" });
+
+            var result = await _devBlogService.UserHasAlreadyLikedThePost(Guid.Parse(postId));
+
+            return Ok(new UserAlreadyLikedThePostResponse { Result = result.ToString() });
         }
     }
 }

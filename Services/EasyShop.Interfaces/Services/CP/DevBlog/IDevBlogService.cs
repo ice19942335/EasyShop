@@ -22,6 +22,6 @@ namespace EasyShop.Interfaces.Services.CP.DevBlog
 
         int GetLikesCount(Guid postId);
 
-        bool UserHasAlreadyLikedThePost(Guid postId);
+        Task<bool> UserHasAlreadyLikedThePost(Guid postId);
     }
 }

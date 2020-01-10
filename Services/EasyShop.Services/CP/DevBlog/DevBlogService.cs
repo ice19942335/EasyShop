@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
@@ -24,7 +25,11 @@ namespace EasyShop.Services.CP.DevBlog
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly UserManager<AppUser> _userManager;
 
-        public DevBlogService(EasyShopContext context, IFileImageService fileImageService, IHttpContextAccessor httpContextAccessor, UserManager<AppUser> userManager)
+        public DevBlogService(
+            EasyShopContext context,
+            IFileImageService fileImageService,
+            IHttpContextAccessor httpContextAccessor,
+            UserManager<AppUser> userManager)
         {
             _context = context;
             _fileImageService = fileImageService;
@@ -124,7 +129,7 @@ namespace EasyShop.Services.CP.DevBlog
             _context.DevBlogPosts.Update(post);
             _context.DevBlogPostsLikes.Remove(likeEntry);
             await _context.SaveChangesAsync();
-            return true;
+            return false;
         }
 
         public int GetLikesCount(Guid postId)
@@ -132,9 +137,19 @@ namespace EasyShop.Services.CP.DevBlog
             throw new NotImplementedException();
         }
 
-        public bool UserHasAlreadyLikedThePost(Guid postId)
+        public async Task<bool> UserHasAlreadyLikedThePost(Guid postId)
         {
-            throw new NotImplementedException();
+            var user = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
+
+            var likeEntry = _context.DevBlogPostsLikes
+                .Include(x => x.AppUser)
+                .Include(x => x.DevBlogPost)
+                .FirstOrDefault(x => x.AppUserId == user.Id && x.DevBlogPostId == postId);
+
+            if (likeEntry is null)
+                return false;
+
+            return true;
         }
     }
 }

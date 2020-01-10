@@ -51,23 +51,26 @@
                                             </p>
                                         </div>
                                         <div class="post-img">
-                                            @*<a href="" target="_blank">*@
-                                            <img class="img-responsive" src="~/DevBlogImages/@($"{post.ImgUrl}")" alt="@post.ImgUrl">
-                                            @*</a>*@
+                                            @if (post.ImgUrl != null)
+                                            {
+                                                @*<a href="" target="_blank">*@
+                                                <img class="img-responsive" src="~/DevBlogImages/@($"{post.ImgUrl}")" alt="@post.ImgUrl">
+                                                @*</a>*@
+                                            }
                                         </div>
                                         <div class="post-actions">
-                                            <a class="post-action" asp-area="" asp-controller="DevBlog" asp-action="IncrementLike" asp-route-postId="@post.Id">
+                                            <a data-postId="@post.Id" class="post-action" asp-area="" asp-controller="DevBlog" asp-action="IncrementLike" asp-route-postId="@post.Id">
                                                 <span class="icon icon-thumbs-up icon-fw"></span>
                                                 Like
-                                            </a>
-                                            <a class="post-action" href="#">
-                                                <span class="icon icon-share icon-fw"></span>
-                                                Share
                                             </a>
                                             <div class="post-summary">
                                                 @if (post.LikesCounter > 0)
                                                 {
                                                     <small class="truncate">Likes: @post.LikesCounter</small>
+                                                }
+                                                else
+                                                {
+                                                    <small style="display: none" class="truncate">Likes: @post.LikesCounter</small>
                                                 }
                                                 <small class="post-timestamp">@post.DateTimePosted.ToString("D")</small>
                                             </div>
@@ -82,3 +85,8 @@
         </div>
     </div>
 </div>
+
+@section Scripts
+{
+    <script src="~/js/customScripts/DevBlog/LikesLogic.js" asp-append-version="true"></script>
+}

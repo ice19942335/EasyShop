@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EasyShop.DAL.Migrations
 {
     [DbContext(typeof(EasyShopContext))]
-    [Migration("20200108112514_Added_DevBlog_Tables")]
+    [Migration("20200109120638_Added_DevBlog_Tables")]
     partial class Added_DevBlog_Tables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,7 +31,6 @@ namespace EasyShop.DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ImgUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("LikesCounter")
@@ -44,11 +43,9 @@ namespace EasyShop.DAL.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PostMessage")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

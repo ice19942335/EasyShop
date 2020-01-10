@@ -29,7 +29,6 @@ namespace EasyShop.DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ImgUrl")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("LikesCounter")
@@ -42,11 +41,9 @@ namespace EasyShop.DAL.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PostMessage")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
