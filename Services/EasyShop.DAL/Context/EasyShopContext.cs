@@ -133,12 +133,12 @@ namespace EasyShop.DAL.Context
 
             //SteamUserShop ----------------------------------------------------------
             modelBuilder.Entity<SteamUserShop>()
-                .HasKey(x => new { x.AppUserId, x.StemUserId });
+                .HasKey(x => new { x.AppUserId, x.SteamUserId });
 
             modelBuilder.Entity<SteamUserShop>()
                 .HasOne(x => x.SteamUser)
                 .WithMany(x => x.SteamUserShops)
-                .HasForeignKey(x => x.SteamUser);
+                .HasForeignKey(x => x.SteamUserId);
 
             modelBuilder.Entity<SteamUserShop>()
                 .HasOne(x => x.AppUser)

@@ -13,7 +13,7 @@ namespace EasyShop.Domain.Entries.Users
         public AppUser AppUser { get; set; }
 
 
-        public Guid StemUserId { get; set; }
+        public Guid SteamUserId { get; set; }
         public SteamUser SteamUser { get; set; }
     }
 }
