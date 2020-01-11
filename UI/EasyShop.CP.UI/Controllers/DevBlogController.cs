@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EasyShop.Domain.Contracts.CP.Response;
-using EasyShop.Domain.Enums.DevBlog;
+using EasyShop.Domain.Enums.CP.DevBlog;
 using EasyShop.Domain.ViewModels.CP.ControlPanel.DevBlog;
 using EasyShop.Interfaces.Services.CP.DevBlog;
 using Microsoft.AspNetCore.Authorization;

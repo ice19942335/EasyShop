@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace EasyShop.Domain.Enums
+﻿namespace EasyShop.Domain.Enums.CP.Email
 {
     public enum EmailConfirmationEnum
     {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using EasyShop.Domain.Entries.ContactUs.BugReports;
 using EasyShop.Domain.Entries.DevBlog;
 using EasyShop.Domain.Entries.GameType;
 using EasyShop.Domain.Entries.Identity;
@@ -46,6 +47,12 @@ namespace EasyShop.DAL.Context
 
         //Users
         public DbSet<SteamUser> SteamUsers { get; set; }
+
+        //BugReports
+        public DbSet<BugReport> BugReports { get; set; }
+        public DbSet<BugReportCategory> BugReportCategories { get; set; }
+        public DbSet<ReportResponseStatus> ReportResponseStatus { get; set; }
+
 
 
         //Constructor
