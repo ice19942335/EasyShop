@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using EasyShop.Domain.Entries.ContactUs.BugReports;
+using EasyShop.Domain.Entries.ContactUs.CollaborationReports;
 using EasyShop.Domain.Entries.ContactUs.GeneralSupportReports;
 using EasyShop.Domain.Entries.DevBlog;
 using EasyShop.Domain.Entries.GameType;
@@ -56,6 +57,9 @@ namespace EasyShop.DAL.Context
         //GeneralSupport
         public DbSet<GeneralSupportReport> GeneralSupportReports { get; set; }
         public DbSet<GeneralSupportReportCategory> GeneralSupportReportCategories { get; set; }
+
+        //Collaboration
+        public DbSet<CollaborationReport> CollaborationReports { get; set; }
 
 
 
