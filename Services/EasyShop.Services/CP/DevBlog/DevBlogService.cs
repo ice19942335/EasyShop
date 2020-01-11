@@ -54,7 +54,7 @@ namespace EasyShop.Services.CP.DevBlog
 
                 if (model.ImageToUpload != null)
                     newPost.ImgUrl = await _fileImageService.SaveFile(model.ImageToUpload, "DevBlogImages");
-
+                
                 _context.Add(newPost);
                 await _context.SaveChangesAsync();
                 return DevBlogPostUpdateResult.Created;
@@ -65,14 +65,18 @@ namespace EasyShop.Services.CP.DevBlog
             if (post is null)
                 return DevBlogPostUpdateResult.NotFound;
 
+            if (model.ImageToUpload != null)
+            {
+                if(post.ImgUrl != null)
+                    _fileImageService.DeleteImage(post.ImgUrl, "DevBlogImages");
+
+                post.ImgUrl = await _fileImageService.SaveFile(model.ImageToUpload, "DevBlogImages");
+            }
+
             post.Title = model.Title;
             post.PostMessage = model.PostMessage;
             post.LinkTitle = model.LinkTitle;
             post.Link = model.Link;
-            post.ImgUrl = model.ImgUrl;
-
-            if (model.ImageToUpload != null)
-                post.ImgUrl = await _fileImageService.SaveFile(model.ImageToUpload, "DevBlogImages");
 
             _context.Update(post);
             await _context.SaveChangesAsync();

@@ -62,6 +62,9 @@ namespace EasyShop.Services.CP.FileImage
 
         public void DeleteImage(string fileName, string folder)
         {
+            if (fileName is null && folder is null)
+                return;
+
             var imagesFolder = Path.Combine(_environment.WebRootPath, folder);
             var pathToImage = Path.Combine(imagesFolder, fileName);
 
