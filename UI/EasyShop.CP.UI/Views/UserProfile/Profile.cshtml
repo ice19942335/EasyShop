@@ -30,7 +30,7 @@
 
 <div class="well text-center">
     <div class="userImage">
-        <img src="~/UserImages/@Model.ImgUrl" alt="@Model.ImgUrl" width="225" height="225">
+        <img style="border-radius: 20px" src="~/UserImages/@Model.ImgUrl" alt="@Model.ImgUrl" height="150" width="auto">
         <h4>@($"{Model.FirstName} {Model.LastName}")</h4>
     </div>
     <form method="post" id="demo-inputmask" class="form-horizontal" enctype="multipart/form-data" asp-area="" asp-controller="UserProfile" asp-action="Profile">
@@ -74,6 +74,7 @@
             <label class="col-sm-3 control-label">Birth date</label>
             <div class="col-sm-6">
                 <input asp-for="BirthDateToUpdate" class="form-control" type="text" value="@Model.BirthDate.Date" data-inputmask="'alias': 'mm-dd-yyyy'">
+                <span class="help-block m-b-n">Format (mm-dd-yyyy)</span>
             </div>
         </div>
         <div class="form-group">
