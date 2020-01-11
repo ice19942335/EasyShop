@@ -24607,3 +24607,393 @@ WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
 
 2020-01-11 17:41:42,856 [58] ?     - Request finished in 72.6038ms 200 text/html; charset=utf-8
 
+2020-01-11 18:00:16,446 [12] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-11 18:00:16,454 [12] ?     - Hosting environment: Development
+
+2020-01-11 18:00:16,455 [12] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-11 18:00:16,462 [13] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs  
+
+2020-01-11 18:00:16,536 [13] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-11 18:00:16,566 [13] ?     - Route matched with {action = "Index", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-11 18:00:16,582 [13] ?     - Executing ViewResult, running view Index.
+
+2020-01-11 18:00:16,820 [13] ?     - Executed ViewResult - view Index executed in 233.3362ms.
+
+2020-01-11 18:00:16,822 [13] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI) in 254.2464ms
+
+2020-01-11 18:00:16,824 [13] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-11 18:00:16,829 [13] ?     - Request finished in 368.1486ms 200 text/html; charset=utf-8
+
+2020-01-11 18:00:16,903 [13] ?     - Request starting HTTP/2.0 GET https://localhost:44374/css/custom/ContactUs/contactUs.css?v=XW52XDA2jTBuS2NE291G1nXzogiNsC-RYDTFbJlLX_c  
+
+2020-01-11 18:00:16,912 [13] ?     - The file /css/custom/ContactUs/contactUs.css was not modified
+
+2020-01-11 18:00:16,915 [13] ?     - Request finished in 28.8985ms 304 text/css
+
+2020-01-11 18:00:17,104 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/img/default-other-questions.jpg  
+
+2020-01-11 18:00:17,106 [8] ?     - The file /img/default-other-questions.jpg was not modified
+
+2020-01-11 18:00:17,108 [8] ?     - Request finished in 5.2441ms 304 image/jpeg
+
+2020-01-11 18:07:58,199 [8] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-11 18:07:58,209 [8] ?     - Hosting environment: Development
+
+2020-01-11 18:07:58,210 [8] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-11 18:07:58,219 [14] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs  
+
+2020-01-11 18:07:58,302 [14] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-11 18:07:58,346 [14] ?     - Route matched with {action = "Index", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-11 18:07:58,375 [14] ?     - Executing ViewResult, running view Index.
+
+2020-01-11 18:07:58,627 [14] ?     - Executed ViewResult - view Index executed in 255.392ms.
+
+2020-01-11 18:07:58,631 [14] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI) in 282.1374ms
+
+2020-01-11 18:07:58,635 [14] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-11 18:07:58,643 [14] ?     - Request finished in 423.2392ms 200 text/html; charset=utf-8
+
+2020-01-11 18:07:58,673 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/img/default-bug.jpg  
+
+2020-01-11 18:07:58,680 [8] ?     - The file /img/default-bug.jpg was not modified
+
+2020-01-11 18:07:58,684 [8] ?     - Request finished in 12.8053ms 304 image/jpeg
+
+2020-01-11 18:08:05,083 [13] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/canvas-to-blob.min.js.map  
+
+2020-01-11 18:08:05,096 [13] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-11 18:08:05,117 [13] ?     - Executing DbCommand [Parameters=[@__p_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE ([a].[Id] = @__p_0) AND @__p_0 IS NOT NULL
+
+2020-01-11 18:08:05,164 [8] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE ([a].[UserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2020-01-11 18:08:05,219 [4] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2020-01-11 18:08:05,226 [4] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2020-01-11 18:08:05,237 [4] ?     - Executing DbCommand [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE ([a].[RoleId] = @__role_Id_0) AND @__role_Id_0 IS NOT NULL
+
+2020-01-11 18:08:05,242 [13] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2020-01-11 18:08:05,246 [13] ?     - Executing DbCommand [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE ([a].[RoleId] = @__role_Id_0) AND @__role_Id_0 IS NOT NULL
+
+2020-01-11 18:08:05,263 [9] ?     - Request finished in 186.7953ms 404 
+
+2020-01-11 18:08:39,058 [14] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-11 18:08:39,067 [14] ?     - Hosting environment: Development
+
+2020-01-11 18:08:39,068 [14] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-11 18:08:39,077 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs  
+
+2020-01-11 18:08:39,164 [8] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-11 18:08:39,198 [8] ?     - Route matched with {action = "Index", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-11 18:08:39,218 [8] ?     - Executing ViewResult, running view Index.
+
+2020-01-11 18:08:39,488 [8] ?     - Executed ViewResult - view Index executed in 270.8594ms.
+
+2020-01-11 18:08:39,490 [8] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI) in 289.5247ms
+
+2020-01-11 18:08:39,495 [8] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-11 18:08:39,503 [8] ?     - Request finished in 426.3125ms 200 text/html; charset=utf-8
+
+2020-01-11 18:09:05,296 [4] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-11 18:09:05,305 [4] ?     - Hosting environment: Development
+
+2020-01-11 18:09:05,307 [4] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-11 18:09:05,315 [5] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs  
+
+2020-01-11 18:09:05,400 [5] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-11 18:09:05,440 [5] ?     - Route matched with {action = "Index", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-11 18:09:05,461 [5] ?     - Executing ViewResult, running view Index.
+
+2020-01-11 18:09:05,712 [5] ?     - Executed ViewResult - view Index executed in 252.338ms.
+
+2020-01-11 18:09:05,715 [5] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI) in 272.8626ms
+
+2020-01-11 18:09:05,716 [5] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-11 18:09:05,720 [5] ?     - Request finished in 406.0583ms 200 text/html; charset=utf-8
+
+2020-01-11 18:09:44,426 [12] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-11 18:09:44,436 [12] ?     - Hosting environment: Development
+
+2020-01-11 18:09:44,437 [12] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-11 18:09:44,447 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs  
+
+2020-01-11 18:09:44,536 [8] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-11 18:09:44,571 [8] ?     - Route matched with {action = "Index", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-11 18:09:44,589 [8] ?     - Executing ViewResult, running view Index.
+
+2020-01-11 18:09:44,821 [8] ?     - Executed ViewResult - view Index executed in 232.9449ms.
+
+2020-01-11 18:09:44,823 [8] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI) in 250.492ms
+
+2020-01-11 18:09:44,825 [8] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-11 18:09:44,830 [8] ?     - Request finished in 385.0766ms 200 text/html; charset=utf-8
+
+2020-01-11 18:09:48,568 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/canvas-to-blob.min.js.map  
+
+2020-01-11 18:09:48,580 [4] ?     - Request finished in 12.5043ms 404 
+
+2020-01-11 18:17:46,963 [12] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-11 18:17:46,974 [12] ?     - Hosting environment: Development
+
+2020-01-11 18:17:46,976 [12] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-11 18:17:46,987 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs  
+
+2020-01-11 18:17:47,067 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-11 18:17:47,101 [4] ?     - Route matched with {action = "Index", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-11 18:17:47,120 [4] ?     - Executing ViewResult, running view Index.
+
+2020-01-11 18:17:47,364 [4] ?     - Executed ViewResult - view Index executed in 246.2155ms.
+
+2020-01-11 18:17:47,366 [4] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI) in 263.1803ms
+
+2020-01-11 18:17:47,367 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-11 18:17:47,371 [4] ?     - Request finished in 386.4497ms 200 text/html; charset=utf-8
+
+2020-01-11 18:17:47,635 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/img/default-collaboration.jpg  
+
+2020-01-11 18:17:47,637 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/img/default-rust.jpg  
+
+2020-01-11 18:17:47,647 [4] ?     - Request finished in 12.7467ms 404 
+
+2020-01-11 18:17:47,660 [4] ?     - Sending file. Request path: '/img/default-collaboration.jpg'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\wwwroot\img\default-collaboration.jpg'
+
+2020-01-11 18:17:47,662 [4] ?     - Request finished in 28.6165ms 200 image/jpeg
+
+2020-01-11 18:18:31,316 [4] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-11 18:18:31,329 [4] ?     - Hosting environment: Development
+
+2020-01-11 18:18:31,331 [4] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-11 18:18:31,340 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs  
+
+2020-01-11 18:18:31,469 [9] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-11 18:18:31,513 [9] ?     - Route matched with {action = "Index", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-11 18:18:31,534 [9] ?     - Executing ViewResult, running view Index.
+
+2020-01-11 18:18:31,817 [9] ?     - Executed ViewResult - view Index executed in 284.4891ms.
+
+2020-01-11 18:18:31,819 [9] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI) in 304.1565ms
+
+2020-01-11 18:18:31,821 [9] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-11 18:18:31,827 [9] ?     - Request finished in 488.928ms 200 text/html; charset=utf-8
+
+2020-01-11 18:18:32,122 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/img/default-collaboration.jpg  
+
+2020-01-11 18:18:32,136 [9] ?     - The file /img/default-collaboration.jpg was not modified
+
+2020-01-11 18:18:32,148 [9] ?     - Request finished in 28.8195ms 304 image/jpeg
+
+2020-01-11 18:20:54,805 [4] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-11 18:20:54,817 [4] ?     - Hosting environment: Development
+
+2020-01-11 18:20:54,819 [4] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-11 18:20:54,824 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs  
+
+2020-01-11 18:20:54,959 [8] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-11 18:20:55,012 [8] ?     - Route matched with {action = "Index", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-11 18:20:55,034 [8] ?     - Executing ViewResult, running view Index.
+
+2020-01-11 18:20:55,315 [8] ?     - Executed ViewResult - view Index executed in 284.1763ms.
+
+2020-01-11 18:20:55,317 [8] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI) in 303.2789ms
+
+2020-01-11 18:20:55,318 [8] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-11 18:20:55,322 [8] ?     - Request finished in 498.577ms 200 text/html; charset=utf-8
+
+2020-01-11 18:20:55,354 [10] ?     - Request starting HTTP/2.0 GET https://localhost:44374/css/custom/ContactUs/contactUs.css?v=XW52XDA2jTBuS2NE291G1nXzogiNsC-RYDTFbJlLX_c  
+
+2020-01-11 18:20:55,363 [10] ?     - The file /css/custom/ContactUs/contactUs.css was not modified
+
+2020-01-11 18:20:55,367 [10] ?     - Request finished in 12.5363ms 304 text/css
+
+2020-01-11 18:20:55,622 [10] ?     - Request starting HTTP/2.0 GET https://localhost:44374/img/default-collaboration.jpg  
+
+2020-01-11 18:20:55,625 [10] ?     - The file /img/default-collaboration.jpg was not modified
+
+2020-01-11 18:20:55,638 [10] ?     - Request finished in 6.5365ms 304 image/jpeg
+
+2020-01-11 18:21:23,438 [21] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/canvas-to-blob.min.js.map  
+
+2020-01-11 18:21:23,484 [21] ?     - Request finished in 47.2887ms 404 
+
+2020-01-11 18:21:49,294 [26] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs  
+
+2020-01-11 18:21:49,315 [26] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-11 18:21:49,318 [26] ?     - Route matched with {action = "Index", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-11 18:21:49,330 [26] ?     - Executing ViewResult, running view Index.
+
+2020-01-11 18:21:49,343 [26] ?     - Executed ViewResult - view Index executed in 19.9973ms.
+
+2020-01-11 18:21:49,344 [26] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI) in 24.2157ms
+
+2020-01-11 18:21:49,346 [26] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-11 18:21:49,349 [26] ?     - Request finished in 57.3761ms 200 text/html; charset=utf-8
+
+2020-01-11 18:21:49,612 [29] ?     - Request starting HTTP/2.0 GET https://localhost:44374/img/default-collaboration.jpg  
+
+2020-01-11 18:21:49,615 [29] ?     - The file /img/default-collaboration.jpg was not modified
+
+2020-01-11 18:21:49,621 [29] ?     - Request finished in 6.0952ms 304 image/jpeg
+
+2020-01-11 18:21:49,787 [25] ?     - Request starting HTTP/2.0 GET https://localhost:44374/favicon-32x32.png  
+
+2020-01-11 18:21:49,803 [25] ?     - Sending file. Request path: '/favicon-32x32.png'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\wwwroot\favicon-32x32.png'
+
+2020-01-11 18:21:49,805 [25] ?     - Request finished in 17.7694ms 200 image/png
+
+2020-01-11 18:27:02,074 [8] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-11 18:27:02,082 [8] ?     - Hosting environment: Development
+
+2020-01-11 18:27:02,084 [8] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-11 18:27:02,093 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs  
+
+2020-01-11 18:27:02,180 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-11 18:27:02,223 [4] ?     - Route matched with {action = "Index", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-11 18:27:02,250 [4] ?     - Executing ViewResult, running view Index.
+
+2020-01-11 18:27:02,513 [4] ?     - Executed ViewResult - view Index executed in 263.7127ms.
+
+2020-01-11 18:27:02,515 [4] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI) in 290.1242ms
+
+2020-01-11 18:27:02,516 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-11 18:27:02,522 [4] ?     - Request finished in 430.7513ms 200 text/html; charset=utf-8
+
+2020-01-11 18:27:02,802 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/img/default-collaboration.png  
+
+2020-01-11 18:27:02,804 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/img/default-other-questions.jpg  
+
+2020-01-11 18:27:02,812 [4] ?     - The file /img/default-other-questions.jpg was not modified
+
+2020-01-11 18:27:02,815 [4] ?     - Request finished in 14.7312ms 304 image/jpeg
+
+2020-01-11 18:27:02,839 [4] ?     - Sending file. Request path: '/img/default-collaboration.png'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\wwwroot\img\default-collaboration.png'
+
+2020-01-11 18:27:02,841 [4] ?     - Request finished in 41.5601ms 200 image/png
+
+2020-01-11 18:29:02,249 [4] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-11 18:29:02,259 [4] ?     - Hosting environment: Development
+
+2020-01-11 18:29:02,260 [4] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-11 18:29:02,267 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs  
+
+2020-01-11 18:29:02,370 [8] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-11 18:29:02,413 [8] ?     - Route matched with {action = "Index", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-11 18:29:02,435 [8] ?     - Executing ViewResult, running view Index.
+
+2020-01-11 18:29:02,689 [8] ?     - Executed ViewResult - view Index executed in 257.0603ms.
+
+2020-01-11 18:29:02,691 [8] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI) in 276.1278ms
+
+2020-01-11 18:29:02,692 [8] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-11 18:29:02,697 [8] ?     - Request finished in 430.7715ms 200 text/html; charset=utf-8
+
+2020-01-11 18:29:02,950 [10] ?     - Request starting HTTP/2.0 GET https://localhost:44374/img/default-collaboration.png  
+
+2020-01-11 18:29:02,958 [10] ?     - The file /img/default-collaboration.png was not modified
+
+2020-01-11 18:29:02,966 [10] ?     - Request finished in 12.814ms 304 image/png
+
+2020-01-11 18:29:25,865 [8] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-11 18:29:25,886 [8] ?     - Hosting environment: Development
+
+2020-01-11 18:29:25,891 [8] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-11 18:29:25,904 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs  
+
+2020-01-11 18:29:25,998 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-11 18:29:26,037 [4] ?     - Route matched with {action = "Index", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-11 18:29:26,056 [4] ?     - Executing ViewResult, running view Index.
+
+2020-01-11 18:29:26,318 [4] ?     - Executed ViewResult - view Index executed in 262.8837ms.
+
+2020-01-11 18:29:26,320 [4] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI) in 281.124ms
+
+2020-01-11 18:29:26,322 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-11 18:29:26,329 [4] ?     - Request finished in 427.3127ms 200 text/html; charset=utf-8
+
+2020-01-11 18:29:26,604 [10] ?     - Request starting HTTP/2.0 GET https://localhost:44374/img/default-collaboration.png  
+
+2020-01-11 18:29:26,618 [10] ?     - The file /img/default-collaboration.png was not modified
+
+2020-01-11 18:29:26,626 [10] ?     - Request finished in 21.9406ms 304 image/png
+

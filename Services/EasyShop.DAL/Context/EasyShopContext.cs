@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using EasyShop.Domain.Entries.ContactUs.BugReports;
+using EasyShop.Domain.Entries.ContactUs.GeneralSupport;
 using EasyShop.Domain.Entries.DevBlog;
 using EasyShop.Domain.Entries.GameType;
 using EasyShop.Domain.Entries.Identity;
@@ -51,7 +52,10 @@ namespace EasyShop.DAL.Context
         //BugReports
         public DbSet<BugReport> BugReports { get; set; }
         public DbSet<BugReportCategory> BugReportCategories { get; set; }
-        public DbSet<ReportResponseStatus> ReportResponseStatus { get; set; }
+
+        //GeneralSupport
+        public DbSet<GeneralSupportReport> GeneralSupportReports { get; set; }
+        public DbSet<GeneralSupportReportCategory> GeneralSupportReportCategories { get; set; }
 
 
 

@@ -27,18 +27,6 @@ namespace EasyShop.CP.UI.Controllers
         }
 
         [HttpGet]
-        public IActionResult RustShopReport()
-        {
-            throw new NotImplementedException();
-        }
-
-        [HttpPost]
-        public IActionResult RustShopReport([FromForm] CreateRustShopReportViewModel model)
-        {
-            throw new NotImplementedException();
-        }
-
-        [HttpGet]
         public IActionResult GeneralSupport()
         {
             throw new NotImplementedException();
@@ -46,6 +34,18 @@ namespace EasyShop.CP.UI.Controllers
 
         [HttpPost]
         public IActionResult GeneralSupport([FromForm] CreateGeneralReportViewModel model)
+        {
+            throw new NotImplementedException();
+        }
+
+        [HttpGet]
+        public IActionResult Collaboration()
+        {
+            throw new NotImplementedException();
+        }
+
+        [HttpPost]
+        public IActionResult Collaboration([FromForm] CreateRustShopReportViewModel model)
         {
             throw new NotImplementedException();
         }

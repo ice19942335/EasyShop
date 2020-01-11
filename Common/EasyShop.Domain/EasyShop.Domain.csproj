@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <Folder Include="Dto\CP\Account\" />
+    <Folder Include="Enums\CP\ContactUs\Collaboration\" />
     <Folder Include="Models\" />
     <Folder Include="ViewModels\CP\Account\" />
     <Folder Include="ViewModels\CP\ControlPanel\DashBoard\" />
