@@ -1,8 +1,20 @@
-﻿.img-responsive {
-    display: block;
-    width: 100%;
-    height: auto;
+﻿.card {
+    background-color: #212121;
+    border-radius: 10px;
 }
+
+.card > a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+    .card > a img {
+        max-width: 95%;
+        display: unset;
+    }
+
 
 body {
     background: url(../../../img/3456253426432.jpg) repeat;
