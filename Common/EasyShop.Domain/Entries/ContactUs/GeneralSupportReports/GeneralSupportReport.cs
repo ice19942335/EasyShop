@@ -11,7 +11,6 @@ namespace EasyShop.Domain.Entries.ContactUs.GeneralSupportReports
         [Key]
         public Guid Id { get; set; }
 
-        [Required]
         public AppUser AppUser { get; set; }
 
         [Required]

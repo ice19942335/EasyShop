@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EasyShop.DAL.Migrations
 {
     [DbContext(typeof(EasyShopContext))]
-    [Migration("20200111190039_Initialization")]
+    [Migration("20200111205027_Initialization")]
     partial class Initialization
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,7 +28,6 @@ namespace EasyShop.DAL.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("AppUserId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<Guid>("BugReportCategoryId")
@@ -112,7 +111,6 @@ namespace EasyShop.DAL.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("AppUserId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<Guid>("CategoryId")
@@ -891,9 +889,7 @@ namespace EasyShop.DAL.Migrations
                 {
                     b.HasOne("EasyShop.Domain.Entries.Identity.AppUser", "AppUser")
                         .WithMany()
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AppUserId");
 
                     b.HasOne("EasyShop.Domain.Entries.ContactUs.BugReports.BugReportCategory", "BugReportCategory")
                         .WithMany()
@@ -921,9 +917,7 @@ namespace EasyShop.DAL.Migrations
                 {
                     b.HasOne("EasyShop.Domain.Entries.Identity.AppUser", "AppUser")
                         .WithMany()
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AppUserId");
 
                     b.HasOne("EasyShop.Domain.Entries.ContactUs.GeneralSupportReports.GeneralSupportReportCategory", "Category")
                         .WithMany()

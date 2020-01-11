@@ -13,7 +13,6 @@ namespace EasyShop.Domain.Entries.ContactUs.BugReports
         [Key]
         public Guid Id { get; set; }
 
-        [Required]
         public AppUser AppUser { get; set; }
 
         [Required]

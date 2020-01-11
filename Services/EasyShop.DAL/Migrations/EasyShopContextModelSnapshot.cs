@@ -26,7 +26,6 @@ namespace EasyShop.DAL.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("AppUserId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<Guid>("BugReportCategoryId")
@@ -110,7 +109,6 @@ namespace EasyShop.DAL.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("AppUserId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<Guid>("CategoryId")
@@ -889,9 +887,7 @@ namespace EasyShop.DAL.Migrations
                 {
                     b.HasOne("EasyShop.Domain.Entries.Identity.AppUser", "AppUser")
                         .WithMany()
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AppUserId");
 
                     b.HasOne("EasyShop.Domain.Entries.ContactUs.BugReports.BugReportCategory", "BugReportCategory")
                         .WithMany()
@@ -919,9 +915,7 @@ namespace EasyShop.DAL.Migrations
                 {
                     b.HasOne("EasyShop.Domain.Entries.Identity.AppUser", "AppUser")
                         .WithMany()
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AppUserId");
 
                     b.HasOne("EasyShop.Domain.Entries.ContactUs.GeneralSupportReports.GeneralSupportReportCategory", "Category")
                         .WithMany()

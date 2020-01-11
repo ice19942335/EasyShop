@@ -362,7 +362,7 @@ namespace EasyShop.DAL.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    AppUserId = table.Column<string>(nullable: false),
+                    AppUserId = table.Column<string>(nullable: true),
                     BugReportCategoryId = table.Column<Guid>(nullable: false),
                     StatusId = table.Column<Guid>(nullable: false),
                     Title = table.Column<string>(nullable: false),
@@ -378,7 +378,7 @@ namespace EasyShop.DAL.Migrations
                         column: x => x.AppUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_BugReports_BugReportCategories_BugReportCategoryId",
                         column: x => x.BugReportCategoryId,
@@ -419,7 +419,7 @@ namespace EasyShop.DAL.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    AppUserId = table.Column<string>(nullable: false),
+                    AppUserId = table.Column<string>(nullable: true),
                     CategoryId = table.Column<Guid>(nullable: false),
                     StatusId = table.Column<Guid>(nullable: false),
                     Title = table.Column<string>(nullable: false),
@@ -435,7 +435,7 @@ namespace EasyShop.DAL.Migrations
                         column: x => x.AppUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_GeneralSupportReports_GeneralSupportReportCategories_CategoryId",
                         column: x => x.CategoryId,
