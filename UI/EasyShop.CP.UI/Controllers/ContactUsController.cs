@@ -9,21 +9,17 @@ namespace EasyShop.CP.UI.Controllers
 {
     public class ContactUsController : Controller
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        public IActionResult Index() => View();
 
         [HttpGet]
-        public IActionResult BugReport()
-        {
-            throw new NotImplementedException();
-        }
+        public IActionResult BugReport() => View(new CreateBugReportViewModel());
 
         [HttpPost]
         public IActionResult BugReport([FromForm] CreateBugReportViewModel model)
         {
-            throw new NotImplementedException();
+            var errors = ModelState.Values.SelectMany(x => x.Errors.Select(xx => xx.ErrorMessage)).ToList();
+            errors.ForEach(x => ModelState.AddModelError("", x));
+            return View(model);
         }
 
         [HttpGet]
