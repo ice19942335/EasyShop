@@ -8,7 +8,7 @@ namespace EasyShop.Services.ExtensionMethods
 {
     public static class DefaultPictureNameHelper
     {
-        private static readonly string[] DefaultPictures = { "default-profile-male.jpg", "default-profile-female.jpg", "not-specified.jpg" };
+        public static readonly string[] DefaultPictures = { "default-profile-male.jpg", "default-profile-female.jpg", "default-not-specified.jpg" };
 
         /// <summary>
         /// Return default picture name depend on user gender

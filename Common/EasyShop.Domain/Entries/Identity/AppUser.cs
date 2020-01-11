@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using EasyShop.Domain.Entries.DevBlog;
 using EasyShop.Domain.Entries.Shop;
 using EasyShop.Domain.Entries.Tariff;
+using EasyShop.Domain.Entries.Users;
 using Microsoft.AspNetCore.Identity;
 
 namespace EasyShop.Domain.Entries.Identity
@@ -43,5 +44,7 @@ namespace EasyShop.Domain.Entries.Identity
         public ICollection<UserShop> UserShops { get; set; }
 
         public ICollection<DevBlogPostsLike> DevBlogPostsLikes { get; set; }
+
+        public ICollection<SteamUserShop> SteamUserShops { get; set; }
     }
 }

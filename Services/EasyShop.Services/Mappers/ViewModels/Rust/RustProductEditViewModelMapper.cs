@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using EasyShop.Domain.Entries.Rust;
-using EasyShop.Domain.ViewModels.ControlPanel.Rust.Product;
+using EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Product;
 
 namespace EasyShop.Services.Mappers.ViewModels.Rust
 {

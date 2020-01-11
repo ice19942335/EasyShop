@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using EasyShop.Domain.Entries.ContactUs.BugReports;
+using EasyShop.Domain.Entries.ContactUs.CollaborationReports;
+using EasyShop.Domain.Entries.ContactUs.GeneralSupportReports;
 using EasyShop.Domain.Entries.DevBlog;
 using EasyShop.Domain.Entries.GameType;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Entries.Rust;
 using EasyShop.Domain.Entries.Shop;
 using EasyShop.Domain.Entries.Tariff;
+using EasyShop.Domain.Entries.Users;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -42,6 +46,21 @@ namespace EasyShop.DAL.Context
         //DevBlog
         public DbSet<DevBlogPost> DevBlogPosts { get; set; }
         public DbSet<DevBlogPostsLike> DevBlogPostsLikes { get; set; }
+
+        //Users
+        public DbSet<SteamUser> SteamUsers { get; set; }
+
+        //BugReports
+        public DbSet<BugReport> BugReports { get; set; }
+        public DbSet<BugReportCategory> BugReportCategories { get; set; }
+
+        //GeneralSupport
+        public DbSet<GeneralSupportReport> GeneralSupportReports { get; set; }
+        public DbSet<GeneralSupportReportCategory> GeneralSupportReportCategories { get; set; }
+
+        //Collaboration
+        public DbSet<CollaborationReport> CollaborationReports { get; set; }
+
 
 
         //Constructor
@@ -124,6 +143,21 @@ namespace EasyShop.DAL.Context
             modelBuilder.Entity<DevBlogPostsLike>()
                 .HasOne(x => x.AppUser)
                 .WithMany(x => x.DevBlogPostsLikes)
+                .HasForeignKey(x => x.AppUserId);
+            //===================================================================
+
+            //SteamUserShop ----------------------------------------------------------
+            modelBuilder.Entity<SteamUserShop>()
+                .HasKey(x => new { x.AppUserId, x.SteamUserId });
+
+            modelBuilder.Entity<SteamUserShop>()
+                .HasOne(x => x.SteamUser)
+                .WithMany(x => x.SteamUserShops)
+                .HasForeignKey(x => x.SteamUserId);
+
+            modelBuilder.Entity<SteamUserShop>()
+                .HasOne(x => x.AppUser)
+                .WithMany(x => x.SteamUserShops)
                 .HasForeignKey(x => x.AppUserId);
             //===================================================================
 

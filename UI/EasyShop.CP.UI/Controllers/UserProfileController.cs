@@ -1,8 +1,9 @@
-﻿using System.Threading;
+﻿using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Identity;
-using EasyShop.Domain.ViewModels.User.UserData;
-using EasyShop.Domain.ViewModels.User.UserProfile;
+using EasyShop.Domain.Enums.CP.Profile;
+using EasyShop.Domain.ViewModels.CP.User.UserProfile;
 using EasyShop.Interfaces.Services.CP;
 using EasyShop.Interfaces.Services.CP.FileImage;
 using EasyShop.Interfaces.Services.CP.UserProfile;
@@ -20,11 +21,11 @@ namespace EasyShop.CP.UI.Controllers
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly IUserProfileService _userProfileService;
-        private readonly IFileImageService _fileImageService;
         private readonly ILogger<UserProfileController> _logger;
+        private readonly IFileImageService _fileImageService;
 
         public UserProfileController(
-            UserManager<AppUser> userManager, 
+            UserManager<AppUser> userManager,
             IUserProfileService userProfileService,
             IFileImageService fileImageService,
             ILogger<UserProfileController> logger)
@@ -35,7 +36,7 @@ namespace EasyShop.CP.UI.Controllers
             _logger = logger;
         }
 
-        public async Task<IActionResult> Profile()
+        public async Task<IActionResult> Profile(UpdateUserProfileEnum status = UpdateUserProfileEnum.Default)
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
 
@@ -44,6 +45,9 @@ namespace EasyShop.CP.UI.Controllers
 
             var model = user.CreateViewModel();
 
+            if (status == UpdateUserProfileEnum.Updated)
+                model.Status = UpdateUserProfileEnum.Updated;
+
             return View(model);
         }
 
@@ -51,30 +55,31 @@ namespace EasyShop.CP.UI.Controllers
         public async Task<IActionResult> Profile([FromForm] UserProfileViewModel model)
         {
             if (!ModelState.IsValid)
-                return View(model);
-
-            if (model.ImageToUpload != null)
             {
-                var saveFileResult = await _fileImageService.SaveFile(model, "UserImages");
-                model.ProfileImage = saveFileResult;
-
-                if(saveFileResult is null)
-                {
-                    ModelState.AddModelError("", "Can't save selected picture, max size 10MB, picture type should be .jpeg .jpg or .png ");
-                    return View(model);
-                }
-
-                var userForLog = await _userManager.FindByEmailAsync(HttpContext.User.Identity.Name);
-                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
-                    userForLog.UserName,
-                    userForLog.Id,
-                    HttpContext.Request.GetRawTarget(),
-                    $"New picture was successfully saved. Picture name: {saveFileResult}");
+                var errors = ModelState.Values.SelectMany(x => x.Errors.Select(xx => xx.ErrorMessage)).ToList();
+                errors.ForEach(x => ModelState.AddModelError("", x));
+                return View(model);
             }
 
             var result = await _userProfileService.UpdateUserData(model);
 
-            return View(result);
+            if (result == UpdateUserProfileEnum.ImageSizeIsTooBig)
+            {
+                ModelState.AddModelError("", "Image max size 10Mb");
+                model.Status = UpdateUserProfileEnum.ImageSizeIsTooBig;
+                return View(model);
+            }
+
+
+            if (result == UpdateUserProfileEnum.UserNotFound)
+                return RedirectToAction("AccessDenied", "Account");
+
+
+            if (result == UpdateUserProfileEnum.Updated)
+                return RedirectToAction("Profile", new { status = UpdateUserProfileEnum.Updated });
+
+
+            return RedirectToAction("NotFoundPage", "Home");
         }
 
         public IActionResult PasswordResetRequest() => View();

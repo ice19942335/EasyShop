@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Tariff;
-using EasyShop.Domain.ViewModels.ControlPanel.Tariff;
+using EasyShop.Domain.ViewModels.CP.ControlPanel.Tariff;
 
 namespace EasyShop.Interfaces.Services.CP.Tariff
 {

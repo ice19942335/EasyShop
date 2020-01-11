@@ -7,7 +7,7 @@ using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Entries.Rust;
 using EasyShop.Domain.Entries.Shop;
-using EasyShop.Domain.ViewModels.ControlPanel.Shop;
+using EasyShop.Domain.ViewModels.CP.ControlPanel.Shop;
 using EasyShop.Interfaces.Services.CP.Rust.Data;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
 using EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization;

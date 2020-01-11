@@ -1,4 +1,5 @@
-﻿@model UserProfileViewModel
+﻿@using EasyShop.Domain.Enums.CP.Profile
+@model EasyShop.Domain.ViewModels.CP.User.UserProfile.UserProfileViewModel
 @{
     ViewData["Title"] = "User profile main";
     Layout = "Partial/_Layout";
@@ -21,7 +22,7 @@
         selectedNetSpec = selected;
     }
 
-    string options = 
+    string options =
         $"<option value=\"1\" {selectedMale}>Male</option>\r\n    " +
         $"<option value=\"2\" {selectedFemale}>Female</option>\r\n    " +
         $"<option value=\"3\" {selectedNetSpec}>Not specified</option>";
@@ -29,11 +30,11 @@
 
 <div class="well text-center">
     <div class="userImage">
-        <img src="~/UserImages/@Model.ProfileImage" alt="@Model.ProfileImage" width="225" height="225">
+        <img style="border-radius: 20px" src="~/UserImages/@Model.ImgUrl" alt="@Model.ImgUrl" height="150" width="auto">
         <h4>@($"{Model.FirstName} {Model.LastName}")</h4>
     </div>
     <form method="post" id="demo-inputmask" class="form-horizontal" enctype="multipart/form-data" asp-area="" asp-controller="UserProfile" asp-action="Profile">
-        <input asp-for="ProfileImage" hidden=""/>
+        <input asp-for="ImgUrl" hidden="" />
         <span asp-validation-for="ImageToUpload" class="warning text-warning"></span>
         <div class="form-group">
             <label class="file-upload-btn btn btn-primary">
@@ -42,7 +43,10 @@
             </label>
         </div>
         <div class="form-group">
-            <ul class="file-list"></ul>
+            <label class="col-sm-3 control-label"></label>
+            <div class="col-sm-6">
+                <div asp-validation-summary="ModelOnly" class="alert alert-info"></div>
+            </div>
         </div>
         <span asp-validation-for="Email" class="warning text-warning"></span>
         <div class="form-group">
@@ -70,6 +74,7 @@
             <label class="col-sm-3 control-label">Birth date</label>
             <div class="col-sm-6">
                 <input asp-for="BirthDateToUpdate" class="form-control" type="text" value="@Model.BirthDate.Date" data-inputmask="'alias': 'mm-dd-yyyy'">
+                <span class="help-block m-b-n">Format (mm-dd-yyyy)</span>
             </div>
         </div>
         <div class="form-group">
@@ -92,4 +97,11 @@
 @section Scripts
 {
     <script src="~/js/demo.js" asp-append-version="true"></script>
+
+    @if (Model.Status == UpdateUserProfileEnum.Updated)
+    {
+        <script>
+            toastr.success('Profile updated');
+        </script>
+    }
 }

@@ -10,9 +10,6 @@ function selectActiveSideNavigationLink() {
 
     if (linkNodesWrap !== null && linkNodesWrap !== undefined) {
         for (let link of linkNodesWrap.children) {
-            console.log(link.pathname);
-            console.log(activeLinkId);
-
             if (linkNodesWrap.children[0].classList.contains('index')) {
                 linkNodesWrap.children[0].classList.add('active');
             }

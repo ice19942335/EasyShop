@@ -81,7 +81,7 @@ namespace EasyShop.Services.CP.Tariff
             await _context.SaveChangesAsync();
 
             var userForLog = await _userManager.FindByEmailAsync(_httpContext.User.Identity.Name);
-            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
                 userForLog.UserName,
                 userForLog.Id,
                 _httpContext.Request.GetRawTarget(),
@@ -115,7 +115,7 @@ namespace EasyShop.Services.CP.Tariff
             var tariffOptionDescription = _context.TariffOptionsDescriptions.FirstOrDefault(x => x.Id == queryResult.TariffOptionDescriptionId);
 
             var userForLog = await _userManager.FindByEmailAsync(_httpContext.User.Identity.Name);
-            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
                 userForLog.UserName,
                 userForLog.Id,
                 _httpContext.Request.GetRawTarget(),

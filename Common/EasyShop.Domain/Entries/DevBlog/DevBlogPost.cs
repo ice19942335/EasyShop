@@ -13,13 +13,10 @@ namespace EasyShop.Domain.Entries.DevBlog
         [Key]
         public Guid Id { get; set; }
 
-        [Required]
         public string Title { get; set; }
 
-        [Required]
-        public string Message { get; set; }
+        public string PostMessage { get; set; }
 
-        [Required]
         public string ImgUrl { get; set; }
 
         public string Link { get; set; }
@@ -32,7 +29,6 @@ namespace EasyShop.Domain.Entries.DevBlog
         [Required]
         public int LikesCounter { get; set; }
 
-        [Required]
         public ICollection<DevBlogPostsLike> DevBlogPostsLikes { get; set; }
     }
 }

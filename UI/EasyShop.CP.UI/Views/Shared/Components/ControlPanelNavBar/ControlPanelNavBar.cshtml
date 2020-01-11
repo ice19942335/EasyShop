@@ -1,6 +1,6 @@
 ﻿@using EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization
 @using Microsoft.Extensions.Configuration
-@model EasyShop.Domain.ViewModels.User.UserData.AppUserViewModel
+@model EasyShop.Domain.ViewModels.CP.User.UserData.AppUserViewModel
 @inject IConfiguration Configuration;
 
 @{
@@ -74,7 +74,7 @@
                 <a class="list-group-item" href="#">
                     <div class="notification">
                         <div class="notification-media">
-                            <img class="rounded" width="40" height="40" src="~/UserImages/@Model.ProfileImage" alt="@($"{Model.FirstName} {@Model.LastName}")">
+                            <img style="border-radius: 5px" class="rounded" width="40" height="40" src="~/UserImages/@Model.ProfileImage" alt="@($"{Model.FirstName} {@Model.LastName}")">
                         </div>
                         <div class="notification-content">
                             <small class="notification-timestamp">4 hr</small>
@@ -102,9 +102,21 @@
     </li>
 }
 <li class="visible-xs-block">
+    <a asp-area="" asp-controller="DevBlog" asp-action="PostsList">
+        <span class="icon icon-cogs icon-lg icon-fw"></span>
+        Dev-Blog
+    </a>
+</li>
+<li class="visible-xs-block">
     <a asp-area="" asp-controller="UserProfile" asp-action="Profile">
         <span class="icon icon-users icon-lg icon-fw"></span>
         Profile
+    </a>
+</li>
+<li class="visible-xs-block">
+    <a asp-area="" asp-controller="ContactUs" asp-action="Index">
+        <span class="icon icon-info icon-lg icon-fw"></span>
+        Contact Us
     </a>
 </li>
 <li class="visible-xs-block">
@@ -115,7 +127,7 @@
 </li>
 <li class="dropdown hidden-xs">
     <button class="navbar-account-btn" data-toggle="dropdown" aria-haspopup="true">
-        <img class="rounded" width="36" height="36" src="~/UserImages/@Model.ProfileImage" alt="@($"{Model.FirstName} {@Model.LastName}")"> @($"{Model.FirstName} {@Model.LastName}")
+        <img style="border-radius: 5px" class="rounded" width="36" height="36" src="~/UserImages/@Model.ProfileImage" alt="@($"{Model.FirstName} {@Model.LastName}")"> @($"{Model.FirstName} {@Model.LastName}")
         <span class="caret"></span>
     </button>
     <ul class="dropdown-menu dropdown-menu-right">
@@ -136,7 +148,9 @@
         <li class="divider"></li>
         <li class="navbar-upgrade-version">@version</li>
         <li class="divider"></li>
+        <li><a asp-area="" asp-controller="DevBlog" asp-action="PostsList">Dev-Blog</a></li>
         <li><a asp-area="" asp-controller="UserProfile" asp-action="Profile">Profile</a></li>
+        <li><a asp-area="" asp-controller="ContactUs" asp-action="Index">Contact Us</a></li>
         <li><a asp-area="" asp-controller="Account" asp-action="LogOut">Sign out</a></li>
     </ul>
 </li>

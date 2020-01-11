@@ -3,15 +3,23 @@
 }
 
 
-@await Html.PartialAsync("Partial/_DevBlogNavBar")
-@RenderBody()
+<div class="wrapper">
+    @await Html.PartialAsync("Partial/_DevBlogNavBar")
+    <div class="container content">
+        @RenderBody()
+    </div>
 
+    <div class="footer">
+        @await Html.PartialAsync("Partial/_FooterBig")
+    </div>
+</div>
 
 @section Styles
 {
     <link href="~/css/landing-page.css" rel="stylesheet" asp-append-version="true">
     <link href="~/css/custom/Override/override-landing-page.css" rel="stylesheet" asp-append-version="true" />
     <link href="~/css/profile.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/custom/DevBlog/devBlog.css" rel="stylesheet" asp-append-version="true" />
     @RenderSection("Styles", false)
 }
 

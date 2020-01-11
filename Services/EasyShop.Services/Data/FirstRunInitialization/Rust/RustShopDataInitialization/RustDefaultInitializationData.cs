@@ -121,7 +121,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
                 Id = Guid.NewGuid(),
                 Index = 13,
                 AppUser = null,
-                Name = "Other"
+                Name = "Cp_Other"
             }
         };
 

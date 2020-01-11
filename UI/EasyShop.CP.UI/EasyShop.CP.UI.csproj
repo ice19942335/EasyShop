@@ -35,7 +35,7 @@
   <ItemGroup>
     <Folder Include="Logs\2019\12\31\" />
     <Folder Include="wwwroot\css\custom\CP\" />
-    <Folder Include="wwwroot\img\devBlog\" />
+    <Folder Include="wwwroot\DevBlogImages\" />
   </ItemGroup>
 
   <ItemGroup>

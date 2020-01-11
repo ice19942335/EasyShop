@@ -1,4 +1,4 @@
-﻿@model EasyShop.Domain.ViewModels.ControlPanel.DevBlog.DevBlogViewModel
+﻿@model EasyShop.Domain.ViewModels.CP.ControlPanel.DevBlog.DevBlogViewModel
 @using EasyShop.Domain.Entries.Identity
 @using EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization
 @using Microsoft.AspNetCore.Identity
@@ -28,46 +28,59 @@
                         </div>
                     </div>
                 }
-                <ol class="feed">
-                    @foreach (var post in Model.Posts)
-                    {
-                        <li class="feed-item">
-                            <div class="post">
-                                <div class="post-body">
-                                    <div class="post-content">
-                                        <h4>@post.Title</h4>
-                                        <p>
-                                            @post.PostMessage
-                                            @if (string.IsNullOrEmpty(post.Link))
+                @if (Model.Posts.Any())
+                {
+                    <ol class="feed">
+                        @foreach (var post in Model.Posts)
+                        {
+                            <li class="feed-item">
+                                <div class="post">
+                                    <div class="post-body">
+                                        <div class="post-content">
+                                            @if (isAdmin)
                                             {
-                                                <small><a href="@post.Link" target="_blank">@post.LinkTitle</a></small>
+                                                <a class="btn btn-default pull-right" asp-area="" asp-controller="DevBlog" asp-action="EditPost" asp-route-postId="@post.Id">Edit</a>
                                             }
-                                        </p>
-                                    </div>
-                                    <div class="post-img">
-                                        @*<a href="" target="_blank">*@
-                                            <img class="img-responsive" src="~/img/devBlog/@($"{post.ImgUrl}")" alt="@post.ImgUrl">
-                                        @*</a>*@
-                                    </div>
-                                    <div class="post-actions">
-                                        <a class="post-action" asp-area="" asp-controller="DevBlog" asp-action="IncrementLike" asp-route="@User?.Identity?.Name">
-                                            <span class="icon icon-thumbs-up icon-fw"></span>
-                                            Like
-                                        </a>
-                                        <a class="post-action" href="#">
-                                            <span class="icon icon-share icon-fw"></span>
-                                            Share
-                                        </a>
-                                        <div class="post-summary">
-                                            <small class="truncate">Likes: @post.LikesCounter</small>
-                                            <small class="post-timestamp">@post.DateTimePosted.Date</small>
+                                            <h4>@post.Title</h4>
+                                            <p>
+                                                @post.PostMessage
+                                                @if (!string.IsNullOrEmpty(post.Link))
+                                                {
+                                                    <small><a href="@post.Link" target="_blank">@post.LinkTitle</a></small>
+                                                }
+                                            </p>
+                                        </div>
+                                        <div class="post-img">
+                                            @if (post.ImgUrl != null)
+                                            {
+                                                @*<a href="" target="_blank">*@
+                                                <img class="img-responsive" src="~/DevBlogImages/@($"{post.ImgUrl}")" alt="@post.ImgUrl">
+                                                @*</a>*@
+                                            }
+                                        </div>
+                                        <div class="post-actions">
+                                            <a data-postId="@post.Id" class="post-action" asp-area="" asp-controller="DevBlog" asp-action="IncrementLike" asp-route-postId="@post.Id">
+                                                <span class="icon icon-thumbs-up icon-fw"></span>
+                                                Like
+                                            </a>
+                                            <div class="post-summary">
+                                                @if (post.LikesCounter > 0)
+                                                {
+                                                    <small class="truncate">Likes: @post.LikesCounter</small>
+                                                }
+                                                else
+                                                {
+                                                    <small style="display: none" class="truncate">Likes: @post.LikesCounter</small>
+                                                }
+                                                <small class="post-timestamp">@post.DateTimePosted.ToString("D")</small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </li>
-                    }
-                </ol>
+                            </li>
+                        }
+                    </ol>
+                }
             </div>
         </div>
     </div>
@@ -75,5 +88,5 @@
 
 @section Scripts
 {
-    <link href="~/css/custom/DevBlog/devBlog.css" rel="stylesheet" asp-append-version="true" />
+    <script src="~/js/customScripts/DevBlog/LikesLogic.js" asp-append-version="true"></script>
 }

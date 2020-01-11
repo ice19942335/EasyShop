@@ -1,5 +1,6 @@
 ﻿using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Enums;
+using EasyShop.Domain.Enums.CP.Email;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
