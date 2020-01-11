@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using EasyShop.Domain.Entries.ContactUs.BugReports;
-using EasyShop.Domain.Entries.ContactUs.GeneralSupport;
+using EasyShop.Domain.Entries.ContactUs.GeneralSupportReports;
 using EasyShop.Domain.Entries.DevBlog;
 using EasyShop.Domain.Entries.GameType;
 using EasyShop.Domain.Entries.Identity;

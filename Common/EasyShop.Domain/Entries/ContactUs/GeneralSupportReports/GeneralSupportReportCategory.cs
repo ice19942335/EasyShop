@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
-using EasyShop.Domain.Enums.CP.ContactUs.BugReports;
 using EasyShop.Domain.Enums.CP.ContactUs.GeneralSupport;
 
-namespace EasyShop.Domain.Entries.ContactUs.GeneralSupport
+namespace EasyShop.Domain.Entries.ContactUs.GeneralSupportReports
 {
     [Table("GeneralSupportReportCategories")]
     public class GeneralSupportReportCategory

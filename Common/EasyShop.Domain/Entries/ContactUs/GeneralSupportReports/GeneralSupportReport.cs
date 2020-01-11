@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
-using EasyShop.Domain.Entries.ContactUs.GeneralSupport;
 using EasyShop.Domain.Entries.Identity;
 
-namespace EasyShop.Domain.Entries.ContactUs.BugReports
+namespace EasyShop.Domain.Entries.ContactUs.GeneralSupportReports
 {
     [Table("GeneralSupportReports")]
     public class GeneralSupportReport
@@ -19,6 +16,8 @@ namespace EasyShop.Domain.Entries.ContactUs.BugReports
         public ReportResponseStatus Status { get; set; }
 
         public string Title { get; set; }
+
+        public string Email { get; set; }
 
         public string Message { get; set; }
 

@@ -1,4 +1,4 @@
-﻿namespace EasyShop.Domain.Enums.CP.ContactUs.BugReports
+﻿namespace EasyShop.Domain.Enums.CP.ContactUs
 {
     public enum ReportResponseStatusEnum
     {
