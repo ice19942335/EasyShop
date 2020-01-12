@@ -1,16 +1,25 @@
-﻿@model EasyShop.Domain.ViewModels.CP.ControlPanel.DevBlog.EditDevBlogPostViewModel
+﻿@using EasyShop.Domain.Enums.CP.DevBlog
+@model EasyShop.Domain.ViewModels.CP.ControlPanel.DevBlog.EditDevBlogPostViewModel
 @{
     ViewData["Title"] = "Add/Edit post";
     Layout = "Partial/_DevBlogLayout";
 }
 
-<div class="well text-center">
+<div class="well well-transparrent text-center">
     <h2>Add / Edit Post</h2>
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
             <div class="demo-form-wrapper">
                 <form enctype="multipart/form-data" asp-area="" asp-controller="DevBlog" asp-action="EditPost">
                     <input asp-for="Id" type="hidden" />
+                    <input asp-for="ImgUrl" type="hidden" />
+
+                    @if (!string.IsNullOrEmpty(Model.ImgUrl))
+                    {
+                        <div class="form-group">
+                            <img class="postImage" src="~/DevBlogImages/@Model.ImgUrl" alt="@Model.ImgUrl" />
+                        </div>
+                    }
                     <span asp-validation-for="ImageToUpload" class="warning text-warning"></span>
                     <div class="form-group">
                         <label class="file-upload-btn btn btn-primary">
@@ -54,7 +63,22 @@
     </div>
 </div>
 
+@section Styles
+{
+    <link rel="stylesheet" href="~/css/custom/Override/override-elephant.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/custom/Shared/custom-shared-styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/custom/DevBlog/edit-post.css" asp-append-version="true" />
+}
+
 @section Scripts
 {
+    @if (Model.Status == DevBlogPostUpdateResult.Updated)
+    {
+        Model.Status = DevBlogPostUpdateResult.Default;
+        <script>
+            toastr.success('Post updated');
+        </script>
+    }
+
     <script src="~/js/customScripts/DeleteConfirmationDialog.js" asp-append-version="true"></script>
 }
