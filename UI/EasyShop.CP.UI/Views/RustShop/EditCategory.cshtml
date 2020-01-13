@@ -17,12 +17,12 @@
                     <input asp-for="@Model.RustCategoryEditViewModel.Category.Id" type="hidden" />
                     <div asp-validation-summary="ModelOnly" class="alert alert-info"></div>
                     <div class="form-group">
-                        <label class="pull-left">Category index</label>
+                        <label class="pull-left">Description index</label>
                         <input asp-for="@Model.RustCategoryEditViewModel.Category.Index" class="form-control" type="number">
                         <span class="help-block">Smaller index make category higher in list</span>
                     </div>
                     <div class="form-group">
-                        <label class="pull-left">Category name</label>
+                        <label class="pull-left">Description name</label>
                         <input asp-for="@Model.RustCategoryEditViewModel.Category.Name" class="form-control" type="text">
                     </div>
                     <div class="form-group">
@@ -62,13 +62,13 @@
     @if (Model.RustCategoryEditViewModel.Status == RustEditCategoryResult.Success)
     {
         <script>
-            toastr.success('Category updated');
+            toastr.success('Description updated');
         </script>
     }
     else if (Model.RustCategoryEditViewModel.Status == RustEditCategoryResult.Created)
     {
         <script>
-            toastr.success('Category created');
+            toastr.success('Description created');
         </script>
     }
     else if (Model.RustCategoryEditViewModel.Status == RustEditCategoryResult.Failed)

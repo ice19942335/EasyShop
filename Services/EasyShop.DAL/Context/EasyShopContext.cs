@@ -60,7 +60,7 @@ namespace EasyShop.DAL.Context
 
         public DbSet<CollaborationReport> CollaborationReports { get; set; }
 
-        public DbSet<ReportResponseStatus> ReportResponseStatuses { get; set; }
+        public DbSet<ReportStatus> ReportStatus { get; set; }
 
 
 

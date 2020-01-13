@@ -1,6 +1,6 @@
 ﻿namespace EasyShop.Domain.Enums.CP.ContactUs
 {
-    public enum ReportResponseStatusEnum
+    public enum ReportStatusEnum
     {
         WaitingForReview,
         Reviewed,

@@ -4,11 +4,13 @@ using EasyShop.Domain.Enums.CP.ContactUs;
 
 namespace EasyShop.Domain.Entries.ContactUs
 {
-    [Table("ReportResponseStatus")]
-    public class ReportResponseStatus
+    [Table("ReportStatus")]
+    public class ReportStatus
     {
         public Guid Id { get; set; }
 
-        public ReportResponseStatusEnum Status { get; set; }
+        public ReportStatusEnum Index { get; set; }
+
+        public string Description { get; set; }
     }
 }

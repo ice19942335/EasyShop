@@ -12,7 +12,7 @@ namespace EasyShop.Domain.Enums.CP.ContactUs.BugReports
 
         //RustShop
         Cp_Rust_shop_stats_bug,
-        Cp_Rust_shop_main_setting_update_bug,
+        Cp_Rust_shop_main_settings_update_bug,
         Cp_Rust_shop_product_update_bug,
         Cp_Rust_shop_categories_reset_bug,
         Cp_Rust_shop_category_creation_bug,

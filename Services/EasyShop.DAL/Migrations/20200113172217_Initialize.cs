@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EasyShop.DAL.Migrations
 {
-    public partial class Initialization : Migration
+    public partial class Initialize : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -62,7 +62,8 @@ namespace EasyShop.DAL.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    Category = table.Column<int>(nullable: false)
+                    Description = table.Column<string>(nullable: false),
+                    Index = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -113,15 +114,16 @@ namespace EasyShop.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ReportResponseStatus",
+                name: "ReportStatus",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    Status = table.Column<int>(nullable: false)
+                    Index = table.Column<int>(nullable: false),
+                    Description = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ReportResponseStatus", x => x.Id);
+                    table.PrimaryKey("PK_ReportStatus", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -386,9 +388,9 @@ namespace EasyShop.DAL.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_BugReports_ReportResponseStatus_StatusId",
+                        name: "FK_BugReports_ReportStatus_StatusId",
                         column: x => x.StatusId,
-                        principalTable: "ReportResponseStatus",
+                        principalTable: "ReportStatus",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -407,9 +409,9 @@ namespace EasyShop.DAL.Migrations
                 {
                     table.PrimaryKey("PK_CollaborationReports", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_CollaborationReports_ReportResponseStatus_StatusId",
+                        name: "FK_CollaborationReports_ReportStatus_StatusId",
                         column: x => x.StatusId,
-                        principalTable: "ReportResponseStatus",
+                        principalTable: "ReportStatus",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -443,9 +445,9 @@ namespace EasyShop.DAL.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_GeneralSupportReports_ReportResponseStatus_StatusId",
+                        name: "FK_GeneralSupportReports_ReportStatus_StatusId",
                         column: x => x.StatusId,
-                        principalTable: "ReportResponseStatus",
+                        principalTable: "ReportStatus",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -972,7 +974,7 @@ namespace EasyShop.DAL.Migrations
                 name: "GeneralSupportReportCategories");
 
             migrationBuilder.DropTable(
-                name: "ReportResponseStatus");
+                name: "ReportStatus");
 
             migrationBuilder.DropTable(
                 name: "RustPurchasedItems");

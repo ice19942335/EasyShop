@@ -12,7 +12,7 @@ namespace EasyShop.Domain.Entries.ContactUs.CollaborationReports
         public Guid Id { get; set; }
 
         [Required]
-        public ReportResponseStatus Status { get; set; }
+        public ReportStatus Status { get; set; }
 
         [Required]
         public string Title { get; set; }

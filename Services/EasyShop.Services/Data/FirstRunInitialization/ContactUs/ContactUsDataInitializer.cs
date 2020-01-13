@@ -12,22 +12,25 @@ namespace EasyShop.Services.Data.FirstRunInitialization.ContactUs
 {
     public class ContactUsDataInitializer
     {
-        private readonly List<ReportResponseStatus> _reportResponseStatuses = new List<ReportResponseStatus>
+        private readonly List<ReportStatus> _reportStatuses = new List<ReportStatus>
         {
-            new ReportResponseStatus
+            new ReportStatus
             {
                 Id = Guid.NewGuid(),
-                Status = ReportResponseStatusEnum.WaitingForReview
+                Index = ReportStatusEnum.WaitingForReview,
+                Description = "Waiting for review"
             },
-            new ReportResponseStatus
+            new ReportStatus
             {
                 Id = Guid.NewGuid(),
-                Status = ReportResponseStatusEnum.Reviewed
+                Index = ReportStatusEnum.Reviewed,
+                Description = "Reviewed"
             },
-            new ReportResponseStatus
+            new ReportStatus
             {
                 Id = Guid.NewGuid(),
-                Status = ReportResponseStatusEnum.Closed
+                Index = ReportStatusEnum.Closed,
+                Description = "Closed"
             }
         };
         private readonly List<BugReportCategory> _bugReportCategories = new List<BugReportCategory>
@@ -35,63 +38,69 @@ namespace EasyShop.Services.Data.FirstRunInitialization.ContactUs
             new BugReportCategory
             {
                 Id = Guid.NewGuid(),
-                Category = BugReportCategoriesEnum.Cp_Other
+                Index = BugReportCategoriesEnum.Cp_Shop_creation_bug,
+                Description = "Shop creation bug"
             },
             new BugReportCategory
             {
                 Id = Guid.NewGuid(),
-                Category = BugReportCategoriesEnum.Cp_Rust_shop_categories_reset_bug
+                Index = BugReportCategoriesEnum.Cp_Shop_manager_bug,
+                Description = "Shop manager bug"
             },
             new BugReportCategory
             {
                 Id = Guid.NewGuid(),
-                Category = BugReportCategoriesEnum.Cp_Rust_shop_category_creation_bug
+                Index = BugReportCategoriesEnum.Cp_Rust_shop_stats_bug,
+                Description = "Rust shop stats_bug"
             },
             new BugReportCategory
             {
                 Id = Guid.NewGuid(),
-                Category = BugReportCategoriesEnum.Cp_Rust_shop_category_update_bug
+                Index = BugReportCategoriesEnum.Cp_Rust_shop_main_settings_update_bug,
+                Description = "Rust shop main settings update bug"
             },
             new BugReportCategory
             {
                 Id = Guid.NewGuid(),
-                Category = BugReportCategoriesEnum.Cp_Rust_shop_main_setting_update_bug
+                Index = BugReportCategoriesEnum.Cp_Rust_shop_product_update_bug,
+                Description = "Rust shop product update bug"
             },
             new BugReportCategory
             {
                 Id = Guid.NewGuid(),
-                Category = BugReportCategoriesEnum.Cp_Rust_shop_product_update_bug
+                Index = BugReportCategoriesEnum.Cp_Rust_shop_categories_reset_bug,
+                Description = "Rust shop categories reset bug"
             },
             new BugReportCategory
             {
                 Id = Guid.NewGuid(),
-                Category = BugReportCategoriesEnum.Cp_Rust_shop_server_creation_bug
+                Index = BugReportCategoriesEnum.Cp_Rust_shop_category_creation_bug,
+                Description = "Rust shop category creation bug"
             },
             new BugReportCategory
             {
                 Id = Guid.NewGuid(),
-                Category = BugReportCategoriesEnum.Cp_Rust_shop_server_manager_bug
+                Index = BugReportCategoriesEnum.Cp_Rust_shop_category_update_bug,
+                Description = "Rust shop category update bug"
             },
             new BugReportCategory
             {
                 Id = Guid.NewGuid(),
-                Category = BugReportCategoriesEnum.Cp_Rust_shop_stats_bug
+                Index = BugReportCategoriesEnum.Cp_Rust_shop_server_manager_bug,
+                Description = "Rust shop server manager bug"
             },
             new BugReportCategory
             {
                 Id = Guid.NewGuid(),
-                Category = BugReportCategoriesEnum.Cp_Shop_creation_bug
+                Index = BugReportCategoriesEnum.Cp_Rust_shop_server_creation_bug,
+                Description = "Rust shop server creation bug"
             },
             new BugReportCategory
             {
-                Id = Guid.NewGuid(),
-                Category = BugReportCategoriesEnum.Cp_Shop_manager_bug
-            },
-            new BugReportCategory
-            {
-                Id = Guid.NewGuid(),
-                Category = BugReportCategoriesEnum.Cp_Shop_creation_bug
-            },
+            Id = Guid.NewGuid(),
+            Index = BugReportCategoriesEnum.Cp_Other,
+            Description = "Other"
+            }
         };
         private readonly EasyShopContext _context;
 
@@ -99,7 +108,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.ContactUs
 
         public async Task Initialize()
         {
-            await _context.ReportResponseStatuses.AddRangeAsync(_reportResponseStatuses);
+            await _context.ReportStatus.AddRangeAsync(_reportStatuses);
             await _context.BugReportCategories.AddRangeAsync(_bugReportCategories);
 
             await _context.SaveChangesAsync();
