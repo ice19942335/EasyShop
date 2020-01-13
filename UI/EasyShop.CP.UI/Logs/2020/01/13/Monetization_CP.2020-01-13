@@ -1,0 +1,97 @@
+2020-01-13 15:37:40,543 [12] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-13 15:37:40,557 [12] ?     - Hosting environment: Development
+
+2020-01-13 15:37:40,561 [12] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-13 15:37:40,596 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs  
+
+2020-01-13 15:37:40,681 [9] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-13 15:37:40,689 [9] ?     - Executing DbCommand [Parameters=[@__p_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE ([a].[Id] = @__p_0) AND @__p_0 IS NOT NULL
+
+2020-01-13 15:37:40,701 [5] ?     - AuthenticationScheme: Identity.Application signed out.
+
+2020-01-13 15:37:40,703 [5] ?     - AuthenticationScheme: Identity.External signed out.
+
+2020-01-13 15:37:40,705 [5] ?     - AuthenticationScheme: Identity.TwoFactorUserId signed out.
+
+2020-01-13 15:37:40,710 [5] ?     - Identity.Application was not authenticated. Failure message: No principal.
+
+2020-01-13 15:37:40,714 [5] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-13 15:37:40,745 [5] ?     - Route matched with {action = "Index", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-13 15:37:40,762 [5] ?     - Executing ViewResult, running view Index.
+
+2020-01-13 15:37:41,493 [5] ?     - Executed ViewResult - view Index executed in 731.6322ms.
+
+2020-01-13 15:37:41,495 [5] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI) in 748.3126ms
+
+2020-01-13 15:37:41,498 [5] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-13 15:37:41,506 [5] ?     - Request finished in 911.3604ms 200 text/html; charset=utf-8
+
+2020-01-13 15:37:41,544 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/css/custom/Override/override-application.css?v=3MgSvheYpRsGOI2Rt0FvWZkrlSY0VdxnXeUGn5f5Dt4  
+
+2020-01-13 15:37:41,551 [12] ?     - Request starting HTTP/2.0 GET https://localhost:44374/css/landing-page.css?v=S4ykffsGJRzOMV2Kh3_JoURV3vW62dkTdtTg6QO8MpI  
+
+2020-01-13 15:37:41,552 [16] ?     - Request starting HTTP/2.0 GET https://localhost:44374/css/custom/ContactUs/contactUs.css?v=XW52XDA2jTBuS2NE291G1nXzogiNsC-RYDTFbJlLX_c  
+
+2020-01-13 15:37:41,554 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/css/custom/Override/override-landing-page.css?v=6eJLoxNtNtqI4k1vzh6FOYZLsUGcziro-f2snFXmwEY  
+
+2020-01-13 15:37:41,555 [17] ?     - Request starting HTTP/2.0 GET https://localhost:44374/css/custom/Override/override-elephant.css?v=OLiC05EVAezj_QeMoSWkqWly7N6OeAv1vkjHm-9wks4  
+
+2020-01-13 15:37:41,578 [13] ?     - Request starting HTTP/2.0 GET https://localhost:44374/img/default-bug.jpg  
+
+2020-01-13 15:37:41,588 [4] ?     - The file /css/custom/Override/override-landing-page.css was not modified
+
+2020-01-13 15:37:41,588 [9] ?     - The file /css/custom/Override/override-application.css was not modified
+
+2020-01-13 15:37:41,589 [12] ?     - The file /css/landing-page.css was not modified
+
+2020-01-13 15:37:41,591 [13] ?     - The file /img/default-bug.jpg was not modified
+
+2020-01-13 15:37:41,593 [16] ?     - The file /css/custom/ContactUs/contactUs.css was not modified
+
+2020-01-13 15:37:41,594 [17] ?     - The file /css/custom/Override/override-elephant.css was not modified
+
+2020-01-13 15:37:41,600 [9] ?     - Request finished in 56.6891ms 304 text/css
+
+2020-01-13 15:37:41,603 [12] ?     - Request finished in 55.2576ms 304 text/css
+
+2020-01-13 15:37:41,604 [4] ?     - Request finished in 44.6148ms 304 text/css
+
+2020-01-13 15:37:41,606 [13] ?     - Request finished in 42.3122ms 304 image/jpeg
+
+2020-01-13 15:37:41,607 [16] ?     - Request finished in 55.5705ms 304 text/css
+
+2020-01-13 15:37:41,608 [17] ?     - Request finished in 56.6764ms 304 text/css
+
+2020-01-13 15:37:41,780 [17] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/application.js?v=--cIAMHez3y7WEFH8wY4RSeijcIi64pVZuLtxjwYptk  
+
+2020-01-13 15:37:41,783 [17] ?     - The file /js/application.js was not modified
+
+2020-01-13 15:37:41,787 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/img/default-collaboration.png  
+
+2020-01-13 15:37:41,788 [17] ?     - Request finished in 5.9731ms 304 application/javascript
+
+2020-01-13 15:37:41,790 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/img/default-other-questions.jpg  
+
+2020-01-13 15:37:41,791 [4] ?     - The file /img/default-collaboration.png was not modified
+
+2020-01-13 15:37:41,793 [9] ?     - The file /img/default-other-questions.jpg was not modified
+
+2020-01-13 15:37:41,794 [4] ?     - Request finished in 9.4039ms 304 image/png
+
+2020-01-13 15:37:41,796 [9] ?     - Request finished in 5.2204ms 304 image/jpeg
+
+2020-01-13 15:37:41,822 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/img/3456253426432.jpg  
+
+2020-01-13 15:37:41,825 [9] ?     - The file /img/3456253426432.jpg was not modified
+
+2020-01-13 15:37:41,827 [9] ?     - Request finished in 4.691ms 304 image/jpeg
+

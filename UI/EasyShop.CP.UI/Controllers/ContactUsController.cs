@@ -23,7 +23,7 @@ namespace EasyShop.CP.UI.Controllers
         public IActionResult BugReport() => View(new CreateBugReportViewModel());
 
         [HttpPost]
-        public async IActionResult BugReport([FromForm] CreateBugReportViewModel model)
+        public async Task<IActionResult> BugReport([FromForm] CreateBugReportViewModel model)
         {
             if (!ModelState.IsValid)
             {

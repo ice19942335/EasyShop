@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.ContactUs;
 using EasyShop.Domain.Entries.ContactUs.BugReports;
@@ -96,7 +97,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.ContactUs
 
         public ContactUsDataInitializer(EasyShopContext context) => _context = context;
 
-        public async void Initialize()
+        public async Task Initialize()
         {
             await _context.ReportResponseStatuses.AddRangeAsync(_reportResponseStatuses);
             await _context.BugReportCategories.AddRangeAsync(_bugReportCategories);

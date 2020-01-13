@@ -11,7 +11,7 @@ namespace EasyShop.Services.CP.ContactUs
     {
         public async Task<bool> CreateBugReport(CreateBugReportViewModel model)
         {
-            
+            throw new NotImplementedException();
         }
     }
 }
