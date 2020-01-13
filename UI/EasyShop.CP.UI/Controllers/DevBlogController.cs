@@ -75,13 +75,23 @@ namespace EasyShop.CP.UI.Controllers
             var result = await _devBlogService.UpdatePost(model);
 
             if (result == DevBlogPostUpdateResult.NotFound)
+            {
                 return RedirectToAction("NotFoundPage", "Home");
-            else if(result == DevBlogPostUpdateResult.Created)
+            }
+            else if (result == DevBlogPostUpdateResult.Created)
+            {
                 return RedirectToAction("PostsList");
+            }
             else if (result == DevBlogPostUpdateResult.Updated)
+            {
+                model.Status = DevBlogPostUpdateResult.Updated;
                 return View(model);
-            else 
+            }
+            else
+            {
                 return RedirectToAction("SomethingWentWrong", "Home");
+            }
+                
         }
 
         public async Task<IActionResult> DeletePost(string postId)

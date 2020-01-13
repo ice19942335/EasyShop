@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Interfaces.Services.CP.Rust.Data;
+using EasyShop.Services.Data.FirstRunInitialization.ContactUs;
 using EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization;
 using EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitialization;
 using Microsoft.AspNetCore.Hosting;
@@ -27,7 +28,7 @@ namespace EasyShop.CP.UI
                 //Services
                 var roleManager = serviceScope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
                 var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
-                var rustTestStatsData = serviceScope.ServiceProvider.GetRequiredService<IRustTestStatsData>();
+                var rustTestStatsInit = serviceScope.ServiceProvider.GetRequiredService<IRustTestStatsData>();
                 
                 //Default Identity initialization
                 var basicIdentityInitializer = new IdentityInitializer(dbContext, roleManager, userManager);
@@ -35,11 +36,14 @@ namespace EasyShop.CP.UI
                 
 
                 //Default Rust data initialization
-                var rustDefaultDataInitialization = new RustDefaultDataInitialization(dbContext);
-                await rustDefaultDataInitialization.Initialize();
+                var rustDataInit = new RustDefaultDataInitialization(dbContext);
+                await rustDataInit.Initialize();
 
                 //RustTestStats initialization
-                await rustTestStatsData.InitializeDefaultStatsData();
+                await rustTestStatsInit.InitializeDefaultStatsData();
+
+                var contactUsDataInit = new ContactUsDataInitializer(dbContext);
+                await contactUsDataInit.Initialize();
 
                 await dbContext.SaveChangesAsync();
             }

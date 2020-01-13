@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using EasyShop.Domain.Enums.CP.DevBlog;
 using Microsoft.AspNetCore.Http;
 
 namespace EasyShop.Domain.ViewModels.CP.ControlPanel.DevBlog
@@ -25,5 +26,7 @@ namespace EasyShop.Domain.ViewModels.CP.ControlPanel.DevBlog
         public DateTime DateTimePosted { get; set; }
 
         public int LikesCounter { get; set; }
+
+        public DevBlogPostUpdateResult Status { get; set; } = DevBlogPostUpdateResult.Default;
     }
 }

@@ -4,6 +4,7 @@
     {
         NotFound,
         Created,
-        Updated
+        Updated,
+        Default
     }
 }
