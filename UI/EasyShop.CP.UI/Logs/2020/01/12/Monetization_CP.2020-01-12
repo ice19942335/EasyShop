@@ -2803,3 +2803,35 @@ WHERE (([d].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL) AND (([d].
 
 2020-01-12 14:41:36,714 [26] ?     - Request finished in 5.5551ms 304 text/css
 
+2020-01-12 14:46:35,800 [9] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-12 14:46:35,810 [9] ?     - Hosting environment: Development
+
+2020-01-12 14:46:35,812 [9] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-12 14:46:35,819 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs  
+
+2020-01-12 14:46:35,911 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-12 14:46:35,953 [4] ?     - Route matched with {action = "Index", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-12 14:46:35,974 [4] ?     - Executing ViewResult, running view Index.
+
+2020-01-12 14:46:36,252 [4] ?     - Executed ViewResult - view Index executed in 280.2217ms.
+
+2020-01-12 14:46:36,254 [4] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI) in 299.2943ms
+
+2020-01-12 14:46:36,256 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-12 14:46:36,260 [4] ?     - Request finished in 443.1246ms 200 text/html; charset=utf-8
+
+2020-01-12 14:46:36,295 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/css/custom/Override/override-elephant.css?v=OLiC05EVAezj_QeMoSWkqWly7N6OeAv1vkjHm-9wks4  
+
+2020-01-12 14:46:36,303 [4] ?     - The file /css/custom/Override/override-elephant.css was not modified
+
+2020-01-12 14:46:36,307 [4] ?     - Request finished in 13.2456ms 304 text/css
+
+2020-01-12 14:46:38,958 [14] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/canvas-to-blob.min.js.map  
+
+2020-01-12 14:46:38,969 [14] ?     - Request finished in 10.4851ms 404 
+

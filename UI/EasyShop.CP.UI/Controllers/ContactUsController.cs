@@ -23,7 +23,7 @@ namespace EasyShop.CP.UI.Controllers
         public IActionResult BugReport() => View(new CreateBugReportViewModel());
 
         [HttpPost]
-        public IActionResult BugReport([FromForm] CreateBugReportViewModel model)
+        public async IActionResult BugReport([FromForm] CreateBugReportViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -32,10 +32,10 @@ namespace EasyShop.CP.UI.Controllers
                 return View(model);
             }
 
-            //var result = await _bugReportService.CreateBugReport(model);
+            var result = await _bugReportService.CreateBugReport(model);
 
-            //if (!result)
-            //    return RedirectToAction("SomethingWentWrong", "Home");
+            if (!result)
+                return RedirectToAction("SomethingWentWrong", "Home");
 
             return View("BugReportWasSuccessfullySent");
 

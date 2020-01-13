@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using EasyShop.Domain.Entries.ContactUs;
 using EasyShop.Domain.Entries.ContactUs.BugReports;
 using EasyShop.Domain.Entries.ContactUs.CollaborationReports;
 using EasyShop.Domain.Entries.ContactUs.GeneralSupportReports;
@@ -50,16 +51,16 @@ namespace EasyShop.DAL.Context
         //Users
         public DbSet<SteamUser> SteamUsers { get; set; }
 
-        //BugReports
+        //ContactUs
         public DbSet<BugReport> BugReports { get; set; }
         public DbSet<BugReportCategory> BugReportCategories { get; set; }
 
-        //GeneralSupport
         public DbSet<GeneralSupportReport> GeneralSupportReports { get; set; }
         public DbSet<GeneralSupportReportCategory> GeneralSupportReportCategories { get; set; }
 
-        //Collaboration
         public DbSet<CollaborationReport> CollaborationReports { get; set; }
+
+        public DbSet<ReportResponseStatus> ReportResponseStatuses { get; set; }
 
 
 
