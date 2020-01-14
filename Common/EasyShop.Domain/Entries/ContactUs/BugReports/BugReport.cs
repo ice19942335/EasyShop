@@ -31,5 +31,8 @@ namespace EasyShop.Domain.Entries.ContactUs.BugReports
         public string Message { get; set; }
 
         public string ImgUrl { get; set; }
+
+        [Required]
+        public DateTime ReportedDateTime { get; set; }
     }
 }
