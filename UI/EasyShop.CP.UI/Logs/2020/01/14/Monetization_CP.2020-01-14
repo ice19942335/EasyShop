@@ -744,3 +744,281 @@ width: 1170px;">
 
 2020-01-14 17:01:52,056 [23] ?     - Request finished in 9.8775ms 200 image/png
 
+2020-01-14 17:09:22,988 [8] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-14 17:09:22,998 [8] ?     - Hosting environment: Development
+
+2020-01-14 17:09:23,000 [8] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-14 17:09:23,006 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs  
+
+2020-01-14 17:09:23,073 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-14 17:09:23,110 [4] ?     - Route matched with {action = "Index", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-14 17:09:23,144 [4] ?     - Executing ViewResult, running view Index.
+
+2020-01-14 17:09:23,435 [4] ?     - Executed ViewResult - view Index executed in 292.5504ms.
+
+2020-01-14 17:09:23,437 [4] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI) in 325.1792ms
+
+2020-01-14 17:09:23,439 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-14 17:09:23,447 [4] ?     - Request finished in 440.2758ms 200 text/html; charset=utf-8
+
+2020-01-14 17:09:24,583 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs/Collaboration  
+
+2020-01-14 17:09:24,589 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Collaboration (EasyShop.CP.UI)'
+
+2020-01-14 17:09:24,592 [4] ?     - Route matched with {action = "Collaboration", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Collaboration() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-14 17:09:31,076 [14] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs/GeneralSupport  
+
+2020-01-14 17:09:31,080 [4] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.Collaboration (EasyShop.CP.UI) in 6485.7405ms
+
+2020-01-14 17:09:31,083 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Collaboration (EasyShop.CP.UI)'
+
+2020-01-14 17:09:31,103 [14] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.GeneralSupport (EasyShop.CP.UI)'
+
+2020-01-14 17:09:31,107 [14] ?     - Route matched with {action = "GeneralSupport", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GeneralSupport() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-14 17:09:33,715 [14] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.GeneralSupport (EasyShop.CP.UI) in 2605.6736ms
+
+2020-01-14 17:09:33,723 [14] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.GeneralSupport (EasyShop.CP.UI)'
+
+2020-01-14 17:09:33,778 [4] ?     - An unhandled exception occurred while processing an incoming request. Error: The method or operation is not implemented.. Stack trace:    at EasyShop.CP.UI.Controllers.ContactUsController.Collaboration() in C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\Controllers\ContactUsController.cs:line 61
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at EasyShop.CP.UI.Infrastructure.Middleware.ErrorHandlingMiddleware.Invoke(HttpContext context) in C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\Infrastructure\Middleware\ErrorHandlingMiddleware.cs:line 26
+
+2020-01-14 17:09:33,779 [14] ?     - An unhandled exception occurred while processing an incoming request. Error: The method or operation is not implemented.. Stack trace:    at EasyShop.CP.UI.Controllers.ContactUsController.GeneralSupport() in C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\Controllers\ContactUsController.cs:line 49
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at EasyShop.CP.UI.Infrastructure.Middleware.ErrorHandlingMiddleware.Invoke(HttpContext context) in C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\Infrastructure\Middleware\ErrorHandlingMiddleware.cs:line 26
+
+2020-01-14 17:09:33,823 [4] ?     - An unhandled exception has occurred while executing the request.
+
+2020-01-14 17:09:33,823 [14] ?     - An unhandled exception has occurred while executing the request.
+
+2020-01-14 17:09:33,855 [4] ?     - Request finished in 9272.0052ms 500 text/html; charset=utf-8
+
+2020-01-14 17:09:33,856 [14] ?     - Request finished in 2778.5269ms 500 text/html; charset=utf-8
+
+2020-01-14 17:10:19,072 [4] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-14 17:10:19,083 [4] ?     - Hosting environment: Development
+
+2020-01-14 17:10:19,084 [4] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-14 17:10:19,092 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs  
+
+2020-01-14 17:10:19,170 [8] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-14 17:10:19,219 [8] ?     - Route matched with {action = "Index", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-14 17:10:19,250 [8] ?     - Executing ViewResult, running view Index.
+
+2020-01-14 17:10:19,643 [8] ?     - Executed ViewResult - view Index executed in 385.6654ms.
+
+2020-01-14 17:10:19,645 [8] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI) in 424.1767ms
+
+2020-01-14 17:10:19,647 [8] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-14 17:10:19,701 [8] ?     - Request finished in 564.6733ms 200 text/html; charset=utf-8
+
+2020-01-14 17:14:53,846 [5] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-14 17:14:53,856 [5] ?     - Hosting environment: Development
+
+2020-01-14 17:14:53,858 [5] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-14 17:14:53,867 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs  
+
+2020-01-14 17:14:53,958 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-14 17:14:54,005 [4] ?     - Route matched with {action = "Index", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-14 17:14:54,031 [4] ?     - Executing ViewResult, running view Index.
+
+2020-01-14 17:14:54,320 [4] ?     - Executed ViewResult - view Index executed in 291.5355ms.
+
+2020-01-14 17:14:54,322 [4] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI) in 315.2278ms
+
+2020-01-14 17:14:54,336 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-14 17:14:54,358 [4] ?     - Request finished in 476.1981ms 200 text/html; charset=utf-8
+
+2020-01-14 17:14:54,896 [15] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/customScripts/ContactUs/MuteDisabledLinks.js?v=-qmHzUDFeMnX2Je-GqCRPPfnZTDrCdlctptLOxtLb_k  
+
+2020-01-14 17:14:54,910 [15] ?     - Sending file. Request path: '/js/customScripts/ContactUs/MuteDisabledLinks.js'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\wwwroot\js\customScripts\ContactUs\MuteDisabledLinks.js'
+
+2020-01-14 17:14:54,911 [15] ?     - Request finished in 18.9267ms 200 application/javascript
+
+2020-01-14 17:14:56,595 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/canvas-to-blob.min.js.map  
+
+2020-01-14 17:14:56,607 [4] ?     - Request finished in 12.1584ms 404 
+
+2020-01-14 17:16:20,888 [7] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-14 17:16:20,899 [7] ?     - Hosting environment: Development
+
+2020-01-14 17:16:20,900 [7] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-14 17:16:20,906 [13] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs  
+
+2020-01-14 17:16:20,973 [13] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-14 17:16:21,009 [13] ?     - Route matched with {action = "Index", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-14 17:16:21,029 [13] ?     - Executing ViewResult, running view Index.
+
+2020-01-14 17:16:21,268 [13] ?     - Executed ViewResult - view Index executed in 239.3058ms.
+
+2020-01-14 17:16:21,270 [13] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI) in 259.5402ms
+
+2020-01-14 17:16:21,272 [13] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-14 17:16:21,277 [13] ?     - Request finished in 370.7266ms 200 text/html; charset=utf-8
+
+2020-01-14 17:16:21,632 [13] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/customScripts/ContactUs/MuteDisabledLinks.js?v=njoqfZBF1pxK1M-7Fhdeou58vYAsH9DeYeT4zHRdFTw  
+
+2020-01-14 17:16:21,644 [13] ?     - Sending file. Request path: '/js/customScripts/ContactUs/MuteDisabledLinks.js'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\wwwroot\js\customScripts\ContactUs\MuteDisabledLinks.js'
+
+2020-01-14 17:16:21,646 [13] ?     - Request finished in 14.0807ms 200 application/javascript
+
+2020-01-14 17:16:37,081 [7] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs/BugReport  
+
+2020-01-14 17:16:37,087 [7] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-14 17:16:37,091 [7] ?     - Route matched with {action = "BugReport", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult BugReport() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-14 17:16:37,095 [7] ?     - Executing ViewResult, running view BugReport.
+
+2020-01-14 17:16:37,160 [7] ?     - Executed ViewResult - view BugReport executed in 65.1181ms.
+
+2020-01-14 17:16:37,162 [7] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI) in 69.418ms
+
+2020-01-14 17:16:37,163 [7] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-14 17:16:37,165 [7] ?     - Request finished in 84.1212ms 200 text/html; charset=utf-8
+
+2020-01-14 17:16:40,179 [17] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs  
+
+2020-01-14 17:16:40,183 [17] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-14 17:16:40,185 [17] ?     - Route matched with {action = "Index", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-14 17:16:40,193 [17] ?     - Executing ViewResult, running view Index.
+
+2020-01-14 17:16:40,197 [17] ?     - Executed ViewResult - view Index executed in 5.026ms.
+
+2020-01-14 17:16:40,199 [17] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI) in 12.4277ms
+
+2020-01-14 17:16:40,201 [17] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-14 17:16:40,203 [17] ?     - Request finished in 23.9683ms 200 text/html; charset=utf-8
+
+2020-01-14 17:16:40,225 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/customScripts/ContactUs/MuteDisabledLinks.js?v=njoqfZBF1pxK1M-7Fhdeou58vYAsH9DeYeT4zHRdFTw  
+
+2020-01-14 17:16:40,230 [4] ?     - The file /js/customScripts/ContactUs/MuteDisabledLinks.js was not modified
+
+2020-01-14 17:16:40,234 [4] ?     - Request finished in 8.6266ms 304 application/javascript
+
+2020-01-14 17:16:40,414 [16] ?     - Request starting HTTP/2.0 GET https://localhost:44374/favicon-32x32.png  
+
+2020-01-14 17:16:40,419 [16] ?     - Sending file. Request path: '/favicon-32x32.png'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\wwwroot\favicon-32x32.png'
+
+2020-01-14 17:16:40,421 [16] ?     - Request finished in 7.9469ms 200 image/png
+
+2020-01-14 17:16:42,786 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs/BugReport  
+
+2020-01-14 17:16:42,791 [9] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-14 17:16:42,793 [9] ?     - Route matched with {action = "BugReport", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult BugReport() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-14 17:16:42,796 [9] ?     - Executing ViewResult, running view BugReport.
+
+2020-01-14 17:16:42,806 [9] ?     - Executed ViewResult - view BugReport executed in 9.9753ms.
+
+2020-01-14 17:16:42,808 [9] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI) in 13.2282ms
+
+2020-01-14 17:16:42,809 [9] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-14 17:16:42,811 [9] ?     - Request finished in 25.8494ms 200 text/html; charset=utf-8
+
+2020-01-14 17:18:02,869 [5] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-14 17:18:02,881 [5] ?     - Hosting environment: Development
+
+2020-01-14 17:18:02,882 [5] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-14 17:18:02,889 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs  
+
+2020-01-14 17:18:02,976 [9] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-14 17:18:03,028 [9] ?     - Route matched with {action = "Index", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-14 17:18:03,060 [9] ?     - Executing ViewResult, running view Index.
+
+2020-01-14 17:18:03,378 [9] ?     - Executed ViewResult - view Index executed in 325.5311ms.
+
+2020-01-14 17:18:03,381 [9] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI) in 350.7597ms
+
+2020-01-14 17:18:03,382 [9] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-14 17:18:03,393 [9] ?     - Request finished in 499.1871ms 200 text/html; charset=utf-8
+
+2020-01-14 17:18:03,868 [14] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/customScripts/ContactUs/MuteDisabledLinks.js?v=8lgKt6lTfCLJuGLoTjTUomDCz6ELsGyOo8uChTM8VrA  
+
+2020-01-14 17:18:03,881 [14] ?     - Sending file. Request path: '/js/customScripts/ContactUs/MuteDisabledLinks.js'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\wwwroot\js\customScripts\ContactUs\MuteDisabledLinks.js'
+
+2020-01-14 17:18:03,882 [14] ?     - Request finished in 14.9333ms 200 application/javascript
+
+2020-01-14 17:18:07,345 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs/BugReport  
+
+2020-01-14 17:18:07,354 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-14 17:18:07,358 [4] ?     - Route matched with {action = "BugReport", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult BugReport() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-14 17:18:07,363 [4] ?     - Executing ViewResult, running view BugReport.
+
+2020-01-14 17:18:07,433 [4] ?     - Executed ViewResult - view BugReport executed in 70.573ms.
+
+2020-01-14 17:18:07,435 [4] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI) in 75.5298ms
+
+2020-01-14 17:18:07,439 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-14 17:18:07,442 [4] ?     - Request finished in 97.6362ms 200 text/html; charset=utf-8
+
