@@ -71,6 +71,7 @@ namespace EasyShop.Services.CP.ContactUs
                 Title = model.Title,
                 Email = model.Email,
                 Message = model.Message,
+                ReportedDateTime = DateTime.Now,
                 ImgUrl = model.ImageToUpload != null 
                     ? await _fileImageService.SaveFile(model.ImageToUpload, "BugReportImages") 
                     : null
