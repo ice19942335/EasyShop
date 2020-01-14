@@ -65,15 +65,16 @@ namespace EasyShop.CP.UI.Installers
             //DevBlog services
             services.AddTransient<IDevBlogService, DevBlogService>();
 
-            //Support services
-            services.AddTransient<IBugReportService, BugReportService>();
-
 
             //Scooped ---------------------------------------------------------------------------------
+            //Account services
             services.AddScoped<IAccountService, AccountService>();
 
+            //Support services
+            services.AddScoped<IBugReportService, BugReportService>();
+
             //SingleTone ------------------------------------------------------------------------------
-            
+
         }
     }
 }

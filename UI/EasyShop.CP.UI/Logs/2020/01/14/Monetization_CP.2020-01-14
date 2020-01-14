@@ -1,0 +1,746 @@
+2020-01-14 16:47:33,742 [15] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-14 16:47:33,764 [15] ?     - Hosting environment: Development
+
+2020-01-14 16:47:33,765 [15] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-14 16:47:33,804 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs  
+
+2020-01-14 16:47:33,869 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-14 16:47:33,908 [4] ?     - Route matched with {action = "Index", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-14 16:47:33,932 [4] ?     - Executing ViewResult, running view Index.
+
+2020-01-14 16:47:34,735 [4] ?     - Executed ViewResult - view Index executed in 805.2306ms.
+
+2020-01-14 16:47:34,737 [4] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI) in 826.5515ms
+
+2020-01-14 16:47:34,738 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-14 16:47:34,744 [4] ?     - Request finished in 941.0652ms 200 text/html; charset=utf-8
+
+2020-01-14 16:47:34,785 [5] ?     - Request starting HTTP/2.0 GET https://localhost:44374/css/landing-page.css?v=S4ykffsGJRzOMV2Kh3_JoURV3vW62dkTdtTg6QO8MpI  
+
+2020-01-14 16:47:34,787 [18] ?     - Request starting HTTP/2.0 GET https://localhost:44374/css/custom/ContactUs/contactUs.css?v=XW52XDA2jTBuS2NE291G1nXzogiNsC-RYDTFbJlLX_c  
+
+2020-01-14 16:47:34,789 [13] ?     - Request starting HTTP/2.0 GET https://localhost:44374/img/default-bug.jpg  
+
+2020-01-14 16:47:34,791 [10] ?     - Request starting HTTP/2.0 GET https://localhost:44374/css/custom/Override/override-application.css?v=3MgSvheYpRsGOI2Rt0FvWZkrlSY0VdxnXeUGn5f5Dt4  
+
+2020-01-14 16:47:34,793 [14] ?     - Request starting HTTP/2.0 GET https://localhost:44374/css/custom/Override/override-elephant.css?v=OLiC05EVAezj_QeMoSWkqWly7N6OeAv1vkjHm-9wks4  
+
+2020-01-14 16:47:34,795 [15] ?     - Request starting HTTP/2.0 GET https://localhost:44374/css/custom/Override/override-landing-page.css?v=6eJLoxNtNtqI4k1vzh6FOYZLsUGcziro-f2snFXmwEY  
+
+2020-01-14 16:47:34,807 [14] ?     - The file /css/custom/Override/override-elephant.css was not modified
+
+2020-01-14 16:47:34,809 [5] ?     - The file /css/landing-page.css was not modified
+
+2020-01-14 16:47:34,810 [10] ?     - The file /css/custom/Override/override-application.css was not modified
+
+2020-01-14 16:47:34,812 [13] ?     - The file /img/default-bug.jpg was not modified
+
+2020-01-14 16:47:34,813 [15] ?     - The file /css/custom/Override/override-landing-page.css was not modified
+
+2020-01-14 16:47:34,814 [18] ?     - The file /css/custom/ContactUs/contactUs.css was not modified
+
+2020-01-14 16:47:34,820 [10] ?     - Request finished in 29.9531ms 304 text/css
+
+2020-01-14 16:47:34,824 [5] ?     - Request finished in 35.1791ms 304 text/css
+
+2020-01-14 16:47:34,825 [13] ?     - Request finished in 30.0874ms 304 image/jpeg
+
+2020-01-14 16:47:34,826 [14] ?     - Request finished in 31.1548ms 304 text/css
+
+2020-01-14 16:47:34,827 [15] ?     - Request finished in 30.2365ms 304 text/css
+
+2020-01-14 16:47:34,829 [18] ?     - Request finished in 32.803ms 304 text/css
+
+2020-01-14 16:47:35,180 [18] ?     - Request starting HTTP/2.0 GET https://localhost:44374/img/default-other-questions.jpg  
+
+2020-01-14 16:47:35,181 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/application.js?v=--cIAMHez3y7WEFH8wY4RSeijcIi64pVZuLtxjwYptk  
+
+2020-01-14 16:47:35,183 [14] ?     - Request starting HTTP/2.0 GET https://localhost:44374/img/default-collaboration.png  
+
+2020-01-14 16:47:35,187 [18] ?     - The file /img/default-other-questions.jpg was not modified
+
+2020-01-14 16:47:35,188 [4] ?     - The file /js/application.js was not modified
+
+2020-01-14 16:47:35,190 [14] ?     - The file /img/default-collaboration.png was not modified
+
+2020-01-14 16:47:35,194 [4] ?     - Request finished in 12.976ms 304 application/javascript
+
+2020-01-14 16:47:35,198 [14] ?     - Request finished in 11.4915ms 304 image/png
+
+2020-01-14 16:47:35,201 [18] ?     - Request finished in 18.0008ms 304 image/jpeg
+
+2020-01-14 16:47:35,230 [13] ?     - Request starting HTTP/2.0 GET https://localhost:44374/img/3456253426432.jpg  
+
+2020-01-14 16:47:35,235 [13] ?     - The file /img/3456253426432.jpg was not modified
+
+2020-01-14 16:47:35,238 [13] ?     - Request finished in 7.6487ms 304 image/jpeg
+
+2020-01-14 16:47:36,975 [10] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs/BugReport  
+
+2020-01-14 16:47:36,982 [10] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-14 16:47:36,986 [10] ?     - Route matched with {action = "BugReport", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult BugReport() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-14 16:47:36,991 [10] ?     - Executing ViewResult, running view BugReport.
+
+2020-01-14 16:47:37,078 [10] ?     - Executed ViewResult - view BugReport executed in 88.3837ms.
+
+2020-01-14 16:47:37,081 [10] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI) in 92.6655ms
+
+2020-01-14 16:47:37,082 [10] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-14 16:47:37,084 [10] ?     - Request finished in 109.2806ms 200 text/html; charset=utf-8
+
+2020-01-14 16:47:37,119 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/css/custom/Shared/custom-shared-styles.css?v=gFug3QBDpFqpg8Szz2tT9FZqX7Wd6eeM6X4MJtQLRJY  
+
+2020-01-14 16:47:37,120 [13] ?     - Request starting HTTP/2.0 GET https://localhost:44374/css/custom/BugReport/bug-report-styles.css?v=v2KA6PRKBTtoLAyFA0HM8fYFb6uPeKAJ6KyMEnYFOzI  
+
+2020-01-14 16:47:37,125 [13] ?     - The file /css/custom/BugReport/bug-report-styles.css was not modified
+
+2020-01-14 16:47:37,126 [4] ?     - The file /css/custom/Shared/custom-shared-styles.css was not modified
+
+2020-01-14 16:47:37,129 [4] ?     - Request finished in 9.6551ms 304 text/css
+
+2020-01-14 16:47:37,131 [13] ?     - Request finished in 10.9272ms 304 text/css
+
+2020-01-14 16:48:29,231 [27] ?     - Request starting HTTP/2.0 POST https://localhost:44374/ContactUs/BugReport multipart/form-data; boundary=----WebKitFormBoundaryzaOjc9uFOfAAuNfR 1170700
+
+2020-01-14 16:48:29,236 [27] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-14 16:48:29,270 [27] ?     - Route matched with {action = "BugReport", controller = "ContactUs"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] BugReport(EasyShop.Domain.ViewModels.CP.ContactUs.CreateBugReportViewModel) on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-14 16:48:29,368 [31] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-14 16:48:29,377 [31] ?     - Executing DbCommand [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [b].[Id], [b].[Description], [b].[Index]
+FROM [BugReportCategories] AS [b]
+WHERE ([b].[Index] = @__p_0) AND @__p_0 IS NOT NULL
+
+2020-01-14 16:48:29,385 [31] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[Description], [r].[Index]
+FROM [ReportStatus] AS [r]
+WHERE [r].[Index] = 0
+
+2020-01-14 16:48:29,443 [27] ?     - Executing DbCommand [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 450), @p2='?' (DbType = Guid), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = Guid), @p7='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BugReports] ([Id], [AppUserId], [BugReportCategoryId], [Email], [ImgUrl], [Message], [StatusId], [Title])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+
+2020-01-14 16:48:29,478 [27] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-14 16:48:31,417 [29] ?     - UserName: Null | UserId: Null | Request: /ContactUs/BugReport | PostMessage: Mail has been sent to receiver: ice19942335@gmail.com; Subject: Monetization | Bug report confirmation; PostMessage: <body style="-webkit-tap-highlight-color: transparent;
+box-sizing: border-box;
+margin: 0;
+font-family: Roboto,sans-serif;
+font-size: 13px;
+line-height: 1.538462;
+color: #ccc;
+background-color: #333;
+margin-right: auto;
+margin-left: auto;
+padding-left: 15px;
+padding-right: 15px;
+width: 1170px;">
+    <div style="-webkit-tap-highlight-color: transparent;
+    font-family: Roboto,sans-serif;
+    font-size: 13px;
+    line-height: 1.538462;
+    color: #ccc;
+    box-sizing: border-box;
+    min-height: 20px;
+    padding: 19px;
+    background-color: #2a2a2a;
+    border: 1px solid #212121;
+    border-radius: 0;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    margin: 2% 5% 0 5%;">
+        <div style="-webkit-tap-highlight-color: transparent;
+        font-family: Roboto,sans-serif;
+        font-size: 13px;
+        line-height: 1.538462;
+        color: #ccc;
+        box-sizing: border-box;
+        text-align: center;">
+            <img style="-webkit-tap-highlight-color: transparent;
+            font-family: Roboto,sans-serif;
+            font-size: 13px;
+            line-height: 1.538462;
+            color: #ccc;
+            text-align: center;
+            box-sizing: border-box;
+            border: 0;
+            vertical-align: middle;
+            max-width: 100%;" src="https://i.ibb.co/wpKc5hQ/Logo-Name-Slogan.png" alt="Logo-Name-Slogan">
+            <h2 style="-webkit-tap-highlight-color: transparent;
+            text-align: center;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-weight: 500;
+            line-height: 1.1;
+            color: inherit;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 30px;">Thank you!</h2>
+            <p style="-webkit-tap-highlight-color: transparent;
+            font-family: Roboto,sans-serif;
+            font-size: 13px;
+            line-height: 1.538462;
+            color: #ccc;
+            text-align: center;
+            box-sizing: border-box;
+            margin: 0 0 10px;">We will review your report in shortest possible time, and we will let you know about the process.</p>
+            <a style="-webkit-tap-highlight-color: transparent;
+            box-sizing: border-box;
+            font: inherit;
+            margin: 0;
+            overflow: visible;
+            -webkit-appearance: button;
+            font-family: inherit;
+            display: inline-block;
+            margin-bottom: 0;
+            font-weight: 400;
+            text-align: center;
+            vertical-align: middle;
+            touch-action: manipulation;
+            cursor: pointer;
+            border: 1px solid transparent;
+            white-space: nowrap;
+            user-select: none;
+            padding: 10px 16px;
+            font-size: 18px;
+            line-height: 1.333333;
+            border-radius: 0;
+            position: relative;
+            text-transform: none;
+            transition: all .3s;
+            text-decoration: none;
+            outline: 0;
+            background-image: none;
+            box-shadow: none;
+            background-color: #00aced;
+            border-color: #00aced;
+            color: #fff;" type="button" href="/" target="_blank">Go to Home page</a>
+        <br>
+        </div>
+        <p style="-webkit-tap-highlight-color: transparent;
+        font-family: Roboto,sans-serif;
+        font-size: 13px;
+        line-height: 1.538462;
+        color: #ccc;
+        box-sizing: border-box;
+        margin: 0;">Kind Regards</p>
+        <p style="-webkit-tap-highlight-color: transparent;
+        font-family: Roboto,sans-serif;
+        font-size: 13px;
+        line-height: 1.538462;
+        color: #ccc;
+        box-sizing: border-box;
+        margin: 0;">Monetization team</p>
+    </div>
+</body>;
+
+2020-01-14 16:48:31,428 [29] ?     - Executing ViewResult, running view BugReportWasSuccessfullySent.
+
+2020-01-14 16:48:31,439 [29] ?     - Executed ViewResult - view BugReportWasSuccessfullySent executed in 11.8161ms.
+
+2020-01-14 16:48:31,443 [29] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI) in 2169.9859ms
+
+2020-01-14 16:48:31,448 [29] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-14 16:48:31,457 [29] ?     - Request finished in 2227.6909ms 200 text/html; charset=utf-8
+
+2020-01-14 16:50:07,269 [9] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-14 16:50:07,281 [9] ?     - Hosting environment: Development
+
+2020-01-14 16:50:07,283 [9] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-14 16:50:07,293 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs  
+
+2020-01-14 16:50:07,362 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-14 16:50:07,404 [4] ?     - Route matched with {action = "Index", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-14 16:50:07,428 [4] ?     - Executing ViewResult, running view Index.
+
+2020-01-14 16:50:07,681 [4] ?     - Executed ViewResult - view Index executed in 255.3868ms.
+
+2020-01-14 16:50:07,684 [4] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI) in 278.1094ms
+
+2020-01-14 16:50:07,685 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-14 16:50:07,690 [4] ?     - Request finished in 398.7201ms 200 text/html; charset=utf-8
+
+2020-01-14 16:50:13,884 [12] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs/BugReport  
+
+2020-01-14 16:50:13,895 [12] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-14 16:50:13,899 [12] ?     - Route matched with {action = "BugReport", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult BugReport() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-14 16:50:13,905 [12] ?     - Executing ViewResult, running view BugReport.
+
+2020-01-14 16:50:13,974 [12] ?     - Executed ViewResult - view BugReport executed in 69.7352ms.
+
+2020-01-14 16:50:13,976 [12] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI) in 74.85ms
+
+2020-01-14 16:50:13,978 [12] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-14 16:50:13,980 [12] ?     - Request finished in 95.8557ms 200 text/html; charset=utf-8
+
+2020-01-14 16:51:03,997 [19] ?     - Request starting HTTP/2.0 POST https://localhost:44374/ContactUs/BugReport multipart/form-data; boundary=----WebKitFormBoundaryOWBUmy6TLjd1XHmg 130527
+
+2020-01-14 16:51:04,003 [19] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-14 16:51:04,035 [19] ?     - Route matched with {action = "BugReport", controller = "ContactUs"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] BugReport(EasyShop.Domain.ViewModels.CP.ContactUs.CreateBugReportViewModel) on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-14 16:51:04,106 [20] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-14 16:51:04,119 [20] ?     - Executing DbCommand [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [b].[Id], [b].[Description], [b].[Index]
+FROM [BugReportCategories] AS [b]
+WHERE ([b].[Index] = @__p_0) AND @__p_0 IS NOT NULL
+
+2020-01-14 16:51:04,129 [20] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[Description], [r].[Index]
+FROM [ReportStatus] AS [r]
+WHERE [r].[Index] = 0
+
+2020-01-14 16:51:04,192 [24] ?     - Executing DbCommand [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 450), @p2='?' (DbType = Guid), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = Guid), @p7='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BugReports] ([Id], [AppUserId], [BugReportCategoryId], [Email], [ImgUrl], [Message], [StatusId], [Title])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+
+2020-01-14 16:51:04,210 [21] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-14 16:51:05,648 [21] ?     - UserName: Null | UserId: Null | Request: /ContactUs/BugReport | PostMessage: Mail has been sent to receiver: ice19942335@gmail.com; Subject: Monetization | Bug report confirmation; PostMessage: <body style="-webkit-tap-highlight-color: transparent;
+box-sizing: border-box;
+margin: 0;
+font-family: Roboto,sans-serif;
+font-size: 13px;
+line-height: 1.538462;
+color: #ccc;
+margin-right: auto;
+margin-left: auto;
+padding-left: 15px;
+padding-right: 15px;
+width: 1170px;">
+    <div style="-webkit-tap-highlight-color: transparent;
+    font-family: Roboto,sans-serif;
+    font-size: 13px;
+    line-height: 1.538462;
+    color: #ccc;
+    box-sizing: border-box;
+    min-height: 20px;
+    padding: 19px;
+    background-color: #2a2a2a;
+    border: 1px solid #212121;
+    border-radius: 0;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    margin: 2% 5% 0 5%;">
+        <div style="-webkit-tap-highlight-color: transparent;
+        font-family: Roboto,sans-serif;
+        font-size: 13px;
+        line-height: 1.538462;
+        color: #ccc;
+        box-sizing: border-box;
+        text-align: center;">
+            <img style="-webkit-tap-highlight-color: transparent;
+            font-family: Roboto,sans-serif;
+            font-size: 13px;
+            line-height: 1.538462;
+            color: #ccc;
+            text-align: center;
+            box-sizing: border-box;
+            border: 0;
+            vertical-align: middle;
+            max-width: 100%;" src="https://i.ibb.co/wpKc5hQ/Logo-Name-Slogan.png" alt="Logo-Name-Slogan">
+            <h2 style="-webkit-tap-highlight-color: transparent;
+            text-align: center;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-weight: 500;
+            line-height: 1.1;
+            color: inherit;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 30px;">Thank you!</h2>
+            <p style="-webkit-tap-highlight-color: transparent;
+            font-family: Roboto,sans-serif;
+            font-size: 13px;
+            line-height: 1.538462;
+            color: #ccc;
+            text-align: center;
+            box-sizing: border-box;
+            margin: 0 0 10px;">We will review your report in shortest possible time, and we will let you know about the process.</p>
+            <a style="-webkit-tap-highlight-color: transparent;
+            box-sizing: border-box;
+            font: inherit;
+            margin: 0;
+            overflow: visible;
+            -webkit-appearance: button;
+            font-family: inherit;
+            display: inline-block;
+            margin-bottom: 0;
+            font-weight: 400;
+            text-align: center;
+            vertical-align: middle;
+            touch-action: manipulation;
+            cursor: pointer;
+            border: 1px solid transparent;
+            white-space: nowrap;
+            user-select: none;
+            padding: 10px 16px;
+            font-size: 18px;
+            line-height: 1.333333;
+            border-radius: 0;
+            position: relative;
+            text-transform: none;
+            transition: all .3s;
+            text-decoration: none;
+            outline: 0;
+            background-image: none;
+            box-shadow: none;
+            background-color: #00aced;
+            border-color: #00aced;
+            color: #fff;" type="button" href="/" target="_blank">Go to Home page</a>
+        <br>
+        </div>
+        <p style="-webkit-tap-highlight-color: transparent;
+        font-family: Roboto,sans-serif;
+        font-size: 13px;
+        line-height: 1.538462;
+        color: #ccc;
+        box-sizing: border-box;
+        margin: 0;">Kind Regards</p>
+        <p style="-webkit-tap-highlight-color: transparent;
+        font-family: Roboto,sans-serif;
+        font-size: 13px;
+        line-height: 1.538462;
+        color: #ccc;
+        box-sizing: border-box;
+        margin: 0;">Monetization team</p>
+    </div>
+</body>;
+
+2020-01-14 16:51:05,656 [21] ?     - Executing ViewResult, running view BugReportWasSuccessfullySent.
+
+2020-01-14 16:51:05,666 [21] ?     - Executed ViewResult - view BugReportWasSuccessfullySent executed in 11.4551ms.
+
+2020-01-14 16:51:05,669 [21] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI) in 1631.8062ms
+
+2020-01-14 16:51:05,672 [21] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-14 16:51:05,679 [21] ?     - Request finished in 1680.6503ms 200 text/html; charset=utf-8
+
+2020-01-14 16:58:24,643 [14] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-14 16:58:24,668 [14] ?     - Hosting environment: Development
+
+2020-01-14 16:58:24,670 [14] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-14 16:58:24,685 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs  
+
+2020-01-14 16:58:24,766 [9] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-14 16:58:24,812 [9] ?     - Route matched with {action = "Index", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-14 16:58:24,844 [9] ?     - Executing ViewResult, running view Index.
+
+2020-01-14 16:58:25,162 [9] ?     - Executed ViewResult - view Index executed in 322.7903ms.
+
+2020-01-14 16:58:25,165 [9] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI) in 350.5409ms
+
+2020-01-14 16:58:25,167 [9] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-14 16:58:25,173 [9] ?     - Request finished in 491.1887ms 200 text/html; charset=utf-8
+
+2020-01-14 16:58:40,923 [14] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs/BugReport  
+
+2020-01-14 16:58:40,934 [14] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-14 16:58:40,937 [14] ?     - Route matched with {action = "BugReport", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult BugReport() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-14 16:58:40,943 [14] ?     - Executing ViewResult, running view BugReport.
+
+2020-01-14 16:58:41,017 [14] ?     - Executed ViewResult - view BugReport executed in 75.038ms.
+
+2020-01-14 16:58:41,019 [14] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI) in 80.0612ms
+
+2020-01-14 16:58:41,021 [14] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-14 16:58:41,022 [14] ?     - Request finished in 99.3715ms 200 text/html; charset=utf-8
+
+2020-01-14 16:59:04,305 [15] ?     - Request starting HTTP/2.0 POST https://localhost:44374/ContactUs/BugReport multipart/form-data; boundary=----WebKitFormBoundaryVnPKL4MaOSKb3A05 800
+
+2020-01-14 16:59:04,309 [15] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-14 16:59:04,340 [15] ?     - Route matched with {action = "BugReport", controller = "ContactUs"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] BugReport(EasyShop.Domain.ViewModels.CP.ContactUs.CreateBugReportViewModel) on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-14 16:59:04,402 [15] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-14 16:59:04,410 [15] ?     - Executing DbCommand [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [b].[Id], [b].[Description], [b].[Index]
+FROM [BugReportCategories] AS [b]
+WHERE ([b].[Index] = @__p_0) AND @__p_0 IS NOT NULL
+
+2020-01-14 16:59:04,418 [15] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[Description], [r].[Index]
+FROM [ReportStatus] AS [r]
+WHERE [r].[Index] = 0
+
+2020-01-14 16:59:20,324 [10] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI) in 15982.4872ms
+
+2020-01-14 16:59:20,327 [10] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-14 16:59:20,501 [10] ?     - An unhandled exception occurred while processing an incoming request. Error: Object reference not set to an instance of an object.. Stack trace:    at EasyShop.Services.CP.FileImage.FileImageService.SaveFile(IFormFile imgFile, String folder) in C:\Users\Administrator\source\repos\ice19942335\EasyShop\Services\EasyShop.Services\CP\FileImage\FileImageService.cs:line 44
+   at EasyShop.Services.CP.ContactUs.BugReportService.CreateBugReport(CreateBugReportViewModel model, IUrlHelper url) in C:\Users\Administrator\source\repos\ice19942335\EasyShop\Services\EasyShop.Services\CP\ContactUs\BugReportService.cs:line 65
+   at EasyShop.CP.UI.Controllers.ContactUsController.BugReport(CreateBugReportViewModel model) in C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\Controllers\ContactUsController.cs:line 35
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at EasyShop.CP.UI.Infrastructure.Middleware.ErrorHandlingMiddleware.Invoke(HttpContext context) in C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\Infrastructure\Middleware\ErrorHandlingMiddleware.cs:line 26
+
+2020-01-14 16:59:20,563 [10] ?     - An unhandled exception has occurred while executing the request.
+
+2020-01-14 16:59:20,621 [10] ?     - Request finished in 16318.4191ms 500 text/html; charset=utf-8
+
+2020-01-14 17:01:05,387 [8] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-14 17:01:05,396 [8] ?     - Hosting environment: Development
+
+2020-01-14 17:01:05,397 [8] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-14 17:01:05,404 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs  
+
+2020-01-14 17:01:05,470 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-14 17:01:05,503 [4] ?     - Route matched with {action = "Index", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-14 17:01:05,530 [4] ?     - Executing ViewResult, running view Index.
+
+2020-01-14 17:01:05,774 [4] ?     - Executed ViewResult - view Index executed in 245.0227ms.
+
+2020-01-14 17:01:05,776 [4] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI) in 271.1417ms
+
+2020-01-14 17:01:05,778 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-14 17:01:05,787 [4] ?     - Request finished in 380.6659ms 200 text/html; charset=utf-8
+
+2020-01-14 17:01:08,456 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs/BugReport  
+
+2020-01-14 17:01:08,466 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-14 17:01:08,468 [4] ?     - Route matched with {action = "BugReport", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult BugReport() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-14 17:01:08,473 [4] ?     - Executing ViewResult, running view BugReport.
+
+2020-01-14 17:01:08,530 [4] ?     - Executed ViewResult - view BugReport executed in 57.7343ms.
+
+2020-01-14 17:01:08,533 [4] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI) in 62.0454ms
+
+2020-01-14 17:01:08,535 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-14 17:01:08,536 [4] ?     - Request finished in 80.3811ms 200 text/html; charset=utf-8
+
+2020-01-14 17:01:19,922 [18] ?     - Request starting HTTP/2.0 POST https://localhost:44374/ContactUs/BugReport multipart/form-data; boundary=----WebKitFormBoundary27qiPTCw4kMxmL0t 891
+
+2020-01-14 17:01:19,927 [18] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-14 17:01:19,958 [18] ?     - Route matched with {action = "BugReport", controller = "ContactUs"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] BugReport(EasyShop.Domain.ViewModels.CP.ContactUs.CreateBugReportViewModel) on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-14 17:01:20,013 [18] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-14 17:01:20,021 [18] ?     - Executing DbCommand [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [b].[Id], [b].[Description], [b].[Index]
+FROM [BugReportCategories] AS [b]
+WHERE ([b].[Index] = @__p_0) AND @__p_0 IS NOT NULL
+
+2020-01-14 17:01:20,028 [18] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[Description], [r].[Index]
+FROM [ReportStatus] AS [r]
+WHERE [r].[Index] = 0
+
+2020-01-14 17:01:20,069 [9] ?     - Executing DbCommand [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 450), @p2='?' (DbType = Guid), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (DbType = Guid), @p7='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [BugReports] ([Id], [AppUserId], [BugReportCategoryId], [Email], [ImgUrl], [Message], [StatusId], [Title])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+
+2020-01-14 17:01:20,084 [4] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-14 17:01:21,582 [15] ?     - UserName: Null | UserId: Null | Request: /ContactUs/BugReport | PostMessage: Mail has been sent to receiver: ice19942335@gmail.com; Subject: Monetization | Bug report confirmation; PostMessage: <body style="-webkit-tap-highlight-color: transparent;
+box-sizing: border-box;
+margin: 0;
+font-family: Roboto,sans-serif;
+font-size: 13px;
+line-height: 1.538462;
+color: #ccc;
+margin-right: auto;
+margin-left: auto;
+padding-left: 15px;
+padding-right: 15px;
+width: 1170px;">
+    <div style="-webkit-tap-highlight-color: transparent;
+    font-family: Roboto,sans-serif;
+    font-size: 13px;
+    line-height: 1.538462;
+    color: #ccc;
+    box-sizing: border-box;
+    min-height: 20px;
+    padding: 19px;
+    background-color: #2a2a2a;
+    border: 1px solid #212121;
+    border-radius: 0;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    margin: 2% 5% 0 5%;">
+        <div style="-webkit-tap-highlight-color: transparent;
+        font-family: Roboto,sans-serif;
+        font-size: 13px;
+        line-height: 1.538462;
+        color: #ccc;
+        box-sizing: border-box;
+        text-align: center;">
+            <img style="-webkit-tap-highlight-color: transparent;
+            font-family: Roboto,sans-serif;
+            font-size: 13px;
+            line-height: 1.538462;
+            color: #ccc;
+            text-align: center;
+            box-sizing: border-box;
+            border: 0;
+            vertical-align: middle;
+            max-width: 100%;" src="https://i.ibb.co/wpKc5hQ/Logo-Name-Slogan.png" alt="Logo-Name-Slogan">
+            <h2 style="-webkit-tap-highlight-color: transparent;
+            text-align: center;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-weight: 500;
+            line-height: 1.1;
+            color: inherit;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 30px;">Thank you!</h2>
+            <p style="-webkit-tap-highlight-color: transparent;
+            font-family: Roboto,sans-serif;
+            font-size: 13px;
+            line-height: 1.538462;
+            color: #ccc;
+            text-align: center;
+            box-sizing: border-box;
+            margin: 0 0 10px;">We will review your report in shortest possible time, and we will let you know about the process.</p>
+            <a style="-webkit-tap-highlight-color: transparent;
+            box-sizing: border-box;
+            font: inherit;
+            margin: 0;
+            overflow: visible;
+            -webkit-appearance: button;
+            font-family: inherit;
+            display: inline-block;
+            margin-bottom: 0;
+            font-weight: 400;
+            text-align: center;
+            vertical-align: middle;
+            touch-action: manipulation;
+            cursor: pointer;
+            border: 1px solid transparent;
+            white-space: nowrap;
+            user-select: none;
+            padding: 10px 16px;
+            font-size: 18px;
+            line-height: 1.333333;
+            border-radius: 0;
+            position: relative;
+            text-transform: none;
+            transition: all .3s;
+            text-decoration: none;
+            outline: 0;
+            background-image: none;
+            box-shadow: none;
+            background-color: #00aced;
+            border-color: #00aced;
+            color: #fff;" type="button" href="https://localhost:44374/" target="_blank">Go to Home page</a>
+        <br>
+        </div>
+        <p style="-webkit-tap-highlight-color: transparent;
+        font-family: Roboto,sans-serif;
+        font-size: 13px;
+        line-height: 1.538462;
+        color: #ccc;
+        box-sizing: border-box;
+        margin: 0;">Kind Regards</p>
+        <p style="-webkit-tap-highlight-color: transparent;
+        font-family: Roboto,sans-serif;
+        font-size: 13px;
+        line-height: 1.538462;
+        color: #ccc;
+        box-sizing: border-box;
+        margin: 0;">Monetization team</p>
+    </div>
+</body>;
+
+2020-01-14 17:01:21,603 [15] ?     - Executing ViewResult, running view BugReportWasSuccessfullySent.
+
+2020-01-14 17:01:21,622 [15] ?     - Executed ViewResult - view BugReportWasSuccessfullySent executed in 24.9992ms.
+
+2020-01-14 17:01:21,626 [15] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI) in 1665.3603ms
+
+2020-01-14 17:01:21,628 [15] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-14 17:01:21,633 [15] ?     - Request finished in 1711.5535ms 200 text/html; charset=utf-8
+
+2020-01-14 17:01:51,569 [15] ?     - Request starting HTTP/2.0 GET https://localhost:44374/  
+
+2020-01-14 17:01:51,573 [15] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI)'
+
+2020-01-14 17:01:51,576 [15] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.HomeController (EasyShop.CP.UI).
+
+2020-01-14 17:01:51,579 [15] ?     - Executing ViewResult, running view Index.
+
+2020-01-14 17:01:51,617 [15] ?     - Executed ViewResult - view Index executed in 38.0281ms.
+
+2020-01-14 17:01:51,620 [15] ?     - Executed action EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI) in 43.2955ms
+
+2020-01-14 17:01:51,622 [15] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI)'
+
+2020-01-14 17:01:51,623 [15] ?     - Request finished in 56.8249ms 200 text/html; charset=utf-8
+
+2020-01-14 17:01:51,670 [23] ?     - Request starting HTTP/2.0 GET https://localhost:44374/img/LogoNameSlogan.png  
+
+2020-01-14 17:01:51,685 [23] ?     - Sending file. Request path: '/img/LogoNameSlogan.png'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\wwwroot\img\LogoNameSlogan.png'
+
+2020-01-14 17:01:51,686 [23] ?     - Request finished in 16.6212ms 200 image/png
+
+2020-01-14 17:01:52,005 [27] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/landing-page.js?v=s4wOrBut5xUg-2Ens4HxX2xn1tIOTpa3drKQ4Xi0Fhc  
+
+2020-01-14 17:01:52,008 [27] ?     - Sending file. Request path: '/js/landing-page.js'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\wwwroot\js\landing-page.js'
+
+2020-01-14 17:01:52,010 [27] ?     - Request finished in 5.6863ms 200 application/javascript
+
+2020-01-14 17:01:52,047 [27] ?     - Request starting HTTP/2.0 GET https://localhost:44374/img/4148866741.png  
+
+2020-01-14 17:01:52,054 [23] ?     - Sending file. Request path: '/img/4148866741.png'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\wwwroot\img\4148866741.png'
+
+2020-01-14 17:01:52,056 [23] ?     - Request finished in 9.8775ms 200 image/png
+

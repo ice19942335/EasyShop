@@ -32,7 +32,7 @@ namespace EasyShop.CP.UI.Controllers
                 return View(model);
             }
 
-            var result = await _bugReportService.CreateBugReport(model);
+            var result = await _bugReportService.CreateBugReport(model, Url);
 
             if (!result)
                 return RedirectToAction("SomethingWentWrong", "Home");
