@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
@@ -102,16 +103,20 @@ namespace EasyShop.Services.Data.FirstRunInitialization.ContactUs
             Description = "Other"
             }
         };
+
         private readonly EasyShopContext _context;
 
         public ContactUsDataInitializer(EasyShopContext context) => _context = context;
 
         public async Task Initialize()
         {
-            await _context.ReportStatus.AddRangeAsync(_reportStatuses);
-            await _context.BugReportCategories.AddRangeAsync(_bugReportCategories);
+            if (!_context.ReportStatus.Any())
+            {
+                await _context.ReportStatus.AddRangeAsync(_reportStatuses);
+                await _context.BugReportCategories.AddRangeAsync(_bugReportCategories);
 
-            await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync();
+            }
         }
     }
 }
