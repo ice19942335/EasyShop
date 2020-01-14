@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EasyShop.Domain.ViewModels.CP.Admin.BugReport;
 using EasyShop.Domain.ViewModels.CP.ControlPanel.Tariff;
 using EasyShop.Interfaces.Services.CP;
+using EasyShop.Interfaces.Services.CP.Admin.BugReport;
 using EasyShop.Interfaces.Services.CP.Admin.Tariff;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Org.BouncyCastle.Math.EC.Rfc7748;
 
 namespace EasyShop.CP.UI.Controllers
 {
@@ -16,15 +19,18 @@ namespace EasyShop.CP.UI.Controllers
         private readonly ITariffService _tariffService;
         private readonly ITariffOptionDescriptionService _tariffOptionDescriptionService;
         private readonly ITariffOptionsService _tariffOptionsService;
+        private readonly IAdminBugReportsService _bugReportsService;
 
         public AdminController(
             ITariffService tariffService,
             ITariffOptionDescriptionService tariffOptionDescriptionService,
-            ITariffOptionsService tariffOptionsService)
+            ITariffOptionsService tariffOptionsService,
+            IAdminBugReportsService bugReportsService)
         {
             _tariffService = tariffService;
             _tariffOptionDescriptionService = tariffOptionDescriptionService;
             _tariffOptionsService = tariffOptionsService;
+            _bugReportsService = bugReportsService;
         }
 
         public IActionResult TariffManager()
@@ -191,5 +197,41 @@ namespace EasyShop.CP.UI.Controllers
 
         public IActionResult Index() => View();
         #endregion
+
+        #region BugReports
+
+        public IActionResult BugReportsList()
+        {
+            var result = _bugReportsService.GetAllBugReports();
+
+            var model = new BugReportsListViewModel
+            {
+                BugReports = result.Select(x => new BugReportViewModel
+                {
+                    Id = x.Id.ToString(),
+                    UserEmail = x.Email,
+                    BugReportCategoryViewModel = new BugReportCategoryViewModel
+                    {
+                        Id = x.BugReportCategory.Id.ToString(),
+                        Index = x.BugReportCategory.Index,
+                        Description = x.BugReportCategory.Description
+                    },
+                    Status = new ReportResponseViewModel
+                    {
+                        Id = x.Status.Id.ToString(),
+                        Index = x.Status.Index,
+                        Description = x.Status.Description
+                    },
+                    Title = x.Title,
+                    Message = x.Message,
+                    ImgUrl = x.ImgUrl,  
+                    ReportedDateTime = x.ReportedDateTime
+                })
+            };
+
+            return View(model);
+        }
+
+        #endregion BugReports
     }
 }

@@ -12,7 +12,7 @@ namespace EasyShop.Domain.ViewModels.CP.Admin.BugReport
 
         public BugReportCategoryViewModel BugReportCategoryViewModel { get; set; }
 
-        public ReportResponseViewModel ReportResponseViewModel { get; set; }
+        public ReportResponseViewModel Status { get; set; }
 
         public string Title { get; set; }
 
