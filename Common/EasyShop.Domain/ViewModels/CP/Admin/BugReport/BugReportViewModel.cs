@@ -22,22 +22,4 @@ namespace EasyShop.Domain.ViewModels.CP.Admin.BugReport
 
         public DateTime ReportedDateTime { get; set; }
     }
-
-    public class ReportResponseViewModel
-    {
-        public string Id { get; set; }
-
-        public int Index { get; set; }
-
-        public string Description { get; set; }
-    }
-
-    public class BugReportCategoryViewModel
-    {
-        public string Id { get; set; }
-
-        public int Index { get; set; }
-
-        public string Description { get; set; }
-    }
 }

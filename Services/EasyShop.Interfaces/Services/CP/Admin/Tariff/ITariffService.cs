@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using EasyShop.Domain.ViewModels.CP.ControlPanel.Tariff;
 
-namespace EasyShop.Interfaces.Services.CP.Tariff
+namespace EasyShop.Interfaces.Services.CP.Admin.Tariff
 {
     public interface ITariffService
     {

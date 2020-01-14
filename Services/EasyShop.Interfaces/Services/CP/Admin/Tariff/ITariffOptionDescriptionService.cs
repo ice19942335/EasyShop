@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Tariff;
 using EasyShop.Domain.ViewModels.CP.ControlPanel.Tariff;
 
-namespace EasyShop.Interfaces.Services.CP.Tariff
+namespace EasyShop.Interfaces.Services.CP.Admin.Tariff
 {
     public interface ITariffOptionDescriptionService
     {

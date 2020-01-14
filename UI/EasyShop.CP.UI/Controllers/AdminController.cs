@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using EasyShop.Domain.ViewModels.CP.ControlPanel.Tariff;
 using EasyShop.Interfaces.Services.CP;
-using EasyShop.Interfaces.Services.CP.Tariff;
+using EasyShop.Interfaces.Services.CP.Admin.Tariff;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

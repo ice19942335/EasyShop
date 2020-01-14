@@ -2,6 +2,8 @@
 using EasyShop.Interfaces.Email;
 using EasyShop.Interfaces.Services.CP;
 using EasyShop.Interfaces.Services.CP.Account;
+using EasyShop.Interfaces.Services.CP.Admin.BugReport;
+using EasyShop.Interfaces.Services.CP.Admin.Tariff;
 using EasyShop.Interfaces.Services.CP.ContactUs;
 using EasyShop.Interfaces.Services.CP.DevBlog;
 using EasyShop.Interfaces.Services.CP.FileImage;
@@ -9,9 +11,9 @@ using EasyShop.Interfaces.Services.CP.Rust.Dashboard;
 using EasyShop.Interfaces.Services.CP.Rust.Data;
 using EasyShop.Interfaces.Services.CP.Rust.Server;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
-using EasyShop.Interfaces.Services.CP.Tariff;
 using EasyShop.Interfaces.Services.CP.UserProfile;
 using EasyShop.Services.CP.Account;
+using EasyShop.Services.CP.Admin.BugReport;
 using EasyShop.Services.CP.ContactUs;
 using EasyShop.Services.CP.DevBlog;
 using EasyShop.Services.CP.FileImage;
@@ -64,6 +66,9 @@ namespace EasyShop.CP.UI.Installers
 
             //DevBlog services
             services.AddTransient<IDevBlogService, DevBlogService>();
+
+            //AdminBugReportsService
+            services.AddTransient<IAdminBugReportsService, AdminBugReportsService>();
 
 
             //Scooped ---------------------------------------------------------------------------------

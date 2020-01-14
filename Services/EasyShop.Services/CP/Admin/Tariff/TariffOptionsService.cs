@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Entries.Tariff;
-using EasyShop.Interfaces.Services.CP.Tariff;
+using EasyShop.Interfaces.Services.CP.Admin.Tariff;
 using EasyShop.Services.ExtensionMethods;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
