@@ -12,6 +12,7 @@ using EasyShop.Domain.ViewModels.CP.ContactUs;
 using EasyShop.Interfaces.Email;
 using EasyShop.Interfaces.Services.CP.ContactUs;
 using EasyShop.Interfaces.Services.CP.FileImage;
+using EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization;
 using EasyShop.Services.ExtensionMethods;
 using EasyShop.Services.Files;
 using Microsoft.AspNetCore.Hosting;
@@ -94,6 +95,11 @@ namespace EasyShop.Services.CP.ContactUs
             }
 
             var sendEmailResult = await SendMailAsync(model.Email, "Bug report confirmation", html);
+
+            var admins = await _userManager.GetUsersInRoleAsync(DefaultIdentity.RoleAdmin);
+
+            foreach (var admin in admins)
+                await SendMailAsync(admin.Email, "New bug report received!", $"Hi {admin.FirstName} {admin.LastName}.\nA new bug report was received. Please review it as soon as possible!");
 
             if (!sendEmailResult)
                 return false;
