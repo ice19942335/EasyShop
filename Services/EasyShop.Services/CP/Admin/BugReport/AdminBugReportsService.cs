@@ -32,7 +32,11 @@ namespace EasyShop.Services.CP.Admin.BugReport
 
         public Domain.Entries.ContactUs.BugReports.BugReport GetReportById(Guid bugId)
         {
-            throw new NotImplementedException();
+            return _context.BugReports
+                .Include(x => x.BugReportCategory)
+                .Include(x => x.AppUser)
+                .Include(x => x.Status)
+                .FirstOrDefault(x => x.Id == bugId);
         }
     }
 }

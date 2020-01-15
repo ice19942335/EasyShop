@@ -212,7 +212,6 @@ namespace EasyShop.CP.UI.Controllers
             return View(model);
         }
 
-        [HttpGet]
         public IActionResult EditBugReport(string bugId)
         {
             var result = _bugReportsService.GetReportById(Guid.Parse(bugId));
@@ -225,7 +224,7 @@ namespace EasyShop.CP.UI.Controllers
             return View(model);
         }
 
-        [HttpGet]
+        [HttpPost]
         public IActionResult EditBugReport([FromForm] BugReportViewModel model)
         {
             throw new NotImplementedException();

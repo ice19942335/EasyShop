@@ -1,8 +1,71 @@
-﻿@model EasyShop.Domain.ViewModels.CP.Admin.BugReport.BugReportViewModel
+﻿@using EasyShop.Domain.Enums.CP.ContactUs
+@model EasyShop.Domain.ViewModels.CP.Admin.BugReport.BugReportViewModel
 @{
     ViewData["Title"] = "Edit bug report";
     Layout = "_AdminLayout";
+
+    string options =
+        $"<option value=\"{ReportStatusEnum.WaitingForReview}\">Waiting for review</option>\r\n    " +
+        $"<option value=\"{ReportStatusEnum.WaitingForReview}\">Reviewed</option>\r\n    " +
+        $"<option value=\"{ReportStatusEnum.WaitingForReview}\">Closed</option>";
 }
 
-
+<div style="margin: 0;" class="row well">
+    <h2 class="text-center">Bug report</h2>
+    <form method="post" asp-area="" asp-controller="Admin" asp-action="EditBugReport">
+        <input asp-for="Id" hidden/>
+        <div class="text-center">
+            <label>Current status :</label>
+            @if (Model.Status.Index == ReportStatusEnum.WaitingForReview)
+            {
+                <span class="label label-danger label-pill">
+                    @Model.Status.Description
+                </span>
+            }
+            else if (Model.Status.Index == ReportStatusEnum.Reviewed)
+            {
+                <span class="label label-info label-pill">
+                    @Model.Status.Description
+                </span>
+            }
+            else
+            {
+                <span class="label label-success label-pill">
+                    @Model.Status.Description
+                </span>
+            }
+        </div>
+        <div class="col-lg-12">
+            <select asp-for="SelectedStatus" class="custom-select custom-select">
+                <option selected disabled hidden></option>
+                @Html.Raw(options)
+            </select>
+        </div>
+        <div class="col-lg-12">
+            <textarea asp-for="TextAreaMessage" style="width: 100%; color: black; padding-left: 5px" class="m-t-md" placeholder="A message will be sent on a changing status."></textarea>
+        </div>
+        <div class="col-lg-12">
+            <button type="submit" class="btn btn-success btn-lg m-t-md">Set status <span class="icon icon-check"></span></button>
+        </div>
+    </form>
+    <div class="col-lg-12 m-t-md">
+        <p class="m-b-lg">
+            <strong><span class="icon icon-envelope"></span> User email: @Model.UserEmail</strong>
+            <br>
+            <strong><span class="icon icon-calendar"></span> Date: @Model.DateTime</strong>
+            <br>
+            <strong><span class="icon icon-list-ul"></span> Category: @Model.Category.Description</strong>
+        </p>
+    </div>
+    <div class="col-lg-12">
+        <h4>@Model.Title</h4>
+    </div>
+    <div class="col-lg-12">
+        <p>@Model.Message</p>
+    </div>
+    @if (Model.ImgUrl != null)
+    {
+        <img class="img-responsive" src="~/BugReportImages/@Model.ImgUrl" alt="@Model.ImgUrl" />
+    }
+</div>
 
