@@ -21,7 +21,11 @@ namespace EasyShop.Services.CP.Admin.BugReport
 
         public IEnumerable<Domain.Entries.ContactUs.BugReports.BugReport> GetAllBugReports()
         {
-            return _context.BugReports.Include(x => x.BugReportCategory).AsEnumerable();
+            return _context.BugReports
+                .Include(x => x.BugReportCategory)
+                .Include(x => x.AppUser)
+                .Include(x => x.Status)
+                .AsEnumerable();
         }
     }
 }

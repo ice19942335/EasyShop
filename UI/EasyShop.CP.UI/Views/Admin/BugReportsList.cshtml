@@ -21,59 +21,40 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <table id="rustProductsTable" data-order='[[ 0, "asc" ]]' class="table table-middle nowrap dataTable no-footer" role="grid">
-                            <thead>
-                                <tr role="row">
-                                    <th>#</th>
-                                    <th>Name</th>
-                                    <th>Description</th>
-                                    <th>Amount</th>
-                                    <th>Price</th>
-                                    <th>Discount</th>
-                                    <th>Block time</th>
-                                    <th>Status</th>
-                                    <th>Edit</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @{
-                                    foreach (var product in Model.BugReports)
-                                    {
-                                        <tr role="row">
-                                            <td>@product.Index</td>
-                                            <td>
-                                                <span class="icon-with-child m-r">
-                                                    <img width="50" height="50" src="~/img/rust/@($"{product.ImgUrl}.png")" alt="@product.ImgUrl">
-                                                </span>
-                                                <strong>@product.Name</strong>
-                                            </td>
-                                            <td><strong>@product.CategoryViewModel.Name</strong></td>
-                                            <td><strong>@product.Amount</strong></td>
-                                            <td><strong>@product.Price</strong></td>
-                                            <td><strong>@product.Discount</strong></td>
-                                            <td><strong>@(product.BlockedTill == default ? "None" : product.BlockedTill.ToString())</strong></td>
-                                            <td>
-                                                <span class="label @(product.ShowInShop ? "label-success" : "label-danger") label-pill">
-                                                    @(product.ShowInShop ? "On" : "Off")
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <strong>
-                                                    <a asp-area=""
-                                                       asp-controller="RustShop"
-                                                       asp-action="EditProduct"
-                                                       asp-route-shopId="@Model.Id"
-                                                       asp-route-productId="@product.Id"
-                                                       style="color: #00aced">
-                                                        <span class="icon icon-edit icon-lg icon-fw"></span>
-                                                    </a>
-                                                </strong>
-                                            </td>
-                                        </tr>
+                        @if (Model.BugReports != null)
+                        {
+                            <table id="bugReportsTable" data-order='[[ 0, "asc" ]]' class="table table-middle nowrap dataTable no-footer" role="grid">
+                                <thead>
+                                    <tr role="row">
+                                        <th>Title</th>
+                                        <th>Category</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @{
+                                        foreach (var bug in Model.BugReports)
+                                        {
+                                            <tr role="row">
+                                                <td><strong>@bug.Title</strong></td>
+                                                <td><strong>@bug.Category.Description</strong></td>
+                                                <td><strong>@bug.ReportedDateTime</strong></td>
+                                                <td><strong>@bug.Status.Description</strong></td>
+                                                <td><a href="#"><strong><span class="icon icon-edit icon-lg"></span></strong></a></td>
+                                                <td><a style="color: red" href="#"><strong><span class="icon icon-times icon-lg"></span></strong></a></td>
+                                            </tr>
+                                        }
                                     }
-                                }
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        }
+                        else
+                        {
+                            <p class="text-center">No reports found</p>
+                        }
                     </div>
                 </div>
             </div>
@@ -84,7 +65,7 @@
 @section Styles
 {
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css" />
-    <link rel="stylesheet" type="text/css" href="~/css/custom/Rust/RustProductsManagerDynamicTableStyles.css" asp-append-version="true" />
+    <link rel="stylesheet" type="text/css" href="~/css/custom/Shared/DynamicTableStyles.css" asp-append-version="true" />
 }
 
 @section Scripts
@@ -96,17 +77,14 @@
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
     <script>
         $(document).ready(function () {
-            $('#rustProductsTable').DataTable({
+            $('#bugReportsTable').DataTable({
                 "columns": [
                     { "searchable": true },
                     { "searchable": true },
-                    { "searchable": false },
                     { "searchable": true },
                     { "searchable": true },
                     { "searchable": true },
-                    { "searchable": true },
-                    { "searchable": true },
-                    { "orderable": false,  "searchable": false }
+                    { "searchable": true }
                 ]
             });
         });

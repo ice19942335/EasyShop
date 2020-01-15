@@ -9,7 +9,6 @@ using EasyShop.Interfaces.Services.CP.Admin.BugReport;
 using EasyShop.Interfaces.Services.CP.Admin.Tariff;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Org.BouncyCastle.Math.EC.Rfc7748;
 
 namespace EasyShop.CP.UI.Controllers
 {
@@ -204,13 +203,16 @@ namespace EasyShop.CP.UI.Controllers
         {
             var result = _bugReportsService.GetAllBugReports();
 
+            if(result is null)
+                return View(new BugReportsListViewModel());
+
             var model = new BugReportsListViewModel
             {
                 BugReports = result.Select(x => new BugReportViewModel
                 {
                     Id = x.Id.ToString(),
                     UserEmail = x.Email,
-                    BugReportCategoryViewModel = new BugReportCategoryViewModel
+                    Category = new BugReportCategoryViewModel
                     {
                         Id = x.BugReportCategory.Id.ToString(),
                         Index = x.BugReportCategory.Index,

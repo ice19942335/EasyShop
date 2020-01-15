@@ -29,6 +29,10 @@ select[name="rustProductsTable_length"] {
     background-color: #1d1d1d
 }
 
+select[name="bugReportsTable_length"] {
+    background-color: #1d1d1d
+}
+
 span[class="ellipsis"] {
     display: none
 }
