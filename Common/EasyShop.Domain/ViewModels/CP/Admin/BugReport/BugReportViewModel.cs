@@ -20,6 +20,6 @@ namespace EasyShop.Domain.ViewModels.CP.Admin.BugReport
 
         public string ImgUrl { get; set; }
 
-        public DateTime ReportedDateTime { get; set; }
+        public DateTime DateTime { get; set; }
     }
 }

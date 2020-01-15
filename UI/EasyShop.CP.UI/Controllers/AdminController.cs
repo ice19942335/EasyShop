@@ -227,7 +227,7 @@ namespace EasyShop.CP.UI.Controllers
                     Title = x.Title,
                     Message = x.Message,
                     ImgUrl = x.ImgUrl,  
-                    ReportedDateTime = x.ReportedDateTime
+                    DateTime = x.DateTime
                 })
             };
 

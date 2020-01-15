@@ -370,7 +370,8 @@ namespace EasyShop.DAL.Migrations
                     Title = table.Column<string>(nullable: false),
                     Email = table.Column<string>(nullable: false),
                     Message = table.Column<string>(nullable: false),
-                    ImgUrl = table.Column<string>(nullable: true)
+                    ImgUrl = table.Column<string>(nullable: true),
+                    DateTime = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {

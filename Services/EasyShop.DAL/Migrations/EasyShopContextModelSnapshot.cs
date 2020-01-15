@@ -31,6 +31,9 @@ namespace EasyShop.DAL.Migrations
                     b.Property<Guid>("BugReportCategoryId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -41,9 +44,6 @@ namespace EasyShop.DAL.Migrations
                     b.Property<string>("Message")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ReportedDateTime")
-                        .HasColumnType("datetime2");
 
                     b.Property<Guid>("StatusId")
                         .HasColumnType("uniqueidentifier");

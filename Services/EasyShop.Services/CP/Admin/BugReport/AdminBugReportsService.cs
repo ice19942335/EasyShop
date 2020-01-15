@@ -25,6 +25,7 @@ namespace EasyShop.Services.CP.Admin.BugReport
                 .Include(x => x.BugReportCategory)
                 .Include(x => x.AppUser)
                 .Include(x => x.Status)
+                .OrderBy(x => x.DateTime)
                 .AsEnumerable();
         }
     }

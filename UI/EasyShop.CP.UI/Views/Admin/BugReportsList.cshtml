@@ -1,4 +1,5 @@
-﻿@model EasyShop.Domain.ViewModels.CP.Admin.BugReport.BugReportsListViewModel
+﻿@using EasyShop.Domain.Enums.CP.ContactUs
+@model EasyShop.Domain.ViewModels.CP.Admin.BugReport.BugReportsListViewModel
 @{
     ViewData["Title"] = "Bug reports";
     Layout = "_AdminLayout";
@@ -7,11 +8,7 @@
 
 
 <div class="panel well">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2 text-center">
-            <h2>Products manager</h2>
-        </div>
-    </div>
+    <h2 class="text-center">Bug reports</h2>
     <div class="panel-body">
         <div class="table-responsive">
             <div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
@@ -23,15 +20,14 @@
                     <div class="col-sm-12">
                         @if (Model.BugReports != null)
                         {
-                            <table id="bugReportsTable" data-order='[[ 0, "asc" ]]' class="table table-middle nowrap dataTable no-footer" role="grid">
+                            <table id="bugReportsTable" class="table table-middle nowrap dataTable no-footer" role="grid">
                                 <thead>
                                     <tr role="row">
                                         <th>Title</th>
                                         <th>Category</th>
                                         <th>Date</th>
                                         <th>Status</th>
-                                        <th>Edit</th>
-                                        <th>Delete</th>
+                                        <th class="text-center">Edit</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -41,19 +37,33 @@
                                             <tr role="row">
                                                 <td><strong>@bug.Title</strong></td>
                                                 <td><strong>@bug.Category.Description</strong></td>
-                                                <td><strong>@bug.ReportedDateTime</strong></td>
-                                                <td><strong>@bug.Status.Description</strong></td>
-                                                <td><a href="#"><strong><span class="icon icon-edit icon-lg"></span></strong></a></td>
-                                                <td><a style="color: red" href="#"><strong><span class="icon icon-times icon-lg"></span></strong></a></td>
+                                                <td><strong>@bug.DateTime</strong></td>
+                                                <td>
+                                                    @if (bug.Status.Index == ReportStatusEnum.WaitingForReview)
+                                                    {
+                                                        <span class="label label-danger label-pill">
+                                                            @bug.Status.Description
+                                                        </span>
+                                                    }
+                                                    else if (bug.Status.Index == ReportStatusEnum.Reviewed)
+                                                    {
+                                                        <span class="label label-info label-pill">
+                                                            @bug.Status.Description
+                                                        </span>
+                                                    }
+                                                    else
+                                                    {
+                                                        <span class="label label-success label-pill">
+                                                            @bug.Status.Description
+                                                        </span>
+                                                    }
+                                                </td>
+                                                <td class="text-center"><a asp-area="" asp-controller="Admin" asp-action="EditBugReport" asp-route-bugId="@bug.Id"><strong><span class="icon icon-edit icon-lg"></span></strong></a></td>
                                             </tr>
                                         }
                                     }
                                 </tbody>
                             </table>
-                        }
-                        else
-                        {
-                            <p class="text-center">No reports found</p>
                         }
                     </div>
                 </div>
@@ -83,8 +93,7 @@
                     { "searchable": true },
                     { "searchable": true },
                     { "searchable": true },
-                    { "searchable": true },
-                    { "searchable": true }
+                    { "searchable": false, "orderable": false }
                 ]
             });
         });
