@@ -7,6 +7,7 @@ using EasyShop.Domain.ViewModels.CP.ControlPanel.Tariff;
 using EasyShop.Interfaces.Services.CP;
 using EasyShop.Interfaces.Services.CP.Admin.BugReport;
 using EasyShop.Interfaces.Services.CP.Admin.Tariff;
+using EasyShop.Services.Mappers.ViewModels.Admin.BugReport;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -203,35 +204,31 @@ namespace EasyShop.CP.UI.Controllers
         {
             var result = _bugReportsService.GetAllBugReports();
 
-            if(result is null)
+            if (result is null)
                 return View(new BugReportsListViewModel());
 
-            var model = new BugReportsListViewModel
-            {
-                BugReports = result.Select(x => new BugReportViewModel
-                {
-                    Id = x.Id.ToString(),
-                    UserEmail = x.Email,
-                    Category = new BugReportCategoryViewModel
-                    {
-                        Id = x.BugReportCategory.Id.ToString(),
-                        Index = x.BugReportCategory.Index,
-                        Description = x.BugReportCategory.Description
-                    },
-                    Status = new ReportResponseViewModel
-                    {
-                        Id = x.Status.Id.ToString(),
-                        Index = x.Status.Index,
-                        Description = x.Status.Description
-                    },
-                    Title = x.Title,
-                    Message = x.Message,
-                    ImgUrl = x.ImgUrl,  
-                    DateTime = x.DateTime
-                })
-            };
+            var model = new BugReportsListViewModel { BugReports = result.Select(x => x.CreateBugReportViewModel()) };
 
             return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult EditBugReport(string bugId)
+        {
+            var result = _bugReportsService.GetReportById(Guid.Parse(bugId));
+
+            if (result is null)
+                return RedirectToAction("NotFoundPage", "Home");
+
+            var model = result.CreateBugReportViewModel();
+
+            return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult EditBugReport([FromForm] BugReportViewModel model)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion BugReports

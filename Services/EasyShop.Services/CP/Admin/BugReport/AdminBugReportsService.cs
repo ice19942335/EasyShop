@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using EasyShop.DAL.Context;
 using EasyShop.Interfaces.Services.CP.Admin.BugReport;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace EasyShop.Services.CP.Admin.BugReport
@@ -27,6 +28,11 @@ namespace EasyShop.Services.CP.Admin.BugReport
                 .Include(x => x.Status)
                 .OrderBy(x => x.DateTime)
                 .AsEnumerable();
+        }
+
+        public Domain.Entries.ContactUs.BugReports.BugReport GetReportById(Guid bugId)
+        {
+            throw new NotImplementedException();
         }
     }
 }
