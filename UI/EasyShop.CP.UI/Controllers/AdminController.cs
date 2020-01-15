@@ -212,7 +212,7 @@ namespace EasyShop.CP.UI.Controllers
             return View(model);
         }
 
-        public IActionResult EditBugReport(string bugId)
+        public IActionResult EditBugReport(string bugId, bool updateResult = false)
         {
             var result = _bugReportsService.GetReportById(Guid.Parse(bugId));
 
@@ -220,14 +220,20 @@ namespace EasyShop.CP.UI.Controllers
                 return RedirectToAction("NotFoundPage", "Home");
 
             var model = result.CreateBugReportViewModel();
+            model.UpdateResult = updateResult;
 
             return View(model);
         }
 
         [HttpPost]
-        public IActionResult EditBugReport([FromForm] BugReportViewModel model)
+        public async Task<IActionResult> EditBugReport([FromForm] BugReportViewModel model)
         {
-            throw new NotImplementedException();
+            var result = await _bugReportsService.UpdateBugReportStatus(model, Url);
+
+            if (!result)
+                return RedirectToAction("SomethingWentWrong");
+
+            return RedirectToAction("EditBugReport", "Admin", new { bugId = model.Id, updateResult = true });
         }
 
         #endregion BugReports

@@ -26,5 +26,6 @@ namespace EasyShop.Domain.ViewModels.CP.Admin.BugReport
         public string TextAreaMessage { get; set; }
 
         public ReportStatusEnum SelectedStatus { get; set; }
+        public bool UpdateResult { get; set; }
     }
 }

@@ -6,14 +6,15 @@
 
     string options =
         $"<option value=\"{ReportStatusEnum.WaitingForReview}\">Waiting for review</option>\r\n    " +
-        $"<option value=\"{ReportStatusEnum.WaitingForReview}\">Reviewed</option>\r\n    " +
-        $"<option value=\"{ReportStatusEnum.WaitingForReview}\">Closed</option>";
+        $"<option value=\"{ReportStatusEnum.Reviewed}\">Reviewed</option>\r\n    " +
+        $"<option value=\"{ReportStatusEnum.Closed}\">Closed</option>";
 }
 
 <div style="margin: 0;" class="row well">
     <h2 class="text-center">Bug report</h2>
     <form method="post" asp-area="" asp-controller="Admin" asp-action="EditBugReport">
-        <input asp-for="Id" hidden/>
+        <input asp-for="Id" hidden />
+        <input asp-for="UserEmail" hidden />
         <div class="text-center">
             <label>Current status :</label>
             @if (Model.Status.Index == ReportStatusEnum.WaitingForReview)
@@ -69,3 +70,12 @@
     }
 </div>
 
+@section Scripts
+{
+    @if (Model.UpdateResult)
+    {
+        <script>
+            toastr.success('Updated!');
+        </script>
+    }
+}
