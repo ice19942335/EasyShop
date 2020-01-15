@@ -95,3 +95,281 @@ WHERE ([a].[Id] = @__p_0) AND @__p_0 IS NOT NULL
 
 2020-01-13 15:37:41,827 [9] ?     - Request finished in 4.691ms 304 image/jpeg
 
+2020-01-13 16:20:47,344 [10] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-13 16:20:47,359 [10] ?     - Hosting environment: Development
+
+2020-01-13 16:20:47,360 [10] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-13 16:20:47,390 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs  
+
+2020-01-13 16:20:47,447 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-13 16:20:47,480 [4] ?     - Route matched with {action = "Index", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-13 16:20:47,501 [4] ?     - Executing ViewResult, running view Index.
+
+2020-01-13 16:20:48,111 [4] ?     - Executed ViewResult - view Index executed in 612.3001ms.
+
+2020-01-13 16:20:48,114 [4] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI) in 631.5026ms
+
+2020-01-13 16:20:48,116 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-13 16:20:48,121 [4] ?     - Request finished in 732.7095ms 200 text/html; charset=utf-8
+
+2020-01-13 16:35:05,244 [22] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs/BugReport  
+
+2020-01-13 16:35:05,258 [22] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-13 16:35:05,263 [22] ?     - Route matched with {action = "BugReport", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult BugReport() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-13 16:35:05,269 [22] ?     - Executing ViewResult, running view BugReport.
+
+2020-01-13 16:35:05,383 [22] ?     - Executed ViewResult - view BugReport executed in 113.7593ms.
+
+2020-01-13 16:35:05,385 [22] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI) in 120.6863ms
+
+2020-01-13 16:35:05,386 [22] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-13 16:35:05,388 [22] ?     - Request finished in 144.5811ms 200 text/html; charset=utf-8
+
+2020-01-13 16:35:05,423 [23] ?     - Request starting HTTP/2.0 GET https://localhost:44374/css/custom/Shared/custom-shared-styles.css?v=gFug3QBDpFqpg8Szz2tT9FZqX7Wd6eeM6X4MJtQLRJY  
+
+2020-01-13 16:35:05,424 [28] ?     - Request starting HTTP/2.0 GET https://localhost:44374/css/custom/BugReport/bug-report-styles.css?v=v2KA6PRKBTtoLAyFA0HM8fYFb6uPeKAJ6KyMEnYFOzI  
+
+2020-01-13 16:35:05,433 [23] ?     - The file /css/custom/Shared/custom-shared-styles.css was not modified
+
+2020-01-13 16:35:05,433 [28] ?     - The file /css/custom/BugReport/bug-report-styles.css was not modified
+
+2020-01-13 16:35:05,437 [28] ?     - Request finished in 14.2225ms 304 text/css
+
+2020-01-13 16:35:05,440 [23] ?     - Request finished in 14.2225ms 304 text/css
+
+2020-01-13 16:35:35,712 [34] ?     - Request starting HTTP/2.0 POST https://localhost:44374/ContactUs/BugReport multipart/form-data; boundary=----WebKitFormBoundaryj7sS6LsHdWBbDhwl 1267500
+
+2020-01-13 16:35:35,717 [34] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-13 16:35:35,771 [34] ?     - Route matched with {action = "BugReport", controller = "ContactUs"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] BugReport(EasyShop.Domain.ViewModels.CP.ContactUs.CreateBugReportViewModel) on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-13 16:35:53,002 [35] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI) in 17230.2533ms
+
+2020-01-13 16:35:53,004 [35] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-13 16:35:53,216 [35] ?     - An unhandled exception occurred while processing an incoming request. Error: Value cannot be null. (Parameter 'email'). Stack trace:    at Microsoft.AspNetCore.Identity.UserManager`1.FindByEmailAsync(String email)
+   at EasyShop.Services.CP.ContactUs.BugReportService.CreateBugReport(CreateBugReportViewModel model) in C:\Users\Administrator\source\repos\ice19942335\EasyShop\Services\EasyShop.Services\CP\ContactUs\BugReportService.cs:line 32
+   at EasyShop.CP.UI.Controllers.ContactUsController.BugReport(CreateBugReportViewModel model) in C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\Controllers\ContactUsController.cs:line 35
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at EasyShop.CP.UI.Infrastructure.Middleware.ErrorHandlingMiddleware.Invoke(HttpContext context) in C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\Infrastructure\Middleware\ErrorHandlingMiddleware.cs:line 26
+
+2020-01-13 16:35:53,261 [35] ?     - An unhandled exception has occurred while executing the request.
+
+2020-01-13 16:35:53,314 [35] ?     - Request finished in 17603.1801ms 500 text/html; charset=utf-8
+
+2020-01-13 16:35:53,607 [36] ?     - Request starting HTTP/2.0 GET https://localhost:44374/favicon.ico  
+
+2020-01-13 16:35:53,630 [35] ?     - Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\wwwroot\favicon.ico'
+
+2020-01-13 16:35:53,632 [35] ?     - Request finished in 25.0317ms 200 image/x-icon
+
+2020-01-13 16:35:55,206 [35] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs/BugReport  
+
+2020-01-13 16:35:55,210 [35] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-13 16:35:55,213 [35] ?     - Route matched with {action = "BugReport", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult BugReport() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-13 16:35:55,216 [35] ?     - Executing ViewResult, running view BugReport.
+
+2020-01-13 16:35:55,223 [35] ?     - Executed ViewResult - view BugReport executed in 7.8344ms.
+
+2020-01-13 16:35:55,225 [35] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI) in 10.7646ms
+
+2020-01-13 16:35:55,227 [35] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-13 16:35:55,229 [35] ?     - Request finished in 22.2774ms 200 text/html; charset=utf-8
+
+2020-01-13 16:35:59,049 [34] ?     - Request starting HTTP/2.0 POST https://localhost:44374/ContactUs/BugReport multipart/form-data; boundary=----WebKitFormBoundaryp4bkVsDvGKiMESbA 1267500
+
+2020-01-13 16:35:59,052 [34] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-13 16:35:59,054 [34] ?     - Route matched with {action = "BugReport", controller = "ContactUs"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] BugReport(EasyShop.Domain.ViewModels.CP.ContactUs.CreateBugReportViewModel) on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-13 17:31:39,182 [4] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-13 17:31:39,193 [4] ?     - Hosting environment: Development
+
+2020-01-13 17:31:39,194 [4] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-13 17:31:39,204 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs  
+
+2020-01-13 17:31:39,276 [8] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-13 17:31:39,315 [8] ?     - Route matched with {action = "Index", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-13 17:31:39,337 [8] ?     - Executing ViewResult, running view Index.
+
+2020-01-13 17:31:40,004 [8] ?     - Executed ViewResult - view Index executed in 669.2591ms.
+
+2020-01-13 17:31:40,006 [8] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI) in 689.0687ms
+
+2020-01-13 17:31:40,007 [8] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-13 17:31:40,013 [8] ?     - Request finished in 810.8234ms 200 text/html; charset=utf-8
+
+2020-01-13 17:31:44,573 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs/BugReport  
+
+2020-01-13 17:31:44,580 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-13 17:31:44,584 [4] ?     - Route matched with {action = "BugReport", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult BugReport() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-13 17:31:44,588 [4] ?     - Executing ViewResult, running view BugReport.
+
+2020-01-13 17:31:44,650 [4] ?     - Executed ViewResult - view BugReport executed in 62.0149ms.
+
+2020-01-13 17:31:44,651 [4] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI) in 66.3202ms
+
+2020-01-13 17:31:44,653 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-13 17:31:44,655 [4] ?     - Request finished in 82.1412ms 200 text/html; charset=utf-8
+
+2020-01-13 17:32:07,094 [12] ?     - Request starting HTTP/2.0 POST https://localhost:44374/ContactUs/BugReport multipart/form-data; boundary=----WebKitFormBoundaryCWhJ5YCDNwwNSTZe 139104
+
+2020-01-13 17:32:07,099 [12] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-13 17:32:07,130 [12] ?     - Route matched with {action = "BugReport", controller = "ContactUs"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] BugReport(EasyShop.Domain.ViewModels.CP.ContactUs.CreateBugReportViewModel) on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-13 17:32:32,237 [19] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI) in 25105.9655ms
+
+2020-01-13 17:32:32,239 [19] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-13 17:32:32,351 [19] ?     - An unhandled exception occurred while processing an incoming request. Error: Value cannot be null. (Parameter 'email'). Stack trace:    at Microsoft.AspNetCore.Identity.UserManager`1.FindByEmailAsync(String email)
+   at EasyShop.Services.CP.ContactUs.BugReportService.CreateBugReport(CreateBugReportViewModel model) in C:\Users\Administrator\source\repos\ice19942335\EasyShop\Services\EasyShop.Services\CP\ContactUs\BugReportService.cs:line 40
+   at EasyShop.CP.UI.Controllers.ContactUsController.BugReport(CreateBugReportViewModel model) in C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\Controllers\ContactUsController.cs:line 35
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at EasyShop.CP.UI.Infrastructure.Middleware.ErrorHandlingMiddleware.Invoke(HttpContext context) in C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\Infrastructure\Middleware\ErrorHandlingMiddleware.cs:line 26
+
+2020-01-13 17:32:32,399 [19] ?     - An unhandled exception has occurred while executing the request.
+
+2020-01-13 17:32:32,443 [19] ?     - Request finished in 25350.5967ms 500 text/html; charset=utf-8
+
+2020-01-13 17:40:28,711 [4] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-13 17:40:28,723 [4] ?     - Hosting environment: Development
+
+2020-01-13 17:40:28,724 [4] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-13 17:40:28,731 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs  
+
+2020-01-13 17:40:28,795 [9] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-13 17:40:28,832 [9] ?     - Route matched with {action = "Index", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-13 17:40:28,854 [9] ?     - Executing ViewResult, running view Index.
+
+2020-01-13 17:40:29,081 [9] ?     - Executed ViewResult - view Index executed in 227.6958ms.
+
+2020-01-13 17:40:29,083 [9] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI) in 248.9532ms
+
+2020-01-13 17:40:29,085 [9] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-13 17:40:29,089 [9] ?     - Request finished in 358.9617ms 200 text/html; charset=utf-8
+
+2020-01-13 17:40:31,999 [16] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs/BugReport  
+
+2020-01-13 17:40:32,006 [16] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-13 17:40:32,009 [16] ?     - Route matched with {action = "BugReport", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult BugReport() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-13 17:40:32,015 [16] ?     - Executing ViewResult, running view BugReport.
+
+2020-01-13 17:40:32,070 [16] ?     - Executed ViewResult - view BugReport executed in 56.6564ms.
+
+2020-01-13 17:40:32,073 [16] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI) in 61.149ms
+
+2020-01-13 17:40:32,076 [16] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-13 17:40:32,077 [16] ?     - Request finished in 79.9552ms 200 text/html; charset=utf-8
+
+2020-01-13 17:40:49,531 [4] ?     - Request starting HTTP/2.0 POST https://localhost:44374/ContactUs/BugReport multipart/form-data; boundary=----WebKitFormBoundaryD20LXWArZTARA63G 1267501
+
+2020-01-13 17:40:49,538 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-13 17:40:49,568 [4] ?     - Route matched with {action = "BugReport", controller = "ContactUs"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] BugReport(EasyShop.Domain.ViewModels.CP.ContactUs.CreateBugReportViewModel) on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-13 17:40:49,653 [9] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-13 17:40:49,663 [9] ?     - Executing DbCommand [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [b].[Id], [b].[Description], [b].[Index]
+FROM [BugReportCategories] AS [b]
+WHERE ([b].[Index] = @__p_0) AND @__p_0 IS NOT NULL
+
+2020-01-13 17:40:49,674 [9] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[Description], [r].[Index]
+FROM [ReportStatus] AS [r]
+WHERE [r].[Index] = 0
+
+2020-01-13 17:41:20,047 [12] ?     - Executing ViewResult, running view BugReportWasSuccessfullySent.
+
+2020-01-13 17:41:20,056 [12] ?     - Executed ViewResult - view BugReportWasSuccessfullySent executed in 7.2367ms.
+
+2020-01-13 17:41:20,059 [12] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI) in 30489.2571ms
+
+2020-01-13 17:41:20,061 [12] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.BugReport (EasyShop.CP.UI)'
+
+2020-01-13 17:41:20,066 [12] ?     - Request finished in 30535.4577ms 200 text/html; charset=utf-8
+
+2020-01-13 17:41:36,535 [7] ?     - Request starting HTTP/2.0 GET https://localhost:44374/  
+
+2020-01-13 17:41:36,538 [7] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI)'
+
+2020-01-13 17:41:36,542 [7] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.HomeController (EasyShop.CP.UI).
+
+2020-01-13 17:41:36,545 [7] ?     - Executing ViewResult, running view Index.
+
+2020-01-13 17:41:36,574 [7] ?     - Executed ViewResult - view Index executed in 30.2514ms.
+
+2020-01-13 17:41:36,576 [7] ?     - Executed action EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI) in 32.449ms
+
+2020-01-13 17:41:36,577 [7] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI)'
+
+2020-01-13 17:41:36,578 [7] ?     - Request finished in 43.6174ms 200 text/html; charset=utf-8
+
+2020-01-13 17:41:36,605 [7] ?     - Request starting HTTP/2.0 GET https://localhost:44374/img/LogoNameSlogan.png  
+
+2020-01-13 17:41:36,606 [13] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/landing-page.js?v=s4wOrBut5xUg-2Ens4HxX2xn1tIOTpa3drKQ4Xi0Fhc  
+
+2020-01-13 17:41:36,625 [7] ?     - Sending file. Request path: '/img/LogoNameSlogan.png'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\wwwroot\img\LogoNameSlogan.png'
+
+2020-01-13 17:41:36,625 [13] ?     - Sending file. Request path: '/js/landing-page.js'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\wwwroot\js\landing-page.js'
+
+2020-01-13 17:41:36,627 [13] ?     - Request finished in 23.791ms 200 application/javascript
+
+2020-01-13 17:41:36,629 [7] ?     - Request finished in 23.7764ms 200 image/png
+
+2020-01-13 17:41:36,842 [29] ?     - Request starting HTTP/2.0 GET https://localhost:44374/img/4148866741.png  
+
+2020-01-13 17:41:36,856 [12] ?     - Sending file. Request path: '/img/4148866741.png'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\wwwroot\img\4148866741.png'
+
+2020-01-13 17:41:36,858 [12] ?     - Request finished in 15.6035ms 200 image/png
+

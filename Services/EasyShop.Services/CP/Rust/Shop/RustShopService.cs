@@ -200,7 +200,7 @@ namespace EasyShop.Services.CP.Rust.Shop
 
         #endregion
 
-        #region Rust Category
+        #region Rust Description
         public IEnumerable<RustCategory> GetAllAssignedCategoriesToShopByShopId(Guid shopId)
         {
             var categories = _context.RustCategories
@@ -240,7 +240,7 @@ namespace EasyShop.Services.CP.Rust.Shop
                     userForLog.UserName,
                     userForLog.Id,
                     _httpContextAccessor.HttpContext.Request.GetRawTarget(),
-                    $"Category was successfully created. CategoryId: {newCategory.Id}");
+                    $"Description was successfully created. CategoryId: {newCategory.Id}");
 
                 return (newCategory, RustEditCategoryResult.Created);
             }
@@ -260,7 +260,7 @@ namespace EasyShop.Services.CP.Rust.Shop
                 userForLog.UserName,
                 userForLog.Id,
                 _httpContextAccessor.HttpContext.Request.GetRawTarget(),
-                $"Category was successfully updated. CategoryId: {category.Id}");
+                $"Description was successfully updated. CategoryId: {category.Id}");
 
             return (category, RustEditCategoryResult.Success);
         }
@@ -283,7 +283,7 @@ namespace EasyShop.Services.CP.Rust.Shop
                 userForLog.UserName,
                 userForLog.Id,
                 _httpContextAccessor.HttpContext.Request.GetRawTarget(),
-                $"Category was successfully deleted. CategoryId: {category.Id}");
+                $"Description was successfully deleted. CategoryId: {category.Id}");
 
             return true;
         }

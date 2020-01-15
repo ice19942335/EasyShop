@@ -19,7 +19,7 @@ namespace EasyShop.Domain.Entries.ContactUs.BugReports
         public BugReportCategory BugReportCategory { get; set; }
 
         [Required]
-        public ReportResponseStatus Status { get; set; }
+        public ReportStatus Status { get; set; }
 
         [Required]
         public string Title { get; set; }
@@ -31,5 +31,8 @@ namespace EasyShop.Domain.Entries.ContactUs.BugReports
         public string Message { get; set; }
 
         public string ImgUrl { get; set; }
+
+        [Required]
+        public DateTime DateTime { get; set; }
     }
 }

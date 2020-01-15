@@ -31,6 +31,9 @@ namespace EasyShop.DAL.Migrations
                     b.Property<Guid>("BugReportCategoryId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -66,7 +69,11 @@ namespace EasyShop.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("Category")
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Index")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -157,18 +164,21 @@ namespace EasyShop.DAL.Migrations
                     b.ToTable("GeneralSupportReportCategories");
                 });
 
-            modelBuilder.Entity("EasyShop.Domain.Entries.ContactUs.ReportResponseStatus", b =>
+            modelBuilder.Entity("EasyShop.Domain.Entries.ContactUs.ReportStatus", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("Status")
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Index")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("ReportResponseStatus");
+                    b.ToTable("ReportStatus");
                 });
 
             modelBuilder.Entity("EasyShop.Domain.Entries.DevBlog.DevBlogPost", b =>
@@ -895,7 +905,7 @@ namespace EasyShop.DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EasyShop.Domain.Entries.ContactUs.ReportResponseStatus", "Status")
+                    b.HasOne("EasyShop.Domain.Entries.ContactUs.ReportStatus", "Status")
                         .WithMany()
                         .HasForeignKey("StatusId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -904,7 +914,7 @@ namespace EasyShop.DAL.Migrations
 
             modelBuilder.Entity("EasyShop.Domain.Entries.ContactUs.CollaborationReports.CollaborationReport", b =>
                 {
-                    b.HasOne("EasyShop.Domain.Entries.ContactUs.ReportResponseStatus", "Status")
+                    b.HasOne("EasyShop.Domain.Entries.ContactUs.ReportStatus", "Status")
                         .WithMany()
                         .HasForeignKey("StatusId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -923,7 +933,7 @@ namespace EasyShop.DAL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("EasyShop.Domain.Entries.ContactUs.ReportResponseStatus", "Status")
+                    b.HasOne("EasyShop.Domain.Entries.ContactUs.ReportStatus", "Status")
                         .WithMany()
                         .HasForeignKey("StatusId")
                         .OnDelete(DeleteBehavior.Cascade)

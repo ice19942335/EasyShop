@@ -17,7 +17,7 @@ namespace EasyShop.Domain.Entries.ContactUs.GeneralSupportReports
         public GeneralSupportReportCategory Category { get; set; }
 
         [Required]
-        public ReportResponseStatus Status { get; set; }
+        public ReportStatus Status { get; set; }
 
         [Required]
         public string Title { get; set; }

@@ -21,7 +21,7 @@ namespace EasyShop.Domain.ViewModels.CP.ContactUs
         public string Email { get; set; }
 
         [Required(ErrorMessage = "The bug category is required.")]
-        public string SelectedCategory { get; set; }
+        public int SelectedCategory { get; set; }
 
         public List<BugReportCategoriesEnum> Categories { get; set; } = new List<BugReportCategoriesEnum>
         {
@@ -31,7 +31,7 @@ namespace EasyShop.Domain.ViewModels.CP.ContactUs
 
             //RustShop
             BugReportCategoriesEnum.Cp_Rust_shop_stats_bug,
-            BugReportCategoriesEnum.Cp_Rust_shop_main_setting_update_bug,
+            BugReportCategoriesEnum.Cp_Rust_shop_main_settings_update_bug,
             BugReportCategoriesEnum.Cp_Rust_shop_product_update_bug,
             BugReportCategoriesEnum.Cp_Rust_shop_categories_reset_bug,
             BugReportCategoriesEnum.Cp_Rust_shop_category_creation_bug,

@@ -12,6 +12,9 @@ namespace EasyShop.Domain.Entries.ContactUs.BugReports
         public Guid Id { get; set; }
 
         [Required]
-        public BugReportCategoriesEnum Category { get; set; }
+        public string Description { get; set; }
+
+        [Required]
+        public BugReportCategoriesEnum Index { get; set; }
     }
 }

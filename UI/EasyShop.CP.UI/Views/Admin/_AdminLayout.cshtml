@@ -1,0 +1,21 @@
+﻿@{
+    Layout = "_ControlPanelLayout";
+}
+
+<div class="row">
+    <div class="col-sm-12 col-md-4 col-lg-3">
+        @await Html.PartialAsync("Partial/_AdminLeftSideBar")
+    </div>
+    <div class="col-sm-12 col-md-8 col-lg-9">
+        @RenderBody()
+    </div>
+</div>
+
+@section Styles {
+    @RenderSection("Styles", false)
+}
+
+@section Scripts {
+    @RenderSection("Scripts", false)
+    <script src="~/js/customScripts/AdminPanel/AdminPanelNavigationActiveLink.js" asp-append-version="true"></script>
+}
