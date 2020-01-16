@@ -114,6 +114,21 @@ namespace EasyShop.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Notifications",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    Title = table.Column<string>(nullable: true),
+                    Message = table.Column<string>(nullable: true),
+                    LinkTitle = table.Column<string>(nullable: true),
+                    Link = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Notifications", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ReportStatus",
                 columns: table => new
                 {
@@ -151,26 +166,13 @@ namespace EasyShop.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "RustUsers",
+                name: "SteamUsers",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
                     Uid = table.Column<string>(nullable: false),
                     Balance = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
                     TotalSpent = table.Column<decimal>(type: "decimal(18, 2)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_RustUsers", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "SteamUsers",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(nullable: false),
-                    Uid = table.Column<string>(nullable: false),
-                    Balance = table.Column<decimal>(type: "decimal(18, 2)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -355,6 +357,30 @@ namespace EasyShop.DAL.Migrations
                         name: "FK_Shops_GameTypes_GameTypeId",
                         column: x => x.GameTypeId,
                         principalTable: "GameTypes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserNotifications",
+                columns: table => new
+                {
+                    AppUserId = table.Column<string>(nullable: false),
+                    NotificationId = table.Column<Guid>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserNotifications", x => new { x.AppUserId, x.NotificationId });
+                    table.ForeignKey(
+                        name: "FK_UserNotifications_AspNetUsers_AppUserId",
+                        column: x => x.AppUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserNotifications_Notifications_NotificationId",
+                        column: x => x.NotificationId,
+                        principalTable: "Notifications",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -651,9 +677,9 @@ namespace EasyShop.DAL.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
-                        name: "FK_RustPurchasedItems_RustUsers_RustUserId",
+                        name: "FK_RustPurchasedItems_SteamUsers_RustUserId",
                         column: x => x.RustUserId,
-                        principalTable: "RustUsers",
+                        principalTable: "SteamUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.NoAction);
                 });
@@ -902,6 +928,11 @@ namespace EasyShop.DAL.Migrations
                 column: "TariffId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_UserNotifications_NotificationId",
+                table: "UserNotifications",
+                column: "NotificationId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_UserShops_ShopId",
                 table: "UserShops",
                 column: "ShopId");
@@ -957,6 +988,9 @@ namespace EasyShop.DAL.Migrations
                 name: "TariffOptions");
 
             migrationBuilder.DropTable(
+                name: "UserNotifications");
+
+            migrationBuilder.DropTable(
                 name: "UserShops");
 
             migrationBuilder.DropTable(
@@ -987,10 +1021,10 @@ namespace EasyShop.DAL.Migrations
                 name: "RustCategories");
 
             migrationBuilder.DropTable(
-                name: "SteamUsers");
+                name: "TariffOptionDescriptions");
 
             migrationBuilder.DropTable(
-                name: "TariffOptionDescriptions");
+                name: "Notifications");
 
             migrationBuilder.DropTable(
                 name: "Tariffs");
@@ -999,7 +1033,7 @@ namespace EasyShop.DAL.Migrations
                 name: "RustItems");
 
             migrationBuilder.DropTable(
-                name: "RustUsers");
+                name: "SteamUsers");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

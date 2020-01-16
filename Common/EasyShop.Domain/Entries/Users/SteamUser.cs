@@ -9,6 +9,7 @@ namespace EasyShop.Domain.Entries.Users
     [Table("SteamUsers")]
     public class SteamUser
     {
+        [Key]
         public Guid Id { get; set; }
 
         [Required]
@@ -18,6 +19,12 @@ namespace EasyShop.Domain.Entries.Users
         [Column(TypeName = "decimal(18, 2)")]
         public decimal Balance { get; set; }
 
+        [Required]
+        [Column(TypeName = "decimal(18, 2)")]
+        public decimal TotalSpent { get; set; }
+
         public ICollection<SteamUserShop> SteamUserShops { get; set; }
+
+        
     }
 }

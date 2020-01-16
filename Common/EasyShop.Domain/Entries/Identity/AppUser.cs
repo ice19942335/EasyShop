@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using EasyShop.Domain.Entries.DevBlog;
+using EasyShop.Domain.Entries.Notification;
 using EasyShop.Domain.Entries.Shop;
 using EasyShop.Domain.Entries.Tariff;
 using EasyShop.Domain.Entries.Users;
@@ -46,5 +47,7 @@ namespace EasyShop.Domain.Entries.Identity
         public ICollection<DevBlogPostsLike> DevBlogPostsLikes { get; set; }
 
         public ICollection<SteamUserShop> SteamUserShops { get; set; }
+
+        public ICollection<UserNotification> UserNotifications { get; set; }
     }
 }

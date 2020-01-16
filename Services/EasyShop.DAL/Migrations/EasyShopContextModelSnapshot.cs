@@ -343,25 +343,42 @@ namespace EasyShop.DAL.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("EasyShop.Domain.Entries.Identity.RustUser", b =>
+            modelBuilder.Entity("EasyShop.Domain.Entries.Notification.Notification", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<decimal>("Balance")
-                        .HasColumnType("decimal(18, 2)");
+                    b.Property<string>("Link")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("TotalSpent")
-                        .HasColumnType("decimal(18, 2)");
+                    b.Property<string>("LinkTitle")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Uid")
-                        .IsRequired()
+                    b.Property<string>("Message")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("RustUsers");
+                    b.ToTable("Notifications");
+                });
+
+            modelBuilder.Entity("EasyShop.Domain.Entries.Notification.UserNotification", b =>
+                {
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<Guid>("NotificationId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("AppUserId", "NotificationId");
+
+                    b.HasIndex("NotificationId");
+
+                    b.ToTable("UserNotifications");
                 });
 
             modelBuilder.Entity("EasyShop.Domain.Entries.Rust.RustCategory", b =>
@@ -738,6 +755,9 @@ namespace EasyShop.DAL.Migrations
                     b.Property<decimal>("Balance")
                         .HasColumnType("decimal(18, 2)");
 
+                    b.Property<decimal>("TotalSpent")
+                        .HasColumnType("decimal(18, 2)");
+
                     b.Property<string>("Uid")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -955,6 +975,21 @@ namespace EasyShop.DAL.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("EasyShop.Domain.Entries.Notification.UserNotification", b =>
+                {
+                    b.HasOne("EasyShop.Domain.Entries.Identity.AppUser", "AppUser")
+                        .WithMany("UserNotifications")
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EasyShop.Domain.Entries.Notification.Notification", "Notification")
+                        .WithMany("UserNotifications")
+                        .HasForeignKey("NotificationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("EasyShop.Domain.Entries.Rust.RustCategory", b =>
                 {
                     b.HasOne("EasyShop.Domain.Entries.Identity.AppUser", "AppUser")
@@ -1029,7 +1064,7 @@ namespace EasyShop.DAL.Migrations
                         .WithMany()
                         .HasForeignKey("RustItemId");
 
-                    b.HasOne("EasyShop.Domain.Entries.Identity.RustUser", "RustUser")
+                    b.HasOne("EasyShop.Domain.Entries.Users.SteamUser", "RustUser")
                         .WithMany()
                         .HasForeignKey("RustUserId");
                 });

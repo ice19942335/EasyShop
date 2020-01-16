@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="CP\Notification\" />
     <Folder Include="Data\FirstRunInitialization\Rust\RustShopDataInitialization\" />
   </ItemGroup>
 
