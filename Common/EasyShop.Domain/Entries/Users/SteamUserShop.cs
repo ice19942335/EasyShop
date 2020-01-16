@@ -6,7 +6,7 @@ using EasyShop.Domain.Entries.Identity;
 
 namespace EasyShop.Domain.Entries.Users
 {
-    [Table("SteamUsers")]
+    [Table("SteamUserShops")]
     public class SteamUserShop
     {
         public string AppUserId { get; set; }
