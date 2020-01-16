@@ -43,14 +43,17 @@ namespace EasyShop.DAL.Context
         public DbSet<RustPurchasedItem> RustPurchasedItems { get; set; }
         public DbSet<RustServerMap> RustServerMaps { get; set; }
         public DbSet<RustPurchaseStats> RustPurchaseStats { get; set; }
-        public DbSet<RustUser> RustUsers { get; set; }
+
+        //Users
+        public DbSet<SteamUser> RustUsers { get; set; }
 
         //DevBlog
         public DbSet<DevBlogPost> DevBlogPosts { get; set; }
         public DbSet<DevBlogPostsLike> DevBlogPostsLikes { get; set; }
 
-        //Users
+        //SteamUser SteamUserShop
         public DbSet<SteamUser> SteamUsers { get; set; }
+        public DbSet<SteamUserShop> SteamUsersShops { get; set; }
 
         //ContactUs
         public DbSet<BugReport> BugReports { get; set; }

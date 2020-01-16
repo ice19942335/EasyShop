@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using EasyShop.Domain.Entries.Identity;
+using EasyShop.Domain.Entries.Users;
 
 namespace EasyShop.Domain.Entries.Rust
 {
@@ -10,7 +11,7 @@ namespace EasyShop.Domain.Entries.Rust
     {
         public Guid Id { get; set; }
 
-        public RustUser RustUser { get; set; }
+        public SteamUser RustUser { get; set; }
 
         public RustItem RustItem { get; set; }
 

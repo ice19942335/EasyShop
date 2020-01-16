@@ -7,6 +7,7 @@ using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Entries.Rust;
 using EasyShop.Domain.Entries.Shop;
+using EasyShop.Domain.Entries.Users;
 using EasyShop.Domain.ViewModels.CP.ControlPanel.Shop;
 using EasyShop.Interfaces.Services.CP.Rust.Data;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
@@ -167,14 +168,14 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData
             return _rustDefaultCategoriesWithItemsService.CreateDefaultCategoriesWithItems(user, shop, defaultCategories, rustItems);
         }
 
-        private async Task<RustUser> CreateDefaultRustUser()
+        private async Task<SteamUser> CreateDefaultRustUser()
         {
-            var rustUser = new RustUser
+            var rustUser = new SteamUser
             {
                 Id = Guid.NewGuid(),
                 Uid = "76561198302334945",
-                Balance = 50,
-                TotalSpent = 150
+                Balance = 100,
+                TotalSpent = 0m
             };
 
             _context.RustUsers.Add(rustUser);
