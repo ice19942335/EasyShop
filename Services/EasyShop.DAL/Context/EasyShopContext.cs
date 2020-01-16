@@ -7,6 +7,7 @@ using EasyShop.Domain.Entries.ContactUs.GeneralSupportReports;
 using EasyShop.Domain.Entries.DevBlog;
 using EasyShop.Domain.Entries.GameType;
 using EasyShop.Domain.Entries.Identity;
+using EasyShop.Domain.Entries.Notification;
 using EasyShop.Domain.Entries.Rust;
 using EasyShop.Domain.Entries.Shop;
 using EasyShop.Domain.Entries.Tariff;
@@ -62,7 +63,9 @@ namespace EasyShop.DAL.Context
 
         public DbSet<ReportStatus> ReportStatus { get; set; }
 
-
+        //Notification
+        public DbSet<Notification> Notifications { get; set; }
+        public DbSet<UserNotification> UserNotifications { get; set; }
 
         //Constructor
         public EasyShopContext(DbContextOptions<EasyShopContext> options) : base(options) { }
@@ -132,7 +135,7 @@ namespace EasyShop.DAL.Context
                 .HasForeignKey(x => x.AppUserId);
             //===================================================================
 
-            //DevBlogPostsLike ----------------------------------------------------------
+            //DevBlogPostsLike --------------------------------------------------
             modelBuilder.Entity<DevBlogPostsLike>()
                 .HasKey(x => new { x.AppUserId, x.DevBlogPostId });
 
@@ -147,7 +150,7 @@ namespace EasyShop.DAL.Context
                 .HasForeignKey(x => x.AppUserId);
             //===================================================================
 
-            //SteamUserShop ----------------------------------------------------------
+            //SteamUser ---------------------------------------------------------
             modelBuilder.Entity<SteamUserShop>()
                 .HasKey(x => new { x.AppUserId, x.SteamUserId });
 
@@ -159,6 +162,21 @@ namespace EasyShop.DAL.Context
             modelBuilder.Entity<SteamUserShop>()
                 .HasOne(x => x.AppUser)
                 .WithMany(x => x.SteamUserShops)
+                .HasForeignKey(x => x.AppUserId);
+            //===================================================================
+
+            //UserNotification --------------------------------------------------
+            modelBuilder.Entity<UserNotification>()
+                .HasKey(x => new { x.AppUserId, x.NotificationId });
+
+            modelBuilder.Entity<UserNotification>()
+                .HasOne(x => x.Notification)
+                .WithMany(x => x.UserNotifications)
+                .HasForeignKey(x => x.NotificationId);
+
+            modelBuilder.Entity<UserNotification>()
+                .HasOne(x => x.AppUser)
+                .WithMany(x => x.UserNotifications)
                 .HasForeignKey(x => x.AppUserId);
             //===================================================================
 
