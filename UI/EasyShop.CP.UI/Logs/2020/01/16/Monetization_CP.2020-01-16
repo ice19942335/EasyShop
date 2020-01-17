@@ -11539,3 +11539,404 @@ WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
 
 2020-01-16 16:55:00,599 [24] ?     - Request finished in 674.2348ms 200 text/html; charset=utf-8
 
+2020-01-16 17:37:08,508 [16] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-16 17:37:08,548 [16] ?     - Hosting environment: Development
+
+2020-01-16 17:37:08,550 [16] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-16 17:37:08,567 [12] ?     - Request starting HTTP/2.0 GET https://localhost:44374/Admin/BugReportsList  
+
+2020-01-16 17:37:08,658 [12] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-16 17:37:08,680 [12] ?     - Executing DbCommand [Parameters=[@__p_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE ([a].[Id] = @__p_0) AND @__p_0 IS NOT NULL
+
+2020-01-16 17:37:08,716 [8] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE ([a].[UserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2020-01-16 17:37:08,751 [4] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2020-01-16 17:37:08,759 [8] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2020-01-16 17:37:08,768 [9] ?     - Executing DbCommand [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE ([a].[RoleId] = @__role_Id_0) AND @__role_Id_0 IS NOT NULL
+
+2020-01-16 17:37:08,772 [4] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2020-01-16 17:37:08,775 [12] ?     - Executing DbCommand [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE ([a].[RoleId] = @__role_Id_0) AND @__role_Id_0 IS NOT NULL
+
+2020-01-16 17:37:08,793 [4] ?     - Authorization was successful.
+
+2020-01-16 17:37:08,796 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AdminController.BugReportsList (EasyShop.CP.UI)'
+
+2020-01-16 17:37:08,825 [4] ?     - Route matched with {action = "BugReportsList", controller = "Admin"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult BugReportsList() on controller EasyShop.CP.UI.Controllers.AdminController (EasyShop.CP.UI).
+
+2020-01-16 17:37:08,853 [4] ?     - Executing ViewResult, running view BugReportsList.
+
+2020-01-16 17:37:08,920 [4] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[AppUserId], [b].[BugReportCategoryId], [b].[DateTime], [b].[Email], [b].[ImgUrl], [b].[Message], [b].[StatusId], [b].[Title], [b0].[Id], [b0].[Description], [b0].[Index], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r].[Id], [r].[Description], [r].[Index]
+FROM [BugReports] AS [b]
+INNER JOIN [BugReportCategories] AS [b0] ON [b].[BugReportCategoryId] = [b0].[Id]
+LEFT JOIN [AspNetUsers] AS [a] ON [b].[AppUserId] = [a].[Id]
+INNER JOIN [ReportStatus] AS [r] ON [b].[StatusId] = [r].[Id]
+ORDER BY [b].[DateTime]
+
+2020-01-16 17:37:08,996 [4] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-16 17:37:09,006 [4] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-16 17:37:09,009 [4] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2020-01-16 17:37:09,035 [4] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-16 17:37:09,062 [4] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2020-01-16 17:37:09,199 [4] ?     - Executed ViewResult - view BugReportsList executed in 346.5605ms.
+
+2020-01-16 17:37:09,209 [4] ?     - Executed action EasyShop.CP.UI.Controllers.AdminController.BugReportsList (EasyShop.CP.UI) in 373.601ms
+
+2020-01-16 17:37:09,210 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AdminController.BugReportsList (EasyShop.CP.UI)'
+
+2020-01-16 17:37:09,222 [4] ?     - Request finished in 654.4456ms 200 text/html; charset=utf-8
+
+2020-01-16 17:43:25,804 [5] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-16 17:43:25,815 [5] ?     - Hosting environment: Development
+
+2020-01-16 17:43:25,816 [5] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-16 17:43:25,823 [14] ?     - Request starting HTTP/2.0 GET https://localhost:44374/Admin/BugReportsList  
+
+2020-01-16 17:43:25,908 [14] ?     - Authorization was successful.
+
+2020-01-16 17:43:25,912 [14] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AdminController.BugReportsList (EasyShop.CP.UI)'
+
+2020-01-16 17:43:25,950 [14] ?     - Route matched with {action = "BugReportsList", controller = "Admin"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult BugReportsList() on controller EasyShop.CP.UI.Controllers.AdminController (EasyShop.CP.UI).
+
+2020-01-16 17:43:25,973 [14] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-16 17:43:25,997 [14] ?     - Executing ViewResult, running view BugReportsList.
+
+2020-01-16 17:43:26,078 [14] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[AppUserId], [b].[BugReportCategoryId], [b].[DateTime], [b].[Email], [b].[ImgUrl], [b].[Message], [b].[StatusId], [b].[Title], [b0].[Id], [b0].[Description], [b0].[Index], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r].[Id], [r].[Description], [r].[Index]
+FROM [BugReports] AS [b]
+INNER JOIN [BugReportCategories] AS [b0] ON [b].[BugReportCategoryId] = [b0].[Id]
+LEFT JOIN [AspNetUsers] AS [a] ON [b].[AppUserId] = [a].[Id]
+INNER JOIN [ReportStatus] AS [r] ON [b].[StatusId] = [r].[Id]
+ORDER BY [b].[DateTime]
+
+2020-01-16 17:43:26,150 [14] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-16 17:43:26,160 [14] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-16 17:43:26,192 [14] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2020-01-16 17:43:26,416 [14] ?     - Executed action EasyShop.CP.UI.Controllers.AdminController.BugReportsList (EasyShop.CP.UI) in 460.6779ms
+
+2020-01-16 17:43:26,418 [14] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AdminController.BugReportsList (EasyShop.CP.UI)'
+
+2020-01-16 17:43:26,507 [14] ?     - An unhandled exception occurred while processing an incoming request. Error: The model item passed into the ViewDataDictionary is of type 'EasyShop.Domain.ViewModels.CP.User.UserData.AppUserViewModel', but this ViewDataDictionary instance requires a model item of type 'System.Collections.Generic.IEnumerable`1[EasyShop.Domain.ViewModels.CP.Notification.NotificationViewModel]'.. Stack trace:    at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary.EnsureCompatible(Object value)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary..ctor(ViewDataDictionary source, Object model, Type declaredModelType)
+   at lambda_method(Closure , ViewDataDictionary )
+   at Microsoft.AspNetCore.Mvc.Razor.RazorPagePropertyActivator.CreateViewDataDictionary(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorPagePropertyActivator.Activate(Object page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorPageActivator.Activate(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewComponents.ViewViewComponentResult.ExecuteAsync(ViewComponentContext context)
+   at Microsoft.AspNetCore.Mvc.ViewComponents.DefaultViewComponentInvoker.InvokeAsync(ViewComponentContext context)
+   at Microsoft.AspNetCore.Mvc.ViewComponents.DefaultViewComponentHelper.InvokeCoreAsync(ViewComponentDescriptor descriptor, Object arguments)
+   at AspNetCore.Views_Shared_Components_ControlPanelNavBar_ControlPanelNavBar.ExecuteAsync() in C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\Views\Shared\Components\ControlPanelNavBar\ControlPanelNavBar.cshtml:line 13
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewComponents.ViewViewComponentResult.ExecuteAsync(ViewComponentContext context)
+   at Microsoft.AspNetCore.Mvc.ViewComponents.DefaultViewComponentInvoker.InvokeAsync(ViewComponentContext context)
+   at Microsoft.AspNetCore.Mvc.ViewComponents.DefaultViewComponentHelper.InvokeCoreAsync(ViewComponentDescriptor descriptor, Object arguments)
+   at AspNetCore.Views_Shared_Partial__NavBar.ExecuteAsync() in C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\Views\Shared\Partial\_NavBar.cshtml:line 41
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.HtmlHelper.RenderPartialCoreAsync(String partialViewName, Object model, ViewDataDictionary viewData, TextWriter writer)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.HtmlHelper.PartialAsync(String partialViewName, Object model, ViewDataDictionary viewData)
+   at AspNetCore.Views_Shared__ControlPanelLayout.<ExecuteAsync>b__8_0() in C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\Views\Shared\_ControlPanelLayout.cshtml:line 6
+   at Microsoft.AspNetCore.Razor.Runtime.TagHelpers.TagHelperExecutionContext.SetOutputContentAsync()
+   at AspNetCore.Views_Shared__ControlPanelLayout.ExecuteAsync() in C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\Views\Shared\_ControlPanelLayout.cshtml:line 2
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageCoreAsync(IRazorPage page, ViewContext context)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderPageAsync(IRazorPage page, ViewContext context, Boolean invokeViewStarts)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderLayoutAsync(ViewContext context, ViewBufferTextWriter bodyWriter)
+   at Microsoft.AspNetCore.Mvc.Razor.RazorView.RenderAsync(ViewContext context)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ViewContext viewContext, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewExecutor.ExecuteAsync(ActionContext actionContext, IView view, ViewDataDictionary viewData, ITempDataDictionary tempData, String contentType, Nullable`1 statusCode)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.ViewResultExecutor.ExecuteAsync(ActionContext context, ViewResult result)
+   at Microsoft.AspNetCore.Mvc.ViewResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|29_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at EasyShop.CP.UI.Infrastructure.Middleware.ErrorHandlingMiddleware.Invoke(HttpContext context) in C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\Infrastructure\Middleware\ErrorHandlingMiddleware.cs:line 26
+
+2020-01-16 17:43:26,538 [14] ?     - An unhandled exception has occurred while executing the request.
+
+2020-01-16 17:43:26,616 [14] ?     - Request finished in 793.3177ms 500 text/html; charset=utf-8
+
+2020-01-16 17:44:26,241 [9] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-16 17:44:26,252 [9] ?     - Hosting environment: Development
+
+2020-01-16 17:44:26,254 [9] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-16 17:44:26,263 [12] ?     - Request starting HTTP/2.0 GET https://localhost:44374/Admin/BugReportsList  
+
+2020-01-16 17:44:26,368 [12] ?     - Authorization was successful.
+
+2020-01-16 17:44:26,373 [12] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AdminController.BugReportsList (EasyShop.CP.UI)'
+
+2020-01-16 17:44:26,409 [12] ?     - Route matched with {action = "BugReportsList", controller = "Admin"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult BugReportsList() on controller EasyShop.CP.UI.Controllers.AdminController (EasyShop.CP.UI).
+
+2020-01-16 17:44:26,427 [12] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-16 17:44:26,446 [12] ?     - Executing ViewResult, running view BugReportsList.
+
+2020-01-16 17:44:26,538 [12] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[AppUserId], [b].[BugReportCategoryId], [b].[DateTime], [b].[Email], [b].[ImgUrl], [b].[Message], [b].[StatusId], [b].[Title], [b0].[Id], [b0].[Description], [b0].[Index], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r].[Id], [r].[Description], [r].[Index]
+FROM [BugReports] AS [b]
+INNER JOIN [BugReportCategories] AS [b0] ON [b].[BugReportCategoryId] = [b0].[Id]
+LEFT JOIN [AspNetUsers] AS [a] ON [b].[AppUserId] = [a].[Id]
+INNER JOIN [ReportStatus] AS [r] ON [b].[StatusId] = [r].[Id]
+ORDER BY [b].[DateTime]
+
+2020-01-16 17:44:26,617 [12] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-16 17:44:26,629 [12] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-16 17:44:26,664 [12] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2020-01-16 17:44:26,696 [12] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-16 17:44:26,729 [12] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2020-01-16 17:44:26,866 [12] ?     - Executed ViewResult - view BugReportsList executed in 420.7918ms.
+
+2020-01-16 17:44:26,868 [12] ?     - Executed action EasyShop.CP.UI.Controllers.AdminController.BugReportsList (EasyShop.CP.UI) in 456.6436ms
+
+2020-01-16 17:44:26,870 [12] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AdminController.BugReportsList (EasyShop.CP.UI)'
+
+2020-01-16 17:44:26,875 [12] ?     - Request finished in 614.1136ms 200 text/html; charset=utf-8
+
+2020-01-16 17:46:44,060 [4] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-16 17:46:44,069 [4] ?     - Hosting environment: Development
+
+2020-01-16 17:46:44,070 [4] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-16 17:46:44,078 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/Admin/BugReportsList  
+
+2020-01-16 17:46:44,170 [8] ?     - Authorization was successful.
+
+2020-01-16 17:46:44,174 [8] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AdminController.BugReportsList (EasyShop.CP.UI)'
+
+2020-01-16 17:46:44,214 [8] ?     - Route matched with {action = "BugReportsList", controller = "Admin"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult BugReportsList() on controller EasyShop.CP.UI.Controllers.AdminController (EasyShop.CP.UI).
+
+2020-01-16 17:46:44,239 [8] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-16 17:46:44,261 [8] ?     - Executing ViewResult, running view BugReportsList.
+
+2020-01-16 17:46:44,344 [8] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [b].[Id], [b].[AppUserId], [b].[BugReportCategoryId], [b].[DateTime], [b].[Email], [b].[ImgUrl], [b].[Message], [b].[StatusId], [b].[Title], [b0].[Id], [b0].[Description], [b0].[Index], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r].[Id], [r].[Description], [r].[Index]
+FROM [BugReports] AS [b]
+INNER JOIN [BugReportCategories] AS [b0] ON [b].[BugReportCategoryId] = [b0].[Id]
+LEFT JOIN [AspNetUsers] AS [a] ON [b].[AppUserId] = [a].[Id]
+INNER JOIN [ReportStatus] AS [r] ON [b].[StatusId] = [r].[Id]
+ORDER BY [b].[DateTime]
+
+2020-01-16 17:46:44,424 [8] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-16 17:46:44,434 [8] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-16 17:46:44,467 [8] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2020-01-16 17:46:44,506 [8] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-16 17:46:44,535 [8] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2020-01-16 17:46:44,660 [8] ?     - Executed ViewResult - view BugReportsList executed in 401.2503ms.
+
+2020-01-16 17:46:44,662 [8] ?     - Executed action EasyShop.CP.UI.Controllers.AdminController.BugReportsList (EasyShop.CP.UI) in 445.8624ms
+
+2020-01-16 17:46:44,663 [8] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AdminController.BugReportsList (EasyShop.CP.UI)'
+
+2020-01-16 17:46:44,669 [8] ?     - Request finished in 592.0442ms 200 text/html; charset=utf-8
+
+2020-01-16 17:46:48,348 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/Notification/NotificationList  
+
+2020-01-16 17:46:48,355 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.NotificationController.NotificationList (EasyShop.CP.UI)'
+
+2020-01-16 17:46:48,358 [4] ?     - Route matched with {action = "NotificationList", controller = "Notification"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult NotificationList() on controller EasyShop.CP.UI.Controllers.NotificationController (EasyShop.CP.UI).
+
+2020-01-16 17:46:48,361 [4] ?     - Executing ViewResult, running view NotificationList.
+
+2020-01-16 17:46:48,392 [4] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-16 17:46:48,396 [4] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-16 17:46:48,399 [4] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-16 17:46:48,402 [4] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2020-01-16 17:46:48,407 [4] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-16 17:46:48,412 [4] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2020-01-16 17:46:48,417 [4] ?     - Executed ViewResult - view NotificationList executed in 56.4102ms.
+
+2020-01-16 17:46:48,418 [4] ?     - Executed action EasyShop.CP.UI.Controllers.NotificationController.NotificationList (EasyShop.CP.UI) in 58.9208ms
+
+2020-01-16 17:46:48,419 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.NotificationController.NotificationList (EasyShop.CP.UI)'
+
+2020-01-16 17:46:48,421 [4] ?     - Request finished in 73.5108ms 200 text/html; charset=utf-8
+

@@ -11,7 +11,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "https://localhost:44374/Admin/BugReportsList",
+      "launchUrl": "https://localhost:44374/Notification/EditNotification",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

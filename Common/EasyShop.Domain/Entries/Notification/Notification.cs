@@ -18,6 +18,8 @@ namespace EasyShop.Domain.Entries.Notification
 
         public string Link { get; set; }
 
+        public DateTime DateTimeCreated { get; set; }
+
         public ICollection<UserNotification> UserNotifications { get; set; }
     }
 }

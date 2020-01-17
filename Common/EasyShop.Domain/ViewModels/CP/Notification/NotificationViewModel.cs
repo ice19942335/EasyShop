@@ -6,7 +6,7 @@ namespace EasyShop.Domain.ViewModels.CP.Notification
 {
     public class NotificationViewModel
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
 
         public string Title { get; set; }
 
@@ -17,5 +17,9 @@ namespace EasyShop.Domain.ViewModels.CP.Notification
         public string Link { get; set; }
 
         public bool Reviewed { get; set; }
+
+        public DateTime DateTimeCreated { get; set; }
+
+        public bool Updated { get; set; }
     }
 }

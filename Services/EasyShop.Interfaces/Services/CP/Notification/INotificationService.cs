@@ -3,18 +3,21 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Identity;
+using EasyShop.Domain.Enums.CP.Notification;
 using EasyShop.Domain.ViewModels.CP.Notification;
 
 namespace EasyShop.Interfaces.Services.CP.Notification
 {
     public interface INotificationService
     {
-        Task<bool> Update(NotificationViewModel model);
+        Task<NotificationResultEnum> Update(NotificationViewModel model);
 
-        IEnumerable<Domain.Entries.Notification.Notification> GetAllNotifications();
+        Task<IEnumerable<Domain.Entries.Notification.Notification>> GetAllNotifications();
+
+        Task<IEnumerable<Domain.Entries.Notification.Notification>> GetLastTenNotifications();
 
         Domain.Entries.Notification.Notification GetNotificationById(Guid notificationId);
 
-        bool IsItViewedNotification(AppUser user, Domain.Entries.Notification.Notification notification);
+        Task<bool> IsNotificationReviewed(Domain.Entries.Notification.Notification notification);
     }
 }

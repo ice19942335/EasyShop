@@ -16,6 +16,7 @@
     @await Html.PartialAsync("Partial/_ControlPanelSharedScripts")
 
     @section Styles {
+        <link href="~/css/custom/Notifications/notifications.css" rel="stylesheet" asp-append-version="true" />
         @RenderSection("Styles", false)
     }
 

@@ -1,0 +1,17 @@
+﻿@using EasyShop.Domain.Entries.Identity
+@using EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Identity.UI.V3.Pages.Internal.Account
+@model IEnumerable<EasyShop.Domain.ViewModels.CP.Notification.NotificationViewModel>
+@inject UserManager<AppUser> UserManager
+@{
+    ViewData["Title"] = "Notifications";
+    Layout = "_ControlPanelLayout";
+
+    var user = await UserManager.FindByEmailAsync(User.Identity.Name);
+}
+
+@if (await UserManager.IsInRoleAsync(user, DefaultIdentity.RoleAdmin))
+{
+    <a asp-area="" asp-controller="Notification" asp-action="EditNotification" class="btn btn-default">Create notification</a>
+}
