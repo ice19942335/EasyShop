@@ -36,18 +36,18 @@ namespace EasyShop.CP.UI.Controllers
             });
 
             /////////////////------------------------------------------------------------------------------------------
-            int pageSize = 3;
+            int pageSize = 2;
             var allNotificationCount = notificationsViewModelsList.Count();
             var notificationsInPage = notificationsViewModelsList.Skip((page - 1) * pageSize).Take(pageSize).ToList();
 
-            PageViewModel pageModel = new PageViewModel(allNotificationCount, page, pageSize);
+            NotificationPageViewModel notificationPageModel = new NotificationPageViewModel(allNotificationCount, page, pageSize);
             /////////////////------------------------------------------------------------------------------------------
 
             var model = new NotificationsListViewModel
             {
                 NotificationViewModels = notificationsInPage,
                 Url = Url.Action("MarkAsRead", "Notification", new {}, HttpContext.Request.Scheme),
-                PageViewModel = pageModel
+                NotificationPageViewModel = notificationPageModel
             };
 
             return View(model);
@@ -91,7 +91,7 @@ namespace EasyShop.CP.UI.Controllers
             return RedirectToAction("SomethingWentWrong", "ControlPanel");
         }
 
-        public async Task<IActionResult> MarkAsRead(string notificationId)
+        public IActionResult MarkAsRead(string notificationId)
         {
             return NoContent();
         }

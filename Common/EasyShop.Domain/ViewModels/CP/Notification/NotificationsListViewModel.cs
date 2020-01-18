@@ -10,6 +10,6 @@ namespace EasyShop.Domain.ViewModels.CP.Notification
 
         public string Url { get; set; }
 
-        public PageViewModel PageViewModel { get; set; }
+        public NotificationPageViewModel NotificationPageViewModel { get; set; }
     }
 }

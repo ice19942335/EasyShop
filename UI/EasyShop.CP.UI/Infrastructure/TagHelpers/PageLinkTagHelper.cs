@@ -24,9 +24,7 @@ namespace EasyShop.CP.UI.Infrastructure.TagHelpers
         [HtmlAttributeNotBound]
         public ViewContext ViewContext { get; set; }
 
-        public PageViewModel PageModel { get; set; }
-
-        public string PageAction { get; set; }
+        public NotificationPageViewModel NotificationPageModel { get; set; }
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
@@ -36,44 +34,109 @@ namespace EasyShop.CP.UI.Infrastructure.TagHelpers
             TagBuilder tag = new TagBuilder("ul");
             tag.AddCssClass("pagination");
 
-            // creating three links previous, current, next
-            TagBuilder currentItem = CreateTag(PageModel.PageNumber, urlHelper);
+            //Create increment link
+            TagBuilder decrement = CreateIncrementDecrementTag(NotificationPageModel.PageNumber, urlHelper, "decrement");
+            tag.InnerHtml.AppendHtml(decrement);
 
-            // creating link for previous page if exist
-            if (PageModel.HasPreviousPage)
+            //Creating link for previous page if exist
+            if (NotificationPageModel.HasPreviousPage)
             {
-                TagBuilder prevItem = CreateTag(PageModel.PageNumber - 1, urlHelper);
+                TagBuilder prevItem = CreateTag(NotificationPageModel.PageNumber - 1, urlHelper);
                 tag.InnerHtml.AppendHtml(prevItem);
             }
 
+            //Current page
+            TagBuilder currentItem = CreateTag(NotificationPageModel.PageNumber, urlHelper);
             tag.InnerHtml.AppendHtml(currentItem);
-            // creating link for next page if exist
-            if (PageModel.HasNextPage)
+
+            //Creating link for next page if exist
+            if (NotificationPageModel.HasNextPage)
             {
-                TagBuilder nextItem = CreateTag(PageModel.PageNumber + 1, urlHelper);
+                TagBuilder nextItem = CreateTag(NotificationPageModel.PageNumber + 1, urlHelper);
                 tag.InnerHtml.AppendHtml(nextItem);
             }
+
+            //Create decrement link
+            TagBuilder increment = CreateIncrementDecrementTag(NotificationPageModel.PageNumber, urlHelper, "increment");
+            tag.InnerHtml.AppendHtml(increment);
+
             output.Content.AppendHtml(tag);
         }
 
         private TagBuilder CreateTag(int pageNumber, IUrlHelper urlHelper)
         {
-
             TagBuilder item = new TagBuilder("li");
             TagBuilder link = new TagBuilder("a");
 
-            if (pageNumber == PageModel.PageNumber)
+            if (pageNumber == NotificationPageModel.PageNumber)
                 item.AddCssClass("active");
             else
-                link.Attributes["href"] = urlHelper.Action("NotificationList", "Notification", new { page = pageNumber }, ViewContext.HttpContext.Request.Scheme);
+            {
+                link.Attributes["href"] = urlHelper.Action(
+                    "NotificationList",
+                    "Notification",
+                    new { page = pageNumber },
+                    ViewContext.HttpContext.Request.Scheme);
+            }
 
 
             item.AddCssClass("paginate_button");
-            item.AddCssClass("previous");
-
             link.InnerHtml.Append(pageNumber.ToString());
             item.InnerHtml.AppendHtml(link);
             return item;
         }
+
+        private TagBuilder CreateIncrementDecrementTag(int pageNumber, IUrlHelper urlHelper, string key)
+        {
+            TagBuilder item = new TagBuilder("li");
+            TagBuilder link = new TagBuilder("a");
+
+            item.AddCssClass("paginate_button");
+
+            if (key == "decrement")
+            {
+                item.AddCssClass("previous");
+
+                if (NotificationPageModel.HasPreviousPage)
+                {
+                    link.Attributes["href"] = urlHelper.Action(
+                        "NotificationList",
+                        "Notification",
+                        new { page = --pageNumber },
+                        ViewContext.HttpContext.Request.Scheme);
+                }
+                else
+                {
+                    item.AddCssClass("disabled");
+                }
+
+                link.InnerHtml.Append("«");
+            }
+
+
+            if (key == "increment")
+            {
+                item.AddCssClass("next");
+
+                if (NotificationPageModel.HasNextPage)
+                {
+                    link.Attributes["href"] = urlHelper.Action(
+                        "NotificationList",
+                        "Notification",
+                        new { page = ++pageNumber },
+                        ViewContext.HttpContext.Request.Scheme);
+                }
+                else
+                {
+                    item.AddCssClass("disabled");
+                }
+
+                link.InnerHtml.Append("»");
+            }
+
+            item.InnerHtml.AppendHtml(link);
+            return item;
+        }
     }
+
 }
