@@ -56,7 +56,6 @@ namespace EasyShop.Services.Email
                 smtp.EnableSsl = true;
                 await smtp.SendMailAsync(mail);
 
-                
                 _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
                     userForLog != null ? userForLog.UserName : "Null",
                     userForLog != null ? userForLog.Id : "Null",

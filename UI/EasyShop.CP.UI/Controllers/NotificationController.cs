@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EasyShop.CP.UI.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin,User")]
     public class NotificationController : Controller
     {
         private readonly INotificationService _notificationService;
@@ -21,7 +21,6 @@ namespace EasyShop.CP.UI.Controllers
             _notificationService = notificationService;
         }
 
-        [Authorize(Roles = "Admin,User")]
         public IActionResult NotificationList()
         {
             var allNotifications = _notificationService.GetAllNotifications().Result;
@@ -37,12 +36,13 @@ namespace EasyShop.CP.UI.Controllers
             var model = new NotificationsListViewModel
             {
                 NotificationViewModels = notificationsViewModelsList,
-                Url = Url.Action("MarkAsRead", "Notification", new { notificationId = "null"}, HttpContext.Request.Scheme)
+                Url = Url.Action("MarkAsRead", "Notification", new {}, HttpContext.Request.Scheme)
             };
 
             return View(model);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> EditNotification(string notificationId, bool updated = false)
         {
@@ -58,6 +58,7 @@ namespace EasyShop.CP.UI.Controllers
             return View(model);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> EditNotification([FromForm] NotificationViewModel model)
         {
@@ -79,10 +80,9 @@ namespace EasyShop.CP.UI.Controllers
             return RedirectToAction("SomethingWentWrong", "ControlPanel");
         }
 
-        [HttpPost]
         public async Task<IActionResult> MarkAsRead(string notificationId)
         {
-            throw new NotImplementedException();
+            return NoContent();
         }
     }
 }

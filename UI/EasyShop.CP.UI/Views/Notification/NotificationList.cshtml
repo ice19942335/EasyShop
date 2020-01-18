@@ -13,42 +13,33 @@
 
 @if (await UserManager.IsInRoleAsync(user, DefaultIdentity.RoleAdmin))
 {
-    <a asp-area="" asp-controller="Notification" asp-action="EditNotification" class="btn btn-default">Create notification</a>
+    <a asp-area="" asp-controller="Notification" asp-action="EditNotification" class="btn btn-default m-l-md">Create notification</a>
 }
 
-<input asp-for="Url" hidden disabled/>
+<input id="url" asp-for="Url" hidden disabled />
 
-<div style="min-height: 100%" class="m-t-md">
-    <div class="row">
-        <h2 class="text-center">Notifications</h2>
-        <a asp-area="" asp-controller="Notification" asp-action="MarkAllAsRead" class="btn btn-default pull-lg-right m-r-md">Mark all as read</a>
-        <div class="col-lg-12 m-t-md">
-            <div style="min-height: 100%">
-                <ul class="list-group list-group-divided">
-                    @foreach (var notification in Model.NotificationViewModels)
-                    {
-                        <li class="@(notification.Reviewed ? @"disabled" : "") list-group-item">
-                            <h4>@notification.Title</h4>
-                            <p>@notification.Message</p>
-                            @if (!notification.Reviewed)
-                            {
-                                <div id="markAsRead" class="pull-right">
-                                    <label class="custom-control custom-control-default custom-checkbox">
-                                        <input id="agree" class="custom-control-input" type="checkbox">
-                                        <span class="custom-control-indicator"></span>
-                                        <small class="custom-control-label">Mark as read</small>
-                                    </label>
-                                </div>
-                            }
-                            <br />
-                            <small><a href="@notification.Link">@notification.LinkTitle</a></small>
-                        </li>
-                    }
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+
+<h2 class="text-center m-t-md">Notifications</h2>
+<a asp-area="" asp-controller="Notification" asp-action="MarkAllAsRead" class="btn btn-default m-l-md">Mark all as read</a>
+
+<ul id="notificationsList" class="list-group list-group-divided">
+    @foreach (var notification in Model.NotificationViewModels)
+    {
+        <li class="@(notification.Reviewed ? @"disabled" : "") list-group-item">
+            <h4>@notification.Title</h4>
+            <p>@notification.Message</p>
+            @if (!notification.Reviewed)
+            {
+                <a class="pull-right" data-notificationId="@notification.Id" href="#" id="markAsRead">Mark as read</a>
+            }
+            <br />
+            <small><a href="@notification.Link">@notification.LinkTitle</a></small>
+        </li>
+    }
+</ul>
+
+
+
 
 @section Styles
 {
