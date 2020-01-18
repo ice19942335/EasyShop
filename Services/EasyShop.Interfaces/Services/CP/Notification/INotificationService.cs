@@ -19,5 +19,6 @@ namespace EasyShop.Interfaces.Services.CP.Notification
         Domain.Entries.Notification.Notification GetNotificationById(Guid notificationId);
 
         Task<bool> IsNotificationReviewed(Domain.Entries.Notification.Notification notification);
+        Task<bool> MarkAsReadById(Guid notificationId);
     }
 }

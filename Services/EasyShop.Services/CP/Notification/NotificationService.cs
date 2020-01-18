@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
+using EasyShop.Domain.Entries.Notification;
 using EasyShop.Domain.Enums.CP.Notification;
 using EasyShop.Domain.ViewModels.CP.Notification;
 using EasyShop.Interfaces.Services.CP.Notification;
@@ -107,11 +108,28 @@ namespace EasyShop.Services.CP.Notification
 
             return notificationReview != null;
         }
+
+        public async Task<bool> MarkAsReadById(Guid notificationId)
+        {
+            var notification = _context.Notifications.FirstOrDefault(x => x.Id == notificationId);
+
+            var user = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
+
+            if (notification is null || user is null)
+                return false;
+
+            var newUserNotification = new UserNotification
+            {
+                AppUserId = user.Id,
+                AppUser = user,
+                NotificationId = notification.Id,
+                Notification = notification
+            };
+
+            _context.UserNotifications.Add(newUserNotification);
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
     }
 }
-
-
-//Phrases = bannersPhrases.Select(p => p.Phrase)
-//    .Skip(skip)
-//    .Take(pageSize)
-//    .ToArray();

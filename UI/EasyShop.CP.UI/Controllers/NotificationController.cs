@@ -90,8 +90,13 @@ namespace EasyShop.CP.UI.Controllers
             return RedirectToAction("SomethingWentWrong", "ControlPanel");
         }
 
-        public IActionResult MarkAsRead(string notificationId)
+        public async Task<IActionResult> MarkAsRead(string notificationId)
         {
+            var result = await _notificationService.MarkAsReadById(Guid.Parse(notificationId));
+
+            if (!result)
+                return Problem("Error on marking as read", null, 500);
+
             return NoContent();
         }
     }
