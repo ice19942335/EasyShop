@@ -10,7 +10,7 @@
             <img class="img-responsive" src="~/img/LogoNameSlogan.png" alt="Monetization">
         </a>
         <div class="signup-form">
-            <form method="post" data-toggle="validator" data-groups='{"birthdate": "birth_month birth_day birth_year"}' asp-area="" asp-controller="Account" asp-action="Register">
+            <form onsubmit="return checkForm(this);" method="post" data-toggle="validator" data-groups='{"birthdate": "birth_month birth_day birth_year"}' asp-area="" asp-controller="Account" asp-action="Register">
                 <div asp-validation-summary="ModelOnly" class="stringReplace alert alert-info"></div>
                 <div class="row gutter-xs">
                     <div class="col-sm-6">
@@ -119,7 +119,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn btn-primary btn-block" id="register" type="submit">Sign up</button>
+                <button name="registerButton" class="btn btn-primary btn-block" id="register" type="submit">Sign up</button>
             </form>
         </div>
     </div>
@@ -137,4 +137,12 @@
     @await Html.PartialAsync("Partial/_ValidationScripts")
     <script src="~/js/customScripts/Account/RegistrationFormErrorListStringReplace.js" asp-append-version="true"></script>
     <script src="~/js/customScripts/Account/AccountRegistrationCheckPasswordToBeTheSame.js" asp-append-version="true"></script>
+
+    <script>
+        function checkForm(form)
+        {
+            form.registerButton.disabled = true;
+            return true;
+        }
+    </script>
 }
