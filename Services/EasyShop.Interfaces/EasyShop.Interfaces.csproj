@@ -12,8 +12,4 @@
     <ProjectReference Include="..\..\Common\EasyShop.Domain\EasyShop.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\CP\Notification\" />
-  </ItemGroup>
-
 </Project>

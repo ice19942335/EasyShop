@@ -7,6 +7,7 @@ using EasyShop.Interfaces.Services.CP.Admin.Tariff;
 using EasyShop.Interfaces.Services.CP.ContactUs;
 using EasyShop.Interfaces.Services.CP.DevBlog;
 using EasyShop.Interfaces.Services.CP.FileImage;
+using EasyShop.Interfaces.Services.CP.Notification;
 using EasyShop.Interfaces.Services.CP.Rust.Dashboard;
 using EasyShop.Interfaces.Services.CP.Rust.Data;
 using EasyShop.Interfaces.Services.CP.Rust.Server;
@@ -17,6 +18,7 @@ using EasyShop.Services.CP.Admin.BugReport;
 using EasyShop.Services.CP.ContactUs;
 using EasyShop.Services.CP.DevBlog;
 using EasyShop.Services.CP.FileImage;
+using EasyShop.Services.CP.Notification;
 using EasyShop.Services.CP.Rust.Dashboard;
 using EasyShop.Services.CP.Rust.Data;
 using EasyShop.Services.CP.Rust.Server;
@@ -36,6 +38,7 @@ namespace EasyShop.CP.UI.Installers
         public void InstallServices(IServiceCollection services, IConfiguration configuration)
         {
             //Transient ------------------------------------------------------------------------------
+
             //Profile services
             services.AddTransient<IUserProfileService, UserProfileService>();
 
@@ -70,8 +73,12 @@ namespace EasyShop.CP.UI.Installers
             //AdminBugReportsService
             services.AddTransient<IAdminBugReportsService, AdminBugReportsService>();
 
+            //Notification services
+            services.AddTransient<INotificationService, NotificationService>();
+            
 
             //Scooped ---------------------------------------------------------------------------------
+
             //Account services
             services.AddScoped<IAccountService, AccountService>();
 

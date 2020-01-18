@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace EasyShop.Domain.Entries.Notification
+namespace EasyShop.Domain.ViewModels.CP.Notification
 {
-    [Table("Notifications")]
-    public class Notification
+    public class NotificationViewModel
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
 
         public string Title { get; set; }
 
@@ -18,8 +16,10 @@ namespace EasyShop.Domain.Entries.Notification
 
         public string Link { get; set; }
 
+        public bool Reviewed { get; set; }
+
         public DateTime DateTimeCreated { get; set; }
 
-        public ICollection<UserNotification> UserNotifications { get; set; }
+        public bool Updated { get; set; }
     }
 }
