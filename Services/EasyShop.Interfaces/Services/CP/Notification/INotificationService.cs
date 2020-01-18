@@ -10,15 +10,20 @@ namespace EasyShop.Interfaces.Services.CP.Notification
 {
     public interface INotificationService
     {
-        Task<NotificationResultEnum> Update(NotificationViewModel model);
+        Task<NotificationResultEnum> UpdateAsync(NotificationViewModel model);
 
-        Task<IEnumerable<Domain.Entries.Notification.Notification>> GetAllNotifications();
+        Task<IEnumerable<Domain.Entries.Notification.Notification>> GetAllNotificationsAsync();
 
-        Task<IEnumerable<Domain.Entries.Notification.Notification>> GetLastTenNotifications();
+        Task<IEnumerable<Domain.Entries.Notification.Notification>> GetLastTenNotificationsAsync();
 
         Domain.Entries.Notification.Notification GetNotificationById(Guid notificationId);
 
         Task<bool> IsNotificationReviewed(Domain.Entries.Notification.Notification notification);
-        Task<bool> MarkAsReadById(Guid notificationId);
+
+        Task<bool> MarkAsReadByIdAsync(Guid notificationId);
+
+        Task MarkAllAsReadAsync();
+
+        Task<bool> DeleteNotificationAsync(Guid notificationId);
     }
 }

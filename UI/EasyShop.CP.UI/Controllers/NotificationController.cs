@@ -25,7 +25,7 @@ namespace EasyShop.CP.UI.Controllers
 
         public IActionResult NotificationList(int page = 1)
         {
-            var allNotifications = _notificationService.GetAllNotifications().Result;
+            var allNotifications = _notificationService.GetAllNotificationsAsync().Result;
 
             IEnumerable<NotificationViewModel> notificationsViewModels = allNotifications.Select(x =>
             {
@@ -79,7 +79,7 @@ namespace EasyShop.CP.UI.Controllers
                 return View(model);
             }
 
-            var result = await _notificationService.Update(model);
+            var result = await _notificationService.UpdateAsync(model);
 
             if (result == NotificationResultEnum.Updated)
                 return RedirectToAction("EditNotification", "Notification", new { updated = true });
@@ -92,12 +92,29 @@ namespace EasyShop.CP.UI.Controllers
 
         public async Task<IActionResult> MarkAsRead(string notificationId)
         {
-            var result = await _notificationService.MarkAsReadById(Guid.Parse(notificationId));
+            var result = await _notificationService.MarkAsReadByIdAsync(Guid.Parse(notificationId));
 
             if (!result)
-                return Problem("Error on marking as read", null, 500);
+                return Problem("Error on marking as read execution", null, 500);
 
             return NoContent();
+        }
+
+        public async Task<IActionResult> MarkAllAsRead()
+        {
+            await _notificationService.MarkAllAsReadAsync();
+
+            return RedirectToAction("NotificationList", "Notification");
+        }
+
+        public async Task<IActionResult> DeleteNotification(string notificationId)
+        {
+            var result = await _notificationService.DeleteNotificationAsync(Guid.Parse(notificationId));
+
+            if (!result)
+                return RedirectToAction("SomethingWentWrong", "ControlPanel");
+
+            return RedirectToAction("NotificationList", "Notification");
         }
     }
 }

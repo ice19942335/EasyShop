@@ -21,7 +21,7 @@ namespace EasyShop.CP.UI.Components.ControlPanel.NavBar
 
         public IViewComponentResult Invoke()
         {
-            var allNotifications = _notificationService.GetLastTenNotifications().Result;
+            var allNotifications = _notificationService.GetLastTenNotificationsAsync().Result;
 
             var notificationsViewModelsList = allNotifications.Select(x =>
             {
