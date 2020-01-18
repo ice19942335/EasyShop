@@ -24,7 +24,17 @@ namespace EasyShop.CP.UI.Controllers
         [Authorize(Roles = "Admin,User")]
         public IActionResult NotificationList()
         {
-            return View();
+            var allNotifications = _notificationService.GetAllNotifications().Result;
+
+            var notificationsViewModelsList = allNotifications.Select(x =>
+            {
+                var isNotificationReviewed = _notificationService.IsNotificationReviewed(x).Result;
+                var notificationModel = x.CreateNotificationViewModel(isNotificationReviewed);
+
+                return notificationModel;
+            });
+
+            return View(notificationsViewModelsList);
         }
 
         [HttpGet]

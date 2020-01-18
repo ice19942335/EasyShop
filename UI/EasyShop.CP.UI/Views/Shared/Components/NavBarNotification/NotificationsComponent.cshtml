@@ -22,7 +22,7 @@
                 @{
                     foreach (var notification in Model)
                     {
-                        <a class="list-group-item notification-overlay-parent" href="#">
+                        <a class="list-group-item notification-overlay-parent" asp-area="" asp-controller="Notification" asp-action="NotificationList">
                             <div class="notification">
                                 @if (notification.Reviewed)
                                 {
