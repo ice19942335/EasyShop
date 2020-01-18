@@ -1,9 +1,12 @@
 ﻿@using EasyShop.Domain.Entries.Identity
 @using EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization
+@using Microsoft.AspNetCore.Http
 @using Microsoft.AspNetCore.Identity
 @using Microsoft.AspNetCore.Identity.UI.V3.Pages.Internal.Account
 @model EasyShop.Domain.ViewModels.CP.Notification.NotificationsListViewModel
 @inject UserManager<AppUser> UserManager
+@inject IUrlHelper UrlHelper
+@inject IHttpContextAccessor HttpContextAccessor
 @{
     ViewData["Title"] = "Notifications";
     Layout = "_ControlPanelLayout";
@@ -25,57 +28,65 @@
 <ul id="notificationsList" class="list-group list-group-divided">
     @foreach (var notification in Model.NotificationViewModels)
     {
-    <li class="@(notification.Reviewed ? @"disabled" : "") list-group-item">
-        <small class="notification-timestamp pull-right">
-            @{
-                var dateSpan = DateTime.Now.Subtract(notification.DateTimeCreated);
+        <li class="@(notification.Reviewed ? @"disabled" : "") list-group-item">
+            <small class="notification-timestamp pull-right">
+                @{
+                    var dateSpan = DateTime.Now.Subtract(notification.DateTimeCreated);
 
-                if (dateSpan.Minutes < 1)
-                {
-                    @dateSpan.Seconds.ToString()
-                    <small> sec</small>
+                    if (dateSpan.Minutes < 1)
+                    {
+                        @dateSpan.Seconds.ToString()
+                        <small> sec</small>
+                    }
+                    else if (dateSpan.Hours < 1)
+                    {
+                        @dateSpan.Minutes.ToString()
+                        <small> min</small>
+                    }
+                    else if (dateSpan.Days < 1)
+                    {
+                        @dateSpan.Hours.ToString()
+                        <small> hr</small>
+                    }
+                    else
+                    {
+                        @dateSpan.Days.ToString()
+                        <small> day(s)</small>
+                    }
                 }
-                else if (dateSpan.Hours < 1)
-                {
-                    @dateSpan.Minutes.ToString()
-                    <small> min</small>
-                }
-                else if (dateSpan.Days < 1)
-                {
-                    @dateSpan.Hours.ToString()
-                    <small> hr</small>
-                }
-                else
-                {
-                    @dateSpan.Days.ToString()
-                    <small> day(s)</small>
-                }
+            </small>
+            <h4>@notification.Title</h4>
+            <p>@notification.Message</p>
+            @if (!notification.Reviewed)
+            {
+                <a class="pull-right"
+                   data-notificationId="@notification.Id"
+                   asp-area="" asp-controller="Notification"
+                   asp-action="MarkAsRead"
+                   asp-route-notificationId="@notification.Id"
+                   asp-route-page="@Model.NotificationPageViewModel.PageNumber"
+                   id="markAsRead">
+                    Mark as read
+                </a>
             }
-        </small>
-        <h4>@notification.Title</h4>
-        <p>@notification.Message</p>
-        @if (!notification.Reviewed)
-        {
-            <a class="pull-right" data-notificationId="@notification.Id" href="#" id="markAsRead">Mark as read</a>
-        }
-        <br />
-        <small><a href="@notification.Link">@notification.LinkTitle</a></small>
-
-        @if (await UserManager.IsInRoleAsync(user, DefaultIdentity.RoleAdmin))
-        {
             <br />
-            <a asp-area="" asp-controller="Notification" asp-action="EditNotification" asp-route-notificationId="@notification.Id" style="outline: none; border: none;" class="btn btn-default m-t-lg">Edit</a>
-            <div>
-                <span id="confirmButton_@notification.Id">
-                    <a onclick="deleteConfirmationDialog('@notification.Id', true)" style="background-color: red; outline: none; border: none;" class="btn btn-default m-t-sm">Delete</a>
-                </span>
-                <span style="display: none" id="confirmSpan_@notification.Id">
-                    <a asp-area="" asp-controller="Notification" asp-action="DeleteNotification" asp-route-notificationId="@notification.Id" style="background-color: #75ac00; outline: none; border: none;" class="btn btn-default m-t-sm">Yes</a>
-                    <a onclick="deleteConfirmationDialog('@notification.Id', false)" style="background-color: red; outline: none; border: none;" class="btn btn-default m-t-sm">No</a>
-                </span>
-            </div>
-        }
-    </li>
+            <small><a href="@notification.Link">@notification.LinkTitle</a></small>
+
+            @if (await UserManager.IsInRoleAsync(user, DefaultIdentity.RoleAdmin))
+            {
+                <br />
+                <a asp-area="" asp-controller="Notification" asp-action="EditNotification" asp-route-notificationId="@notification.Id" style="outline: none; border: none;" class="btn btn-default m-t-lg">Edit</a>
+                <div>
+                    <span id="confirmButton_@notification.Id">
+                        <a onclick="deleteConfirmationDialog('@notification.Id', true)" style="background-color: red; outline: none; border: none;" class="btn btn-default m-t-sm">Delete</a>
+                    </span>
+                    <span style="display: none" id="confirmSpan_@notification.Id">
+                        <a asp-area="" asp-controller="Notification" asp-action="DeleteNotification" asp-route-notificationId="@notification.Id" style="background-color: #75ac00; outline: none; border: none;" class="btn btn-default m-t-sm">Yes</a>
+                        <a onclick="deleteConfirmationDialog('@notification.Id', false)" style="background-color: red; outline: none; border: none;" class="btn btn-default m-t-sm">No</a>
+                    </span>
+                </div>
+            }
+        </li>
     }
 </ul>
 
@@ -98,6 +109,5 @@
 @section Scripts
 {
     <script src="~/js/demo.min.js" asp-append-version="true"></script>
-    <script src="~/js/customScripts/Notifications/notifications.js" asp-append-version="true"></script>
     <script src="~/js/customScripts/DeleteConfirmationDialog.js" asp-append-version="true"></script>
 }

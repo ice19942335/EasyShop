@@ -45,7 +45,7 @@ namespace EasyShop.CP.UI.Controllers
             var model = new NotificationsListViewModel
             {
                 NotificationViewModels = notificationsInPage,
-                Url = Url.Action("MarkAsRead", "Notification", new {}, HttpContext.Request.Scheme),
+                Url = Url.Action("MarkAsRead", "Notification", new { }, HttpContext.Request.Scheme),
                 NotificationPageViewModel = notificationPageModel
             };
 
@@ -90,14 +90,14 @@ namespace EasyShop.CP.UI.Controllers
             return RedirectToAction("SomethingWentWrong", "ControlPanel");
         }
 
-        public async Task<IActionResult> MarkAsRead(string notificationId)
+        public async Task<IActionResult> MarkAsRead(string notificationId, int page)
         {
             var result = await _notificationService.MarkAsReadByIdAsync(Guid.Parse(notificationId));
 
             if (!result)
                 return Problem("Error on marking as read execution", null, 500);
 
-            return NoContent();
+            return RedirectToAction("NotificationList", "Notification", new { page = page });
         }
 
         public async Task<IActionResult> MarkAllAsRead()
