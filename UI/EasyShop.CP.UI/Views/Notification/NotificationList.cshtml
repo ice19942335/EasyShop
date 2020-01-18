@@ -2,7 +2,7 @@
 @using EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization
 @using Microsoft.AspNetCore.Identity
 @using Microsoft.AspNetCore.Identity.UI.V3.Pages.Internal.Account
-@model IEnumerable<EasyShop.Domain.ViewModels.CP.Notification.NotificationViewModel>
+@model EasyShop.Domain.ViewModels.CP.Notification.NotificationsListViewModel
 @inject UserManager<AppUser> UserManager
 @{
     ViewData["Title"] = "Notifications";
@@ -16,6 +16,8 @@
     <a asp-area="" asp-controller="Notification" asp-action="EditNotification" class="btn btn-default">Create notification</a>
 }
 
+<input asp-for="Url" hidden disabled/>
+
 <div style="min-height: 100%" class="m-t-md">
     <div class="row">
         <h2 class="text-center">Notifications</h2>
@@ -23,14 +25,14 @@
         <div class="col-lg-12 m-t-md">
             <div style="min-height: 100%">
                 <ul class="list-group list-group-divided">
-                    @foreach (var notification in Model)
+                    @foreach (var notification in Model.NotificationViewModels)
                     {
                         <li class="@(notification.Reviewed ? @"disabled" : "") list-group-item">
                             <h4>@notification.Title</h4>
                             <p>@notification.Message</p>
                             @if (!notification.Reviewed)
                             {
-                                <div class="pull-right">
+                                <div id="markAsRead" class="pull-right">
                                     <label class="custom-control custom-control-default custom-checkbox">
                                         <input id="agree" class="custom-control-input" type="checkbox">
                                         <span class="custom-control-indicator"></span>
@@ -56,4 +58,5 @@
 @section Scripts
 {
     <script src="~/js/demo.min.js" asp-append-version="true"></script>
+    <script src="~/js/customScripts/Notifications/notifications.js" asp-append-version="true"></script>
 }

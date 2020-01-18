@@ -34,7 +34,13 @@ namespace EasyShop.CP.UI.Controllers
                 return notificationModel;
             });
 
-            return View(notificationsViewModelsList);
+            var model = new NotificationsListViewModel
+            {
+                NotificationViewModels = notificationsViewModelsList,
+                Url = Url.Action("MarkAsRead", "Notification", new { notificationId = "null"}, HttpContext.Request.Scheme)
+            };
+
+            return View(model);
         }
 
         [HttpGet]
@@ -71,6 +77,12 @@ namespace EasyShop.CP.UI.Controllers
                 return RedirectToAction("NotificationList", "Notification");
 
             return RedirectToAction("SomethingWentWrong", "ControlPanel");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> MarkAsRead(string notificationId)
+        {
+            throw new NotImplementedException();
         }
     }
 }
