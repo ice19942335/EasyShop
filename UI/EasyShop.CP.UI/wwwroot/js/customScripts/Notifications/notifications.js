@@ -13,8 +13,6 @@ class Notifications {
         let notList = this.GetListOfNotifications();
 
         for (const item of notList.children) {
-            console.log(item);
-            console.log(item.children.length);
             if (item.children.length === 6) {
                 this.SetEvent(item.children[3]);
             } else if (item.children.length === 9){
