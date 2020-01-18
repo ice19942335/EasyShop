@@ -56,21 +56,14 @@
         <span class="caret"></span>
     </button>
     <ul class="dropdown-menu dropdown-menu-right">
-        @*<li>
-                <a href="upgrade.html">
-                    <h5 class="navbar-upgrade-heading">
-                        Upgrade Now
-                        <small class="navbar-upgrade-notification">You have 15 days left in your trial.</small>
-                    </h5>
-                </a>
-            </li>*@
+
         @{
             if (Model.Roles.Contains(DefaultIdentity.RoleAdmin))
             {
                 <li><a asp-area="" asp-controller="Admin" asp-action="Index">AdminPanel</a></li>
+                <li class="divider"></li>
             }
         }
-        <li class="divider"></li>
         <li class="navbar-upgrade-version">@version</li>
         <li class="divider"></li>
         <li><a asp-area="" asp-controller="DevBlog" asp-action="PostsList">Dev-Blog</a></li>
