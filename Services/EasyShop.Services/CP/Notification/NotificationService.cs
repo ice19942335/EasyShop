@@ -171,5 +171,16 @@ namespace EasyShop.Services.CP.Notification
 
             return true;
         }
+
+        public async Task<int> GetNewNotificationsCount()
+        {
+            int counter = 0;
+
+            foreach (var notification in _context.Notifications)
+                if (!await IsNotificationReviewed(notification))
+                    counter++;
+
+            return counter;
+        }
     }
 }

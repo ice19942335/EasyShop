@@ -25,5 +25,7 @@ namespace EasyShop.Interfaces.Services.CP.Notification
         Task MarkAllAsReadAsync();
 
         Task<bool> DeleteNotificationAsync(Guid notificationId);
+
+        Task<int> GetNewNotificationsCount();
     }
 }
