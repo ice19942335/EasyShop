@@ -27,7 +27,7 @@ namespace EasyShop.CP.UI.Controllers
         {
             var allNotifications = _notificationService.GetAllNotifications().Result;
 
-            var notificationsViewModelsList = allNotifications.Select(x =>
+            IEnumerable<NotificationViewModel> notificationsViewModels = allNotifications.Select(x =>
             {
                 var isNotificationReviewed = _notificationService.IsNotificationReviewed(x).Result;
                 var notificationModel = x.CreateNotificationViewModel(isNotificationReviewed);
@@ -35,13 +35,12 @@ namespace EasyShop.CP.UI.Controllers
                 return notificationModel;
             });
 
-            /////////////////------------------------------------------------------------------------------------------
-            int pageSize = 2;
-            var allNotificationCount = notificationsViewModelsList.Count();
-            var notificationsInPage = notificationsViewModelsList.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+            int pageSize = 10;
+            var notificationViewModelsList = notificationsViewModels.ToList();
+            var allNotificationCount = notificationViewModelsList.Count;
+            var notificationsInPage = notificationViewModelsList.Skip((page - 1) * pageSize).Take(pageSize).ToList();
 
             NotificationPageViewModel notificationPageModel = new NotificationPageViewModel(allNotificationCount, page, pageSize);
-            /////////////////------------------------------------------------------------------------------------------
 
             var model = new NotificationsListViewModel
             {
