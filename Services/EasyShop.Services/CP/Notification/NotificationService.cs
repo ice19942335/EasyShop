@@ -74,6 +74,8 @@ namespace EasyShop.Services.CP.Notification
 
         public async Task<IEnumerable<Domain.Entries.Notification.Notification>> GetAllNotificationsAsync()
         {
+            var user = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
+
             var reviewedNotifications = new List<Domain.Entries.Notification.Notification>();
             var notReviewedNotifications = new List<Domain.Entries.Notification.Notification>();
             var result = new List<Domain.Entries.Notification.Notification>();
@@ -86,6 +88,9 @@ namespace EasyShop.Services.CP.Notification
                     notReviewedNotifications.Add(notification);
             }
 
+            reviewedNotifications = reviewedNotifications.Where(x => x.DateTimeCreated > user.RegistrationDate).ToList();
+            notReviewedNotifications = notReviewedNotifications.Where(x => x.DateTimeCreated > user.RegistrationDate).ToList();
+
             reviewedNotifications = reviewedNotifications.OrderByDescending(x => x.DateTimeCreated).ToList();
             notReviewedNotifications = notReviewedNotifications.OrderByDescending(x => x.DateTimeCreated).ToList();
 
@@ -94,7 +99,6 @@ namespace EasyShop.Services.CP.Notification
 
             return result.AsEnumerable();
         }
-            
 
         public Domain.Entries.Notification.Notification GetNotificationById(Guid notificationId) =>
             _context.Notifications.FirstOrDefault(x => x.Id == notificationId);
@@ -163,7 +167,7 @@ namespace EasyShop.Services.CP.Notification
         {
             var notification = _context.Notifications.FirstOrDefault(x => x.Id == notificationId);
 
-            if(notification is null)
+            if (notification is null)
                 return false;
 
             _context.Remove(notification);
@@ -175,10 +179,13 @@ namespace EasyShop.Services.CP.Notification
         public async Task<int> GetNewNotificationsCount()
         {
             int counter = 0;
+            var user = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
+
 
             foreach (var notification in _context.Notifications)
-                if (!await IsNotificationReviewed(notification))
-                    counter++;
+                if (notification.DateTimeCreated > user.RegistrationDate)
+                    if (!await IsNotificationReviewed(notification))
+                        counter++;
 
             return counter;
         }
