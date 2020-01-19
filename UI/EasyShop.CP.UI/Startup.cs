@@ -48,6 +48,8 @@ namespace EasyShop.CP.UI
 
             app.UseMiddleware<ErrorHandlingMiddleware>();
 
+            app.UseHttpsRedirection();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
