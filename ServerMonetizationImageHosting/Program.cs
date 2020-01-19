@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace EasyShop.CP.API
+namespace ServerMonetizationImageHosting
 {
     public class Program
     {
