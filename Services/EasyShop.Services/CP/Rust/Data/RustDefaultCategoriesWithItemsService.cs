@@ -936,6 +936,21 @@ namespace EasyShop.Services.CP.Rust.Data
                 {
                     Id = Guid.NewGuid(),
                     RustCategory = userDefaultCategories.First(x => x.Name == "Clothing"),
+                    RustItem = defaultRustItems.FirstOrDefault(x => x.Name == "Party Hat"),
+                    Shop = shop,
+                    AppUser = user,
+                    Name = "Party Hat",
+                    Price = 0,
+                    Amount = 1,
+                    Description = null,
+                    Discount = 0,
+                    BlockedTill = default,
+                    ShowInShop = true,
+                },
+                new RustProduct
+                {
+                    Id = Guid.NewGuid(),
+                    RustCategory = userDefaultCategories.First(x => x.Name == "Clothing"),
                     RustItem = defaultRustItems.FirstOrDefault(x => x.Name == "Hoodie"),
                     Shop = shop,
                     AppUser = user,
@@ -2165,7 +2180,7 @@ namespace EasyShop.Services.CP.Rust.Data
                 new RustProduct
                 {
                     Id = Guid.NewGuid(),
-                    RustCategory = userDefaultCategories.First(x => x.Name == "Cp_Other"),
+                    RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
                     RustItem = defaultRustItems.FirstOrDefault(x => x.Name == "Auto Turret"),
                     Shop = shop,
                     AppUser = user,
@@ -2180,7 +2195,7 @@ namespace EasyShop.Services.CP.Rust.Data
                 new RustProduct
                 {
                     Id = Guid.NewGuid(),
-                    RustCategory = userDefaultCategories.First(x => x.Name == "Cp_Other"),
+                    RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
                     RustItem = defaultRustItems.FirstOrDefault(x => x.Name == "Large Wood Box"),
                     Shop = shop,
                     AppUser = user,
@@ -2195,7 +2210,7 @@ namespace EasyShop.Services.CP.Rust.Data
                 new RustProduct
                 {
                     Id = Guid.NewGuid(),
-                    RustCategory = userDefaultCategories.First(x => x.Name == "Cp_Other"),
+                    RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
                     RustItem = defaultRustItems.FirstOrDefault(x => x.Name == "CCTV Camera"),
                     Shop = shop,
                     AppUser = user,
@@ -2210,7 +2225,7 @@ namespace EasyShop.Services.CP.Rust.Data
                 new RustProduct
                 {
                     Id = Guid.NewGuid(),
-                    RustCategory = userDefaultCategories.First(x => x.Name == "Cp_Other"),
+                    RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
                     RustItem = defaultRustItems.FirstOrDefault(x => x.Name == "Acoustic Guitar"),
                     Shop = shop,
                     AppUser = user,
@@ -2225,7 +2240,7 @@ namespace EasyShop.Services.CP.Rust.Data
                 new RustProduct
                 {
                     Id = Guid.NewGuid(),
-                    RustCategory = userDefaultCategories.First(x => x.Name == "Cp_Other"),
+                    RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
                     RustItem = defaultRustItems.FirstOrDefault(x => x.Name == "Code Lock"),
                     Shop = shop,
                     AppUser = user,
@@ -2240,7 +2255,7 @@ namespace EasyShop.Services.CP.Rust.Data
                 new RustProduct
                 {
                     Id = Guid.NewGuid(),
-                    RustCategory = userDefaultCategories.First(x => x.Name == "Cp_Other"),
+                    RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
                     RustItem = defaultRustItems.FirstOrDefault(x => x.Name == "Targeting Computer"),
                     Shop = shop,
                     AppUser = user,
@@ -2255,7 +2270,7 @@ namespace EasyShop.Services.CP.Rust.Data
                 new RustProduct
                 {
                     Id = Guid.NewGuid(),
-                    RustCategory = userDefaultCategories.First(x => x.Name == "Cp_Other"),
+                    RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
                     RustItem = defaultRustItems.FirstOrDefault(x => x.Name == "Land Mine"),
                     Shop = shop,
                     AppUser = user,
@@ -2375,7 +2390,7 @@ namespace EasyShop.Services.CP.Rust.Data
                 new RustProduct
                 {
                     Id = Guid.NewGuid(),
-                    RustCategory = userDefaultCategories.First(x => x.Name == "Cp_Other"),
+                    RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
                     RustItem = defaultRustItems.FirstOrDefault(x => x.Name == "Flame Turret"),
                     Shop = shop,
                     AppUser = user,
@@ -2390,7 +2405,7 @@ namespace EasyShop.Services.CP.Rust.Data
                 new RustProduct
                 {
                     Id = Guid.NewGuid(),
-                    RustCategory = userDefaultCategories.First(x => x.Name == "Cp_Other"),
+                    RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
                     RustItem = defaultRustItems.FirstOrDefault(x => x.Name == "Tuna Can Lamp"),
                     Shop = shop,
                     AppUser = user,
@@ -2405,7 +2420,7 @@ namespace EasyShop.Services.CP.Rust.Data
                 new RustProduct
                 {
                     Id = Guid.NewGuid(),
-                    RustCategory = userDefaultCategories.First(x => x.Name == "Cp_Other"),
+                    RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
                     RustItem = defaultRustItems.FirstOrDefault(x => x.Name == "Vending Machine"),
                     Shop = shop,
                     AppUser = user,
@@ -2420,7 +2435,7 @@ namespace EasyShop.Services.CP.Rust.Data
                 new RustProduct
                 {
                     Id = Guid.NewGuid(),
-                    RustCategory = userDefaultCategories.First(x => x.Name == "Cp_Other"),
+                    RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
                     RustItem = defaultRustItems.FirstOrDefault(x => x.Name == "Metal Shop Front"),
                     Shop = shop,
                     AppUser = user,
@@ -2435,7 +2450,7 @@ namespace EasyShop.Services.CP.Rust.Data
                 new RustProduct
                 {
                     Id = Guid.NewGuid(),
-                    RustCategory = userDefaultCategories.First(x => x.Name == "Cp_Other"),
+                    RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
                     RustItem = defaultRustItems.FirstOrDefault(x => x.Name == "Fridge"),
                     Shop = shop,
                     AppUser = user,
@@ -2450,7 +2465,7 @@ namespace EasyShop.Services.CP.Rust.Data
                 new RustProduct
                 {
                     Id = Guid.NewGuid(),
-                    RustCategory = userDefaultCategories.First(x => x.Name == "Cp_Other"),
+                    RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
                     RustItem = defaultRustItems.FirstOrDefault(x => x.Name == "Spinning wheel"),
                     Shop = shop,
                     AppUser = user,
@@ -2465,7 +2480,7 @@ namespace EasyShop.Services.CP.Rust.Data
                 new RustProduct
                 {
                     Id = Guid.NewGuid(),
-                    RustCategory = userDefaultCategories.First(x => x.Name == "Cp_Other"),
+                    RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
                     RustItem = defaultRustItems.FirstOrDefault(x => x.Name == "Binoculars"),
                     Shop = shop,
                     AppUser = user,
@@ -2480,7 +2495,7 @@ namespace EasyShop.Services.CP.Rust.Data
                 new RustProduct
                 {
                     Id = Guid.NewGuid(),
-                    RustCategory = userDefaultCategories.First(x => x.Name == "Cp_Other"),
+                    RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
                     RustItem = defaultRustItems.FirstOrDefault(x => x.Name == "Simple Handmade Sight"),
                     Shop = shop,
                     AppUser = user,
@@ -2495,7 +2510,7 @@ namespace EasyShop.Services.CP.Rust.Data
                 new RustProduct
                 {
                     Id = Guid.NewGuid(),
-                    RustCategory = userDefaultCategories.First(x => x.Name == "Cp_Other"),
+                    RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
                     RustItem = defaultRustItems.FirstOrDefault(x => x.Name == "Search Light"),
                     Shop = shop,
                     AppUser = user,
@@ -2510,7 +2525,7 @@ namespace EasyShop.Services.CP.Rust.Data
                 new RustProduct
                 {
                     Id = Guid.NewGuid(),
-                    RustCategory = userDefaultCategories.First(x => x.Name == "Cp_Other"),
+                    RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
                     RustItem = defaultRustItems.FirstOrDefault(x => x.Name == "Scrap"),
                     Shop = shop,
                     AppUser = user,
@@ -2525,7 +2540,7 @@ namespace EasyShop.Services.CP.Rust.Data
                 new RustProduct
                 {
                     Id = Guid.NewGuid(),
-                    RustCategory = userDefaultCategories.First(x => x.Name == "Cp_Other"),
+                    RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
                     RustItem = defaultRustItems.FirstOrDefault(x => x.Name == "Mail Box"),
                     Shop = shop,
                     AppUser = user,
@@ -2540,7 +2555,7 @@ namespace EasyShop.Services.CP.Rust.Data
                 new RustProduct
                 {
                     Id = Guid.NewGuid(),
-                    RustCategory = userDefaultCategories.First(x => x.Name == "Cp_Other"),
+                    RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
                     RustItem = defaultRustItems.FirstOrDefault(x => x.Name == "Water Jug"),
                     Shop = shop,
                     AppUser = user,
@@ -2555,7 +2570,7 @@ namespace EasyShop.Services.CP.Rust.Data
                 new RustProduct
                 {
                     Id = Guid.NewGuid(),
-                    RustCategory = userDefaultCategories.First(x => x.Name == "Cp_Other"),
+                    RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
                     RustItem = defaultRustItems.FirstOrDefault(x => x.Name == "Drop Box"),
                     Shop = shop,
                     AppUser = user,
@@ -2570,7 +2585,7 @@ namespace EasyShop.Services.CP.Rust.Data
                 new RustProduct
                 {
                     Id = Guid.NewGuid(),
-                    RustCategory = userDefaultCategories.First(x => x.Name == "Cp_Other"),
+                    RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
                     RustItem = defaultRustItems.FirstOrDefault(x => x.Name == "Shotgun Trap"),
                     Shop = shop,
                     AppUser = user,
@@ -2585,7 +2600,7 @@ namespace EasyShop.Services.CP.Rust.Data
                 new RustProduct
                 {
                     Id = Guid.NewGuid(),
-                    RustCategory = userDefaultCategories.First(x => x.Name == "Cp_Other"),
+                    RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
                     RustItem = defaultRustItems.FirstOrDefault(x => x.Name == "Glowing Eyes"),
                     Shop = shop,
                     AppUser = user,
@@ -2600,7 +2615,7 @@ namespace EasyShop.Services.CP.Rust.Data
                 new RustProduct
                 {
                     Id = Guid.NewGuid(),
-                    RustCategory = userDefaultCategories.First(x => x.Name == "Cp_Other"),
+                    RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
                     RustItem = defaultRustItems.FirstOrDefault(x => x.Name == "Scarecrow"),
                     Shop = shop,
                     AppUser = user,
@@ -2615,7 +2630,7 @@ namespace EasyShop.Services.CP.Rust.Data
                 new RustProduct
                 {
                     Id = Guid.NewGuid(),
-                    RustCategory = userDefaultCategories.First(x => x.Name == "Cp_Other"),
+                    RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
                     RustItem = defaultRustItems.FirstOrDefault(x => x.Name == "Skull Fire Pit"),
                     Shop = shop,
                     AppUser = user,
@@ -2630,7 +2645,7 @@ namespace EasyShop.Services.CP.Rust.Data
                 new RustProduct
                 {
                     Id = Guid.NewGuid(),
-                    RustCategory = userDefaultCategories.First(x => x.Name == "Cp_Other"),
+                    RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
                     RustItem = defaultRustItems.FirstOrDefault(x => x.Name == "Barbeque"),
                     Shop = shop,
                     AppUser = user,
@@ -2645,7 +2660,7 @@ namespace EasyShop.Services.CP.Rust.Data
                 new RustProduct
                 {
                     Id = Guid.NewGuid(),
-                    RustCategory = userDefaultCategories.First(x => x.Name == "Cp_Other"),
+                    RustCategory = userDefaultCategories.First(x => x.Name == "Other"),
                     RustItem = defaultRustItems.FirstOrDefault(x => x.Name == "Flashlight"),
                     Shop = shop,
                     AppUser = user,
@@ -2955,21 +2970,6 @@ namespace EasyShop.Services.CP.Rust.Data
                     Description = null,
                     Discount = 0,
                     BlockedTill = default, 
-                    ShowInShop = true,
-                },
-                new RustProduct
-                {
-                    Id = Guid.NewGuid(),
-                    RustCategory = userDefaultCategories.First(x => x.Name == "Electricity"),
-                    RustItem = defaultRustItems.FirstOrDefault(x => x.Name == "Party Hat"),
-                    Shop = shop,
-                    AppUser = user,
-                    Name = "Party Hat",
-                    Price = 0,
-                    Amount = 1,
-                    Description = null,
-                    Discount = 0,
-                    BlockedTill = default,
                     ShowInShop = true,
                 },
                 new RustProduct
