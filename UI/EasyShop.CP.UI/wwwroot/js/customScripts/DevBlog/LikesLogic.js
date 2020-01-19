@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-const API = 'https://localhost:44374';
+const API = document.getElementById('returnUrl').value;
 
 class DevBlogLikes {
     constructor() {

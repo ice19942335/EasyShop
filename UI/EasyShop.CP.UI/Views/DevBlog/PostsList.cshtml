@@ -15,7 +15,11 @@
         var user = await UserManager.FindByEmailAsync(User.Identity.Name);
         isAdmin = await UserManager.IsInRoleAsync(user, DefaultIdentity.RoleAdmin);
     }
+
+    var request = Url.ActionContext.HttpContext.Request;
+    var returnUrl = request.Scheme + "://" + request.Host;
 }
+<input id="returnUrl" value="@returnUrl" disabled="" hidden/>
 
 <div class="devBlogWrap">
     <div class="profile">
