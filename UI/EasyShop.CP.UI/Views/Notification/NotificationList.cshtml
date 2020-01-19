@@ -1,9 +1,12 @@
 ﻿@using EasyShop.Domain.Entries.Identity
 @using EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization
+@using Microsoft.AspNetCore.Http
 @using Microsoft.AspNetCore.Identity
 @using Microsoft.AspNetCore.Identity.UI.V3.Pages.Internal.Account
-@model IEnumerable<EasyShop.Domain.ViewModels.CP.Notification.NotificationViewModel>
+@model EasyShop.Domain.ViewModels.CP.Notification.NotificationsListViewModel
 @inject UserManager<AppUser> UserManager
+@inject IUrlHelper UrlHelper
+@inject IHttpContextAccessor HttpContextAccessor
 @{
     ViewData["Title"] = "Notifications";
     Layout = "_ControlPanelLayout";
@@ -13,40 +16,90 @@
 
 @if (await UserManager.IsInRoleAsync(user, DefaultIdentity.RoleAdmin))
 {
-    <a asp-area="" asp-controller="Notification" asp-action="EditNotification" class="btn btn-default">Create notification</a>
+    <a asp-area="" asp-controller="Notification" asp-action="EditNotification" style="background-color: #00aced; outline: none; border: none;" class="btn btn-default m-l-md">Create notification</a>
 }
 
-<div style="min-height: 100%" class="m-t-md">
-    <div class="row">
-        <h2 class="text-center">Notifications</h2>
-        <a asp-area="" asp-controller="Notification" asp-action="MarkAllAsRead" class="btn btn-default pull-lg-right m-r-md">Mark all as read</a>
-        <div class="col-lg-12 m-t-md">
-            <div style="min-height: 100%">
-                <ul class="list-group list-group-divided">
-                    @foreach (var notification in Model)
+<input id="url" asp-for="Url" hidden disabled />
+
+
+<h2 class="text-center m-t-md">Notifications</h2>
+<a asp-area="" asp-controller="Notification" asp-action="MarkAllAsRead" style="background-color: #00aced; outline: none; border: none;" class="btn btn-default m-l-md">Mark all as read</a>
+
+<ul id="notificationsList" class="list-group list-group-divided">
+    @foreach (var notification in Model.NotificationViewModels)
+    {
+        <li class="@(notification.Reviewed ? @"disabled" : "") list-group-item">
+            <small class="notification-timestamp pull-right">
+                @{
+                    var dateSpan = DateTime.Now.Subtract(notification.DateTimeCreated);
+
+                    if (dateSpan.Minutes < 1)
                     {
-                        <li class="@(notification.Reviewed ? @"disabled" : "") list-group-item">
-                            <h4>@notification.Title</h4>
-                            <p>@notification.Message</p>
-                            @if (!notification.Reviewed)
-                            {
-                                <div class="pull-right">
-                                    <label class="custom-control custom-control-default custom-checkbox">
-                                        <input id="agree" class="custom-control-input" type="checkbox">
-                                        <span class="custom-control-indicator"></span>
-                                        <small class="custom-control-label">Mark as read</small>
-                                    </label>
-                                </div>
-                            }
-                            <br />
-                            <small><a href="@notification.Link">@notification.LinkTitle</a></small>
-                        </li>
+                        @dateSpan.Seconds.ToString()
+                        <small> sec</small>
                     }
-                </ul>
-            </div>
+                    else if (dateSpan.Hours < 1)
+                    {
+                        @dateSpan.Minutes.ToString()
+                        <small> min</small>
+                    }
+                    else if (dateSpan.Days < 1)
+                    {
+                        @dateSpan.Hours.ToString()
+                        <small> hr</small>
+                    }
+                    else
+                    {
+                        @dateSpan.Days.ToString()
+                        <small> day(s)</small>
+                    }
+                }
+            </small>
+            <h4>@notification.Title</h4>
+            <p>@notification.Message</p>
+            @if (!notification.Reviewed)
+            {
+                <a class="pull-right"
+                   data-notificationId="@notification.Id"
+                   asp-area="" asp-controller="Notification"
+                   asp-action="MarkAsRead"
+                   asp-route-notificationId="@notification.Id"
+                   asp-route-page="@Model.NotificationPageViewModel.PageNumber"
+                   id="markAsRead">
+                    Mark as read
+                </a>
+            }
+            <br />
+            <small><a href="@notification.Link">@notification.LinkTitle</a></small>
+
+            @if (await UserManager.IsInRoleAsync(user, DefaultIdentity.RoleAdmin))
+            {
+                <br />
+                <a asp-area="" asp-controller="Notification" asp-action="EditNotification" asp-route-notificationId="@notification.Id" style="outline: none; border: none;" class="btn btn-default m-t-lg">Edit</a>
+                <div>
+                    <span id="confirmButton_@notification.Id">
+                        <a onclick="deleteConfirmationDialog('@notification.Id', true)" style="background-color: red; outline: none; border: none;" class="btn btn-default m-t-sm">Delete</a>
+                    </span>
+                    <span style="display: none" id="confirmSpan_@notification.Id">
+                        <a asp-area="" asp-controller="Notification" asp-action="DeleteNotification" asp-route-notificationId="@notification.Id" style="background-color: #75ac00; outline: none; border: none;" class="btn btn-default m-t-sm">Yes</a>
+                        <a onclick="deleteConfirmationDialog('@notification.Id', false)" style="background-color: red; outline: none; border: none;" class="btn btn-default m-t-sm">No</a>
+                    </span>
+                </div>
+            }
+        </li>
+    }
+</ul>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="dataTables_paginate" id="demo-dynamic-tables-1_paginate">
+            <page-link notification-page-model="@Model.NotificationPageViewModel"></page-link>
         </div>
     </div>
 </div>
+
+
+
 
 @section Styles
 {
@@ -56,4 +109,5 @@
 @section Scripts
 {
     <script src="~/js/demo.min.js" asp-append-version="true"></script>
+    <script src="~/js/customScripts/DeleteConfirmationDialog.js" asp-append-version="true"></script>
 }

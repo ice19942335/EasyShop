@@ -5,12 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
+using EasyShop.Domain.Entries.Notification;
 using EasyShop.Domain.Enums.CP.Notification;
 using EasyShop.Domain.ViewModels.CP.Notification;
 using EasyShop.Interfaces.Services.CP.Notification;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore.Internal;
+using Microsoft.Extensions.Logging;
 
 namespace EasyShop.Services.CP.Notification
 {
@@ -27,7 +29,7 @@ namespace EasyShop.Services.CP.Notification
             _context = context;
         }
 
-        public async Task<NotificationResultEnum> Update(NotificationViewModel model)
+        public async Task<NotificationResultEnum> UpdateAsync(NotificationViewModel model)
         {
             var user = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
 
@@ -64,14 +66,16 @@ namespace EasyShop.Services.CP.Notification
             return NotificationResultEnum.Updated;
         }
 
-        public async Task<IEnumerable<Domain.Entries.Notification.Notification>> GetLastTenNotifications()
+        public async Task<IEnumerable<Domain.Entries.Notification.Notification>> GetLastTenNotificationsAsync()
         {
-            var allNotifications = await GetAllNotifications();
+            var allNotifications = await GetAllNotificationsAsync();
             return allNotifications.Take(10);
         }
 
-        public async Task<IEnumerable<Domain.Entries.Notification.Notification>> GetAllNotifications()
+        public async Task<IEnumerable<Domain.Entries.Notification.Notification>> GetAllNotificationsAsync()
         {
+            var user = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
+
             var reviewedNotifications = new List<Domain.Entries.Notification.Notification>();
             var notReviewedNotifications = new List<Domain.Entries.Notification.Notification>();
             var result = new List<Domain.Entries.Notification.Notification>();
@@ -84,6 +88,9 @@ namespace EasyShop.Services.CP.Notification
                     notReviewedNotifications.Add(notification);
             }
 
+            reviewedNotifications = reviewedNotifications.Where(x => x.DateTimeCreated > user.RegistrationDate).ToList();
+            notReviewedNotifications = notReviewedNotifications.Where(x => x.DateTimeCreated > user.RegistrationDate).ToList();
+
             reviewedNotifications = reviewedNotifications.OrderByDescending(x => x.DateTimeCreated).ToList();
             notReviewedNotifications = notReviewedNotifications.OrderByDescending(x => x.DateTimeCreated).ToList();
 
@@ -92,7 +99,6 @@ namespace EasyShop.Services.CP.Notification
 
             return result.AsEnumerable();
         }
-            
 
         public Domain.Entries.Notification.Notification GetNotificationById(Guid notificationId) =>
             _context.Notifications.FirstOrDefault(x => x.Id == notificationId);
@@ -107,11 +113,81 @@ namespace EasyShop.Services.CP.Notification
 
             return notificationReview != null;
         }
+
+        public async Task<bool> MarkAsReadByIdAsync(Guid notificationId)
+        {
+            var notification = _context.Notifications.FirstOrDefault(x => x.Id == notificationId);
+
+            var user = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
+
+            if (notification is null || user is null)
+                return false;
+
+            var newUserNotification = new UserNotification
+            {
+                AppUserId = user.Id,
+                AppUser = user,
+                NotificationId = notification.Id,
+                Notification = notification
+            };
+
+            _context.UserNotifications.Add(newUserNotification);
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
+
+        public async Task MarkAllAsReadAsync()
+        {
+            var user = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
+
+            foreach (var notification in _context.Notifications)
+            {
+                var userNotification = _context.UserNotifications
+                    .FirstOrDefault(x => x.AppUserId == user.Id && x.NotificationId == notification.Id);
+
+                if (userNotification is null)
+                {
+                    var newNotification = new UserNotification
+                    {
+                        AppUserId = user.Id,
+                        AppUser = user,
+                        NotificationId = notification.Id,
+                        Notification = notification
+                    };
+
+                    _context.UserNotifications.Add(newNotification);
+                }
+            }
+
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<bool> DeleteNotificationAsync(Guid notificationId)
+        {
+            var notification = _context.Notifications.FirstOrDefault(x => x.Id == notificationId);
+
+            if (notification is null)
+                return false;
+
+            _context.Remove(notification);
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
+
+        public async Task<int> GetNewNotificationsCount()
+        {
+            int counter = 0;
+            var user = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
+
+
+            foreach (var notification in _context.Notifications)
+                if (notification.DateTimeCreated > user.RegistrationDate)
+                    if (!await IsNotificationReviewed(notification))
+                        counter++;
+
+            return counter;
+        }
     }
 }
-
-
-//Phrases = bannersPhrases.Select(p => p.Phrase)
-//    .Skip(skip)
-//    .Take(pageSize)
-//    .ToArray();

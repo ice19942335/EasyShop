@@ -21,17 +21,24 @@ namespace EasyShop.CP.UI.Components.ControlPanel.NavBar
 
         public IViewComponentResult Invoke()
         {
-            var allNotifications = _notificationService.GetLastTenNotifications().Result;
+            var allNotifications = _notificationService.GetLastTenNotificationsAsync().Result;
 
             var notificationsViewModelsList = allNotifications.Select(x =>
             {
                 var isNotificationReviewed = _notificationService.IsNotificationReviewed(x).Result;
-                var notificationModel =  x.CreateNotificationViewModel(isNotificationReviewed);
+                var notificationModel = x.CreateNotificationViewModel(isNotificationReviewed);
 
                 return notificationModel;
             });
 
-            return View("NotificationsComponent", notificationsViewModelsList.AsEnumerable());
+            var model = new NotificationComponentViewModel
+            {
+                NotificationViewModels = notificationsViewModelsList.AsEnumerable(),
+                NewNotifications = _notificationService.GetNewNotificationsCount().Result
+            };
+
+
+            return View("NotificationsComponent", model);
         }
     }
 }

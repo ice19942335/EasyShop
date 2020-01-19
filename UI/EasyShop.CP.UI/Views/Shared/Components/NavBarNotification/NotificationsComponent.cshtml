@@ -1,26 +1,32 @@
-﻿@model IEnumerable<EasyShop.Domain.ViewModels.CP.Notification.NotificationViewModel>
+﻿@model EasyShop.Domain.ViewModels.CP.Notification.NotificationComponentViewModel
 
 <li class="dropdown">
     <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true">
         <span class="icon-with-child hidden-xs">
             <span class="icon icon-bell-o icon-lg"></span>
-            <span class="badge badge-danger badge-above right">7</span>
+            @if (Model.NewNotifications > 0)
+            {
+                <span class="badge badge-danger badge-above right">@Model.NewNotifications</span>
+            }
         </span>
         <span class="visible-xs-block">
             <span class="icon icon-bell icon-lg icon-fw"></span>
-            <span class="badge badge-danger pull-right">7</span>
+            @if (Model.NewNotifications > 0)
+            {
+                <span class="badge badge-danger pull-right">@Model.NewNotifications</span>
+            }
             Notifications
         </span>
     </a>
     <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg">
         <div class="dropdown-header">
-            <a class="dropdown-link" href="#">Mark all as read</a>
+            <a class="dropdown-link" asp-area="" asp-controller="Notification" asp-action="MarkAllAsRead">Mark all as read</a>
             <h5 class="dropdown-heading">Recent Notifications</h5>
         </div>
         <div class="dropdown-body">
             <div class="list-group list-group-divided custom-scrollbar">
                 @{
-                    foreach (var notification in Model)
+                    foreach (var notification in Model.NotificationViewModels)
                     {
                         <a class="list-group-item notification-overlay-parent" asp-area="" asp-controller="Notification" asp-action="NotificationList">
                             <div class="notification">
@@ -28,9 +34,6 @@
                                 {
                                     <div class="notification-overlay"></div>
                                 }
-                                @*<div class="notification-media">
-                                        <span class="icon icon-exclamation-triangle bg-warning rounded sq-40"></span>
-                                    </div>*@
                                 <div class="notification-content">
                                     <small class="notification-timestamp">
                                         @{
