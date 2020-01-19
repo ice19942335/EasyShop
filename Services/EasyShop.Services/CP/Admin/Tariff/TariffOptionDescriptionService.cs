@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
@@ -14,7 +12,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
-namespace EasyShop.Services.CP.Tariff
+namespace EasyShop.Services.CP.Admin.Tariff
 {
     public class TariffOptionDescriptionService : ITariffOptionDescriptionService
     {

@@ -34,6 +34,7 @@
 
   <ItemGroup>
     <Folder Include="Logs\2019\12\31\" />
+    <Folder Include="Properties\PublishProfiles\" />
     <Folder Include="wwwroot\DevBlogImages\" />
     <Folder Include="wwwroot\BugReportImages\" />
   </ItemGroup>
