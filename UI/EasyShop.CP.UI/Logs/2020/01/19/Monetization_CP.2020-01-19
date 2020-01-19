@@ -8412,3 +8412,1201 @@ WHERE (([d].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL) AND (([d].
 
 2020-01-19 10:58:13,921 [16] ?     - Request finished in 30.3438ms 200 text/html; charset=utf-8
 
+2020-01-19 11:11:28,227 [13] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-19 11:11:28,242 [13] ?     - Hosting environment: Development
+
+2020-01-19 11:11:28,243 [13] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-19 11:11:28,274 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/PostsList  
+
+2020-01-19 11:11:28,367 [4] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-19 11:11:28,384 [4] ?     - Executing DbCommand [Parameters=[@__p_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE ([a].[Id] = @__p_0) AND @__p_0 IS NOT NULL
+
+2020-01-19 11:11:28,416 [13] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE ([a].[UserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2020-01-19 11:11:28,445 [9] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2020-01-19 11:11:28,455 [9] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2020-01-19 11:11:28,462 [9] ?     - Executing DbCommand [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE ([a].[RoleId] = @__role_Id_0) AND @__role_Id_0 IS NOT NULL
+
+2020-01-19 11:11:28,466 [14] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2020-01-19 11:11:28,469 [14] ?     - Executing DbCommand [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE ([a].[RoleId] = @__role_Id_0) AND @__role_Id_0 IS NOT NULL
+
+2020-01-19 11:11:28,484 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI)'
+
+2020-01-19 11:11:28,520 [4] ?     - Route matched with {action = "PostsList", controller = "DevBlog"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PostsList(Int32) on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-19 11:11:28,535 [4] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [d].[Id], [d].[DateTimePosted], [d].[ImgUrl], [d].[LikesCounter], [d].[Link], [d].[LinkTitle], [d].[PostMessage], [d].[Title]
+FROM [DevBlogPosts] AS [d]
+
+2020-01-19 11:11:28,569 [4] ?     - Executing ViewResult, running view PostsList.
+
+2020-01-19 11:11:28,632 [4] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-19 11:11:28,641 [4] ?     - Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedRoleName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedRoleName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedRoleName_0 IS NULL)
+
+2020-01-19 11:11:28,651 [15] ?     - Executing DbCommand [Parameters=[@__p_0='?' (Size = 450), @__p_1='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE (([a].[UserId] = @__p_0) AND @__p_0 IS NOT NULL) AND (([a].[RoleId] = @__p_1) AND @__p_1 IS NOT NULL)
+
+2020-01-19 11:11:29,250 [17] ?     - Executed ViewResult - view PostsList executed in 684.3889ms.
+
+2020-01-19 11:11:29,255 [17] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI) in 732.9783ms
+
+2020-01-19 11:11:29,257 [17] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI)'
+
+2020-01-19 11:11:29,266 [17] ?     - Request finished in 993.4507ms 200 text/html; charset=utf-8
+
+2020-01-19 11:11:29,281 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlogImages/image_aleksejbirula@gmail.com_Me-short_2769.jpg  
+
+2020-01-19 11:11:29,296 [4] ?     - The file /DevBlogImages/image_aleksejbirula@gmail.com_Me-short_2769.jpg was not modified
+
+2020-01-19 11:11:29,299 [4] ?     - Request finished in 18.0946ms 304 image/jpeg
+
+2020-01-19 11:11:29,638 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/customScripts/DevBlog/LikesLogic.js?v=xb8OZORbHsTpa9GkY6pDLsic6Uz_hIvkVWx070alpWU  
+
+2020-01-19 11:11:29,641 [8] ?     - The file /js/customScripts/DevBlog/LikesLogic.js was not modified
+
+2020-01-19 11:11:29,643 [8] ?     - Request finished in 5.5346ms 304 application/javascript
+
+2020-01-19 11:11:29,780 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/UserHasAlreadyLikedThePost?postId=0c303979-6906-48c1-97c5-11599ec831a7  
+
+2020-01-19 11:11:29,792 [8] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI)'
+
+2020-01-19 11:11:29,801 [8] ?     - Route matched with {action = "UserHasAlreadyLikedThePost", controller = "DevBlog"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserHasAlreadyLikedThePost(System.String) on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-19 11:11:29,854 [8] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-19 11:11:29,858 [8] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-19 11:11:29,893 [8] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450), @__postId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [d].[AppUserId], [d].[DevBlogPostId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [d0].[Id], [d0].[DateTimePosted], [d0].[ImgUrl], [d0].[LikesCounter], [d0].[Link], [d0].[LinkTitle], [d0].[PostMessage], [d0].[Title]
+FROM [DevBlogPostsLikes] AS [d]
+INNER JOIN [AspNetUsers] AS [a] ON [d].[AppUserId] = [a].[Id]
+INNER JOIN [DevBlogPosts] AS [d0] ON [d].[DevBlogPostId] = [d0].[Id]
+WHERE (([d].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL) AND (([d].[DevBlogPostId] = @__postId_1) AND @__postId_1 IS NOT NULL)
+
+2020-01-19 11:11:29,929 [8] ?     - Executing ObjectResult, writing value of type 'EasyShop.Domain.Contracts.CP.Response.UserAlreadyLikedThePostResponse'.
+
+2020-01-19 11:11:29,936 [8] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI) in 133.8102ms
+
+2020-01-19 11:11:29,938 [8] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI)'
+
+2020-01-19 11:11:29,939 [8] ?     - Request finished in 159.5131ms 200 application/json; charset=utf-8
+
+2020-01-19 11:12:28,884 [9] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-19 11:12:28,894 [9] ?     - Hosting environment: Development
+
+2020-01-19 11:12:28,895 [9] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-19 11:12:28,903 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/PostsList  
+
+2020-01-19 11:12:28,990 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI)'
+
+2020-01-19 11:12:29,035 [4] ?     - Route matched with {action = "PostsList", controller = "DevBlog"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PostsList(Int32) on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-19 11:12:29,062 [4] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-19 11:12:29,069 [4] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [d].[Id], [d].[DateTimePosted], [d].[ImgUrl], [d].[LikesCounter], [d].[Link], [d].[LinkTitle], [d].[PostMessage], [d].[Title]
+FROM [DevBlogPosts] AS [d]
+
+2020-01-19 11:12:29,103 [4] ?     - Executing ViewResult, running view PostsList.
+
+2020-01-19 11:12:29,151 [4] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-19 11:12:29,161 [4] ?     - Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedRoleName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedRoleName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedRoleName_0 IS NULL)
+
+2020-01-19 11:12:29,182 [14] ?     - Executing DbCommand [Parameters=[@__p_0='?' (Size = 450), @__p_1='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE (([a].[UserId] = @__p_0) AND @__p_0 IS NOT NULL) AND (([a].[RoleId] = @__p_1) AND @__p_1 IS NOT NULL)
+
+2020-01-19 11:12:29,458 [15] ?     - Executed ViewResult - view PostsList executed in 356.0413ms.
+
+2020-01-19 11:12:29,463 [15] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI) in 426.4966ms
+
+2020-01-19 11:12:29,467 [15] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI)'
+
+2020-01-19 11:12:29,498 [15] ?     - Request finished in 573.952ms 200 text/html; charset=utf-8
+
+2020-01-19 11:12:29,945 [13] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlogImages/image_aleksejbirula@gmail.com_le-mont-saint-michel-1500-teile-high-quality-collection_GpVLR3d_1534.jpg  
+
+2020-01-19 11:12:29,946 [15] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlogImages/image_aleksejbirula@gmail.com_le-mont-saint-michel-1500-teile-high-quality-collection_GpVLR3d_d9f0.jpg  
+
+2020-01-19 11:12:29,960 [13] ?     - The file /DevBlogImages/image_aleksejbirula@gmail.com_le-mont-saint-michel-1500-teile-high-quality-collection_GpVLR3d_1534.jpg was not modified
+
+2020-01-19 11:12:29,961 [15] ?     - The file /DevBlogImages/image_aleksejbirula@gmail.com_le-mont-saint-michel-1500-teile-high-quality-collection_GpVLR3d_d9f0.jpg was not modified
+
+2020-01-19 11:12:29,969 [13] ?     - Request finished in 22.7039ms 304 image/jpeg
+
+2020-01-19 11:12:29,973 [15] ?     - Request finished in 19.2879ms 304 image/jpeg
+
+2020-01-19 11:12:30,159 [13] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/UserHasAlreadyLikedThePost?postId=0c303979-6906-48c1-97c5-11599ec831a7  
+
+2020-01-19 11:12:30,168 [13] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI)'
+
+2020-01-19 11:12:30,177 [13] ?     - Route matched with {action = "UserHasAlreadyLikedThePost", controller = "DevBlog"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserHasAlreadyLikedThePost(System.String) on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-19 11:12:30,224 [13] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-19 11:12:30,228 [13] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-19 11:12:30,281 [13] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450), @__postId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [d].[AppUserId], [d].[DevBlogPostId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [d0].[Id], [d0].[DateTimePosted], [d0].[ImgUrl], [d0].[LikesCounter], [d0].[Link], [d0].[LinkTitle], [d0].[PostMessage], [d0].[Title]
+FROM [DevBlogPostsLikes] AS [d]
+INNER JOIN [AspNetUsers] AS [a] ON [d].[AppUserId] = [a].[Id]
+INNER JOIN [DevBlogPosts] AS [d0] ON [d].[DevBlogPostId] = [d0].[Id]
+WHERE (([d].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL) AND (([d].[DevBlogPostId] = @__postId_1) AND @__postId_1 IS NOT NULL)
+
+2020-01-19 11:12:30,320 [13] ?     - Executing ObjectResult, writing value of type 'EasyShop.Domain.Contracts.CP.Response.UserAlreadyLikedThePostResponse'.
+
+2020-01-19 11:12:30,330 [13] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI) in 151.8405ms
+
+2020-01-19 11:12:30,332 [13] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI)'
+
+2020-01-19 11:12:30,334 [13] ?     - Request finished in 176.5754ms 200 application/json; charset=utf-8
+
+2020-01-19 11:12:30,341 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/UserHasAlreadyLikedThePost?postId=58de6ca9-9834-4497-b7ef-2ef2dae66d3e  
+
+2020-01-19 11:12:30,355 [8] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI)'
+
+2020-01-19 11:12:30,357 [8] ?     - Route matched with {action = "UserHasAlreadyLikedThePost", controller = "DevBlog"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserHasAlreadyLikedThePost(System.String) on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-19 11:12:30,362 [8] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-19 11:12:30,364 [8] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-19 11:12:30,366 [8] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450), @__postId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [d].[AppUserId], [d].[DevBlogPostId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [d0].[Id], [d0].[DateTimePosted], [d0].[ImgUrl], [d0].[LikesCounter], [d0].[Link], [d0].[LinkTitle], [d0].[PostMessage], [d0].[Title]
+FROM [DevBlogPostsLikes] AS [d]
+INNER JOIN [AspNetUsers] AS [a] ON [d].[AppUserId] = [a].[Id]
+INNER JOIN [DevBlogPosts] AS [d0] ON [d].[DevBlogPostId] = [d0].[Id]
+WHERE (([d].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL) AND (([d].[DevBlogPostId] = @__postId_1) AND @__postId_1 IS NOT NULL)
+
+2020-01-19 11:12:30,369 [8] ?     - Executing ObjectResult, writing value of type 'EasyShop.Domain.Contracts.CP.Response.UserAlreadyLikedThePostResponse'.
+
+2020-01-19 11:12:30,371 [8] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI) in 12.6675ms
+
+2020-01-19 11:12:30,372 [8] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI)'
+
+2020-01-19 11:12:30,375 [8] ?     - Request finished in 34.4056ms 200 application/json; charset=utf-8
+
+2020-01-19 11:12:30,379 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/UserHasAlreadyLikedThePost?postId=1c99ff5d-6073-4993-9915-ead45ed5565f  
+
+2020-01-19 11:12:30,381 [8] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI)'
+
+2020-01-19 11:12:30,383 [8] ?     - Route matched with {action = "UserHasAlreadyLikedThePost", controller = "DevBlog"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserHasAlreadyLikedThePost(System.String) on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-19 11:12:30,384 [8] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-19 11:12:30,386 [8] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-19 11:12:30,389 [8] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450), @__postId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [d].[AppUserId], [d].[DevBlogPostId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [d0].[Id], [d0].[DateTimePosted], [d0].[ImgUrl], [d0].[LikesCounter], [d0].[Link], [d0].[LinkTitle], [d0].[PostMessage], [d0].[Title]
+FROM [DevBlogPostsLikes] AS [d]
+INNER JOIN [AspNetUsers] AS [a] ON [d].[AppUserId] = [a].[Id]
+INNER JOIN [DevBlogPosts] AS [d0] ON [d].[DevBlogPostId] = [d0].[Id]
+WHERE (([d].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL) AND (([d].[DevBlogPostId] = @__postId_1) AND @__postId_1 IS NOT NULL)
+
+2020-01-19 11:12:30,391 [8] ?     - Executing ObjectResult, writing value of type 'EasyShop.Domain.Contracts.CP.Response.UserAlreadyLikedThePostResponse'.
+
+2020-01-19 11:12:30,393 [8] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI) in 8.6242ms
+
+2020-01-19 11:12:30,394 [8] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI)'
+
+2020-01-19 11:12:30,396 [8] ?     - Request finished in 16.7942ms 200 application/json; charset=utf-8
+
+2020-01-19 11:12:35,953 [15] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/IncrementLike?postId=58de6ca9-9834-4497-b7ef-2ef2dae66d3e  
+
+2020-01-19 11:12:35,958 [15] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.IncrementLike (EasyShop.CP.UI)'
+
+2020-01-19 11:12:35,966 [15] ?     - Route matched with {action = "IncrementLike", controller = "DevBlog"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] IncrementLike(System.String) on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-19 11:12:35,972 [15] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-19 11:12:35,975 [15] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-19 11:12:35,983 [15] ?     - Executing DbCommand [Parameters=[@__postId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [d].[Id], [d].[DateTimePosted], [d].[ImgUrl], [d].[LikesCounter], [d].[Link], [d].[LinkTitle], [d].[PostMessage], [d].[Title]
+FROM [DevBlogPosts] AS [d]
+WHERE ([d].[Id] = @__postId_0) AND @__postId_0 IS NOT NULL
+
+2020-01-19 11:12:35,986 [15] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450), @__postId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [d].[AppUserId], [d].[DevBlogPostId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [d0].[Id], [d0].[DateTimePosted], [d0].[ImgUrl], [d0].[LikesCounter], [d0].[Link], [d0].[LinkTitle], [d0].[PostMessage], [d0].[Title]
+FROM [DevBlogPostsLikes] AS [d]
+INNER JOIN [AspNetUsers] AS [a] ON [d].[AppUserId] = [a].[Id]
+INNER JOIN [DevBlogPosts] AS [d0] ON [d].[DevBlogPostId] = [d0].[Id]
+WHERE (([d].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL) AND (([d].[DevBlogPostId] = @__postId_1) AND @__postId_1 IS NOT NULL)
+
+2020-01-19 11:12:36,061 [15] ?     - Executing DbCommand [Parameters=[@p7='?' (DbType = Guid), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [DevBlogPosts] SET [DateTimePosted] = @p0, [ImgUrl] = @p1, [LikesCounter] = @p2, [Link] = @p3, [LinkTitle] = @p4, [PostMessage] = @p5, [Title] = @p6
+WHERE [Id] = @p7;
+SELECT @@ROWCOUNT;
+
+2020-01-19 11:12:36,079 [12] ?     - Executing DbCommand [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [DevBlogPostsLikes] ([AppUserId], [DevBlogPostId])
+VALUES (@p0, @p1);
+
+2020-01-19 11:12:36,098 [15] ?     - Executing ObjectResult, writing value of type 'EasyShop.Domain.Contracts.CP.Response.IncrementLikesCounterResponse'.
+
+2020-01-19 11:12:36,101 [15] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.IncrementLike (EasyShop.CP.UI) in 132.4488ms
+
+2020-01-19 11:12:36,102 [15] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.IncrementLike (EasyShop.CP.UI)'
+
+2020-01-19 11:12:36,104 [15] ?     - Request finished in 151.126ms 200 application/json; charset=utf-8
+
+2020-01-19 11:12:39,710 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/IncrementLike?postId=58de6ca9-9834-4497-b7ef-2ef2dae66d3e  
+
+2020-01-19 11:12:39,714 [9] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.IncrementLike (EasyShop.CP.UI)'
+
+2020-01-19 11:12:39,716 [9] ?     - Route matched with {action = "IncrementLike", controller = "DevBlog"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] IncrementLike(System.String) on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-19 11:12:39,718 [9] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-19 11:12:39,721 [9] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-19 11:12:39,724 [9] ?     - Executing DbCommand [Parameters=[@__postId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [d].[Id], [d].[DateTimePosted], [d].[ImgUrl], [d].[LikesCounter], [d].[Link], [d].[LinkTitle], [d].[PostMessage], [d].[Title]
+FROM [DevBlogPosts] AS [d]
+WHERE ([d].[Id] = @__postId_0) AND @__postId_0 IS NOT NULL
+
+2020-01-19 11:12:39,726 [9] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450), @__postId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [d].[AppUserId], [d].[DevBlogPostId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [d0].[Id], [d0].[DateTimePosted], [d0].[ImgUrl], [d0].[LikesCounter], [d0].[Link], [d0].[LinkTitle], [d0].[PostMessage], [d0].[Title]
+FROM [DevBlogPostsLikes] AS [d]
+INNER JOIN [AspNetUsers] AS [a] ON [d].[AppUserId] = [a].[Id]
+INNER JOIN [DevBlogPosts] AS [d0] ON [d].[DevBlogPostId] = [d0].[Id]
+WHERE (([d].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL) AND (([d].[DevBlogPostId] = @__postId_1) AND @__postId_1 IS NOT NULL)
+
+2020-01-19 11:12:39,736 [9] ?     - Executing DbCommand [Parameters=[@p7='?' (DbType = Guid), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [DevBlogPosts] SET [DateTimePosted] = @p0, [ImgUrl] = @p1, [LikesCounter] = @p2, [Link] = @p3, [LinkTitle] = @p4, [PostMessage] = @p5, [Title] = @p6
+WHERE [Id] = @p7;
+SELECT @@ROWCOUNT;
+
+2020-01-19 11:12:39,740 [14] ?     - Executing DbCommand [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [DevBlogPostsLikes]
+WHERE [AppUserId] = @p0 AND [DevBlogPostId] = @p1;
+SELECT @@ROWCOUNT;
+
+2020-01-19 11:12:39,748 [14] ?     - Executing ObjectResult, writing value of type 'EasyShop.Domain.Contracts.CP.Response.IncrementLikesCounterResponse'.
+
+2020-01-19 11:12:39,750 [14] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.IncrementLike (EasyShop.CP.UI) in 32.9322ms
+
+2020-01-19 11:12:39,752 [14] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.IncrementLike (EasyShop.CP.UI)'
+
+2020-01-19 11:12:39,753 [14] ?     - Request finished in 43.3509ms 200 application/json; charset=utf-8
+
+2020-01-19 11:12:40,401 [14] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/IncrementLike?postId=58de6ca9-9834-4497-b7ef-2ef2dae66d3e  
+
+2020-01-19 11:12:40,404 [14] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.IncrementLike (EasyShop.CP.UI)'
+
+2020-01-19 11:12:40,406 [14] ?     - Route matched with {action = "IncrementLike", controller = "DevBlog"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] IncrementLike(System.String) on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-19 11:12:40,408 [14] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-19 11:12:40,411 [14] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-19 11:12:40,414 [14] ?     - Executing DbCommand [Parameters=[@__postId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [d].[Id], [d].[DateTimePosted], [d].[ImgUrl], [d].[LikesCounter], [d].[Link], [d].[LinkTitle], [d].[PostMessage], [d].[Title]
+FROM [DevBlogPosts] AS [d]
+WHERE ([d].[Id] = @__postId_0) AND @__postId_0 IS NOT NULL
+
+2020-01-19 11:12:40,416 [14] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450), @__postId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [d].[AppUserId], [d].[DevBlogPostId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [d0].[Id], [d0].[DateTimePosted], [d0].[ImgUrl], [d0].[LikesCounter], [d0].[Link], [d0].[LinkTitle], [d0].[PostMessage], [d0].[Title]
+FROM [DevBlogPostsLikes] AS [d]
+INNER JOIN [AspNetUsers] AS [a] ON [d].[AppUserId] = [a].[Id]
+INNER JOIN [DevBlogPosts] AS [d0] ON [d].[DevBlogPostId] = [d0].[Id]
+WHERE (([d].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL) AND (([d].[DevBlogPostId] = @__postId_1) AND @__postId_1 IS NOT NULL)
+
+2020-01-19 11:12:40,420 [14] ?     - Executing DbCommand [Parameters=[@p7='?' (DbType = Guid), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [DevBlogPosts] SET [DateTimePosted] = @p0, [ImgUrl] = @p1, [LikesCounter] = @p2, [Link] = @p3, [LinkTitle] = @p4, [PostMessage] = @p5, [Title] = @p6
+WHERE [Id] = @p7;
+SELECT @@ROWCOUNT;
+
+2020-01-19 11:12:40,423 [12] ?     - Executing DbCommand [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [DevBlogPostsLikes] ([AppUserId], [DevBlogPostId])
+VALUES (@p0, @p1);
+
+2020-01-19 11:12:40,426 [9] ?     - Executing ObjectResult, writing value of type 'EasyShop.Domain.Contracts.CP.Response.IncrementLikesCounterResponse'.
+
+2020-01-19 11:12:40,428 [9] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.IncrementLike (EasyShop.CP.UI) in 20.2879ms
+
+2020-01-19 11:12:40,429 [9] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.IncrementLike (EasyShop.CP.UI)'
+
+2020-01-19 11:12:40,431 [9] ?     - Request finished in 29.6057ms 200 application/json; charset=utf-8
+
+2020-01-19 11:12:41,340 [12] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/IncrementLike?postId=58de6ca9-9834-4497-b7ef-2ef2dae66d3e  
+
+2020-01-19 11:12:41,343 [12] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.IncrementLike (EasyShop.CP.UI)'
+
+2020-01-19 11:12:41,345 [12] ?     - Route matched with {action = "IncrementLike", controller = "DevBlog"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] IncrementLike(System.String) on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-19 11:12:41,347 [12] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-19 11:12:41,350 [12] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-19 11:12:41,355 [12] ?     - Executing DbCommand [Parameters=[@__postId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [d].[Id], [d].[DateTimePosted], [d].[ImgUrl], [d].[LikesCounter], [d].[Link], [d].[LinkTitle], [d].[PostMessage], [d].[Title]
+FROM [DevBlogPosts] AS [d]
+WHERE ([d].[Id] = @__postId_0) AND @__postId_0 IS NOT NULL
+
+2020-01-19 11:12:41,358 [12] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450), @__postId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [d].[AppUserId], [d].[DevBlogPostId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [d0].[Id], [d0].[DateTimePosted], [d0].[ImgUrl], [d0].[LikesCounter], [d0].[Link], [d0].[LinkTitle], [d0].[PostMessage], [d0].[Title]
+FROM [DevBlogPostsLikes] AS [d]
+INNER JOIN [AspNetUsers] AS [a] ON [d].[AppUserId] = [a].[Id]
+INNER JOIN [DevBlogPosts] AS [d0] ON [d].[DevBlogPostId] = [d0].[Id]
+WHERE (([d].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL) AND (([d].[DevBlogPostId] = @__postId_1) AND @__postId_1 IS NOT NULL)
+
+2020-01-19 11:12:41,364 [12] ?     - Executing DbCommand [Parameters=[@p7='?' (DbType = Guid), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [DevBlogPosts] SET [DateTimePosted] = @p0, [ImgUrl] = @p1, [LikesCounter] = @p2, [Link] = @p3, [LinkTitle] = @p4, [PostMessage] = @p5, [Title] = @p6
+WHERE [Id] = @p7;
+SELECT @@ROWCOUNT;
+
+2020-01-19 11:12:41,370 [15] ?     - Executing DbCommand [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [DevBlogPostsLikes]
+WHERE [AppUserId] = @p0 AND [DevBlogPostId] = @p1;
+SELECT @@ROWCOUNT;
+
+2020-01-19 11:12:41,373 [15] ?     - Executing ObjectResult, writing value of type 'EasyShop.Domain.Contracts.CP.Response.IncrementLikesCounterResponse'.
+
+2020-01-19 11:12:41,376 [15] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.IncrementLike (EasyShop.CP.UI) in 29.5123ms
+
+2020-01-19 11:12:41,377 [15] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.IncrementLike (EasyShop.CP.UI)'
+
+2020-01-19 11:12:41,379 [15] ?     - Request finished in 39.1734ms 200 application/json; charset=utf-8
+
+2020-01-19 11:12:41,699 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/IncrementLike?postId=58de6ca9-9834-4497-b7ef-2ef2dae66d3e  
+
+2020-01-19 11:12:41,702 [8] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.IncrementLike (EasyShop.CP.UI)'
+
+2020-01-19 11:12:41,703 [8] ?     - Route matched with {action = "IncrementLike", controller = "DevBlog"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] IncrementLike(System.String) on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-19 11:12:41,706 [8] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-19 11:12:41,708 [8] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-19 11:12:41,711 [8] ?     - Executing DbCommand [Parameters=[@__postId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [d].[Id], [d].[DateTimePosted], [d].[ImgUrl], [d].[LikesCounter], [d].[Link], [d].[LinkTitle], [d].[PostMessage], [d].[Title]
+FROM [DevBlogPosts] AS [d]
+WHERE ([d].[Id] = @__postId_0) AND @__postId_0 IS NOT NULL
+
+2020-01-19 11:12:41,713 [8] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450), @__postId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [d].[AppUserId], [d].[DevBlogPostId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [d0].[Id], [d0].[DateTimePosted], [d0].[ImgUrl], [d0].[LikesCounter], [d0].[Link], [d0].[LinkTitle], [d0].[PostMessage], [d0].[Title]
+FROM [DevBlogPostsLikes] AS [d]
+INNER JOIN [AspNetUsers] AS [a] ON [d].[AppUserId] = [a].[Id]
+INNER JOIN [DevBlogPosts] AS [d0] ON [d].[DevBlogPostId] = [d0].[Id]
+WHERE (([d].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL) AND (([d].[DevBlogPostId] = @__postId_1) AND @__postId_1 IS NOT NULL)
+
+2020-01-19 11:12:41,716 [8] ?     - Executing DbCommand [Parameters=[@p7='?' (DbType = Guid), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [DevBlogPosts] SET [DateTimePosted] = @p0, [ImgUrl] = @p1, [LikesCounter] = @p2, [Link] = @p3, [LinkTitle] = @p4, [PostMessage] = @p5, [Title] = @p6
+WHERE [Id] = @p7;
+SELECT @@ROWCOUNT;
+
+2020-01-19 11:12:41,719 [4] ?     - Executing DbCommand [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [DevBlogPostsLikes] ([AppUserId], [DevBlogPostId])
+VALUES (@p0, @p1);
+
+2020-01-19 11:12:41,722 [15] ?     - Executing ObjectResult, writing value of type 'EasyShop.Domain.Contracts.CP.Response.IncrementLikesCounterResponse'.
+
+2020-01-19 11:12:41,724 [15] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.IncrementLike (EasyShop.CP.UI) in 18.8992ms
+
+2020-01-19 11:12:41,725 [15] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.IncrementLike (EasyShop.CP.UI)'
+
+2020-01-19 11:12:41,726 [15] ?     - Request finished in 27.814ms 200 application/json; charset=utf-8
+
+2020-01-19 11:12:42,662 [12] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/IncrementLike?postId=58de6ca9-9834-4497-b7ef-2ef2dae66d3e  
+
+2020-01-19 11:12:42,665 [12] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.IncrementLike (EasyShop.CP.UI)'
+
+2020-01-19 11:12:42,666 [12] ?     - Route matched with {action = "IncrementLike", controller = "DevBlog"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] IncrementLike(System.String) on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-19 11:12:42,669 [12] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-19 11:12:42,671 [12] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-19 11:12:42,674 [12] ?     - Executing DbCommand [Parameters=[@__postId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [d].[Id], [d].[DateTimePosted], [d].[ImgUrl], [d].[LikesCounter], [d].[Link], [d].[LinkTitle], [d].[PostMessage], [d].[Title]
+FROM [DevBlogPosts] AS [d]
+WHERE ([d].[Id] = @__postId_0) AND @__postId_0 IS NOT NULL
+
+2020-01-19 11:12:42,677 [12] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450), @__postId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [d].[AppUserId], [d].[DevBlogPostId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [d0].[Id], [d0].[DateTimePosted], [d0].[ImgUrl], [d0].[LikesCounter], [d0].[Link], [d0].[LinkTitle], [d0].[PostMessage], [d0].[Title]
+FROM [DevBlogPostsLikes] AS [d]
+INNER JOIN [AspNetUsers] AS [a] ON [d].[AppUserId] = [a].[Id]
+INNER JOIN [DevBlogPosts] AS [d0] ON [d].[DevBlogPostId] = [d0].[Id]
+WHERE (([d].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL) AND (([d].[DevBlogPostId] = @__postId_1) AND @__postId_1 IS NOT NULL)
+
+2020-01-19 11:12:42,682 [12] ?     - Executing DbCommand [Parameters=[@p7='?' (DbType = Guid), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [DevBlogPosts] SET [DateTimePosted] = @p0, [ImgUrl] = @p1, [LikesCounter] = @p2, [Link] = @p3, [LinkTitle] = @p4, [PostMessage] = @p5, [Title] = @p6
+WHERE [Id] = @p7;
+SELECT @@ROWCOUNT;
+
+2020-01-19 11:12:42,686 [16] ?     - Executing DbCommand [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [DevBlogPostsLikes]
+WHERE [AppUserId] = @p0 AND [DevBlogPostId] = @p1;
+SELECT @@ROWCOUNT;
+
+2020-01-19 11:12:42,689 [16] ?     - Executing ObjectResult, writing value of type 'EasyShop.Domain.Contracts.CP.Response.IncrementLikesCounterResponse'.
+
+2020-01-19 11:12:42,692 [16] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.IncrementLike (EasyShop.CP.UI) in 23.3455ms
+
+2020-01-19 11:12:42,693 [16] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.IncrementLike (EasyShop.CP.UI)'
+
+2020-01-19 11:12:42,694 [16] ?     - Request finished in 33.1104ms 200 application/json; charset=utf-8
+
+2020-01-19 11:12:43,472 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/IncrementLike?postId=58de6ca9-9834-4497-b7ef-2ef2dae66d3e  
+
+2020-01-19 11:12:43,475 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.IncrementLike (EasyShop.CP.UI)'
+
+2020-01-19 11:12:43,476 [4] ?     - Route matched with {action = "IncrementLike", controller = "DevBlog"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] IncrementLike(System.String) on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-19 11:12:43,479 [4] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-19 11:12:43,481 [4] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-19 11:12:43,484 [4] ?     - Executing DbCommand [Parameters=[@__postId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [d].[Id], [d].[DateTimePosted], [d].[ImgUrl], [d].[LikesCounter], [d].[Link], [d].[LinkTitle], [d].[PostMessage], [d].[Title]
+FROM [DevBlogPosts] AS [d]
+WHERE ([d].[Id] = @__postId_0) AND @__postId_0 IS NOT NULL
+
+2020-01-19 11:12:43,497 [4] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450), @__postId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [d].[AppUserId], [d].[DevBlogPostId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [d0].[Id], [d0].[DateTimePosted], [d0].[ImgUrl], [d0].[LikesCounter], [d0].[Link], [d0].[LinkTitle], [d0].[PostMessage], [d0].[Title]
+FROM [DevBlogPostsLikes] AS [d]
+INNER JOIN [AspNetUsers] AS [a] ON [d].[AppUserId] = [a].[Id]
+INNER JOIN [DevBlogPosts] AS [d0] ON [d].[DevBlogPostId] = [d0].[Id]
+WHERE (([d].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL) AND (([d].[DevBlogPostId] = @__postId_1) AND @__postId_1 IS NOT NULL)
+
+2020-01-19 11:12:43,502 [4] ?     - Executing DbCommand [Parameters=[@p7='?' (DbType = Guid), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [DevBlogPosts] SET [DateTimePosted] = @p0, [ImgUrl] = @p1, [LikesCounter] = @p2, [Link] = @p3, [LinkTitle] = @p4, [PostMessage] = @p5, [Title] = @p6
+WHERE [Id] = @p7;
+SELECT @@ROWCOUNT;
+
+2020-01-19 11:12:43,505 [12] ?     - Executing DbCommand [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [DevBlogPostsLikes] ([AppUserId], [DevBlogPostId])
+VALUES (@p0, @p1);
+
+2020-01-19 11:12:43,508 [13] ?     - Executing ObjectResult, writing value of type 'EasyShop.Domain.Contracts.CP.Response.IncrementLikesCounterResponse'.
+
+2020-01-19 11:12:43,510 [13] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.IncrementLike (EasyShop.CP.UI) in 32.4394ms
+
+2020-01-19 11:12:43,512 [13] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.IncrementLike (EasyShop.CP.UI)'
+
+2020-01-19 11:12:43,513 [13] ?     - Request finished in 41.385ms 200 application/json; charset=utf-8
+
+2020-01-19 11:12:48,672 [12] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/IncrementLike?postId=58de6ca9-9834-4497-b7ef-2ef2dae66d3e  
+
+2020-01-19 11:12:48,674 [12] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.IncrementLike (EasyShop.CP.UI)'
+
+2020-01-19 11:12:48,676 [12] ?     - Route matched with {action = "IncrementLike", controller = "DevBlog"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] IncrementLike(System.String) on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-19 11:12:48,678 [12] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-19 11:12:48,681 [12] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-19 11:12:48,683 [12] ?     - Executing DbCommand [Parameters=[@__postId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [d].[Id], [d].[DateTimePosted], [d].[ImgUrl], [d].[LikesCounter], [d].[Link], [d].[LinkTitle], [d].[PostMessage], [d].[Title]
+FROM [DevBlogPosts] AS [d]
+WHERE ([d].[Id] = @__postId_0) AND @__postId_0 IS NOT NULL
+
+2020-01-19 11:12:48,686 [12] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450), @__postId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [d].[AppUserId], [d].[DevBlogPostId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [d0].[Id], [d0].[DateTimePosted], [d0].[ImgUrl], [d0].[LikesCounter], [d0].[Link], [d0].[LinkTitle], [d0].[PostMessage], [d0].[Title]
+FROM [DevBlogPostsLikes] AS [d]
+INNER JOIN [AspNetUsers] AS [a] ON [d].[AppUserId] = [a].[Id]
+INNER JOIN [DevBlogPosts] AS [d0] ON [d].[DevBlogPostId] = [d0].[Id]
+WHERE (([d].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL) AND (([d].[DevBlogPostId] = @__postId_1) AND @__postId_1 IS NOT NULL)
+
+2020-01-19 11:12:48,690 [12] ?     - Executing DbCommand [Parameters=[@p7='?' (DbType = Guid), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [DevBlogPosts] SET [DateTimePosted] = @p0, [ImgUrl] = @p1, [LikesCounter] = @p2, [Link] = @p3, [LinkTitle] = @p4, [PostMessage] = @p5, [Title] = @p6
+WHERE [Id] = @p7;
+SELECT @@ROWCOUNT;
+
+2020-01-19 11:12:48,693 [14] ?     - Executing DbCommand [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+DELETE FROM [DevBlogPostsLikes]
+WHERE [AppUserId] = @p0 AND [DevBlogPostId] = @p1;
+SELECT @@ROWCOUNT;
+
+2020-01-19 11:12:48,697 [16] ?     - Executing ObjectResult, writing value of type 'EasyShop.Domain.Contracts.CP.Response.IncrementLikesCounterResponse'.
+
+2020-01-19 11:12:48,699 [16] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.IncrementLike (EasyShop.CP.UI) in 21.4858ms
+
+2020-01-19 11:12:48,700 [16] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.IncrementLike (EasyShop.CP.UI)'
+
+2020-01-19 11:12:48,702 [16] ?     - Request finished in 29.9865ms 200 application/json; charset=utf-8
+
+2020-01-19 11:12:49,269 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/IncrementLike?postId=58de6ca9-9834-4497-b7ef-2ef2dae66d3e  
+
+2020-01-19 11:12:49,272 [8] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.IncrementLike (EasyShop.CP.UI)'
+
+2020-01-19 11:12:49,273 [8] ?     - Route matched with {action = "IncrementLike", controller = "DevBlog"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] IncrementLike(System.String) on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-19 11:12:49,275 [8] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-19 11:12:49,278 [8] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-19 11:12:49,280 [8] ?     - Executing DbCommand [Parameters=[@__postId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [d].[Id], [d].[DateTimePosted], [d].[ImgUrl], [d].[LikesCounter], [d].[Link], [d].[LinkTitle], [d].[PostMessage], [d].[Title]
+FROM [DevBlogPosts] AS [d]
+WHERE ([d].[Id] = @__postId_0) AND @__postId_0 IS NOT NULL
+
+2020-01-19 11:12:49,283 [8] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450), @__postId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [d].[AppUserId], [d].[DevBlogPostId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [d0].[Id], [d0].[DateTimePosted], [d0].[ImgUrl], [d0].[LikesCounter], [d0].[Link], [d0].[LinkTitle], [d0].[PostMessage], [d0].[Title]
+FROM [DevBlogPostsLikes] AS [d]
+INNER JOIN [AspNetUsers] AS [a] ON [d].[AppUserId] = [a].[Id]
+INNER JOIN [DevBlogPosts] AS [d0] ON [d].[DevBlogPostId] = [d0].[Id]
+WHERE (([d].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL) AND (([d].[DevBlogPostId] = @__postId_1) AND @__postId_1 IS NOT NULL)
+
+2020-01-19 11:12:49,286 [8] ?     - Executing DbCommand [Parameters=[@p7='?' (DbType = Guid), @p0='?' (DbType = DateTime2), @p1='?' (Size = 4000), @p2='?' (DbType = Int32), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (Size = 4000), @p6='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+UPDATE [DevBlogPosts] SET [DateTimePosted] = @p0, [ImgUrl] = @p1, [LikesCounter] = @p2, [Link] = @p3, [LinkTitle] = @p4, [PostMessage] = @p5, [Title] = @p6
+WHERE [Id] = @p7;
+SELECT @@ROWCOUNT;
+
+2020-01-19 11:12:49,290 [12] ?     - Executing DbCommand [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [DevBlogPostsLikes] ([AppUserId], [DevBlogPostId])
+VALUES (@p0, @p1);
+
+2020-01-19 11:12:49,293 [12] ?     - Executing ObjectResult, writing value of type 'EasyShop.Domain.Contracts.CP.Response.IncrementLikesCounterResponse'.
+
+2020-01-19 11:12:49,295 [12] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.IncrementLike (EasyShop.CP.UI) in 20.0802ms
+
+2020-01-19 11:12:49,296 [12] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.IncrementLike (EasyShop.CP.UI)'
+
+2020-01-19 11:12:49,297 [12] ?     - Request finished in 28.7145ms 200 application/json; charset=utf-8
+
+2020-01-19 11:47:23,453 [27] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/canvas-to-blob.min.js.map  
+
+2020-01-19 11:47:23,458 [27] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-19 11:47:24,253 [28] ?     - Executing DbCommand [Parameters=[@__p_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE ([a].[Id] = @__p_0) AND @__p_0 IS NOT NULL
+
+2020-01-19 11:47:24,288 [27] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE ([a].[UserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
+
+2020-01-19 11:47:24,318 [29] ?     - Executing DbCommand [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE ([a].[UserId] = @__userId_0) AND @__userId_0 IS NOT NULL
+
+2020-01-19 11:47:24,325 [27] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2020-01-19 11:47:24,334 [29] ?     - Executing DbCommand [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE ([a].[RoleId] = @__role_Id_0) AND @__role_Id_0 IS NOT NULL
+
+2020-01-19 11:47:24,338 [31] ?     - Executing DbCommand [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedName_0 IS NULL)
+
+2020-01-19 11:47:24,341 [31] ?     - Executing DbCommand [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE ([a].[RoleId] = @__role_Id_0) AND @__role_Id_0 IS NOT NULL
+
+2020-01-19 11:47:24,352 [27] ?     - Request finished in 902.1768ms 404 
+
+2020-01-19 11:51:13,679 [34] ?     - Request starting HTTP/2.0 GET https://localhost:44374/  
+
+2020-01-19 11:51:13,683 [34] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI)'
+
+2020-01-19 11:51:13,686 [34] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.HomeController (EasyShop.CP.UI).
+
+2020-01-19 11:51:13,689 [34] ?     - Executing ViewResult, running view Index.
+
+2020-01-19 11:51:13,715 [34] ?     - Executed ViewResult - view Index executed in 26.9607ms.
+
+2020-01-19 11:51:13,717 [34] ?     - Executed action EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI) in 29.1551ms
+
+2020-01-19 11:51:13,719 [34] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI)'
+
+2020-01-19 11:51:13,721 [34] ?     - Request finished in 40.9243ms 200 text/html; charset=utf-8
+
+2020-01-19 11:51:14,180 [34] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/canvas-to-blob.min.js.map  
+
+2020-01-19 11:51:14,185 [34] ?     - Request finished in 4.6674ms 404 
+
+2020-01-19 12:10:56,962 [9] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-19 12:10:56,975 [9] ?     - Hosting environment: Development
+
+2020-01-19 12:10:56,977 [9] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-19 12:10:56,985 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/PostsList  
+
+2020-01-19 12:10:57,091 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI)'
+
+2020-01-19 12:10:57,147 [4] ?     - Route matched with {action = "PostsList", controller = "DevBlog"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PostsList(Int32) on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-19 12:10:57,165 [4] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-19 12:10:57,176 [4] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [d].[Id], [d].[DateTimePosted], [d].[ImgUrl], [d].[LikesCounter], [d].[Link], [d].[LinkTitle], [d].[PostMessage], [d].[Title]
+FROM [DevBlogPosts] AS [d]
+
+2020-01-19 12:10:57,213 [4] ?     - Executing ViewResult, running view PostsList.
+
+2020-01-19 12:10:57,274 [4] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-19 12:10:57,284 [4] ?     - Executing DbCommand [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE (([a].[NormalizedName] = @__normalizedRoleName_0) AND ([a].[NormalizedName] IS NOT NULL AND @__normalizedRoleName_0 IS NOT NULL)) OR ([a].[NormalizedName] IS NULL AND @__normalizedRoleName_0 IS NULL)
+
+2020-01-19 12:10:57,307 [13] ?     - Executing DbCommand [Parameters=[@__p_0='?' (Size = 450), @__p_1='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE (([a].[UserId] = @__p_0) AND @__p_0 IS NOT NULL) AND (([a].[RoleId] = @__p_1) AND @__p_1 IS NOT NULL)
+
+2020-01-19 12:10:57,587 [9] ?     - Executed ViewResult - view PostsList executed in 373.745ms.
+
+2020-01-19 12:10:57,595 [9] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI) in 445.6917ms
+
+2020-01-19 12:10:57,598 [9] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI)'
+
+2020-01-19 12:10:57,618 [9] ?     - Request finished in 628.5248ms 200 text/html; charset=utf-8
+
+2020-01-19 12:10:57,636 [10] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlogImages/image_aleksejbirula@gmail.com_Me-short_2769.jpg  
+
+2020-01-19 12:10:57,645 [10] ?     - The file /DevBlogImages/image_aleksejbirula@gmail.com_Me-short_2769.jpg was not modified
+
+2020-01-19 12:10:57,670 [10] ?     - Request finished in 13.8904ms 304 image/jpeg
+
+2020-01-19 12:10:58,096 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlogImages/image_aleksejbirula@gmail.com_le-mont-saint-michel-1500-teile-high-quality-collection_GpVLR3d_d9f0.jpg  
+
+2020-01-19 12:10:58,097 [14] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlogImages/image_aleksejbirula@gmail.com_le-mont-saint-michel-1500-teile-high-quality-collection_GpVLR3d_1534.jpg  
+
+2020-01-19 12:10:58,098 [16] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/customScripts/DevBlog/LikesLogic.js?v=xb8OZORbHsTpa9GkY6pDLsic6Uz_hIvkVWx070alpWU  
+
+2020-01-19 12:10:58,100 [16] ?     - The file /js/customScripts/DevBlog/LikesLogic.js was not modified
+
+2020-01-19 12:10:58,102 [9] ?     - The file /DevBlogImages/image_aleksejbirula@gmail.com_le-mont-saint-michel-1500-teile-high-quality-collection_GpVLR3d_d9f0.jpg was not modified
+
+2020-01-19 12:10:58,104 [14] ?     - The file /DevBlogImages/image_aleksejbirula@gmail.com_le-mont-saint-michel-1500-teile-high-quality-collection_GpVLR3d_1534.jpg was not modified
+
+2020-01-19 12:10:58,128 [16] ?     - Request finished in 7.2972ms 304 application/javascript
+
+2020-01-19 12:10:58,128 [9] ?     - Request finished in 10.7694ms 304 image/jpeg
+
+2020-01-19 12:10:58,130 [14] ?     - Request finished in 10.7703ms 304 image/jpeg
+
+2020-01-19 12:10:58,343 [14] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/UserHasAlreadyLikedThePost?postId=0c303979-6906-48c1-97c5-11599ec831a7  
+
+2020-01-19 12:10:58,353 [14] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI)'
+
+2020-01-19 12:10:58,364 [14] ?     - Route matched with {action = "UserHasAlreadyLikedThePost", controller = "DevBlog"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserHasAlreadyLikedThePost(System.String) on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-19 12:10:58,429 [14] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-19 12:10:58,433 [14] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-19 12:10:58,497 [14] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450), @__postId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [d].[AppUserId], [d].[DevBlogPostId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [d0].[Id], [d0].[DateTimePosted], [d0].[ImgUrl], [d0].[LikesCounter], [d0].[Link], [d0].[LinkTitle], [d0].[PostMessage], [d0].[Title]
+FROM [DevBlogPostsLikes] AS [d]
+INNER JOIN [AspNetUsers] AS [a] ON [d].[AppUserId] = [a].[Id]
+INNER JOIN [DevBlogPosts] AS [d0] ON [d].[DevBlogPostId] = [d0].[Id]
+WHERE (([d].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL) AND (([d].[DevBlogPostId] = @__postId_1) AND @__postId_1 IS NOT NULL)
+
+2020-01-19 12:10:58,539 [14] ?     - Executing ObjectResult, writing value of type 'EasyShop.Domain.Contracts.CP.Response.UserAlreadyLikedThePostResponse'.
+
+2020-01-19 12:10:58,547 [14] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI) in 181.7803ms
+
+2020-01-19 12:10:58,548 [14] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI)'
+
+2020-01-19 12:10:58,550 [14] ?     - Request finished in 207.2229ms 200 application/json; charset=utf-8
+
+2020-01-19 12:10:58,555 [13] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/UserHasAlreadyLikedThePost?postId=58de6ca9-9834-4497-b7ef-2ef2dae66d3e  
+
+2020-01-19 12:10:58,568 [13] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI)'
+
+2020-01-19 12:10:58,571 [13] ?     - Route matched with {action = "UserHasAlreadyLikedThePost", controller = "DevBlog"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserHasAlreadyLikedThePost(System.String) on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-19 12:10:58,574 [13] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-19 12:10:58,578 [13] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-19 12:10:58,582 [13] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450), @__postId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [d].[AppUserId], [d].[DevBlogPostId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [d0].[Id], [d0].[DateTimePosted], [d0].[ImgUrl], [d0].[LikesCounter], [d0].[Link], [d0].[LinkTitle], [d0].[PostMessage], [d0].[Title]
+FROM [DevBlogPostsLikes] AS [d]
+INNER JOIN [AspNetUsers] AS [a] ON [d].[AppUserId] = [a].[Id]
+INNER JOIN [DevBlogPosts] AS [d0] ON [d].[DevBlogPostId] = [d0].[Id]
+WHERE (([d].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL) AND (([d].[DevBlogPostId] = @__postId_1) AND @__postId_1 IS NOT NULL)
+
+2020-01-19 12:10:58,586 [13] ?     - Executing ObjectResult, writing value of type 'EasyShop.Domain.Contracts.CP.Response.UserAlreadyLikedThePostResponse'.
+
+2020-01-19 12:10:58,588 [13] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI) in 15.2527ms
+
+2020-01-19 12:10:58,590 [13] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI)'
+
+2020-01-19 12:10:58,592 [13] ?     - Request finished in 36.3527ms 200 application/json; charset=utf-8
+
+2020-01-19 12:10:58,599 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/UserHasAlreadyLikedThePost?postId=1c99ff5d-6073-4993-9915-ead45ed5565f  
+
+2020-01-19 12:10:58,602 [8] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI)'
+
+2020-01-19 12:10:58,604 [8] ?     - Route matched with {action = "UserHasAlreadyLikedThePost", controller = "DevBlog"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserHasAlreadyLikedThePost(System.String) on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-19 12:10:58,605 [8] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-19 12:10:58,608 [8] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-19 12:10:58,611 [8] ?     - Executing DbCommand [Parameters=[@__user_Id_0='?' (Size = 450), @__postId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [d].[AppUserId], [d].[DevBlogPostId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [d0].[Id], [d0].[DateTimePosted], [d0].[ImgUrl], [d0].[LikesCounter], [d0].[Link], [d0].[LinkTitle], [d0].[PostMessage], [d0].[Title]
+FROM [DevBlogPostsLikes] AS [d]
+INNER JOIN [AspNetUsers] AS [a] ON [d].[AppUserId] = [a].[Id]
+INNER JOIN [DevBlogPosts] AS [d0] ON [d].[DevBlogPostId] = [d0].[Id]
+WHERE (([d].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL) AND (([d].[DevBlogPostId] = @__postId_1) AND @__postId_1 IS NOT NULL)
+
+2020-01-19 12:10:58,615 [8] ?     - Executing ObjectResult, writing value of type 'EasyShop.Domain.Contracts.CP.Response.UserAlreadyLikedThePostResponse'.
+
+2020-01-19 12:10:58,617 [8] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI) in 11.7636ms
+
+2020-01-19 12:10:58,619 [8] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI)'
+
+2020-01-19 12:10:58,621 [8] ?     - Request finished in 22.4013ms 200 application/json; charset=utf-8
+
+2020-01-19 12:11:00,932 [10] ?     - Request starting HTTP/2.0 GET https://localhost:44374/Account/LogOut  
+
+2020-01-19 12:11:00,937 [10] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.LogOut (EasyShop.CP.UI)'
+
+2020-01-19 12:11:00,943 [10] ?     - Route matched with {action = "LogOut", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LogOut() on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2020-01-19 12:11:00,963 [10] ?     - AuthenticationScheme: Identity.Application signed out.
+
+2020-01-19 12:11:00,966 [10] ?     - AuthenticationScheme: Identity.External signed out.
+
+2020-01-19 12:11:00,968 [10] ?     - AuthenticationScheme: Identity.TwoFactorUserId signed out.
+
+2020-01-19 12:11:00,969 [10] ?     - User: aleksejbirula@gmail.com has been logged out.
+
+2020-01-19 12:11:00,978 [10] ?     - Executing RedirectResult, redirecting to /.
+
+2020-01-19 12:11:00,980 [10] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.LogOut (EasyShop.CP.UI) in 35.8539ms
+
+2020-01-19 12:11:00,982 [10] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.LogOut (EasyShop.CP.UI)'
+
+2020-01-19 12:11:00,984 [10] ?     - Request finished in 52.3433ms 302 
+
+2020-01-19 12:11:00,988 [10] ?     - Request starting HTTP/2.0 GET https://localhost:44374/  
+
+2020-01-19 12:11:00,991 [10] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI)'
+
+2020-01-19 12:11:00,994 [10] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.HomeController (EasyShop.CP.UI).
+
+2020-01-19 12:11:00,997 [10] ?     - Executing ViewResult, running view Index.
+
+2020-01-19 12:11:01,026 [10] ?     - Executed ViewResult - view Index executed in 29.529ms.
+
+2020-01-19 12:11:01,028 [10] ?     - Executed action EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI) in 31.7619ms
+
+2020-01-19 12:11:01,030 [10] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.HomeController.Index (EasyShop.CP.UI)'
+
+2020-01-19 12:11:01,031 [10] ?     - Request finished in 43.5827ms 200 text/html; charset=utf-8
+
+2020-01-19 12:11:03,881 [17] ?     - Request starting HTTP/2.0 GET https://localhost:44374/Account/Register  
+
+2020-01-19 12:11:03,889 [17] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2020-01-19 12:11:03,897 [17] ?     - Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register() on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2020-01-19 12:11:03,902 [17] ?     - Executing ViewResult, running view Register.
+
+2020-01-19 12:11:04,425 [17] ?     - Executed ViewResult - view Register executed in 523.2423ms.
+
+2020-01-19 12:11:04,426 [17] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI) in 527.751ms
+
+2020-01-19 12:11:04,428 [17] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2020-01-19 12:11:04,430 [17] ?     - Request finished in 549.4157ms 200 text/html; charset=utf-8
+
+2020-01-19 12:11:04,457 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/css/signup-2.css?v=O7i-RuP7Pk8sEHxmZipX1R4ZmGNINSYlgbPto30p2qE  
+
+2020-01-19 12:11:04,460 [4] ?     - The file /css/signup-2.css was not modified
+
+2020-01-19 12:11:04,461 [10] ?     - Request starting HTTP/2.0 GET https://localhost:44374/css/custom/Override/override-signup-2.css?v=50pRk7guA1zKHW_gVWegR-WerNdUrI4EOpCKktWNPmA  
+
+2020-01-19 12:11:04,463 [4] ?     - Request finished in 8.6123ms 304 text/css
+
+2020-01-19 12:11:04,465 [10] ?     - The file /css/custom/Override/override-signup-2.css was not modified
+
+2020-01-19 12:11:04,468 [10] ?     - Request finished in 7.7796ms 304 text/css
+
+2020-01-19 12:11:04,548 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/customScripts/Account/AccountRegistrationCheckPasswordToBeTheSame.js?v=5XUQVASGtXlFqEQJht3VhIcb61GLVsTTZ9z3mdbK6Tg  
+
+2020-01-19 12:11:04,550 [10] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/customScripts/Account/RegistrationFormErrorListStringReplace.js?v=G2GnGdw2m8Dpoh_XOCbKS-xJIF5Hp0h_azvzZxwRdRY  
+
+2020-01-19 12:11:04,552 [10] ?     - The file /js/customScripts/Account/RegistrationFormErrorListStringReplace.js was not modified
+
+2020-01-19 12:11:04,554 [10] ?     - Request finished in 7.3947ms 304 application/javascript
+
+2020-01-19 12:11:04,563 [4] ?     - Sending file. Request path: '/js/customScripts/Account/AccountRegistrationCheckPasswordToBeTheSame.js'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\wwwroot\js\customScripts\Account\AccountRegistrationCheckPasswordToBeTheSame.js'
+
+2020-01-19 12:11:04,565 [4] ?     - Request finished in 17.8553ms 200 application/javascript
+
+2020-01-19 12:11:06,783 [17] ?     - Request starting HTTP/2.0 GET https://localhost:44374/PrivacyPolicy/Get  
+
+2020-01-19 12:11:06,786 [17] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.PrivacyPolicyController.Get (EasyShop.CP.UI)'
+
+2020-01-19 12:11:06,790 [17] ?     - Route matched with {action = "Get", controller = "PrivacyPolicy"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get(Microsoft.AspNetCore.Hosting.IWebHostEnvironment) on controller EasyShop.CP.UI.Controllers.PrivacyPolicyController (EasyShop.CP.UI).
+
+2020-01-19 12:11:06,809 [17] ?     - Executed action EasyShop.CP.UI.Controllers.PrivacyPolicyController.Get (EasyShop.CP.UI) in 14.392ms
+
+2020-01-19 12:11:06,810 [17] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.PrivacyPolicyController.Get (EasyShop.CP.UI)'
+
+2020-01-19 12:11:06,920 [17] ?     - An unhandled exception occurred while processing an incoming request. Error: Could not find file 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\wwwrootPrivacyPolicyPrivacyPolicy.pdf'.. Stack trace:    at System.IO.FileInfo.get_Length()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.PhysicalFileResultExecutor.GetFileInfo(String path)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.PhysicalFileResultExecutor.ExecuteAsync(ActionContext context, PhysicalFileResult result)
+   at Microsoft.AspNetCore.Mvc.PhysicalFileResult.ExecuteResultAsync(ActionContext context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultAsync(IActionResult result)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeNextResultFilterAsync[TFilter,TFilterAsync]()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at EasyShop.CP.UI.Infrastructure.Middleware.ErrorHandlingMiddleware.Invoke(HttpContext context) in C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\Infrastructure\Middleware\ErrorHandlingMiddleware.cs:line 26
+
+2020-01-19 12:11:06,941 [17] ?     - An unhandled exception has occurred while executing the request.
+
+2020-01-19 12:11:06,967 [17] ?     - Request finished in 184.5174ms 500 text/html; charset=utf-8
+
+2020-01-19 12:12:01,901 [13] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-19 12:12:01,909 [13] ?     - Hosting environment: Development
+
+2020-01-19 12:12:01,911 [13] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-19 12:12:01,918 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/PostsList  
+
+2020-01-19 12:12:02,005 [8] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI)'
+
+2020-01-19 12:12:02,053 [8] ?     - Route matched with {action = "PostsList", controller = "DevBlog"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PostsList(Int32) on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-19 12:12:02,077 [8] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-19 12:12:02,083 [8] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [d].[Id], [d].[DateTimePosted], [d].[ImgUrl], [d].[LikesCounter], [d].[Link], [d].[LinkTitle], [d].[PostMessage], [d].[Title]
+FROM [DevBlogPosts] AS [d]
+
+2020-01-19 12:12:02,120 [8] ?     - Executing ViewResult, running view PostsList.
+
+2020-01-19 12:12:02,358 [8] ?     - Executed ViewResult - view PostsList executed in 239.8693ms.
+
+2020-01-19 12:12:02,360 [8] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI) in 304.8205ms
+
+2020-01-19 12:12:02,361 [8] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI)'
+
+2020-01-19 12:12:02,367 [8] ?     - Request finished in 449.3499ms 200 text/html; charset=utf-8
+
+2020-01-19 12:12:02,966 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/UserHasAlreadyLikedThePost?postId=0c303979-6906-48c1-97c5-11599ec831a7  
+
+2020-01-19 12:12:02,974 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI)'
+
+2020-01-19 12:12:02,983 [4] ?     - Route matched with {action = "UserHasAlreadyLikedThePost", controller = "DevBlog"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserHasAlreadyLikedThePost(System.String) on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-19 12:12:03,007 [4] ?     - Executing ObjectResult, writing value of type 'EasyShop.Domain.Contracts.CP.Response.UserAlreadyLikedThePostResponse'.
+
+2020-01-19 12:12:03,020 [4] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI) in 34.8406ms
+
+2020-01-19 12:12:03,022 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI)'
+
+2020-01-19 12:12:03,025 [4] ?     - Request finished in 57.2737ms 200 application/json; charset=utf-8
+
+2020-01-19 12:12:03,099 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/UserHasAlreadyLikedThePost?postId=58de6ca9-9834-4497-b7ef-2ef2dae66d3e  
+
+2020-01-19 12:12:03,103 [8] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI)'
+
+2020-01-19 12:12:03,105 [8] ?     - Route matched with {action = "UserHasAlreadyLikedThePost", controller = "DevBlog"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserHasAlreadyLikedThePost(System.String) on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-19 12:12:03,113 [8] ?     - Executing ObjectResult, writing value of type 'EasyShop.Domain.Contracts.CP.Response.UserAlreadyLikedThePostResponse'.
+
+2020-01-19 12:12:03,116 [8] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI) in 9.0078ms
+
+2020-01-19 12:12:03,117 [8] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI)'
+
+2020-01-19 12:12:03,119 [8] ?     - Request finished in 19.9628ms 200 application/json; charset=utf-8
+
+2020-01-19 12:12:03,124 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/UserHasAlreadyLikedThePost?postId=1c99ff5d-6073-4993-9915-ead45ed5565f  
+
+2020-01-19 12:12:03,125 [9] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI)'
+
+2020-01-19 12:12:03,127 [9] ?     - Route matched with {action = "UserHasAlreadyLikedThePost", controller = "DevBlog"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserHasAlreadyLikedThePost(System.String) on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-19 12:12:03,129 [9] ?     - Executing ObjectResult, writing value of type 'EasyShop.Domain.Contracts.CP.Response.UserAlreadyLikedThePostResponse'.
+
+2020-01-19 12:12:03,131 [9] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI) in 2.3303ms
+
+2020-01-19 12:12:03,133 [9] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI)'
+
+2020-01-19 12:12:03,135 [9] ?     - Request finished in 10.6632ms 200 application/json; charset=utf-8
+
+2020-01-19 12:12:09,383 [12] ?     - Request starting HTTP/2.0 GET https://localhost:44374/Account/Register  
+
+2020-01-19 12:12:09,390 [12] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2020-01-19 12:12:09,393 [12] ?     - Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register() on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2020-01-19 12:12:09,408 [12] ?     - Executing ViewResult, running view Register.
+
+2020-01-19 12:12:09,519 [12] ?     - Executed ViewResult - view Register executed in 112.0738ms.
+
+2020-01-19 12:12:09,520 [12] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI) in 125.81ms
+
+2020-01-19 12:12:09,522 [12] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2020-01-19 12:12:09,523 [12] ?     - Request finished in 140.5925ms 200 text/html; charset=utf-8
+
+2020-01-19 12:12:11,091 [16] ?     - Request starting HTTP/2.0 GET https://localhost:44374/PrivacyPolicy/Get  
+
+2020-01-19 12:12:11,095 [16] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.PrivacyPolicyController.Get (EasyShop.CP.UI)'
+
+2020-01-19 12:12:11,098 [16] ?     - Route matched with {action = "Get", controller = "PrivacyPolicy"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Get(Microsoft.AspNetCore.Hosting.IWebHostEnvironment) on controller EasyShop.CP.UI.Controllers.PrivacyPolicyController (EasyShop.CP.UI).
+
+2020-01-19 12:12:11,112 [16] ?     - Executing Microsoft.AspNetCore.Mvc.PhysicalFileResult, sending file 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI\wwwroot/PrivacyPolicy/PrivacyPolicy.pdf' with download name '' ...
+
+2020-01-19 12:12:11,131 [12] ?     - Executed action EasyShop.CP.UI.Controllers.PrivacyPolicyController.Get (EasyShop.CP.UI) in 30.4988ms
+
+2020-01-19 12:12:11,133 [12] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.PrivacyPolicyController.Get (EasyShop.CP.UI)'
+
+2020-01-19 12:12:11,138 [4] ?     - Request finished in 46.7186ms 200 application/pdf
+
+2020-01-19 12:13:03,793 [8] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-19 12:13:03,805 [8] ?     - Hosting environment: Development
+
+2020-01-19 12:13:03,806 [8] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\UI\EasyShop.CP.UI
+
+2020-01-19 12:13:03,817 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/PostsList  
+
+2020-01-19 12:13:03,912 [9] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI)'
+
+2020-01-19 12:13:03,959 [9] ?     - Route matched with {action = "PostsList", controller = "DevBlog"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult PostsList(Int32) on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-19 12:13:03,981 [9] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-19 12:13:03,996 [9] ?     - Executing DbCommand [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [d].[Id], [d].[DateTimePosted], [d].[ImgUrl], [d].[LikesCounter], [d].[Link], [d].[LinkTitle], [d].[PostMessage], [d].[Title]
+FROM [DevBlogPosts] AS [d]
+
+2020-01-19 12:13:04,030 [9] ?     - Executing ViewResult, running view PostsList.
+
+2020-01-19 12:13:04,282 [9] ?     - Executed ViewResult - view PostsList executed in 254.3728ms.
+
+2020-01-19 12:13:04,285 [9] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI) in 323.7662ms
+
+2020-01-19 12:13:04,287 [9] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.PostsList (EasyShop.CP.UI)'
+
+2020-01-19 12:13:04,294 [9] ?     - Request finished in 478.1638ms 200 text/html; charset=utf-8
+
+2020-01-19 12:13:04,915 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/UserHasAlreadyLikedThePost?postId=0c303979-6906-48c1-97c5-11599ec831a7  
+
+2020-01-19 12:13:04,926 [9] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI)'
+
+2020-01-19 12:13:04,937 [9] ?     - Route matched with {action = "UserHasAlreadyLikedThePost", controller = "DevBlog"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserHasAlreadyLikedThePost(System.String) on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-19 12:13:04,966 [9] ?     - Executing ObjectResult, writing value of type 'EasyShop.Domain.Contracts.CP.Response.UserAlreadyLikedThePostResponse'.
+
+2020-01-19 12:13:04,981 [9] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI) in 41.3929ms
+
+2020-01-19 12:13:04,982 [9] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI)'
+
+2020-01-19 12:13:04,986 [9] ?     - Request finished in 70.1808ms 200 application/json; charset=utf-8
+
+2020-01-19 12:13:05,067 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/UserHasAlreadyLikedThePost?postId=58de6ca9-9834-4497-b7ef-2ef2dae66d3e  
+
+2020-01-19 12:13:05,070 [9] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI)'
+
+2020-01-19 12:13:05,072 [9] ?     - Route matched with {action = "UserHasAlreadyLikedThePost", controller = "DevBlog"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserHasAlreadyLikedThePost(System.String) on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-19 12:13:05,083 [9] ?     - Executing ObjectResult, writing value of type 'EasyShop.Domain.Contracts.CP.Response.UserAlreadyLikedThePostResponse'.
+
+2020-01-19 12:13:05,087 [9] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI) in 11.4444ms
+
+2020-01-19 12:13:05,089 [9] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI)'
+
+2020-01-19 12:13:05,091 [9] ?     - Request finished in 24.0205ms 200 application/json; charset=utf-8
+
+2020-01-19 12:13:05,098 [12] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/UserHasAlreadyLikedThePost?postId=1c99ff5d-6073-4993-9915-ead45ed5565f  
+
+2020-01-19 12:13:05,100 [12] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI)'
+
+2020-01-19 12:13:05,102 [12] ?     - Route matched with {action = "UserHasAlreadyLikedThePost", controller = "DevBlog"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserHasAlreadyLikedThePost(System.String) on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-19 12:13:05,105 [12] ?     - Executing ObjectResult, writing value of type 'EasyShop.Domain.Contracts.CP.Response.UserAlreadyLikedThePostResponse'.
+
+2020-01-19 12:13:05,107 [12] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI) in 3.4219ms
+
+2020-01-19 12:13:05,111 [12] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.UserHasAlreadyLikedThePost (EasyShop.CP.UI)'
+
+2020-01-19 12:13:05,113 [12] ?     - Request finished in 15.4773ms 200 application/json; charset=utf-8
+
+2020-01-19 12:13:06,383 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/Account/Register  
+
+2020-01-19 12:13:06,388 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2020-01-19 12:13:06,393 [4] ?     - Route matched with {action = "Register", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Register() on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2020-01-19 12:13:06,412 [4] ?     - Executing ViewResult, running view Register.
+
+2020-01-19 12:13:06,559 [4] ?     - Executed ViewResult - view Register executed in 148.7753ms.
+
+2020-01-19 12:13:06,561 [4] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI) in 166.2723ms
+
+2020-01-19 12:13:06,564 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.Register (EasyShop.CP.UI)'
+
+2020-01-19 12:13:06,568 [4] ?     - Request finished in 184.7349ms 200 text/html; charset=utf-8
+
+2020-01-19 12:13:54,830 [21] ?     - Request starting HTTP/2.0 GET https://localhost:44374/Account/Login  
+
+2020-01-19 12:13:54,836 [21] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI)'
+
+2020-01-19 12:13:54,839 [21] ?     - Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller EasyShop.CP.UI.Controllers.AccountController (EasyShop.CP.UI).
+
+2020-01-19 12:13:54,847 [21] ?     - Executing ViewResult, running view Login.
+
+2020-01-19 12:13:54,883 [21] ?     - Executed ViewResult - view Login executed in 36.4997ms.
+
+2020-01-19 12:13:54,884 [21] ?     - Executed action EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI) in 43.9131ms
+
+2020-01-19 12:13:54,886 [21] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.AccountController.Login (EasyShop.CP.UI)'
+
+2020-01-19 12:13:54,887 [21] ?     - Request finished in 57.3425ms 200 text/html; charset=utf-8
+
+2020-01-19 12:13:54,905 [21] ?     - Request starting HTTP/2.0 GET https://localhost:44374/css/custom/Override/override-login-2.css?v=pP8GzjabeHuuY4A2w7jP89pi1DPfUBxFKyLUkE9Fss8  
+
+2020-01-19 12:13:54,906 [23] ?     - Request starting HTTP/2.0 GET https://localhost:44374/css/login-2.css?v=R_x8O0n8vAv1lZYS93AqmvsFeishw52brnMNWCi8q9s  
+
+2020-01-19 12:13:54,913 [23] ?     - The file /css/login-2.css was not modified
+
+2020-01-19 12:13:54,914 [21] ?     - The file /css/custom/Override/override-login-2.css was not modified
+
+2020-01-19 12:13:54,917 [21] ?     - Request finished in 12.6472ms 304 text/css
+
+2020-01-19 12:13:54,919 [23] ?     - Request finished in 12.6471ms 304 text/css
+

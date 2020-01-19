@@ -38,7 +38,7 @@ namespace EasyShop.CP.UI.Controllers
             });
 
 
-            int pageSize = 1;
+            int pageSize = 10;
             var postViewModelsList = postViewModels.ToList();
             var postViewModelsListCount = postViewModelsList.Count;
             var postsInPage = postViewModelsList.Skip((page - 1) * pageSize).Take(pageSize).ToList();
