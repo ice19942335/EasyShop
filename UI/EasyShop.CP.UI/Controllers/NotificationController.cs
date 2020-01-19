@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Enums.CP.Notification;
 using EasyShop.Domain.ViewModels.CP.Notification;
+using EasyShop.Domain.ViewModels.CP.PageViewModel;
 using EasyShop.Interfaces.Services.CP.Notification;
 using EasyShop.Services.Mappers.ViewModels.Notification;
 using Microsoft.AspNetCore.Authorization;
@@ -40,13 +41,13 @@ namespace EasyShop.CP.UI.Controllers
             var allNotificationCount = notificationViewModelsList.Count;
             var notificationsInPage = notificationViewModelsList.Skip((page - 1) * pageSize).Take(pageSize).ToList();
 
-            NotificationPageViewModel notificationPageModel = new NotificationPageViewModel(allNotificationCount, page, pageSize);
+            PageViewModel pageModel = new PageViewModel(allNotificationCount, page, pageSize);
 
             var model = new NotificationsListViewModel
             {
                 NotificationViewModels = notificationsInPage,
                 Url = Url.Action("MarkAsRead", "Notification", new { }, HttpContext.Request.Scheme),
-                NotificationPageViewModel = notificationPageModel
+                PageViewModel = pageModel
             };
 
             return View(model);

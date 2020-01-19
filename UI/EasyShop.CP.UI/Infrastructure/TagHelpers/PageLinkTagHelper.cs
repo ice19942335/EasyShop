@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EasyShop.Domain.Enums.CP.Pagination;
 using EasyShop.Domain.ViewModels.CP.Notification;
+using EasyShop.Domain.ViewModels.CP.PageViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.Routing;
@@ -24,7 +26,9 @@ namespace EasyShop.CP.UI.Infrastructure.TagHelpers
         [HtmlAttributeNotBound]
         public ViewContext ViewContext { get; set; }
 
-        public NotificationPageViewModel NotificationPageModel { get; set; }
+        public PaginationTypeEnum Type { get; set; }
+
+        public PageViewModel PageModel { get; set; }
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
@@ -35,29 +39,29 @@ namespace EasyShop.CP.UI.Infrastructure.TagHelpers
             tag.AddCssClass("pagination");
 
             //Create increment link
-            TagBuilder decrement = CreateIncrementDecrementTag(NotificationPageModel.PageNumber, urlHelper, "decrement");
+            TagBuilder decrement = CreateIncrementDecrementTag(PageModel.PageNumber, urlHelper, "decrement");
             tag.InnerHtml.AppendHtml(decrement);
 
             //Creating link for previous page if exist
-            if (NotificationPageModel.HasPreviousPage)
+            if (PageModel.HasPreviousPage)
             {
-                TagBuilder prevItem = CreateTag(NotificationPageModel.PageNumber - 1, urlHelper);
+                TagBuilder prevItem = CreateTag(PageModel.PageNumber - 1, urlHelper);
                 tag.InnerHtml.AppendHtml(prevItem);
             }
 
             //Current page
-            TagBuilder currentItem = CreateTag(NotificationPageModel.PageNumber, urlHelper);
+            TagBuilder currentItem = CreateTag(PageModel.PageNumber, urlHelper);
             tag.InnerHtml.AppendHtml(currentItem);
 
             //Creating link for next page if exist
-            if (NotificationPageModel.HasNextPage)
+            if (PageModel.HasNextPage)
             {
-                TagBuilder nextItem = CreateTag(NotificationPageModel.PageNumber + 1, urlHelper);
+                TagBuilder nextItem = CreateTag(PageModel.PageNumber + 1, urlHelper);
                 tag.InnerHtml.AppendHtml(nextItem);
             }
 
             //Create decrement link
-            TagBuilder increment = CreateIncrementDecrementTag(NotificationPageModel.PageNumber, urlHelper, "increment");
+            TagBuilder increment = CreateIncrementDecrementTag(PageModel.PageNumber, urlHelper, "increment");
             tag.InnerHtml.AppendHtml(increment);
 
             output.Content.AppendHtml(tag);
@@ -68,15 +72,26 @@ namespace EasyShop.CP.UI.Infrastructure.TagHelpers
             TagBuilder item = new TagBuilder("li");
             TagBuilder link = new TagBuilder("a");
 
-            if (pageNumber == NotificationPageModel.PageNumber)
+            if (pageNumber == PageModel.PageNumber)
                 item.AddCssClass("active");
             else
             {
-                link.Attributes["href"] = urlHelper.Action(
-                    "NotificationList",
-                    "Notification",
-                    new { page = pageNumber },
-                    ViewContext.HttpContext.Request.Scheme);
+                if (Type == PaginationTypeEnum.Notifications)
+                {
+                    link.Attributes["href"] = urlHelper.Action(
+                        "NotificationList",
+                        "Notification",
+                        new { page = pageNumber },
+                        ViewContext.HttpContext.Request.Scheme);
+                }
+                else if (Type == PaginationTypeEnum.DevBlog)
+                {
+                    link.Attributes["href"] = urlHelper.Action(
+                        "PostsList",
+                        "DevBlog",
+                        new { page = pageNumber },
+                        ViewContext.HttpContext.Request.Scheme);
+                }
             }
 
 
@@ -97,13 +112,24 @@ namespace EasyShop.CP.UI.Infrastructure.TagHelpers
             {
                 item.AddCssClass("previous");
 
-                if (NotificationPageModel.HasPreviousPage)
+                if (PageModel.HasPreviousPage)
                 {
-                    link.Attributes["href"] = urlHelper.Action(
-                        "NotificationList",
-                        "Notification",
-                        new { page = --pageNumber },
-                        ViewContext.HttpContext.Request.Scheme);
+                    if (Type == PaginationTypeEnum.Notifications)
+                    {
+                        link.Attributes["href"] = urlHelper.Action(
+                            "NotificationList",
+                            "Notification",
+                            new { page = --pageNumber },
+                            ViewContext.HttpContext.Request.Scheme);
+                    }
+                    else if (Type == PaginationTypeEnum.DevBlog)
+                    {
+                        link.Attributes["href"] = urlHelper.Action(
+                            "PostsList",
+                            "DevBlog",
+                            new { page = --pageNumber },
+                            ViewContext.HttpContext.Request.Scheme);
+                    }
                 }
                 else
                 {
@@ -118,13 +144,24 @@ namespace EasyShop.CP.UI.Infrastructure.TagHelpers
             {
                 item.AddCssClass("next");
 
-                if (NotificationPageModel.HasNextPage)
+                if (PageModel.HasNextPage)
                 {
-                    link.Attributes["href"] = urlHelper.Action(
-                        "NotificationList",
-                        "Notification",
-                        new { page = ++pageNumber },
-                        ViewContext.HttpContext.Request.Scheme);
+                    if (Type == PaginationTypeEnum.Notifications)
+                    {
+                        link.Attributes["href"] = urlHelper.Action(
+                            "NotificationList",
+                            "Notification",
+                            new { page = ++pageNumber },
+                            ViewContext.HttpContext.Request.Scheme);
+                    }
+                    else if (Type == PaginationTypeEnum.DevBlog)
+                    {
+                        link.Attributes["href"] = urlHelper.Action(
+                            "PostsList",
+                            "DevBlog",
+                            new { page = ++pageNumber },
+                            ViewContext.HttpContext.Request.Scheme);
+                    }
                 }
                 else
                 {

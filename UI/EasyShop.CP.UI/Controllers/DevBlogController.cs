@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using EasyShop.Domain.Contracts.CP.Response;
 using EasyShop.Domain.Enums.CP.DevBlog;
 using EasyShop.Domain.ViewModels.CP.ControlPanel.DevBlog;
+using EasyShop.Domain.ViewModels.CP.PageViewModel;
 using EasyShop.Interfaces.Services.CP.DevBlog;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -22,21 +23,33 @@ namespace EasyShop.CP.UI.Controllers
         }
 
         [AllowAnonymous]
-        public IActionResult PostsList()
+        public IActionResult PostsList(int page = 1)
         {
+            var postViewModels = _devBlogService.GetAllPosts().Select(x => new DevBlogPostViewModel
+            {
+                Id = x.Id.ToString(),
+                Title = x.Title,
+                PostMessage = x.PostMessage,
+                ImgUrl = x.ImgUrl,
+                Link = x.Link,
+                LinkTitle = x.LinkTitle,
+                DateTimePosted = x.DateTimePosted,
+                LikesCounter = x.LikesCounter
+            });
+
+
+            int pageSize = 1;
+            var postViewModelsList = postViewModels.ToList();
+            var postViewModelsListCount = postViewModelsList.Count;
+            var postsInPage = postViewModelsList.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
+            PageViewModel pageModel = new PageViewModel(postViewModelsListCount, page, pageSize);
+
+
             var model = new DevBlogViewModel
             {
-                Posts = _devBlogService.GetAllPosts().Select(x => new DevBlogPostViewModel
-                {
-                    Id = x.Id.ToString(),
-                    Title = x.Title,
-                    PostMessage = x.PostMessage,
-                    ImgUrl = x.ImgUrl,
-                    Link = x.Link,
-                    LinkTitle = x.LinkTitle,
-                    DateTimePosted = x.DateTimePosted,
-                    LikesCounter = x.LikesCounter
-                })
+                Posts = postsInPage,
+                Pages = pageModel
             };
 
             return View(model);

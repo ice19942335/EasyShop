@@ -1,5 +1,6 @@
 ﻿@model EasyShop.Domain.ViewModels.CP.ControlPanel.DevBlog.DevBlogViewModel
 @using EasyShop.Domain.Entries.Identity
+@using EasyShop.Domain.Enums.CP.Pagination
 @using EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization
 @using Microsoft.AspNetCore.Identity
 @inject UserManager<AppUser> UserManager
@@ -85,6 +86,17 @@
         </div>
     </div>
 </div>
+
+@if (Model.Pages.TotalPages > 1)
+{
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="dataTables_paginate" id="demo-dynamic-tables-1_paginate">
+                <page-link page-model="@Model.Pages" type="@PaginationTypeEnum.DevBlog"></page-link>
+            </div>
+        </div>
+    </div>
+}
 
 @section Scripts
 {
