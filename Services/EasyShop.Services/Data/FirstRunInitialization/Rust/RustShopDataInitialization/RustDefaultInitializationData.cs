@@ -142,7 +142,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
                 RustItemInGameId = "bow.hunting",
                 Name = "Hunting Bow",
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-853695669"
+                ImgUrl = "https://i.imgur.com/wDVJwjk.png"
             },
             new RustItem
             {
@@ -150,7 +150,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
                 RustItemInGameId = "crossbow",
                 Name = "Crossbow",
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "2123300234"
+                ImgUrl = "https://i.imgur.com/ENN6ZSr.png"
             },
             new RustItem
             {
@@ -158,7 +158,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
                 RustItemInGameId = "explosive.timed",
                 Name = "Timed Explosive Charge",
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "498591726"
+                ImgUrl = "https://i.imgur.com/Z8Lgb9g.png"
             },
             new RustItem
             {
@@ -168,7 +168,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "384204160"
+                ImgUrl = "https://i.imgur.com/dL33uWG.png"
             },
             new RustItem
             {
@@ -178,7 +178,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1308622549"
+                ImgUrl = "https://i.imgur.com/7Z2g3hU.png"
             },
             new RustItem
             {
@@ -188,7 +188,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "193190034"
+                ImgUrl = "https://i.imgur.com/Lgw8rjJ.png"
             },
             new RustItem
             {
@@ -198,7 +198,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "146685185"
+                ImgUrl = "https://i.imgur.com/CPg5LMs.png"
             },
             new RustItem
             {
@@ -208,7 +208,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "3343606"
+                ImgUrl = "https://i.imgur.com/AFmODGW.png"
             },
             new RustItem
             {
@@ -218,7 +218,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "825308669"
+                ImgUrl = "https://i.imgur.com/QcwUWKg.png"
             },
             new RustItem
             {
@@ -228,7 +228,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "548699316"
+                ImgUrl = "https://i.imgur.com/Yc7mzkA.png"
             },
             new RustItem
             {
@@ -238,7 +238,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1461508848"
+                ImgUrl = "https://i.imgur.com/7R9p8it.png"
             },
             new RustItem
             {
@@ -248,7 +248,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-55660037"
+                ImgUrl = "https://i.imgur.com/iJ1olW4.png"
             },
             new RustItem
             {
@@ -258,7 +258,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1745053053"
+                ImgUrl = "https://i.imgur.com/cdZGI28.png"
             },
             new RustItem
             {
@@ -268,7 +268,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "649603450"
+                ImgUrl = "https://i.imgur.com/JlhqjsT.png"
             },
             new RustItem
             {
@@ -278,7 +278,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "2077983581"
+                ImgUrl = "https://i.imgur.com/6NE4876.png"
             },
             new RustItem
             {
@@ -288,7 +288,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "109552593"
+                ImgUrl = "https://i.imgur.com/OcqzErL.png"
             },
             new RustItem
             {
@@ -298,7 +298,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "456448245"
+                ImgUrl = "https://i.imgur.com/XK4wa6f.png"
             },
             new RustItem
             {
@@ -308,7 +308,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1045869440"
+                ImgUrl = "https://i.imgur.com/GVMpJVo.png"
             },
             new RustItem
             {
@@ -318,7 +318,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1716193401"
+                ImgUrl = "https://i.imgur.com/Wcquqyl.png"
             },
             new RustItem
             {
@@ -328,7 +328,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-2094080303"
+                ImgUrl = "https://i.imgur.com/fFq55Ut.png"
             },
             new RustItem
             {
@@ -338,7 +338,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "371156815"
+                ImgUrl = "https://i.imgur.com/0IaUs9G.png"
             },
             new RustItem
             {
@@ -348,7 +348,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "2033918259"
+                ImgUrl = "https://i.imgur.com/ZaaIQSo.png"
             },
             new RustItem
             {
@@ -358,7 +358,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "449769971"
+                ImgUrl = "https://i.imgur.com/BOxlxmV.png"
             },
             new RustItem
             {
@@ -368,7 +368,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "621575320"
+                ImgUrl = "https://i.imgur.com/HhkJBcc.png"
             },
             new RustItem
             {
@@ -378,7 +378,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-778367295"
+                ImgUrl = "https://i.imgur.com/CSJFBrh.png"
             },
             new RustItem
             {
@@ -388,7 +388,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "28201841"
+                ImgUrl = "https://i.imgur.com/qqcwBlN.png"
             },
             new RustItem
             {
@@ -398,7 +398,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1436001773"
+                ImgUrl = "https://i.imgur.com/ezHb5GY.png"
             },
             new RustItem
             {
@@ -408,7 +408,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "94756378"
+                ImgUrl = "https://i.imgur.com/gQM6iDH.png"
             },
             new RustItem
             {
@@ -418,7 +418,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1755466030"
+                ImgUrl = "https://i.imgur.com/tNfWhQu.png"
             },
             new RustItem
             {
@@ -428,7 +428,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1034048911"
+                ImgUrl = "https://i.imgur.com/hZbNTtx.png"
             },
             new RustItem
             {
@@ -438,7 +438,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1580059655"
+                ImgUrl = "https://i.imgur.com/OTzldM8.png"
             },
             new RustItem
             {
@@ -448,7 +448,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "2133577942"
+                ImgUrl = "https://i.imgur.com/nWug93B.png"
             },
             new RustItem
             {
@@ -458,7 +458,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "50834473"
+                ImgUrl = "https://i.imgur.com/vR7mc9I.png"
             },
             new RustItem
             {
@@ -468,7 +468,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "688032252"
+                ImgUrl = "https://i.imgur.com/YpbfyTi.png"
             },
             new RustItem
             {
@@ -478,7 +478,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1059362949"
+                ImgUrl = "https://i.imgur.com/WCmU15A.png"
             },
             new RustItem
             {
@@ -488,7 +488,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "374890416"
+                ImgUrl = "https://i.imgur.com/q9obSjv.png"
             },
             new RustItem
             {
@@ -498,7 +498,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-891243783"
+                ImgUrl = "https://i.imgur.com/EGhYNWF.png"
             },
             new RustItem
             {
@@ -508,7 +508,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "889398893"
+                ImgUrl = "https://i.imgur.com/RF5W9sH.png"
             },
             new RustItem
             {
@@ -518,7 +518,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "3655341"
+                ImgUrl = "https://i.imgur.com/YTHnJ9o.png"
             },
             new RustItem
             {
@@ -528,7 +528,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "2115555558"
+                ImgUrl = "https://i.imgur.com/Cg2kt7m.png"
             },
             new RustItem
             {
@@ -538,7 +538,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "815896488"
+                ImgUrl = "https://i.imgur.com/7IQ5OlV.png"
             },
             new RustItem
             {
@@ -548,7 +548,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "805088543"
+                ImgUrl = "https://i.imgur.com/jWhbVg6.png"
             },
             new RustItem
             {
@@ -558,7 +558,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1152393492"
+                ImgUrl = "https://i.imgur.com/FXXpCbn.png"
             },
             new RustItem
             {
@@ -568,7 +568,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "449771810"
+                ImgUrl = "https://i.imgur.com/mxhSLau.png"
             },
             new RustItem
             {
@@ -578,7 +578,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1578894260"
+                ImgUrl = "https://i.imgur.com/AdRUvnJ.png"
             },
             new RustItem
             {
@@ -588,7 +588,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1436532208"
+                ImgUrl = "https://i.imgur.com/SQ7L2wS.png"
             },
             new RustItem
             {
@@ -598,7 +598,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "542276424"
+                ImgUrl = "https://i.imgur.com/4SumHsj.png"
             },
             new RustItem
             {
@@ -608,7 +608,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-533875561"
+                ImgUrl = "https://i.imgur.com/NSKUNdq.png"
             },
             new RustItem
             {
@@ -618,7 +618,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1621541165"
+                ImgUrl = "https://i.imgur.com/yeutDV9.png"
             },
             new RustItem
             {
@@ -628,7 +628,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-422893115"
+                ImgUrl = "https://i.imgur.com/tfU5zAo.png"
             },
             new RustItem
             {
@@ -638,7 +638,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1594947829"
+                ImgUrl = "https://i.imgur.com/f5UHMxC.png"
             },
             new RustItem
             {
@@ -648,7 +648,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1035059994"
+                ImgUrl = "https://i.imgur.com/YvGDUNv.png"
             },
             new RustItem
             {
@@ -658,7 +658,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1819281075"
+                ImgUrl = "https://i.imgur.com/PVkPXLB.png"
             },
             new RustItem
             {
@@ -668,7 +668,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1818890814"
+                ImgUrl = "https://i.imgur.com/VOxwxBf.png"
             },
             new RustItem
             {
@@ -678,7 +678,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1280058093"
+                ImgUrl = "https://i.imgur.com/HIsAGnl.png"
             },
             new RustItem
             {
@@ -688,7 +688,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-420273765"
+                ImgUrl = "https://i.imgur.com/NwjfGxI.png"
             },
             new RustItem
             {
@@ -698,7 +698,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1775362679"
+                ImgUrl = "https://i.imgur.com/fO0WJtj.png"
             },
             new RustItem
             {
@@ -708,7 +708,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1775249157"
+                ImgUrl = "https://i.imgur.com/WGly3Lf.png"
             },
             new RustItem
             {
@@ -718,7 +718,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1260209393"
+                ImgUrl = "https://i.imgur.com/EsMBuXz.png"
             },
             new RustItem
             {
@@ -728,7 +728,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-2128719593"
+                ImgUrl = "https://i.imgur.com/Y9kOnhi.png"
             },
             new RustItem
             {
@@ -738,7 +738,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1211618504"
+                ImgUrl = "https://i.imgur.com/3tOKoAA.png"
             },
             new RustItem
             {
@@ -748,7 +748,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1167640370"
+                ImgUrl = "https://i.imgur.com/rm1twCW.png"
             },
             new RustItem
             {
@@ -758,7 +758,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1616887133"
+                ImgUrl = "https://i.imgur.com/6ETbDNF.png"
             },
             new RustItem
             {
@@ -768,7 +768,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1284735799"
+                ImgUrl = "https://i.imgur.com/u4GlUKC.png"
             },
             new RustItem
             {
@@ -778,7 +778,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1278649848"
+                ImgUrl = "https://i.imgur.com/Fetgu7t.png"
             },
             new RustItem
             {
@@ -788,7 +788,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "997973965"
+                ImgUrl = "https://i.imgur.com/ICXoLJb.png"
             },
             new RustItem
             {
@@ -798,7 +798,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-46848560"
+                ImgUrl = "https://i.imgur.com/qa7HjDB.png"
             },
             new RustItem
             {
@@ -808,7 +808,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1265861812"
+                ImgUrl = "https://i.imgur.com/qkcdbEI.png"
             },
             new RustItem
             {
@@ -818,7 +818,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "340009023"
+                ImgUrl = "https://i.imgur.com/uwfWNsN.png"
             },
             new RustItem
             {
@@ -828,7 +828,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-288010497"
+                ImgUrl = "https://i.imgur.com/cC4WsjK.png"
             },
             new RustItem
             {
@@ -838,7 +838,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-459156023"
+                ImgUrl = "https://i.imgur.com/Z4HIhnp.png"
             },
             new RustItem
             {
@@ -848,7 +848,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "24576628"
+                ImgUrl = "https://i.imgur.com/28zkqij.png"
             },
             new RustItem
             {
@@ -858,7 +858,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1659202509"
+                ImgUrl = "https://i.imgur.com/hrKfQAS.png"
             },
             new RustItem
             {
@@ -868,7 +868,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1351172108"
+                ImgUrl = "https://i.imgur.com/EAfJK1X.png"
             },
             new RustItem
             {
@@ -878,7 +878,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1404466285"
+                ImgUrl = "https://i.imgur.com/BVU0dXs.png"
             },
             new RustItem
             {
@@ -888,7 +888,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1334615971"
+                ImgUrl = "https://i.imgur.com/tYeiTNv.png"
             },
             new RustItem
             {
@@ -898,7 +898,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "726730162"
+                ImgUrl = "https://i.imgur.com/dHBPrDJ.png"
             },
             new RustItem
             {
@@ -908,7 +908,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "305916740"
+                ImgUrl = "https://i.imgur.com/773fnD0.png"
             },
             new RustItem
             {
@@ -918,7 +918,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "305916741"
+                ImgUrl = "https://i.imgur.com/O6e4Yi8.png"
             },
             new RustItem
             {
@@ -928,7 +928,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "252529905"
+                ImgUrl = "https://i.imgur.com/eUMtsfq.png"
             },
             new RustItem
             {
@@ -938,7 +938,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "471582113"
+                ImgUrl = "https://i.imgur.com/UfWPSFa.png"
             },
             new RustItem
             {
@@ -948,7 +948,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1138648591"
+                ImgUrl = "https://i.imgur.com/KgOLWgB.png"
             },
             new RustItem
             {
@@ -958,7 +958,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1832205789"
+                ImgUrl = "https://i.imgur.com/DeU5STX.png"
             },
             new RustItem
             {
@@ -968,7 +968,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1832205788"
+                ImgUrl = "https://i.imgur.com/XeFUnre.png"
             },
             new RustItem
             {
@@ -978,7 +978,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1625090418"
+                ImgUrl = "https://i.imgur.com/onpUucT.png"
             },
             new RustItem
             {
@@ -988,7 +988,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1269800768"
+                ImgUrl = "https://i.imgur.com/IvijVaz.png"
             },
             new RustItem
             {
@@ -998,7 +998,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "429648208"
+                ImgUrl = "https://i.imgur.com/pEVRhwP.png"
             },
             new RustItem
             {
@@ -1008,7 +1008,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "968019378"
+                ImgUrl = "https://i.imgur.com/wUvswlS.png"
             },
             new RustItem
             {
@@ -1018,7 +1018,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "498312426"
+                ImgUrl = "https://i.imgur.com/h71XM4y.png"
             },
             new RustItem
             {
@@ -1038,7 +1038,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1221200300"
+                ImgUrl = "https://i.imgur.com/LFpmcwV.png"
             },
             new RustItem
             {
@@ -1048,7 +1048,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "510887968"
+                ImgUrl = "https://i.imgur.com/pyN8xfa.png"
             },
             new RustItem
             {
@@ -1058,7 +1058,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1024486167"
+                ImgUrl = "https://i.imgur.com/FlfLigQ.png"
             },
             new RustItem
             {
@@ -1068,7 +1068,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "97409"
+                ImgUrl = "https://i.imgur.com/hkwEFcu.png"
             },
             new RustItem
             {
@@ -1078,7 +1078,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-2095387015"
+                ImgUrl = "https://i.imgur.com/Ldon7vR.png"
             },
             new RustItem
             {
@@ -1088,7 +1088,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1598149413"
+                ImgUrl = "https://i.imgur.com/dxvjCCE.png"
             },
             new RustItem
             {
@@ -1098,7 +1098,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1779401418"
+                ImgUrl = "https://i.imgur.com/7EzOpqb.png"
             },
             new RustItem
             {
@@ -1108,7 +1108,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-57285700"
+                ImgUrl = "https://i.imgur.com/rk9mkqY.png"
             },
             new RustItem
             {
@@ -1118,7 +1118,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "2057749608"
+                ImgUrl = "https://i.imgur.com/fYizHlT.png"
             },
             new RustItem
             {
@@ -1138,7 +1138,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-529054134"
+                ImgUrl = "https://i.imgur.com/nHytRvi.png"
             },
             new RustItem
             {
@@ -1148,7 +1148,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "486166145"
+                ImgUrl = "https://i.imgur.com/8l5eig1.png"
             },
             new RustItem
             {
@@ -1158,7 +1158,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1792066367"
+                ImgUrl = "https://i.imgur.com/zLJGvzz.png"
             },
             new RustItem
             {
@@ -1168,7 +1168,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-496055048"
+                ImgUrl = "https://i.imgur.com/TxiK4Og.png"
             },
             new RustItem
             {
@@ -1178,7 +1178,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1628526499"
+                ImgUrl = "https://i.imgur.com/J97Zym5.png"
             },
             new RustItem
             {
@@ -1188,7 +1188,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "142147109"
+                ImgUrl = "https://i.imgur.com/m2hLjyN.png"
             },
             new RustItem
             {
@@ -1198,7 +1198,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "148953073"
+                ImgUrl = "https://i.imgur.com/qjJPpLE.png"
             },
             new RustItem
             {
@@ -1208,7 +1208,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "94623429"
+                ImgUrl = "https://i.imgur.com/WMdsvoG.png"
             },
             new RustItem
             {
@@ -1218,7 +1218,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-778796102"
+                ImgUrl = "https://i.imgur.com/It5uFMy.png"
             },
             new RustItem
             {
@@ -1228,7 +1228,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "470729623"
+                ImgUrl = "https://i.imgur.com/kFWxy4k.png"
             },
             new RustItem
             {
@@ -1238,7 +1238,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "110115790"
+                ImgUrl = "https://i.imgur.com/aMJQ5M1.png"
             },
             new RustItem
             {
@@ -1248,7 +1248,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "113284"
+                ImgUrl = "https://i.imgur.com/7Kr1GP4.png"
             },
             new RustItem
             {
@@ -1258,7 +1258,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "569935070"
+                ImgUrl = "https://i.imgur.com/Itmrq9B.png"
             },
             new RustItem
             {
@@ -1268,7 +1268,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1097452776"
+                ImgUrl = "https://i.imgur.com/f7Id9tm.png"
             },
             new RustItem
             {
@@ -1278,7 +1278,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "313836902"
+                ImgUrl = "https://i.imgur.com/J4ZNG0v.png"
             },
             new RustItem
             {
@@ -1288,7 +1288,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-481416622"
+                ImgUrl = "https://i.imgur.com/HtkhPMp.png"
             },
             new RustItem
             {
@@ -1298,7 +1298,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-481416621"
+                ImgUrl = "https://i.imgur.com/1LKSaUf.png"
             },
             new RustItem
             {
@@ -1308,7 +1308,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-481416620"
+                ImgUrl = "https://i.imgur.com/AZounls.png"
             },
             new RustItem
             {
@@ -1318,7 +1318,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "447918618"
+                ImgUrl = "https://i.imgur.com/T9Snlc4.png"
             },
             new RustItem
             {
@@ -1328,7 +1328,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "790921853"
+                ImgUrl = "https://i.imgur.com/VlXHPk1.png"
             },
             new RustItem
             {
@@ -1338,7 +1338,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1976561211"
+                ImgUrl = "https://i.imgur.com/cJZZkbI.png"
             },
             new RustItem
             {
@@ -1348,7 +1348,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "698310895"
+                ImgUrl = "https://i.imgur.com/ae2tEnj.png"
             },
             new RustItem
             {
@@ -1358,7 +1358,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1440143841"
+                ImgUrl = "https://i.imgur.com/zUjZ7Ib.png"
             },
             new RustItem
             {
@@ -1368,7 +1368,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-578028723"
+                ImgUrl = "https://i.imgur.com/BBKxshq.png"
             },
             new RustItem
             {
@@ -1378,7 +1378,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1775234707"
+                ImgUrl = "https://i.imgur.com/sfR5lcI.png"
             },
             new RustItem
             {
@@ -1388,7 +1388,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-388967316"
+                ImgUrl = "https://i.imgur.com/n9IY5wI.png"
             },
             new RustItem
             {
@@ -1398,7 +1398,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1293049486"
+                ImgUrl = "https://i.imgur.com/HnkB1yd.png"
             },
             new RustItem
             {
@@ -1408,7 +1408,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1192532973"
+                ImgUrl = "https://i.imgur.com/Hxb8hws.png"
             },
             new RustItem
             {
@@ -1418,7 +1418,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1428021640"
+                ImgUrl = "https://i.imgur.com/rkrAKOJ.png"
             },
             new RustItem
             {
@@ -1428,7 +1428,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1685058759"
+                ImgUrl = "https://i.imgur.com/grnvcds.png"
             },
             new RustItem
             {
@@ -1438,7 +1438,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-337261910"
+                ImgUrl = "https://i.imgur.com/LQmcjqQ.png"
             },
             new RustItem
             {
@@ -1448,7 +1448,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-789202811"
+                ImgUrl = "https://i.imgur.com/IlihoWX.png"
             },
             new RustItem
             {
@@ -1458,7 +1458,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "586484018"
+                ImgUrl = "https://i.imgur.com/06UtuMW.png"
             },
             new RustItem
             {
@@ -1468,7 +1468,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "93029210"
+                ImgUrl = "https://i.imgur.com/2E1m2IQ.png"
             },
             new RustItem
             {
@@ -1478,7 +1478,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-2043730634"
+                ImgUrl = "https://i.imgur.com/aSVnAve.png"
             },
             new RustItem
             {
@@ -1488,7 +1488,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1611480185"
+                ImgUrl = "https://i.imgur.com/5IvfXnr.png"
             },
             new RustItem
             {
@@ -1498,7 +1498,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1063412582"
+                ImgUrl = "https://i.imgur.com/s4BCWrU.png"
             },
             new RustItem
             {
@@ -1508,7 +1508,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1734319168"
+                ImgUrl = "https://i.imgur.com/3IBKQ8k.png"
             },
             new RustItem
             {
@@ -1518,7 +1518,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-341443994"
+                ImgUrl = "https://i.imgur.com/siqkcPc.png"
             },
             new RustItem
             {
@@ -1528,7 +1528,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "718197703"
+                ImgUrl = "https://i.imgur.com/uhD1vEC.png"
             },
             new RustItem
             {
@@ -1538,7 +1538,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1691991080"
+                ImgUrl = "https://i.imgur.com/wsJS0E8.png"
             },
             new RustItem
             {
@@ -1548,7 +1548,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1973165031"
+                ImgUrl = "https://i.imgur.com/OAk74qk.png"
             },
             new RustItem
             {
@@ -1558,7 +1558,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "563023711"
+                ImgUrl = "https://i.imgur.com/FMO5lmV.png"
             },
             new RustItem
             {
@@ -1568,7 +1568,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "271534758"
+                ImgUrl = "https://i.imgur.com/UGi91so.png"
             },
             new RustItem
             {
@@ -1578,7 +1578,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1300054961"
+                ImgUrl = "https://i.imgur.com/GA7zSFe.png"
             },
             new RustItem
             {
@@ -1588,7 +1588,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-217113639"
+                ImgUrl = "https://i.imgur.com/EWr3yiU.png"
             },
             new RustItem
             {
@@ -1598,7 +1598,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-975723312"
+                ImgUrl = "https://i.imgur.com/KPl7qQT.png"
             },
             new RustItem
             {
@@ -1608,7 +1608,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1490499512"
+                ImgUrl = "https://i.imgur.com/sHrCgdx.png"
             },
             new RustItem
             {
@@ -1618,7 +1618,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "255101535"
+                ImgUrl = "https://i.imgur.com/pFIczBX.png"
             },
             new RustItem
             {
@@ -1628,7 +1628,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1229879204"
+                ImgUrl = "https://i.imgur.com/GI4USHF.png"
             },
             new RustItem
             {
@@ -1638,7 +1638,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-465236267"
+                ImgUrl = "https://i.imgur.com/iOLujLI.png"
             },
             new RustItem
             {
@@ -1648,7 +1648,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "516382256"
+                ImgUrl = "https://i.imgur.com/E4PADT6.png"
             },
             new RustItem
             {
@@ -1658,7 +1658,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1213686767"
+                ImgUrl = "https://i.imgur.com/DnQwe0C.png"
             },
             new RustItem
             {
@@ -1668,7 +1668,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-141135377"
+                ImgUrl = "https://i.imgur.com/fcQGxsk.png"
             },
             new RustItem
             {
@@ -1678,7 +1678,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1569280852"
+                ImgUrl = "https://i.imgur.com/pamATqQ.png"
             },
             new RustItem
             {
@@ -1688,7 +1688,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1569356508"
+                ImgUrl = "https://i.imgur.com/u7fEpIB.png"
             },
             new RustItem
             {
@@ -1698,7 +1698,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1985408483"
+                ImgUrl = "https://i.imgur.com/Y8cgBHI.png"
             },
             new RustItem
             {
@@ -1708,7 +1708,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "260214178"
+                ImgUrl = "https://i.imgur.com/icWNKPM.png"
             },
             new RustItem
             {
@@ -1718,7 +1718,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1847536522"
+                ImgUrl = "https://i.imgur.com/kopbURV.png"
             },
             new RustItem
             {
@@ -1728,7 +1728,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "525244071"
+                ImgUrl = "https://i.imgur.com/kXutRKx.png"
             },
             new RustItem
             {
@@ -1738,7 +1738,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1266285051"
+                ImgUrl = "https://i.imgur.com/aic8awn.png"
             },
             new RustItem
             {
@@ -1748,7 +1748,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "552706886"
+                ImgUrl = "https://i.imgur.com/4iA3Qsb.png"
             },
             new RustItem
             {
@@ -1758,7 +1758,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1480119738"
+                ImgUrl = "https://i.imgur.com/2QR1OAG.png"
             },
             new RustItem
             {
@@ -1768,7 +1768,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "386382445"
+                ImgUrl = "https://i.imgur.com/cDmIqnI.png"
             },
             new RustItem
             {
@@ -1778,7 +1778,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-527558546"
+                ImgUrl = "https://i.imgur.com/KPHIwh1.png"
             },
             new RustItem
             {
@@ -1788,7 +1788,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "109266897"
+                ImgUrl = "https://i.imgur.com/RzhNHKl.png"
             },
             new RustItem
             {
@@ -1798,7 +1798,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "830965940"
+                ImgUrl = "https://i.imgur.com/6XrfxLq.png"
             },
             new RustItem
             {
@@ -1808,7 +1808,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "547302405"
+                ImgUrl = "https://i.imgur.com/jWr2Xw9.png"
             },
             new RustItem
             {
@@ -1818,7 +1818,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1925723260"
+                ImgUrl = "https://i.imgur.com/yHREy7p.png"
             },
             new RustItem
             {
@@ -1828,7 +1828,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "378365037"
+                ImgUrl = "https://i.imgur.com/2BaE5eH.png"
             },
             new RustItem
             {
@@ -1838,7 +1838,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-522149009"
+                ImgUrl = "https://i.imgur.com/KN5Rfxe.png"
             },
             new RustItem
             {
@@ -1848,7 +1848,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1705696613"
+                ImgUrl = "https://i.imgur.com/GSOLmrE.png"
             },
             new RustItem
             {
@@ -1858,7 +1858,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1859976884"
+                ImgUrl = "https://i.imgur.com/Ebkgb8j.png"
             },
             new RustItem
             {
@@ -1868,7 +1868,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "97329"
+                ImgUrl = "https://i.imgur.com/4UPcPeW.png"
             },
             new RustItem
             {
@@ -1878,7 +1878,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1496470781"
+                ImgUrl = "https://i.imgur.com/OdEfQom.png"
             },
             new RustItem
             {
@@ -1888,7 +1888,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1171735914"
+                ImgUrl = "https://i.imgur.com/OsZXKh6.png"
             },
             new RustItem
             {
@@ -1898,7 +1898,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "553270375"
+                ImgUrl = "https://i.imgur.com/3RMaulO.png"
             },
             new RustItem
             {
@@ -1908,7 +1908,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-692338819"
+                ImgUrl = "https://i.imgur.com/3c9S8An.png"
             },
             new RustItem
             {
@@ -1918,7 +1918,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-690968985"
+                ImgUrl = "https://i.imgur.com/s1i6xAX.png"
             },
             new RustItem
             {
@@ -1928,7 +1928,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1835946060"
+                ImgUrl = "https://i.imgur.com/OdEfQom.png"
             },
             new RustItem
             {
@@ -1938,7 +1938,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-216999575"
+                ImgUrl = "https://i.imgur.com/56JLu4E.png"
             },
             new RustItem
             {
@@ -1948,7 +1948,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-502177121"
+                ImgUrl = "https://i.imgur.com/7EhJFZ4.png"
             },
             new RustItem
             {
@@ -1958,7 +1958,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-295829489"
+                ImgUrl = "https://i.imgur.com/K1EI8Uh.png"
             },
             new RustItem
             {
@@ -1968,7 +1968,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-798293154"
+                ImgUrl = "https://i.imgur.com/ulKhdNT.png"
             },
             new RustItem
             {
@@ -1978,7 +1978,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1286302544"
+                ImgUrl = "https://i.imgur.com/Ei83iGN.png"
             },
             new RustItem
             {
@@ -1988,7 +1988,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-2049214035"
+                ImgUrl = "https://i.imgur.com/tkL9Wlq.png"
             },
             new RustItem
             {
@@ -1998,7 +1998,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-282113991"
+                ImgUrl = "https://i.imgur.com/6XrfxLq.png"
             },
             new RustItem
             {
@@ -2008,7 +2008,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "2090395347"
+                ImgUrl = "https://i.imgur.com/vkBOsqV.png"
             },
             new RustItem
             {
@@ -2018,7 +2018,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-563624462"
+                ImgUrl = "https://i.imgur.com/agWhtmE.png"
             },
             new RustItem
             {
@@ -2028,7 +2028,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1951603367"
+                ImgUrl = "https://i.imgur.com/HZkkwS3.png"
             },
             new RustItem
             {
@@ -2038,7 +2038,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "665332906"
+                ImgUrl = "https://i.imgur.com/cJChFu6.png"
             },
             new RustItem
             {
@@ -2048,7 +2048,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1293102274"
+                ImgUrl = "https://i.imgur.com/Yu14qFp.png"
             },
             new RustItem
             {
@@ -2058,7 +2058,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1448252298"
+                ImgUrl = "https://i.imgur.com/1Ck4QfF.png"
             },
             new RustItem
             {
@@ -2068,7 +2068,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-458565393"
+                ImgUrl = "https://i.imgur.com/8IaV6Gb.png"
             },
             new RustItem
             {
@@ -2078,7 +2078,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-746647361"
+                ImgUrl = "https://i.imgur.com/Ys5mjfx.png"
             },
             new RustItem
             {
@@ -2088,7 +2088,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-575744869"
+                ImgUrl = "https://i.imgur.com/6WiXF5a.png"
             },
             new RustItem
             {
@@ -2098,7 +2098,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-144417939"
+                ImgUrl = "https://i.imgur.com/0s27Iwi.png"
             },
             new RustItem
             {
@@ -2108,7 +2108,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1386464949"
+                ImgUrl = "https://i.imgur.com/XDBf5Fv.png"
             },
             new RustItem
             {
@@ -2118,7 +2118,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1891056868"
+                ImgUrl = "https://i.imgur.com/gCiL02t.png"
             },
             new RustItem
             {
@@ -2128,7 +2128,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "98228420"
+                ImgUrl = "https://i.imgur.com/04PyYLx.png"
             },
             new RustItem
             {
@@ -2138,7 +2138,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "3175989"
+                ImgUrl = "https://i.imgur.com/af2fzm6.png"
             },
             new RustItem
             {
@@ -2148,7 +2148,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1567404401"
+                ImgUrl = "https://i.imgur.com/EAvS7pD.png"
             },
             new RustItem
             {
@@ -2158,7 +2158,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1057402571"
+                ImgUrl = "https://i.imgur.com/odC3s3l.png"
             },
             new RustItem
             {
@@ -2168,7 +2168,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1835797460"
+                ImgUrl = "https://i.imgur.com/JSn76l6.png"
             },
             new RustItem
             {
@@ -2178,7 +2178,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1974032895"
+                ImgUrl = "https://i.imgur.com/rUbCXXn.png"
             },
             new RustItem
             {
@@ -2188,7 +2188,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1939428458"
+                ImgUrl = "https://i.imgur.com/rRPBZvb.png"
             },
             new RustItem
             {
@@ -2198,7 +2198,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-847065290"
+                ImgUrl = "https://i.imgur.com/xaCYQwv.png"
             },
             new RustItem
             {
@@ -2208,7 +2208,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "3506418"
+                ImgUrl = "https://i.imgur.com/bEYxVwK.png"
             },
             new RustItem
             {
@@ -2218,7 +2218,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-419069863"
+                ImgUrl = "https://i.imgur.com/nlwCkOX.png"
             },
             new RustItem
             {
@@ -2228,7 +2228,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1617374968"
+                ImgUrl = "https://i.imgur.com/HmEx41q.png"
             },
             new RustItem
             {
@@ -2238,7 +2238,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-892259869"
+                ImgUrl = "https://i.imgur.com/T8qZIYj.png"
             },
             new RustItem
             {
@@ -2248,7 +2248,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "3552619"
+                ImgUrl = "https://i.imgur.com/4ubLOIC.png"
             },
             new RustItem
             {
@@ -2258,7 +2258,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1471284746"
+                ImgUrl = "https://i.imgur.com/KHIVDOq.png"
             },
             new RustItem
             {
@@ -2268,7 +2268,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-966287254"
+                ImgUrl = "https://i.imgur.com/dVoScfs.png"
             },
             new RustItem
             {
@@ -2278,7 +2278,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1693683664"
+                ImgUrl = "https://i.imgur.com/ogfMUnr.png"
             },
             new RustItem
             {
@@ -2288,7 +2288,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1908328648"
+                ImgUrl = "https://i.imgur.com/qR5MXuv.png"
             },
             new RustItem
             {
@@ -2298,7 +2298,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-2055888649"
+                ImgUrl = "https://i.imgur.com/7yE4mnB.png"
             },
             new RustItem
             {
@@ -2308,7 +2308,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1151126752"
+                ImgUrl = "https://i.imgur.com/p9KeVYk.png"
             },
             new RustItem
             {
@@ -2318,7 +2318,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-1926458555"
+                ImgUrl = "https://i.imgur.com/vRx8V0t.png"
             },
             new RustItem
             {
@@ -2328,7 +2328,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-460592212"
+                ImgUrl = "https://i.imgur.com/iwWTQhs.png"
             },
             new RustItem
             {
@@ -2338,7 +2338,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "1540879296"
+                ImgUrl = "https://i.imgur.com/PCsp10M.png"
             }
         };
     }
