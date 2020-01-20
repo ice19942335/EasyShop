@@ -16,14 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\EasyShop.Domain\EasyShop.Domain.csproj" />
-    <ProjectReference Include="..\..\Common\EasyShop.Logger\EasyShop.Logger.csproj" />
-    <ProjectReference Include="..\..\Services\EasyShop.DAL\EasyShop.DAL.csproj" />
-    <ProjectReference Include="..\..\Services\EasyShop.Interfaces\EasyShop.Interfaces.csproj" />
-    <ProjectReference Include="..\..\Services\EasyShop.Services\EasyShop.Services.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="log4net" Version="2.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Certificate" Version="3.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
@@ -35,6 +27,7 @@
 
   <ItemGroup>
     <Folder Include="Logs\2019\12\31\" />
+    <Folder Include="Logs\2020\01\20\" />
     <Folder Include="Properties\PublishProfiles\" />
     <Folder Include="wwwroot\DevBlogImages\" />
     <Folder Include="wwwroot\BugReportImages\" />
@@ -42,6 +35,13 @@
 
   <ItemGroup>
     <None Include="Views\Admin\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Common\EasyShop.Domain\EasyShop.Domain.csproj" />
+    <ProjectReference Include="..\Common\EasyShop.Logger\EasyShop.Logger.csproj" />
+    <ProjectReference Include="..\Services\EasyShop.Interfaces\EasyShop.Interfaces.csproj" />
+    <ProjectReference Include="..\Services\EasyShop.Services\EasyShop.Services.csproj" />
   </ItemGroup>
 
   <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>

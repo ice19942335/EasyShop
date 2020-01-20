@@ -1028,7 +1028,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "504904386"
+                ImgUrl = "https://i.imgur.com/C79hgiu.png"
             },
             new RustItem
             {
@@ -1128,7 +1128,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitial
 
 
                 RustItemType = DefaultRustItemTypes.Find(x => x.TypeName == "Item"),
-                ImgUrl = "-529054135"
+                ImgUrl = "https://i.imgur.com/lw6tfoD.png"
             },
             new RustItem
             {
