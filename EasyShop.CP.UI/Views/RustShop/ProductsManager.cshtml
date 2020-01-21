@@ -4,13 +4,19 @@
     Layout = "Partial/_RustEditLayout";
 }
 
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+</script>
+
 <div class="panel well">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2 text-center">
-            <h2>Products manager</h2>
+    <h2 class="text-center">Products manager</h2>
+    <div id="spinner" class="col-lg-12">
+        <div class="text-center" data-toggle="match-height" style="height: 138px;">
+            <div class="spinner spinner-primary spinner-lg pos-r sq-100"></div>
         </div>
     </div>
-    <div class="panel-body">
+    <div id="panelTable" class="panel-body">
         <div class="table-responsive">
             <div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
                 <div class="row">
@@ -41,7 +47,7 @@
                                             <td>@product.Index</td>
                                             <td>
                                                 <span class="icon-with-child m-r">
-                                                    <img width="50" height="50" src="@product.ImgUrl" alt="@product.ImgUrl">
+                                                    <img class="rustItem" width="50" height="50" src="@product.ImgUrl" alt="@product.ImgUrl">
                                                 </span>
                                                 <strong>@product.Name</strong>
                                             </td>
@@ -87,11 +93,8 @@
 
 @section Scripts
 {
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-            crossorigin="anonymous">
-    </script>
-    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
+    <script src="~/js/customScripts/Rust/RustProductManager.js" asp-append-version="true"></script>
+    <script src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
     <script>
         $(document).ready(function () {
             $('#rustProductsTable').DataTable({
@@ -104,7 +107,7 @@
                     { "searchable": true },
                     { "searchable": true },
                     { "searchable": true },
-                    { "orderable": false,  "searchable": false },
+                    { "orderable": false, "searchable": false },
                 ]
             });
         });
