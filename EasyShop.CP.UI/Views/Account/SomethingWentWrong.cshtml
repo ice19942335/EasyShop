@@ -1,0 +1,30 @@
+﻿@model string
+@{
+    ViewData["Title"] = "Something went wrong";
+    Layout = "_AuthLayout";
+}
+
+<div class="login">
+    <div class="login-body">
+        <a class="login-brand" asp-area="" asp-controller="Home" asp-action="Index">
+            <img class="img-responsive" src="~/img/LogoNameSlogan.png" alt="Monetization">
+        </a>
+        <div class="well text-center">
+            <h1><span class="icon icon-gears"></span></h1>
+            <p class="text-warning">Something went wrong on @Model. Please be patient and try again. If you see this message not the first time, please contact support.</p>
+        </div>
+    </div>
+    <div class="login-footer">
+        Don't have an account? <a asp-area="" asp-controller="Account" asp-action="Register">Sign Up</a>
+    </div>
+</div>
+
+@section Styles
+{
+    <link rel="stylesheet" href="~/css/login-2.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/custom/Override/override-login-2.css" asp-append-version="true">
+}
+
+@section Scripts{
+    @await Html.PartialAsync("Partial/_ValidationScripts")
+}

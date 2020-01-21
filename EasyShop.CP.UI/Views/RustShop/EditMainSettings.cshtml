@@ -1,0 +1,98 @@
+﻿@using EasyShop.Domain.Enums.CP.Rust
+@using EasyShop.Domain.Enums.CP.Rust.RedirectEnums
+@model EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Shop.RustShopViewModel
+@{
+    ViewData["Title"] = "Edit main settings";
+    Layout = "Partial/_RustEditLayout";
+}
+
+<div class="well text-center">
+    <h2>Main settings</h2>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+            <div class="demo-form-wrapper">
+                <form method="post" asp-area="" asp-controller="RustShop" asp-action="EditMainSettings">
+                    <input asp-for="@Model.Id" type="hidden" />
+                    <input asp-for="@Model.ShopName" type="hidden" />
+                    <input asp-for="@Model.ShopTitle" type="hidden" />
+                    <input asp-for="RustShopEditMainSettingsViewModel.Id" type="hidden" />
+                    <div asp-validation-summary="ModelOnly" class="alert alert-info"></div>
+                    <div class="form-group">
+                        <label class="pull-left">Shop name</label>
+                        <input asp-for="RustShopEditMainSettingsViewModel.ShopName" class="form-control" type="text">
+                    </div>
+                    <div class="form-group m-b-n">
+                        <label class="pull-left">Shop title</label>
+                        <input asp-for="RustShopEditMainSettingsViewModel.ShopTitle" class="form-control" type="text">
+                        <span class="help-block">It will be used on your website as a shop name.</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="pull-left">Start balance</label>
+                        <input asp-for="RustShopEditMainSettingsViewModel.StartBalance" class="form-control">
+                        <span class="help-block">Input example (0.99 or 150.00)</span>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-block" type="submit">Save changes</button>
+                    </div>
+                </form>
+                <form class="m-b-md" asp-area="" asp-controller="RustShop" asp-action="NewSecret" asp-route-shopId="@Model.Id">
+                    <div class="form-group">
+                        <div style="display: flex">
+                            <input asp-for="RustShopEditMainSettingsViewModel.Secret" class="form-control" disabled="">
+                            <button class="btn btn-primary" title="" data-container="body" data-placement="top" data-toggle="tooltip" type="submit" data-original-title="Get new secret">
+                                <span class="icon icon-refresh icon-fw"></span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+            <div>
+                <span id="confirmButton_@Model.Id">
+                    <button class="btn btn-danger btn-block" onclick="deleteConfirmationDialog('@Model.Id', true)">Delete shop</button>
+                </span>
+                <span style="display: none" id="confirmSpan_@Model.Id">
+                    <form style="display: inline;" method="get" asp-area="" asp-controller="ShopManager" asp-action="DeleteShop" asp-route-shopId="@Model.Id">
+                        <span>Shop: <strong style="color: #00aced;">@Model.ShopName</strong> will be permanently deleted! You sure you want to do that?</span>
+                        <button style="max-width: fit-content; display: inline;" class="btn btn-success btn-block m-b-md" type="submit">Yes</button>
+                    </form>
+                    <button style="max-width: fit-content; display: inline;" class="btn btn-danger btn-block m-b-md" onclick="deleteConfirmationDialog('@Model.Id', false)">No</button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="~/js/customScripts/DeleteConfirmationDialog.js" asp-append-version="true"></script>
+
+    @if (Model.RustShopEditMainSettingsViewModel.Status == RustEditMainSettingsResult.Updated)
+    {
+        <script>
+            toastr.success('Updated!');
+        </script>
+    }
+    else if (Model.RustShopEditMainSettingsViewModel.Status == RustEditMainSettingsResult.Failed)
+    {
+        <script>
+            toastr.warning('Please, check all fields for correct values!');
+        </script>
+    }
+    else if (Model.RustShopEditMainSettingsViewModel.Status == RustEditMainSettingsResult.SecurityKeyUpdated)
+    {
+        <script>
+            toastr.success('Security key has been updated!');
+        </script>
+    }
+    else if (Model.RustShopEditMainSettingsViewModel.Status == RustEditMainSettingsResult.CategoriesReseted)
+    {
+        <script>
+            toastr.success('Categories and products have been reset!');
+        </script>
+    }
+}
+

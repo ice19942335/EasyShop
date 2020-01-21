@@ -1,0 +1,25 @@
+﻿.img-responsive {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+body {
+    background: url(../../../img/3456253426432.jpg) repeat;
+    height: 100%;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.content {
+    padding-top: 65px;
+    flex: 1 0 auto;
+}
+
+.footer {
+    flex: 0 0 auto;
+}

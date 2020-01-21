@@ -1,0 +1,74 @@
+﻿@using EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization
+@using Microsoft.Extensions.Configuration
+@model EasyShop.Domain.ViewModels.CP.User.UserData.AppUserViewModel
+@inject IConfiguration Configuration;
+
+@{
+    string version = Configuration["AppVersion"];
+}
+
+<li class="visible-xs-block">
+    <h4 class="navbar-text text-center">@($"{Model.FirstName} {Model.LastName}")</h4>
+</li>
+@await Component.InvokeAsync("NavBarNotification")
+@if (Model.Roles.Contains(DefaultIdentity.RoleAdmin))
+{
+    <li class="visible-xs-block">
+        <a asp-area="" asp-controller="Admin" asp-action="Index">
+            <span class="icon icon-wrench icon-lg icon-fw"></span>
+            Admin panel
+        </a>
+    </li>
+}
+<li class="visible-xs-block">
+    <a asp-area="" asp-controller="DevBlog" asp-action="PostsList">
+        <span class="icon icon-cogs icon-lg icon-fw"></span>
+        Dev-Blog
+    </a>
+</li>
+<li class="visible-xs-block">
+    <a asp-area="" asp-controller="UserProfile" asp-action="Profile">
+        <span class="icon icon-user icon-lg icon-fw"></span>
+        Profile
+    </a>
+</li>
+<li class="visible-xs-block">
+    <a asp-area="" asp-controller="ContactUs" asp-action="Index">
+        <span class="icon icon-envelope icon-lg icon-fw"></span>
+        Contact Us
+    </a>
+</li>
+<li class="visible-xs-block">
+    <a asp-area="" asp-controller="Account" asp-action="LogOut">
+        <span class="icon icon-power-off icon-lg icon-fw"></span>
+        Sign out
+    </a>
+</li>
+<li class="dropdown hidden-xs">
+    <button class="navbar-account-btn" data-toggle="dropdown" aria-haspopup="true">
+        <img style="border-radius: 5px" 
+             class="rounded" 
+             width="36" 
+             height="36" 
+             src="~/UserImages/@Model.ProfileImage" 
+             alt="@($"{Model.FirstName} {@Model.LastName}")"> 
+        @($"{Model.FirstName} {@Model.LastName}")
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-right">
+
+        @{
+            if (Model.Roles.Contains(DefaultIdentity.RoleAdmin))
+            {
+                <li><a asp-area="" asp-controller="Admin" asp-action="Index">AdminPanel</a></li>
+                <li class="divider"></li>
+            }
+        }
+        <li class="navbar-upgrade-version">@version</li>
+        <li class="divider"></li>
+        <li><a asp-area="" asp-controller="DevBlog" asp-action="PostsList">Dev-Blog</a></li>
+        <li><a asp-area="" asp-controller="UserProfile" asp-action="Profile">Profile</a></li>
+        <li><a asp-area="" asp-controller="ContactUs" asp-action="Index">Contact Us</a></li>
+        <li><a asp-area="" asp-controller="Account" asp-action="LogOut">Sign out</a></li>
+    </ul>
+</li>

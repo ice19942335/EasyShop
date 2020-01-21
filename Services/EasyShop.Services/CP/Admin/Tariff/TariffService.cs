@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.ViewModels.CP.ControlPanel.Tariff;
-using EasyShop.Interfaces.Services.CP;
 using EasyShop.Interfaces.Services.CP.Admin.Tariff;
 using EasyShop.Services.ExtensionMethods;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using Org.BouncyCastle.Math.EC.Rfc7748;
 
-namespace EasyShop.Services.CP.Tariff
+namespace EasyShop.Services.CP.Admin.Tariff
 {
     public class TariffService : ITariffService
     {

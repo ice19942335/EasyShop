@@ -1,0 +1,21 @@
+﻿@{
+    Layout = "_BaseLayout";
+}
+
+<body class="spinner spinner-primary spinner-lg">
+    @await Html.PartialAsync("Partial/_HomeNavBar")
+    @RenderBody()
+</body>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/landing-page.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/custom/Override/override-landing-page.css" asp-append-version="true" />
+    @RenderSection("Styles", false)
+}
+
+@section Scripts {
+    <script src="~/js/vendor.min.js" asp-append-version="true"></script>
+    <script src="~/js/elephant.min.js" asp-append-version="true"></script>
+    <script src="~/js/landing-page.min.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", false)
+}

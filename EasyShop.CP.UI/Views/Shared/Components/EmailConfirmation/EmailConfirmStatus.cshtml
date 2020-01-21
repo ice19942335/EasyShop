@@ -1,0 +1,38 @@
+﻿@using EasyShop.Domain.Enums
+@using EasyShop.Domain.Enums.CP.Email
+@model EasyShop.Domain.Enums.CP.Email.EmailConfirmationEnum
+
+@{
+    switch (Model)
+    {
+        case EmailConfirmationEnum.SomethingWentWrong:
+            <div class="well text-center">
+                <h1><span class="icon icon-close"></span></h1>
+                <h3>Something went wrong, please try re-login into the system and try again. If you see this message not the first time, please contact support.</h3>
+            </div>
+            break;
+
+        case EmailConfirmationEnum.EmailNotConfirmed:
+            <div class="well text-center">
+                <h3>Welcome to Monetization</h3>
+                <h5>
+                    Please, check your e-mail for a confirmation letter. It can be in a SPAM folder. If you can't find any messages please, press the button below.<br>
+                </h5>
+                <h4><span class="icon icon-hand-o-down"></span></h4>
+                <div>
+                    <form method="post" asp-area="" asp-controller="Account" asp-action="SendEmailConfirmationLink">
+                        <button class="btn btn-primary btn-lg" type="submit">Send confirmation link</button>
+                    </form>
+
+                </div>
+            </div>
+            break;
+
+        case EmailConfirmationEnum.EmailIsConfirmed:
+            <div class="well text-center">
+                <h1><span class="icon icon-check"></span></h1>
+                <h3>Email is successfully confirmed.</h3>
+            </div>
+            break;
+    }
+}

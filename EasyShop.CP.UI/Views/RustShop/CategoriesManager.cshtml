@@ -1,0 +1,85 @@
+﻿@using EasyShop.Domain.Enums.CP.Rust.RedirectEnums
+@model EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Shop.RustShopViewModel
+@{
+    ViewData["Title"] = "Categories manager";
+    Layout = "Partial/_RustEditLayout";
+}
+
+<div class="well">
+    <h2 class="text-center">Categories</h2>
+    <div class="row">
+        <div class="col-md-4 m-b-md">
+            <form method="get" asp-area="" asp-controller="RustShop" asp-action="CreateCategory" asp-route-shopId="@Model.Id">
+                <button class="btn btn-primary btn-block" type="submit">Add category</button>
+            </form>
+        </div>
+        <div class="col-md-6 col-md-offset-2 col-lg-5 col-lg-offset-3">
+            <div>
+                <span id="confirmButton_setDefaultProducts">
+                    <button class="btn btn-warning btn-block m-b-md" onclick="deleteConfirmationDialog('setDefaultProducts', true)">Set default categories and products</button>
+                </span>
+                <span style="display: none" id="confirmSpan_setDefaultProducts">
+                    <form style="display: inline;" method="get" asp-area="" asp-controller="RustShop" asp-action="SetDefaultCategoriesAndProducts" asp-route-shopId="@Model.Id" asp-route-redirectTo="@RustSetDefaultCategoriesAndProductsRedirect.Categories">
+                        <span>All existing products and categories in shop: <strong style="color: #00aced;">@Model.ShopName</strong> will be deleted! Are you sure you want to do that?</span>
+                        <div class="deleteConfirmationButtonsDiv">
+                            <button class="btn btn-success btn-block" type="submit">Yes</button>
+                            <button class="btn btn-block btn-danger" type="button" onclick="deleteConfirmationDialog('setDefaultProducts', false)">No</button>
+                        </div>
+                    </form>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-responsive table-center">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Items in category</th>
+                                <th>Edit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                foreach (var categoryModel in Model.RustShopCategories.Categories)
+                                {
+                                    <tr>
+                                        <td>
+                                            <strong>@categoryModel.Index</strong>
+                                        </td>
+                                        <td>
+                                            <strong>@categoryModel.Name</strong>
+                                        </td>
+                                        <td>
+                                            <strong>@categoryModel.AssignedItemsCount</strong>
+                                        </td>
+                                        <td>
+                                            <a asp-area="" asp-controller="RustShop" asp-action="EditCategory" asp-route-shopId="@Model.Id" asp-route-categoryId="@categoryModel.Id"><span class="icon icon-edit icon-lg icon-fw"></span></a>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                    @if (!Model.RustShopCategories.Categories.Any())
+                    {
+                        <h4 class="text-center">No categories found in shop: <strong style="color: #00aced;">@Model.ShopName</strong>. You can add categories by pressing the button above.</h4>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/custom/Rust/CategoriesManager.css" asp-append-version="true" />
+}
+
+@section Scripts
+{
+    <script src="~/js/customScripts/DeleteConfirmationDialog.js" asp-append-version="true"></script>
+}

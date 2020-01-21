@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewData["Title"] = "Sorry!";
+    Layout = "_AuthLayout";
+}
+
+<div class="login">
+    <div class="login-body">
+        <a class="login-brand" asp-area="" asp-controller="Home" asp-action="Index" asp-route-Authenticated="@false">
+            <img class="img-responsive" src="~/img/LogoNameSlogan.png" alt="Monetization">
+        </a>
+        <div class="well text-center">
+            <p>
+                Email has not been confirmed! Sorry we can't help you with this case.
+            </p>
+        </div>
+    </div>
+    <div class="login-footer">
+        Don't have an account? <a asp-area="" asp-controller="Account" asp-action="Register">Sign Up</a>
+    </div>
+</div>
+
+@section Styles
+{
+    <link rel="stylesheet" href="~/css/login-2.css" asp-append-version="true">
+}
+
+@section Scripts {
+    @await Html.PartialAsync("Partial/_ValidationScripts")
+}

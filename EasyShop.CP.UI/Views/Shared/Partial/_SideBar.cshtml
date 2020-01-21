@@ -1,0 +1,21 @@
+﻿<div class="layout-sidebar">
+    <div class="layout-sidebar-backdrop"></div>
+    <div class="layout-sidebar-body">
+        <div class="custom-scrollbar">
+            <nav id="sidenav" class="sidenav-collapse collapse">
+                <ul id="controlPanelSideNavigation" class="sidenav">
+                    <li class="sidenav-heading">Menu</li>
+                    <li class="sidenav-item">
+                        <a asp-area="" asp-controller="ControlPanel" asp-action="Dashboard">
+                            <span class="sidenav-icon icon icon-pie-chart"></span>
+                            <span class="sidenav-label">Dashboard</span>
+                        </a>
+                    </li>
+                    @await Component.InvokeAsync("SideNavigationShopsList")
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/customScripts/CP/ControlPanelSideNavigationActiveLink.js" asp-append-version="true"></script>

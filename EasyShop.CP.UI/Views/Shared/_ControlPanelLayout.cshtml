@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "_BaseLayout";
+}
+
+<body class="layout layout-header-fixed">
+    @await Html.PartialAsync("Partial/_NavBar")
+    <div class="layout-main">
+        @await Html.PartialAsync("Partial/_SideBar")
+        <div class="layout-content">
+            <div class="layout-content-body">
+                @RenderBody()
+            </div>
+        </div>
+        @await Html.PartialAsync("Partial/_Footer")
+    </div>
+    @await Html.PartialAsync("Partial/_ControlPanelSharedScripts")
+
+    @section Styles {
+        <link href="~/css/custom/Notifications/notifications.css" rel="stylesheet" asp-append-version="true" />
+        @RenderSection("Styles", false)
+    }
+
+    @section Scripts {
+        @RenderSection("Scripts", false)
+    }
+</body>
+

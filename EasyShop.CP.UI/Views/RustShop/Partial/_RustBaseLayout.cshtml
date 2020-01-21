@@ -1,0 +1,25 @@
+﻿@model EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Shop.RustShopViewModel
+@{
+    ViewData["Title"] = $"Rust shop {Model.ShopName}";
+    Layout = "_ControlPanelLayout";
+}
+
+<div class="m-b-lg">
+    <h3 class="m-t-sm">@Model.ShopName</h3>
+    <a href="#"><span class="icon icon-external-link icon-lg icon-fw"></span> Server: http://www.abirula.com/@Model.ShopTitle</a>
+</div>
+@await Html.PartialAsync("Partial/_RustShopNavBar", Model)
+@RenderBody()
+
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/profile.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/custom/Rust/RustShopSettingNavBarStyles.css" asp-append-version="true" />
+    @RenderSection("Styles", false)
+}
+
+@section Scripts {
+    <script src="~/js/customScripts/Rust/RustNavigationActiveLink.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", false)
+}
+
