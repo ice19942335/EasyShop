@@ -16,7 +16,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
             <div class="m-b-md rustProductImage">
-                <img width="100" height="100" src="~/img/rust/@($"{Model.RustProductEditViewModel.ImgUrl}.png")" alt="@Model.RustProductEditViewModel.ImgUrl">
+                <img width="100" height="100" src="@Model.RustProductEditViewModel.ImgUrl" alt="@Model.RustProductEditViewModel.ImgUrl">
             </div>
             <form asp-antiforgery="true" method="post" asp-area="" asp-controller="RustShop" asp-action="EditProduct">
                 <input asp-for="@Model.Id" type="hidden" />
