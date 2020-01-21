@@ -23,3 +23,9 @@ body {
 .footer {
     flex: 0 0 auto;
 }
+
+@media (max-width: 767px) {
+    .container {
+        width: 100%;
+    }
+}
