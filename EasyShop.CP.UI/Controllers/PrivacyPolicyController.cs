@@ -10,7 +10,7 @@ namespace EasyShop.CP.UI.Controllers
 {
     public class PrivacyPolicyController : Controller
     {
-        public IActionResult Get([FromServices] IWebHostEnvironment env)
+        public IActionResult ServerMonetizationPrivacyPolicy([FromServices] IWebHostEnvironment env)
         {
             var privacyPolicyPath = Path.Combine(env.WebRootPath + "/PrivacyPolicy");
             var filePath = Path.Combine(privacyPolicyPath + "/PrivacyPolicy.pdf");
