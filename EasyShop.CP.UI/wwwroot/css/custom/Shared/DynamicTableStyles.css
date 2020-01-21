@@ -52,3 +52,8 @@ table.dataTable thead .sorting_desc {
 table.dataTable tbody tr {
     background-color: #333;
 }
+
+.pos-r {
+    position: relative;
+    top: 100%;
+}

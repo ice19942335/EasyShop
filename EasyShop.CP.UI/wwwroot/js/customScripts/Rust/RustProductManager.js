@@ -1,5 +1,8 @@
 ﻿'use strict';
 
+let panelTable = document.getElementById('panelTable');
+panelTable.style.display = 'none';
+
 function windowReadyHandler() {
     let spinner = document.getElementById('spinner');
     let panelTable = document.getElementById('panelTable');
