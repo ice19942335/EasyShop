@@ -100,7 +100,7 @@ namespace EasyShop.Services.CP.ContactUs
             var admins = await _userManager.GetUsersInRoleAsync(DefaultIdentity.RoleAdmin);
 
             foreach (var admin in admins)
-                await SendMailAsync(admin.Email, "New bug report received!", $"Hi {admin.FirstName} {admin.LastName}.\nA new bug report was received. Please review it as soon as possible!");
+                await SendMailAsync(admin.Email, "New bug report received!", $"Hi {admin.FirstName} {admin.LastName}.<br>A new bug report was received. Please go to the admin panel and review it as soon as possible!");
 
             if (!sendEmailResult)
                 return false;
