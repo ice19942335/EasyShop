@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Enums.CP.Rust;
@@ -16,6 +17,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+
+#pragma warning disable 8509
 
 namespace EasyShop.CP.UI.Controllers
 {
@@ -59,11 +63,16 @@ namespace EasyShop.CP.UI.Controllers
             var stats = statsPeriod switch
             {
                 RustShopStatsPeriodEnum.Today => _rustShopStatsService.GetTodayStats(Guid.Parse(shopId)),
-                RustShopStatsPeriodEnum.Over_the_last_week => _rustShopStatsService.GetOverTheLastWeekStats(Guid.Parse(shopId)),
-                RustShopStatsPeriodEnum.Over_the_last_30_days => _rustShopStatsService.GetOverTheLast30DaysStats(Guid.Parse(shopId)),
-                RustShopStatsPeriodEnum.Over_the_last_90_days => _rustShopStatsService.GetOverTheLast90DaysStats(Guid.Parse(shopId)),
-                RustShopStatsPeriodEnum.Over_the_last_180_days => _rustShopStatsService.GetOverTheLast180DaysStats(Guid.Parse(shopId)),
-                RustShopStatsPeriodEnum.Over_the_last_year => _rustShopStatsService.GetOverTheLastYearStats(Guid.Parse(shopId)),
+                RustShopStatsPeriodEnum.Over_the_last_week => _rustShopStatsService.GetOverTheLastWeekStats(
+                    Guid.Parse(shopId)),
+                RustShopStatsPeriodEnum.Over_the_last_30_days => _rustShopStatsService.GetOverTheLast30DaysStats(
+                    Guid.Parse(shopId)),
+                RustShopStatsPeriodEnum.Over_the_last_90_days => _rustShopStatsService.GetOverTheLast90DaysStats(
+                    Guid.Parse(shopId)),
+                RustShopStatsPeriodEnum.Over_the_last_180_days => _rustShopStatsService.GetOverTheLast180DaysStats(
+                    Guid.Parse(shopId)),
+                RustShopStatsPeriodEnum.Over_the_last_year => _rustShopStatsService.GetOverTheLastYearStats(
+                    Guid.Parse(shopId)),
             };
 
             var model = shop.CreateRustShopViewModel();

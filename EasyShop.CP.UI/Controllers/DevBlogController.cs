@@ -76,7 +76,7 @@ namespace EasyShop.CP.UI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> EditPost([FromForm] EditDevBlogPostViewModel model)
+        public IActionResult EditPost([FromForm] EditDevBlogPostViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace EasyShop.CP.UI.Controllers
                 return View(model);
             }
 
-            var result = await _devBlogService.UpdatePost(model);
+            var result = _devBlogService.UpdatePost(ref model);
 
             if (result == DevBlogPostUpdateResult.NotFound)
             {
@@ -104,7 +104,7 @@ namespace EasyShop.CP.UI.Controllers
             {
                 return RedirectToAction("SomethingWentWrong", "Home");
             }
-                
+
         }
 
         public async Task<IActionResult> DeletePost(string postId)

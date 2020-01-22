@@ -11,6 +11,7 @@ using EasyShop.Interfaces.Services.CP.Rust.Shop;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+#pragma warning disable 8509
 
 namespace EasyShop.CP.UI.Controllers
 {
@@ -27,7 +28,7 @@ namespace EasyShop.CP.UI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Dashboard(DashBoardStatsPeriodEnum statsPeriod = DashBoardStatsPeriodEnum.Over_the_last_week)
+        public IActionResult Dashboard(DashBoardStatsPeriodEnum statsPeriod = DashBoardStatsPeriodEnum.Over_the_last_week)
         {
             var stats = statsPeriod switch
             {

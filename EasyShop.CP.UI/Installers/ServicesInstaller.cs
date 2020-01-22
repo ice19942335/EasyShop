@@ -1,5 +1,6 @@
 ﻿using EasyShop.Domain.Entries.Tariff;
 using EasyShop.Interfaces.Email;
+using EasyShop.Interfaces.Imgur;
 using EasyShop.Interfaces.Services.CP;
 using EasyShop.Interfaces.Services.CP.Account;
 using EasyShop.Interfaces.Services.CP.Admin.BugReport;
@@ -27,7 +28,7 @@ using EasyShop.Services.CP.Rust.Shop;
 using EasyShop.Services.CP.UserProfile;
 using EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData;
 using EasyShop.Services.Email;
-
+using EasyShop.Services.Imgur;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -84,6 +85,9 @@ namespace EasyShop.CP.UI.Installers
 
             //Support services
             services.AddScoped<IBugReportService, BugReportService>();
+
+            //ImgUr services
+            services.AddScoped<IImgUrService, ImgUrService>();
 
             //SingleTone ------------------------------------------------------------------------------
 

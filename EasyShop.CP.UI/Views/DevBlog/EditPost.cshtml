@@ -17,7 +17,7 @@
                     @if (!string.IsNullOrEmpty(Model.ImgUrl))
                     {
                         <div class="form-group">
-                            <img class="postImage" src="~/DevBlogImages/@Model.ImgUrl" alt="@Model.ImgUrl" />
+                            <img class="postImage" src="@Model.ImgUrl" alt="@Model.ImgUrl" />
                         </div>
                     }
                     <span asp-validation-for="ImageToUpload" class="warning text-warning"></span>

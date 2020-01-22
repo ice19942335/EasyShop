@@ -11,7 +11,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "https://localhost:44374/ControlPanel/DashBoard",
+      "launchUrl": "https://localhost:44374/DevBlog/EditPost",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

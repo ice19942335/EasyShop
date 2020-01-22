@@ -17,6 +17,8 @@ namespace EasyShop.CP.UI.Installers
             services.AddSingleton(configuration.GetSection("GmailSmtpSettings").Get<GmailSmtpSettings>());
 
             services.Configure<GmailSmtpSettings>(configuration.GetSection("GmailSmtpSettings"));
+
+            services.AddSingleton(configuration.GetSection("ImgurSettings").Get<ImgurSettings>());
         }
     }
 }

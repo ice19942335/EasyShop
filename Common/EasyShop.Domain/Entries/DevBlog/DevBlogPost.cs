@@ -19,6 +19,8 @@ namespace EasyShop.Domain.Entries.DevBlog
 
         public string ImgUrl { get; set; }
 
+        public string ImgDeleteHash { get; set; }
+
         public string Link { get; set; }
 
         public string LinkTitle { get; set; }
