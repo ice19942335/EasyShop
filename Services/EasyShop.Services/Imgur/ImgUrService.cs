@@ -30,7 +30,9 @@ namespace EasyShop.Services.Imgur
             _httpContextAccessor = httpContextAccessor;
             _userManager = userManager;
             _imgurSettings = imgurSettings;
-            _appUser = userManager.FindByEmailAsync(httpContextAccessor.HttpContext.User.Identity.Name).Result;
+            _appUser = httpContextAccessor.HttpContext.User.Identity.Name != null
+                ? userManager.FindByEmailAsync(httpContextAccessor.HttpContext.User.Identity.Name).Result
+                : null;
         }
 
         public async Task<IImage> UploadImageAsync(IFormFile imageToUpload)
