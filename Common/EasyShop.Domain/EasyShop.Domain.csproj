@@ -26,7 +26,6 @@
     <Folder Include="ViewModels\CP\ControlPanel\Tariff\" />
     <Folder Include="ViewModels\CP\User\UserData\" />
     <Folder Include="ViewModels\CP\User\UserProfile\" />
-    <Folder Include="ViewModels\CP\ViewModelValidation\" />
   </ItemGroup>
 
 </Project>

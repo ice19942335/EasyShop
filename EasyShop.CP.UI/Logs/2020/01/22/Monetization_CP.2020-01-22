@@ -9667,3 +9667,103 @@ WHERE ([u].[AppUserId] = @__user_Id_0) AND @__user_Id_0 IS NOT NULL
 
 2020-01-22 22:38:11,831 [25] ?     - Request finished in 75.1169ms 200 text/html; charset=utf-8
 
+2020-01-22 22:45:58,332 [12] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-22 22:45:58,341 [12] ?     - Hosting environment: Development
+
+2020-01-22 22:45:58,343 [12] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\EasyShop.CP.UI
+
+2020-01-22 22:45:58,352 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/DevBlog/EditPost  
+
+2020-01-22 22:45:58,523 [8] ?     - Authorization was successful.
+
+2020-01-22 22:45:58,532 [8] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.EditPost (EasyShop.CP.UI)'
+
+2020-01-22 22:45:58,595 [8] ?     - Route matched with {action = "EditPost", controller = "DevBlog"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult EditPost(System.String) on controller EasyShop.CP.UI.Controllers.DevBlogController (EasyShop.CP.UI).
+
+2020-01-22 22:45:58,610 [8] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-22 22:45:58,613 [8] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-22 22:45:58,641 [8] ?     - Executing ViewResult, running view EditPost.
+
+2020-01-22 22:45:58,923 [8] ?     - Executed ViewResult - view EditPost executed in 283.6865ms.
+
+2020-01-22 22:45:58,926 [8] ?     - Executed action EasyShop.CP.UI.Controllers.DevBlogController.EditPost (EasyShop.CP.UI) in 327.8995ms
+
+2020-01-22 22:45:58,928 [8] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.DevBlogController.EditPost (EasyShop.CP.UI)'
+
+2020-01-22 22:45:58,935 [8] ?     - Request finished in 583.5755ms 200 text/html; charset=utf-8
+
+2020-01-22 22:46:02,403 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs  
+
+2020-01-22 22:46:02,410 [4] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-22 22:46:02,414 [4] ?     - Route matched with {action = "Index", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-22 22:46:02,455 [4] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-22 22:46:02,458 [4] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-22 22:46:02,464 [4] ?     - Executing ViewResult, running view Index.
+
+2020-01-22 22:46:02,491 [4] ?     - Executed ViewResult - view Index executed in 29.3482ms.
+
+2020-01-22 22:46:02,493 [4] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI) in 77.5714ms
+
+2020-01-22 22:46:02,495 [4] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.Index (EasyShop.CP.UI)'
+
+2020-01-22 22:46:02,497 [4] ?     - Request finished in 94.3085ms 200 text/html; charset=utf-8
+
+2020-01-22 22:46:03,274 [17] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ContactUs/CreateBugReport  
+
+2020-01-22 22:46:03,288 [17] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.CreateBugReport (EasyShop.CP.UI)'
+
+2020-01-22 22:46:03,292 [17] ?     - Route matched with {action = "CreateBugReport", controller = "ContactUs"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult CreateBugReport() on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-22 22:46:03,294 [17] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-22 22:46:03,296 [17] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-22 22:46:03,301 [17] ?     - Executing ViewResult, running view CreateBugReport.
+
+2020-01-22 22:46:03,338 [17] ?     - Executed ViewResult - view CreateBugReport executed in 37.6159ms.
+
+2020-01-22 22:46:03,339 [17] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.CreateBugReport (EasyShop.CP.UI) in 46.0979ms
+
+2020-01-22 22:46:03,341 [17] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.CreateBugReport (EasyShop.CP.UI)'
+
+2020-01-22 22:46:03,343 [17] ?     - Request finished in 68.6452ms 200 text/html; charset=utf-8
+
+2020-01-22 22:46:21,685 [17] ?     - Request starting HTTP/2.0 POST https://localhost:44374/ContactUs/CreateBugReport multipart/form-data; boundary=----WebKitFormBoundary8qAKdslNq5BbnWgb 8258780
+
+2020-01-22 22:46:21,690 [17] ?     - Executing endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.CreateBugReport (EasyShop.CP.UI)'
+
+2020-01-22 22:46:21,718 [17] ?     - Route matched with {action = "CreateBugReport", controller = "ContactUs"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateBugReport(EasyShop.Domain.ViewModels.CP.ContactUs.CreateBugReportViewModel) on controller EasyShop.CP.UI.Controllers.ContactUsController (EasyShop.CP.UI).
+
+2020-01-22 22:46:21,723 [17] ?     - Entity Framework Core 3.0.0 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-22 22:46:21,729 [17] ?     - Executing DbCommand [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE (([a].[NormalizedEmail] = @__normalizedEmail_0) AND ([a].[NormalizedEmail] IS NOT NULL AND @__normalizedEmail_0 IS NOT NULL)) OR ([a].[NormalizedEmail] IS NULL AND @__normalizedEmail_0 IS NULL)
+
+2020-01-22 22:46:21,915 [8] ?     - Executing ViewResult, running view CreateBugReport.
+
+2020-01-22 22:46:21,922 [8] ?     - Executed ViewResult - view CreateBugReport executed in 7.7346ms.
+
+2020-01-22 22:46:21,926 [8] ?     - Executed action EasyShop.CP.UI.Controllers.ContactUsController.CreateBugReport (EasyShop.CP.UI) in 204.9021ms
+
+2020-01-22 22:46:21,928 [8] ?     - Executed endpoint 'EasyShop.CP.UI.Controllers.ContactUsController.CreateBugReport (EasyShop.CP.UI)'
+
+2020-01-22 22:46:21,933 [8] ?     - Request finished in 248.804ms 200 text/html; charset=utf-8
+

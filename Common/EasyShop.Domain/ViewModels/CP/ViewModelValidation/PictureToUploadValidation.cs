@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Http;
 
 namespace EasyShop.Domain.ViewModels.CP.ViewModelValidation
 {
-    public class UserPictureToUploadValidation : ValidationAttribute
+    public class PictureToUploadValidation : ValidationAttribute
     {
         private readonly string[] _fileTypeList;
 
-        public UserPictureToUploadValidation(string[] fileTypeList) => _fileTypeList = fileTypeList;
+        public PictureToUploadValidation(string[] fileTypeList) => _fileTypeList = fileTypeList;
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {

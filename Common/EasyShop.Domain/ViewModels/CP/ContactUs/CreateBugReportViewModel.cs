@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 using EasyShop.Domain.Enums.CP.ContactUs.BugReports;
+using EasyShop.Domain.ViewModels.CP.ViewModelValidation;
 using Microsoft.AspNetCore.Http;
 
 namespace EasyShop.Domain.ViewModels.CP.ContactUs
 {
     public class CreateBugReportViewModel
     {
+        [PictureToUploadValidation(new string[] { "png", "jpg", "jpeg" })]
         public IFormFile ImageToUpload { get; set; }
 
         [Required(ErrorMessage = "The title is required.")]
