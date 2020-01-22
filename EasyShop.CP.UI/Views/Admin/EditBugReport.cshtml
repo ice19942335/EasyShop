@@ -37,6 +37,7 @@
             }
         </div>
         <div class="col-lg-12">
+            <label>Set status</label>
             <select asp-for="SelectedStatus" class="custom-select custom-select">
                 <option selected disabled hidden></option>
                 @Html.Raw(options)
@@ -66,7 +67,7 @@
     </div>
     @if (Model.ImgUrl != null)
     {
-        <img class="img-responsive" src="~/BugReportImages/@Model.ImgUrl" alt="@Model.ImgUrl" />
+        <img class="img-responsive" src="@Model.ImgUrl" alt="@Model.ImgUrl" />
     }
 </div>
 

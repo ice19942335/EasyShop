@@ -32,6 +32,8 @@ namespace EasyShop.Domain.Entries.ContactUs.BugReports
 
         public string ImgUrl { get; set; }
 
+        public string DeleteHash { get; set; }
+
         [Required]
         public DateTime DateTime { get; set; }
     }

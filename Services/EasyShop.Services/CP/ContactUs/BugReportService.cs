@@ -10,6 +10,7 @@ using EasyShop.Domain.Enums.CP.ContactUs;
 using EasyShop.Domain.Enums.CP.ContactUs.BugReports;
 using EasyShop.Domain.ViewModels.CP.ContactUs;
 using EasyShop.Interfaces.Email;
+using EasyShop.Interfaces.Imgur;
 using EasyShop.Interfaces.Services.CP.ContactUs;
 using EasyShop.Interfaces.Services.CP.FileImage;
 using EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization;
@@ -28,27 +29,27 @@ namespace EasyShop.Services.CP.ContactUs
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly UserManager<AppUser> _userManager;
         private readonly EasyShopContext _context;
-        private readonly IFileImageService _fileImageService;
         private readonly ISmtpEmailSender _smtpEmailSender;
         private readonly IWebHostEnvironment _environment;
         private readonly ILogger<BugReportService> _logger;
+        private readonly IImgUrService _imgUrService;
 
         public BugReportService(
             IHttpContextAccessor httpContextAccessor,
             UserManager<AppUser> userManager,
             EasyShopContext context,
-            IFileImageService fileImageService,
             ISmtpEmailSender smtpEmailSender,
             IWebHostEnvironment environment,
-            ILogger<BugReportService> logger)
+            ILogger<BugReportService> logger,
+            IImgUrService imgUrService)
         {
             _httpContextAccessor = httpContextAccessor;
             _userManager = userManager;
             _context = context;
-            _fileImageService = fileImageService;
             _smtpEmailSender = smtpEmailSender;
             _environment = environment;
             _logger = logger;
+            _imgUrService = imgUrService;
         }
 
         public async Task<bool> CreateBugReport(CreateBugReportViewModel model, IUrlHelper url)
@@ -63,6 +64,8 @@ namespace EasyShop.Services.CP.ContactUs
                 ? await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name)
                 : null;
 
+            var imageUploadResult = await _imgUrService.UploadImageAsync(model.ImageToUpload);
+
             var bugReport = new BugReport
             {
                 Id = Guid.NewGuid(),
@@ -73,9 +76,7 @@ namespace EasyShop.Services.CP.ContactUs
                 Email = model.Email,
                 Message = model.Message,
                 DateTime = DateTime.UtcNow,
-                ImgUrl = model.ImageToUpload != null 
-                    ? await _fileImageService.SaveFile(model.ImageToUpload, "BugReportImages") 
-                    : null
+                ImgUrl = imageUploadResult?.Link
             };
 
             try
