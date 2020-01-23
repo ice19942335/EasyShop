@@ -1,79 +1,111 @@
-﻿<div style="-webkit-tap-highlight-color: transparent;
+﻿<body style="-webkit-tap-highlight-color: transparent;
+box-sizing: border-box;
+margin: 0;
 font-family: Roboto,sans-serif;
 font-size: 13px;
 line-height: 1.538462;
 color: #ccc;
-visibility: visible;
-box-sizing: border-box;
-padding: 15px;">
-        <div class="well text-center col-md-8 col-md-offset-2" style="-webkit-tap-highlight-color: transparent;
-font-family: Roboto,sans-serif;
-font-size: 13px;
-line-height: 1.538462;
-color: #ccc;
-visibility: visible;
-box-sizing: border-box;
-text-align: center;
-position: relative;
-float: left;
-width: 66.666667%;
-margin-left: 16.666667%;
-min-height: 20px;
-margin-bottom: 20px;
-background-color: #2a2a2a;
-border: 1px solid #212121;
-border-radius: 0;
-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
-padding: 15px;">
-            <h3 style="-webkit-tap-highlight-color: transparent;
-visibility: visible;
-text-align: center;
-box-sizing: border-box;
-font-family: inherit;
-font-weight: 500;
-line-height: 1.1;
-color: inherit;
-margin-top: 20px;
-margin-bottom: 10px;
-font-size: 24px;">Monetization confirmation link</h3>
-            <h5 style="-webkit-tap-highlight-color: transparent;
-visibility: visible;
-text-align: center;
-box-sizing: border-box;
-font-family: inherit;
-font-weight: 500;
-line-height: 1.1;
-color: inherit;
-margin-top: 10px;
-margin-bottom: 10px;
-font-size: 13px;">If you have been registered at Monetization please, press the button below. If it wasn't you ignore this letter.</h5>
-            <a aria-pressed="true" class="btn btn-success btn-lg active" href="{{callbackUrl}}" role="button" style="-webkit-tap-highlight-color: transparent;
-font-family: Roboto,sans-serif;
-visibility: visible;
-box-sizing: border-box;
-display: inline-block;
-margin-bottom: 0;
-font-weight: 400;
-text-align: center;
-vertical-align: middle;
-cursor: pointer;
-border: 1px solid transparent;
-white-space: nowrap;
-user-select: none;
-padding: 10px 16px;
-font-size: 18px;
-line-height: 1.333333;
-border-radius: 0;
-touch-action: manipulation;
-position: relative;
-text-decoration: none;
-text-transform: none;
-transition: all .3s;
-outline: 0;
-background-color: #75ac00;
-border-color: #75ac00;
-color: #fff;
-background-image: none;
-box-shadow: none;">Confirm email <span class="icon icon-check"></span></a>
+margin-right: auto;
+margin-left: auto;
+padding-left: 15px;
+padding-right: 15px;
+width: 1170px;">
+    <div style="-webkit-tap-highlight-color: transparent;
+    font-family: Roboto,sans-serif;
+    font-size: 13px;
+    line-height: 1.538462;
+    color: #ccc;
+    box-sizing: border-box;
+    min-height: 20px;
+    padding: 19px;
+    background-color: #2a2a2a;
+    border: 1px solid #212121;
+    border-radius: 0;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    margin: 2% 5% 0 5%;">
+        <div style="-webkit-tap-highlight-color: transparent;
+        font-family: Roboto,sans-serif;
+        font-size: 13px;
+        line-height: 1.538462;
+        color: #ccc;
+        box-sizing: border-box;
+        text-align: center;">
+            <img style="-webkit-tap-highlight-color: transparent;
+            font-family: Roboto,sans-serif;
+            font-size: 13px;
+            line-height: 1.538462;
+            color: #ccc;
+            text-align: center;
+            box-sizing: border-box;
+            border: 0;
+            vertical-align: middle;
+            max-width: 100%;" src="https://i.ibb.co/wpKc5hQ/Logo-Name-Slogan.png" alt="Logo-Name-Slogan">
+            <h2 style="-webkit-tap-highlight-color: transparent;
+            text-align: center;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-weight: 500;
+            line-height: 1.1;
+            color: inherit;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 30px;">Email confirmation!</h2>
+            <p style="-webkit-tap-highlight-color: transparent;
+            font-family: Roboto,sans-serif;
+            font-size: 13px;
+            line-height: 1.538462;
+            color: #ccc;
+            text-align: center;
+            box-sizing: border-box;
+            margin: 0 0 10px;">If you have been registered at Server-Monetization please, press the button below. If it wasn't you ignore this letter.
+                process.</p>
+            <a style="-webkit-tap-highlight-color: transparent;
+            box-sizing: border-box;
+            font: inherit;
+            margin: 0;
+            overflow: visible;
+            -webkit-appearance: button;
+            font-family: inherit;
+            display: inline-block;
+            margin-bottom: 0;
+            font-weight: 400;
+            text-align: center;
+            vertical-align: middle;
+            touch-action: manipulation;
+            cursor: pointer;
+            border: 1px solid transparent;
+            white-space: nowrap;
+            user-select: none;
+            padding: 10px 16px;
+            font-size: 18px;
+            line-height: 1.333333;
+            border-radius: 0;
+            position: relative;
+            text-transform: none;
+            transition: all .3s;
+            text-decoration: none;
+            outline: 0;
+            background-image: none;
+            box-shadow: none;
+            background-color: #00aced;
+            border-color: #00aced;
+            color: #fff;" type="button" href="{{callbackUrl}}" target="_blank">Confirm email</a>
         </div>
+        <br>
+        <br>
+        <p style="-webkit-tap-highlight-color: transparent;
+        font-family: Roboto,sans-serif;
+        font-size: 13px;
+        line-height: 1.538462;
+        color: #ccc;
+        box-sizing: border-box;
+        margin: 0;">Kind Regards</p>
+        <p style="-webkit-tap-highlight-color: transparent;
+        font-family: Roboto,sans-serif;
+        font-size: 13px;
+        line-height: 1.538462;
+        color: #ccc;
+        box-sizing: border-box;
+        margin: 0;">Monetization team</p>
     </div>
+</body>
