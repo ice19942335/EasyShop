@@ -89,8 +89,9 @@ width: 1170px;">
             background-color: #00aced;
             border-color: #00aced;
             color: #fff;" type="button" href="{{link}}" target="_blank">Go to Home page</a>
-        <br>
         </div>
+        <br>
+        <br>
         <p style="-webkit-tap-highlight-color: transparent;
         font-family: Roboto,sans-serif;
         font-size: 13px;
