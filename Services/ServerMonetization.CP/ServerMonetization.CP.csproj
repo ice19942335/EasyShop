@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
@@ -36,12 +36,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Common\EasyShop.Domain\EasyShop.Domain.csproj" />
-    <ProjectReference Include="..\Common\EasyShop.Logger\EasyShop.Logger.csproj" />
-    <ProjectReference Include="..\Services\EasyShop.Interfaces\EasyShop.Interfaces.csproj" />
-    <ProjectReference Include="..\Services\EasyShop.Services\EasyShop.Services.csproj" />
+    <ProjectReference Include="..\..\Common\EasyShop.Domain\EasyShop.Domain.csproj" />
+    <ProjectReference Include="..\..\Common\EasyShop.Logger\EasyShop.Logger.csproj" />
+    <ProjectReference Include="..\EasyShop.Interfaces\EasyShop.Interfaces.csproj" />
+    <ProjectReference Include="..\EasyShop.Services\EasyShop.Services.csproj" />
   </ItemGroup>
 
-  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties appsettings_1json__JsonSchema="" />
+    </VisualStudio>
+  </ProjectExtensions>
 
 </Project>
