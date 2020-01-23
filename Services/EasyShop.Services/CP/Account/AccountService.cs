@@ -14,6 +14,7 @@ using EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization;
 using EasyShop.Services.Email;
 using EasyShop.Services.ExtensionMethods;
 using EasyShop.Services.Files;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -307,6 +308,8 @@ namespace EasyShop.Services.CP.Account
                         user.Id,
                         _httpContextAccessor.HttpContext.Request.GetRawTarget(),
                         "Password has been successfully changed.");
+
+                    await _httpContextAccessor.HttpContext.SignOutAsync();
 
                     return new AccountDto { RedirectToAction = RedirectToAction("ResetPasswordConfirmation", "Account") };
                 }
