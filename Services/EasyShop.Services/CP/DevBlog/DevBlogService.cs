@@ -12,10 +12,12 @@ using EasyShop.Domain.ViewModels.CP.ControlPanel.DevBlog;
 using EasyShop.Interfaces.Imgur;
 using EasyShop.Interfaces.Services.CP.DevBlog;
 using EasyShop.Interfaces.Services.CP.FileImage;
+using EasyShop.Services.ExtensionMethods;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace EasyShop.Services.CP.DevBlog
 {
@@ -25,22 +27,27 @@ namespace EasyShop.Services.CP.DevBlog
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly UserManager<AppUser> _userManager;
         private readonly IImgUrService _imgUrService;
+        private readonly ILogger<DevBlogService> _logger;
 
         public DevBlogService(
             EasyShopContext context,
             IFileImageService fileImageService,
             IHttpContextAccessor httpContextAccessor,
             UserManager<AppUser> userManager,
-            IImgUrService imgUrService)
+            IImgUrService imgUrService,
+            ILogger<DevBlogService> logger)
         {
             _context = context;
             _httpContextAccessor = httpContextAccessor;
             _userManager = userManager;
             _imgUrService = imgUrService;
+            _logger = logger;
         }
 
         public DevBlogPostUpdateResult UpdatePost(ref EditDevBlogPostViewModel model)
         {
+            var userForLog = _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name).Result;
+
             if (model.Id is null)
             {
                 var newPost = new DevBlogPost
@@ -67,7 +74,14 @@ namespace EasyShop.Services.CP.DevBlog
                 }
                 
                 _context.Add(newPost); 
-                _context.SaveChangesAsync();
+                _context.SaveChanges();
+
+                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                    userForLog.UserName,
+                    userForLog.Id,
+                    _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                    $"New post was created. ID: {newPost.Id}, Title: {newPost.Title}");
+
                 return DevBlogPostUpdateResult.Created;
             }
 
@@ -96,7 +110,14 @@ namespace EasyShop.Services.CP.DevBlog
             post.Link = model.Link;
 
             _context.Update(post);
-            _context.SaveChangesAsync();
+            _context.SaveChanges();
+
+            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                userForLog.UserName,
+                userForLog.Id,
+                _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                $"Post was updated. ID: {post.Id}, New Title: {post.Title}");
+
             return DevBlogPostUpdateResult.Updated;
         }
 

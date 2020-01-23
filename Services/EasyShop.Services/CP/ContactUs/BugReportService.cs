@@ -86,7 +86,7 @@ namespace EasyShop.Services.CP.ContactUs
             }
             catch (Exception e)
             {
-                _logger.LogError("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
+                _logger.LogError("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                     user != null ? user.LastName : "Null",
                     user != null ? user.LastName : "Null",
                     _httpContextAccessor.HttpContext.Request.GetRawTarget(),
