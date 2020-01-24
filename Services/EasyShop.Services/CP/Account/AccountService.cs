@@ -14,6 +14,7 @@ using EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization;
 using EasyShop.Services.Email;
 using EasyShop.Services.ExtensionMethods;
 using EasyShop.Services.Files;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -80,7 +81,7 @@ namespace EasyShop.Services.CP.Account
                 await _userManager.AddToRoleAsync(newUser, DefaultIdentity.RoleUser);
 
                 var userForLog = await _userManager.FindByEmailAsync(newUser.Email);
-                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
+                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                     userForLog.UserName,
                     userForLog.Id,
                     _httpContextAccessor.HttpContext.Request.GetRawTarget(),
@@ -106,7 +107,7 @@ namespace EasyShop.Services.CP.Account
                 return new AccountDto { ReturnToView = View("SomethingWentWrong", "link sending") };
             }
 
-            _logger.LogWarning("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
+            _logger.LogWarning("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                 "Null",
                 "Null",
                 _httpContextAccessor.HttpContext.Request.GetRawTarget(),
@@ -127,7 +128,7 @@ namespace EasyShop.Services.CP.Account
 
             if (loginResult.Succeeded)
             {
-                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
+                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                     userForLog.UserName,
                     userForLog.Id,
                     _httpContextAccessor.HttpContext.Request.GetRawTarget(),
@@ -144,7 +145,7 @@ namespace EasyShop.Services.CP.Account
                 return new AccountDto { RedirectToAction = RedirectToAction("Index", "Home"), };
             }
 
-            _logger.LogWarning("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
+            _logger.LogWarning("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                 userForLog != null ? userForLog.FirstName : "Null",
                 userForLog != null ? userForLog.Id : "Null",
                 _httpContextAccessor.HttpContext.Request.GetRawTarget(),
@@ -176,7 +177,7 @@ namespace EasyShop.Services.CP.Account
 
             if (sendEmailConfirmationLinkResponse)
             {
-                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
+                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                     user.FirstName,
                     user.Id,
                     _httpContextAccessor.HttpContext.Request.GetRawTarget(),
@@ -200,7 +201,7 @@ namespace EasyShop.Services.CP.Account
 
             if (user is null)
             {
-                _logger.LogWarning("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
+                _logger.LogWarning("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                     "Null",
                     "Null",
                     _httpContextAccessor.HttpContext.Request.GetRawTarget(),
@@ -213,7 +214,7 @@ namespace EasyShop.Services.CP.Account
 
             if (!result.Succeeded)
             {
-                _logger.LogWarning("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
+                _logger.LogWarning("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                     user.FirstName,
                     user.Id,
                     _httpContextAccessor.HttpContext.Request.GetRawTarget(),
@@ -222,7 +223,7 @@ namespace EasyShop.Services.CP.Account
                 return new AccountDto { RedirectToAction = RedirectToAction("AccessDenied", "Account") };
             }
 
-            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
+            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                 user.FirstName,
                 user.Id,
                 _httpContextAccessor.HttpContext.Request.GetRawTarget(),
@@ -230,7 +231,7 @@ namespace EasyShop.Services.CP.Account
 
             return new AccountDto
             {
-                RedirectToAction = RedirectToAction("EmailConfirmation", "UserProfile"),
+                RedirectToAction = RedirectToAction("Dashboard", "ControlPanel"),
             };
         }
 
@@ -259,7 +260,7 @@ namespace EasyShop.Services.CP.Account
             {
                 if (model.Authenticated)
                 {
-                    _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
+                    _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                         user != null ? user.FirstName : "Null",
                         user != null ? user.Id : "Null",
                         _httpContextAccessor.HttpContext.Request.GetRawTarget(),
@@ -268,7 +269,7 @@ namespace EasyShop.Services.CP.Account
                     return new AccountDto { RedirectToAction = RedirectToAction("PasswordResetRequestHasBeenSent", "UserProfile") };
                 }
 
-                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
+                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                     user != null ? user.FirstName : "Null",
                     user != null ? user.Id : "Null",
                     _httpContextAccessor.HttpContext.Request.GetRawTarget(),
@@ -302,11 +303,13 @@ namespace EasyShop.Services.CP.Account
 
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
+                    _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                         user.FirstName,
                         user.Id,
                         _httpContextAccessor.HttpContext.Request.GetRawTarget(),
                         "Password has been successfully changed.");
+
+                    await _httpContextAccessor.HttpContext.SignOutAsync();
 
                     return new AccountDto { RedirectToAction = RedirectToAction("ResetPasswordConfirmation", "Account") };
                 }
@@ -314,7 +317,7 @@ namespace EasyShop.Services.CP.Account
                 foreach (var error in result.Errors)
                     ModelState.AddModelError("", error.Description);
 
-                _logger.LogWarning("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
+                _logger.LogWarning("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                     user.FirstName,
                     user.Id,
                     _httpContextAccessor.HttpContext.Request.GetRawTarget(),

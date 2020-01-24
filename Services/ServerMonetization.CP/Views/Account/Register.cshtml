@@ -1,0 +1,148 @@
+﻿@model EasyShop.Domain.ViewModels.CP.Account.RegisterUserViewModel
+@{
+    ViewData["Title"] = "Sign-Up";
+    Layout = "_AuthLayout";
+}
+
+<div class="signup">
+    <div class="signup-body">
+        <a class="signup-brand" asp-area="" asp-controller="Home" asp-action="Index">
+            <img class="img-responsive" src="~/img/LogoNameSlogan.png" alt="Monetization">
+        </a>
+        <div class="signup-form">
+            <form onsubmit="return checkForm(this);" method="post" data-toggle="validator" data-groups='{"birthdate": "birth_month birth_day birth_year"}' asp-area="" asp-controller="Account" asp-action="Register">
+                <div asp-validation-summary="ModelOnly" class="stringReplace alert alert-info"></div>
+                <div class="row gutter-xs">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="first-name">First name</label>
+                            <input asp-for="Firstname" id="first-name" class="form-control" type="text" spellcheck="false" minlength="2" data-msg-minlength="Firstname must be 2 characters or more." data-msg-required="Please enter your first name." required>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="last-name">Last name</label>
+                            <input asp-for="LastName" id="last-name" class="form-control" type="text" spellcheck="false" minlength="2" data-msg-minlength="Lastname must be 2 characters or more." data-msg-required="Please enter your last name." required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gutter-xs">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input asp-for="Email" id="email" class="form-control" type="email" spellcheck="false" autocomplete="off" data-msg-required="Please enter your email address." required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gutter-xs">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input asp-for="Password" id="password" class="form-control" type="password" minlength="10" data-msg-minlength="Password must be 10 characters or more." data-msg-required="Please enter your password." required>
+                            <small class="help-block">10-character minimum, case sensitive.</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-primary" id="PasswordsHaveToBeTheSame" style="display: none; min-height: 25px; text-align: center; line-height: 26px; border-radius: 4px">
+                    <div class="col-sm-12">
+                        Passwords have to be the same
+                    </div>
+                </div>
+                <div class="row gutter-xs">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input asp-for="ConfirmPassword" id="confirmPassword" class="form-control" type="password" minlength="10" data-msg-minlength="Password must be 10 characters or more." data-msg-required="Please enter your password." required>
+                            <small class="help-block">10-character minimum, case sensitive.</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gutter-xs">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label for="birth-month">Birthdate</label>
+                            <div class="row gutter-xs">
+                                <div class="col-xs-6">
+                                    <div class="form-group">
+                                        <select asp-for="Month" id="birth-month" class="custom-select" data-msg-required="Please enter your birthday." required>
+                                            <option value="" disabled="disabled" selected="selected">Month</option>
+                                            <option value="1">January</option>
+                                            <option value="2">February</option>
+                                            <option value="3">March</option>
+                                            <option value="4">April</option>
+                                            <option value="5">May</option>
+                                            <option value="6">June</option>
+                                            <option value="7">July</option>
+                                            <option value="8">August</option>
+                                            <option value="9">September</option>
+                                            <option value="10">October</option>
+                                            <option value="11">November</option>
+                                            <option value="12">December</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-xs-3">
+                                    <div class="form-group">
+                                        <input asp-for="Day" id="birth-day" class="form-control" type="number" placeholder="Day" min="1" max="31" data-msg-min="Please enter a valid day of the month." data-msg-max="Please enter a valid day of the month." data-msg-required="Please enter your birthday." required>
+                                    </div>
+                                </div>
+                                <div class="col-xs-3">
+                                    <div class="form-group">
+                                        <input id="birth-year" asp-for="Year" class="form-control" type="number" placeholder="Year" min="1900" max="2016" data-msg-min="Please enter a valid year." data-msg-max="Please enter a valid year." data-msg-required="Please enter your birthday." required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gutter-xs">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select asp-for="Gender" id="gender" class="custom-select" data-msg-required="Please indicate your gender." required>
+                                <option value="" disabled="disabled" selected="selected">Select...</option>
+                                <option value="1">Male</option>
+                                <option value="2">Female</option>
+                                <option value="3">Not specified</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gutter-xs">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label class="custom-control custom-control-primary custom-checkbox">
+                                <input asp-for="Terms" id="agree" class="custom-control-input" type="checkbox" data-msg-required="In order to use our services, you must agree to the Privacy policy of Service." required>
+                                <span class="custom-control-indicator"></span>
+                                <small class="custom-control-label">I agree to the Server-Monetization <a asp-area="" asp-controller="PrivacyPolicy" asp-action="ServerMonetizationPrivacyPolicy" target="_blank">Privacy policy</a>.</small>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <button name="registerButton" class="btn btn-primary btn-block" id="register" type="submit">Sign up</button>
+            </form>
+        </div>
+    </div>
+    <div class="signup-footer">
+        Already have an account? <a asp-area="" asp-controller="Account" asp-action="Login">Log in</a>
+    </div>
+</div>
+
+@section Styles{
+    <link rel="stylesheet" href="~/css/signup-2.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/custom/Override/override-signup-2.css" asp-append-version="true">
+}
+
+@section Scripts{
+    @await Html.PartialAsync("Partial/_ValidationScripts")
+    <script src="~/js/customScripts/Account/RegistrationFormErrorListStringReplace.js" asp-append-version="true"></script>
+    <script src="~/js/customScripts/Account/AccountRegistrationCheckPasswordToBeTheSame.js" asp-append-version="true"></script>
+
+    <script>
+        function checkForm(form)
+        {
+            form.registerButton.disabled = true;
+            return true;
+        }
+    </script>
+}

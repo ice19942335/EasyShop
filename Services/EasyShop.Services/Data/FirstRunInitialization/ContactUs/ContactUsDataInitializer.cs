@@ -52,7 +52,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.ContactUs
             {
                 Id = Guid.NewGuid(),
                 Index = BugReportCategoriesEnum.Cp_Rust_shop_stats_bug,
-                Description = "Rust shop stats_bug"
+                Description = "Rust shop stats bug"
             },
             new BugReportCategory
             {

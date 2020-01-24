@@ -27,7 +27,7 @@ namespace EasyShop.Domain.ViewModels.CP.User.UserProfile
 
         public string ImgUrl { get; set; }
 
-        [UserPictureToUploadValidation(new string[] { "png", "jpg", "jpeg" })]
+        [PictureToUploadValidation(new string[] { "png", "jpg", "jpeg" })]
         public IFormFile ImageToUpload { get; set; }
 
         public UpdateUserProfileEnum Status { get; set; }

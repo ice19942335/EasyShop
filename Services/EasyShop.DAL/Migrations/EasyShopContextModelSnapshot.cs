@@ -34,6 +34,9 @@ namespace EasyShop.DAL.Migrations
                     b.Property<DateTime>("DateTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("DeleteHash")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -189,6 +192,9 @@ namespace EasyShop.DAL.Migrations
 
                     b.Property<DateTime>("DateTimePosted")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("ImgDeleteHash")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImgUrl")
                         .HasColumnType("nvarchar(max)");

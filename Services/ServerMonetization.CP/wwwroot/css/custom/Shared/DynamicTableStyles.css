@@ -1,0 +1,59 @@
+﻿.dataTables_wrapper .dataTables_paginate .paginate_button {
+    box-sizing: border-box;
+    display: inline-block;
+    min-width: 1.5em;
+    padding: 0.5em 1em;
+    margin-left: 2px;
+    text-align: center;
+    text-decoration: none !important;
+    cursor: pointer;
+    cursor: pointer;
+    color: #dcdcdc !important;
+    border: 1px solid transparent;
+    border-radius: 2px;
+}
+
+.dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter, .dataTables_wrapper .dataTables_info, .dataTables_wrapper .dataTables_processing, .dataTables_wrapper .dataTables_paginate {
+    color: #dcdcdc;
+}
+
+    .dataTables_wrapper .dataTables_filter input {
+        background: #1d1d1d;
+        border: 1px solid black;
+        outline: none;
+        padding: 2px 5px;
+        margin-left: 0.5em;
+    }
+
+select[name="rustProductsTable_length"] {
+    background-color: #1d1d1d
+}
+
+select[name="bugReportsTable_length"] {
+    background-color: #1d1d1d
+}
+
+span[class="ellipsis"] {
+    display: none
+}
+
+table.dataTable thead .sorting {
+    background-image: none;
+}
+
+table.dataTable thead .sorting_asc {
+    background-image: none;
+}
+
+table.dataTable thead .sorting_desc {
+    background-image: none;
+}
+
+table.dataTable tbody tr {
+    background-color: #333;
+}
+
+.pos-r {
+    position: relative;
+    top: 100%;
+}

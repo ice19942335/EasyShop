@@ -10,7 +10,7 @@ namespace EasyShop.Interfaces.Services.CP.DevBlog
 {
     public interface IDevBlogService
     {
-        Task<DevBlogPostUpdateResult> UpdatePost(EditDevBlogPostViewModel model);
+        DevBlogPostUpdateResult UpdatePost(ref EditDevBlogPostViewModel model);
 
         IEnumerable<DevBlogPost> GetAllPosts();
 

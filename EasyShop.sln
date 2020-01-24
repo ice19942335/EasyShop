@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyShop.Services", "Servic
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyShop.Logger", "Common\EasyShop.Logger\EasyShop.Logger.csproj", "{22812D9A-05E3-4004-8508-25BF7D019E96}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyShop.CP.UI", "EasyShop.CP.UI\EasyShop.CP.UI.csproj", "{CC2A6621-BF21-450B-8604-E97AC0DE3A31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerMonetization.CP", "Services\ServerMonetization.CP\ServerMonetization.CP.csproj", "{E5AF6D21-3EDF-4721-A89A-377CC9301E42}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,10 +45,10 @@ Global
 		{22812D9A-05E3-4004-8508-25BF7D019E96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22812D9A-05E3-4004-8508-25BF7D019E96}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22812D9A-05E3-4004-8508-25BF7D019E96}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CC2A6621-BF21-450B-8604-E97AC0DE3A31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CC2A6621-BF21-450B-8604-E97AC0DE3A31}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CC2A6621-BF21-450B-8604-E97AC0DE3A31}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CC2A6621-BF21-450B-8604-E97AC0DE3A31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5AF6D21-3EDF-4721-A89A-377CC9301E42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5AF6D21-3EDF-4721-A89A-377CC9301E42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5AF6D21-3EDF-4721-A89A-377CC9301E42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5AF6D21-3EDF-4721-A89A-377CC9301E42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

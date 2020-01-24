@@ -1,0 +1,37 @@
+﻿.card {
+    background-color: #212121;
+    border-radius: 10px;
+}
+
+.card > a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+    .card > a img {
+        max-width: 95%;
+        display: unset;
+    }
+
+
+body {
+    background: url(https://i.imgur.com/Sccdoep.jpg) repeat;
+    height: 100%;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.content {
+    padding-top: 65px;
+    flex: 1 0 auto;
+}
+
+.footer {
+    flex: 0 0 auto;
+}

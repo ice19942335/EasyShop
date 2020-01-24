@@ -5,6 +5,7 @@
         NotFound,
         Created,
         Updated,
-        Default
+        Default,
+        Failed
     }
 }

@@ -1,0 +1,20 @@
+﻿@model EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Shop.RustShopViewModel
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="list-group-divided shopManagerSideNavigation">
+            <a class="list-group-item" asp-area="" asp-controller="RustShop" asp-action="EditMainSettings" asp-route-shopId="@Model.Id">
+                Main
+            </a>
+            <a class="list-group-item" asp-area="" asp-controller="RustShop" asp-action="ProductsManager" asp-route-shopId="@Model.Id">
+                Standard items
+            </a>
+            <a class="list-group-item" asp-area="" asp-controller="RustShop" asp-action="CategoriesManager" asp-route-shopId="@Model.Id">
+                Categories
+            </a>
+            <a class="list-group-item" asp-area="" asp-controller="RustShop" asp-action="ServersManager" asp-route-shopId="@Model.Id">
+                Shop servers
+            </a>
+        </div>
+    </div>
+</div>

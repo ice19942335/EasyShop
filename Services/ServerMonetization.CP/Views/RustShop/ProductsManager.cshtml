@@ -1,0 +1,115 @@
+﻿@model EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Shop.RustShopViewModel
+@{
+    ViewData["Title"] = "Product manager";
+    Layout = "Partial/_RustEditLayout";
+}
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+</script>
+
+<div class="well">
+    <h2 class="text-center">Products manager</h2>
+    <div id="spinner" class="col-lg-12">
+        <div class="text-center" data-toggle="match-height" style="height: 138px;">
+            <div class="spinner spinner-primary spinner-lg pos-r sq-100"></div>
+        </div>
+    </div>
+    <div class="panel-body" id="panelTable" style="display: none">
+        <div class="table-responsive">
+            <div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                <div class="row">
+                    <div class="col-sm-6"></div>
+                    <div class="col-sm-6"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table id="rustProductsTable" data-order='[[ 0, "asc" ]]' class="table table-middle nowrap dataTable no-footer" role="grid">
+                            <thead>
+                                <tr role="row">
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Amount</th>
+                                    <th>Price</th>
+                                    <th>Discount</th>
+                                    <th>Block time</th>
+                                    <th>Status</th>
+                                    <th>Edit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    foreach (var product in Model.RustProductsManagerViewModel.Products)
+                                    {
+                                        <tr role="row">
+                                            <td>@product.Index</td>
+                                            <td>
+                                                <span class="icon-with-child m-r">
+                                                    <img class="rustItem" width="50" height="50" src="@product.ImgUrl" alt="@product.ImgUrl">
+                                                </span>
+                                                <strong>@product.Name</strong>
+                                            </td>
+                                            <td><strong>@product.CategoryViewModel.Name</strong></td>
+                                            <td><strong>@product.Amount</strong></td>
+                                            <td><strong>@product.Price</strong></td>
+                                            <td><strong>@product.Discount</strong></td>
+                                            <td><strong>@(product.BlockedTill == default ? "None" : product.BlockedTill.ToString())</strong></td>
+                                            <td>
+                                                <span class="label @(product.ShowInShop ? "label-success" : "label-danger") label-pill">
+                                                    @(product.ShowInShop ? "On" : "Off")
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <strong>
+                                                    <a asp-area=""
+                                                       asp-controller="RustShop"
+                                                       asp-action="EditProduct"
+                                                       asp-route-shopId="@Model.Id"
+                                                       asp-route-productId="@product.Id"
+                                                       style="color: #00aced">
+                                                        <span class="icon icon-edit icon-lg icon-fw"></span>
+                                                    </a>
+                                                </strong>
+                                            </td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles
+{
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/custom/Shared/DynamicTableStyles.css" asp-append-version="true" />
+}
+
+@section Scripts
+{
+    <script src="~/js/customScripts/Rust/RustProductManager.js" asp-append-version="true"></script>
+    <script src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#rustProductsTable').DataTable({
+                "columns": [
+                    { "searchable": true },
+                    { "searchable": true },
+                    { "searchable": false },
+                    { "searchable": true },
+                    { "searchable": true },
+                    { "searchable": true },
+                    { "searchable": true },
+                    { "searchable": true },
+                    { "orderable": false, "searchable": false },
+                ]
+            });
+        });
+    </script>
+}

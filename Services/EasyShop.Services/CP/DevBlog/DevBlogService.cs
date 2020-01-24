@@ -9,36 +9,45 @@ using EasyShop.Domain.Entries.DevBlog;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Enums.CP.DevBlog;
 using EasyShop.Domain.ViewModels.CP.ControlPanel.DevBlog;
+using EasyShop.Interfaces.Imgur;
 using EasyShop.Interfaces.Services.CP.DevBlog;
 using EasyShop.Interfaces.Services.CP.FileImage;
+using EasyShop.Services.ExtensionMethods;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace EasyShop.Services.CP.DevBlog
 {
     public class DevBlogService : IDevBlogService
     {
         private readonly EasyShopContext _context;
-        private readonly IFileImageService _fileImageService;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly UserManager<AppUser> _userManager;
+        private readonly IImgUrService _imgUrService;
+        private readonly ILogger<DevBlogService> _logger;
 
         public DevBlogService(
             EasyShopContext context,
             IFileImageService fileImageService,
             IHttpContextAccessor httpContextAccessor,
-            UserManager<AppUser> userManager)
+            UserManager<AppUser> userManager,
+            IImgUrService imgUrService,
+            ILogger<DevBlogService> logger)
         {
             _context = context;
-            _fileImageService = fileImageService;
             _httpContextAccessor = httpContextAccessor;
             _userManager = userManager;
+            _imgUrService = imgUrService;
+            _logger = logger;
         }
 
-        public async Task<DevBlogPostUpdateResult> UpdatePost(EditDevBlogPostViewModel model)
+        public DevBlogPostUpdateResult UpdatePost(ref EditDevBlogPostViewModel model)
         {
+            var userForLog = _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name).Result;
+
             if (model.Id is null)
             {
                 var newPost = new DevBlogPost
@@ -53,24 +62,46 @@ namespace EasyShop.Services.CP.DevBlog
                 };
 
                 if (model.ImageToUpload != null)
-                    newPost.ImgUrl = await _fileImageService.SaveFile(model.ImageToUpload, "DevBlogImages");
+                {
+                    var imageUploadResult = _imgUrService.UploadImageAsync(model.ImageToUpload).Result;
+
+                    if (imageUploadResult is null)
+                        return DevBlogPostUpdateResult.Failed;
+
+                    model.ImgUrl = imageUploadResult.Link;
+                    newPost.ImgDeleteHash = imageUploadResult.DeleteHash;
+                    newPost.ImgUrl = imageUploadResult.Link;
+                }
                 
-                _context.Add(newPost);
-                await _context.SaveChangesAsync();
+                _context.Add(newPost); 
+                _context.SaveChanges();
+
+                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                    userForLog.UserName,
+                    userForLog.Id,
+                    _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                    $"New post was created. ID: {newPost.Id}, Title: {newPost.Title}");
+
                 return DevBlogPostUpdateResult.Created;
             }
 
-            var post = _context.DevBlogPosts.FirstOrDefault(x => x.Id == Guid.Parse(model.Id));
+            var postId = model.Id;
+            var post = _context.DevBlogPosts.FirstOrDefault(x => x.Id == Guid.Parse(postId));
 
             if (post is null)
                 return DevBlogPostUpdateResult.NotFound;
 
             if (model.ImageToUpload != null)
             {
-                if(post.ImgUrl != null)
-                    _fileImageService.DeleteImage(post.ImgUrl, "DevBlogImages");
+                _imgUrService.DeleteImageAsync(post.ImgDeleteHash);
+                var imageUploadResult = _imgUrService.UploadImageAsync(model.ImageToUpload).Result;
 
-                post.ImgUrl = await _fileImageService.SaveFile(model.ImageToUpload, "DevBlogImages");
+                if (imageUploadResult is null)
+                    return DevBlogPostUpdateResult.Failed;
+
+                model.ImgUrl = imageUploadResult.Link;
+                post.ImgDeleteHash = imageUploadResult.DeleteHash;
+                post.ImgUrl = imageUploadResult.Link;
             }
 
             post.Title = model.Title;
@@ -79,7 +110,14 @@ namespace EasyShop.Services.CP.DevBlog
             post.Link = model.Link;
 
             _context.Update(post);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
+
+            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                userForLog.UserName,
+                userForLog.Id,
+                _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                $"Post was updated. ID: {post.Id}, New Title: {post.Title}");
+
             return DevBlogPostUpdateResult.Updated;
         }
 

@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Contact Us";
+    Layout = "Partial/_ContactUsLayout";
+}
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card text-center">
+                <a class="link-muted" asp-area="" asp-controller="ContactUs" asp-action="CreateBugReport">
+                    <div class="card-body">
+                        <h2 class="card-title fw-l">Bug report</h2>
+                    </div>
+                    <div>
+                        <img class="img-responsive" src="https://i.imgur.com/zQVWPZN.jpg" alt="Default bug">
+                    </div>
+                    <div class="card-body">
+                        <small>Select this helpline if you found any bugs in our system.</small>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center">
+                <a class="link-muted muted" href="#">
+                    <div class="card-body">
+                        <h2 class="card-title fw-l">General support</h2>
+                    </div>
+                    <div>
+                        <img class="img-responsive" src="https://i.imgur.com/TGgPyxu.jpg" alt="Other support">
+                    </div>
+                    <div class="card-body">
+                        <small>Select this helpline if you have any other questions.</small>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center">
+                <a class="link-muted muted" href="#">
+                    <div class="card-body">
+                        <h2 class="card-title fw-l">Collaboration</h2>
+                    </div>
+                    <div>
+                        <img class="img-responsive" src="https://i.imgur.com/AxMGJai.png" alt="Collaboration">
+                    </div>
+                    <div class="card-body">
+                        <small>Choose this if you have any suggestions for collaboration.</small>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+@section Scripts
+{
+    <script src="~/js/customScripts/ContactUs/MuteDisabledLinks.js" asp-append-version="true"></script>
+}
