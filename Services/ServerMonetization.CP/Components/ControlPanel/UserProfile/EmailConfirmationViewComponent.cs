@@ -4,7 +4,7 @@ using EasyShop.Domain.Enums.CP.Email;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EasyShop.CP.UI.Components.ControlPanel.UserProfile
+namespace ServerMonetization.CP.Components.ControlPanel.UserProfile
 {
     public class EmailConfirmationViewComponent : ViewComponent
     {

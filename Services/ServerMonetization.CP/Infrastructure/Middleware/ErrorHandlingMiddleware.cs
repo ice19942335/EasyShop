@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity.UI.V3.Pages.Internal.Account;
 using Microsoft.Extensions.Logging;
 
-namespace EasyShop.CP.UI.Infrastructure.Middleware
+namespace ServerMonetization.CP.Infrastructure.Middleware
 {
     public class ErrorHandlingMiddleware
     {

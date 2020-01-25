@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace EasyShop.CP.UI.Infrastructure.Validation.ViewModelValidation
+namespace ServerMonetization.CP.Infrastructure.Validation.ViewModelValidation
 {
     public class ValidateTermsAccepted : ValidationAttribute
     {

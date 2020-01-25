@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
-namespace EasyShop.CP.UI.Infrastructure.TagHelpers
+namespace ServerMonetization.CP.Infrastructure.TagHelpers
 {
     public class PageLinkTagHelper : TagHelper
     {

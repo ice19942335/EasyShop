@@ -10,7 +10,7 @@ using EasyShop.Interfaces.Services.CP.DevBlog;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EasyShop.CP.UI.Controllers
+namespace ServerMonetization.CP.Controllers
 {
     [Authorize(Roles = "Admin")]
     public class DevBlogController : Controller

@@ -8,7 +8,7 @@ using EasyShop.Interfaces.Services.CP.Notification;
 using EasyShop.Services.Mappers.ViewModels.Notification;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EasyShop.CP.UI.Components.ControlPanel.NavBar
+namespace ServerMonetization.CP.Components.ControlPanel.NavBar
 {
     public class NavBarNotificationViewComponent : ViewComponent
     {

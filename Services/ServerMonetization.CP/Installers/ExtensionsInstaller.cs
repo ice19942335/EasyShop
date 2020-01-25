@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using EasyShop.CP.UI;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

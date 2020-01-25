@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 
-namespace EasyShop.CP.UI.Controllers
+namespace ServerMonetization.CP.Controllers
 {
     [Authorize(Roles = "Admin,User")]
     public class ShopManagerController : Controller

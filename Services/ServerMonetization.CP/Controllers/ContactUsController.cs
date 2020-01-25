@@ -6,7 +6,7 @@ using EasyShop.Domain.ViewModels.CP.ContactUs;
 using EasyShop.Interfaces.Services.CP.ContactUs;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EasyShop.CP.UI.Controllers
+namespace ServerMonetization.CP.Controllers
 {
     public class ContactUsController : Controller
     {

@@ -8,7 +8,7 @@ using EasyShop.Domain.ViewModels.CP.User.UserData;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EasyShop.CP.UI.Components.ControlPanel.NavBar
+namespace ServerMonetization.CP.Components.ControlPanel.NavBar
 {
     public class ControlPanelNavBarViewComponent : ViewComponent
     {
