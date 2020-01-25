@@ -14,4 +14,4 @@ jobs:
       with:
         dotnet-version: 3.0.100
     - name: Build with dotnet
-      run: dotnet build ./UI/EasyShop.CP.UI/EasyShop.CP.UI.csproj --configuration Release
+      run: dotnet build ./ControlPanel/ServerMonetization.CP/ServerMonetization.CP.csproj --configuration Release
