@@ -4,7 +4,6 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -12,6 +11,10 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.0.100
-    - name: Build with dotnet
-      run: dotnet build ./UI/EasyShop.CP.UI/EasyShop.CP.UI.csproj --configuration Release
+        dotnet-version: 3.1.100
+    - name: ServerMonetization.CP
+      run: dotnet build ./ControlPanel/ServerMonetization.CP/ServerMonetization.CP.csproj --configuration Release
+      
+    - name: RustMultiTenantShop
+      run: dotnet build ./MultiTenantShops/RustMultiTenantShop/RustMultiTenantShop.csproj --configuration Release
+      
