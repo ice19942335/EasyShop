@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.VisualBasic;
 using MultiTenancyStrategy.Accessors.Services;
-using MultiTenancyStrategy.Constants;
 using MultiTenancyStrategy.Models;
 
 namespace MultiTenancyStrategy.Middleware
@@ -22,10 +21,10 @@ namespace MultiTenancyStrategy.Middleware
 
         public async Task Invoke(HttpContext context)
         {
-            if (!context.Items.ContainsKey(MultiTenancyConstants.HttpContextTenantKey))
+            if (!context.Items.ContainsKey("HttpContextTenantKey"))
             {
                 var tenantService = context.RequestServices.GetService(typeof(TenantAccessService<T>)) as TenantAccessService<T>;
-                context.Items.Add(MultiTenancyConstants.HttpContextTenantKey, await tenantService.GetTenantAsync());
+                context.Items.Add("HttpContextTenantKey", await tenantService.GetTenantAsync());
             }
 
             //Continue processing
