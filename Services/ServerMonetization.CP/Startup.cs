@@ -1,5 +1,3 @@
-using EasyShop.CP.UI.Infrastructure.Middleware;
-using EasyShop.CP.UI.Installers;
 using EasyShop.Logger;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -7,8 +5,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using ServerMonetization.CP.Infrastructure.Middleware;
+using ServerMonetization.CP.Installers;
 
-namespace EasyShop.CP.UI
+namespace ServerMonetization.CP
 {
     public class Startup
     {

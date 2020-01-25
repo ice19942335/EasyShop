@@ -13,7 +13,7 @@ using EasyShop.Interfaces.Services.CP.Account;
 using EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization;
 using EasyShop.Services.Email;
 using EasyShop.Services.ExtensionMethods;
-using EasyShop.Services.Files;
+using EasyShop.Services.Helpers;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;

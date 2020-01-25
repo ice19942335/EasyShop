@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EasyShop.CP.UI.Controllers
+namespace ServerMonetization.CP.Controllers
 {
     public class PrivacyPolicyController : Controller
     {

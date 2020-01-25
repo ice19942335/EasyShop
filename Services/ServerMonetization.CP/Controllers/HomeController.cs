@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EasyShop.CP.UI.Controllers
+namespace ServerMonetization.CP.Controllers
 {
     public class HomeController : Controller
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace EasyShop.CP.UI.Installers
+namespace ServerMonetization.CP.Installers
 {
     public interface IInstaller
     {

@@ -9,7 +9,7 @@ using EasyShop.DAL.Context;
 using EasyShop.Domain.ViewModels.CP.Admin.BugReport;
 using EasyShop.Interfaces.Email;
 using EasyShop.Interfaces.Services.CP.Admin.BugReport;
-using EasyShop.Services.Files;
+using EasyShop.Services.Helpers;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

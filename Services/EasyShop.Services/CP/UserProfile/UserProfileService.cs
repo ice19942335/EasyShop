@@ -11,6 +11,7 @@ using EasyShop.Interfaces.Services.CP;
 using EasyShop.Interfaces.Services.CP.FileImage;
 using EasyShop.Interfaces.Services.CP.UserProfile;
 using EasyShop.Services.ExtensionMethods;
+using EasyShop.Services.Helpers;
 using EasyShop.Services.Mappers.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;

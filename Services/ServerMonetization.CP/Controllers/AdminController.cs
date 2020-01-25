@@ -12,7 +12,7 @@ using EasyShop.Services.Mappers.ViewModels.Admin.BugReport;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EasyShop.CP.UI.Controllers
+namespace ServerMonetization.CP.Controllers
 {
     [Authorize(Roles = "Admin")]
     public class AdminController : Controller

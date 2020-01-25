@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewComponents;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
-namespace EasyShop.CP.UI.Components.ControlPanel.SideNavigationShopsList
+namespace ServerMonetization.CP.Components.ControlPanel.SideNavigationShopsList
 {
     public class SideNavigationShopsListViewComponent : ViewComponent
     {

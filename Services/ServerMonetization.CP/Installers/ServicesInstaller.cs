@@ -1,7 +1,5 @@
-﻿using EasyShop.Domain.Entries.Tariff;
-using EasyShop.Interfaces.Email;
+﻿using EasyShop.Interfaces.Email;
 using EasyShop.Interfaces.Imgur;
-using EasyShop.Interfaces.Services.CP;
 using EasyShop.Interfaces.Services.CP.Account;
 using EasyShop.Interfaces.Services.CP.Admin.BugReport;
 using EasyShop.Interfaces.Services.CP.Admin.Tariff;
@@ -32,7 +30,7 @@ using EasyShop.Services.Imgur;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace EasyShop.CP.UI.Installers
+namespace ServerMonetization.CP.Installers
 {
     public class ServicesInstaller : IInstaller
     {

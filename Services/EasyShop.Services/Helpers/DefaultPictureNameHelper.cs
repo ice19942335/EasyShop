@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.VisualBasic.CompilerServices;
+﻿using System.Linq;
 
-namespace EasyShop.Services.ExtensionMethods
+namespace EasyShop.Services.Helpers
 {
     public static class DefaultPictureNameHelper
     {

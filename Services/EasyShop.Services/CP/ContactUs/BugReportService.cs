@@ -15,7 +15,7 @@ using EasyShop.Interfaces.Services.CP.ContactUs;
 using EasyShop.Interfaces.Services.CP.FileImage;
 using EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization;
 using EasyShop.Services.ExtensionMethods;
-using EasyShop.Services.Files;
+using EasyShop.Services.Helpers;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;

@@ -21,7 +21,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerMonetization.CP", "Se
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MultiTenantShops", "MultiTenantShops", "{B108EAA9-8C52-4501-BEDE-32DA80601FBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RustMultiTenantShop", "MultiTenantShops\RustMultiTenantShop\RustMultiTenantShop.csproj", "{47DAC9F1-7AA1-48C6-8E63-3DFB2FC91545}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RustMultiTenantShop", "MultiTenantShops\RustMultiTenantShop\RustMultiTenantShop.csproj", "{47DAC9F1-7AA1-48C6-8E63-3DFB2FC91545}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MultiTenancy", "MultiTenancy", "{613C4228-6F44-41CC-AA3B-EE92A444EF1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiTenancyStrategy", "MultiTenancy\MultiTenancyStrategy\MultiTenancyStrategy.csproj", "{BB3F6444-9AEF-43E8-9971-09935A45ABB5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +61,10 @@ Global
 		{47DAC9F1-7AA1-48C6-8E63-3DFB2FC91545}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47DAC9F1-7AA1-48C6-8E63-3DFB2FC91545}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47DAC9F1-7AA1-48C6-8E63-3DFB2FC91545}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB3F6444-9AEF-43E8-9971-09935A45ABB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB3F6444-9AEF-43E8-9971-09935A45ABB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB3F6444-9AEF-43E8-9971-09935A45ABB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB3F6444-9AEF-43E8-9971-09935A45ABB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +76,7 @@ Global
 		{194DF313-0197-45BF-B17D-8CFB1136AB68} = {84225E78-44C3-48F9-9BE7-2EDCDA65AD4D}
 		{22812D9A-05E3-4004-8508-25BF7D019E96} = {D675A780-6E44-4A1F-B9F3-217B4A5020DF}
 		{47DAC9F1-7AA1-48C6-8E63-3DFB2FC91545} = {B108EAA9-8C52-4501-BEDE-32DA80601FBF}
+		{BB3F6444-9AEF-43E8-9971-09935A45ABB5} = {613C4228-6F44-41CC-AA3B-EE92A444EF1F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FEFC69EE-B350-4630-9FD6-245EEC8FCF00}
