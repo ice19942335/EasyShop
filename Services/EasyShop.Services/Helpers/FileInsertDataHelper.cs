@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using EasyShop.Interfaces.Files;
 using Microsoft.AspNetCore.Hosting;
 
-namespace EasyShop.Services.Files
+namespace EasyShop.Services.Helpers
 {
     public class FileInsertDataHelper : IFileInsertDataHelper
     {
