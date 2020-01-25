@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.VisualBasic;
+using MultiTenancyStrategy.Accessors.Services;
 using MultiTenancyStrategy.Models;
-using MultiTenancyStrategy.Services;
 
 namespace MultiTenancyStrategy.Middleware
 {

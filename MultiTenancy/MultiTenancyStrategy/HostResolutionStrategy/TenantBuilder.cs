@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using MultiTenancyStrategy.Accessors.Services;
 using MultiTenancyStrategy.Interfaces;
 using MultiTenancyStrategy.Models;
-using MultiTenancyStrategy.Services;
 
 namespace MultiTenancyStrategy.HostResolutionStrategy
 {

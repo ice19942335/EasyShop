@@ -2,7 +2,7 @@
 using MultiTenancyStrategy.Interfaces;
 using MultiTenancyStrategy.Models;
 
-namespace MultiTenancyStrategy.Services
+namespace MultiTenancyStrategy.Accessors.Services
 {
     /// <summary>
     /// Tenant access service
