@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Http;
 using Microsoft.VisualBasic;
+using MultiTenancyStrategy.Constants;
 using MultiTenancyStrategy.Models;
 
 namespace MultiTenancyStrategy.Extensions
@@ -20,10 +21,10 @@ namespace MultiTenancyStrategy.Extensions
         /// <returns></returns>
         public static T GetTenant<T>(this HttpContext context) where T : Tenant
         {
-            if (!context.Items.ContainsKey("HttpContextTenantKey"))
+            if (!context.Items.ContainsKey(MultiTenancyConstants.HttpContextTenantKey))
                 return null;
 
-            return context.Items["HttpContextTenantKey"] as T;
+            return context.Items[MultiTenancyConstants.HttpContextTenantKey] as T;
         }
 
         /// <summary>
