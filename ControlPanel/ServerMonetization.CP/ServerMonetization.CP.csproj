@@ -6,12 +6,16 @@
 
   <ItemGroup>
     <Compile Remove="Areas\**" />
+    <Compile Remove="Logs\**" />
     <Compile Remove="wwwroot\lib\jquery\**" />
     <Content Remove="Areas\**" />
+    <Content Remove="Logs\**" />
     <Content Remove="wwwroot\lib\jquery\**" />
     <EmbeddedResource Remove="Areas\**" />
+    <EmbeddedResource Remove="Logs\**" />
     <EmbeddedResource Remove="wwwroot\lib\jquery\**" />
     <None Remove="Areas\**" />
+    <None Remove="Logs\**" />
     <None Remove="wwwroot\lib\jquery\**" />
   </ItemGroup>
 
@@ -26,7 +30,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Logs\" />
     <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
 
