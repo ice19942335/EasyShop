@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerMonetization.CP", "Se
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MultiTenantShops", "MultiTenantShops", "{B108EAA9-8C52-4501-BEDE-32DA80601FBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RustMultiTenantShop", "MultiTenantShops\RustMultiTenantShop\RustMultiTenantShop.csproj", "{47DAC9F1-7AA1-48C6-8E63-3DFB2FC91545}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RustMultiTenantShop", "MultiTenantShops\RustMultiTenantShop\RustMultiTenantShop.csproj", "{47DAC9F1-7AA1-48C6-8E63-3DFB2FC91545}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
