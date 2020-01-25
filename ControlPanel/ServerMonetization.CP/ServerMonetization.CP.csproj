@@ -38,8 +38,8 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Common\EasyShop.Domain\EasyShop.Domain.csproj" />
     <ProjectReference Include="..\..\Common\EasyShop.Logger\EasyShop.Logger.csproj" />
-    <ProjectReference Include="..\EasyShop.Interfaces\EasyShop.Interfaces.csproj" />
-    <ProjectReference Include="..\EasyShop.Services\EasyShop.Services.csproj" />
+    <ProjectReference Include="..\..\Services\EasyShop.Interfaces\EasyShop.Interfaces.csproj" />
+    <ProjectReference Include="..\..\Services\EasyShop.Services\EasyShop.Services.csproj" />
   </ItemGroup>
 
   <ProjectExtensions>
