@@ -21,10 +21,10 @@ namespace MultiTenancyStrategy.Middleware
 
         public async Task Invoke(HttpContext context)
         {
-            if (!context.Items.ContainsKey("HttpContextTenantKey"))
+            if (!context.Items.ContainsKey(MultiTenancyConstants.HttpContextTenantKey))
             {
                 var tenantService = context.RequestServices.GetService(typeof(TenantAccessService<T>)) as TenantAccessService<T>;
-                context.Items.Add("HttpContextTenantKey", await tenantService.GetTenantAsync());
+                context.Items.Add(MultiTenancyConstants.HttpContextTenantKey, await tenantService.GetTenantAsync());
             }
 
             //Continue processing
