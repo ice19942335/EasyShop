@@ -13,7 +13,8 @@ namespace RustMultiTenantShop.Installers
         {
             services.AddHttpContextAccessor();
             services.AddControllers();
-            services.AddMvc();
+            services.AddRazorPages(); // Need it because of View features
+            services.AddMvcCore();
         }
     }
 }
