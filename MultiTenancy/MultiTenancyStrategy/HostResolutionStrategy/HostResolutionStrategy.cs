@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using EasyShop.Interfaces.MultiTenancy;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using MultiTenancyStrategy.Interfaces;
 
-namespace EasyShop.Services.MultiTenancy.TenantResolution
+namespace MultiTenancyStrategy.HostResolutionStrategy
 {
     /// <summary>
     /// Resolve the host to a tenant identifier
