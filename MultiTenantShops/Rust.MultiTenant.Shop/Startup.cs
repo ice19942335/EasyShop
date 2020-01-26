@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Mvc.Client
+namespace Rust.MultiTenant.Shop
 {
     public class Startup
     {
@@ -26,27 +26,6 @@ namespace Mvc.Client
             {
                 options.LoginPath = "/login";
                 options.LogoutPath = "/signout";
-            })
-
-            .AddOpenId("Orange", "Orange", options =>
-            {
-                options.Authority = new Uri("https://openid.orange.fr/");
-                options.CallbackPath = "/signin-orange";
-            })
-
-            .AddOpenId("StackExchange", "StackExchange", options =>
-            {
-                options.Authority = new Uri("https://openid.stackexchange.com/");
-                options.CallbackPath = "/signin-stackexchange";
-            })
-
-            .AddOpenId("Intuit", "Intuit", options =>
-            {
-                options.CallbackPath = "/signin-intuit";
-                options.Configuration = new OpenIdAuthenticationConfiguration
-                {
-                    AuthenticationEndpoint = "https://openid.intuit.com/OpenId/Provider"
-                };
             })
 
             .AddSteam();
