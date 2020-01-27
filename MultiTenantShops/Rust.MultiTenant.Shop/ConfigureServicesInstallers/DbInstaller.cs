@@ -14,7 +14,7 @@ namespace Rust.MultiTenant.Shop.ConfigureServicesInstallers
         public void InstallServices(IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<RustShopMultiTenantStoreContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("DevConnection")));
+                options.UseSqlServer(configuration.GetConnectionString("TenantsStoreDevConnection")));
         }
     }
 
