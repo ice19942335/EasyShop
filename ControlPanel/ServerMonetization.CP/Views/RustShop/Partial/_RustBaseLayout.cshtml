@@ -1,9 +1,16 @@
-﻿@model EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Shop.RustShopViewModel
+﻿@using EasyShop.Interfaces.MultiTenancy
+@using Finbuckle.MultiTenant
+@using Finbuckle.MultiTenant.EntityFrameworkCore
+@using Microsoft.AspNetCore.Http
+@model EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Shop.RustShopViewModel
+@inject IMultiTenancyStoreService TenancyStoreService
 @{
     ViewData["Title"] = $"Rust shop {Model.ShopName}";
     Layout = "_ControlPanelLayout";
 
-    var shopLink = $"https://localhost:44367/{Model.Id.Replace("-", "")}";
+    var tenantInfo = await TenancyStoreService.TryGetAsync(Model.Id);
+
+    var shopLink = $"https://localhost:44367/{tenantInfo.Identifier}";
 }
 
     <div class="m-b-lg">

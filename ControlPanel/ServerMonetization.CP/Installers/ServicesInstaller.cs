@@ -1,5 +1,6 @@
 ﻿using EasyShop.Interfaces.Email;
 using EasyShop.Interfaces.Imgur;
+using EasyShop.Interfaces.MultiTenancy;
 using EasyShop.Interfaces.Services.CP.Account;
 using EasyShop.Interfaces.Services.CP.Admin.BugReport;
 using EasyShop.Interfaces.Services.CP.Admin.Tariff;
@@ -27,6 +28,7 @@ using EasyShop.Services.CP.UserProfile;
 using EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData;
 using EasyShop.Services.Email;
 using EasyShop.Services.Imgur;
+using EasyShop.Services.MultiTenancy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -74,7 +76,10 @@ namespace ServerMonetization.CP.Installers
 
             //Notification services
             services.AddTransient<INotificationService, NotificationService>();
-            
+
+            //TenantStore
+            services.AddTransient<IMultiTenancyStoreService, MultiTenancyStoreService>();
+
 
             //Scooped ---------------------------------------------------------------------------------
 
@@ -86,6 +91,7 @@ namespace ServerMonetization.CP.Installers
 
             //ImgUr services
             services.AddScoped<IImgUrService, ImgUrService>();
+
 
             //SingleTone ------------------------------------------------------------------------------
 

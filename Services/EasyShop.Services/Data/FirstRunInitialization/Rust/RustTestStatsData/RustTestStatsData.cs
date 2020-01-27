@@ -9,11 +9,14 @@ using EasyShop.Domain.Entries.Rust;
 using EasyShop.Domain.Entries.Shop;
 using EasyShop.Domain.Entries.Users;
 using EasyShop.Domain.ViewModels.CP.ControlPanel.Shop;
+using EasyShop.Interfaces.MultiTenancy;
 using EasyShop.Interfaces.Services.CP.Rust.Data;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
 using EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization;
+using Finbuckle.MultiTenant;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData
 {
@@ -24,19 +27,23 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData
         private readonly IRustShopService _rustShopService;
         private readonly EasyShopContext _context;
         private readonly IRustDefaultCategoriesWithItemsService _rustDefaultCategoriesWithItemsService;
+        private readonly IMultiTenancyStoreService _tenancyStoreService;
+        private readonly IMultiTenantStore _tenantStore;
 
         public RustTestStatsData(
             IShopService shopService,
             UserManager<AppUser> userManager,
             IRustShopService rustShopService,
             EasyShopContext context,
-            IRustDefaultCategoriesWithItemsService rustDefaultCategoriesWithItemsService)
+            IRustDefaultCategoriesWithItemsService rustDefaultCategoriesWithItemsService,
+            IMultiTenancyStoreService tenancyStoreService)
         {
             _shopService = shopService;
             _userManager = userManager;
             _rustShopService = rustShopService;
             _context = context;
             _rustDefaultCategoriesWithItemsService = rustDefaultCategoriesWithItemsService;
+            _tenancyStoreService = tenancyStoreService;
         }
 
         public async Task InitializeDefaultStatsData()
@@ -92,6 +99,16 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData
                 AppUserId = user.Id,
                 AppUser = user
             };
+
+            var addNewTenant = await _tenancyStoreService.TryAddAsync(
+                newShopId.ToString(),
+                    newShopId.ToString(),
+                    model.ShopName,
+                    null);
+
+            if (!addNewTenant)
+                throw new ApplicationException($"Cannot add tenant in to DB, please check connection string for context - {nameof(RustShopMultiTenantStoreContext)}");
+            
 
             _context.Shops.Add(newShop);
             _context.UserShops.Add(userShop);

@@ -11,7 +11,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "https://localhost:44374/DevBlog/EditPost",
+      "launchUrl": "https://localhost:44374/ShopManager/ShopsManager",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
