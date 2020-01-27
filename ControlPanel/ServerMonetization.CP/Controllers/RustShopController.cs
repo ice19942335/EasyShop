@@ -24,7 +24,7 @@ namespace ServerMonetization.CP.Controllers
     [Authorize(Roles = "Admin,User")]
     public class RustShopController : Controller
     {
-        private readonly IShopManager _shopManager;
+        private readonly IShopService _shopService;
         private readonly IRustShopService _rustShopService;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IRustServerService _rustServerService;
@@ -32,14 +32,14 @@ namespace ServerMonetization.CP.Controllers
         private readonly IRustShopStatsService _rustShopStatsService;
 
         public RustShopController(
-            IShopManager shopManager,
+            IShopService shopService,
             IRustShopService rustShopService,
             IHttpContextAccessor httpContextAccessor,
             IRustServerService rustServerService,
             UserManager<AppUser> userManager,
             IRustShopStatsService rustShopStatsService)
         {
-            _shopManager = shopManager;
+            _shopService = shopService;
             _rustShopService = rustShopService;
             _httpContextAccessor = httpContextAccessor;
             _rustServerService = rustServerService;
@@ -53,7 +53,7 @@ namespace ServerMonetization.CP.Controllers
         [HttpGet]
         public IActionResult ShopStats(string shopId, RustShopStatsPeriodEnum statsPeriod = RustShopStatsPeriodEnum.Over_the_last_week)
         {
-            var shop = _shopManager.GetShopById(Guid.Parse(shopId));
+            var shop = _shopService.GetShopById(Guid.Parse(shopId));
 
             if (shop is null)
                 return RedirectToAction("NotFoundPage", "Home");
@@ -89,7 +89,7 @@ namespace ServerMonetization.CP.Controllers
         [HttpGet]
         public IActionResult EditMainSettings(string shopId, RustEditMainSettingsResult status = RustEditMainSettingsResult.Default)
         {
-            var shop = _shopManager.GetShopById(Guid.Parse(shopId));
+            var shop = _shopService.GetShopById(Guid.Parse(shopId));
 
             if (shop is null)
                 return RedirectToAction("NotFoundPage", "Home");
@@ -109,7 +109,7 @@ namespace ServerMonetization.CP.Controllers
                 var errors = ModelState.Values.SelectMany(x => x.Errors.Select(xx => xx.ErrorMessage)).ToList();
                 errors.ForEach(x => ModelState.AddModelError("", x));
 
-                var shop = _shopManager.GetShopById(Guid.Parse(model.Id));
+                var shop = _shopService.GetShopById(Guid.Parse(model.Id));
                 model.RustShopEditMainSettingsViewModel.Secret = shop.Secret;
 
                 model.RustShopEditMainSettingsViewModel.Status = RustEditMainSettingsResult.Failed;
@@ -129,7 +129,7 @@ namespace ServerMonetization.CP.Controllers
 
         public async Task<IActionResult> NewSecret(string shopId)
         {
-            var result = await _shopManager.NewSecretAsync(Guid.Parse(shopId));
+            var result = await _shopService.NewSecretAsync(Guid.Parse(shopId));
 
             if (!result)
                 return RedirectToAction("SomethingWentWrong", "ControlPanel");
@@ -144,7 +144,7 @@ namespace ServerMonetization.CP.Controllers
         [HttpGet]
         public IActionResult CategoriesManager(string shopId)
         {
-            var shop = _shopManager.GetShopById(Guid.Parse(shopId));
+            var shop = _shopService.GetShopById(Guid.Parse(shopId));
 
             if (shop is null)
                 return RedirectToAction("NotFoundPage", "Home");
@@ -172,7 +172,7 @@ namespace ServerMonetization.CP.Controllers
         [HttpGet]
         public IActionResult EditCategory(string shopId, string categoryId, bool created = false)
         {
-            var shop = _shopManager.GetShopById(Guid.Parse(shopId));
+            var shop = _shopService.GetShopById(Guid.Parse(shopId));
 
             if (shop is null)
                 return RedirectToAction("SomethingWentWrong", "ControlPanel");
@@ -233,7 +233,7 @@ namespace ServerMonetization.CP.Controllers
             if (!result)
                 return RedirectToAction("SomethingWentWrong", "ControlPanel");
 
-            var shop = _shopManager.GetShopById(Guid.Parse(shopId));
+            var shop = _shopService.GetShopById(Guid.Parse(shopId));
             var model = shop.CreateRustShopViewModel();
 
             return RedirectToAction("CategoriesManager", "RustShop", new { shopId = shopId });
@@ -242,7 +242,7 @@ namespace ServerMonetization.CP.Controllers
         [HttpGet("SetDefaultCategoriesAndProducts/{shopId}&{redirectTo}")]
         public async Task<IActionResult> SetDefaultCategoriesAndProducts(string shopId, RustSetDefaultCategoriesAndProductsRedirect redirectTo)
         {
-            var shop = _shopManager.GetShopById(Guid.Parse(shopId));
+            var shop = _shopService.GetShopById(Guid.Parse(shopId));
 
             if (shop is null)
                 return RedirectToAction("SomethingWentWrong", "ControlPanel");
@@ -268,7 +268,7 @@ namespace ServerMonetization.CP.Controllers
         [HttpGet]
         public IActionResult ProductsManager(string shopId)
         {
-            var shop = _shopManager.GetShopById(Guid.Parse(shopId));
+            var shop = _shopService.GetShopById(Guid.Parse(shopId));
 
             if (shop is null)
                 return RedirectToAction("NotFoundPage", "Home");
@@ -305,7 +305,7 @@ namespace ServerMonetization.CP.Controllers
 
         public IActionResult EditProduct(string shopId, string productId)
         {
-            var shop = _shopManager.GetShopById(Guid.Parse(shopId));
+            var shop = _shopService.GetShopById(Guid.Parse(shopId));
             var product = _rustShopService.GetProductById(Guid.Parse(productId));
 
             if (shop is null || product is null)
@@ -368,7 +368,7 @@ namespace ServerMonetization.CP.Controllers
 
         public IActionResult ServersManager(string shopId)
         {
-            var shop = _shopManager.GetShopById(Guid.Parse(shopId));
+            var shop = _shopService.GetShopById(Guid.Parse(shopId));
 
             if (shop is null)
                 return RedirectToAction("NotFoundPage", "Home");
@@ -393,7 +393,7 @@ namespace ServerMonetization.CP.Controllers
 
         public IActionResult EditServer(string shopId, string serverId, RustEditServerResult status = RustEditServerResult.Default)
         {
-            var shop = _shopManager.GetShopById(Guid.Parse(shopId));
+            var shop = _shopService.GetShopById(Guid.Parse(shopId));
 
             if (shop is null)
                 return RedirectToAction("NotFoundPage", "Home");

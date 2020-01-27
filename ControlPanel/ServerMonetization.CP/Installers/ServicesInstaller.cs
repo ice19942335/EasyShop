@@ -54,7 +54,7 @@ namespace ServerMonetization.CP.Installers
             services.AddTransient<ITariffOptionsService, TariffOptionsService>();
 
             //Shop services
-            services.AddTransient<IShopManager, ShopManager>();
+            services.AddTransient<IShopService, ShopService>();
 
             //Rust services
             services.AddTransient<IRustShopService, RustShopService>();

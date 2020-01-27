@@ -10,7 +10,10 @@ namespace ServerMonetization.CP.Installers
         public void InstallServices(IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<EasyShopContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("DevConnection")));
+                options.UseSqlServer(configuration.GetConnectionString("ControlPanelDevConnection")));
+
+            services.AddDbContext<RustShopMultiTenantStoreContext>(options =>
+                options.UseSqlServer(configuration.GetConnectionString("TenantsStoreDevConnection")));
         }
     }
 }

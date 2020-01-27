@@ -19,14 +19,14 @@ namespace ServerMonetization.CP.Controllers
     [Authorize(Roles = "Admin,User")]
     public class ShopManagerController : Controller
     {
-        private readonly IShopManager _shopManager;
+        private readonly IShopService _shopService;
         private readonly IRustShopService _rustShopService;
         private readonly UserManager<AppUser> _userManager;
         private readonly IConfiguration _configuration;
 
-        public ShopManagerController(IShopManager shopManager, IRustShopService rustShopService, UserManager<AppUser> userManager, IConfiguration configuration)
+        public ShopManagerController(IShopService shopService, IRustShopService rustShopService, UserManager<AppUser> userManager, IConfiguration configuration)
         {
-            _shopManager = shopManager;
+            _shopService = shopService;
             _rustShopService = rustShopService;
             _userManager = userManager;
             _configuration = configuration;
@@ -34,7 +34,7 @@ namespace ServerMonetization.CP.Controllers
 
         public async Task<IActionResult> ShopsManager()
         {
-            var userShops = await _shopManager.UserShopsByUserEmailAsync(User.Identity.Name);
+            var userShops = await _shopService.UserShopsByUserEmailAsync(User.Identity.Name);
 
             var model = new ShopsManagerViewModel { Shops = userShops };
 
@@ -84,7 +84,7 @@ namespace ServerMonetization.CP.Controllers
         {
             bool result = default;
 
-            string gameType = _shopManager.GetShopGameTypeById(Guid.Parse(shopId));
+            string gameType = _shopService.GetShopGameTypeById(Guid.Parse(shopId));
 
             switch (gameType)
             {
@@ -102,7 +102,7 @@ namespace ServerMonetization.CP.Controllers
 
         public IActionResult EditShopHandler(string shopId)
         {
-            var shop = _shopManager.GetShopById(Guid.Parse(shopId));
+            var shop = _shopService.GetShopById(Guid.Parse(shopId));
 
             if (shop is null)
                 return RedirectToAction("NotFoundPage", "Home");

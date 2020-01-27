@@ -19,20 +19,20 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData
 {
     public class RustTestStatsData : IRustTestStatsData
     {
-        private readonly IShopManager _shopManager;
+        private readonly IShopService _shopService;
         private readonly UserManager<AppUser> _userManager;
         private readonly IRustShopService _rustShopService;
         private readonly EasyShopContext _context;
         private readonly IRustDefaultCategoriesWithItemsService _rustDefaultCategoriesWithItemsService;
 
         public RustTestStatsData(
-            IShopManager shopManager,
+            IShopService shopService,
             UserManager<AppUser> userManager,
             IRustShopService rustShopService,
             EasyShopContext context,
             IRustDefaultCategoriesWithItemsService rustDefaultCategoriesWithItemsService)
         {
-            _shopManager = shopManager;
+            _shopService = shopService;
             _userManager = userManager;
             _rustShopService = rustShopService;
             _context = context;
@@ -113,7 +113,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData
             var rustPurchaseStatsList = new List<RustPurchaseStats>();
 
             var user = await _userManager.FindByEmailAsync(DefaultIdentity.AdminUserName);
-            var shop = _shopManager.GetShopById(shopId);
+            var shop = _shopService.GetShopById(shopId);
             var rustUser = await CreateDefaultRustUser();
 
             DateTime dateWeekAgo = DateTime.Now.Subtract(TimeSpan.FromDays(7));

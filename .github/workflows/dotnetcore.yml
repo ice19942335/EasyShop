@@ -15,6 +15,6 @@ jobs:
     - name: ServerMonetization.CP
       run: dotnet build ./ControlPanel/ServerMonetization.CP/ServerMonetization.CP.csproj --configuration Release
       
-    - name: RustMultiTenantShop
-      run: dotnet build ./MultiTenantShops/RustMultiTenantShop/RustMultiTenantShop.csproj --configuration Release
+    - name: Rust.MultiTenant.Shop
+      run: dotnet build ./MultiTenantShops/Rust.MultiTenant.Shop/Rust.MultiTenant.Shop.csproj --configuration Release
       
