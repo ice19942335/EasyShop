@@ -19,20 +19,16 @@ namespace EasyShop.Services.CP.Rust.Shop
         private readonly EasyShopContext _context;
         private readonly UserManager<AppUser> _userManager;
         private readonly ILogger<ShopManager> _logger;
-        private readonly IRustShopService _rustShopService;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
         public ShopManager(EasyShopContext context,
             UserManager<AppUser> userManager,
             IHttpContextAccessor httpContextAccessor,
-            ILogger<ShopManager> logger,
-            IRustDefaultCategoriesWithItemsService rustDefaultCategoriesWithItemsService,
-            IRustShopService rustShopService)
+            ILogger<ShopManager> logger)
         {
             _context = context;
             _userManager = userManager;
             _logger = logger;
-            _rustShopService = rustShopService;
             _httpContextAccessor = httpContextAccessor;
         }
 
