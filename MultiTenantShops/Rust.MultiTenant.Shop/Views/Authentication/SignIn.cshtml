@@ -1,5 +1,12 @@
 ﻿@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Http
 @model AuthenticationScheme[]
+
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    var tenantInfo = HttpContextAccessor.HttpContext.GetMultiTenantContext().TenantInfo;
+}
 
 <div class="jumbotron">
     <h1>Authentication</h1>
@@ -7,7 +14,7 @@
 
     @foreach (var scheme in Model.OrderBy(p => p.DisplayName))
     {
-        <form action="/signin" method="post">
+        <form action="@(tenantInfo != null ? $"/{tenantInfo.Identifier}/authentication/signin" : "/signin")" method="post">
             <input type="hidden" name="Provider" value="@scheme.Name" />
             <input type="hidden" name="ReturnUrl" value="@ViewBag.ReturnUrl" />
 

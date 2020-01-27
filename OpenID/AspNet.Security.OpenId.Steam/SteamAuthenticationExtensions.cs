@@ -5,11 +5,11 @@
  */
 
 using System;
-using AspNet.Security.OpenId.Steam;
 using JetBrains.Annotations;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace Microsoft.Extensions.DependencyInjection
+namespace AspNet.Security.OpenId.Steam
 {
     /// <summary>
     /// Exposes convenient extensions that can be used to add an instance

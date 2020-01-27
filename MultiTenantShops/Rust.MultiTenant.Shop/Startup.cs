@@ -1,36 +1,24 @@
-/*
- * Licensed under the Apache License, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0)
- * See https://github.com/aspnet-contrib/AspNet.Security.OpenId.Providers
- * for more information concerning the license and the contributors participating to this project.
- */
-
 using System;
-using AspNet.Security.OpenId;
+using EasyShop.DAL.Context;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
+using Finbuckle.MultiTenant;
 using Microsoft.Extensions.DependencyInjection;
+using Rust.MultiTenant.Shop.ConfigureServicesInstallers;
+using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 
 namespace Rust.MultiTenant.Shop
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; }
+
+        public Startup(IConfiguration configuration) => Configuration = configuration;
+
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAuthentication(options =>
-            {
-                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-            })
-
-            .AddCookie(options =>
-            {
-                options.LoginPath = "/login";
-                options.LogoutPath = "/signout";
-            })
-
-            .AddSteam();
-
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            services.InstallServicesInAssembly(Configuration);
         }
 
         public void Configure(IApplicationBuilder app)
@@ -42,10 +30,24 @@ namespace Rust.MultiTenant.Shop
             app.UseAuthentication();
             app.UseAuthorization();
 
+            app.UseMultiTenant();
+
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapDefaultControllerRoute();
+                endpoints.MapControllerRoute("default", "{__tenant__=}/{controller=Home}/{action=Index}");
             });
+
+            // Seed the database the multitenant store will need.
+            SetupStore(app.ApplicationServices);
+        }
+
+        private void SetupStore(IServiceProvider sp)
+        {
+            var scopeServices = sp.CreateScope().ServiceProvider;
+            var store = scopeServices.GetRequiredService<IMultiTenantStore>();
+
+            store.TryAddAsync(new TenantInfo("tenant-finbuckle-d043favoiaw", "c", "Finbuckle", "finbuckle_conn_string", null)).Wait();
+            store.TryAddAsync(new TenantInfo("tenant-initech-341ojadsfa", "initech", "Initech LLC", "initech_conn_string", null)).Wait();
         }
     }
 }
