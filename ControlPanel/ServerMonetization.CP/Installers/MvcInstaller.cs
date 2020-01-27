@@ -15,10 +15,6 @@ namespace ServerMonetization.CP.Installers
             services.AddRazorPages();
             services.AddMvcCore();
 
-            services.AddMultiTenant()
-                .WithEFCoreStore<RustShopMultiTenantStoreContext>()
-                .WithRouteStrategy();
-
             services.AddHttpsRedirection(options =>
             {
                 options.RedirectStatusCode = StatusCodes.Status307TemporaryRedirect;
