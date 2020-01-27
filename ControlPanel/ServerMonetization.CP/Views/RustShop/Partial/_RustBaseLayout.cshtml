@@ -2,12 +2,14 @@
 @{
     ViewData["Title"] = $"Rust shop {Model.ShopName}";
     Layout = "_ControlPanelLayout";
+
+    var shopLink = $"https://localhost:44367/{Model.Id.Replace("-", "")}";
 }
 
-<div class="m-b-lg">
-    <h3 class="m-t-sm">@Model.ShopName</h3>
-    <a href="#"><span class="icon icon-external-link icon-lg icon-fw"></span> Server: http://www.abirula.com/@Model.ShopTitle</a>
-</div>
+    <div class="m-b-lg">
+        <h3 class="m-t-sm">@Model.ShopName</h3>
+        <a href="@shopLink"><span class="icon icon-external-link icon-lg icon-fw"></span> Server: @shopLink</a>
+    </div>
 @await Html.PartialAsync("Partial/_RustShopNavBar", Model)
 @RenderBody()
 

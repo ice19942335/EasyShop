@@ -91,7 +91,12 @@ namespace EasyShop.Services.CP.Rust.Shop
                 };
 
                 var addNewTenant = await _tenantStore.TryAddAsync(
-                    new TenantInfo(newShopId.ToString(), newShopId.ToString(), model.ShopName, null, null));
+                    new TenantInfo(
+                        newShopId.ToString(), 
+                        newShopId.ToString().Replace("-", ""), 
+                        model.ShopName,
+                        "EmptyConnection",
+                        null));
 
                 if (!addNewTenant)
                     return RustCreateShopResult.SomethingWentWrong;

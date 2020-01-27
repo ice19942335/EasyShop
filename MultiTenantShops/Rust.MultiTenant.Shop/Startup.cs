@@ -46,7 +46,7 @@ namespace Rust.MultiTenant.Shop
             var scopeServices = sp.CreateScope().ServiceProvider;
             var store = scopeServices.GetRequiredService<IMultiTenantStore>();
 
-            store.TryAddAsync(new TenantInfo("tenant-finbuckle-d043favoiaw", "c", "Finbuckle", "finbuckle_conn_string", null)).Wait();
+            store.TryAddAsync(new TenantInfo("tenant-finbuckle-d043favoiaw", "finbuckle", "Finbuckle", "finbuckle_conn_string", null)).Wait();
             store.TryAddAsync(new TenantInfo("tenant-initech-341ojadsfa", "initech", "Initech LLC", "initech_conn_string", null)).Wait();
         }
     }
