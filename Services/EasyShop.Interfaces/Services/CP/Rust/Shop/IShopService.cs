@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace EasyShop.Interfaces.Services.CP.Rust.Shop
 {
-    public interface IShopManager
+    public interface IShopService
     {
 
         string GetShopGameTypeById(Guid shopId);

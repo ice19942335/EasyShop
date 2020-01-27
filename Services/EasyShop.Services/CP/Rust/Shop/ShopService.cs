@@ -14,17 +14,17 @@ using Microsoft.Extensions.Logging;
 
 namespace EasyShop.Services.CP.Rust.Shop
 {
-    public class ShopManager : IShopManager
+    public class ShopService : IShopService
     {
         private readonly EasyShopContext _context;
         private readonly UserManager<AppUser> _userManager;
-        private readonly ILogger<ShopManager> _logger;
+        private readonly ILogger<ShopService> _logger;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public ShopManager(EasyShopContext context,
+        public ShopService(EasyShopContext context,
             UserManager<AppUser> userManager,
             IHttpContextAccessor httpContextAccessor,
-            ILogger<ShopManager> logger)
+            ILogger<ShopService> logger)
         {
             _context = context;
             _userManager = userManager;

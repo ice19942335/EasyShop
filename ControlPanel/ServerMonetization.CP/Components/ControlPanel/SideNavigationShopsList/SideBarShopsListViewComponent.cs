@@ -16,13 +16,13 @@ namespace ServerMonetization.CP.Components.ControlPanel.SideNavigationShopsList
 {
     public class SideNavigationShopsListViewComponent : ViewComponent
     {
-        private readonly IShopManager _shopManager;
+        private readonly IShopService _shopService;
 
-        public SideNavigationShopsListViewComponent(IShopManager shop) => _shopManager = shop;
+        public SideNavigationShopsListViewComponent(IShopService shop) => _shopService = shop;
 
         public IViewComponentResult Invoke()
         {
-            var userShops = _shopManager.UserShopsByUserEmailAsync(User.Identity.Name).Result;
+            var userShops = _shopService.UserShopsByUserEmailAsync(User.Identity.Name).Result;
 
             var model = new ShopsManagerViewModel { Shops = userShops };
 
