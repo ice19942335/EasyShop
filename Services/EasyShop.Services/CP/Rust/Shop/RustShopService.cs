@@ -12,10 +12,12 @@ using EasyShop.Domain.ViewModels.CP.ControlPanel.Shop;
 using EasyShop.Interfaces.Services.CP.Rust.Data;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
 using EasyShop.Services.ExtensionMethods;
+using Finbuckle.MultiTenant;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Guid = System.Guid;
@@ -30,6 +32,7 @@ namespace EasyShop.Services.CP.Rust.Shop
         private readonly ILogger<RustShopService> _logger;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IRustDefaultCategoriesWithItemsService _rustDefaultCategoriesWithItemsService;
+        private readonly IMultiTenantStore _tenantStore;
 
         public RustShopService(
             IConfiguration configuration,
@@ -37,7 +40,8 @@ namespace EasyShop.Services.CP.Rust.Shop
             EasyShopContext context,
             ILogger<RustShopService> logger,
             IHttpContextAccessor httpContextAccessor,
-            IRustDefaultCategoriesWithItemsService rustDefaultCategoriesWithItemsService)
+            IRustDefaultCategoriesWithItemsService rustDefaultCategoriesWithItemsService,
+            IServiceProvider serviceProvider)
         {
             _configuration = configuration;
             _userManager = userManager;
@@ -45,6 +49,8 @@ namespace EasyShop.Services.CP.Rust.Shop
             _logger = logger;
             _httpContextAccessor = httpContextAccessor;
             _rustDefaultCategoriesWithItemsService = rustDefaultCategoriesWithItemsService;
+
+            _tenantStore = serviceProvider.GetRequiredService<IMultiTenantStore>();
         }
 
         #region Rust Shop
@@ -83,6 +89,12 @@ namespace EasyShop.Services.CP.Rust.Shop
                     AppUserId = user.Id,
                     AppUser = user
                 };
+
+                var addNewTenant = await _tenantStore.TryAddAsync(
+                    new TenantInfo(newShopId.ToString(), newShopId.ToString(), model.ShopName, null, null));
+
+                if (!addNewTenant)
+                    return RustCreateShopResult.SomethingWentWrong;
 
                 _context.Shops.Add(newShop);
                 _context.UserShops.Add(userShop);
