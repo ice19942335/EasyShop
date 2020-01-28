@@ -198,7 +198,7 @@ namespace EasyShop.Services.CP.Rust.Shop
 
             var allAssignedCategoriesToShop = GetAllAssignedCategoriesToShopByShopId(shopId);
 
-            var removeTenant = await _tenancyStoreService.TryRemoveAsync(shop.Id.ToString());
+            var removeTenant = await _tenancyStoreService.RemoveAsync(shop.Id.ToString());
 
             if (!removeTenant)
             {
