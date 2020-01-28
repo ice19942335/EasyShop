@@ -99,13 +99,22 @@ namespace AspNet.Security.OpenId.Steam
             var payload = JObject.Parse(await response.Content.ReadAsStringAsync());
 
             // Try to extract the profile name of the authenticated user.
+            //var profile = payload.Value<JObject>(SteamAuthenticationConstants.Parameters.Response)
+            //                    ?.Value<JArray>(SteamAuthenticationConstants.Parameters.Players)
+            //                ?[0]?.Value<string>(SteamAuthenticationConstants.Parameters.Name);
+
             var profile = payload.Value<JObject>(SteamAuthenticationConstants.Parameters.Response)
                                 ?.Value<JArray>(SteamAuthenticationConstants.Parameters.Players)
                             ?[0]?.Value<string>(SteamAuthenticationConstants.Parameters.Name);
 
+            var avatar = payload.Value<JObject>(SteamAuthenticationConstants.Parameters.Response)
+                ?.Value<JArray>(SteamAuthenticationConstants.Parameters.Players)
+                ?[0]?.Value<string>(SteamAuthenticationConstants.Parameters.Avatar);
+            
             if (!string.IsNullOrEmpty(profile))
             {
                 identity.AddClaim(new Claim(ClaimTypes.Name, profile, ClaimValueTypes.String, Options.ClaimsIssuer));
+                identity.AddClaim(new Claim(SteamAuthenticationConstants.Parameters.ClaimTypeAvatar, avatar, ClaimValueTypes.String));
             }
 
             return await RunAuthenticatedEventAsync(payload);

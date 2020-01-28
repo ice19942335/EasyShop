@@ -124,3 +124,66 @@
 2020-01-28 15:59:30.3204 Info Found 47 configuration items
 2020-01-28 15:59:30.3453 Info Configuration initialized.
 2020-01-28 15:59:30.3453 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.6.7.10445. Product version: 4.6.7.
+2020-01-28 16:15:17.1360 Info Message Template Auto Format enabled
+2020-01-28 16:15:17.1578 Info Loading assembly: NLog.Web.AspNetCore
+2020-01-28 16:15:17.2285 Info Adding target FileTarget(Name=allfile)
+2020-01-28 16:15:17.2388 Info Adding target FileTarget(Name=ownFile-web)
+2020-01-28 16:15:17.2709 Info Found 47 configuration items
+2020-01-28 16:15:17.2844 Info Configuration initialized.
+2020-01-28 16:15:17.2844 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.6.7.10445. Product version: 4.6.7.
+2020-01-28 16:18:45.2794 Info Message Template Auto Format enabled
+2020-01-28 16:18:45.3002 Info Loading assembly: NLog.Web.AspNetCore
+2020-01-28 16:18:45.3729 Info Adding target FileTarget(Name=allfile)
+2020-01-28 16:18:45.3813 Info Adding target FileTarget(Name=ownFile-web)
+2020-01-28 16:18:45.4185 Info Found 47 configuration items
+2020-01-28 16:18:45.4427 Info Configuration initialized.
+2020-01-28 16:18:45.4427 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.6.7.10445. Product version: 4.6.7.
+2020-01-28 16:19:05.2741 Info Message Template Auto Format enabled
+2020-01-28 16:19:05.3015 Info Loading assembly: NLog.Web.AspNetCore
+2020-01-28 16:19:05.3955 Info Adding target FileTarget(Name=allfile)
+2020-01-28 16:19:05.3955 Info Adding target FileTarget(Name=ownFile-web)
+2020-01-28 16:19:05.4570 Info Found 47 configuration items
+2020-01-28 16:19:05.4792 Info Configuration initialized.
+2020-01-28 16:19:05.4861 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.6.7.10445. Product version: 4.6.7.
+2020-01-28 16:21:16.7078 Info Message Template Auto Format enabled
+2020-01-28 16:21:16.7320 Info Loading assembly: NLog.Web.AspNetCore
+2020-01-28 16:21:16.8651 Info Adding target FileTarget(Name=allfile)
+2020-01-28 16:21:16.8651 Info Adding target FileTarget(Name=ownFile-web)
+2020-01-28 16:21:16.9132 Info Found 47 configuration items
+2020-01-28 16:21:16.9323 Info Configuration initialized.
+2020-01-28 16:21:16.9434 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.6.7.10445. Product version: 4.6.7.
+2020-01-28 16:24:05.2065 Info Message Template Auto Format enabled
+2020-01-28 16:24:05.2327 Info Loading assembly: NLog.Web.AspNetCore
+2020-01-28 16:24:05.3515 Info Adding target FileTarget(Name=allfile)
+2020-01-28 16:24:05.3616 Info Adding target FileTarget(Name=ownFile-web)
+2020-01-28 16:24:05.3983 Info Found 47 configuration items
+2020-01-28 16:24:05.4206 Info Configuration initialized.
+2020-01-28 16:24:05.4291 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.6.7.10445. Product version: 4.6.7.
+2020-01-28 16:26:38.3924 Info Message Template Auto Format enabled
+2020-01-28 16:26:38.4534 Info Loading assembly: NLog.Web.AspNetCore
+2020-01-28 16:26:38.5748 Info Adding target FileTarget(Name=allfile)
+2020-01-28 16:26:38.5875 Info Adding target FileTarget(Name=ownFile-web)
+2020-01-28 16:26:38.6359 Info Found 47 configuration items
+2020-01-28 16:26:38.6515 Info Configuration initialized.
+2020-01-28 16:26:38.6637 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.6.7.10445. Product version: 4.6.7.
+2020-01-28 16:28:02.1953 Info Message Template Auto Format enabled
+2020-01-28 16:28:02.2260 Info Loading assembly: NLog.Web.AspNetCore
+2020-01-28 16:28:02.3113 Info Adding target FileTarget(Name=allfile)
+2020-01-28 16:28:02.3228 Info Adding target FileTarget(Name=ownFile-web)
+2020-01-28 16:28:02.3555 Info Found 47 configuration items
+2020-01-28 16:28:02.3735 Info Configuration initialized.
+2020-01-28 16:28:02.3790 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.6.7.10445. Product version: 4.6.7.
+2020-01-28 16:29:41.6620 Info Message Template Auto Format enabled
+2020-01-28 16:29:41.6807 Info Loading assembly: NLog.Web.AspNetCore
+2020-01-28 16:29:41.7550 Info Adding target FileTarget(Name=allfile)
+2020-01-28 16:29:41.7550 Info Adding target FileTarget(Name=ownFile-web)
+2020-01-28 16:29:41.7930 Info Found 47 configuration items
+2020-01-28 16:29:41.8067 Info Configuration initialized.
+2020-01-28 16:29:41.8131 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.6.7.10445. Product version: 4.6.7.
+2020-01-28 16:35:58.4451 Info Message Template Auto Format enabled
+2020-01-28 16:35:58.4810 Info Loading assembly: NLog.Web.AspNetCore
+2020-01-28 16:35:58.8826 Info Adding target FileTarget(Name=allfile)
+2020-01-28 16:35:58.8963 Info Adding target FileTarget(Name=ownFile-web)
+2020-01-28 16:35:58.9387 Info Found 47 configuration items
+2020-01-28 16:35:58.9583 Info Configuration initialized.
+2020-01-28 16:35:58.9583 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.6.7.10445. Product version: 4.6.7.

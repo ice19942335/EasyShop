@@ -1,4 +1,5 @@
 ﻿@using System.Security.Cryptography
+@using AspNet.Security.OpenId.Steam
 @using Microsoft.AspNetCore.Http
 @model TenantInfo
 @inject IHttpContextAccessor HttpContextAccessor
@@ -52,6 +53,10 @@
             @foreach (var claim in Context.User.Claims)
             {
                 <div><code>@claim.Type</code>: <strong>@claim.Value</strong></div>
+                @if (claim.Type.Equals(SteamAuthenticationConstants.Parameters.ClaimTypeAvatar))
+                {
+                    <img src="@claim.Value" alt="Steam avatar" />
+                }
             }
         </p>
 
