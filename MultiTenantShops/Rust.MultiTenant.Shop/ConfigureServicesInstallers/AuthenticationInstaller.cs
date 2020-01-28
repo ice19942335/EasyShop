@@ -18,7 +18,10 @@ namespace Rust.MultiTenant.Shop.ConfigureServicesInstallers
                     options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 })
                 .AddCookie()
-                .AddSteam();
+                .AddSteam(options =>
+                {
+                    options.ApplicationKey = "2D5B17EBC1DB233CD2BE19869817E97F";
+                });
         }
     }
 }

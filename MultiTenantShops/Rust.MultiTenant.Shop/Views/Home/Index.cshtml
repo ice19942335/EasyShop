@@ -1,4 +1,5 @@
-﻿@using Microsoft.AspNetCore.Http
+﻿@using System.Security.Cryptography
+@using Microsoft.AspNetCore.Http
 @model TenantInfo
 @inject IHttpContextAccessor HttpContextAccessor
 
@@ -13,29 +14,29 @@
 
     <table class="table">
         <thead>
-        <tr>
-            <th style="width:25%">Property</th>
-            <th>Value</th>
-        </tr>
+            <tr>
+                <th style="width:25%">Property</th>
+                <th>Value</th>
+            </tr>
         </thead>
 
         <tbody>
-        <tr>
-            <td>@nameof(Model.Id)</td>
-            <td>@Model.Id</td>
-        </tr>
-        <tr>
-            <td>@nameof(Model.Identifier)</td>
-            <td>@Model.Identifier</td>
-        </tr>
-        <tr>
-            <td>@nameof(Model.Name)</td>
-            <td>@Model.Name</td>
-        </tr>
-        <tr>
-            <td>@nameof(Model.ConnectionString)</td>
-            <td>@Model.ConnectionString</td>
-        </tr>
+            <tr>
+                <td>@nameof(Model.Id)</td>
+                <td>@Model.Id</td>
+            </tr>
+            <tr>
+                <td>@nameof(Model.Identifier)</td>
+                <td>@Model.Identifier</td>
+            </tr>
+            <tr>
+                <td>@nameof(Model.Name)</td>
+                <td>@Model.Name</td>
+            </tr>
+            <tr>
+                <td>@nameof(Model.ConnectionString)</td>
+                <td>@Model.ConnectionString</td>
+            </tr>
         </tbody>
 
     </table>
@@ -66,7 +67,7 @@
         }
         else
         {
-            <a class="btn btn-lg btn-success" href="https://localhost:44367/finbuckle">Go to Finbuckle</a>
+            <h1>No tenant!No tenant!No tenant!No tenant!</h1>
         }
     }
 </div>
