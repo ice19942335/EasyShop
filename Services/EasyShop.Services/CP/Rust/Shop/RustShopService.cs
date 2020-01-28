@@ -9,6 +9,7 @@ using EasyShop.Domain.Entries.Shop;
 using EasyShop.Domain.Enums.CP.Rust;
 using EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Shop;
 using EasyShop.Domain.ViewModels.CP.ControlPanel.Shop;
+using EasyShop.Interfaces.MultiTenancy;
 using EasyShop.Interfaces.Services.CP.Rust.Data;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
 using EasyShop.Services.ExtensionMethods;
@@ -32,7 +33,7 @@ namespace EasyShop.Services.CP.Rust.Shop
         private readonly ILogger<RustShopService> _logger;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IRustDefaultCategoriesWithItemsService _rustDefaultCategoriesWithItemsService;
-        private readonly IMultiTenantStore _tenantStore;
+        private readonly IMultiTenancyStoreService _tenancyStoreService;
 
         public RustShopService(
             IConfiguration configuration,
@@ -41,7 +42,8 @@ namespace EasyShop.Services.CP.Rust.Shop
             ILogger<RustShopService> logger,
             IHttpContextAccessor httpContextAccessor,
             IRustDefaultCategoriesWithItemsService rustDefaultCategoriesWithItemsService,
-            IServiceProvider serviceProvider)
+            IMultiTenancyStoreService tenancyStoreService
+            )
         {
             _configuration = configuration;
             _userManager = userManager;
@@ -49,8 +51,7 @@ namespace EasyShop.Services.CP.Rust.Shop
             _logger = logger;
             _httpContextAccessor = httpContextAccessor;
             _rustDefaultCategoriesWithItemsService = rustDefaultCategoriesWithItemsService;
-
-            _tenantStore = serviceProvider.GetRequiredService<IMultiTenantStore>();
+            _tenancyStoreService = tenancyStoreService;
         }
 
         #region Rust Shop
@@ -90,13 +91,11 @@ namespace EasyShop.Services.CP.Rust.Shop
                     AppUser = user
                 };
 
-                var addNewTenant = await _tenantStore.TryAddAsync(
-                    new TenantInfo(
-                        newShopId.ToString(), 
-                        newShopId.ToString().Replace("-", ""), 
-                        model.ShopName,
-                        "EmptyConnection",
-                        null));
+                var addNewTenant = await _tenancyStoreService.TryAddAsync(
+                    newShopId.ToString(),
+                    newShopId.ToString(),
+                    model.ShopName,
+                    null);
 
                 if (!addNewTenant)
                     return RustCreateShopResult.SomethingWentWrong;
@@ -112,7 +111,7 @@ namespace EasyShop.Services.CP.Rust.Shop
                         await SetDefaultProductsAsync(user, newShop);
                         await _context.SaveChangesAsync();
 
-                        _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
+                        _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                             user.UserName,
                             user.Id,
                             _httpContextAccessor.HttpContext.Request.GetRawTarget(),
@@ -127,7 +126,7 @@ namespace EasyShop.Services.CP.Rust.Shop
                         await RemoveAllCategoriesAndItemsInShopAsync(newShop);
                         await _context.SaveChangesAsync();
 
-                        _logger.LogError("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
+                        _logger.LogError("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                             user.UserName,
                             user.Id,
                             _httpContextAccessor.HttpContext.Request.GetRawTarget(),
@@ -137,7 +136,7 @@ namespace EasyShop.Services.CP.Rust.Shop
                     }
                 }
 
-                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
+                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                     user.UserName,
                     user.Id,
                     _httpContextAccessor.HttpContext.Request.GetRawTarget(),
@@ -167,7 +166,7 @@ namespace EasyShop.Services.CP.Rust.Shop
                 _context.Shops.Update(shop);
                 await _context.SaveChangesAsync();
 
-                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
+                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                     userForLog.UserName,
                     userForLog.Id,
                     _httpContextAccessor.HttpContext.Request.GetRawTarget(),
@@ -177,7 +176,7 @@ namespace EasyShop.Services.CP.Rust.Shop
             }
             catch (Exception e)
             {
-                _logger.LogError("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
+                _logger.LogError("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                     userForLog.UserName,
                     userForLog.Id,
                     _httpContextAccessor.HttpContext.Request.GetRawTarget(),
@@ -189,6 +188,8 @@ namespace EasyShop.Services.CP.Rust.Shop
 
         public async Task<bool> DeleteShopAsync(Guid shopId)
         {
+            var userForLog = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
+
             var userShop = _context.UserShops.FirstOrDefault(x => x.ShopId == shopId);
             var shop = GetShopById(shopId);
 
@@ -197,6 +198,19 @@ namespace EasyShop.Services.CP.Rust.Shop
 
             var allAssignedCategoriesToShop = GetAllAssignedCategoriesToShopByShopId(shopId);
 
+            var removeTenant = await _tenancyStoreService.TryRemoveAsync(shop.Id.ToString());
+
+            if (!removeTenant)
+            {
+                _logger.LogError("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
+                    userForLog.UserName,
+                    userForLog.Id,
+                    _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                    "Error on shop deletion. Cannot delete tenant from store");
+
+                return false;
+            }
+            
             _context.RustCategories.RemoveRange(allAssignedCategoriesToShop);
             await _context.SaveChangesAsync();
 
@@ -205,8 +219,8 @@ namespace EasyShop.Services.CP.Rust.Shop
 
             await _context.SaveChangesAsync();
 
-            var userForLog = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
-            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
+            
+            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                 userForLog.UserName,
                 userForLog.Id,
                 _httpContextAccessor.HttpContext.Request.GetRawTarget(),
@@ -253,7 +267,7 @@ namespace EasyShop.Services.CP.Rust.Shop
                 _context.RustCategories.Add(newCategory);
                 await _context.SaveChangesAsync();
 
-                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
+                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                     userForLog.UserName,
                     userForLog.Id,
                     _httpContextAccessor.HttpContext.Request.GetRawTarget(),
@@ -273,7 +287,7 @@ namespace EasyShop.Services.CP.Rust.Shop
             _context.RustCategories.Update(category);
             await _context.SaveChangesAsync();
 
-            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
+            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                 userForLog.UserName,
                 userForLog.Id,
                 _httpContextAccessor.HttpContext.Request.GetRawTarget(),
@@ -296,7 +310,7 @@ namespace EasyShop.Services.CP.Rust.Shop
             await _context.SaveChangesAsync();
 
             var userForLog = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
-            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
+            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                 userForLog.UserName,
                 userForLog.Id,
                 _httpContextAccessor.HttpContext.Request.GetRawTarget(),
@@ -337,7 +351,7 @@ namespace EasyShop.Services.CP.Rust.Shop
 
                 await _context.SaveChangesAsync();
 
-                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
+                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                     user.UserName,
                     user.Id,
                     _httpContextAccessor.HttpContext.Request.GetRawTarget(),
@@ -347,7 +361,7 @@ namespace EasyShop.Services.CP.Rust.Shop
             }
             catch(Exception e)
             {
-                _logger.LogError("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
+                _logger.LogError("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                     user.UserName,
                     user.Id,
                     _httpContextAccessor.HttpContext.Request.GetRawTarget(),
@@ -393,7 +407,7 @@ namespace EasyShop.Services.CP.Rust.Shop
                 _context.RustUserItems.Update(product);
                 await _context.SaveChangesAsync();
 
-                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
+                _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                     userForLog.UserName,
                     userForLog.Id,
                     _httpContextAccessor.HttpContext.Request.GetRawTarget(),
@@ -430,7 +444,7 @@ namespace EasyShop.Services.CP.Rust.Shop
             _context.RustUserItems.Update(product);
             await _context.SaveChangesAsync();
 
-            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
+            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                 userForLog.UserName,
                 userForLog.Id,
                 _httpContextAccessor.HttpContext.Request.GetRawTarget(),
@@ -448,7 +462,7 @@ namespace EasyShop.Services.CP.Rust.Shop
             await _context.SaveChangesAsync();
 
             var userForLog = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
-            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | PostMessage: {3}",
+            _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                 userForLog.UserName,
                 userForLog.Id,
                 _httpContextAccessor.HttpContext.Request.GetRawTarget(),

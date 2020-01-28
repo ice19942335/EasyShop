@@ -16,6 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\OpenID\AspNet.Security.OpenId.Steam\AspNet.Security.OpenId.Steam.csproj" />
     <ProjectReference Include="..\..\Services\EasyShop.DAL\EasyShop.DAL.csproj" />
+    <ProjectReference Include="..\..\Services\EasyShop.Services\EasyShop.Services.csproj" />
     <PackageReference Include="NLog.Web.AspNetCore" Version="4.9.0" />
     <PackageReference Include="NLog" Version="4.6.7" />
   </ItemGroup>

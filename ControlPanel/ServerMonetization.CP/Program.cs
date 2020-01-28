@@ -30,6 +30,7 @@ namespace ServerMonetization.CP
                 var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
                 var rustTestStatsInit = serviceScope.ServiceProvider.GetRequiredService<IRustTestStatsData>();
                 
+
                 //Default Identity initialization
                 var basicIdentityInitializer = new IdentityInitializer(dbContext, roleManager, userManager);
                 await basicIdentityInitializer.InitializeIdentity();
@@ -38,6 +39,7 @@ namespace ServerMonetization.CP
                 //Default Rust data initialization
                 var rustDataInit = new RustDefaultDataInitialization(dbContext);
                 await rustDataInit.Initialize();
+
 
                 //RustTestStats initialization
                 await rustTestStatsInit.InitializeDefaultStatsData();
