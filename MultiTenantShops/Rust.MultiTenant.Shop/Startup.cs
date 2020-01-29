@@ -5,7 +5,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Finbuckle.MultiTenant;
 using Microsoft.Extensions.DependencyInjection;
-using Rust.MultiTenant.Shop.ConfigureServicesInstallers;
+using Rust.MultiTenant.Shop.Extensions;
+using Rust.MultiTenant.Shop.Installers;
 using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 
 namespace Rust.MultiTenant.Shop
@@ -31,6 +32,8 @@ namespace Rust.MultiTenant.Shop
             app.UseAuthorization();
 
             app.UseMultiTenant();
+
+            app.UseSteamUserResolver();
 
             app.UseEndpoints(endpoints =>
             {

@@ -46,8 +46,6 @@ namespace EasyShop.Domain.Entries.Identity
 
         public ICollection<DevBlogPostsLike> DevBlogPostsLikes { get; set; }
 
-        public ICollection<SteamUserShop> SteamUserShops { get; set; }
-
         public ICollection<UserNotification> UserNotifications { get; set; }
     }
 }

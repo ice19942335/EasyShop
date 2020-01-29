@@ -1,18 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AspNet.Security.OpenId.Steam;
+using EasyShop.DAL.Context;
+using EasyShop.Domain.Entries.Identity;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Rust.MultiTenant.Shop.ConfigureServicesInstallers
+namespace Rust.MultiTenant.Shop.Installers
 {
     public class AuthenticationInstaller : IInstaller
     {
         public void InstallServices(IServiceCollection services, IConfiguration configuration)
         {
+            services.AddIdentityCore<AppUser>() //We need it to provide UserManager service in project
+                .AddEntityFrameworkStores<EasyShopContext>(); 
+
             services.AddAuthentication(options =>
                 {
                     options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;

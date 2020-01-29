@@ -16392,3 +16392,48 @@ WHERE [u].[AppUserId] = @__user_Id_0
 
 2020-01-28 16:36:10,505 [20] ?     - Request finished in 123.8252ms 200 text/html; charset=utf-8
 
+2020-01-28 19:31:19,528 [12] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-28 19:31:19,548 [12] ?     - Hosting environment: Development
+
+2020-01-28 19:31:19,550 [12] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP
+
+2020-01-28 19:31:19,557 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ShopManager/ShopsManager  
+
+2020-01-28 19:31:19,660 [4] ?     - Entity Framework Core 3.1.1 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-28 19:31:19,677 [13] ?     - Executed DbCommand (1ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+
+2020-01-28 19:31:19,693 [13] ?     - AuthenticationScheme: Identity.Application signed out.
+
+2020-01-28 19:31:19,696 [13] ?     - AuthenticationScheme: Identity.External signed out.
+
+2020-01-28 19:31:19,698 [13] ?     - AuthenticationScheme: Identity.TwoFactorUserId signed out.
+
+2020-01-28 19:31:19,701 [13] ?     - Identity.Application was not authenticated. Failure message: No principal.
+
+2020-01-28 19:31:19,720 [13] ?     - Authorization failed.
+
+2020-01-28 19:31:19,726 [13] ?     - AuthenticationScheme: Identity.Application was challenged.
+
+2020-01-28 19:31:19,741 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/Account/Login?ReturnUrl=%2FShopManager%2FShopsManager  
+
+2020-01-28 19:31:19,745 [13] ?     - Request finished in 189.4153ms 302 
+
+2020-01-28 19:31:19,756 [8] ?     - Executing endpoint 'ServerMonetization.CP.Controllers.AccountController.Login (ServerMonetization.CP)'
+
+2020-01-28 19:31:19,799 [8] ?     - Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login() on controller ServerMonetization.CP.Controllers.AccountController (ServerMonetization.CP).
+
+2020-01-28 19:31:19,823 [8] ?     - Executing ViewResult, running view Login.
+
+2020-01-28 19:31:20,353 [8] ?     - Executed ViewResult - view Login executed in 533.5909ms.
+
+2020-01-28 19:31:20,356 [8] ?     - Executed action ServerMonetization.CP.Controllers.AccountController.Login (ServerMonetization.CP) in 554.6037ms
+
+2020-01-28 19:31:20,357 [8] ?     - Executed endpoint 'ServerMonetization.CP.Controllers.AccountController.Login (ServerMonetization.CP)'
+
+2020-01-28 19:31:20,361 [8] ?     - Request finished in 619.258ms 200 text/html; charset=utf-8
+

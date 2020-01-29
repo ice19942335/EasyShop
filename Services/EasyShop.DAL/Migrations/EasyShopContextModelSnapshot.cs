@@ -15,7 +15,7 @@ namespace EasyShop.DAL.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.0.0")
+                .HasAnnotation("ProductVersion", "3.1.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -635,6 +635,27 @@ namespace EasyShop.DAL.Migrations
                     b.ToTable("RustServerMaps");
                 });
 
+            modelBuilder.Entity("EasyShop.Domain.Entries.Rust.SteamUserShop", b =>
+                {
+                    b.Property<Guid>("ShopId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("SteamUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("Balance")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.Property<decimal>("TotalSpent")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.HasKey("ShopId", "SteamUserId");
+
+                    b.HasIndex("SteamUserId");
+
+                    b.ToTable("SteamUserShops");
+                });
+
             modelBuilder.Entity("EasyShop.Domain.Entries.Shop.Shop", b =>
                 {
                     b.Property<Guid>("Id")
@@ -761,34 +782,15 @@ namespace EasyShop.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<decimal>("Balance")
-                        .HasColumnType("decimal(18, 2)");
-
                     b.Property<decimal>("TotalSpent")
                         .HasColumnType("decimal(18, 2)");
 
                     b.Property<string>("Uid")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("SteamUsers");
-                });
-
-            modelBuilder.Entity("EasyShop.Domain.Entries.Users.SteamUserShop", b =>
-                {
-                    b.Property<string>("AppUserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<Guid>("SteamUserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("AppUserId", "SteamUserId");
-
-                    b.HasIndex("SteamUserId");
-
-                    b.ToTable("SteamUserShops");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -1093,6 +1095,21 @@ namespace EasyShop.DAL.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("EasyShop.Domain.Entries.Rust.SteamUserShop", b =>
+                {
+                    b.HasOne("EasyShop.Domain.Entries.Shop.Shop", "Shop")
+                        .WithMany("SteamUserShops")
+                        .HasForeignKey("ShopId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EasyShop.Domain.Entries.Users.SteamUser", "SteamUser")
+                        .WithMany("SteamUserShops")
+                        .HasForeignKey("SteamUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("EasyShop.Domain.Entries.Shop.Shop", b =>
                 {
                     b.HasOne("EasyShop.Domain.Entries.GameType.GameType", "GameType")
@@ -1143,21 +1160,6 @@ namespace EasyShop.DAL.Migrations
                     b.HasOne("EasyShop.Domain.Entries.Tariff.Tariff", "Tariff")
                         .WithMany("UserTariffs")
                         .HasForeignKey("TariffId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("EasyShop.Domain.Entries.Users.SteamUserShop", b =>
-                {
-                    b.HasOne("EasyShop.Domain.Entries.Identity.AppUser", "AppUser")
-                        .WithMany("SteamUserShops")
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("EasyShop.Domain.Entries.Users.SteamUser", "SteamUser")
-                        .WithMany("SteamUserShops")
-                        .HasForeignKey("SteamUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

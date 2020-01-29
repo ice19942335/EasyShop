@@ -3,7 +3,7 @@ using System.Linq;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Rust.MultiTenant.Shop.ConfigureServicesInstallers
+namespace Rust.MultiTenant.Shop.Installers
 {
     public static class ExtensionsInstaller
     {

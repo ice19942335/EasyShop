@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using EasyShop.Domain.Entries.Rust;
+using EasyShop.Domain.Entries.Users;
 
 namespace EasyShop.Domain.Entries.Shop
 {
@@ -28,5 +29,7 @@ namespace EasyShop.Domain.Entries.Shop
         public Guid Secret { get; set; }
 
         public ICollection<UserShop> UserShops { get; set; }
+
+        public ICollection<SteamUserShop> SteamUserShops { get; set; }
     }
 }

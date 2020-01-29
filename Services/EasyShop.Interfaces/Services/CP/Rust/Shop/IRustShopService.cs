@@ -37,5 +37,7 @@ namespace EasyShop.Interfaces.Services.CP.Rust.Shop
         RustProduct GetProductById(Guid productId);
 
         Task<RustEditProductResult> UpdateRustProductAsync(RustShopViewModel model);
+
+        Domain.Entries.Shop.Shop GetShopById(Guid shopId);
     }
 }

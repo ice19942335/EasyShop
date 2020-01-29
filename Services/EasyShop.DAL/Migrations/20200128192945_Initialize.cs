@@ -78,6 +78,7 @@ namespace EasyShop.DAL.Migrations
                     Title = table.Column<string>(nullable: true),
                     PostMessage = table.Column<string>(nullable: true),
                     ImgUrl = table.Column<string>(nullable: true),
+                    ImgDeleteHash = table.Column<string>(nullable: true),
                     Link = table.Column<string>(nullable: true),
                     LinkTitle = table.Column<string>(nullable: true),
                     DateTimePosted = table.Column<DateTime>(nullable: false),
@@ -121,7 +122,8 @@ namespace EasyShop.DAL.Migrations
                     Title = table.Column<string>(nullable: true),
                     Message = table.Column<string>(nullable: true),
                     LinkTitle = table.Column<string>(nullable: true),
-                    Link = table.Column<string>(nullable: true)
+                    Link = table.Column<string>(nullable: true),
+                    DateTimeCreated = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -170,8 +172,7 @@ namespace EasyShop.DAL.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    Uid = table.Column<string>(nullable: false),
-                    Balance = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
+                    Uid = table.Column<string>(nullable: true),
                     TotalSpent = table.Column<decimal>(type: "decimal(18, 2)", nullable: false)
                 },
                 constraints: table =>
@@ -397,6 +398,7 @@ namespace EasyShop.DAL.Migrations
                     Email = table.Column<string>(nullable: false),
                     Message = table.Column<string>(nullable: false),
                     ImgUrl = table.Column<string>(nullable: true),
+                    DeleteHash = table.Column<string>(nullable: true),
                     DateTime = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
@@ -496,30 +498,6 @@ namespace EasyShop.DAL.Migrations
                         name: "FK_RustItems_RustItemTypes_RustItemTypeId",
                         column: x => x.RustItemTypeId,
                         principalTable: "RustItemTypes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "SteamUserShops",
-                columns: table => new
-                {
-                    AppUserId = table.Column<string>(nullable: false),
-                    SteamUserId = table.Column<Guid>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_SteamUserShops", x => new { x.AppUserId, x.SteamUserId });
-                    table.ForeignKey(
-                        name: "FK_SteamUserShops_AspNetUsers_AppUserId",
-                        column: x => x.AppUserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_SteamUserShops_SteamUsers_SteamUserId",
-                        column: x => x.SteamUserId,
-                        principalTable: "SteamUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -627,6 +605,32 @@ namespace EasyShop.DAL.Migrations
                         name: "FK_RustServers_Shops_ShopId",
                         column: x => x.ShopId,
                         principalTable: "Shops",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SteamUserShops",
+                columns: table => new
+                {
+                    ShopId = table.Column<Guid>(nullable: false),
+                    SteamUserId = table.Column<Guid>(nullable: false),
+                    Balance = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
+                    TotalSpent = table.Column<decimal>(type: "decimal(18, 2)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SteamUserShops", x => new { x.ShopId, x.SteamUserId });
+                    table.ForeignKey(
+                        name: "FK_SteamUserShops_Shops_ShopId",
+                        column: x => x.ShopId,
+                        principalTable: "Shops",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_SteamUserShops_SteamUsers_SteamUserId",
+                        column: x => x.SteamUserId,
+                        principalTable: "SteamUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });

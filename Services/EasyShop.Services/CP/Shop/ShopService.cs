@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
-using EasyShop.Interfaces.Services.CP.Rust.Data;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
 using EasyShop.Services.ExtensionMethods;
 using Microsoft.AspNetCore.Http;
@@ -12,7 +11,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace EasyShop.Services.CP.Rust.Shop
+namespace EasyShop.Services.CP.Shop
 {
     public class ShopService : IShopService
     {
