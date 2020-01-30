@@ -2,11 +2,12 @@
 @using AspNet.Security.OpenId.Steam
 @using Microsoft.AspNetCore.Http
 @model TenantInfo
-@inject IHttpContextAccessor HttpContextAccessor
 
 @{
     ViewData["Title"] = "EFCoreStore Sample";
-    var tenantInfo = HttpContextAccessor.HttpContext.GetMultiTenantContext().TenantInfo;
+    var tenantInfo = Context.GetMultiTenantContext().TenantInfo;
+
+    Layout = "_BaseLayout";
 }
 
 @if (Model != null)
@@ -42,34 +43,10 @@
     </table>
 }
 
-<div class="jumbotron">
-    @if (User?.Identity?.IsAuthenticated ?? false)
-    {
-        <h1>Welcome, @User.Identity.Name</h1>
-        <h1>Tenant identifier: @Model?.Identifier</h1>
-
-        <p>
-            @foreach (var claim in Context.User.Claims)
-            {
-                <div><code>@claim.Type</code>: <strong>@claim.Value</strong></div>
-            }
-            <img src="@Context.User.Claims.FirstOrDefault(x => x.Type == SteamAuthenticationConstants.Parameters.AvatarFull)?.Value" alt="Steam avatar" />
-
-        </p>
-
-        <a class="btn btn-lg btn-danger" href="@($"/{tenantInfo.Identifier}/authentication/signout")">Sign out</a>
-    }
-    else
-    {
-        <h1>Welcome, anonymous</h1>
-
-        @if (tenantInfo != null)
-        {
-            <a class="btn btn-lg btn-success" href="@($"/{tenantInfo.Identifier}/authentication/signin")">Sign in</a>
-        }
-        else
-        {
-            <h1>No tenant!No tenant!No tenant!No tenant!</h1>
-        }
-    }
-</div>
+@section Styles
+{
+    <link href="~/css/override/elephant-override.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/override/application-override.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/side-bar.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/nav-bar.css" rel="stylesheet" asp-append-version="true" />
+}
