@@ -109,7 +109,7 @@ namespace AspNet.Security.OpenId.Steam
 
             var avatar = payload.Value<JObject>(SteamAuthenticationConstants.Parameters.Response)
                 ?.Value<JArray>(SteamAuthenticationConstants.Parameters.Players)
-                ?[0]?.Value<string>(SteamAuthenticationConstants.Parameters.Avatar);
+                ?[0]?.Value<string>(SteamAuthenticationConstants.Parameters.AvatarFull);
 
             var uid = payload.Value<JObject>(SteamAuthenticationConstants.Parameters.Response)
                 ?.Value<JArray>(SteamAuthenticationConstants.Parameters.Players)
@@ -119,7 +119,7 @@ namespace AspNet.Security.OpenId.Steam
             if (!string.IsNullOrEmpty(profile))
             {
                 identity.AddClaim(new Claim(ClaimTypes.Name, profile, ClaimValueTypes.String, Options.ClaimsIssuer));
-                identity.AddClaim(new Claim(SteamAuthenticationConstants.Parameters.ClaimTypeAvatar, avatar, ClaimValueTypes.String));
+                identity.AddClaim(new Claim(SteamAuthenticationConstants.Parameters.AvatarFull, avatar, ClaimValueTypes.String));
                 identity.AddClaim(new Claim(SteamAuthenticationConstants.Parameters.UserUid, uid, ClaimValueTypes.String));
             }
 

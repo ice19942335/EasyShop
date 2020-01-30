@@ -21,8 +21,7 @@ namespace AspNet.Security.OpenId.Steam
             public const string Response = "response";
             public const string Players = "players";
             public const string Name = "personaname";
-            public const string Avatar = "avatarfull";
-            public const string ClaimTypeAvatar = "SteamAvatar";
+            public const string AvatarFull = "avatarfull";
             public const string UserUid = "steamid";
         }
     }

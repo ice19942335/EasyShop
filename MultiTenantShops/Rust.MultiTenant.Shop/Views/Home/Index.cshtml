@@ -46,17 +46,15 @@
     @if (User?.Identity?.IsAuthenticated ?? false)
     {
         <h1>Welcome, @User.Identity.Name</h1>
-        <h1>Tenant info, @Model.Identifier</h1>
+        <h1>Tenant identifier: @Model?.Identifier</h1>
 
         <p>
             @foreach (var claim in Context.User.Claims)
             {
                 <div><code>@claim.Type</code>: <strong>@claim.Value</strong></div>
-                @if (claim.Type.Equals(SteamAuthenticationConstants.Parameters.ClaimTypeAvatar))
-                {
-                    <img src="@claim.Value" alt="Steam avatar" />
-                }
             }
+            <img src="@Context.User.Claims.FirstOrDefault(x => x.Type == SteamAuthenticationConstants.Parameters.AvatarFull)?.Value" alt="Steam avatar" />
+
         </p>
 
         <a class="btn btn-lg btn-danger" href="@($"/{tenantInfo.Identifier}/authentication/signout")">Sign out</a>
