@@ -15,7 +15,7 @@
 
     <div class="m-b-lg">
         <h3 class="m-t-sm">@Model.ShopName</h3>
-        <a href="@shopLink"><span class="icon icon-external-link icon-lg icon-fw"></span> Server: @shopLink</a>
+        <a href="@shopLink" target="_blank"><span class="icon icon-external-link icon-lg icon-fw"></span> Server: @shopLink</a>
     </div>
 @await Html.PartialAsync("Partial/_RustShopNavBar", Model)
 @RenderBody()

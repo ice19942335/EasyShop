@@ -20,7 +20,6 @@ namespace EasyShop.DAL.Context
 {
     public class EasyShopContext : IdentityDbContext<AppUser>
     {
-
         //Tariffs
         public DbSet<Tariff> Tariffs { get; set; }
         public DbSet<TariffOption> TariffOptions { get; set; }
@@ -44,16 +43,20 @@ namespace EasyShop.DAL.Context
         public DbSet<RustServerMap> RustServerMaps { get; set; }
         public DbSet<RustPurchaseStats> RustPurchaseStats { get; set; }
 
+
         //Users
         public DbSet<SteamUser> RustUsers { get; set; }
+
 
         //DevBlog
         public DbSet<DevBlogPost> DevBlogPosts { get; set; }
         public DbSet<DevBlogPostsLike> DevBlogPostsLikes { get; set; }
 
+
         //SteamUser SteamUserShop
         public DbSet<SteamUser> SteamUsers { get; set; }
         public DbSet<SteamUserShop> SteamUsersShops { get; set; }
+
 
         //ContactUs
         public DbSet<BugReport> BugReports { get; set; }
@@ -63,15 +66,17 @@ namespace EasyShop.DAL.Context
         public DbSet<GeneralSupportReportCategory> GeneralSupportReportCategories { get; set; }
 
         public DbSet<CollaborationReport> CollaborationReports { get; set; }
-
         public DbSet<ReportStatus> ReportStatus { get; set; }
+
 
         //Notification
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<UserNotification> UserNotifications { get; set; }
 
+
         //Constructor
         public EasyShopContext(DbContextOptions<EasyShopContext> options) : base(options) { }
+
 
         //Fluent API
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -155,7 +160,7 @@ namespace EasyShop.DAL.Context
 
             //SteamUser ---------------------------------------------------------
             modelBuilder.Entity<SteamUserShop>()
-                .HasKey(x => new { x.AppUserId, x.SteamUserId });
+                .HasKey(x => new { x.ShopId, x.SteamUserId });
 
             modelBuilder.Entity<SteamUserShop>()
                 .HasOne(x => x.SteamUser)
@@ -163,9 +168,9 @@ namespace EasyShop.DAL.Context
                 .HasForeignKey(x => x.SteamUserId);
 
             modelBuilder.Entity<SteamUserShop>()
-                .HasOne(x => x.AppUser)
+                .HasOne(x => x.Shop)
                 .WithMany(x => x.SteamUserShops)
-                .HasForeignKey(x => x.AppUserId);
+                .HasForeignKey(x => x.ShopId);
             //===================================================================
 
             //UserNotification --------------------------------------------------

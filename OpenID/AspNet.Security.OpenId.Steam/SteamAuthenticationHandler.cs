@@ -83,7 +83,7 @@ namespace AspNet.Security.OpenId.Steam
             var request = new HttpRequestMessage(HttpMethod.Get, address);
             request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue(OpenIdAuthenticationConstants.Media.Json));
 
-            // Return the authentication ticket as-is if the userinfo request failed.
+            // Return the authentication ticket as-is if the user info request failed.
             var response = await Options.Backchannel.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, Context.RequestAborted);
             if (!response.IsSuccessStatusCode)
             {
@@ -99,13 +99,28 @@ namespace AspNet.Security.OpenId.Steam
             var payload = JObject.Parse(await response.Content.ReadAsStringAsync());
 
             // Try to extract the profile name of the authenticated user.
+            //var profile = payload.Value<JObject>(SteamAuthenticationConstants.Parameters.Response)
+            //                    ?.Value<JArray>(SteamAuthenticationConstants.Parameters.Players)
+            //                ?[0]?.Value<string>(SteamAuthenticationConstants.Parameters.Name);
+
             var profile = payload.Value<JObject>(SteamAuthenticationConstants.Parameters.Response)
                                 ?.Value<JArray>(SteamAuthenticationConstants.Parameters.Players)
                             ?[0]?.Value<string>(SteamAuthenticationConstants.Parameters.Name);
 
+            var avatar = payload.Value<JObject>(SteamAuthenticationConstants.Parameters.Response)
+                ?.Value<JArray>(SteamAuthenticationConstants.Parameters.Players)
+                ?[0]?.Value<string>(SteamAuthenticationConstants.Parameters.AvatarFull);
+
+            var uid = payload.Value<JObject>(SteamAuthenticationConstants.Parameters.Response)
+                ?.Value<JArray>(SteamAuthenticationConstants.Parameters.Players)
+                ?[0]?.Value<string>(SteamAuthenticationConstants.Parameters.UserUid);
+
+
             if (!string.IsNullOrEmpty(profile))
             {
                 identity.AddClaim(new Claim(ClaimTypes.Name, profile, ClaimValueTypes.String, Options.ClaimsIssuer));
+                identity.AddClaim(new Claim(SteamAuthenticationConstants.Parameters.AvatarFull, avatar, ClaimValueTypes.String));
+                identity.AddClaim(new Claim(SteamAuthenticationConstants.Parameters.UserUid, uid, ClaimValueTypes.String));
             }
 
             return await RunAuthenticatedEventAsync(payload);

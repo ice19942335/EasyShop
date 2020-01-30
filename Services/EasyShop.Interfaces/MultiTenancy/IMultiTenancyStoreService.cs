@@ -10,7 +10,7 @@ namespace EasyShop.Interfaces.MultiTenancy
     {
         Task<bool> TryAddAsync(string id, string identifier, string name, string connectionString);
 
-        Task<bool> TryRemoveAsync(string id);
+        Task<bool> RemoveAsync(string id);
 
         Task<TenantInfo> TryGetAsync(string id);
     }

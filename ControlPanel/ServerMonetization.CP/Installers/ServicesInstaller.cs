@@ -24,6 +24,7 @@ using EasyShop.Services.CP.Rust.Dashboard;
 using EasyShop.Services.CP.Rust.Data;
 using EasyShop.Services.CP.Rust.Server;
 using EasyShop.Services.CP.Rust.Shop;
+using EasyShop.Services.CP.Shop;
 using EasyShop.Services.CP.UserProfile;
 using EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData;
 using EasyShop.Services.Email;

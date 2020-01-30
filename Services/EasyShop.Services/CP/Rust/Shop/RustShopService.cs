@@ -198,7 +198,7 @@ namespace EasyShop.Services.CP.Rust.Shop
 
             var allAssignedCategoriesToShop = GetAllAssignedCategoriesToShopByShopId(shopId);
 
-            var removeTenant = await _tenancyStoreService.TryRemoveAsync(shop.Id.ToString());
+            var removeTenant = await _tenancyStoreService.RemoveAsync(shop.Id.ToString());
 
             if (!removeTenant)
             {
@@ -228,6 +228,8 @@ namespace EasyShop.Services.CP.Rust.Shop
 
             return true;
         }
+
+        public Domain.Entries.Shop.Shop GetShopById(Guid shopId) => _context.Shops.FirstOrDefault(x => x.Id == shopId);
 
         #endregion
 
@@ -468,8 +470,6 @@ namespace EasyShop.Services.CP.Rust.Shop
                 _httpContextAccessor.HttpContext.Request.GetRawTarget(),
                 $"All categories and products was removed. shopId: {shop.Id}");
         }
-
-        private Domain.Entries.Shop.Shop GetShopById(Guid shopId) => _context.Shops.FirstOrDefault(x => x.Id == shopId);
 
         private async Task<IEnumerable<Domain.Entries.Shop.Shop>> UserShopsByUserEmailAsync(string userEmail)
         {

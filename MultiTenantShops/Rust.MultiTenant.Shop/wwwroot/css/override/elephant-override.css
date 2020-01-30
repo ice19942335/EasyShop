@@ -1,0 +1,26 @@
+﻿@media (min-width: 768px)  {
+    .layout-content {
+        margin-left: 0;
+    }
+
+    .layout-footer {
+        margin-left: 0;
+    }
+
+    .layout-sidebar-collapsed .layout-content {
+         margin-left: 0; 
+    }
+
+    .layout-sidebar-collapsed .layout-footer {
+        margin-left: 0;
+    }
+}
+
+.navbar-brand {
+    padding: 0;
+}
+
+.navbar-brand-logo {
+    height: auto;
+    width: auto;
+}
