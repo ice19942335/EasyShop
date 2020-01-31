@@ -13,17 +13,14 @@ using EasyShop.Interfaces.MultiTenancy;
 using EasyShop.Interfaces.Services.CP.Rust.Data;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
 using EasyShop.Services.ExtensionMethods;
-using Finbuckle.MultiTenant;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using Guid = System.Guid;
 
-namespace EasyShop.Services.CP.Rust.Shop
+namespace EasyShop.Services.Rust
 {
     public class RustShopService : IRustShopService
     {
@@ -73,7 +70,7 @@ namespace EasyShop.Services.CP.Rust.Shop
                 Guid newShopId;
                 do { newShopId = Guid.NewGuid(); } while (_context.UserShops.FirstOrDefault(x => x.ShopId == newShopId) != null);
 
-                var newShop = new Domain.Entries.Shop.Shop
+                var newShop = new Shop
                 {
                     Id = newShopId,
                     ShopName = model.ShopName,
@@ -148,7 +145,7 @@ namespace EasyShop.Services.CP.Rust.Shop
             return RustCreateShopResult.MaxShopLimitIsReached;
         }
 
-        public async Task<Domain.Entries.Shop.Shop> UpdateShopAsync(RustShopEditMainSettingsViewModel model)
+        public async Task<Shop> UpdateShopAsync(RustShopEditMainSettingsViewModel model)
         {
             var shop = GetShopById(Guid.Parse(model.Id));
 
@@ -229,7 +226,7 @@ namespace EasyShop.Services.CP.Rust.Shop
             return true;
         }
 
-        public Domain.Entries.Shop.Shop GetShopById(Guid shopId) => _context.Shops.FirstOrDefault(x => x.Id == shopId);
+        public Shop GetShopById(Guid shopId) => _context.Shops.FirstOrDefault(x => x.Id == shopId);
 
         #endregion
 
@@ -333,7 +330,7 @@ namespace EasyShop.Services.CP.Rust.Shop
             return result;
         }
 
-        public (List<RustCategory>, List<RustProduct>) GetDefaultCategoriesWithProducts(AppUser user, Domain.Entries.Shop.Shop shop)
+        public (List<RustCategory>, List<RustProduct>) GetDefaultCategoriesWithProducts(AppUser user, Shop shop)
         {
             var defaultCategories = _context.RustCategories.Include(x => x.AppUser).Where(x => x.AppUser == null).ToList();
             var rustItems = _context.RustItems.ToList();
@@ -341,7 +338,7 @@ namespace EasyShop.Services.CP.Rust.Shop
             return _rustDefaultCategoriesWithItemsService.CreateDefaultCategoriesWithItems(user, shop, defaultCategories, rustItems);
         }
 
-        public async Task<bool> SetDefaultProductsAsync(AppUser user, Domain.Entries.Shop.Shop shop)
+        public async Task<bool> SetDefaultProductsAsync(AppUser user, Shop shop)
         {
             await RemoveAllCategoriesAndItemsInShopAsync(shop);
             (List<RustCategory>, List<RustProduct>)? defaultData = GetDefaultCategoriesWithProducts(user, shop);
@@ -379,6 +376,7 @@ namespace EasyShop.Services.CP.Rust.Shop
                 .Include(x => x.AppUser)
                 .Include(x => x.RustItem)
                 .Include(x => x.RustCategory)
+                .Include(x => x.RustItem.RustItemType)
                 .Where(x => x.Shop.Id == shopId)
                 .OrderBy(x => x.Index);
         }
@@ -458,7 +456,7 @@ namespace EasyShop.Services.CP.Rust.Shop
         #endregion
 
         #region Private methods
-        private async Task RemoveAllCategoriesAndItemsInShopAsync(Domain.Entries.Shop.Shop shop)
+        private async Task RemoveAllCategoriesAndItemsInShopAsync(Shop shop)
         {
             _context.RustCategories.RemoveRange(_context.RustCategories.Where(x => x.Shop.Id == shop.Id));
             await _context.SaveChangesAsync();
@@ -471,7 +469,7 @@ namespace EasyShop.Services.CP.Rust.Shop
                 $"All categories and products was removed. shopId: {shop.Id}");
         }
 
-        private async Task<IEnumerable<Domain.Entries.Shop.Shop>> UserShopsByUserEmailAsync(string userEmail)
+        private async Task<IEnumerable<Shop>> UserShopsByUserEmailAsync(string userEmail)
         {
             var user = await _userManager.FindByEmailAsync(userEmail);
 
@@ -481,7 +479,7 @@ namespace EasyShop.Services.CP.Rust.Shop
             var query = from userShop in _context.UserShops
                 join shop in _context.Shops on userShop.ShopId equals shop.Id
                 where userShop.AppUserId == user.Id
-                select new Domain.Entries.Shop.Shop
+                select new Shop
                 {
                     Id = shop.Id,
                     ShopName = shop.ShopName,

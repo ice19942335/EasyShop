@@ -4,6 +4,7 @@ using EasyShop.Interfaces.Services.CP.Rust.Shop;
 using EasyShop.Services.CP.Rust.Data;
 using EasyShop.Services.CP.Rust.Shop;
 using EasyShop.Services.MultiTenancy;
+using EasyShop.Services.Rust;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -13,18 +14,20 @@ namespace Rust.MultiTenant.Shop.Installers
     {
         public void InstallServices(IServiceCollection services, IConfiguration configuration)
         {
-            //Transient
+            //Transient------------------------------------------------------------------------------------------------------
 
             //TenantStore
             services.AddTransient<IMultiTenancyStoreService, MultiTenancyStoreService>();
+
+            //Rust
             services.AddTransient<IRustShopService, RustShopService>();
             services.AddTransient<IRustDefaultCategoriesWithItemsService, RustDefaultCategoriesWithItemsService>();
 
 
-            //Scoped
+            //Scoped---------------------------------------------------------------------------------------------------------
 
 
-            //Single-tone
+            //Single-tone----------------------------------------------------------------------------------------------------
         }
     }
 }

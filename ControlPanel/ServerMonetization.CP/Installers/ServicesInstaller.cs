@@ -30,6 +30,7 @@ using EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData;
 using EasyShop.Services.Email;
 using EasyShop.Services.Imgur;
 using EasyShop.Services.MultiTenancy;
+using EasyShop.Services.Rust;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 

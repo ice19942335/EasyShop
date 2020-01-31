@@ -1,7 +1,7 @@
 ﻿@using System.Security.Cryptography
 @using AspNet.Security.OpenId.Steam
 @using Microsoft.AspNetCore.Http
-@model TenantInfo
+@model EasyShop.Domain.ViewModels.RustStore.Store.RustStoreViewModel
 
 @{
     ViewData["Title"] = "EFCoreStore Sample";
@@ -10,38 +10,6 @@
     Layout = "_BaseLayout";
 }
 
-@*@if (Model != null)
-{
-    <h3 class="mt-4">TenantInfo Values</h3>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th style="width:25%">Property</th>
-                <th>Value</th>
-            </tr>
-        </thead>
-
-        <tbody>
-            <tr>
-                <td>@nameof(Model.Id)</td>
-                <td>@Model.Id</td>
-            </tr>
-            <tr>
-                <td>@nameof(Model.Identifier)</td>
-                <td>@Model.Identifier</td>
-            </tr>
-            <tr>
-                <td>@nameof(Model.Name)</td>
-                <td>@Model.Name</td>
-            </tr>
-            <tr>
-                <td>@nameof(Model.ConnectionString)</td>
-                <td>@Model.ConnectionString</td>
-            </tr>
-        </tbody>
-    </table>
-}*@
 <img style="width: 100%;" src="http://testshop123.gamestores.ru/img/games/gamestores.png" alt="Service logo" />
 
 <div class="store">
@@ -138,392 +106,39 @@
     <div class="store-content">
         <div class="row">
             <div class="col-xs-12">
-                <ul class="products">
-                    <li class="product">
-                        <div class="product-image">
-                            <a class="overlay" href="product.html">
-                                <div class="overlay-image">
-                                    <img class="img-responsive" src="img/5615854990.jpg" alt="Raja Elephant T-shirt">
+                @if (Model.Products != null)
+                {
+                    <ul class="products">
+                        @foreach (var product in Model.Products)
+                        {
+                            <li class="product">
+                                <div class="product-image">
+                                    <a class="overlay" href="#">
+                                        <div class="overlay-image">
+                                            <img class="img-responsive" src="@product.ImgUrl" alt="@product.Name">
+                                        </div>
+                                        <div class="overlay-content overlay-top" style="@(product.Discount > 0 ? "" : "Display: none;")">
+                                            <span class="label label-success pull-right">SALE!</span>
+                                        </div>
+                                    </a>
                                 </div>
-                                <div class="overlay-content overlay-top">
-                                    <span class="label label-success pull-right">SALE!</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="product-details">
-                            <h5 class="product-name">
-                                <a class="link-muted" href="product.html">Raja Elephant T-shirt Women's S-XL #4398</a>
-                            </h5>
-                            <span class="product-rating">
-                                <span class="divider">
-                                    <span class="divider-content">
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
+                                <div class="product-details">
+                                    <h5 class="product-name">
+                                        <a class="link-muted" href="#">@product.Name</a>
+                                    </h5>
+                                    <span class="product-price">
+                                        <span class="product-price-current">$@product.Price</span>
+                                        <span class="product-price-old">$00.00</span>
                                     </span>
-                                </span>
-                            </span>
-                            <span class="product-price">
-                                <span class="product-price-current">$33.00</span>
-                                <span class="product-price-old">$46.00</span>
-                            </span>
-                        </div>
-                    </li>
-                    <li class="product">
-                        <div class="product-image">
-                            <a class="overlay" href="product.html">
-                                <div class="overlay-image">
-                                    <img class="img-responsive" src="img/5774898501.jpg" alt="Sri Elephant T-shirt">
                                 </div>
-                                <div class="overlay-content overlay-top">
-                                    <span class="label label-success pull-right">SALE!</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="product-details">
-                            <h5 class="product-name">
-                                <a class="link-muted" href="product.html">Sri Elephant T-shirt Men's S-2XL #4323</a>
-                            </h5>
-                            <span class="product-rating">
-                                <span class="divider">
-                                    <span class="divider-content">
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star-half-o active"></span>
-                                    </span>
-                                </span>
-                            </span>
-                            <span class="product-price">
-                                <span class="product-price-current">$32.00</span>
-                                <span class="product-price-old">$39.00</span>
-                            </span>
-                        </div>
-                    </li>
-                    <li class="product">
-                        <div class="product-image">
-                            <a class="overlay" href="product.html">
-                                <div class="overlay-image">
-                                    <img class="img-responsive" src="img/5892565850.jpg" alt="Ellie Elephant T-shirt">
-                                </div>
-                                <div class="overlay-content overlay-top">
-                                    <span class="label label-success pull-right">SALE!</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="product-details">
-                            <h5 class="product-name">
-                                <a class="link-muted" href="product.html">Ellie Elephant T-shirt Men's S-2XL #4380</a>
-                            </h5>
-                            <span class="product-rating">
-                                <span class="divider">
-                                    <span class="divider-content">
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star-half-o active"></span>
-                                    </span>
-                                </span>
-                            </span>
-                            <span class="product-price">
-                                <span class="product-price-current">$41.00</span>
-                                <span class="product-price-old">$47.00</span>
-                            </span>
-                        </div>
-                    </li>
-                    <li class="product">
-                        <div class="product-image">
-                            <a class="overlay" href="product.html">
-                                <div class="overlay-image">
-                                    <img class="img-responsive" src="img/5991713086.jpg" alt="Maliha Elephant T-shirt">
-                                </div>
-                                <div class="overlay-content overlay-top">
-                                    <span class="label label-success pull-right">SALE!</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="product-details">
-                            <h5 class="product-name">
-                                <a class="link-muted" href="product.html">Maliha Elephant T-shirt Women's S-XL #4909</a>
-                            </h5>
-                            <span class="product-rating">
-                                <span class="divider">
-                                    <span class="divider-content">
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                    </span>
-                                </span>
-                            </span>
-                            <span class="product-price">
-                                <span class="product-price-current">$36.00</span>
-                                <span class="product-price-old">$44.00</span>
-                            </span>
-                        </div>
-                    </li>
-                    <li class="product">
-                        <div class="product-image">
-                            <a class="overlay" href="product.html">
-                                <div class="overlay-image">
-                                    <img class="img-responsive" src="img/6049281045.jpg" alt="Rani Elephant T-shirt">
-                                </div>
-                                <div class="overlay-content overlay-top">
-                                    <span class="label label-success pull-right">SALE!</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="product-details">
-                            <h5 class="product-name">
-                                <a class="link-muted" href="product.html">Rani Elephant T-shirt Men's S-2XL #5144</a>
-                            </h5>
-                            <span class="product-rating">
-                                <span class="divider">
-                                    <span class="divider-content">
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star"></span>
-                                    </span>
-                                </span>
-                            </span>
-                            <span class="product-price">
-                                <span class="product-price-current">$31.00</span>
-                                <span class="product-price-old">$37.00</span>
-                            </span>
-                        </div>
-                    </li>
-                    <li class="product">
-                        <div class="product-image">
-                            <a class="overlay" href="product.html">
-                                <div class="overlay-image">
-                                    <img class="img-responsive" src="img/6149937996.jpg" alt="Jade Elephant T-shirt">
-                                </div>
-                                <div class="overlay-content overlay-top">
-                                    <span class="label label-success pull-right">SALE!</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="product-details">
-                            <h5 class="product-name">
-                                <a class="link-muted" href="product.html">Jade Elephant T-shirt Women's S-XL #5019</a>
-                            </h5>
-                            <span class="product-rating">
-                                <span class="divider">
-                                    <span class="divider-content">
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star"></span>
-                                    </span>
-                                </span>
-                            </span>
-                            <span class="product-price">
-                                <span class="product-price-current">$33.00</span>
-                                <span class="product-price-old">$36.00</span>
-                            </span>
-                        </div>
-                    </li>
-                    <li class="product">
-                        <div class="product-image">
-                            <a class="overlay" href="product.html">
-                                <div class="overlay-image">
-                                    <img class="img-responsive" src="img/6298374167.jpg" alt="Kenzi Elephant T-shirt">
-                                </div>
-                                <div class="overlay-content overlay-top">
-                                    <span class="label label-success pull-right">SALE!</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="product-details">
-                            <h5 class="product-name">
-                                <a class="link-muted" href="product.html">Kenzi Elephant T-shirt Women's S-XL #4951</a>
-                            </h5>
-                            <span class="product-rating">
-                                <span class="divider">
-                                    <span class="divider-content">
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star"></span>
-                                    </span>
-                                </span>
-                            </span>
-                            <span class="product-price">
-                                <span class="product-price-current">$30.00</span>
-                                <span class="product-price-old">$46.00</span>
-                            </span>
-                        </div>
-                    </li>
-                    <li class="product">
-                        <div class="product-image">
-                            <a class="overlay" href="product.html">
-                                <div class="overlay-image">
-                                    <img class="img-responsive" src="img/6381079466.jpg" alt="Priya Elephant T-shirt">
-                                </div>
-                                <div class="overlay-content overlay-top">
-                                    <span class="label label-success pull-right">SALE!</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="product-details">
-                            <h5 class="product-name">
-                                <a class="link-muted" href="product.html">Priya Elephant T-shirt Men's S-2XL #4931</a>
-                            </h5>
-                            <span class="product-rating">
-                                <span class="divider">
-                                    <span class="divider-content">
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star"></span>
-                                    </span>
-                                </span>
-                            </span>
-                            <span class="product-price">
-                                <span class="product-price-current">$30.00</span>
-                                <span class="product-price-old">$36.00</span>
-                            </span>
-                        </div>
-                    </li>
-                    <li class="product">
-                        <div class="product-image">
-                            <a class="overlay" href="product.html">
-                                <div class="overlay-image">
-                                    <img class="img-responsive" src="img/6482952761.jpg" alt="Pearl Elephant T-shirt">
-                                </div>
-                                <div class="overlay-content overlay-top">
-                                    <span class="label label-success pull-right">SALE!</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="product-details">
-                            <h5 class="product-name">
-                                <a class="link-muted" href="product.html">Pearl Elephant T-shirt Women's S-XL #4972</a>
-                            </h5>
-                            <span class="product-rating">
-                                <span class="divider">
-                                    <span class="divider-content">
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star"></span>
-                                    </span>
-                                </span>
-                            </span>
-                            <span class="product-price">
-                                <span class="product-price-current">$36.00</span>
-                                <span class="product-price-old">$48.00</span>
-                            </span>
-                        </div>
-                    </li>
-                    <li class="product">
-                        <div class="product-image">
-                            <a class="overlay" href="product.html">
-                                <div class="overlay-image">
-                                    <img class="img-responsive" src="img/6501906268.jpg" alt="Donna Elephant T-shirt">
-                                </div>
-                                <div class="overlay-content overlay-top">
-                                    <span class="label label-success pull-right">SALE!</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="product-details">
-                            <h5 class="product-name">
-                                <a class="link-muted" href="product.html">Donna Elephant T-shirt Men's S-2XL #4872</a>
-                            </h5>
-                            <span class="product-rating">
-                                <span class="divider">
-                                    <span class="divider-content">
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star"></span>
-                                    </span>
-                                </span>
-                            </span>
-                            <span class="product-price">
-                                <span class="product-price-current">$35.00</span>
-                                <span class="product-price-old">$42.00</span>
-                            </span>
-                        </div>
-                    </li>
-                    <li class="product">
-                        <div class="product-image">
-                            <a class="overlay" href="product.html">
-                                <div class="overlay-image">
-                                    <img class="img-responsive" src="img/6621353903.jpg" alt="Methai Elephant T-shirt">
-                                </div>
-                                <div class="overlay-content overlay-top">
-                                    <span class="label label-success pull-right">SALE!</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="product-details">
-                            <h5 class="product-name">
-                                <a class="link-muted" href="product.html">Methai Elephant T-shirt Men's S-2XL #4895</a>
-                            </h5>
-                            <span class="product-rating">
-                                <span class="divider">
-                                    <span class="divider-content">
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star"></span>
-                                    </span>
-                                </span>
-                            </span>
-                            <span class="product-price">
-                                <span class="product-price-current">$30.00</span>
-                                <span class="product-price-old">$36.00</span>
-                            </span>
-                        </div>
-                    </li>
-                    <li class="product">
-                        <div class="product-image">
-                            <a class="overlay" href="product.html">
-                                <div class="overlay-image">
-                                    <img class="img-responsive" src="img/6711938749.jpg" alt="Tess Elephant T-shirt">
-                                </div>
-                                <div class="overlay-content overlay-top">
-                                    <span class="label label-success pull-right">SALE!</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="product-details">
-                            <h5 class="product-name">
-                                <a class="link-muted" href="product.html">Tess Elephant T-shirt Women's S-XL #4972</a>
-                            </h5>
-                            <span class="product-rating">
-                                <span class="divider">
-                                    <span class="divider-content">
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star active"></span>
-                                        <span class="icon icon-star"></span>
-                                    </span>
-                                </span>
-                            </span>
-                            <span class="product-price">
-                                <span class="product-price-current">$30.00</span>
-                                <span class="product-price-old">$36.00</span>
-                            </span>
-                        </div>
-                    </li>
-                </ul>
+                            </li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <h2>No products found in this shop</h2>
+                }
             </div>
         </div>
     </div>
