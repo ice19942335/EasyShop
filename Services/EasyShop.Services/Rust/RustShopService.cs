@@ -230,7 +230,7 @@ namespace EasyShop.Services.Rust
 
         #endregion
 
-        #region Rust Description
+        #region Rust Categories
         public IEnumerable<RustCategory> GetAllAssignedCategoriesToShopByShopId(Guid shopId)
         {
             var categories = _context.RustCategories

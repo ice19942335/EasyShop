@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using EasyShop.Domain.ViewModels.RustStore.Store;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
@@ -23,9 +24,12 @@ namespace Rust.MultiTenant.Shop.Controllers
         {
             var tenantId = HttpContext.GetMultiTenantContext().TenantInfo.Id;
             var shopProducts = _rustShopService.GetAllAssignedProductsToAShopByShopId(Guid.Parse(tenantId));
+            var shopCategories = _rustShopService.GetAllAssignedCategoriesToShopByShopId(Guid.Parse(tenantId));
+            var shop = _rustShopService.GetShopById(Guid.Parse(tenantId));
 
             var model = new RustStoreViewModel
             {
+                ShopName = shop.ShopName,
                 Products = shopProducts.Select(x => new RustStoreProductViewModel
                 {
                     Id = x.Id.ToString(),
@@ -39,7 +43,11 @@ namespace Rust.MultiTenant.Shop.Controllers
                     CategoryId = x.RustCategory.Id,
                     CategoryName = x.RustCategory.Name,
                     Type = x.RustItem.RustItemType.TypeName
-                })
+                }),
+                ProductCategories = shopCategories.ToDictionary(
+                    x => x.Id.ToString(), 
+                    x => x.Name,
+                    StringComparer.OrdinalIgnoreCase)
             };
 
             return View(model);

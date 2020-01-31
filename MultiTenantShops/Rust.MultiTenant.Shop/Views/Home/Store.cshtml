@@ -11,7 +11,19 @@
 }
 
 <img style="width: 100%;" src="http://testshop123.gamestores.ru/img/games/gamestores.png" alt="Service logo" />
-
+<div class="title-bar">
+    <div class="title-bar-actions">
+        <div class="btn-group">
+            <button class="btn btn-default btn-sm hidden-md hidden-lg" data-toggle="modal" data-target="#filters" type="button">
+                <span class="icon icon-filter icon-lg icon-fw"></span>
+                Filter
+            </button>
+        </div>
+    </div>
+    <h1 class="title-bar-title m-t-md">
+        <span class="d-ib">@Model.ShopName</span>
+    </h1>
+</div>
 <div class="store">
     <div class="store-sidebar">
         <div id="filters" class="modal" role="dialog" tabindex="-1">
@@ -24,7 +36,7 @@
                                     <div class="product-brands-search">
                                         <div class="form-group form-group-sm">
                                             <div class="input-with-icon">
-                                                <input class="form-control thick" type="text" placeholder="Search available brands&hellip;">
+                                                <input class="form-control thick" type="text" placeholder="Search by name&hellip;">
                                                 <span class="icon icon-search input-icon"></span>
                                             </div>
                                         </div>
@@ -32,66 +44,17 @@
                                     <div class="product-brands-results">
                                         <div class="custom-scrollbar">
                                             <div class="custom-controls-stacked">
-                                                <label class="custom-control custom-control-primary custom-checkbox">
-                                                    <input class="custom-control-input" type="checkbox" checked="">
-                                                    <span class="custom-control-indicator"></span>
-                                                    <span class="custom-control-label">Burberry</span>
-                                                </label>
-                                                <label class="custom-control custom-control-primary custom-checkbox">
-                                                    <input class="custom-control-input" type="checkbox">
-                                                    <span class="custom-control-indicator"></span>
-                                                    <span class="custom-control-label">Columbia</span>
-                                                </label>
-                                                <label class="custom-control custom-control-primary custom-checkbox">
-                                                    <input class="custom-control-input" type="checkbox">
-                                                    <span class="custom-control-indicator"></span>
-                                                    <span class="custom-control-label">Patagonia</span>
-                                                </label>
-                                                <label class="custom-control custom-control-primary custom-checkbox">
-                                                    <input class="custom-control-input" type="checkbox">
-                                                    <span class="custom-control-indicator"></span>
-                                                    <span class="custom-control-label">Kakadu Traders Australia</span>
-                                                </label>
-                                                <label class="custom-control custom-control-primary custom-checkbox">
-                                                    <input class="custom-control-input" type="checkbox">
-                                                    <span class="custom-control-indicator"></span>
-                                                    <span class="custom-control-label">Kenneth Roberts</span>
-                                                </label>
-                                                <label class="custom-control custom-control-primary custom-checkbox">
-                                                    <input class="custom-control-input" type="checkbox">
-                                                    <span class="custom-control-indicator"></span>
-                                                    <span class="custom-control-label">The North Face</span>
-                                                </label>
-                                                <label class="custom-control custom-control-primary custom-checkbox">
-                                                    <input class="custom-control-input" type="checkbox">
-                                                    <span class="custom-control-indicator"></span>
-                                                    <span class="custom-control-label">Tommy Hilfiger</span>
-                                                </label>
-                                                <label class="custom-control custom-control-primary custom-checkbox">
-                                                    <input class="custom-control-input" type="checkbox">
-                                                    <span class="custom-control-indicator"></span>
-                                                    <span class="custom-control-label">Polo Ralph Lauren</span>
-                                                </label>
-                                                <label class="custom-control custom-control-primary custom-checkbox">
-                                                    <input class="custom-control-input" type="checkbox">
-                                                    <span class="custom-control-indicator"></span>
-                                                    <span class="custom-control-label">Black Mountain</span>
-                                                </label>
-                                                <label class="custom-control custom-control-primary custom-checkbox">
-                                                    <input class="custom-control-input" type="checkbox">
-                                                    <span class="custom-control-indicator"></span>
-                                                    <span class="custom-control-label">Boston Harbour</span>
-                                                </label>
-                                                <label class="custom-control custom-control-primary custom-checkbox">
-                                                    <input class="custom-control-input" type="checkbox">
-                                                    <span class="custom-control-indicator"></span>
-                                                    <span class="custom-control-label">Oscar de la Renta</span>
-                                                </label>
-                                                <label class="custom-control custom-control-primary custom-checkbox">
-                                                    <input class="custom-control-input" type="checkbox">
-                                                    <span class="custom-control-indicator"></span>
-                                                    <span class="custom-control-label">Paper Denim &amp; Cloth</span>
-                                                </label>
+                                                @if (Model.ProductCategories != null)
+                                                {
+                                                    foreach (var category in Model.ProductCategories)
+                                                    {
+                                                        <label class="custom-control custom-control-primary custom-checkbox">
+                                                            <input class="custom-control-input" type="checkbox" checked="true">
+                                                            <span class="custom-control-indicator"></span>
+                                                            <span class="custom-control-label">@category.Value</span>
+                                                        </label>
+                                                    }
+                                                }
                                             </div>
                                         </div>
                                     </div>

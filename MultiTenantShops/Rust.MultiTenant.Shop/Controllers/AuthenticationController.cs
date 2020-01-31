@@ -47,7 +47,7 @@ namespace Rust.MultiTenant.Shop.Controllers
 
             //{Url.Action("Index", "Home", new {}, HttpContext.Request.Scheme)}
             var tenantInfo = HttpContext.GetMultiTenantContext().TenantInfo;
-            var url = Url.Action("Index", "Home", null, HttpContext.Request.Scheme);
+            var url = Url.Action("Store", "Home", null, HttpContext.Request.Scheme);
 
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 

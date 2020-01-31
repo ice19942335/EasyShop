@@ -7,8 +7,8 @@
 <ul class="nav navbar-nav navbar-right">
     <li class="hidden-xs">
         <a href="contacts.html">
-            <span class="icon icon-users icon-lg icon-fw"></span>
-            Contacts
+            <span class="icon icon-shopping-cart icon-lg icon-fw"></span>
+            Cart
         </a>
     </li>
     <li class="hidden-xs">
@@ -18,16 +18,15 @@
         </a>
     </li>
     <li class="hidden-xs">
-        <a href="@($"/{tenantInfo.Identifier}/authentication/signout")">
-            <span class="icon icon-power-off icon-lg icon-fw text-primary"></span>
-            <strong>Log out</strong>
-        </a>
+        <form action="@($"/{tenantInfo.Identifier}/authentication/signout")" method="get">
+            <button class="btn btn-primary m-1 login-btn" type="submit">Log out</button>
+        </form>
     </li>
 
     <li class="visible-xs-block">
         <a href="contacts.html">
-            <span class="icon icon-users icon-lg icon-fw"></span>
-            Contacts
+            <span class="icon icon-shopping-cart icon-lg icon-fw"></span>
+            Cart
         </a>
     </li>
     <li class="visible-xs-block">
@@ -37,9 +36,8 @@
         </a>
     </li>
     <li class="visible-xs-block">
-        <a href="@($"/{tenantInfo.Identifier}/authentication/signout")">
-            <span class="icon icon-power-off icon-lg icon-fw text-primary"></span>
-            <strong>Log out</strong>
-        </a>
+        <form action="@($"/{tenantInfo.Identifier}/authentication/signout")" method="get">
+            <button class="btn btn-primary m-1 login-btn" type="submit">Log out</button>
+        </form>
     </li>
 </ul>
