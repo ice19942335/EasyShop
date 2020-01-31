@@ -36,7 +36,7 @@ namespace Rust.MultiTenant.Shop.Controllers
         public IActionResult Store()
         {
             var tenantId = HttpContext.GetMultiTenantContext().TenantInfo.Id;
-            var shopProducts = _rustShopService.GetAllAssignedProductsToAShopByShopId(Guid.Parse(tenantId));
+            var shopProducts = _rustShopService.GetAllAssignedVisibleProductsToAShopByShopId(Guid.Parse(tenantId));
             var shopCategories = _rustShopService.GetAllAssignedCategoriesToShopByShopId(Guid.Parse(tenantId));
             var shop = _rustShopService.GetShopById(Guid.Parse(tenantId));
 

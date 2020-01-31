@@ -381,6 +381,18 @@ namespace EasyShop.Services.Rust
                 .OrderBy(x => x.Index);
         }
 
+        public IEnumerable<RustProduct> GetAllAssignedVisibleProductsToAShopByShopId(Guid shopId)
+        {
+            return _context.RustUserItems
+                .Include(x => x.Shop)
+                .Include(x => x.AppUser)
+                .Include(x => x.RustItem)
+                .Include(x => x.RustCategory)
+                .Include(x => x.RustItem.RustItemType)
+                .Where(x => x.Shop.Id == shopId && x.ShowInShop)
+                .OrderBy(x => x.Index);
+        }
+
         public RustProduct GetProductById(Guid productId)
         {
             return _context.RustUserItems
