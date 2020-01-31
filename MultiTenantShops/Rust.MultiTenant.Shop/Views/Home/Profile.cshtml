@@ -5,32 +5,35 @@
 }
 
 <img style="width: 100%;" src="http://testshop123.gamestores.ru/img/games/gamestores.png" alt="Service logo" />
-<div class="row well text-center">
-    <div class="col-md-3 text-center">
-        <h3>@Model.UserName</h3>
-        <img src="@Model.ImgUrl" alt="@Model.UserName" />
-    </div>
-    <div class="col-md-9 uidBalanceWrap">
-        <div class="row">
-            <div class="col-md-1">
-                <span class="text-left"><strong>UID</strong></span>
+@if (Model != null)
+{
+    <div class="row well text-center">
+        <div class="col-md-3 text-center">
+            <h3>@Model.UserName</h3>
+            <img src="@Model.ImgUrl" alt="@Model.UserName" />
+        </div>
+        <div class="col-md-9 uidBalanceWrap">
+            <div class="row">
+                <div class="col-md-1">
+                    <span class="text-left"><strong>UID</strong></span>
+                </div>
+                <div class="col-md-6">
+                    <input class="form-control" value="@Model.Uid" readonly="readonly">
+                </div>
             </div>
-            <div class="col-md-6">
-                <input class="form-control" value="@Model.Uid" readonly="readonly">
+            <div class="row m-t-md">
+                <div class="col-md-1">
+                    <span class="text-left"><strong>Balance</strong></span>
+                </div>
+                <div class="col-md-6">
+                    <input class="form-control" value="@($"${Model.Balance}")" readonly="readonly">
+                </div>
             </div>
         </div>
-        <div class="row m-t-md">
-            <div class="col-md-1">
-                <span class="text-left"><strong>Balance</strong></span>
-            </div>
-            <div class="col-md-6">
-                <input class="form-control" value="@($"${Model.Balance}")" readonly="readonly">
-            </div>
-        </div>
     </div>
-</div>
+}
 
 @section Styles
 {
-    <link href="~/css/profile-custom.css" rel="stylesheet" asp-append-version="true"/>
+    <link href="~/css/profile-custom.css" rel="stylesheet" asp-append-version="true" />
 }
