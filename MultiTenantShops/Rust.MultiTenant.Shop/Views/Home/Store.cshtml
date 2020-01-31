@@ -49,7 +49,7 @@
                                                     foreach (var category in Model.ProductCategories)
                                                     {
                                                         <label class="custom-control custom-control-primary custom-checkbox">
-                                                            <input class="custom-control-input" type="checkbox" checked="true">
+                                                            <input data-category="@category.Key" class="custom-control-input" type="checkbox" checked="checked">
                                                             <span class="custom-control-indicator"></span>
                                                             <span class="custom-control-label">@category.Value</span>
                                                         </label>
@@ -74,7 +74,7 @@
                     <ul class="products">
                         @foreach (var product in Model.Products)
                         {
-                            <li class="product">
+                            <li class="product" data-productid="@product.Id" data-category="@product.CategoryId" data-discount="@(product.Discount > 0 ? "true" : "false")">
                                 <div class="product-image">
                                     <a class="overlay" href="#">
                                         <div class="overlay-image">
@@ -109,11 +109,7 @@
 
 @section Styles
 {
-    <link href="~/css/override/elephant-override.css" rel="stylesheet" asp-append-version="true" />
-    <link href="~/css/override/application-override.css" rel="stylesheet" asp-append-version="true" />
     <link href="~/css/store.min.css" rel="stylesheet" asp-append-version="true" />
-    <link href="~/css/side-bar.css" rel="stylesheet" asp-append-version="true" />
-    <link href="~/css/nav-bar.css" rel="stylesheet" asp-append-version="true" />
     <link href="~/css/store-custom.css" rel="stylesheet" asp-append-version="true" />
 }
 
