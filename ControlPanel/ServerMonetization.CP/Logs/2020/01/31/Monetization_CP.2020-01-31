@@ -4539,3 +4539,384 @@ WHERE [u].[AppUserId] = @__user_Id_0
 
 2020-01-31 16:22:22,260 [4] ?     - Request finished in 653.548ms 200 text/html; charset=utf-8
 
+2020-01-31 16:29:51,613 [14] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-31 16:29:51,628 [14] ?     - Hosting environment: Development
+
+2020-01-31 16:29:51,631 [14] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP
+
+2020-01-31 16:29:51,646 [5] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ShopManager/ShopsManager  
+
+2020-01-31 16:29:51,754 [5] ?     - Entity Framework Core 3.1.1 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-31 16:29:51,777 [15] ?     - Executed DbCommand (1ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+
+2020-01-31 16:29:51,824 [4] ?     - Executed DbCommand (2ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+
+2020-01-31 16:29:51,866 [5] ?     - Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+
+2020-01-31 16:29:51,871 [11] ?     - Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+
+2020-01-31 16:29:51,893 [11] ?     - Executed DbCommand (9ms) [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+
+2020-01-31 16:29:51,901 [17] ?     - Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+
+2020-01-31 16:29:51,905 [9] ?     - Executed DbCommand (1ms) [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+
+2020-01-31 16:29:51,933 [9] ?     - Authorization was successful.
+
+2020-01-31 16:29:51,936 [9] ?     - Executing endpoint 'ServerMonetization.CP.Controllers.ShopManagerController.ShopsManager (ServerMonetization.CP)'
+
+2020-01-31 16:29:51,976 [9] ?     - Route matched with {action = "ShopsManager", controller = "ShopManager"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ShopsManager() on controller ServerMonetization.CP.Controllers.ShopManagerController (ServerMonetization.CP).
+
+2020-01-31 16:29:51,986 [9] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-01-31 16:29:52,006 [9] ?     - Executing ViewResult, running view ShopsManager.
+
+2020-01-31 16:29:52,184 [9] ?     - Executed DbCommand (6ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE [u].[AppUserId] = @__user_Id_0
+
+2020-01-31 16:29:52,202 [9] ?     - Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE [u].[AppUserId] = @__user_Id_0
+
+2020-01-31 16:29:52,242 [9] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-01-31 16:29:52,255 [9] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-01-31 16:29:52,260 [11] ?     - Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+
+2020-01-31 16:29:52,275 [9] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-01-31 16:29:52,281 [9] ?     - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [n].[Id], [n].[DateTimeCreated], [n].[Link], [n].[LinkTitle], [n].[Message], [n].[Title]
+FROM [Notifications] AS [n]
+
+2020-01-31 16:29:52,287 [9] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-01-31 16:29:52,290 [9] ?     - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [n].[Id], [n].[DateTimeCreated], [n].[Link], [n].[LinkTitle], [n].[Message], [n].[Title]
+FROM [Notifications] AS [n]
+
+2020-01-31 16:29:52,312 [9] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-01-31 16:29:52,323 [9] ?     - Executed DbCommand (1ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE [u].[AppUserId] = @__user_Id_0
+
+2020-01-31 16:29:52,477 [9] ?     - Executed ViewResult - view ShopsManager executed in 470.4653ms.
+
+2020-01-31 16:29:52,480 [9] ?     - Executed action ServerMonetization.CP.Controllers.ShopManagerController.ShopsManager (ServerMonetization.CP) in 501.0626ms
+
+2020-01-31 16:29:52,481 [9] ?     - Executed endpoint 'ServerMonetization.CP.Controllers.ShopManagerController.ShopsManager (ServerMonetization.CP)'
+
+2020-01-31 16:29:52,492 [9] ?     - Request finished in 845.5695ms 200 text/html; charset=utf-8
+
+2020-01-31 16:30:05,828 [15] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-31 16:30:05,842 [15] ?     - Hosting environment: Development
+
+2020-01-31 16:30:05,846 [15] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP
+
+2020-01-31 16:30:05,854 [11] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ShopManager/ShopsManager  
+
+2020-01-31 16:30:05,976 [11] ?     - Authorization was successful.
+
+2020-01-31 16:30:05,980 [11] ?     - Executing endpoint 'ServerMonetization.CP.Controllers.ShopManagerController.ShopsManager (ServerMonetization.CP)'
+
+2020-01-31 16:30:06,049 [11] ?     - Route matched with {action = "ShopsManager", controller = "ShopManager"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ShopsManager() on controller ServerMonetization.CP.Controllers.ShopManagerController (ServerMonetization.CP).
+
+2020-01-31 16:30:06,068 [11] ?     - Entity Framework Core 3.1.1 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-31 16:30:06,084 [11] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-01-31 16:30:06,110 [11] ?     - Executing ViewResult, running view ShopsManager.
+
+2020-01-31 16:30:06,284 [11] ?     - Executed DbCommand (9ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE [u].[AppUserId] = @__user_Id_0
+
+2020-01-31 16:30:06,303 [11] ?     - Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE [u].[AppUserId] = @__user_Id_0
+
+2020-01-31 16:30:06,370 [11] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-01-31 16:30:06,383 [11] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-01-31 16:30:06,420 [9] ?     - Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+
+2020-01-31 16:30:06,438 [11] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-01-31 16:30:06,448 [11] ?     - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [n].[Id], [n].[DateTimeCreated], [n].[Link], [n].[LinkTitle], [n].[Message], [n].[Title]
+FROM [Notifications] AS [n]
+
+2020-01-31 16:30:06,455 [11] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-01-31 16:30:06,464 [11] ?     - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [n].[Id], [n].[DateTimeCreated], [n].[Link], [n].[LinkTitle], [n].[Message], [n].[Title]
+FROM [Notifications] AS [n]
+
+2020-01-31 16:30:06,509 [11] ?     - Executed DbCommand (8ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-01-31 16:30:06,522 [11] ?     - Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE [u].[AppUserId] = @__user_Id_0
+
+2020-01-31 16:30:06,658 [11] ?     - Executed ViewResult - view ShopsManager executed in 550.4283ms.
+
+2020-01-31 16:30:06,662 [11] ?     - Executed action ServerMonetization.CP.Controllers.ShopManagerController.ShopsManager (ServerMonetization.CP) in 609.4572ms
+
+2020-01-31 16:30:06,664 [11] ?     - Executed endpoint 'ServerMonetization.CP.Controllers.ShopManagerController.ShopsManager (ServerMonetization.CP)'
+
+2020-01-31 16:30:06,674 [11] ?     - Request finished in 818.6159ms 200 text/html; charset=utf-8
+
+2020-01-31 16:32:09,732 [12] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-01-31 16:32:09,750 [12] ?     - Hosting environment: Development
+
+2020-01-31 16:32:09,752 [12] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP
+
+2020-01-31 16:32:09,769 [5] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ShopManager/ShopsManager  
+
+2020-01-31 16:32:09,881 [5] ?     - Authorization was successful.
+
+2020-01-31 16:32:09,895 [5] ?     - Executing endpoint 'ServerMonetization.CP.Controllers.ShopManagerController.ShopsManager (ServerMonetization.CP)'
+
+2020-01-31 16:32:09,947 [5] ?     - Route matched with {action = "ShopsManager", controller = "ShopManager"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ShopsManager() on controller ServerMonetization.CP.Controllers.ShopManagerController (ServerMonetization.CP).
+
+2020-01-31 16:32:09,975 [5] ?     - Entity Framework Core 3.1.1 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-01-31 16:32:10,008 [5] ?     - Executed DbCommand (13ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-01-31 16:32:10,037 [5] ?     - Executing ViewResult, running view ShopsManager.
+
+2020-01-31 16:32:10,238 [5] ?     - Executed DbCommand (8ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE [u].[AppUserId] = @__user_Id_0
+
+2020-01-31 16:32:10,259 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE [u].[AppUserId] = @__user_Id_0
+
+2020-01-31 16:32:10,311 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-01-31 16:32:10,326 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-01-31 16:32:10,367 [11] ?     - Executed DbCommand (7ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+
+2020-01-31 16:32:10,388 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-01-31 16:32:10,393 [5] ?     - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [n].[Id], [n].[DateTimeCreated], [n].[Link], [n].[LinkTitle], [n].[Message], [n].[Title]
+FROM [Notifications] AS [n]
+
+2020-01-31 16:32:10,405 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-01-31 16:32:10,409 [5] ?     - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [n].[Id], [n].[DateTimeCreated], [n].[Link], [n].[LinkTitle], [n].[Message], [n].[Title]
+FROM [Notifications] AS [n]
+
+2020-01-31 16:32:10,439 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-01-31 16:32:10,450 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE [u].[AppUserId] = @__user_Id_0
+
+2020-01-31 16:32:10,616 [5] ?     - Executed ViewResult - view ShopsManager executed in 580.3954ms.
+
+2020-01-31 16:32:10,619 [5] ?     - Executed action ServerMonetization.CP.Controllers.ShopManagerController.ShopsManager (ServerMonetization.CP) in 670.0721ms
+
+2020-01-31 16:32:10,621 [5] ?     - Executed endpoint 'ServerMonetization.CP.Controllers.ShopManagerController.ShopsManager (ServerMonetization.CP)'
+
+2020-01-31 16:32:10,628 [5] ?     - Request finished in 863.1887ms 200 text/html; charset=utf-8
+

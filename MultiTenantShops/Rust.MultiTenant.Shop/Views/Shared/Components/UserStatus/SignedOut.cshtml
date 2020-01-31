@@ -7,18 +7,14 @@
     <li class="hidden-xs">
         <form action="@($"/{tenantInfo.Identifier}/authentication/signin")" method="post">
             <input type="hidden" name="Provider" value="@Model.Name" />
-            <input type="hidden" name="ReturnUrl" value="@ViewBag.ReturnUrl" />
-
-            <button class="btn btn-primary m-1 login-btn" type="submit">Log In@*: @Model.DisplayName*@</button>
+            <button class="btn btn-primary login-btn" type="submit">Log In</button>
         </form>
     </li>
 
     <li class="visible-xs-block p-a-md">
         <form action="@($"/{tenantInfo.Identifier}/authentication/signin")" method="post">
             <input type="hidden" name="Provider" value="@Model.Name" />
-            <input type="hidden" name="ReturnUrl" value="@ViewBag.ReturnUrl" />
-
-            <button class="btn btn-lg btn-success m-1" type="submit">Log In@*: @Model.DisplayName*@</button>
+            <button class="btn btn-primary login-btn" type="submit">Log In</button>
         </form>
     </li>
 </ul>
