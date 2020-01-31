@@ -37,7 +37,7 @@ namespace Rust.MultiTenant.Shop
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute("default", "{__tenant__=}/{controller=Home}/{action=Index}");
+                endpoints.MapControllerRoute("default", "{__tenant__=}/{controller=Home}/{action=Store}");
             });
         }
     }

@@ -13,7 +13,7 @@ namespace Rust.MultiTenant.Shop.Controllers
             _logger = logger;
         }
 
-        public ActionResult Index()
+        public ActionResult Store()
         {
             _logger.LogInformation("Hello, this is the index!");
             var tenantInfo = HttpContext.GetMultiTenantContext()?.TenantInfo;

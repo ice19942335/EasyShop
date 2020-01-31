@@ -23,14 +23,7 @@
         <div class="layout-content">
             <div class="layout-content-body">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-md-3">
-                            @await Html.PartialAsync("Partial/_SideBar")
-                        </div>
-                        <div class="col-md-9">
-                            @RenderBody()
-                        </div>
-                    </div>
+                    @RenderBody()
                 </div>
             </div>
         </div>
