@@ -1,5 +1,14 @@
-﻿@{
+﻿@using EasyShop.Interfaces.Services.CP.Rust.Shop
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@inject IRustShopService RustShopService
+@{
     var tenantInfo = Context.GetMultiTenantContext().TenantInfo;
+
+    var shop = RustShopService.GetShopById(
+        Guid.Parse(HttpContextAccessor.HttpContext.GetMultiTenantContext().TenantInfo.Id));
+
+    var shopTitle = shop.ShopTitle;
 }
 
 <!DOCTYPE html>
@@ -28,12 +37,12 @@
 </head>
 
 <body class="layout layout-header-fixed layout-footer-fixed">
-@await Html.PartialAsync("Partial/_Header")
+    @await Html.PartialAsync("Partial/_Header")
     <div class="layout-main">
         <div class="layout-content">
             <div class="layout-content-body">
                 <div class="container">
-                    <img style="width: 100%;" src="http://testshop123.gamestores.ru/img/games/gamestores.png" alt="Service logo" />
+                    <img class="m-b-md" style="width: 100%;" src="https://i.imgur.com/jcNgsYp.png" alt="Service logo" />
                     <div class="title-bar">
                         <div class="title-bar-actions">
                             <div class="btn-group">
@@ -48,7 +57,7 @@
                                 <div class="col-lg-2">
                                     <a href="@($"/{tenantInfo.Identifier}")">
                                         <h1 class="title-bar-title text-primary shop-title">
-                                            <strong>@Model.ShopName</strong>
+                                            <strong>@shopTitle</strong>
                                         </h1>
                                     </a>
                                 </div>
