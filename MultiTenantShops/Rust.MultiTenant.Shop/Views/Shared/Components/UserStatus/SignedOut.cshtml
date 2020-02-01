@@ -1,34 +1,35 @@
-﻿@model Microsoft.AspNetCore.Authentication.AuthenticationScheme
+﻿@model EasyShop.Domain.ViewModels.RustStore.Store.UserStatus.RustStoreUserStatusViewModel
+
 @{
     var tenantInfo = Context.GetMultiTenantContext().TenantInfo;
 }
 
-<ul class="nav navbar-nav navbar-right">
-    @*Size: md+*@
-    <li class="hidden-xs">
-        <a asp-controller="Home" asp-action="Store">
-            <span class="icon icon-shopping-bag icon-lg icon-fw"></span>
-            Store
-        </a>
-    </li>
-    <li class="hidden-xs">
-        <form action="@($"/{tenantInfo.Identifier}/authentication/signin")" method="post">
-            <input type="hidden" name="Provider" value="@Model.Name" />
-            <button class="btn btn-primary login-btn" type="submit">Log In</button>
-        </form>
-    </li>
+    <ul class="nav navbar-nav navbar-right">
+        @*Size: md+*@
+        <li class="hidden-xs">
+            <a asp-controller="Home" asp-action="Store">
+                <span class="icon icon-shopping-bag icon-lg icon-fw"></span>
+                Store
+            </a>
+        </li>
+        <li class="hidden-xs">
+            <form action="@($"/{tenantInfo.Identifier}/authentication/signin")" method="post">
+                <input type="hidden" name="Provider" value="@Model.AuthenticationScheme.Name" />
+                <button class="btn btn-primary login-btn" type="submit">Log In</button>
+            </form>
+        </li>
 
-    @*Size: xs*@
-    <li class="visible-xs-block p-a-md">
-        <a asp-controller="Home" asp-action="Store">
-            <span class="icon icon-shopping-bag icon-lg icon-fw"></span>
-            Store
-        </a>
-    </li>
-    <li class="visible-xs-block p-a-md">
-        <form action="@($"/{tenantInfo.Identifier}/authentication/signin")" method="post">
-            <input type="hidden" name="Provider" value="@Model.Name" />
-            <button class="btn btn-primary login-btn" type="submit">Log In</button>
-        </form>
-    </li>
-</ul>
+        @*Size: xs*@
+        <li class="visible-xs-block p-a-md">
+            <a asp-controller="Home" asp-action="Store">
+                <span class="icon icon-shopping-bag icon-lg icon-fw"></span>
+                Store
+            </a>
+        </li>
+        <li class="visible-xs-block p-a-md">
+            <form action="@($"/{tenantInfo.Identifier}/authentication/signin")" method="post">
+                <input type="hidden" name="Provider" value="@Model.AuthenticationScheme.Name" />
+                <button class="btn btn-primary login-btn" type="submit">Log In</button>
+            </form>
+        </li>
+    </ul>

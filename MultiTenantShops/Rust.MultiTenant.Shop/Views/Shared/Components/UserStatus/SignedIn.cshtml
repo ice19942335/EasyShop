@@ -1,9 +1,17 @@
-﻿@{
+﻿@model EasyShop.Domain.ViewModels.RustStore.Store.UserStatus.RustStoreUserStatusViewModel
+
+@{
     var tenantInfo = Context.GetMultiTenantContext().TenantInfo;
 }
 
     <ul class="nav navbar-nav navbar-right">
         @*Size: md+*@
+        <li class="hidden-xs">
+            <a href="#">
+                <span class="icon icon-dollar icon-lg icon-fw"></span>
+                @Model.Balance
+            </a>
+        </li>
         <li class="hidden-xs">
             <a asp-controller="Home" asp-action="Store">
                 <span class="icon icon-shopping-bag icon-lg icon-fw"></span>
@@ -23,6 +31,12 @@
         </li>
 
         @*Size: xs*@
+        <li class="visible-xs-block p-a-md">
+            <a href="#">
+                <span class="icon icon-dollar icon-lg icon-fw"></span>
+                @Model.Balance
+            </a>
+        </li>
         <li class="visible-xs-block">
             <a asp-controller="Home" asp-action="Profile">
                 <span class="icon icon-user icon-lg icon-fw"></span>
