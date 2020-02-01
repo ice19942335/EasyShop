@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var tenantInfo = Context.GetMultiTenantContext().TenantInfo;
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -29,6 +33,29 @@
         <div class="layout-content">
             <div class="layout-content-body">
                 <div class="container">
+                    <img style="width: 100%;" src="http://testshop123.gamestores.ru/img/games/gamestores.png" alt="Service logo" />
+                    <div class="title-bar">
+                        <div class="title-bar-actions">
+                            <div class="btn-group">
+                                <button class="btn btn-default btn-sm hidden-md hidden-lg" data-toggle="modal" data-target="#filters" type="button">
+                                    <span class="icon icon-filter icon-lg icon-fw"></span>
+                                    Filter
+                                </button>
+                            </div>
+                        </div>
+                        <div class="well">
+                            <div class="row">
+                                <div class="col-lg-2">
+                                    <a href="@($"/{tenantInfo.Identifier}")">
+                                        <h1 class="title-bar-title text-primary shop-title">
+                                            <strong>@Model.ShopName</strong>
+                                        </h1>
+                                    </a>
+                                </div>
+                                <div class="col-lg-10"></div>
+                            </div>
+                        </div>
+                    </div>
                     @RenderBody()
                 </div>
             </div>
