@@ -12,6 +12,8 @@ namespace EasyShop.Domain.ViewModels.RustStore.Store
 
         public decimal Price { get; set; }
 
+        public decimal PriceAfterDiscount { get; set; }
+
         public decimal Discount { get; set; }
 
         public DateTime BlockedTill { get; set; }

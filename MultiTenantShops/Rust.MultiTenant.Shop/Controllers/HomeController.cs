@@ -55,7 +55,8 @@ namespace Rust.MultiTenant.Shop.Controllers
                     Description = x.Description,
                     CategoryId = x.RustCategory.Id,
                     CategoryName = x.RustCategory.Name,
-                    Type = x.RustItem.RustItemType.TypeName
+                    Type = x.RustItem.RustItemType.TypeName,
+                    PriceAfterDiscount = x.Price - (x.Price / 100) * x.Discount
                 }),
                 ProductCategories = shopCategories.ToDictionary(
                     x => x.Id.ToString(), 

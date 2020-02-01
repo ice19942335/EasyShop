@@ -65,7 +65,7 @@
                                             <img class="img-responsive" src="@product.ImgUrl" alt="@product.Name">
                                         </div>
                                         <div class="overlay-content overlay-top" style="@(product.Discount > 0 ? "" : "Display: none;")">
-                                            <span class="label label-success pull-right">SALE!</span>
+                                            <span class="label label-success pull-right">SALE! @product.Discount%</span>
                                         </div>
                                     </a>
                                 </div>
@@ -75,7 +75,7 @@
                                     </h5>
                                     <span class="product-price">
                                         <span class="product-price-current">$@product.Price</span>
-                                        <span class="product-price-old">$00.00</span>
+                                        <span style="@(product.Discount > 0 ? "" : "Display: none;")" class="product-price-old">$@product.PriceAfterDiscount</span>
                                     </span>
                                 </div>
                             </li>
