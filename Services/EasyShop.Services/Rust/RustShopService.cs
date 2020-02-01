@@ -390,7 +390,7 @@ namespace EasyShop.Services.Rust
                 .Include(x => x.RustCategory)
                 .Include(x => x.RustItem.RustItemType)
                 .Where(x => x.Shop.Id == shopId && x.ShowInShop)
-                .OrderBy(x => x.Index);
+                .OrderBy(x => x.RustCategory.Index);
         }
 
         public RustProduct GetProductById(Guid productId)
