@@ -3,11 +3,11 @@
 class DynamicStore {
     constructor() {
         this.allProductsNodes = [];
-        this.filteredProductsNodes = [];
         this.showCategoriesState = [];
         this.substringFilterValue = '';
 
         this.clickOnCategoryHandler = this.clickOnCategoryHandler.bind(this);
+        this.inputSearchFieldHandler = this.inputSearchFieldHandler.bind(this);
     }
     init() {
         this.initializeVariables();
@@ -25,7 +25,7 @@ class DynamicStore {
 
         for (const node of categories) {
             categoriesIds.push({
-                categoryId: node.children[0].dataset.categoryid,
+                categoryId: node.children[0].dataset.categoryId,
                 show: true
             });
         }
@@ -41,10 +41,12 @@ class DynamicStore {
         for (const category of categories) {
             category.addEventListener('click', this.clickOnCategoryHandler)
         }
+
+        document.getElementById('searchInput').addEventListener('input', this.inputSearchFieldHandler)
     }
     clickOnCategoryHandler(event) {
-        if (event.target.dataset.categoryid !== undefined) {
-            const categoryId = event.target.dataset.categoryid;
+        if (event.target.dataset.categoryId !== undefined) {
+            const categoryId = event.target.dataset.categoryId;
 
             let categoryState = this.showCategoriesState.find((item) => {
                 if (item.categoryId === categoryId) {
@@ -63,9 +65,15 @@ class DynamicStore {
             this.render();
         }
     }
+    inputSearchFieldHandler(event){
+        this.substringFilterValue = event.target.value;
+
+        this.render();
+    }
     render() {
         for (const product of this.allProductsNodes) {
-            let productCategoryId = product.dataset.categoryid;
+            let productCategoryId = product.dataset.categoryId;
+            let productName = product.dataset.productName;
             
             let categoryState = this.showCategoriesState.find((item) => {
                 if (item.categoryId === productCategoryId) {
@@ -75,7 +83,7 @@ class DynamicStore {
                 }
             });
 
-            if(categoryState.show === true){
+            if(categoryState.show === true && productName.includes(this.substringFilterValue)){
                 product.style.display = 'block';
             } else {
                 product.style.display = 'none';

@@ -36,7 +36,7 @@
                                     <div class="product-brands-search">
                                         <div class="form-group form-group-sm">
                                             <div class="input-with-icon">
-                                                <input class="form-control thick" type="text" placeholder="Search by name&hellip;">
+                                                <input id="searchInput" class="form-control thick" type="text" placeholder="Search by name&hellip;">
                                                 <span class="icon icon-search input-icon"></span>
                                             </div>
                                         </div>
@@ -49,7 +49,7 @@
                                                     foreach (var category in Model.ProductCategories)
                                                     {
                                                         <label class="custom-control custom-control-primary custom-checkbox ctegory">
-                                                            <input class="custom-control-input" type="checkbox" checked="checked" data-categoryid="@category.Key">
+                                                            <input class="custom-control-input" type="checkbox" checked="checked" data-category-id="@category.Key">
                                                             <span class="custom-control-indicator"></span>
                                                             <span class="custom-control-label">@category.Value</span>
                                                         </label>
@@ -74,7 +74,7 @@
                     <ul class="products">
                         @foreach (var product in Model.Products)
                         {
-                            <li class="product" data-productid="@product.Id" data-categoryid="@product.CategoryId" data-discount="@(product.Discount > 0 ? "true" : "false")">
+                            <li class="product" data-productid="@product.Id" data-category-id="@product.CategoryId" data-product-name="@product.Name" data-discount="@(product.Discount > 0 ? "true" : "false")">
                                 <div class="product-image">
                                     <a class="overlay" href="#">
                                         <div class="overlay-image">
