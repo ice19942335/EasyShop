@@ -419,7 +419,7 @@ namespace EasyShop.Services.CP.Rust.Data
                 new RustProduct
                 {
                     Id = Guid.NewGuid(),
-                    RustCategory = userDefaultCategories.First(x => x.Name == "Weapons"),
+                    RustCategory = userDefaultCategories.First(x => x.Name == "Weapon"),
                     RustItem = defaultRustItems.FirstOrDefault(x => x.Name == "Salvaged Sword"),
                     Shop = shop,
                     AppUser = user,
