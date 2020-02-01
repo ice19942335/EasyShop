@@ -48,8 +48,8 @@
                                                 {
                                                     foreach (var category in Model.ProductCategories)
                                                     {
-                                                        <label class="custom-control custom-control-primary custom-checkbox">
-                                                            <input data-category="@category.Key" class="custom-control-input" type="checkbox" checked="checked">
+                                                        <label class="custom-control custom-control-primary custom-checkbox ctegory">
+                                                            <input class="custom-control-input" type="checkbox" checked="checked" data-categoryid="@category.Key">
                                                             <span class="custom-control-indicator"></span>
                                                             <span class="custom-control-label">@category.Value</span>
                                                         </label>
@@ -74,7 +74,7 @@
                     <ul class="products">
                         @foreach (var product in Model.Products)
                         {
-                            <li class="product" data-productid="@product.Id" data-category="@product.CategoryId" data-discount="@(product.Discount > 0 ? "true" : "false")">
+                            <li class="product" data-productid="@product.Id" data-categoryid="@product.CategoryId" data-discount="@(product.Discount > 0 ? "true" : "false")">
                                 <div class="product-image">
                                     <a class="overlay" href="#">
                                         <div class="overlay-image">
@@ -115,5 +115,5 @@
 
 @section Scripts
 {
-
+    <script src="~/js/dynamic-store.js" asp-append-version="true"></script>
 }

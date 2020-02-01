@@ -1,5 +1,4 @@
 ﻿.product:hover {
     transition: 0.1s;
-    border-radius: 2%;
     background-color: rgba(217, 35, 14, 0.3);
 }
