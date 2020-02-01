@@ -20,9 +20,19 @@
             </button>
         </div>
     </div>
-    <h1 class="title-bar-title m-t-md">
-        <span class="d-ib">@Model.ShopName</span>
-    </h1>
+    <div class="well">
+        <div class="row">
+            <div class="col-lg-2">
+                <a href="@($"/{tenantInfo.Identifier}")">
+                    <h1 class="title-bar-title text-primary shop-title">
+                        <strong>@Model.ShopName</strong>
+                    </h1>
+                </a>
+            </div>
+            <div class="col-lg-10"></div>
+        </div>
+    </div>
+    
 </div>
 <div class="store">
     <div class="store-sidebar">
