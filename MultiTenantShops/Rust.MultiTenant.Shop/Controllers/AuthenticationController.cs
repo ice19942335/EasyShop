@@ -38,16 +38,14 @@ namespace Rust.MultiTenant.Shop.Controllers
             return Challenge(new AuthenticationProperties { RedirectUri = $"/{ti.Identifier}" }, provider);
         }
 
-        //[HttpGet("~/signout"), HttpPost("~/signout")]
         public IActionResult SignOut()
         {
             // Instruct the cookies middleware to delete the local cookie created
             // when the user agent is redirected from the external identity provider
             // after a successful authentication flow (e.g Google or Facebook).
 
-            //{Url.Action("Index", "Home", new {}, HttpContext.Request.Scheme)}
             var tenantInfo = HttpContext.GetMultiTenantContext().TenantInfo;
-            var url = Url.Action("Index", "Home", null, HttpContext.Request.Scheme);
+            var url = Url.Action("Store", "Home", null, HttpContext.Request.Scheme);
 
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 

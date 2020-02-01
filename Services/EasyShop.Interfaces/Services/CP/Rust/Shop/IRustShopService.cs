@@ -34,6 +34,8 @@ namespace EasyShop.Interfaces.Services.CP.Rust.Shop
 
         IEnumerable<RustProduct> GetAllAssignedProductsToAShopByShopId(Guid shopId);
 
+        IEnumerable<RustProduct> GetAllAssignedVisibleProductsToAShopByShopId(Guid shopId);
+
         RustProduct GetProductById(Guid productId);
 
         Task<RustEditProductResult> UpdateRustProductAsync(RustShopViewModel model);

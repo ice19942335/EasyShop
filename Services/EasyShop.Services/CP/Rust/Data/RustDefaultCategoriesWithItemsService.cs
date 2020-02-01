@@ -40,7 +40,6 @@ namespace EasyShop.Services.CP.Rust.Data
                     Discount = 0,
                     BlockedTill = default, 
                     ShowInShop = true,
-                    Index = 1
                 },
                 new RustProduct
                 {
@@ -56,7 +55,6 @@ namespace EasyShop.Services.CP.Rust.Data
                     Discount = 0,
                     BlockedTill = default,
                     ShowInShop = true,
-                    Index = 2
                 },
                 new RustProduct
                 {
@@ -72,7 +70,6 @@ namespace EasyShop.Services.CP.Rust.Data
                     Discount = 0,
                     BlockedTill = default,
                     ShowInShop = true,
-                    Index = 3
                 },
                 new RustProduct
                 {
@@ -88,7 +85,6 @@ namespace EasyShop.Services.CP.Rust.Data
                     Discount = 0,
                     BlockedTill = default,
                     ShowInShop = true,
-                    Index = 4
                 },
                 new RustProduct
                 {
@@ -104,7 +100,6 @@ namespace EasyShop.Services.CP.Rust.Data
                     Discount = 0,
                     BlockedTill = default,
                     ShowInShop = true,
-                    Index = 5
                 },
                 new RustProduct
                 {
@@ -120,7 +115,6 @@ namespace EasyShop.Services.CP.Rust.Data
                     Discount = 0,
                     BlockedTill = default,
                     ShowInShop = true,
-                    Index = 6
                 },
                 new RustProduct
                 {
@@ -415,6 +409,21 @@ namespace EasyShop.Services.CP.Rust.Data
                     Shop = shop,
                     AppUser = user,
                     Name = "M39 Rifle",
+                    Price = 0,
+                    Amount = 1,
+                    Description = null,
+                    Discount = 0,
+                    BlockedTill = default,
+                    ShowInShop = true,
+                },
+                new RustProduct
+                {
+                    Id = Guid.NewGuid(),
+                    RustCategory = userDefaultCategories.First(x => x.Name == "Weapon"),
+                    RustItem = defaultRustItems.FirstOrDefault(x => x.Name == "Salvaged Sword"),
+                    Shop = shop,
+                    AppUser = user,
+                    Name = "Salvaged Sword",
                     Price = 0,
                     Amount = 1,
                     Description = null,
@@ -1920,21 +1929,6 @@ namespace EasyShop.Services.CP.Rust.Data
                     Description = null,
                     Discount = 0,
                     BlockedTill = default, 
-                    ShowInShop = true,
-                },
-                new RustProduct
-                {
-                    Id = Guid.NewGuid(),
-                    RustCategory = userDefaultCategories.First(x => x.Name == "Tools"),
-                    RustItem = defaultRustItems.FirstOrDefault(x => x.Name == "Salvaged Sword"),
-                    Shop = shop,
-                    AppUser = user,
-                    Name = "Salvaged Sword",
-                    Price = 0,
-                    Amount = 1,
-                    Description = null,
-                    Discount = 0,
-                    BlockedTill = default,
                     ShowInShop = true,
                 },
                 new RustProduct

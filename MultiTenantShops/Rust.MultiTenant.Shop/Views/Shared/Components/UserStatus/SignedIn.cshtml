@@ -1,45 +1,57 @@
-﻿@{
+﻿@model EasyShop.Domain.ViewModels.RustStore.Store.UserStatus.RustStoreUserStatusViewModel
+
+@{
     var tenantInfo = Context.GetMultiTenantContext().TenantInfo;
 }
 
-@*<a class="btn btn-lg btn-danger" href="@($"/{tenantInfo.Identifier}/authentication/signout")">Sign out</a>*@
-
 <ul class="nav navbar-nav navbar-right">
+    @*Size: md+*@
     <li class="hidden-xs">
-        <a href="contacts.html">
-            <span class="icon icon-users icon-lg icon-fw"></span>
-            Contacts
+        <a class="balance-link" href="#" style="color: #d9230f; cursor: default;" >
+            <span class="icon icon-dollar icon-lg icon-fw"></span>
+            @Model.Balance
         </a>
     </li>
     <li class="hidden-xs">
-        <a href="profile.html">
+        <a asp-controller="Home" asp-action="Store">
+            <span class="icon icon-shopping-bag icon-lg icon-fw"></span>
+            Store
+        </a>
+    </li>
+    <li class="hidden-xs">
+        <a asp-controller="Home" asp-action="Profile">
             <span class="icon icon-user icon-lg icon-fw"></span>
             Profile
         </a>
     </li>
     <li class="hidden-xs">
-        <a href="@($"/{tenantInfo.Identifier}/authentication/signout")">
-            <span class="icon icon-power-off icon-lg icon-fw text-primary"></span>
-            <strong>Log out</strong>
-        </a>
+        <form action="@($"/{tenantInfo.Identifier}/authentication/signout")" method="get">
+            <button class="btn btn-primary login-btn" type="submit">Log out</button>
+        </form>
     </li>
 
-    <li class="visible-xs-block">
-        <a href="contacts.html">
-            <span class="icon icon-users icon-lg icon-fw"></span>
-            Contacts
+    @*Size: xs*@
+    <li class="visible-xs-block p-a-md">
+        <a href="#">
+            <span class="icon icon-dollar icon-lg icon-fw"></span>
+            @Model.Balance
         </a>
     </li>
     <li class="visible-xs-block">
-        <a href="profile.html">
+        <a asp-controller="Home" asp-action="Profile">
             <span class="icon icon-user icon-lg icon-fw"></span>
             Profile
         </a>
     </li>
     <li class="visible-xs-block">
-        <a href="@($"/{tenantInfo.Identifier}/authentication/signout")">
-            <span class="icon icon-power-off icon-lg icon-fw text-primary"></span>
-            <strong>Log out</strong>
+        <a asp-controller="Home" asp-action="Store">
+            <span class="icon icon-shopping-bag icon-lg icon-fw"></span>
+            Store
         </a>
+    </li>
+    <li class="visible-xs-block">
+        <form action="@($"/{tenantInfo.Identifier}/authentication/signout")" method="get">
+            <button class="btn btn-primary login-btn" type="submit">Log out</button>
+        </form>
     </li>
 </ul>

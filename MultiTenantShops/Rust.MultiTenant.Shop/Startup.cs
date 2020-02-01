@@ -4,7 +4,9 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Finbuckle.MultiTenant;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Rust.MultiTenant.Shop.Extensions;
 using Rust.MultiTenant.Shop.Installers;
 using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
@@ -22,8 +24,13 @@ namespace Rust.MultiTenant.Shop
             services.InstallServicesInAssembly(Configuration);
         }
 
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
             app.UseStaticFiles();
 
             app.UseRouting();
@@ -37,7 +44,7 @@ namespace Rust.MultiTenant.Shop
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute("default", "{__tenant__=}/{controller=Home}/{action=Index}");
+                endpoints.MapControllerRoute("default", "{__tenant__=}/{controller=Home}/{action=Store}");
             });
         }
     }

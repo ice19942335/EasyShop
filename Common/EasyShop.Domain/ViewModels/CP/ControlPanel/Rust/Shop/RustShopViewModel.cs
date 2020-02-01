@@ -30,16 +30,18 @@ namespace EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Shop
 
         public RustShopEditMainSettingsViewModel RustShopEditMainSettingsViewModel { get; set; }
 
-        public RustShopCategoriesViewModel RustShopCategories { get; set; }
+        public RustProductEditViewModel RustProductEditViewModel { get; set; }
+
+        public RustServerEditViewModel RustServerEditViewModel { get; set; }
 
         public RustCategoryEditViewModel RustCategoryEditViewModel { get; set; }
 
-        public RustProductsManagerViewModel RustProductsManagerViewModel { get; set; }
+        public RustShopCategoriesViewModel RustShopCategories { get; set; }
 
-        public RustProductEditViewModel RustProductEditViewModel { get; set; }
+        public RustProductsManagerViewModel RustProductsManagerViewModel { get; set; }
 
         public RustServerManagerViewModel RustServerManagerViewModel { get; set; }
 
-        public RustServerEditViewModel RustServerEditViewModel { get; set; }
+        
     }
 }

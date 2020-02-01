@@ -1,0 +1,13 @@
+﻿.product:hover {
+    transition: 0.1s;
+    background-color: rgba(217, 35, 14, 0.3);
+}
+
+.widget-product-brands {
+    padding: 2px;
+    border: 1px solid #ddd;
+}
+
+.shop-title {
+    margin: 0;
+}

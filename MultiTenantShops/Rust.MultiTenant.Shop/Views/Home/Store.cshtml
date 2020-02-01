@@ -1,0 +1,103 @@
+﻿@using System.Security.Cryptography
+@using AspNet.Security.OpenId.Steam
+@using Microsoft.AspNetCore.Http
+@model EasyShop.Domain.ViewModels.RustStore.Store.RustStoreViewModel
+
+@{
+    ViewData["Title"] = "Store";
+    Layout = "_BaseLayout";
+}
+
+<div class="store">
+    <div class="store-sidebar">
+        <div id="filters" class="modal" role="dialog" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="widget">
+                            <div class="widget-product-brands">
+                                <div class="product-brands">
+                                    <div class="product-brands-search">
+                                        <div class="form-group form-group-sm">
+                                            <div class="input-with-icon">
+                                                <input id="searchInput" class="form-control thick" type="text" placeholder="Search by name&hellip;">
+                                                <span class="icon icon-search input-icon"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-brands-results">
+                                        <div class="custom-scrollbar">
+                                            <div class="custom-controls-stacked">
+                                                @if (Model.ProductCategories != null)
+                                                {
+                                                    foreach (var category in Model.ProductCategories)
+                                                    {
+                                                        <label class="custom-control custom-control-primary custom-checkbox ctegory">
+                                                            <input class="custom-control-input" type="checkbox" checked="checked" data-category-id="@category.Key">
+                                                            <span class="custom-control-indicator"></span>
+                                                            <span class="custom-control-label">@category.Value</span>
+                                                        </label>
+                                                    }
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="store-content">
+        <div class="row">
+            <div class="col-xs-12">
+                @if (Model.Products != null)
+                {
+                    <ul class="products">
+                        @foreach (var product in Model.Products)
+                        {
+                            <li class="product" data-productid="@product.Id" data-category-id="@product.CategoryId" data-product-name="@product.Name" data-discount="@(product.Discount > 0 ? "true" : "false")">
+                                <div class="product-image">
+                                    <a class="overlay" href="#">
+                                        <div class="overlay-image">
+                                            <img class="img-responsive" src="@product.ImgUrl" alt="@product.Name">
+                                        </div>
+                                        <div class="overlay-content overlay-top" style="@(product.Discount > 0 ? "" : "Display: none;")">
+                                            <span class="label label-success pull-right">SALE! @product.Discount%</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="product-details">
+                                    <h5 class="product-name">
+                                        <a class="link-muted" href="#">@product.Name</a>
+                                    </h5>
+                                    <span class="product-price">
+                                        <span class="product-price-current">$@product.Price</span>
+                                        <span style="@(product.Discount > 0 ? "" : "Display: none;")" class="product-price-old">$@product.PriceAfterDiscount</span>
+                                    </span>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <h2>No products found in this shop</h2>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles
+{
+    <link href="~/css/store.min.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/store-custom.css" rel="stylesheet" asp-append-version="true" />
+}
+
+@section Scripts
+{
+    <script src="~/js/dynamic-store.js" asp-append-version="true"></script>
+}

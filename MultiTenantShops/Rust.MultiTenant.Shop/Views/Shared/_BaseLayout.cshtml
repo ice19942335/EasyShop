@@ -1,4 +1,17 @@
-﻿<!DOCTYPE html>
+﻿@using EasyShop.Interfaces.Services.CP.Rust.Shop
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@inject IRustShopService RustShopService
+@{
+    var tenantInfo = Context.GetMultiTenantContext().TenantInfo;
+
+    var shop = RustShopService.GetShopById(
+        Guid.Parse(HttpContextAccessor.HttpContext.GetMultiTenantContext().TenantInfo.Id));
+
+    var shopTitle = shop.ShopTitle;
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,23 +27,45 @@
     <link rel="stylesheet" href="~/css/vendor.min.css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/elephant.min.css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/application.min.css" asp-append-version="true">
+
+
+    <link href="~/css/override/elephant-override.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/override/application-override.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/side-bar.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/nav-bar.css" rel="stylesheet" asp-append-version="true" />
     @RenderSection("Styles", false)
 </head>
 
-<body class="layout layout-header-fixed">
-@await Html.PartialAsync("Partial/_Header")
+<body class="layout layout-header-fixed layout-sidebar-fixed layout-footer-fixed">
+    @await Html.PartialAsync("Partial/_Header")
     <div class="layout-main">
         <div class="layout-content">
             <div class="layout-content-body">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-md-3">
-                            @await Html.PartialAsync("Partial/_SideBar")
+                    <img class="m-b-md" style="width: 100%;" src="https://i.imgur.com/jcNgsYp.png" alt="Service logo" />
+                    <div class="title-bar">
+                        <div class="title-bar-actions">
+                            <div class="btn-group">
+                                <button class="btn btn-default btn-sm hidden-md hidden-lg" data-toggle="modal" data-target="#filters" type="button">
+                                    <span class="icon icon-filter icon-lg icon-fw"></span>
+                                    Filter
+                                </button>
+                            </div>
                         </div>
-                        <div class="col-md-9">
-                            @RenderBody()
+                        <div class="well">
+                            <div class="row">
+                                <div class="col-lg-2">
+                                    <a href="@($"/{tenantInfo.Identifier}")">
+                                        <h1 class="title-bar-title text-primary shop-title">
+                                            <strong>@shopTitle</strong>
+                                        </h1>
+                                    </a>
+                                </div>
+                                <div class="col-lg-10"></div>
+                            </div>
                         </div>
                     </div>
+                    @RenderBody()
                 </div>
             </div>
         </div>
