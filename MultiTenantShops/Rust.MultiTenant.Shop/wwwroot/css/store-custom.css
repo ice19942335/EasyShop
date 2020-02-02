@@ -3,11 +3,32 @@
     background-color: rgba(217, 35, 14, 0.3);
 }
 
-.widget-product-brands {
-    padding: 2px;
-    border: 1px solid #ddd;
-}
-
 .shop-title {
     margin: 0;
+}
+
+.modal-content {
+    background-color: transparent;
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+@media (min-width: 992px) {
+    .modal-dialog {
+        width: auto;
+        border-radius: 4px;
+    }
+}
+
+.widget {
+    margin-bottom: 0; 
+    padding-bottom: 0;
+}
+
+.uidBalanceWrap {
+    margin: 56px 0 0 0;
 }

@@ -16,8 +16,6 @@ class DynamicStore {
     initializeVariables() {
         this.showCategoriesState = this.setDefaultShowCategoriesState();
         this.allProductsNodes = this.GetAllProductNodes();
-
-        console.log(this.showCategoriesState);
     }
     setDefaultShowCategoriesState() {
         const categories = document.querySelectorAll('.ctegory');
@@ -65,7 +63,7 @@ class DynamicStore {
             this.render();
         }
     }
-    inputSearchFieldHandler(event){
+    inputSearchFieldHandler(event) {
         this.substringFilterValue = event.target.value;
 
         this.render();
@@ -74,7 +72,7 @@ class DynamicStore {
         for (const product of this.allProductsNodes) {
             let productCategoryId = product.dataset.categoryId;
             let productName = product.dataset.productName;
-            
+
             let categoryState = this.showCategoriesState.find((item) => {
                 if (item.categoryId === productCategoryId) {
                     return true;
@@ -83,7 +81,7 @@ class DynamicStore {
                 }
             });
 
-            if(categoryState.show === true && productName.includes(this.substringFilterValue)){
+            if (categoryState.show === true && productName.includes(this.substringFilterValue)) {
                 product.style.display = 'block';
             } else {
                 product.style.display = 'none';
@@ -92,9 +90,21 @@ class DynamicStore {
     }
 }
 
+class CustomModal {
+    constructor() {
+        
+    }
+    init() {
+        
+    }
+}
+
 function initialize() {
     const dynamicStore = new DynamicStore();
     dynamicStore.init();
+
+    const customModal = new CustomModal();
+    customModal.init();
 }
 
 initialize();

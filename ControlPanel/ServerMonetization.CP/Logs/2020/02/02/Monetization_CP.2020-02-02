@@ -1,0 +1,238 @@
+2020-02-02 10:23:13,535 [9] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-02-02 10:23:13,546 [9] ?     - Hosting environment: Development
+
+2020-02-02 10:23:13,547 [9] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP
+
+2020-02-02 10:23:13,553 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/  
+
+2020-02-02 10:23:13,635 [8] ?     - Entity Framework Core 3.1.1 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-02-02 10:23:13,651 [9] ?     - Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+
+2020-02-02 10:23:13,693 [4] ?     - Executed DbCommand (3ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+
+2020-02-02 10:23:13,730 [10] ?     - Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+
+2020-02-02 10:23:13,734 [4] ?     - Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+
+2020-02-02 10:23:13,743 [9] ?     - Executed DbCommand (2ms) [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+
+2020-02-02 10:23:13,747 [14] ?     - Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+
+2020-02-02 10:23:13,750 [4] ?     - Executed DbCommand (1ms) [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+
+2020-02-02 10:23:13,761 [4] ?     - Executing endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-02 10:23:13,801 [4] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller ServerMonetization.CP.Controllers.HomeController (ServerMonetization.CP).
+
+2020-02-02 10:23:13,820 [4] ?     - Executing ViewResult, running view Index.
+
+2020-02-02 10:23:14,602 [4] ?     - Executed ViewResult - view Index executed in 783.5411ms.
+
+2020-02-02 10:23:14,605 [4] ?     - Executed action ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP) in 801.9852ms
+
+2020-02-02 10:23:14,606 [4] ?     - Executed endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-02 10:23:14,615 [4] ?     - Request finished in 1063.3734ms 200 text/html; charset=utf-8
+
+2020-02-02 10:23:14,635 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/css/elephant.min.css?v=iUNBdtVZU8fmSBqiBPyd6eTWK_yJMqMzWRwLIRdQW-I  
+
+2020-02-02 10:23:14,636 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/css/vendor.min.css?v=hpVs-GGvnZ3ujd7YIH2wpy2pYeDTb6yVMQvNQuolaHQ  
+
+2020-02-02 10:23:14,638 [17] ?     - Request starting HTTP/2.0 GET https://localhost:44374/css/custom/Override/override-application.css?v=3MgSvheYpRsGOI2Rt0FvWZkrlSY0VdxnXeUGn5f5Dt4  
+
+2020-02-02 10:23:14,639 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/css/custom/Override/override-elephant.css?v=OLiC05EVAezj_QeMoSWkqWly7N6OeAv1vkjHm-9wks4  
+
+2020-02-02 10:23:14,641 [14] ?     - Request starting HTTP/2.0 GET https://localhost:44374/css/application.min.css?v=SOrei8XpSFgXnyyKFVd-asUmlaxVXqhE2Bc4yMS218k  
+
+2020-02-02 10:23:14,642 [10] ?     - Request starting HTTP/2.0 GET https://localhost:44374/img/LogoNameSlogan.png  
+
+2020-02-02 10:23:14,646 [15] ?     - Request starting HTTP/2.0 GET https://localhost:44374/css/custom/Override/override-landing-page.css?v=6eJLoxNtNtqI4k1vzh6FOYZLsUGcziro-f2snFXmwEY  
+
+2020-02-02 10:23:14,648 [16] ?     - Request starting HTTP/2.0 GET https://localhost:44374/css/landing-page.css?v=S4ykffsGJRzOMV2Kh3_JoURV3vW62dkTdtTg6QO8MpI  
+
+2020-02-02 10:23:14,649 [21] ?     - Request starting HTTP/2.0 GET https://localhost:44374/img/LogoName.png  
+
+2020-02-02 10:23:14,691 [14] ?     - Sending file. Request path: '/css/application.min.css'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP\wwwroot\css\application.min.css'
+
+2020-02-02 10:23:14,691 [15] ?     - Sending file. Request path: '/css/custom/Override/override-landing-page.css'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP\wwwroot\css\custom\Override\override-landing-page.css'
+
+2020-02-02 10:23:14,692 [10] ?     - Sending file. Request path: '/img/LogoNameSlogan.png'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP\wwwroot\img\LogoNameSlogan.png'
+
+2020-02-02 10:23:14,691 [4] ?     - Sending file. Request path: '/css/custom/Override/override-elephant.css'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP\wwwroot\css\custom\Override\override-elephant.css'
+
+2020-02-02 10:23:14,693 [17] ?     - Sending file. Request path: '/css/custom/Override/override-application.css'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP\wwwroot\css\custom\Override\override-application.css'
+
+2020-02-02 10:23:14,695 [10] ?     - Request finished in 53.1638ms 200 image/png
+
+2020-02-02 10:23:14,697 [4] ?     - Request finished in 56.864ms 200 text/css
+
+2020-02-02 10:23:14,699 [14] ?     - Request finished in 55.3024ms 200 text/css
+
+2020-02-02 10:23:14,701 [15] ?     - Request finished in 56.0168ms 200 text/css
+
+2020-02-02 10:23:14,703 [17] ?     - Request finished in 58.4583ms 200 text/css
+
+2020-02-02 10:23:14,705 [16] ?     - Sending file. Request path: '/css/landing-page.css'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP\wwwroot\css\landing-page.css'
+
+2020-02-02 10:23:14,711 [21] ?     - Sending file. Request path: '/img/LogoName.png'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP\wwwroot\img\LogoName.png'
+
+2020-02-02 10:23:14,712 [16] ?     - Request finished in 68.5711ms 200 text/css
+
+2020-02-02 10:23:14,720 [21] ?     - Request finished in 64.5206ms 200 image/png
+
+2020-02-02 10:23:14,731 [4] ?     - Sending file. Request path: '/css/elephant.min.css'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP\wwwroot\css\elephant.min.css'
+
+2020-02-02 10:23:14,732 [21] ?     - Sending file. Request path: '/css/vendor.min.css'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP\wwwroot\css\vendor.min.css'
+
+2020-02-02 10:23:14,733 [4] ?     - Request finished in 99.5379ms 200 text/css
+
+2020-02-02 10:23:14,735 [21] ?     - Request finished in 100.1351ms 200 text/css
+
+2020-02-02 10:23:14,886 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/elephant.min.js?v=QaczU8Ymizb6Qg5-kFvvvv85TwGM-Vf0zuiayDzIK_c  
+
+2020-02-02 10:23:14,887 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/vendor.min.js?v=LbJ1qAXgsAJ2sRyni7T2N8V4ujFC2_KDAipjPpbJyl4  
+
+2020-02-02 10:23:14,890 [10] ?     - Request starting HTTP/2.0 GET https://localhost:44374/js/landing-page.min.js?v=yy01hAsw30s1XSG53SAz1sBTFEErFAuZkdyAqAR7jKk  
+
+2020-02-02 10:23:14,893 [16] ?     - Sending file. Request path: '/js/elephant.min.js'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP\wwwroot\js\elephant.min.js'
+
+2020-02-02 10:23:14,896 [10] ?     - Sending file. Request path: '/js/landing-page.min.js'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP\wwwroot\js\landing-page.min.js'
+
+2020-02-02 10:23:14,897 [16] ?     - Request finished in 10.7028ms 200 application/javascript
+
+2020-02-02 10:23:14,898 [10] ?     - Request finished in 9.4037ms 200 application/javascript
+
+2020-02-02 10:23:14,903 [4] ?     - Sending file. Request path: '/js/vendor.min.js'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP\wwwroot\js\vendor.min.js'
+
+2020-02-02 10:23:14,906 [4] ?     - Request finished in 20.1023ms 200 application/javascript
+
+2020-02-02 10:23:14,941 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/img/4148866741.png  
+
+2020-02-02 10:23:14,949 [8] ?     - Sending file. Request path: '/img/4148866741.png'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP\wwwroot\img\4148866741.png'
+
+2020-02-02 10:23:14,953 [8] ?     - Request finished in 11.4326ms 200 image/png
+
+2020-02-02 10:23:14,986 [17] ?     - Request starting HTTP/2.0 GET https://localhost:44374/fonts/fontawesome-webfont.woff2?v=4.6.3  
+
+2020-02-02 10:23:15,016 [8] ?     - Sending file. Request path: '/fonts/fontawesome-webfont.woff2'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP\wwwroot\fonts\fontawesome-webfont.woff2'
+
+2020-02-02 10:23:15,018 [8] ?     - Request finished in 32.4382ms 200 font/woff2
+
+2020-02-02 10:23:15,273 [10] ?     - Request starting HTTP/2.0 GET https://localhost:44374/manifest.json  
+
+2020-02-02 10:23:15,281 [10] ?     - Sending file. Request path: '/manifest.json'. Physical path: 'C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP\wwwroot\manifest.json'
+
+2020-02-02 10:23:15,284 [10] ?     - Request finished in 11.4715ms 200 application/json
+
+2020-02-02 10:27:50,576 [9] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-02-02 10:27:50,586 [9] ?     - Hosting environment: Development
+
+2020-02-02 10:27:50,589 [9] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP
+
+2020-02-02 10:27:50,599 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/  
+
+2020-02-02 10:27:50,681 [4] ?     - Executing endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-02 10:27:50,729 [4] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller ServerMonetization.CP.Controllers.HomeController (ServerMonetization.CP).
+
+2020-02-02 10:27:50,759 [4] ?     - Executing ViewResult, running view Index.
+
+2020-02-02 10:27:51,015 [4] ?     - Executed ViewResult - view Index executed in 250.8067ms.
+
+2020-02-02 10:27:51,017 [4] ?     - Executed action ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP) in 285.4552ms
+
+2020-02-02 10:27:51,020 [4] ?     - Executed endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-02 10:27:51,035 [4] ?     - Request finished in 427.8318ms 200 text/html; charset=utf-8
+
+2020-02-02 10:31:34,827 [4] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-02-02 10:31:34,842 [4] ?     - Hosting environment: Development
+
+2020-02-02 10:31:34,843 [4] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP
+
+2020-02-02 10:31:34,857 [13] ?     - Request starting HTTP/2.0 GET https://localhost:44374/  
+
+2020-02-02 10:31:34,959 [13] ?     - Executing endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-02 10:31:35,001 [13] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller ServerMonetization.CP.Controllers.HomeController (ServerMonetization.CP).
+
+2020-02-02 10:31:35,028 [13] ?     - Executing ViewResult, running view Index.
+
+2020-02-02 10:31:35,327 [13] ?     - Executed ViewResult - view Index executed in 299.4417ms.
+
+2020-02-02 10:31:35,348 [13] ?     - Executed action ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP) in 325.8378ms
+
+2020-02-02 10:31:35,351 [13] ?     - Executed endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-02 10:31:35,358 [13] ?     - Request finished in 504.0092ms 200 text/html; charset=utf-8
+
+2020-02-02 10:38:32,886 [10] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-02-02 10:38:32,896 [10] ?     - Hosting environment: Development
+
+2020-02-02 10:38:32,897 [10] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP
+
+2020-02-02 10:38:32,905 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/  
+
+2020-02-02 10:38:33,004 [4] ?     - Executing endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-02 10:38:33,061 [4] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller ServerMonetization.CP.Controllers.HomeController (ServerMonetization.CP).
+
+2020-02-02 10:38:33,090 [4] ?     - Executing ViewResult, running view Index.
+
+2020-02-02 10:38:33,431 [4] ?     - Executed ViewResult - view Index executed in 342.653ms.
+
+2020-02-02 10:38:33,433 [4] ?     - Executed action ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP) in 370.2836ms
+
+2020-02-02 10:38:33,435 [4] ?     - Executed endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-02 10:38:33,440 [4] ?     - Request finished in 536.7545ms 200 text/html; charset=utf-8
+
+2020-02-02 10:42:03,934 [11] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-02-02 10:42:03,945 [11] ?     - Hosting environment: Development
+
+2020-02-02 10:42:03,947 [11] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP
+
+2020-02-02 10:42:03,958 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/  
+
+2020-02-02 10:42:04,071 [4] ?     - Executing endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-02 10:42:04,120 [4] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller ServerMonetization.CP.Controllers.HomeController (ServerMonetization.CP).
+
+2020-02-02 10:42:04,152 [4] ?     - Executing ViewResult, running view Index.
+
+2020-02-02 10:42:04,415 [4] ?     - Executed ViewResult - view Index executed in 265.6862ms.
+
+2020-02-02 10:42:04,418 [4] ?     - Executed action ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP) in 295.3242ms
+
+2020-02-02 10:42:04,420 [4] ?     - Executed endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-02 10:42:04,432 [4] ?     - Request finished in 471.1406ms 200 text/html; charset=utf-8
+

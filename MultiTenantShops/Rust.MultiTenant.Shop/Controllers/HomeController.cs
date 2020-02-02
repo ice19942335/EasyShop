@@ -97,5 +97,7 @@ namespace Rust.MultiTenant.Shop.Controllers
         }
 
         public IActionResult UserHaveToBeLoggedIn() => View();
+
+        public IActionResult Test() => View();
     }
 }

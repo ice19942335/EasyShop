@@ -1,0 +1,14 @@
+﻿.custom-modal {
+    margin: 80px auto 0 auto;
+    width: 600px;
+}
+
+.custom-modal-content {}
+
+.custom-modal-footer {}
+
+@media(max-width: 768px) {
+    .custom-modal {
+        width: 90%;
+    }
+}

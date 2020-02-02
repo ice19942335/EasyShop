@@ -1,17 +1,4 @@
-﻿@using EasyShop.Interfaces.Services.CP.Rust.Shop
-@using Microsoft.AspNetCore.Http
-@inject IHttpContextAccessor HttpContextAccessor
-@inject IRustShopService RustShopService
-@{
-    var tenantInfo = Context.GetMultiTenantContext().TenantInfo;
-
-    var shop = RustShopService.GetShopById(
-        Guid.Parse(HttpContextAccessor.HttpContext.GetMultiTenantContext().TenantInfo.Id));
-
-    var shopTitle = shop.ShopTitle;
-}
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,58 +6,40 @@
     <title>@ViewData["Title"]</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
     <meta name="description" content="Server-Monetization provide service to siplify and automatize donation on gaming servers https://www.server-monetization.com">
-    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="~/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="~/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="~/manifest.json">
     <meta name="theme-color" content="#ffffff">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,700">
+
     <link rel="stylesheet" href="~/css/vendor.min.css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/elephant.min.css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/application.min.css" asp-append-version="true">
-
 
     <link href="~/css/override/elephant-override.css" rel="stylesheet" asp-append-version="true" />
     <link href="~/css/override/application-override.css" rel="stylesheet" asp-append-version="true" />
     <link href="~/css/side-bar.css" rel="stylesheet" asp-append-version="true" />
     <link href="~/css/nav-bar.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/modal-custom.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/custom-styles.css" rel="stylesheet" asp-append-version="true" />
     @RenderSection("Styles", false)
 </head>
 
-<body class="layout layout-header-fixed layout-sidebar-fixed layout-footer-fixed">
+<body class="layout layout-header-fixed layout-sidebar-fixed layout-footer-fixed well-custom">
     @await Html.PartialAsync("Partial/_Header")
+    @await Html.PartialAsync("Partial/_Modal")
     <div class="layout-main">
         <div class="layout-content">
             <div class="layout-content-body">
                 <div class="container">
                     <img class="m-b-md" style="width: 100%;" src="https://i.imgur.com/jcNgsYp.png" alt="Service logo" />
-                    <div class="title-bar">
-                        <div class="title-bar-actions">
-                            <div class="btn-group">
-                                <button class="btn btn-default btn-sm hidden-md hidden-lg" data-toggle="modal" data-target="#filters" type="button">
-                                    <span class="icon icon-filter icon-lg icon-fw"></span>
-                                    Filter
-                                </button>
-                            </div>
-                        </div>
-                        <div class="well">
-                            <div class="row">
-                                <div class="col-lg-2">
-                                    <a href="@($"/{tenantInfo.Identifier}")">
-                                        <h1 class="title-bar-title text-primary shop-title">
-                                            <strong>@shopTitle</strong>
-                                        </h1>
-                                    </a>
-                                </div>
-                                <div class="col-lg-10"></div>
-                            </div>
-                        </div>
-                    </div>
                     @RenderBody()
                 </div>
             </div>
         </div>
         @await Html.PartialAsync("Partial/_Footer")
     </div>
+
     <script src="~/js/vendor.min.js" asp-append-version="true"></script>
     <script src="~/js/elephant.min.js" asp-append-version="true"></script>
     <script src="~/js/application.min.js" asp-append-version="true"></script>

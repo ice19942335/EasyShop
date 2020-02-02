@@ -1,19 +1,43 @@
 ﻿@model EasyShop.Domain.ViewModels.RustStore.Store.Profile.RustStoreSteamUserViewModel
+@using EasyShop.Interfaces.Services.CP.Rust.Shop
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@inject IRustShopService RustShopService
 @{
+    var tenantInfo = Context.GetMultiTenantContext().TenantInfo;
+
+    var shop = RustShopService.GetShopById(
+        Guid.Parse(HttpContextAccessor.HttpContext.GetMultiTenantContext().TenantInfo.Id));
+
+    var shopTitle = shop.ShopTitle;
+
     ViewData["Title"] = "Profile";
     Layout = "_BaseLayout";
 }
 
+<div class="title-bar">
+    <div class="panel panel-body">
+        <div class="row">
+            <div class="col-lg-2">
+                <a href="@($"/{tenantInfo.Identifier}")">
+                    <strong class="custom-nav-link">@shopTitle</strong>
+                </a>
+            </div>
+            <div class="col-lg-10"></div>
+        </div>
+    </div>
+</div>
+
 @if (Model != null)
 {
-    <div class="row well text-center">
+    <div class="panel panel-body">
         <div class="col-md-3 text-center">
-            <h3>@Model.UserName</h3>
+            <h3 class="break-word">@Model.UserName</h3>
             <img src="@Model.ImgUrl" alt="@Model.UserName" />
         </div>
-        <div class="col-md-9 uidBalanceWrap">
+        <div class="col-md-9 user-details-wrap">
             <div class="row">
-                <div class="col-md-1">
+                <div class="col-md-1 profile-label">
                     <span class="text-left"><strong>UID</strong></span>
                 </div>
                 <div class="col-md-6">
@@ -21,7 +45,7 @@
                 </div>
             </div>
             <div class="row m-t-md">
-                <div class="col-md-1">
+                <div class="col-md-1 profile-label">
                     <span class="text-left"><strong>Balance</strong></span>
                 </div>
                 <div class="col-md-6">
@@ -30,9 +54,4 @@
             </div>
         </div>
     </div>
-}
-
-@section Styles
-{
-    <link href="~/css/profile-custom.css" rel="stylesheet" asp-append-version="true" />
 }

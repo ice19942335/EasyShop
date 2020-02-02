@@ -1,12 +1,42 @@
-﻿@using System.Security.Cryptography
-@using AspNet.Security.OpenId.Steam
-@using Microsoft.AspNetCore.Http
+﻿@using Microsoft.AspNetCore.Http
 @model EasyShop.Domain.ViewModels.RustStore.Store.RustStoreViewModel
 
+@using EasyShop.Interfaces.Services.CP.Rust.Shop
+@inject IHttpContextAccessor HttpContextAccessor
+@inject IRustShopService RustShopService
 @{
+    var tenantInfo = Context.GetMultiTenantContext().TenantInfo;
+
+    var shop = RustShopService.GetShopById(
+        Guid.Parse(HttpContextAccessor.HttpContext.GetMultiTenantContext().TenantInfo.Id));
+
+    var shopTitle = shop.ShopTitle;
+
     ViewData["Title"] = "Store";
     Layout = "_BaseLayout";
 }
+
+<div class="title-bar">
+    <div class="title-bar-actions">
+        <div class="btn-group">
+            <button class="btn btn-default btn-sm hidden-md hidden-lg" data-toggle="modal" data-target="#filters" type="button">
+                <span class="icon icon-filter icon-lg icon-fw"></span>
+                Filter
+            </button>
+        </div>
+    </div>
+    <div class="panel panel-body">
+        <div class="row">
+            <div class="col-lg-2">
+                <a href="@($"/{tenantInfo.Identifier}")">
+                    <strong class="custom-nav-link">@shopTitle</strong>
+                </a>
+            </div>
+            <div class="col-lg-10"></div>
+        </div>
+    </div>
+</div>
+
 
 <div class="store">
     <div class="store-sidebar">
@@ -50,7 +80,7 @@
             </div>
         </div>
     </div>
-    <div class="store-content">
+    <div class="panel panel-body store-content">
         <div class="row">
             <div class="col-xs-12">
                 @if (Model.Products != null)
@@ -99,5 +129,6 @@
 
 @section Scripts
 {
+
     <script src="~/js/dynamic-store.js" asp-append-version="true"></script>
 }
