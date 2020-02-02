@@ -1,12 +1,42 @@
-﻿@using System.Security.Cryptography
-@using AspNet.Security.OpenId.Steam
-@using Microsoft.AspNetCore.Http
+﻿@using Microsoft.AspNetCore.Http
 @model EasyShop.Domain.ViewModels.RustStore.Store.RustStoreViewModel
 
+@using EasyShop.Interfaces.Services.CP.Rust.Shop
+@inject IHttpContextAccessor HttpContextAccessor
+@inject IRustShopService RustShopService
 @{
+    var tenantInfo = Context.GetMultiTenantContext().TenantInfo;
+
+    var shop = RustShopService.GetShopById(
+        Guid.Parse(HttpContextAccessor.HttpContext.GetMultiTenantContext().TenantInfo.Id));
+
+    var shopTitle = shop.ShopTitle;
+
     ViewData["Title"] = "Store";
     Layout = "_BaseLayout";
 }
+
+<div class="title-bar">
+    <div class="title-bar-actions">
+        <div class="btn-group">
+            <button class="btn btn-default btn-sm hidden-md hidden-lg" data-toggle="modal" data-target="#filters" type="button">
+                <span class="icon icon-filter icon-lg icon-fw"></span>
+                Filter
+            </button>
+        </div>
+    </div>
+    <div class="panel panel-body">
+        <div class="row">
+            <div class="col-lg-2">
+                <a href="@($"/{tenantInfo.Identifier}")">
+                    <strong class="custom-nav-link">@shopTitle</strong>
+                </a>
+            </div>
+            <div class="col-lg-10"></div>
+        </div>
+    </div>
+</div>
+
 
 <div class="store">
     <div class="store-sidebar">
@@ -50,7 +80,7 @@
             </div>
         </div>
     </div>
-    <div class="store-content">
+    <div class="panel panel-body store-content">
         <div class="row">
             <div class="col-xs-12">
                 @if (Model.Products != null)
@@ -58,11 +88,17 @@
                     <ul class="products">
                         @foreach (var product in Model.Products)
                         {
-                            <li class="product" data-productid="@product.Id" data-category-id="@product.CategoryId" data-product-name="@product.Name" data-discount="@(product.Discount > 0 ? "true" : "false")">
-                                <div class="product-image">
-                                    <a class="overlay" href="#">
+                            <li class="panel-no-shadow panel-body product" 
+                                style="border-radius: 0;" 
+                                data-product-id="@product.Id" 
+                                data-category-id="@product.CategoryId"
+                                data-product-name="@product.Name" 
+                                data-discount="@(product.Discount > 0 ? "true" : "false")"
+                                data-product-img-url="@product.ImgUrl">
+                                <div class="product-image text-center">
+                                    <a class="overlay" href="https://server-monetization.com" onclick="return false;"}>
                                         <div class="overlay-image">
-                                            <img class="img-responsive" src="@product.ImgUrl" alt="@product.Name">
+                                            <img class="img-responsive-sixty" src="@product.ImgUrl" alt="@product.Name">
                                         </div>
                                         <div class="overlay-content overlay-top" style="@(product.Discount > 0 ? "" : "Display: none;")">
                                             <span class="label label-success pull-right">SALE! @product.Discount%</span>
@@ -71,7 +107,7 @@
                                 </div>
                                 <div class="product-details">
                                     <h5 class="product-name">
-                                        <a class="link-muted" href="#">@product.Name</a>
+                                        <a href="https://server-monetization.com" onclick="return false;">@product.Name</a>
                                     </h5>
                                     <span class="product-price">
                                         <span class="product-price-current">$@product.Price</span>
@@ -95,9 +131,4 @@
 {
     <link href="~/css/store.min.css" rel="stylesheet" asp-append-version="true" />
     <link href="~/css/store-custom.css" rel="stylesheet" asp-append-version="true" />
-}
-
-@section Scripts
-{
-    <script src="~/js/dynamic-store.js" asp-append-version="true"></script>
 }
