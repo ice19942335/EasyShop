@@ -20,14 +20,13 @@
     <link href="~/css/override/application-override.css" rel="stylesheet" asp-append-version="true" />
     <link href="~/css/side-bar.css" rel="stylesheet" asp-append-version="true" />
     <link href="~/css/nav-bar.css" rel="stylesheet" asp-append-version="true" />
-    <link href="~/css/modal-custom.css" rel="stylesheet"/>
+    <link href="~/css/modal-custom.css" rel="stylesheet" />
     <link href="~/css/custom-styles.css" rel="stylesheet" asp-append-version="true" />
     @RenderSection("Styles", false)
 </head>
 
 <body class="layout layout-header-fixed layout-sidebar-fixed layout-footer-fixed well-custom">
     @await Html.PartialAsync("Partial/_Header")
-    @await Html.PartialAsync("Partial/_Modal")
     <div class="layout-main">
         <div class="layout-content">
             <div class="layout-content-body">
@@ -38,6 +37,7 @@
             </div>
         </div>
         @await Html.PartialAsync("Partial/_Footer")
+        @await Html.PartialAsync("Partial/_Modal")
     </div>
 
     <script src="~/js/vendor.min.js" asp-append-version="true"></script>

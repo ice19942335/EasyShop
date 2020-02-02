@@ -9,12 +9,16 @@ class DynamicStore {
         this.modalCloseButtons = [];
         this.modal = undefined;
         this.modalContentCustom = undefined;
+        this.modalBg = undefined;
+        this.body = undefined;
+        this.products = undefined;
 
         this.clickOnCategoryHandler = this.clickOnCategoryHandler.bind(this);
         this.inputSearchFieldHandler = this.inputSearchFieldHandler.bind(this);
         this.clickOnProductHandler = this.clickOnProductHandler.bind(this);
         this.closeModalHandler = this.closeModalHandler.bind(this);
         this.clickOnModalHandler = this.clickOnModalHandler.bind(this);
+        this.onScrollHandler = this.onScrollHandler.bind(this);
         
     }
     init() {
@@ -27,6 +31,7 @@ class DynamicStore {
         this.modal = document.getElementById('customModal');
         this.modalContentCustomdocument = document.querySelector('.modal-content-custom');
         this.modalCloseButtons = document.querySelectorAll('[data-dismiss="modal"]');
+        this.modalBg = document.getElementById('modalBg');
     }
     setDefaultShowCategoriesState() {
         const categories = document.querySelectorAll('.ctegory');
@@ -48,24 +53,32 @@ class DynamicStore {
         const categories = document.querySelectorAll('.ctegory');
 
         for (const category of categories) {
-            category.addEventListener('click', this.clickOnCategoryHandler)
+            category.addEventListener('click', this.clickOnCategoryHandler);
         }
 
         for (const product of this.allProductsNodes) {
-            product.addEventListener('click', this.clickOnProductHandler)
+            product.addEventListener('click', this.clickOnProductHandler);
         }
 
         for (const product of this.modalCloseButtons) {
-            product.addEventListener('click', this.closeModalHandler)
+            product.addEventListener('click', this.closeModalHandler);
         }
 
-        document.getElementById('searchInput').addEventListener('input', this.inputSearchFieldHandler)
-        this.modal.addEventListener('click', this.clickOnModalHandler)
+        document.getElementById('searchInput').addEventListener('input', this.inputSearchFieldHandler);
+
+        this.modal.addEventListener('click', this.clickOnModalHandler);
+
+        document.documentElement.addEventListener('onscroll', this.onScrollHandler)
+    }
+    onScrollHandler() {
+        console.log(document.documentElement.scrollTop);
     }
     closeModalHandler() {
         this.closeModal();
     }
     clickOnProductHandler(event) {
+        
+
         let product = undefined;
 
         if (event.path[4].dataset.productId !== undefined) {
@@ -80,7 +93,7 @@ class DynamicStore {
             product = event.path[0];
         }
 
-        this.showModal(product);
+        this.showModal(product,);
     }
     clickOnCategoryHandler(event) {
         if (event.target.dataset.categoryId !== undefined) {
@@ -109,17 +122,18 @@ class DynamicStore {
         this.render();
     }
     clickOnModalHandler(event){
-        console.log(event);
         if (event.target.id === 'customModal') {
             this.closeModal();
         }
     }
     showModal(product) {
+        console.log(document.documentElement.scrollTop)
         this.modal.style.display = 'block';
-        console.log(product);
+        this.modalBg.style.display = 'block';
     }
     closeModal() {
         this.modal.style.display = 'none';
+        this.modalBg.style.display = 'none';
     }
     render() {
         for (const product of this.allProductsNodes) {
