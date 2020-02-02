@@ -11,3 +11,7 @@
     position: relative;
     top: 56px;
 }
+
+.img-responsive-sixty {
+    max-width: 60%;
+}

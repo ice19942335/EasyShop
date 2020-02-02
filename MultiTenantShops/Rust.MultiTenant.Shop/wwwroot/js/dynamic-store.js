@@ -12,14 +12,17 @@ class DynamicStore {
         this.modalBg = undefined;
         this.body = undefined;
         this.products = undefined;
+        this.byuModalProductTitle = undefined;
+        this.byuModalProductImg = undefined;
+
+        
+        
 
         this.clickOnCategoryHandler = this.clickOnCategoryHandler.bind(this);
         this.inputSearchFieldHandler = this.inputSearchFieldHandler.bind(this);
         this.clickOnProductHandler = this.clickOnProductHandler.bind(this);
         this.closeModalHandler = this.closeModalHandler.bind(this);
         this.clickOnModalHandler = this.clickOnModalHandler.bind(this);
-        this.onScrollHandler = this.onScrollHandler.bind(this);
-        
     }
     init() {
         this.initializeVariables();
@@ -28,10 +31,12 @@ class DynamicStore {
     initializeVariables() {
         this.showCategoriesState = this.setDefaultShowCategoriesState();
         this.allProductsNodes = this.GetAllProductNodes();
-        this.modal = document.getElementById('customModal');
         this.modalContentCustomdocument = document.querySelector('.modal-content-custom');
         this.modalCloseButtons = document.querySelectorAll('[data-dismiss="modal"]');
-        this.modalBg = document.getElementById('modalBg');
+        this.modal = document.getElementById('buy-modal');
+        this.modalBg = document.getElementById('buy-modal-bg');
+        this.byuModalProductTitle = document.getElementById('byu-modal-product-title');
+        this.byuModalProductImg = document.getElementById('byu-modal-product-img');
     }
     setDefaultShowCategoriesState() {
         const categories = document.querySelectorAll('.ctegory');
@@ -67,18 +72,11 @@ class DynamicStore {
         document.getElementById('searchInput').addEventListener('input', this.inputSearchFieldHandler);
 
         this.modal.addEventListener('click', this.clickOnModalHandler);
-
-        document.documentElement.addEventListener('onscroll', this.onScrollHandler)
-    }
-    onScrollHandler() {
-        console.log(document.documentElement.scrollTop);
     }
     closeModalHandler() {
         this.closeModal();
     }
     clickOnProductHandler(event) {
-        
-
         let product = undefined;
 
         if (event.path[4].dataset.productId !== undefined) {
@@ -93,7 +91,7 @@ class DynamicStore {
             product = event.path[0];
         }
 
-        this.showModal(product,);
+        this.showModal(product);
     }
     clickOnCategoryHandler(event) {
         if (event.target.dataset.categoryId !== undefined) {
@@ -113,29 +111,38 @@ class DynamicStore {
                 categoryState.show = false;
             }
 
-            this.render();
+            this.renderProductsList();
         }
     }
     inputSearchFieldHandler(event) {
         this.substringFilterValue = event.target.value;
 
-        this.render();
+        this.renderProductsList();
     }
-    clickOnModalHandler(event){
+    clickOnModalHandler(event) {
         if (event.target.id === 'customModal') {
             this.closeModal();
         }
     }
     showModal(product) {
-        console.log(document.documentElement.scrollTop)
         this.modal.style.display = 'block';
         this.modalBg.style.display = 'block';
+
+        this.setModalData(product);
     }
     closeModal() {
         this.modal.style.display = 'none';
         this.modalBg.style.display = 'none';
     }
-    render() {
+    setModalData(product) {
+        console.log(product);
+        
+        this.byuModalProductTitle.innerText = product.dataset.productName;
+        this.byuModalProductImg.src = product.dataset.productImgUrl;
+        console.log(this.byuModalProductTitle);
+        console.log(this.byuModalProductImg);
+    }
+    renderProductsList() {
         for (const product of this.allProductsNodes) {
             let productCategoryId = product.dataset.categoryId;
             let productName = product.dataset.productName;
@@ -157,21 +164,9 @@ class DynamicStore {
     }
 }
 
-class CustomModal {
-    constructor() {
-
-    }
-    init() {
-
-    }
-}
-
 function initialize() {
     const dynamicStore = new DynamicStore();
     dynamicStore.init();
-
-    const customModal = new CustomModal();
-    customModal.init();
 }
 
 initialize();
