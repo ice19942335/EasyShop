@@ -6,8 +6,16 @@ class DynamicStore {
         this.showCategoriesState = [];
         this.substringFilterValue = '';
 
+        this.modalCloseButtons = [];
+        this.modal = undefined;
+        this.modalContentCustom = undefined;
+
         this.clickOnCategoryHandler = this.clickOnCategoryHandler.bind(this);
         this.inputSearchFieldHandler = this.inputSearchFieldHandler.bind(this);
+        this.clickOnProductHandler = this.clickOnProductHandler.bind(this);
+        this.closeModalHandler = this.closeModalHandler.bind(this);
+        this.clickOnModalHandler = this.clickOnModalHandler.bind(this);
+        
     }
     init() {
         this.initializeVariables();
@@ -16,6 +24,9 @@ class DynamicStore {
     initializeVariables() {
         this.showCategoriesState = this.setDefaultShowCategoriesState();
         this.allProductsNodes = this.GetAllProductNodes();
+        this.modal = document.getElementById('customModal');
+        this.modalContentCustomdocument = document.querySelector('.modal-content-custom');
+        this.modalCloseButtons = document.querySelectorAll('[data-dismiss="modal"]');
     }
     setDefaultShowCategoriesState() {
         const categories = document.querySelectorAll('.ctegory');
@@ -40,7 +51,36 @@ class DynamicStore {
             category.addEventListener('click', this.clickOnCategoryHandler)
         }
 
+        for (const product of this.allProductsNodes) {
+            product.addEventListener('click', this.clickOnProductHandler)
+        }
+
+        for (const product of this.modalCloseButtons) {
+            product.addEventListener('click', this.closeModalHandler)
+        }
+
         document.getElementById('searchInput').addEventListener('input', this.inputSearchFieldHandler)
+        this.modal.addEventListener('click', this.clickOnModalHandler)
+    }
+    closeModalHandler() {
+        this.closeModal();
+    }
+    clickOnProductHandler(event) {
+        let product = undefined;
+
+        if (event.path[4].dataset.productId !== undefined) {
+            product = event.path[4];
+        } else if (event.path[3].dataset.productId !== undefined) {
+            product = event.path[3];
+        } else if (event.path[2].dataset.productId !== undefined) {
+            product = event.path[2];
+        } else if (event.path[1].dataset.productId !== undefined) {
+            product = event.path[1];
+        } else if (event.path[0].dataset.productId !== undefined) {
+            product = event.path[0];
+        }
+
+        this.showModal(product);
     }
     clickOnCategoryHandler(event) {
         if (event.target.dataset.categoryId !== undefined) {
@@ -68,6 +108,19 @@ class DynamicStore {
 
         this.render();
     }
+    clickOnModalHandler(event){
+        console.log(event);
+        if (event.target.id === 'customModal') {
+            this.closeModal();
+        }
+    }
+    showModal(product) {
+        this.modal.style.display = 'block';
+        console.log(product);
+    }
+    closeModal() {
+        this.modal.style.display = 'none';
+    }
     render() {
         for (const product of this.allProductsNodes) {
             let productCategoryId = product.dataset.categoryId;
@@ -92,10 +145,10 @@ class DynamicStore {
 
 class CustomModal {
     constructor() {
-        
+
     }
     init() {
-        
+
     }
 }
 

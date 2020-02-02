@@ -88,7 +88,7 @@
                     <ul class="products">
                         @foreach (var product in Model.Products)
                         {
-                            <li class="product" data-productid="@product.Id" data-category-id="@product.CategoryId" data-product-name="@product.Name" data-discount="@(product.Discount > 0 ? "true" : "false")">
+                            <li class="product" data-product-id="@product.Id" data-category-id="@product.CategoryId" data-product-name="@product.Name" data-discount="@(product.Discount > 0 ? "true" : "false")">
                                 <div class="product-image">
                                     <a class="overlay" href="#">
                                         <div class="overlay-image">
@@ -101,7 +101,7 @@
                                 </div>
                                 <div class="product-details">
                                     <h5 class="product-name">
-                                        <a class="link-muted" href="#">@product.Name</a>
+                                        <a href="#">@product.Name</a>
                                     </h5>
                                     <span class="product-price">
                                         <span class="product-price-current">$@product.Price</span>

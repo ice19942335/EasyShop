@@ -1,10 +1,110 @@
 ﻿<div class="panel panel-body custom-modal" id="customModal">
-    <div class="custom-modal-header bg-primary text-center">
-        Header
+    <div class="modal-content-custom">
+        <div class="modal-header bg-primary">
+            <button type="button" class="close" data-dismiss="modal">
+                <span aria-hidden="true">×</span>
+                <span class="sr-only">Close</span>
+            </button>
+            <div class="text-center">
+                <span class="icon icon-laptop icon-5x m-y-lg"></span>
+                <h4 class="modal-title">System - Display, notifications, apps, power</h4>
+                <small>Facilis blanditiis, quibusdam corporis porro natus neque soluta nihil hic aliquam, suscipit, consectetur omnis placeat architecto quae laboriosam. Id porro adipisci, alias.</small>
+            </div>
+        </div>
+        <div class="modal-tabs">
+            <ul class="nav nav-tabs nav-justified">
+                <li class="active"><a href="#display" data-toggle="tab">Display</a></li>
+                <li><a href="#notifications" data-toggle="tab">Notifications</a></li>
+                <li><a href="#apps" data-toggle="tab">Apps</a></li>
+                <li><a href="#power" data-toggle="tab">Power</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade active in" id="display">
+                    <form action="/">
+                        <div class="form-group">
+                            <h5>
+                                Adjust Brightness Level:
+                                <span id="brightness">100.00</span>%
+                            </h5>
+                            <div class="slider slider-primary m-y slider-target slider-ltr slider-horizontal slider-connect" data-slider="primary" data-step="1" data-start="100" data-target="#brightness"><div class="slider-base"><div class="slider-origin slider-background slider-stacking" style="left: 100%;"><div class="slider-handle slider-handle-lower"></div></div></div></div>
+                        </div>
+                    </form>
+                    <p>
+                        <em>
+                            <small>Vestibulum mollis diam nec nisl hendrerit, in lacinia nulla aliquet. Ut tortor odio, feugiat ut malesuada ut, pharetra sed ligula. Ut volutpat magna a nisi fermentum, a bibendum lorem sagittis. Nam aliquam, felis at egestas lobortis, lectus ipsum bibendum tellus, et fermentum leo sapien ac ex. Nam dolor massa, aliquam quis magna nec, mattis sollicitudin metus. Phasellus ornare venenatis ipsum, ac cursus mauris. Cras aliquam nibh et libero porttitor fermentum.</small>
+                        </em>
+                    </p>
+                </div>
+                <div class="tab-pane fade" id="notifications">
+                    <h5>Adjust Notification Settings:</h5>
+                    <ul class="media-list">
+                        <li class="media">
+                            <div class="media-left">
+                                <label class="switch switch-primary">
+                                    <input class="switch-input" type="checkbox" checked="checked">
+                                    <span class="switch-track"></span>
+                                    <span class="switch-thumb"></span>
+                                </label>
+                            </div>
+                            <div class="media-body">Get notifications from apps and other senders</div>
+                        </li>
+                        <li class="media">
+                            <div class="media-left">
+                                <label class="switch switch-primary">
+                                    <input class="switch-input" type="checkbox" checked="checked">
+                                    <span class="switch-track"></span>
+                                    <span class="switch-thumb"></span>
+                                </label>
+                            </div>
+                            <div class="media-body">Show notification on lock screen</div>
+                        </li>
+                    </ul>
+                    <p>
+                        <em>
+                            <small>Vestibulum mollis diam nec nisl hendrerit, in lacinia nulla aliquet. Ut tortor odio, feugiat ut malesuada ut, pharetra sed ligula. Ut volutpat magna a nisi fermentum, a bibendum lorem sagittis. Nam aliquam, felis at egestas lobortis, lectus ipsum bibendum tellus, et fermentum leo sapien ac ex. Nam dolor massa, aliquam quis magna nec, mattis sollicitudin metus. Phasellus ornare venenatis ipsum, ac cursus mauris. Cras aliquam nibh et libero porttitor fermentum.</small>
+                        </em>
+                    </p>
+                </div>
+                <div class="tab-pane fade" id="apps">
+                    <form action="#">
+                        <div class="form-group">
+                            <div class="input-with-icon">
+                                <input class="form-control" type="text" placeholder="Search apps">
+                                <span class="icon icon-search input-icon"></span>
+                            </div>
+                        </div>
+                    </form>
+                    <p>
+                        <em>
+                            <small>Vestibulum mollis diam nec nisl hendrerit, in lacinia nulla aliquet. Ut tortor odio, feugiat ut malesuada ut, pharetra sed ligula. Ut volutpat magna a nisi fermentum, a bibendum lorem sagittis. Nam aliquam, felis at egestas lobortis, lectus ipsum bibendum tellus, et fermentum leo sapien ac ex. Nam dolor massa, aliquam quis magna nec, mattis sollicitudin metus. Phasellus ornare venenatis ipsum, ac cursus mauris. Cras aliquam nibh et libero porttitor fermentum.</small>
+                        </em>
+                    </p>
+                </div>
+                <div class="tab-pane fade" id="power">
+                    <form action="#">
+                        <div class="form-group">
+                            <h5>On battery power, turn off after:</h5>
+                            <select class="custom-select">
+                                <option>10 minutes</option>
+                                <option>20 minutes</option>
+                                <option>30 minutes</option>
+                                <option>40 minutes</option>
+                                <option>50 minutes</option>
+                                <option>60 minutes</option>
+                            </select>
+                        </div>
+                    </form>
+                    <p>
+                        <em>
+                            <small>Vestibulum mollis diam nec nisl hendrerit, in lacinia nulla aliquet. Ut tortor odio, feugiat ut malesuada ut, pharetra sed ligula. Ut volutpat magna a nisi fermentum, a bibendum lorem sagittis. Nam aliquam, felis at egestas lobortis, lectus ipsum bibendum tellus, et fermentum leo sapien ac ex. Nam dolor massa, aliquam quis magna nec, mattis sollicitudin metus. Phasellus ornare venenatis ipsum, ac cursus mauris. Cras aliquam nibh et libero porttitor fermentum.</small>
+                        </em>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Apply</button>
+        </div>
     </div>
-    <div class="custom-modal-content">
-        <h1>Content</h1>
-        <p>Content text</p>
-    </div>
-    <div class="custom-modal-footer">Footer</div>
 </div>
