@@ -9,11 +9,14 @@ using EasyShop.Domain.Entries.Rust;
 using EasyShop.Domain.Entries.Shop;
 using EasyShop.Domain.Entries.Users;
 using EasyShop.Domain.ViewModels.CP.ControlPanel.Shop;
+using EasyShop.Interfaces.MultiTenancy;
 using EasyShop.Interfaces.Services.CP.Rust.Data;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
 using EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization;
+using Finbuckle.MultiTenant;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData
 {
@@ -22,26 +25,32 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData
         private readonly IShopService _shopService;
         private readonly UserManager<AppUser> _userManager;
         private readonly IRustShopService _rustShopService;
-        private readonly EasyShopContext _context;
+        private readonly EasyShopContext _easyShopContext;
         private readonly IRustDefaultCategoriesWithItemsService _rustDefaultCategoriesWithItemsService;
+        private readonly IMultiTenancyStoreService _tenancyStoreService;
+        private readonly IMultiTenantStore _tenantStore;
+
+        private Shop _newShop;
 
         public RustTestStatsData(
             IShopService shopService,
             UserManager<AppUser> userManager,
             IRustShopService rustShopService,
-            EasyShopContext context,
-            IRustDefaultCategoriesWithItemsService rustDefaultCategoriesWithItemsService)
+            EasyShopContext easyShopContext,
+            IRustDefaultCategoriesWithItemsService rustDefaultCategoriesWithItemsService,
+            IMultiTenancyStoreService tenancyStoreService)
         {
             _shopService = shopService;
             _userManager = userManager;
             _rustShopService = rustShopService;
-            _context = context;
+            _easyShopContext = easyShopContext;
             _rustDefaultCategoriesWithItemsService = rustDefaultCategoriesWithItemsService;
+            _tenancyStoreService = tenancyStoreService;
         }
 
         public async Task InitializeDefaultStatsData()
         {
-            if (!_context.RustPurchaseStats.Any())
+            if (!_easyShopContext.RustPurchaseStats.Any())
             {
                 Guid shopId = await CreateDefaultShopForAdmin();
                 await CreateTestStats(shopId);
@@ -65,15 +74,15 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData
             do
             {
                 secret = Guid.NewGuid();
-            } while (_context.Shops.FirstOrDefault(x => x.Secret == secret) != null);
+            } while (_easyShopContext.Shops.FirstOrDefault(x => x.Secret == secret) != null);
 
-            var gameType = _context.GameTypes.First(x => x.Type == model.GameType);
+            var gameType = _easyShopContext.GameTypes.First(x => x.Type == model.GameType);
 
             Guid newShopId;
             do
             {
                 newShopId = Guid.NewGuid();
-            } while (_context.UserShops.FirstOrDefault(x => x.ShopId == newShopId) != null);
+            } while (_easyShopContext.UserShops.FirstOrDefault(x => x.ShopId == newShopId) != null);
 
             var newShop = new Shop
             {
@@ -85,6 +94,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData
                 Secret = secret
             };
 
+            _newShop = newShop;
+
             var userShop = new UserShop
             {
                 ShopId = newShopId,
@@ -93,16 +104,26 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData
                 AppUser = user
             };
 
-            _context.Shops.Add(newShop);
-            _context.UserShops.Add(userShop);
-            await _context.SaveChangesAsync();
+            var addNewTenant = await _tenancyStoreService.TryAddAsync(
+                newShopId.ToString(),
+                    newShopId.ToString(),
+                    model.ShopName,
+                    null);
+
+            if (!addNewTenant)
+                throw new ApplicationException($"Cannot add tenant in to DB, please check connection string for context - {nameof(RustShopMultiTenantStoreContext)}");
+            
+
+            _easyShopContext.Shops.Add(newShop);
+            _easyShopContext.UserShops.Add(userShop);
+            await _easyShopContext.SaveChangesAsync();
 
             (List<RustCategory>, List<RustProduct>)? defaultData = GetDefaultCategoriesWithProducts(user, newShop);
 
-            _context.RustCategories.AddRange(defaultData?.Item1);
-            _context.RustUserItems.AddRange(defaultData?.Item2);
+            _easyShopContext.RustCategories.AddRange(defaultData?.Item1);
+            _easyShopContext.RustUserItems.AddRange(defaultData?.Item2);
 
-            await _context.SaveChangesAsync();
+            await _easyShopContext.SaveChangesAsync();
 
             return newShopId;
         }
@@ -114,7 +135,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData
 
             var user = await _userManager.FindByEmailAsync(DefaultIdentity.AdminUserName);
             var shop = _shopService.GetShopById(shopId);
-            var rustUser = await CreateDefaultRustUser();
+            var steamUser = await CreateDefaultRustUser();
 
             DateTime dateWeekAgo = DateTime.Now.Subtract(TimeSpan.FromDays(7));
             DateTime dateMonthAgo = DateTime.Now.Subtract(TimeSpan.FromDays(31));
@@ -127,8 +148,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData
                 var rustPurchasedItem = new RustPurchasedItem
                 {
                     Id = Guid.NewGuid(),
-                    RustUser = rustUser,
-                    RustItem = _context.RustItems.First(),
+                    RustUser = steamUser,
+                    RustItem = _easyShopContext.RustItems.First(),
                     HasBeenUsed = false,
                     Amount = rnd.Next(1, 3),
                     TotalPaid = rnd.Next(1, 5),
@@ -155,33 +176,50 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData
                 rustPurchaseStatsList.Add(rustPurchaseStats);
             }
 
-            await _context.RustPurchasedItems.AddRangeAsync(purchasedItemsList);
-            await _context.RustPurchaseStats.AddRangeAsync(rustPurchaseStatsList);
-            await _context.SaveChangesAsync();
+            await _easyShopContext.RustPurchasedItems.AddRangeAsync(purchasedItemsList);
+            await _easyShopContext.RustPurchaseStats.AddRangeAsync(rustPurchaseStatsList);
+            await _easyShopContext.SaveChangesAsync();
         }
 
         private (List<RustCategory>, List<RustProduct>) GetDefaultCategoriesWithProducts(AppUser user, Shop shop)
         {
-            var defaultCategories = _context.RustCategories.Include(x => x.AppUser).Where(x => x.AppUser == null).ToList();
-            var rustItems = _context.RustItems.ToList();
+            var defaultCategories = _easyShopContext.RustCategories.Include(x => x.AppUser).Where(x => x.AppUser == null).ToList();
+            var rustItems = _easyShopContext.RustItems.ToList();
 
             return _rustDefaultCategoriesWithItemsService.CreateDefaultCategoriesWithItems(user, shop, defaultCategories, rustItems);
         }
 
         private async Task<SteamUser> CreateDefaultRustUser()
         {
-            var rustUser = new SteamUser
+            Guid newSteamUserGuid;
+
+            do
             {
-                Id = Guid.NewGuid(),
-                Uid = "76561198302334945",
-                Balance = 100,
+                newSteamUserGuid = Guid.NewGuid();
+            } while (_easyShopContext.SteamUsers.FirstOrDefault(x => x.Id == newSteamUserGuid) != null);
+
+            var newSteamUser = new SteamUser
+            {
+                Id = newSteamUserGuid,
+                Uid = "76561198882487555",
                 TotalSpent = 0m
             };
 
-            _context.RustUsers.Add(rustUser);
-            await _context.SaveChangesAsync();
+            var newSteamUserShop = new SteamUserShop
+            {
+                ShopId = _newShop.Id,
+                Shop = _newShop,
+                SteamUserId = newSteamUser.Id,
+                SteamUser = newSteamUser,
+                Balance = _newShop.StartBalance,
+                TotalSpent = 0m
+            };
 
-            return rustUser;
+            _easyShopContext.SteamUsers.Add(newSteamUser);
+            _easyShopContext.SteamUsersShops.Add(newSteamUserShop);
+            await _easyShopContext.SaveChangesAsync();
+
+            return newSteamUser;
         }
     }
 }

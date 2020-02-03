@@ -4,8 +4,11 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Finbuckle.MultiTenant;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using Rust.MultiTenant.Shop.ConfigureServicesInstallers;
+using Microsoft.Extensions.Hosting;
+using Rust.MultiTenant.Shop.Extensions;
+using Rust.MultiTenant.Shop.Installers;
 using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
 
 namespace Rust.MultiTenant.Shop
@@ -21,8 +24,13 @@ namespace Rust.MultiTenant.Shop
             services.InstallServicesInAssembly(Configuration);
         }
 
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+
             app.UseStaticFiles();
 
             app.UseRouting();
@@ -32,22 +40,12 @@ namespace Rust.MultiTenant.Shop
 
             app.UseMultiTenant();
 
+            app.UseSteamUserResolver();
+
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute("default", "{__tenant__=}/{controller=Home}/{action=Index}");
+                endpoints.MapControllerRoute("default", "{__tenant__=}/{controller=Home}/{action=Store}");
             });
-
-            // Seed the database the multitenant store will need.
-            SetupStore(app.ApplicationServices);
-        }
-
-        private void SetupStore(IServiceProvider sp)
-        {
-            var scopeServices = sp.CreateScope().ServiceProvider;
-            var store = scopeServices.GetRequiredService<IMultiTenantStore>();
-
-            store.TryAddAsync(new TenantInfo("tenant-finbuckle-d043favoiaw", "finbuckle", "Finbuckle", "finbuckle_conn_string", null)).Wait();
-            store.TryAddAsync(new TenantInfo("tenant-initech-341ojadsfa", "initech", "Initech LLC", "initech_conn_string", null)).Wait();
         }
     }
 }

@@ -1,0 +1,134 @@
+﻿@using Microsoft.AspNetCore.Http
+@using EasyShop.Interfaces.Services.CP.Rust.Shop
+@model EasyShop.Domain.ViewModels.RustStore.Store.RustStoreViewModel
+@inject IHttpContextAccessor HttpContextAccessor
+@inject IRustShopService RustShopService
+@{
+    var tenantInfo = Context.GetMultiTenantContext().TenantInfo;
+
+    var shop = RustShopService.GetShopById(
+        Guid.Parse(HttpContextAccessor.HttpContext.GetMultiTenantContext().TenantInfo.Id));
+
+    var shopTitle = shop.ShopTitle;
+
+    ViewData["Title"] = "Store";
+    Layout = "_BaseLayout";
+}
+
+<div class="title-bar">
+    <div class="title-bar-actions">
+        <div class="btn-group">
+            <button class="btn btn-default btn-sm hidden-md hidden-lg" data-toggle="modal" data-target="#filters" type="button">
+                <span class="icon icon-filter icon-lg icon-fw"></span>
+                Filter
+            </button>
+        </div>
+    </div>
+    <div class="panel panel-body">
+        <div class="row">
+            <div class="col-lg-2">
+                <a href="@($"/{tenantInfo.Identifier}")">
+                    <strong class="custom-nav-link">@shopTitle</strong>
+                </a>
+            </div>
+            <div class="col-lg-10"></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="store">
+    <div class="store-sidebar">
+        <div id="filters" class="modal" role="dialog" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="widget">
+                            <div class="widget-product-brands">
+                                <div class="product-brands">
+                                    <div class="product-brands-search">
+                                        <div class="form-group form-group-sm">
+                                            <div class="input-with-icon">
+                                                <input id="search-input" class="form-control thick" type="text" placeholder="Search by name&hellip;">
+                                                <span class="icon icon-search input-icon"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-brands-results">
+                                        <div class="custom-scrollbar">
+                                            <div class="custom-controls-stacked">
+                                                @if (Model.ProductCategories != null)
+                                                {
+                                                    foreach (var category in Model.ProductCategories)
+                                                    {
+                                                        <label class="custom-control custom-control-primary custom-checkbox ctegory">
+                                                            <input class="custom-control-input" type="checkbox" checked="checked" data-category-id="@category.Key">
+                                                            <span class="custom-control-indicator"></span>
+                                                            <span class="custom-control-label">@category.Value</span>
+                                                        </label>
+                                                    }
+                                                }
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-body store-content">
+        <div class="row">
+            <div class="col-xs-12">
+                @if (Model.Products != null)
+                {
+                    <ul class="products">
+                        @foreach (var product in Model.Products)
+                        {
+                            <li class="panel-no-shadow panel-body product"
+                                style="border-radius: 0;"
+                                data-product-id="@product.Id"
+                                data-category-id="@product.CategoryId"
+                                data-product-name="@product.Name"
+                                data-discount="@(product.Discount > 0 ? "true" : "false")"
+                                data-product-img-url="@product.ImgUrl"
+                                data-product-price-after-discount="@product.PriceAfterDiscount">
+                                <div class="product-image text-center">
+                                    <a class="overlay" href="https://server-monetization.com" onclick="return false;" }>
+                                        <div class="overlay-image">
+                                            <img class="img-responsive-sixty" src="@product.ImgUrl" alt="@product.Name">
+                                        </div>
+                                        <div class="overlay-content overlay-top" style="@(product.Discount > 0 ? "" : "Display: none;")">
+                                            <span class="label label-success pull-right">SALE! @product.Discount%</span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="product-details">
+                                    <h5 class="product-name">
+                                        <a href="https://server-monetization.com" onclick="return false;">@product.Name</a>
+                                    </h5>
+                                    <span class="product-price">
+                                        <span class="product-price-current">$@product.PriceAfterDiscount</span>
+                                        <span style="@(product.Discount > 0 ? "" : "Display: none;")" class="product-price-old">$@product.Price</span>
+                                    </span>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <h2>No products found in this shop</h2>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles
+{
+    <link href="~/css/store.min.css" rel="stylesheet" asp-append-version="true" />
+    <link href="~/css/store-custom.css" rel="stylesheet" asp-append-version="true" />
+}

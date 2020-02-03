@@ -1,0 +1,38 @@
+﻿<div class="modal-background fade-in" id="buy-modal-bg"></div>
+<div class="panel panel-body custom-modal fade-in-down" id="buy-modal">
+    <div class="modal-content-custom">
+        <div class="modal-header bg-primary">
+            <button type="button" class="close" data-dismiss="modal">
+                <span aria-hidden="true">×</span>
+                <span class="sr-only">Close</span>
+            </button>
+            <div class="text-center">
+                <img class="buy-modal-img" id="byu-modal-product-img" src="https://gamestores.ru/img/games/rust/2123300234.png" alt="Product image" />
+                <h4 id="byu-modal-product-title" class="modal-title">Crossbow</h4>
+            </div>
+        </div>
+        <form method="post" asp-controller="Payment" asp-action="Buy">
+            <div class="text-center">
+                <div class="total-to-pay-wrap">
+                    <p class="text-left"><strong>Total</strong></p>
+                    <div class="input-group">
+                        <span class="input-group-addon bg-primary">$</span>
+                        <input id="modal-total-to-pay" class="form-control" type="text" aria-label="US Dollar" disabled>
+                    </div>
+                </div>
+                <div class="amount-to-buy-wrap">
+                    <p class="text-left"><strong>Items to buy</strong></p>
+                    <div class="amount-to-buy-control-wrap">
+                        <button id="modal-decrement" class="btn btn-primary" type="button"><span class="icon icon-minus"></span></button>
+                        <input id="modal-items-to-buy" type="text" class="form-control" readonly="readonly">
+                        <button id="modal-increment" class="btn btn-primary" type="button"><span class="icon icon-plus"></span></button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Buy</button>
+            </div>
+        </form>
+    </div>
+</div>

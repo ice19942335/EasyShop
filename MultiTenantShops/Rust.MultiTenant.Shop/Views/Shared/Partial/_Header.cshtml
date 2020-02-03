@@ -1,0 +1,27 @@
+﻿@using AspNet.Security.OpenId.Steam
+
+@{
+    var tenantInfo = Context.GetMultiTenantContext().TenantInfo;
+}
+
+<div class="layout-header">
+    <div class="navbar navbar-default">
+        <div class="navbar-header">
+            <a class="navbar-brand navbar-brand-center" href="https://server-monetization.com">
+                <img class="navbar-brand-logo" src="~/img/LogoName.png" alt="Server-Monetization">
+            </a>
+            <button class="navbar-toggler visible-xs-block collapsed" type="button" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="arrow-up"></span>
+                <span class="ellipsis ellipsis-vertical">
+                    <img class="ellipsis-object" width="32" height="32" src="@(Context.User.Claims.FirstOrDefault(x => x.Type == SteamAuthenticationConstants.Parameters.AvatarFull)?.Value ?? "https://i.imgur.com/7dNjJ6y.jpg")" alt="Avatar">
+                </span>
+            </button>
+        </div>
+        <div class="navbar-toggleable">
+            <nav id="navbar" class="navbar-collapse collapse">
+                @await Component.InvokeAsync("UserStatus")
+            </nav>
+        </div>
+    </div>
+</div>

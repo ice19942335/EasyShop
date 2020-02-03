@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using EasyShop.Domain.Enums.CP.Rust;
 using EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Category;
@@ -15,9 +16,11 @@ namespace EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Product
 
         public string Description { get; set; }
 
+        [Range(minimum: 0.00, 100_000_000, ErrorMessage = "Price range: (minimun: 0.00, maximum: 100 000 000)")]
         [RegularExpression("^[0-9]*\\.[0-9]{2}$", ErrorMessage = "Please enter a correct value, for example (0.99 or 150.00)")]
         public decimal Price { get; set; }
 
+        [Range(0, 100, ErrorMessage = "Discount can't be less than 0 percent or more than 100 percent.")]
         public int Discount { get; set; }
 
         [Required]

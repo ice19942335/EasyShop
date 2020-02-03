@@ -6,6 +6,7 @@
         <span class="sidenav-label">My Shops</span>
     </a>
     <ul class="sidenav-subnav collapse">
+        <li><a asp-area="" asp-controller="ShopManager" asp-action="CreateShop"><span class="text-primary text-capitalize"><strong>Create New</strong> <span class="badge badge-danger">New</span></span></a></li>
         <li><a asp-area="" asp-controller="ShopManager" asp-action="ShopsManager"><span style="color: #00aced;">Shops manager</span></a></li>
         @{
             foreach (var shop in Model.Shops)

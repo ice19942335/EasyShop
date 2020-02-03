@@ -1,0 +1,6 @@
+﻿@media (min-width: 768px) {
+    .layout-sidebar-collapsed .navbar-header {
+        overflow: hidden;
+        width: 220px;
+    }
+}
