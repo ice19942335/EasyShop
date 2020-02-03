@@ -15,9 +15,6 @@ class DynamicStore {
         this.byuModalProductTitle = undefined;
         this.byuModalProductImg = undefined;
 
-        
-        
-
         this.clickOnCategoryHandler = this.clickOnCategoryHandler.bind(this);
         this.inputSearchFieldHandler = this.inputSearchFieldHandler.bind(this);
         this.clickOnProductHandler = this.clickOnProductHandler.bind(this);
@@ -120,7 +117,7 @@ class DynamicStore {
         this.renderProductsList();
     }
     clickOnModalHandler(event) {
-        if (event.target.id === 'customModal') {
+        if (event.target.id === 'buy-modal') {
             this.closeModal();
         }
     }

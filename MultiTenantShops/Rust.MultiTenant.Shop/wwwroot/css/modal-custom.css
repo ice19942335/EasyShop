@@ -16,13 +16,7 @@
     overflow: auto;
     margin: auto;
     padding: 0;
-    width: 600px;
-}
-
-@media(max-width: 768px) {
-    .modal-content-custom {
-        width: 90%;
-    }
+    width: 320px;
 }
 
 .modal-background {
@@ -37,6 +31,21 @@
     overflow: auto;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.4);
+}
+
+.buy-modal-img {
+    width: 250px;
+}
+
+@media(max-width: 768px) {
+    .modal-content-custom {
+        width: 90%;
+    }
+
+    .buy-modal-img {
+        width: 100%;
+    }
+    
 }
 
 .fade-in {

@@ -110,8 +110,8 @@
                                         <a href="https://server-monetization.com" onclick="return false;">@product.Name</a>
                                     </h5>
                                     <span class="product-price">
-                                        <span class="product-price-current">$@product.Price</span>
-                                        <span style="@(product.Discount > 0 ? "" : "Display: none;")" class="product-price-old">$@product.PriceAfterDiscount</span>
+                                        <span class="product-price-current">$@product.PriceAfterDiscount</span>
+                                        <span style="@(product.Discount > 0 ? "" : "Display: none;")" class="product-price-old">$@product.Price</span>
                                     </span>
                                 </div>
                             </li>

@@ -15,11 +15,25 @@
             </div>
         </div>
         <div class="text-center">
-            <h1>Logic</h1>
+            <div class="total-to-pay-wrap">
+                <p class="text-left"><strong>Total</strong></p>
+                <div class="input-group">
+                    <span class="input-group-addon bg-primary">$</span>
+                    <input class="form-control" type="text" value="1.00" aria-label="US Dollar" disabled>
+                </div>
+            </div>
+            <div class="amount-to-buy-wrap">
+                <p class="text-left"><strong>Items to buy</strong></p>
+                <div class="amount-to-buy-control-wrap">
+                    <button class="btn btn-primary" type="button"><span class="icon icon-minus"></span></button>
+                    <input id="form-control-5" class="form-control" readonly="readonly">
+                    <button class="btn btn-primary" type="button"><span class="icon icon-plus"></span></button>
+                </div>
+            </div>
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Apply</button>
+            <button type="button" class="btn btn-primary">Buy</button>
         </div>
     </div>
 </div>
