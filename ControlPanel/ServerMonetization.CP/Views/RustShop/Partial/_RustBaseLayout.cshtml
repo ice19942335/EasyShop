@@ -2,21 +2,22 @@
 @using Finbuckle.MultiTenant
 @using Finbuckle.MultiTenant.EntityFrameworkCore
 @using Microsoft.AspNetCore.Http
+@using Microsoft.Extensions.Configuration
 @model EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Shop.RustShopViewModel
 @inject IMultiTenancyStoreService TenancyStoreService
+@inject IConfiguration Configuration
 @{
     ViewData["Title"] = $"Rust shop {Model.ShopName}";
     Layout = "_ControlPanelLayout";
 
     var tenantInfo = await TenancyStoreService.TryGetAsync(Model.Id);
-
-    var shopLink = $"https://localhost:44367/{tenantInfo.Identifier}";
+    var shopLink = $"{Configuration["MultiTenantHost"]}{tenantInfo.Identifier}";
 }
 
-    <div class="m-b-lg">
-        <h3 class="m-t-sm">@Model.ShopName</h3>
-        <a href="@shopLink" target="_blank"><span class="icon icon-external-link icon-lg icon-fw"></span> Server: @shopLink</a>
-    </div>
+<div class="m-b-lg">
+    <h3 class="m-t-sm">@Model.ShopName</h3>
+    <a href="@shopLink" target="_blank"><span class="icon icon-external-link icon-lg icon-fw"></span> Server: @shopLink</a>
+</div>
 @await Html.PartialAsync("Partial/_RustShopNavBar", Model)
 @RenderBody()
 
