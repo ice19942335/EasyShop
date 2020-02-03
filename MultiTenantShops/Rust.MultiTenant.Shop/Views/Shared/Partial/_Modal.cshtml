@@ -14,26 +14,28 @@
                 <h4 id="byu-modal-product-title" class="modal-title">Crossbow</h4>
             </div>
         </div>
-        <div class="text-center">
-            <div class="total-to-pay-wrap">
-                <p class="text-left"><strong>Total</strong></p>
-                <div class="input-group">
-                    <span class="input-group-addon bg-primary">$</span>
-                    <input class="form-control" type="text" value="1.00" aria-label="US Dollar" disabled>
+        <form method="post" asp-controller="Payment" asp-action="Buy">
+            <div class="text-center">
+                <div class="total-to-pay-wrap">
+                    <p class="text-left"><strong>Total</strong></p>
+                    <div class="input-group">
+                        <span class="input-group-addon bg-primary">$</span>
+                        <input id="modal-total-to-pay" class="form-control" type="text" aria-label="US Dollar" disabled>
+                    </div>
+                </div>
+                <div class="amount-to-buy-wrap">
+                    <p class="text-left"><strong>Items to buy</strong></p>
+                    <div class="amount-to-buy-control-wrap">
+                        <button id="modal-decrement" class="btn btn-primary" type="button"><span class="icon icon-minus"></span></button>
+                        <input id="modal-items-to-buy" type="text" class="form-control" readonly="readonly">
+                        <button id="modal-increment" class="btn btn-primary" type="button"><span class="icon icon-plus"></span></button>
+                    </div>
                 </div>
             </div>
-            <div class="amount-to-buy-wrap">
-                <p class="text-left"><strong>Items to buy</strong></p>
-                <div class="amount-to-buy-control-wrap">
-                    <button class="btn btn-primary" type="button"><span class="icon icon-minus"></span></button>
-                    <input id="form-control-5" class="form-control" readonly="readonly">
-                    <button class="btn btn-primary" type="button"><span class="icon icon-plus"></span></button>
-                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Buy</button>
             </div>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Buy</button>
-        </div>
+        </form>
     </div>
 </div>

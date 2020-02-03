@@ -15,11 +15,17 @@ class DynamicStore {
         this.byuModalProductTitle = undefined;
         this.byuModalProductImg = undefined;
 
+        this.modalTotalToPay = undefined;
+        this.modalItemsToBuy = undefined;
+        this.itemToBuyPrice = 0;
+
         this.clickOnCategoryHandler = this.clickOnCategoryHandler.bind(this);
         this.inputSearchFieldHandler = this.inputSearchFieldHandler.bind(this);
         this.clickOnProductHandler = this.clickOnProductHandler.bind(this);
         this.closeModalHandler = this.closeModalHandler.bind(this);
         this.clickOnModalHandler = this.clickOnModalHandler.bind(this);
+        this.clickOnDecrementHandler = this.clickOnDecrementHandler.bind(this);
+        this.clickOnIncrementHandler = this.clickOnIncrementHandler.bind(this);
     }
     init() {
         this.initializeVariables();
@@ -34,6 +40,9 @@ class DynamicStore {
         this.modalBg = document.getElementById('buy-modal-bg');
         this.byuModalProductTitle = document.getElementById('byu-modal-product-title');
         this.byuModalProductImg = document.getElementById('byu-modal-product-img');
+
+        this.modalTotalToPay = document.getElementById('modal-total-to-pay');
+        this.modalItemsToBuy = document.getElementById('modal-items-to-buy');
     }
     setDefaultShowCategoriesState() {
         const categories = document.querySelectorAll('.ctegory');
@@ -66,17 +75,38 @@ class DynamicStore {
             product.addEventListener('click', this.closeModalHandler);
         }
 
-        document.getElementById('searchInput').addEventListener('input', this.inputSearchFieldHandler);
-
         this.modal.addEventListener('click', this.clickOnModalHandler);
+
+        document.getElementById('search-input').addEventListener('input', this.inputSearchFieldHandler);
+        document.getElementById('modal-decrement').addEventListener('click', this.clickOnDecrementHandler);
+        document.getElementById('modal-increment').addEventListener('click', this.clickOnIncrementHandler);
+    }
+    clickOnDecrementHandler() {
+        const itemsToBuy = +this.modalItemsToBuy.value;
+        const itemsToBuyResult = itemsToBuy - 1;
+
+        if(itemsToBuyResult < 1) return;
+
+        this.modalItemsToBuy.value = itemsToBuyResult;
+        this.modalTotalToPay.value = `${(itemsToBuyResult * this.itemToBuyPrice).toFixed(2)}`;
+    }
+    clickOnIncrementHandler() {
+        const itemsToBuy = +this.modalItemsToBuy.value;
+        const itemsToBuyResult = itemsToBuy + 1;
+
+        this.modalItemsToBuy.value = itemsToBuyResult;
+        this.modalTotalToPay.value = `${(itemsToBuyResult * this.itemToBuyPrice).toFixed(2)}`;
     }
     closeModalHandler() {
         this.closeModal();
     }
     clickOnProductHandler(event) {
         let product = undefined;
-
-        if (event.path[4].dataset.productId !== undefined) {
+        console.log(event);
+        
+        if (event.path[5].dataset.productId !== undefined) {
+            product = event.path[5];
+        } else if (event.path[4].dataset.productId !== undefined) {
             product = event.path[4];
         } else if (event.path[3].dataset.productId !== undefined) {
             product = event.path[3];
@@ -125,19 +155,18 @@ class DynamicStore {
         this.modal.style.display = 'block';
         this.modalBg.style.display = 'block';
 
-        this.setModalData(product);
+        this.setModalDataOnFirstShow(product);
     }
     closeModal() {
         this.modal.style.display = 'none';
         this.modalBg.style.display = 'none';
     }
-    setModalData(product) {
-        console.log(product);
-        
+    setModalDataOnFirstShow(product) {
+        this.itemToBuyPrice = +product.dataset.productPriceAfterDiscount;
         this.byuModalProductTitle.innerText = product.dataset.productName;
         this.byuModalProductImg.src = product.dataset.productImgUrl;
-        console.log(this.byuModalProductTitle);
-        console.log(this.byuModalProductImg);
+        this.modalItemsToBuy.value = '1';
+        this.modalTotalToPay.value = product.dataset.productPriceAfterDiscount;
     }
     renderProductsList() {
         for (const product of this.allProductsNodes) {
