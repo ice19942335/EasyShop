@@ -41,10 +41,6 @@
     box-shadow: none;
 }
 
-.buy-modal-img {
-    width: 250px;
-}
-
 @media (min-width: 992px) {
     .modal-dialog {
         width: auto;

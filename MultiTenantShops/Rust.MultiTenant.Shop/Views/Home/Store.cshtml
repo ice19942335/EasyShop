@@ -1,7 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Http
-@model EasyShop.Domain.ViewModels.RustStore.Store.RustStoreViewModel
-
 @using EasyShop.Interfaces.Services.CP.Rust.Shop
+@model EasyShop.Domain.ViewModels.RustStore.Store.RustStoreViewModel
 @inject IHttpContextAccessor HttpContextAccessor
 @inject IRustShopService RustShopService
 @{
@@ -50,7 +49,7 @@
                                     <div class="product-brands-search">
                                         <div class="form-group form-group-sm">
                                             <div class="input-with-icon">
-                                                <input id="searchInput" class="form-control thick" type="text" placeholder="Search by name&hellip;">
+                                                <input id="search-input" class="form-control thick" type="text" placeholder="Search by name&hellip;">
                                                 <span class="icon icon-search input-icon"></span>
                                             </div>
                                         </div>
@@ -88,15 +87,16 @@
                     <ul class="products">
                         @foreach (var product in Model.Products)
                         {
-                            <li class="panel-no-shadow panel-body product" 
-                                style="border-radius: 0;" 
-                                data-product-id="@product.Id" 
+                            <li class="panel-no-shadow panel-body product"
+                                style="border-radius: 0;"
+                                data-product-id="@product.Id"
                                 data-category-id="@product.CategoryId"
-                                data-product-name="@product.Name" 
+                                data-product-name="@product.Name"
                                 data-discount="@(product.Discount > 0 ? "true" : "false")"
-                                data-product-img-url="@product.ImgUrl">
+                                data-product-img-url="@product.ImgUrl"
+                                data-product-price-after-discount="@product.PriceAfterDiscount">
                                 <div class="product-image text-center">
-                                    <a class="overlay" href="https://server-monetization.com" onclick="return false;"}>
+                                    <a class="overlay" href="https://server-monetization.com" onclick="return false;" }>
                                         <div class="overlay-image">
                                             <img class="img-responsive-sixty" src="@product.ImgUrl" alt="@product.Name">
                                         </div>
@@ -110,8 +110,8 @@
                                         <a href="https://server-monetization.com" onclick="return false;">@product.Name</a>
                                     </h5>
                                     <span class="product-price">
-                                        <span class="product-price-current">$@product.Price</span>
-                                        <span style="@(product.Discount > 0 ? "" : "Display: none;")" class="product-price-old">$@product.PriceAfterDiscount</span>
+                                        <span class="product-price-current">$@product.PriceAfterDiscount</span>
+                                        <span style="@(product.Discount > 0 ? "" : "Display: none;")" class="product-price-old">$@product.Price</span>
                                     </span>
                                 </div>
                             </li>

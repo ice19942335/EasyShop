@@ -15,3 +15,27 @@
 .img-responsive-sixty {
     max-width: 60%;
 }
+
+.total-to-pay-wrap {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.total-to-pay-wrap > p {
+    font-size: 15px;
+    margin: 0;
+}
+
+.amount-to-buy-control-wrap {
+    display: flex;
+}
+
+.amount-to-buy-wrap {
+    padding: 5px;
+}
+
+.amount-to-buy-wrap > p {
+    font-size: 15px;
+    margin: 0;
+}
