@@ -58,3 +58,1184 @@ WHERE [a].[RoleId] = @__role_Id_0
 
 2020-02-03 09:48:00,714 [4] ?     - Request finished in 1100.95ms 200 text/html; charset=utf-8
 
+2020-02-03 12:46:00,131 [4] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-02-03 12:46:00,140 [4] ?     - Hosting environment: Development
+
+2020-02-03 12:46:00,142 [4] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP
+
+2020-02-03 12:46:00,149 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/  
+
+2020-02-03 12:46:00,235 [9] ?     - Executing endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-03 12:46:00,279 [9] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller ServerMonetization.CP.Controllers.HomeController (ServerMonetization.CP).
+
+2020-02-03 12:46:00,301 [9] ?     - Executing ViewResult, running view Index.
+
+2020-02-03 12:46:00,506 [9] ?     - Executed ViewResult - view Index executed in 206.0222ms.
+
+2020-02-03 12:46:00,508 [9] ?     - Executed action ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP) in 227.5044ms
+
+2020-02-03 12:46:00,509 [9] ?     - Executed endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-03 12:46:00,514 [9] ?     - Request finished in 366.1438ms 200 text/html; charset=utf-8
+
+2020-02-03 12:46:29,222 [12] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-02-03 12:46:29,240 [12] ?     - Hosting environment: Development
+
+2020-02-03 12:46:29,242 [12] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP
+
+2020-02-03 12:46:29,255 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/  
+
+2020-02-03 12:46:29,353 [9] ?     - Executing endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-03 12:46:29,391 [9] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller ServerMonetization.CP.Controllers.HomeController (ServerMonetization.CP).
+
+2020-02-03 12:46:29,419 [9] ?     - Executing ViewResult, running view Index.
+
+2020-02-03 12:46:29,641 [9] ?     - Executed ViewResult - view Index executed in 226.3164ms.
+
+2020-02-03 12:46:29,643 [9] ?     - Executed action ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP) in 250.2086ms
+
+2020-02-03 12:46:29,645 [9] ?     - Executed endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-03 12:46:29,650 [9] ?     - Request finished in 397.0473ms 200 text/html; charset=utf-8
+
+2020-02-03 12:46:39,314 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ControlPanel/Dashboard  
+
+2020-02-03 12:46:39,343 [4] ?     - Authorization was successful.
+
+2020-02-03 12:46:39,346 [4] ?     - Executing endpoint 'ServerMonetization.CP.Controllers.ControlPanelController.Dashboard (ServerMonetization.CP)'
+
+2020-02-03 12:46:39,368 [4] ?     - Route matched with {action = "Dashboard", controller = "ControlPanel"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Dashboard(EasyShop.Domain.Enums.CP.DashBoard.DashBoardStatsPeriodEnum) on controller ServerMonetization.CP.Controllers.ControlPanelController (ServerMonetization.CP).
+
+2020-02-03 12:46:39,375 [4] ?     - Entity Framework Core 3.1.1 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-02-03 12:46:39,379 [4] ?     - Executed DbCommand (1ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-03 12:46:39,466 [4] ?     - Executed DbCommand (11ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,469 [4] ?     - Executed DbCommand (1ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,472 [4] ?     - Executed DbCommand (1ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,477 [4] ?     - Executed DbCommand (3ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,541 [4] ?     - Executed DbCommand (3ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,546 [4] ?     - Executed DbCommand (2ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,550 [4] ?     - Executed DbCommand (1ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,557 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,560 [4] ?     - Executed DbCommand (1ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,562 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,565 [4] ?     - Executed DbCommand (1ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,568 [4] ?     - Executed DbCommand (1ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,570 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,573 [4] ?     - Executed DbCommand (1ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,578 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,583 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,586 [4] ?     - Executed DbCommand (1ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,589 [4] ?     - Executed DbCommand (1ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,592 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,596 [4] ?     - Executed DbCommand (1ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,598 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,603 [4] ?     - Executed DbCommand (1ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,606 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,609 [4] ?     - Executed DbCommand (1ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,611 [4] ?     - Executed DbCommand (1ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,615 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,617 [4] ?     - Executed DbCommand (1ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,620 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,626 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,655 [4] ?     - Executed DbCommand (7ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDateWeekAgo_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDateWeekAgo_Date_2)
+
+2020-02-03 12:46:39,659 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,661 [4] ?     - Executed DbCommand (1ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDateWeekAgo_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDateWeekAgo_Date_2)
+
+2020-02-03 12:46:39,665 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,667 [4] ?     - Executed DbCommand (1ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDateWeekAgo_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDateWeekAgo_Date_2)
+
+2020-02-03 12:46:39,670 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,672 [4] ?     - Executed DbCommand (1ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDateWeekAgo_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDateWeekAgo_Date_2)
+
+2020-02-03 12:46:39,675 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,678 [4] ?     - Executed DbCommand (1ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDateWeekAgo_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDateWeekAgo_Date_2)
+
+2020-02-03 12:46:39,681 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,684 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDateWeekAgo_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDateWeekAgo_Date_2)
+
+2020-02-03 12:46:39,687 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDay_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_2)
+
+2020-02-03 12:46:39,690 [4] ?     - Executed DbCommand (1ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__selectedDateWeekAgo_Date_2='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE (((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDateWeekAgo_Date_2)
+
+2020-02-03 12:46:39,694 [4] ?     - Executing ViewResult, running view Dashboard.
+
+2020-02-03 12:46:39,720 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-03 12:46:39,728 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-03 12:46:39,764 [9] ?     - Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+
+2020-02-03 12:46:39,778 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-03 12:46:39,785 [4] ?     - Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [n].[Id], [n].[DateTimeCreated], [n].[Link], [n].[LinkTitle], [n].[Message], [n].[Title]
+FROM [Notifications] AS [n]
+
+2020-02-03 12:46:39,795 [4] ?     - Executed DbCommand (1ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-03 12:46:39,803 [4] ?     - Executed DbCommand (2ms) [Parameters=[@__user_Id_0='?' (Size = 450), @__notification_Id_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[AppUserId], [u].[NotificationId]
+FROM [UserNotifications] AS [u]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND ([u].[NotificationId] = @__notification_Id_1)
+
+2020-02-03 12:46:39,826 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-03 12:46:39,827 [4] ?     - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [n].[Id], [n].[DateTimeCreated], [n].[Link], [n].[LinkTitle], [n].[Message], [n].[Title]
+FROM [Notifications] AS [n]
+
+2020-02-03 12:46:39,830 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-03 12:46:39,832 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 450), @__notification_Id_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[AppUserId], [u].[NotificationId]
+FROM [UserNotifications] AS [u]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND ([u].[NotificationId] = @__notification_Id_1)
+
+2020-02-03 12:46:39,841 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-03 12:46:39,843 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 450), @__notification_Id_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[AppUserId], [u].[NotificationId]
+FROM [UserNotifications] AS [u]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND ([u].[NotificationId] = @__notification_Id_1)
+
+2020-02-03 12:46:39,858 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-03 12:46:39,892 [4] ?     - Executed DbCommand (4ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE [u].[AppUserId] = @__user_Id_0
+
+2020-02-03 12:46:39,920 [4] ?     - Executed ViewResult - view Dashboard executed in 226.539ms.
+
+2020-02-03 12:46:39,922 [4] ?     - Executed action ServerMonetization.CP.Controllers.ControlPanelController.Dashboard (ServerMonetization.CP) in 551.9162ms
+
+2020-02-03 12:46:39,923 [4] ?     - Executed endpoint 'ServerMonetization.CP.Controllers.ControlPanelController.Dashboard (ServerMonetization.CP)'
+
+2020-02-03 12:46:39,927 [4] ?     - Request finished in 612.1403ms 200 text/html; charset=utf-8
+
+2020-02-03 12:46:44,222 [16] ?     - Request starting HTTP/2.0 GET https://localhost:44374/ShopManager/EditShopHandler?shopId=2bee2a22-5574-4374-b710-a60ded47fb82  
+
+2020-02-03 12:46:44,237 [16] ?     - Authorization was successful.
+
+2020-02-03 12:46:44,238 [16] ?     - Executing endpoint 'ServerMonetization.CP.Controllers.ShopManagerController.EditShopHandler (ServerMonetization.CP)'
+
+2020-02-03 12:46:44,242 [16] ?     - Route matched with {action = "EditShopHandler", controller = "ShopManager"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult EditShopHandler(System.String) on controller ServerMonetization.CP.Controllers.ShopManagerController (ServerMonetization.CP).
+
+2020-02-03 12:46:44,272 [16] ?     - Entity Framework Core 3.1.1 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-02-03 12:46:44,283 [16] ?     - Executed DbCommand (2ms) [Parameters=[@__shopId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [g].[Id], [g].[Type]
+FROM [Shops] AS [s]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+WHERE [s].[Id] = @__shopId_0
+
+2020-02-03 12:46:44,298 [16] ?     - Executing RedirectResult, redirecting to /RustShop/ShopStats?shopId=2bee2a22-5574-4374-b710-a60ded47fb82.
+
+2020-02-03 12:46:44,301 [16] ?     - Executed action ServerMonetization.CP.Controllers.ShopManagerController.EditShopHandler (ServerMonetization.CP) in 56.5691ms
+
+2020-02-03 12:46:44,303 [16] ?     - Executed endpoint 'ServerMonetization.CP.Controllers.ShopManagerController.EditShopHandler (ServerMonetization.CP)'
+
+2020-02-03 12:46:44,306 [16] ?     - Request finished in 83.5655ms 302 
+
+2020-02-03 12:46:44,312 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/RustShop/ShopStats?shopId=2bee2a22-5574-4374-b710-a60ded47fb82  
+
+2020-02-03 12:46:44,316 [4] ?     - Authorization was successful.
+
+2020-02-03 12:46:44,317 [4] ?     - Executing endpoint 'ServerMonetization.CP.Controllers.RustShopController.ShopStats (ServerMonetization.CP)'
+
+2020-02-03 12:46:44,321 [4] ?     - Route matched with {action = "ShopStats", controller = "RustShop"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ShopStats(System.String, EasyShop.Domain.Enums.CP.Rust.RustShopStatsPeriodEnum) on controller ServerMonetization.CP.Controllers.RustShopController (ServerMonetization.CP).
+
+2020-02-03 12:46:44,336 [4] ?     - Entity Framework Core 3.1.1 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-02-03 12:46:44,339 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-03 12:46:44,344 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__shopId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [g].[Id], [g].[Type]
+FROM [Shops] AS [s]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+WHERE [s].[Id] = @__shopId_0
+
+2020-02-03 12:46:44,378 [4] ?     - Executed DbCommand (8ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,381 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,383 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,385 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,388 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,390 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,392 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,400 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,403 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,405 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,407 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,410 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,412 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,415 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,419 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,422 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,424 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,426 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,428 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,431 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,433 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,438 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,440 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,442 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,445 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,447 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,449 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,452 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,456 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,472 [4] ?     - Executed DbCommand (5ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDateWeekAgo_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDateWeekAgo_Date_3)
+
+2020-02-03 12:46:44,474 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,477 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDateWeekAgo_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDateWeekAgo_Date_3)
+
+2020-02-03 12:46:44,479 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,480 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDateWeekAgo_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDateWeekAgo_Date_3)
+
+2020-02-03 12:46:44,482 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,484 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDateWeekAgo_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDateWeekAgo_Date_3)
+
+2020-02-03 12:46:44,486 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,488 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDateWeekAgo_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDateWeekAgo_Date_3)
+
+2020-02-03 12:46:44,490 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,492 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDateWeekAgo_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDateWeekAgo_Date_3)
+
+2020-02-03 12:46:44,494 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDay_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDay_Date_3)
+
+2020-02-03 12:46:44,496 [4] ?     - Executed DbCommand (0ms) [Parameters=[@__datePeriodAgo_Date_0='?' (DbType = DateTime2), @__entity_equality__user_1_Id='?' (Size = 450), @__shopId_2='?' (DbType = Guid), @__selectedDateWeekAgo_Date_3='?' (DbType = DateTime2)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[AppUserId], [r].[RustPurchasedItemId], [r].[ShopId], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[Amount], [r0].[HasBeenUsed], [r0].[PurchaseDateTime], [r0].[RustItemId], [r0].[RustUserId], [r0].[TotalPaid], [r1].[Id], [r1].[ImgUrl], [r1].[Name], [r1].[RustItemInGameId], [r1].[RustItemTypeId], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance]
+FROM [RustPurchaseStats] AS [r]
+INNER JOIN [RustPurchasedItems] AS [r0] ON [r].[RustPurchasedItemId] = [r0].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+LEFT JOIN [RustItems] AS [r1] ON [r0].[RustItemId] = [r1].[Id]
+WHERE ((((CONVERT(date, [r0].[PurchaseDateTime]) > @__datePeriodAgo_Date_0) AND (CONVERT(date, [r0].[PurchaseDateTime]) <= CONVERT(date, CONVERT(date, GETDATE())))) AND ([a].[Id] = @__entity_equality__user_1_Id)) AND ([s].[Id] = @__shopId_2)) AND (CONVERT(date, [r0].[PurchaseDateTime]) = @__selectedDateWeekAgo_Date_3)
+
+2020-02-03 12:46:44,501 [4] ?     - Executing ViewResult, running view ShopStats.
+
+2020-02-03 12:46:44,542 [4] ?     - Entity Framework Core 3.1.1 initialized 'RustShopMultiTenantStoreContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-02-03 12:46:44,558 [13] ?     - Executed DbCommand (3ms) [Parameters=[@__id_0='?' (Size = 64)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [t].[Id], [t].[Identifier], [t].[Name], [t].[ConnectionString]
+FROM [TenantInfo] AS [t]
+WHERE [t].[Id] = @__id_0
+
+2020-02-03 12:46:44,561 [13] ?     - Finbuckle.MultiTenant.Stores.EFCoreStore`1[EasyShop.DAL.Context.RustShopMultiTenantStoreContext].TryGetAsync: Tenant Id "2bee2a22-5574-4374-b710-a60ded47fb82" found.
+
+2020-02-03 12:46:44,572 [13] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-03 12:46:44,575 [13] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-03 12:46:44,579 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+
+2020-02-03 12:46:44,581 [13] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-03 12:46:44,583 [13] ?     - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [n].[Id], [n].[DateTimeCreated], [n].[Link], [n].[LinkTitle], [n].[Message], [n].[Title]
+FROM [Notifications] AS [n]
+
+2020-02-03 12:46:44,585 [13] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-03 12:46:44,586 [13] ?     - Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 450), @__notification_Id_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[AppUserId], [u].[NotificationId]
+FROM [UserNotifications] AS [u]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND ([u].[NotificationId] = @__notification_Id_1)
+
+2020-02-03 12:46:44,588 [13] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-03 12:46:44,590 [13] ?     - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [n].[Id], [n].[DateTimeCreated], [n].[Link], [n].[LinkTitle], [n].[Message], [n].[Title]
+FROM [Notifications] AS [n]
+
+2020-02-03 12:46:44,592 [13] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-03 12:46:44,593 [13] ?     - Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 450), @__notification_Id_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[AppUserId], [u].[NotificationId]
+FROM [UserNotifications] AS [u]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND ([u].[NotificationId] = @__notification_Id_1)
+
+2020-02-03 12:46:44,596 [13] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-03 12:46:44,598 [13] ?     - Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 450), @__notification_Id_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[AppUserId], [u].[NotificationId]
+FROM [UserNotifications] AS [u]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND ([u].[NotificationId] = @__notification_Id_1)
+
+2020-02-03 12:46:44,601 [13] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-03 12:46:44,605 [13] ?     - Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE [u].[AppUserId] = @__user_Id_0
+
+2020-02-03 12:46:44,617 [13] ?     - Executed ViewResult - view ShopStats executed in 116.771ms.
+
+2020-02-03 12:46:44,622 [13] ?     - Executed action ServerMonetization.CP.Controllers.RustShopController.ShopStats (ServerMonetization.CP) in 298.7554ms
+
+2020-02-03 12:46:44,625 [13] ?     - Executed endpoint 'ServerMonetization.CP.Controllers.RustShopController.ShopStats (ServerMonetization.CP)'
+
+2020-02-03 12:46:44,628 [13] ?     - Request finished in 316.0231ms 200 text/html; charset=utf-8
+
+2020-02-03 12:46:45,963 [18] ?     - Request starting HTTP/2.0 GET https://localhost:44374/RustShop/EditMainSettings?shopId=2bee2a22-5574-4374-b710-a60ded47fb82  
+
+2020-02-03 12:46:45,969 [18] ?     - Authorization was successful.
+
+2020-02-03 12:46:45,971 [18] ?     - Executing endpoint 'ServerMonetization.CP.Controllers.RustShopController.EditMainSettings (ServerMonetization.CP)'
+
+2020-02-03 12:46:45,976 [18] ?     - Route matched with {action = "EditMainSettings", controller = "RustShop"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult EditMainSettings(System.String, EasyShop.Domain.Enums.CP.Rust.RustEditMainSettingsResult) on controller ServerMonetization.CP.Controllers.RustShopController (ServerMonetization.CP).
+
+2020-02-03 12:46:45,979 [18] ?     - Entity Framework Core 3.1.1 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-02-03 12:46:45,982 [18] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-03 12:46:45,986 [18] ?     - Executed DbCommand (0ms) [Parameters=[@__shopId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [g].[Id], [g].[Type]
+FROM [Shops] AS [s]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+WHERE [s].[Id] = @__shopId_0
+
+2020-02-03 12:46:45,989 [18] ?     - Executing ViewResult, running view EditMainSettings.
+
+2020-02-03 12:46:46,048 [18] ?     - Entity Framework Core 3.1.1 initialized 'RustShopMultiTenantStoreContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-02-03 12:46:46,051 [16] ?     - Executed DbCommand (1ms) [Parameters=[@__id_0='?' (Size = 64)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [t].[Id], [t].[Identifier], [t].[Name], [t].[ConnectionString]
+FROM [TenantInfo] AS [t]
+WHERE [t].[Id] = @__id_0
+
+2020-02-03 12:46:46,053 [16] ?     - Finbuckle.MultiTenant.Stores.EFCoreStore`1[EasyShop.DAL.Context.RustShopMultiTenantStoreContext].TryGetAsync: Tenant Id "2bee2a22-5574-4374-b710-a60ded47fb82" found.
+
+2020-02-03 12:46:46,056 [16] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-03 12:46:46,059 [16] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-03 12:46:46,062 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+
+2020-02-03 12:46:46,064 [16] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-03 12:46:46,066 [16] ?     - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [n].[Id], [n].[DateTimeCreated], [n].[Link], [n].[LinkTitle], [n].[Message], [n].[Title]
+FROM [Notifications] AS [n]
+
+2020-02-03 12:46:46,067 [16] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-03 12:46:46,069 [16] ?     - Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 450), @__notification_Id_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[AppUserId], [u].[NotificationId]
+FROM [UserNotifications] AS [u]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND ([u].[NotificationId] = @__notification_Id_1)
+
+2020-02-03 12:46:46,071 [16] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-03 12:46:46,072 [16] ?     - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [n].[Id], [n].[DateTimeCreated], [n].[Link], [n].[LinkTitle], [n].[Message], [n].[Title]
+FROM [Notifications] AS [n]
+
+2020-02-03 12:46:46,074 [16] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-03 12:46:46,076 [16] ?     - Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 450), @__notification_Id_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[AppUserId], [u].[NotificationId]
+FROM [UserNotifications] AS [u]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND ([u].[NotificationId] = @__notification_Id_1)
+
+2020-02-03 12:46:46,078 [16] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-03 12:46:46,079 [16] ?     - Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 450), @__notification_Id_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[AppUserId], [u].[NotificationId]
+FROM [UserNotifications] AS [u]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND ([u].[NotificationId] = @__notification_Id_1)
+
+2020-02-03 12:46:46,082 [16] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-03 12:46:46,084 [16] ?     - Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE [u].[AppUserId] = @__user_Id_0
+
+2020-02-03 12:46:46,090 [16] ?     - Executed ViewResult - view EditMainSettings executed in 102.394ms.
+
+2020-02-03 12:46:46,092 [16] ?     - Executed action ServerMonetization.CP.Controllers.RustShopController.EditMainSettings (ServerMonetization.CP) in 114.4075ms
+
+2020-02-03 12:46:46,093 [16] ?     - Executed endpoint 'ServerMonetization.CP.Controllers.RustShopController.EditMainSettings (ServerMonetization.CP)'
+
+2020-02-03 12:46:46,095 [16] ?     - Request finished in 131.93ms 200 text/html; charset=utf-8
+
