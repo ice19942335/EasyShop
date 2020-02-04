@@ -3,8 +3,11 @@
 class DynamicCategories {
     constructor() {
         this.allProductsNodes = [];
+        this.categories = [];
         this.substringFilterValue = '';
-        this.selectedCategoryId = '';
+        this.selectedCategoryId = undefined;
+
+        this.searchInput = undefined;
 
         this.clickOnCategoryHandler = this.clickOnCategoryHandler.bind(this);
         this.inputSearchFieldHandler = this.inputSearchFieldHandler.bind(this);
@@ -14,18 +17,21 @@ class DynamicCategories {
         this.setEventHandlers();
     }
     initializeVariables() {
+        this.categories = document.querySelectorAll('.ctegory-btn');
         this.allProductsNodes = document.querySelectorAll('.product');
+        this.searchInput = document.getElementById('search-input');
     }
     setEventHandlers() {
-        const categories = document.querySelectorAll('.ctegory-btn');
-
-        for (const category of categories) {
+        for (const category of this.categories) {
             category.addEventListener('click', this.clickOnCategoryHandler);
         }
 
-        document.getElementById('search-input').addEventListener('input', this.inputSearchFieldHandler);
+        this.searchInput.addEventListener('input', this.inputSearchFieldHandler);
     }
     clickOnCategoryHandler(event) {
+        this.searchInput.value = '';
+        this.substringFilterValue = '';
+
         if (event.target.dataset.categoryId !== undefined) {
             this.selectedCategoryId = event.target.dataset.categoryId;
             this.renderProductsList();
@@ -41,12 +47,31 @@ class DynamicCategories {
             let productCategoryId = product.dataset.categoryId;
             let productName = product.dataset.productName;
 
-            if (this.selectedCategoryId.toLowerCase() === 'all'.toLowerCase()) {
-                product.style.display = 'block';
-            } else if (this.selectedCategoryId === productCategoryId && productName.includes(this.substringFilterValue)) {
-                product.style.display = 'block';
+            if (this.selectedCategoryId === 'all' || this.selectedCategoryId === undefined) {
+                if (productName.includes(this.substringFilterValue)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
             } else {
-                product.style.display = 'none';
+                if (this.selectedCategoryId === productCategoryId && productName.includes(this.substringFilterValue)) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            } 
+        }
+
+        this.renderSideMenu();
+    }
+    renderSideMenu() {
+        for (const btn of this.categories) {
+            if(btn.dataset.categoryId === this.selectedCategoryId) {
+                btn.style.backgroundColor = 'gray';
+                btn.style.borderColor = 'gray';
+            } else {
+                btn.style.backgroundColor = '#d9230f';
+                btn.style.borderColor = '#d9230f';
             }
         }
     }
