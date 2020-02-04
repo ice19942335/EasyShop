@@ -94,7 +94,8 @@
                                 data-product-name="@product.Name"
                                 data-discount="@(product.Discount > 0 ? "true" : "false")"
                                 data-product-img-url="@product.ImgUrl"
-                                data-product-price-after-discount="@product.PriceAfterDiscount">
+                                data-product-price-after-discount="@product.PriceAfterDiscount"
+                                @(product.Description != null ? $"data-product-description=\"{product.Description.Replace(" ", "_")}\"" : "")>
                                 <div class="product-image text-center">
                                     <a class="overlay" href="https://server-monetization.com" onclick="return false;" }>
                                         <div class="overlay-image">
