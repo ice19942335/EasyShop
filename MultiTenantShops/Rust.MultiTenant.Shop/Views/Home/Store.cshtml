@@ -59,13 +59,10 @@
                                             <div class="custom-controls-stacked">
                                                 @if (Model.ProductCategories != null)
                                                 {
+                                                    <button class="btn btn-primary btn-sm ctegory-btn" data-category-id="all" type="button">All</button>
                                                     foreach (var category in Model.ProductCategories)
                                                     {
-                                                        <label class="custom-control custom-control-primary custom-checkbox ctegory">
-                                                            <input class="custom-control-input" type="checkbox" checked="checked" data-category-id="@category.Key">
-                                                            <span class="custom-control-indicator"></span>
-                                                            <span class="custom-control-label">@category.Value</span>
-                                                        </label>
+                                                        <button class="btn btn-primary btn-sm ctegory-btn" data-category-id="@category.Key" type="button">@category.Value</button>
                                                     }
                                                 }
                                             </div>
