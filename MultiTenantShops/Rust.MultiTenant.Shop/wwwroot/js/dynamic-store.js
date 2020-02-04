@@ -54,7 +54,7 @@ class DynamicCategories {
                     product.style.display = 'none';
                 }
             } else {
-                if (this.selectedCategoryId === productCategoryId && productName.includes(this.substringFilterValue)) {
+                if (this.selectedCategoryId === productCategoryId && productName.toLowerCase().includes(this.substringFilterValue.toLowerCase())) {
                     product.style.display = 'block';
                 } else {
                     product.style.display = 'none';
