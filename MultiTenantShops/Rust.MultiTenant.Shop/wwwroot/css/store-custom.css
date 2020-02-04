@@ -67,13 +67,7 @@
     }
 }
 
-@media (max-width: 991px) {
-    .product:nth-child(2n+1) {
-        clear: none;
-    }
-}
-
-@media (max-width: 1199px) and (min-width: 992px){
+@media (min-width: 992px) and (max-width: 1199px){
     .product:nth-child(3n+1) {
         clear: none;
     }
