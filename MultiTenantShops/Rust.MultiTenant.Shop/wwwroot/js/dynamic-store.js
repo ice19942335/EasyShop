@@ -1,10 +1,60 @@
 'use strict';
 
-class DynamicStore {
+class DynamicCategories {
     constructor() {
         this.allProductsNodes = [];
-        this.showCategoriesState = [];
         this.substringFilterValue = '';
+        this.selectedCategoryId = '';
+
+        this.clickOnCategoryHandler = this.clickOnCategoryHandler.bind(this);
+        this.inputSearchFieldHandler = this.inputSearchFieldHandler.bind(this);
+    }
+    init() {
+        this.initializeVariables();
+        this.setEventHandlers();
+    }
+    initializeVariables() {
+        this.allProductsNodes = document.querySelectorAll('.product');
+    }
+    setEventHandlers() {
+        const categories = document.querySelectorAll('.ctegory-btn');
+
+        for (const category of categories) {
+            category.addEventListener('click', this.clickOnCategoryHandler);
+        }
+
+        document.getElementById('search-input').addEventListener('input', this.inputSearchFieldHandler);
+    }
+    clickOnCategoryHandler(event) {
+        if (event.target.dataset.categoryId !== undefined) {
+            this.selectedCategoryId = event.target.dataset.categoryId;
+            this.renderProductsList();
+        }
+    }
+    inputSearchFieldHandler(event) {
+        this.substringFilterValue = event.target.value;
+
+        this.renderProductsList();
+    }
+    renderProductsList() {
+        for (const product of this.allProductsNodes) {
+            let productCategoryId = product.dataset.categoryId;
+            let productName = product.dataset.productName;
+
+            if (this.selectedCategoryId.toLowerCase() === 'all'.toLowerCase()) {
+                product.style.display = 'block';
+            } else if (this.selectedCategoryId === productCategoryId && productName.includes(this.substringFilterValue)) {
+                product.style.display = 'block';
+            } else {
+                product.style.display = 'none';
+            }
+        }
+    }
+}
+
+class BuyModal {
+    constructor() {
+        this.allProductsNodes = [];
 
         this.modalCloseButtons = [];
         this.modal = undefined;
@@ -14,13 +64,11 @@ class DynamicStore {
         this.products = undefined;
         this.byuModalProductTitle = undefined;
         this.byuModalProductImg = undefined;
-
+        this.productDescription = undefined;
         this.modalTotalToPay = undefined;
         this.modalItemsToBuy = undefined;
         this.itemToBuyPrice = 0;
 
-        this.clickOnCategoryHandler = this.clickOnCategoryHandler.bind(this);
-        this.inputSearchFieldHandler = this.inputSearchFieldHandler.bind(this);
         this.clickOnProductHandler = this.clickOnProductHandler.bind(this);
         this.closeModalHandler = this.closeModalHandler.bind(this);
         this.clickOnModalHandler = this.clickOnModalHandler.bind(this);
@@ -32,9 +80,7 @@ class DynamicStore {
         this.setEventHandlers();
     }
     initializeVariables() {
-        this.showCategoriesState = this.setDefaultShowCategoriesState();
-        this.allProductsNodes = this.GetAllProductNodes();
-        this.modalContentCustomdocument = document.querySelector('.modal-content-custom');
+        this.allProductsNodes = document.querySelectorAll('.product');
         this.modalCloseButtons = document.querySelectorAll('[data-dismiss="modal"]');
         this.modal = document.getElementById('buy-modal');
         this.modalBg = document.getElementById('buy-modal-bg');
@@ -43,30 +89,9 @@ class DynamicStore {
 
         this.modalTotalToPay = document.getElementById('modal-total-to-pay');
         this.modalItemsToBuy = document.getElementById('modal-items-to-buy');
-    }
-    setDefaultShowCategoriesState() {
-        const categories = document.querySelectorAll('.ctegory');
-        const categoriesIds = [];
-
-        for (const node of categories) {
-            categoriesIds.push({
-                categoryId: node.children[0].dataset.categoryId,
-                show: true
-            });
-        }
-
-        return categoriesIds;
-    }
-    GetAllProductNodes() {
-        return document.querySelectorAll('.product');
+        this.productDescription = document.getElementById('product-description');
     }
     setEventHandlers() {
-        const categories = document.querySelectorAll('.ctegory');
-
-        for (const category of categories) {
-            category.addEventListener('click', this.clickOnCategoryHandler);
-        }
-
         for (const product of this.allProductsNodes) {
             product.addEventListener('click', this.clickOnProductHandler);
         }
@@ -77,7 +102,6 @@ class DynamicStore {
 
         this.modal.addEventListener('click', this.clickOnModalHandler);
 
-        document.getElementById('search-input').addEventListener('input', this.inputSearchFieldHandler);
         document.getElementById('modal-decrement').addEventListener('click', this.clickOnDecrementHandler);
         document.getElementById('modal-increment').addEventListener('click', this.clickOnIncrementHandler);
     }
@@ -85,7 +109,7 @@ class DynamicStore {
         const itemsToBuy = +this.modalItemsToBuy.value;
         const itemsToBuyResult = itemsToBuy - 1;
 
-        if(itemsToBuyResult < 1) return;
+        if (itemsToBuyResult < 1) return;
 
         this.modalItemsToBuy.value = itemsToBuyResult;
         this.modalTotalToPay.value = `${(itemsToBuyResult * this.itemToBuyPrice).toFixed(2)}`;
@@ -102,8 +126,7 @@ class DynamicStore {
     }
     clickOnProductHandler(event) {
         let product = undefined;
-        console.log(event);
-        
+
         if (event.path[5].dataset.productId !== undefined) {
             product = event.path[5];
         } else if (event.path[4].dataset.productId !== undefined) {
@@ -119,32 +142,6 @@ class DynamicStore {
         }
 
         this.showModal(product);
-    }
-    clickOnCategoryHandler(event) {
-        if (event.target.dataset.categoryId !== undefined) {
-            const categoryId = event.target.dataset.categoryId;
-
-            let categoryState = this.showCategoriesState.find((item) => {
-                if (item.categoryId === categoryId) {
-                    return true;
-                } else {
-                    return false;
-                }
-            });
-
-            if (event.target.checked) {
-                categoryState.show = true;
-            } else {
-                categoryState.show = false;
-            }
-
-            this.renderProductsList();
-        }
-    }
-    inputSearchFieldHandler(event) {
-        this.substringFilterValue = event.target.value;
-
-        this.renderProductsList();
     }
     clickOnModalHandler(event) {
         if (event.target.id === 'buy-modal') {
@@ -167,32 +164,25 @@ class DynamicStore {
         this.byuModalProductImg.src = product.dataset.productImgUrl;
         this.modalItemsToBuy.value = '1';
         this.modalTotalToPay.value = product.dataset.productPriceAfterDiscount;
-    }
-    renderProductsList() {
-        for (const product of this.allProductsNodes) {
-            let productCategoryId = product.dataset.categoryId;
-            let productName = product.dataset.productName;
+        this.productDescription.innerText = '';
 
-            let categoryState = this.showCategoriesState.find((item) => {
-                if (item.categoryId === productCategoryId) {
-                    return true;
-                } else {
-                    return false;
-                }
-            });
+        if (product.dataset.productDescription !== undefined) {
+            let description = product.dataset.productDescription;
+            description = description.replace(/_/gi, ' ');
+            description = description.replace(/^"|"$/gi, '');
 
-            if (categoryState.show === true && productName.includes(this.substringFilterValue)) {
-                product.style.display = 'block';
-            } else {
-                product.style.display = 'none';
-            }
+            this.productDescription.innerText = description;
         }
+
     }
 }
 
 function initialize() {
-    const dynamicStore = new DynamicStore();
-    dynamicStore.init();
+    const dynamicCategories = new DynamicCategories();
+    dynamicCategories.init();
+
+    const buyModal = new BuyModal();
+    buyModal.init();
 }
 
 initialize();
