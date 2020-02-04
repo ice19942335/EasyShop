@@ -14,6 +14,7 @@ class DynamicStore {
         this.products = undefined;
         this.byuModalProductTitle = undefined;
         this.byuModalProductImg = undefined;
+        this.productDescription = undefined;
 
         this.modalTotalToPay = undefined;
         this.modalItemsToBuy = undefined;
@@ -43,6 +44,7 @@ class DynamicStore {
 
         this.modalTotalToPay = document.getElementById('modal-total-to-pay');
         this.modalItemsToBuy = document.getElementById('modal-items-to-buy');
+        this.productDescription = document.getElementById('product-description');
     }
     setDefaultShowCategoriesState() {
         const categories = document.querySelectorAll('.ctegory');
@@ -102,7 +104,6 @@ class DynamicStore {
     }
     clickOnProductHandler(event) {
         let product = undefined;
-        console.log(event);
         
         if (event.path[5].dataset.productId !== undefined) {
             product = event.path[5];
@@ -167,6 +168,16 @@ class DynamicStore {
         this.byuModalProductImg.src = product.dataset.productImgUrl;
         this.modalItemsToBuy.value = '1';
         this.modalTotalToPay.value = product.dataset.productPriceAfterDiscount;
+        this.productDescription.innerText = '';
+
+        if(product.dataset.productDescription !== undefined) {
+            let description = product.dataset.productDescription;
+            description = description.replace(/_/gi, ' ');
+            description = description.replace(/^"|"$/gi, '');
+
+            this.productDescription.innerText = description;
+        }
+
     }
     renderProductsList() {
         for (const product of this.allProductsNodes) {
