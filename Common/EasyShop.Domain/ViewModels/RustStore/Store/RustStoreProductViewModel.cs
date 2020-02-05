@@ -12,6 +12,8 @@ namespace EasyShop.Domain.ViewModels.RustStore.Store
 
         public decimal Price { get; set; }
 
+        public int ItemsPerStack { get; set; }
+
         public decimal PriceAfterDiscount { get; set; }
 
         public decimal Discount { get; set; }
@@ -19,8 +21,6 @@ namespace EasyShop.Domain.ViewModels.RustStore.Store
         public DateTime BlockedTill { get; set; }
 
         public string ImgUrl { get; set; }
-
-        public int ItemsInSet { get; set; }
 
         public string Description { get; set; }
 

@@ -31,15 +31,17 @@ namespace Rust.MultiTenant.Shop.Middleware
             _easyShopContext = easyShopContext;
             _rustShopService = rustShopService;
 
-            var tenantContext = httpContext.GetMultiTenantContext();
+            EasyShop.Domain.Entries.Shop.Shop shop;
 
-            if (tenantContext is null)
-                throw new ApplicationException($"Tenant context can't be null. | HttpContext: {httpContext}");
-
-            var shop = _rustShopService.GetShopById(Guid.Parse(tenantContext.TenantInfo.Id));
-
-            if (shop is null)
-                throw new ApplicationException($"Shop can't be null. TenantContext: {tenantContext} | HttpContext: {httpContext}");
+            try
+            {
+                var tenantContext = httpContext.GetMultiTenantContext();
+                shop = _rustShopService.GetShopById(Guid.Parse(tenantContext.TenantInfo.Id));
+            }
+            catch (Exception e)
+            {
+                throw new ApplicationException($"Please, have a look at the route, it may be a problem there, Finbuckle can be confused if there is some trouble with a route.");
+            }
 
             if (httpContext.User.Identity.IsAuthenticated)
             {

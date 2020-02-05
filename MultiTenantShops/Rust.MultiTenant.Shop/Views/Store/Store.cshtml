@@ -93,6 +93,7 @@
                                 data-product-img-url="@product.ImgUrl"
                                 data-product-price-after-discount="@product.PriceAfterDiscount"
                                 @(product.Description != null ? $"data-product-description=\"{product.Description.Replace(" ", "_")}\"" : "")>
+                                <span class="badge badge-primary product-bage">x@(product.ItemsPerStack)</span>
                                 <div class="product-image text-center">
                                     <a class="overlay" href="https://server-monetization.com" onclick="return false;" }>
                                         <div class="overlay-image">

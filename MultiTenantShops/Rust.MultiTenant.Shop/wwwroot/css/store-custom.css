@@ -1,6 +1,19 @@
 ﻿.product:hover {
+    position: relative;
     transition: 0.1s;
     background-color: rgba(217, 35, 14, 0.3);
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-bage {
+    position: absolute;
+    bottom: 34%;
+    right: 10%;
+    z-index: 2;
 }
 
 .shop-title {
@@ -54,23 +67,8 @@
     width: 98%;
 }
 
-@media (min-width: 992px) {
-    .modal-dialog {
-        width: auto;
-        border-radius: 4px;
+@media (max-width: 435px) {
+    .product-bage {
+        bottom: 50%;
     }
 }
-
-@media (min-width: 1200px) {
-    .product:nth-child(4n+1) {
-        clear: none;
-    }
-}
-
-@media (min-width: 992px) and (max-width: 1199px){
-    .product:nth-child(3n+1) {
-        clear: none;
-    }
-}
-
-
