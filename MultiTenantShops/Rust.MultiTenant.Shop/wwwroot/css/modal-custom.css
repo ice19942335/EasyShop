@@ -1,7 +1,7 @@
 ﻿.custom-modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 3;
     padding-top: 100px;
     left: 0;
     top: 0;
@@ -44,8 +44,7 @@
 
     .buy-modal-img {
         width: 100%;
-    }
-    
+    }   
 }
 
 .fade-in {
