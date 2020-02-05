@@ -31,7 +31,7 @@ namespace Rust.MultiTenant.Shop.Controllers
             _easyShopContext = easyShopContext;
         }
 
-        public IActionResult Index()
+        public IActionResult Store()
         {
             var tenantId = HttpContext.GetMultiTenantContext().TenantInfo.Id;
             var shopProducts = _rustShopService.GetAllAssignedVisibleProductsToAShopByShopId(Guid.Parse(tenantId));
@@ -49,7 +49,7 @@ namespace Rust.MultiTenant.Shop.Controllers
                     Discount = x.Discount,
                     BlockedTill = x.BlockedTill,
                     ImgUrl = x.RustItem.ImgUrl,
-                    ItemsInSet = x.Amount,
+                    ItemsPerStack = x.Amount,
                     Description = x.Description,
                     CategoryId = x.RustCategory.Id,
                     CategoryName = x.RustCategory.Name,
