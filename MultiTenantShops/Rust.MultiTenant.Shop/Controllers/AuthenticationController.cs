@@ -45,11 +45,13 @@ namespace Rust.MultiTenant.Shop.Controllers
             // after a successful authentication flow (e.g Google or Facebook).
 
             var tenantInfo = HttpContext.GetMultiTenantContext().TenantInfo;
-            var url = Url.Action("Store", "Home", null, HttpContext.Request.Scheme);
+            var url = Url.Action("Index", "Store", null, HttpContext.Request.Scheme);
 
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
             return RedirectPermanent(url);
         }
+
+        public IActionResult UserHaveToBeLoggedIn() => View();
     }
 }

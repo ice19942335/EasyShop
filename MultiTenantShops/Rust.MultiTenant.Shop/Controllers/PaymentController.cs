@@ -16,7 +16,7 @@ namespace Rust.MultiTenant.Shop.Controllers
         [HttpPost]
         public IActionResult Buy()
         {
-            return RedirectToAction("Store", "Home");
+            return RedirectToAction("Index", "Store");
         }
     }
 }
