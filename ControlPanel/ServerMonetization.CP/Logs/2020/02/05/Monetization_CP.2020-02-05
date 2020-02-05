@@ -3856,3 +3856,1691 @@ WHERE [u].[AppUserId] = @__user_Id_0
 
 2020-02-05 11:35:11,859 [15] ?     - Request finished in 300.7635ms 200 text/html; charset=utf-8
 
+2020-02-05 11:47:31,142 [4] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-02-05 11:47:31,153 [4] ?     - Hosting environment: Development
+
+2020-02-05 11:47:31,156 [4] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP
+
+2020-02-05 11:47:31,163 [5] ?     - Request starting HTTP/2.0 GET https://localhost:44374/RustShop/ProductsManager?shopId=9d5f140a-148c-4719-9be2-2455e679e3dc  
+
+2020-02-05 11:47:31,268 [5] ?     - Authorization was successful.
+
+2020-02-05 11:47:31,272 [5] ?     - Executing endpoint 'ServerMonetization.CP.Controllers.RustShopController.ProductsManager (ServerMonetization.CP)'
+
+2020-02-05 11:47:31,333 [5] ?     - Route matched with {action = "ProductsManager", controller = "RustShop"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult ProductsManager(System.String) on controller ServerMonetization.CP.Controllers.RustShopController (ServerMonetization.CP).
+
+2020-02-05 11:47:31,349 [5] ?     - Entity Framework Core 3.1.1 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-02-05 11:47:31,353 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-05 11:47:31,505 [5] ?     - Executed DbCommand (6ms) [Parameters=[@__shopId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [g].[Id], [g].[Type]
+FROM [Shops] AS [s]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+WHERE [s].[Id] = @__shopId_0
+
+2020-02-05 11:47:31,667 [5] ?     - Executing ViewResult, running view ProductsManager.
+
+2020-02-05 11:47:31,823 [5] ?     - Executed DbCommand (19ms) [Parameters=[@__shopId_0='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff], [r0].[Id], [r0].[ImgUrl], [r0].[Name], [r0].[RustItemInGameId], [r0].[RustItemTypeId], [r1].[Id], [r1].[TypeName], [r2].[Id], [r2].[AppUserId], [r2].[Index], [r2].[Name], [r2].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+INNER JOIN [AspNetUsers] AS [a] ON [r].[AppUserId] = [a].[Id]
+INNER JOIN [RustItems] AS [r0] ON [r].[RustItemId] = [r0].[Id]
+INNER JOIN [RustItemTypes] AS [r1] ON [r0].[RustItemTypeId] = [r1].[Id]
+INNER JOIN [RustCategories] AS [r2] ON [r].[RustCategoryId] = [r2].[Id]
+WHERE [s].[Id] = @__shopId_0
+ORDER BY [r].[Index]
+
+2020-02-05 11:47:31,933 [5] ?     - Executed DbCommand (4ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:31,997 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,004 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,007 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,010 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,013 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,016 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,020 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,023 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,026 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,033 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,042 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,046 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,049 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,056 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,063 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,067 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,097 [5] ?     - Executed DbCommand (15ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,101 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,104 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,109 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,111 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,117 [5] ?     - Executed DbCommand (2ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,119 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,124 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,129 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,133 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,137 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,142 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,145 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,152 [5] ?     - Executed DbCommand (2ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,156 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,159 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,163 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,166 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,170 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,173 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,177 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,182 [5] ?     - Executed DbCommand (2ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,186 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,190 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,195 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,198 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,204 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,207 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,211 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,215 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,217 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,221 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,224 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,227 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,229 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,232 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,235 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,238 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,241 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,244 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,248 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,250 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,252 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,256 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,258 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,261 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,264 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,267 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,270 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,274 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,277 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,279 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,282 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,284 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,286 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,289 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,291 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,293 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,295 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,298 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,302 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,305 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,308 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,311 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,314 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,317 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,319 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,322 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,325 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,327 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,330 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,334 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,339 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,343 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,347 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,350 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,352 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,355 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,362 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,368 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,371 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,375 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,380 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,384 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,386 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,389 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,392 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,396 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,409 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,421 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,432 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,439 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,446 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,451 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,456 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,460 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,464 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,470 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,475 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,479 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,484 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,486 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,489 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,492 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,496 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,500 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,503 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,506 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,510 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,513 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,516 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,518 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,521 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,523 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,534 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,539 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,543 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,547 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,550 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,553 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,556 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,559 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,561 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,563 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,565 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,568 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,570 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,574 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,577 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,581 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,583 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,587 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,590 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,592 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,594 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,596 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,598 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,600 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,602 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,604 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,606 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,608 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,612 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,616 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,619 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,622 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,624 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,626 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,629 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,632 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,634 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,636 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,639 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,642 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,645 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,648 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,651 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,654 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,658 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,661 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,664 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,666 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,668 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,670 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,673 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,674 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,676 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,679 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,681 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,685 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,688 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,692 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,695 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,698 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,700 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,702 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,704 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,706 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,708 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,710 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,713 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,717 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,720 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,722 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,724 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,727 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,730 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,732 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,734 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,736 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,738 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,741 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,743 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,746 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,749 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,752 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,756 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,760 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,763 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,765 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,768 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,770 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,773 [5] ?     - Executed DbCommand (0ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,776 [5] ?     - Executed DbCommand (1ms) [Parameters=[@__categoryId_0='?' (DbType = Guid), @__shopId_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT [r].[Id], [r].[Amount], [r].[AppUserId], [r].[BlockedTill], [r].[Description], [r].[Discount], [r].[Index], [r].[Name], [r].[Price], [r].[RustCategoryId], [r].[RustItemId], [r].[ShopId], [r].[ShowInShop], [s].[Id], [s].[GameTypeId], [s].[Secret], [s].[ShopName], [s].[ShopTitle], [s].[StartBalance], [r0].[Id], [r0].[AppUserId], [r0].[Index], [r0].[Name], [r0].[ShopId]
+FROM [RustUserItems] AS [r]
+INNER JOIN [RustCategories] AS [r0] ON [r].[RustCategoryId] = [r0].[Id]
+INNER JOIN [Shops] AS [s] ON [r].[ShopId] = [s].[Id]
+WHERE ([r0].[Id] = @__categoryId_0) AND ([s].[Id] = @__shopId_1)
+
+2020-02-05 11:47:32,867 [5] ?     - Entity Framework Core 3.1.1 initialized 'RustShopMultiTenantStoreContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-02-05 11:47:32,898 [17] ?     - Executed DbCommand (1ms) [Parameters=[@__id_0='?' (Size = 64)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [t].[Id], [t].[Identifier], [t].[Name], [t].[ConnectionString]
+FROM [TenantInfo] AS [t]
+WHERE [t].[Id] = @__id_0
+
+2020-02-05 11:47:32,902 [17] ?     - Finbuckle.MultiTenant.Stores.EFCoreStore`1[EasyShop.DAL.Context.RustShopMultiTenantStoreContext].TryGetAsync: Tenant Id "9d5f140a-148c-4719-9be2-2455e679e3dc" found.
+
+2020-02-05 11:47:32,942 [17] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-05 11:47:32,966 [17] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-05 11:47:33,012 [4] ?     - Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+
+2020-02-05 11:47:33,029 [17] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-05 11:47:33,055 [17] ?     - Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [n].[Id], [n].[DateTimeCreated], [n].[Link], [n].[LinkTitle], [n].[Message], [n].[Title]
+FROM [Notifications] AS [n]
+
+2020-02-05 11:47:33,079 [17] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-05 11:47:33,086 [17] ?     - Executed DbCommand (2ms) [Parameters=[@__user_Id_0='?' (Size = 450), @__notification_Id_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[AppUserId], [u].[NotificationId]
+FROM [UserNotifications] AS [u]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND ([u].[NotificationId] = @__notification_Id_1)
+
+2020-02-05 11:47:33,115 [17] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-05 11:47:33,117 [17] ?     - Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [n].[Id], [n].[DateTimeCreated], [n].[Link], [n].[LinkTitle], [n].[Message], [n].[Title]
+FROM [Notifications] AS [n]
+
+2020-02-05 11:47:33,119 [17] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-05 11:47:33,121 [17] ?     - Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 450), @__notification_Id_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[AppUserId], [u].[NotificationId]
+FROM [UserNotifications] AS [u]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND ([u].[NotificationId] = @__notification_Id_1)
+
+2020-02-05 11:47:33,131 [17] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-05 11:47:33,133 [17] ?     - Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 450), @__notification_Id_1='?' (DbType = Guid)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[AppUserId], [u].[NotificationId]
+FROM [UserNotifications] AS [u]
+WHERE ([u].[AppUserId] = @__user_Id_0) AND ([u].[NotificationId] = @__notification_Id_1)
+
+2020-02-05 11:47:33,152 [17] ?     - Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+
+2020-02-05 11:47:33,196 [17] ?     - Executed DbCommand (5ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [s].[Id], [s].[ShopName], [t0].[Id], [t0].[Type], [s].[ShopTitle], [s].[StartBalance], [s].[Secret]
+FROM [UserShops] AS [u]
+INNER JOIN [Shops] AS [s] ON [u].[ShopId] = [s].[Id]
+INNER JOIN [GameTypes] AS [g] ON [s].[GameTypeId] = [g].[Id]
+LEFT JOIN (
+    SELECT [t].[Id], [t].[Type]
+    FROM (
+        SELECT [g0].[Id], [g0].[Type], ROW_NUMBER() OVER(PARTITION BY [g0].[Id] ORDER BY [g0].[Id]) AS [row]
+        FROM [GameTypes] AS [g0]
+    ) AS [t]
+    WHERE [t].[row] <= 1
+) AS [t0] ON [g].[Id] = [t0].[Id]
+WHERE [u].[AppUserId] = @__user_Id_0
+
+2020-02-05 11:47:33,348 [5] ?     - Executed ViewResult - view ProductsManager executed in 1682.8285ms.
+
+2020-02-05 11:47:33,356 [5] ?     - Executed action ServerMonetization.CP.Controllers.RustShopController.ProductsManager (ServerMonetization.CP) in 2018.9714ms
+
+2020-02-05 11:47:33,361 [5] ?     - Executed endpoint 'ServerMonetization.CP.Controllers.RustShopController.ProductsManager (ServerMonetization.CP)'
+
+2020-02-05 11:47:33,380 [5] ?     - Request finished in 2218.6148ms 200 text/html; charset=utf-8
+
