@@ -9,14 +9,16 @@
         crossorigin="anonymous">
 </script>
 
-<div class="well">
-    <h2 class="text-center">Products manager</h2>
-    <div id="spinner" class="col-lg-12">
-        <div class="text-center" data-toggle="match-height" style="height: 138px;">
-            <div class="spinner spinner-primary spinner-lg pos-r sq-100"></div>
-        </div>
+<h2 class="text-center">Products manager</h2>
+
+<div id="spinner" class="col-lg-12">
+    <div class="text-center" data-toggle="match-height" style="height: 10px;">
+        <div class="spinner spinner-primary spinner-lg pos-r sq-100"></div>
     </div>
-    <div class="panel-body" id="panelTable" style="display: none">
+</div>
+
+<div id="tableWrap" class="well" style="display: none;">
+    <div class="panel-body" id="panelTable">
         <div class="table-responsive">
             <div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
                 <div class="row">
@@ -93,7 +95,7 @@
 
 @section Scripts
 {
-    <script src="~/js/customScripts/Rust/RustProductManager.js" asp-append-version="true"></script>
+
     <script src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
     <script>
         $(document).ready(function () {
@@ -112,4 +114,5 @@
             });
         });
     </script>
+    <script src="~/js/customScripts/Rust/RustProductManager.js" asp-append-version="true"></script>
 }
