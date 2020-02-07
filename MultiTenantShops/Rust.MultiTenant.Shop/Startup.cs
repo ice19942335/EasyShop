@@ -5,8 +5,10 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Finbuckle.MultiTenant;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Rust.MultiTenant.Shop.Controllers;
 using Rust.MultiTenant.Shop.Extensions;
 using Rust.MultiTenant.Shop.Installers;
 using IConfiguration = Microsoft.Extensions.Configuration.IConfiguration;
@@ -30,6 +32,10 @@ namespace Rust.MultiTenant.Shop
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseExceptionHandler("/Error/ErrorHandler/500");
+            }
 
             app.UseStaticFiles();
 
@@ -44,7 +50,7 @@ namespace Rust.MultiTenant.Shop
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute("default", "{__tenant__=}/{controller=Store}/{action=Store}");
+                endpoints.MapControllerRoute("Multi-Tenant pattern", "{__tenant__=}/{controller=Store}/{action=Store}");
             });
         }
     }

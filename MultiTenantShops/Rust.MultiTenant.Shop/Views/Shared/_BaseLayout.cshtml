@@ -24,42 +24,5 @@
     <link href="~/css/modal-custom.css" rel="stylesheet" asp-append-version="true" />
     @RenderSection("Styles", false)
 </head>
-
-<body class="layout layout-header-fixed layout-sidebar-fixed layout-footer-fixed well-custom">
-    @await Html.PartialAsync("Partial/_Header")
-    <div class="layout-main">
-        <div class="layout-content">
-            <div class="layout-content-body">
-                <div class="container">
-                    <img class="m-b-md" style="width: 100%;" src="https://i.imgur.com/jcNgsYp.png" alt="Service logo" />
-                    @RenderBody()
-                </div>
-            </div>
-        </div>
-        @await Html.PartialAsync("Partial/_Footer")
-        @await Html.PartialAsync("Partial/_BuyModal")
-    </div>
-
-    <script src="~/js/vendor.min.js" asp-append-version="true"></script>
-    <script src="~/js/elephant.min.js" asp-append-version="true"></script>
-    <script src="~/js/application.min.js" asp-append-version="true"></script>
-    <script src="~/js/dynamic-store.js" asp-append-version="true"></script>
-    @RenderSection("Scripts", false)
-    <script>
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] ||
-                function () {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-        ga('create', 'UA-83990101-1', 'auto');
-        ga('send', 'pageview');
-    </script>
-</body>
+    @RenderBody()
 </html>

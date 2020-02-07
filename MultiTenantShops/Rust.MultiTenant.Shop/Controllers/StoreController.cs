@@ -33,7 +33,17 @@ namespace Rust.MultiTenant.Shop.Controllers
 
         public IActionResult Store()
         {
-            var tenantId = HttpContext.GetMultiTenantContext().TenantInfo.Id;
+            string tenantId;
+
+            try
+            {
+                tenantId = HttpContext.GetMultiTenantContext().TenantInfo.Id;
+            }
+            catch
+            {
+                return RedirectToAction("Error404", "Error");
+            }
+
             var shopProducts = _rustShopService.GetAllAssignedVisibleProductsToAShopByShopId(Guid.Parse(tenantId));
             var shopCategories = _rustShopService.GetAllAssignedCategoriesToShopByShopId(Guid.Parse(tenantId));
             var shop = _rustShopService.GetShopById(Guid.Parse(tenantId));

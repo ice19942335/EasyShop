@@ -1,0 +1,17 @@
+﻿@{
+    Layout = "_BaseLayout";
+}
+
+<body>
+    @RenderBody()
+    <script src="~/js/vendor.min.js" asp-append-version="true"></script>
+    <script src="~/js/elephant.min.js" asp-append-version="true"></script>
+    @Html.PartialAsync("Partial/_GoogleAnalyticScript").Result
+</body>
+
+@section Styles
+{
+    <link rel="stylesheet" href="~/css/errors.min.css" asp-append-version="true">
+}
+
+
