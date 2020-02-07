@@ -1,14 +1,11 @@
 ﻿'use strict';
 
-let panelTable = document.getElementById('panelTable');
-panelTable.style.display = 'none';
+let tableWrap = document.getElementById('tableWrap');
+let spinner = document.getElementById('spinner');
 
 function windowReadyHandler() {
-    let spinner = document.getElementById('spinner');
-    let panelTable = document.getElementById('panelTable');
-
     spinner.style.display = 'none';
-    panelTable.style.display = 'block';
+    tableWrap.style.display = 'block';
 }
 
 window.addEventListener("load", windowReadyHandler);

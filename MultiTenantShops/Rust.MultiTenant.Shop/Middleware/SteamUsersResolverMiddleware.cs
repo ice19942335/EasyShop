@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AspNet.Security.OpenId.Steam;
@@ -31,7 +32,7 @@ namespace Rust.MultiTenant.Shop.Middleware
             _easyShopContext = easyShopContext;
             _rustShopService = rustShopService;
 
-            EasyShop.Domain.Entries.Shop.Shop shop;
+            EasyShop.Domain.Entries.Shop.Shop shop = null;
 
             try
             {
@@ -40,7 +41,7 @@ namespace Rust.MultiTenant.Shop.Middleware
             }
             catch (Exception e)
             {
-                throw new ApplicationException($"Please, have a look at the route, it may be a problem there, Finbuckle can be confused if there is some trouble with a route.");
+                await _next(httpContext);
             }
 
             if (httpContext.User.Identity.IsAuthenticated)

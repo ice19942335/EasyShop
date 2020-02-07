@@ -48,7 +48,7 @@ class DynamicCategories {
             let productName = product.dataset.productName;
 
             if (this.selectedCategoryId === 'all' || this.selectedCategoryId === undefined) {
-                if (productName.includes(this.substringFilterValue)) {
+                if (productName.toLowerCase().includes(this.substringFilterValue.toLowerCase())) {
                     product.style.display = 'block';
                 } else {
                     product.style.display = 'none';
@@ -198,7 +198,6 @@ class BuyModal {
 
             this.productDescription.innerText = description;
         }
-
     }
 }
 
@@ -211,3 +210,4 @@ function initialize() {
 }
 
 initialize();
+
