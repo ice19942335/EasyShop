@@ -32,9 +32,9 @@ namespace EasyShop.Interfaces.Services.CP.Rust.Shop
 
         Task<bool> SetDefaultProductsAsync(AppUser user, Domain.Entries.Shop.Shop shop);
 
-        Task<IEnumerable<RustProduct>> GetAllAssignedProductsToAShopByShopId(Guid shopId);
+        Task<IEnumerable<RustProduct>> GetAllAssignedProductsToAShopByShopIdAsync(Guid shopId);
 
-       Task<IEnumerable<RustProduct>> GetAllAssignedVisibleProductsToAShopByShopId(Guid shopId);
+       Task<IEnumerable<RustProduct>> GetAllAssignedVisibleProductsToAShopByShopIdAsync(Guid shopId);
 
         Task<RustProduct> GetProductById(Guid productId);
 

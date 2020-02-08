@@ -44,7 +44,7 @@ namespace Rust.MultiTenant.Shop.Controllers
                 return RedirectToAction("Error404", "Error");
             }
 
-            var shopProducts = await _rustShopService.GetAllAssignedVisibleProductsToAShopByShopId(Guid.Parse(tenantId));
+            var shopProducts = await _rustShopService.GetAllAssignedVisibleProductsToAShopByShopIdAsync(Guid.Parse(tenantId));
             var shopCategories = _rustShopService.GetAllAssignedCategoriesToShopByShopId(Guid.Parse(tenantId));
             var shop = _rustShopService.GetShopById(Guid.Parse(tenantId));
 

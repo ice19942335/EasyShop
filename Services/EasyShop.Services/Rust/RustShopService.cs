@@ -369,7 +369,7 @@ namespace EasyShop.Services.Rust
             }
         }
 
-        public async Task<IEnumerable<RustProduct>> GetAllAssignedProductsToAShopByShopId(Guid shopId)
+        public async Task<IEnumerable<RustProduct>> GetAllAssignedProductsToAShopByShopIdAsync(Guid shopId)
         {
             var products = _context.RustUserItems
                 .Include(x => x.Shop)
@@ -389,7 +389,7 @@ namespace EasyShop.Services.Rust
             return productsList.AsEnumerable();
         }
 
-        public async Task<IEnumerable<RustProduct>> GetAllAssignedVisibleProductsToAShopByShopId(Guid shopId)
+        public async Task<IEnumerable<RustProduct>> GetAllAssignedVisibleProductsToAShopByShopIdAsync(Guid shopId)
         {
             var products = _context.RustUserItems
                 .Include(x => x.Shop)

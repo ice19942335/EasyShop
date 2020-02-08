@@ -274,7 +274,7 @@ namespace ServerMonetization.CP.Controllers
             var model = shop.CreateRustShopViewModel();
             model.RustProductsManagerViewModel = new RustProductsManagerViewModel();
 
-            var allAssignedUserProducts = await _rustShopService.GetAllAssignedProductsToAShopByShopId(Guid.Parse(shopId));
+            var allAssignedUserProducts = await _rustShopService.GetAllAssignedProductsToAShopByShopIdAsync(Guid.Parse(shopId));
 
             model.RustProductsManagerViewModel.Products = allAssignedUserProducts.Select(x =>
             {
