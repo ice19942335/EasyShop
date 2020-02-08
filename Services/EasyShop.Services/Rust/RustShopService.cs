@@ -369,36 +369,59 @@ namespace EasyShop.Services.Rust
             }
         }
 
-        public IEnumerable<RustProduct> GetAllAssignedProductsToAShopByShopId(Guid shopId)
+        public async Task<IEnumerable<RustProduct>> GetAllAssignedProductsToAShopByShopId(Guid shopId)
         {
-            return _context.RustUserItems
+            var products = _context.RustUserItems
                 .Include(x => x.Shop)
                 .Include(x => x.AppUser)
                 .Include(x => x.RustItem)
                 .Include(x => x.RustCategory)
                 .Include(x => x.RustItem.RustItemType)
                 .Where(x => x.Shop.Id == shopId)
-                .OrderBy(x => x.Index);
+                .OrderBy(x => x.Index)
+                .ToList();
+
+            var productsList = new List<RustProduct>();
+
+            foreach (var product in products)
+                productsList.Add(await CheckBlockedTillDateAndUpdateAsync(product));
+
+            return productsList.AsEnumerable();
         }
 
-        public IEnumerable<RustProduct> GetAllAssignedVisibleProductsToAShopByShopId(Guid shopId)
+        public async Task<IEnumerable<RustProduct>> GetAllAssignedVisibleProductsToAShopByShopId(Guid shopId)
         {
-            return _context.RustUserItems
+            var products = _context.RustUserItems
                 .Include(x => x.Shop)
                 .Include(x => x.AppUser)
                 .Include(x => x.RustItem)
                 .Include(x => x.RustCategory)
                 .Include(x => x.RustItem.RustItemType)
                 .Where(x => x.Shop.Id == shopId && x.ShowInShop)
-                .OrderBy(x => x.RustCategory.Index);
+                .OrderBy(x => x.RustCategory.Index)
+                .ToList();
+
+            var productsList = new List<RustProduct>();
+
+            foreach (var product in products)
+                productsList.Add(await CheckBlockedTillDateAndUpdateAsync(product));
+
+            return productsList.AsEnumerable();
         }
 
-        public RustProduct GetProductById(Guid productId)
+        public async Task<RustProduct> GetProductById(Guid productId)
         {
-            return _context.RustUserItems
+            var product = _context.RustUserItems
                     .Include(x => x.RustCategory)
                     .Include(x => x.RustItem)
                     .FirstOrDefault(x => x.Id == productId);
+
+            if (product is null)
+                return null;
+
+            await CheckBlockedTillDateAndUpdateAsync(product);
+
+            return product;
         }
 
         public async Task<RustEditProductResult> UpdateRustProductAsync(RustShopViewModel model)
@@ -504,6 +527,17 @@ namespace EasyShop.Services.Rust
             var result = query.AsEnumerable();
 
             return result;
+        }
+
+        private async Task<RustProduct> CheckBlockedTillDateAndUpdateAsync(RustProduct product)
+        {
+            if (product.BlockedTill.Date.Ticks < DateTime.Now.Date.Ticks)
+                product.BlockedTill = default;
+
+            _context.RustUserItems.Update(product);
+            await _context.SaveChangesAsync();
+
+            return product;
         }
         #endregion
     }

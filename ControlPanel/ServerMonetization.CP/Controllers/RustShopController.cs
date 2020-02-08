@@ -80,8 +80,6 @@ namespace ServerMonetization.CP.Controllers
             return View(model);
         }
 
-
-
         #endregion Shop statis
 
         #region Main settings
@@ -266,7 +264,7 @@ namespace ServerMonetization.CP.Controllers
         #region Products
 
         [HttpGet]
-        public IActionResult ProductsManager(string shopId)
+        public async Task<IActionResult> ProductsManager(string shopId)
         {
             var shop = _shopService.GetShopById(Guid.Parse(shopId));
 
@@ -276,7 +274,7 @@ namespace ServerMonetization.CP.Controllers
             var model = shop.CreateRustShopViewModel();
             model.RustProductsManagerViewModel = new RustProductsManagerViewModel();
 
-            var allAssignedUserProducts = _rustShopService.GetAllAssignedProductsToAShopByShopId(Guid.Parse(shopId));
+            var allAssignedUserProducts = await _rustShopService.GetAllAssignedProductsToAShopByShopId(Guid.Parse(shopId));
 
             model.RustProductsManagerViewModel.Products = allAssignedUserProducts.Select(x =>
             {
@@ -303,10 +301,10 @@ namespace ServerMonetization.CP.Controllers
             return View(model);
         }
 
-        public IActionResult EditProduct(string shopId, string productId)
+        public async Task<IActionResult> EditProduct(string shopId, string productId)
         {
             var shop = _shopService.GetShopById(Guid.Parse(shopId));
-            var product = _rustShopService.GetProductById(Guid.Parse(productId));
+            var product = await _rustShopService.GetProductById(Guid.Parse(productId));
 
             if (shop is null || product is null)
                 return RedirectToAction("NotFoundPage", "Home");
@@ -323,7 +321,7 @@ namespace ServerMonetization.CP.Controllers
         public async Task<IActionResult> EditProduct(RustShopViewModel model)
         {
             var userCategories = _rustShopService.GetAllAssignedCategoriesToShopByShopId(Guid.Parse(model.Id));
-            var product = _rustShopService.GetProductById(Guid.Parse(model.RustProductEditViewModel.Id));
+            var product = await _rustShopService.GetProductById(Guid.Parse(model.RustProductEditViewModel.Id));
 
             if (!ModelState.IsValid)
             {
@@ -340,7 +338,7 @@ namespace ServerMonetization.CP.Controllers
 
             var result = await _rustShopService.UpdateRustProductAsync(model);
 
-            var updatedProduct = _rustShopService.GetProductById(Guid.Parse(model.RustProductEditViewModel.Id));
+            var updatedProduct = await _rustShopService.GetProductById(Guid.Parse(model.RustProductEditViewModel.Id));
             model.RustProductEditViewModel = updatedProduct.CreateRustEditProductViewModel(userCategories);
 
 
