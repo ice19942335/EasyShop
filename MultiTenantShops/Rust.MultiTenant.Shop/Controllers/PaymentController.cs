@@ -18,5 +18,10 @@ namespace Rust.MultiTenant.Shop.Controllers
         {
             return RedirectToAction("Store", "Store");
         }
+
+        public async Task<IActionResult> TopUp()
+        {
+            return View();
+        }
     }
 }

@@ -40,3 +40,14 @@
     margin: 0;
 }
 
+.dropdown-body {
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+}
+
+.dropdown-menu-lg {
+    padding: 0;
+    width: auto;
+}

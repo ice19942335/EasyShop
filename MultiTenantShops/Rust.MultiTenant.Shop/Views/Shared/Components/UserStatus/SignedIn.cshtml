@@ -5,13 +5,35 @@
 }
 
 <ul class="nav navbar-nav navbar-right">
-    @*Size: md+*@
-    <li class="hidden-xs">
-        <a class="balance-link" href="#" style="color: #d9230f; cursor: default;" >
-            <span class="icon icon-dollar icon-lg icon-fw"></span>
-            @Model.Balance
+    <li class="dropdown">
+        <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="icon-with-child hidden-xs" style="color: #d9230f;">
+                <span class="icon icon-dollar icon-lg"></span>
+                @Model.Balance
+            </span>
+            <span class="visible-xs-block">
+                <span class="icon icon-dollar icon-lg icon-fw" style="color: #d9230f;"></span>
+                @Model.Balance
+            </span>
         </a>
+        <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg">
+            <div class="dropdown-body">
+                <div class="custom-scrollable-area" style="position: relative; overflow: hidden; width: 100%; height: 100%;">
+                    <div class="list-group list-group-divided custom-scrollbar" style="overflow: hidden; width: 100%; height: 100%; margin-bottom: 0;">
+                        <a class="list-group-item" asp-controller="Payment" asp-action="TopUp">
+                            <div class="notification">
+                                <div class="notification-content">
+                                    <h5 class="notification-heading">Top-Up</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
+
+    @*Size: md+*@
     <li class="hidden-xs">
         <a asp-controller="Store" asp-action="Store">
             <span class="icon icon-shopping-bag icon-lg icon-fw"></span>
@@ -31,12 +53,6 @@
     </li>
 
     @*Size: xs*@
-    <li class="visible-xs-block">
-        <a href="#">
-            <span class="icon icon-dollar icon-lg icon-fw"></span>
-            @Model.Balance
-        </a>
-    </li>
     <li class="visible-xs-block">
         <a asp-controller="Store" asp-action="Store">
             <span class="icon icon-user icon-lg icon-fw"></span>
