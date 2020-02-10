@@ -1,8 +1,77 @@
-﻿
+﻿@model EasyShop.Domain.ViewModels.RustStore.Payment.RustStoreTopUpBalanceViewModel
+@using EasyShop.Interfaces.Services.CP.Rust.Shop
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@inject IRustShopService RustShopService
 @{
+    var tenantInfo = Context.GetMultiTenantContext().TenantInfo;
+
+    var shop = RustShopService.GetShopById(
+        Guid.Parse(HttpContextAccessor.HttpContext.GetMultiTenantContext().TenantInfo.Id));
+
+    var shopTitle = shop.ShopTitle;
+
     ViewData["Title"] = "Balance Top-Up";
     Layout = "_MainLayout";
 }
 
+<div class="title-bar">
+    <div class="panel panel-body">
+        <div class="row">
+            <div class="col-lg-2">
+                <a href="@($"/{tenantInfo.Identifier}")">
+                    <strong class="custom-nav-link">@shopTitle</strong>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 
+@if (Model != null)
+{
+    <div class="panel panel-body">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <h1 class="text-center">Top-Up Balance</h1>
+                <hr />
+                <form class="well" action="/" method="post">
+                    <div class="form-group">
+                        <label>Payment method</label>
+                        <select id="form-control-6" class="form-control">
+                            <option value="paypal" selected>PayPal</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Amount to Top-Up</label>
+                        <div class="top-up">
+                            <div class="input-group">
+                                <span class="input-group-addon">$</span>
+                                <input class="form-control" min="0" max="1000" type="number" aria-label="US Dollar" placeholder="1">
+                            </div>
+                            <div class="cents-wrap">
+                                <input class="form-control cents" min="0" max="99" type="number" placeholder="00">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="custom-control custom-control-primary custom-checkbox">
+                            <input id="agree" class="custom-control-input" type="checkbox" name="agree" data-msg-required="In order to use our services, you must agree to the Terms of Service." required="" aria-required="true">
+                            <span class="custom-control-indicator"></span>
+                            <small class="custom-control-label">I agree to the Server-Monetization <a href="#">Terms of Service</a>.</small>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-block" type="submit">Top-Up</button>
+                    </div>
+                    <div class="form-group"></div>
+                </form>
 
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts
+{
+    <link href="~/css/top-up-balance.css" rel="stylesheet" asp-append-version="true"/>
+}

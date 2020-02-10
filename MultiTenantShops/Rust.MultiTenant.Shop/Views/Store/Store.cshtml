@@ -31,7 +31,6 @@
                     <strong class="custom-nav-link">@shopTitle</strong>
                 </a>
             </div>
-            <div class="col-lg-10"></div>
         </div>
     </div>
 </div>
@@ -103,7 +102,7 @@
                                             if (product.BlockedTill != default)
                                             {
                                                 <div class="overlay-content overlay-top" style="@(product.Discount > 0 ? "" : "Display: none;")">
-                                                    <span class="label label-primary pull-right">BLOCKED TILL @product.BlockedTill.Date.ToString("d")</span>
+                                                    <span class="label label-primary pull-right">BLOCKED TILL @product.BlockedTill.Date.ToString("g")</span>
                                                 </div>
                                             }
                                             else

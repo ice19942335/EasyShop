@@ -1,0 +1,12 @@
+﻿.top-up {
+    display: flex;
+    justify-content: left;
+}
+
+.cents-wrap {
+    padding-left: 5px;
+}
+
+.cents {
+    width: 70px;
+}

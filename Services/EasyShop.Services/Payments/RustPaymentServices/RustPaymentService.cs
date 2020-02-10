@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Reflection.Metadata.Ecma335;
 using System.Threading.Tasks;
 using EasyShop.Domain.Settings;
+using EasyShop.Domain.ViewModels.RustStore.Payment;
 using EasyShop.Interfaces.Payments.RustPaymentServices;
 using Finbuckle.MultiTenant;
 using Microsoft.AspNetCore.Http;
@@ -37,7 +38,7 @@ namespace EasyShop.Services.Payments.RustPaymentServices
             _multiTenantContext = httpContextAccessor.HttpContext.GetMultiTenantContext();
         }
 
-        public async Task<Payment> CreatePaymentAsync(decimal amountToPay)
+        public async Task<Payment> CreatePaymentAsync(RustStoreTopUpBalanceViewModel model)
         {
             var environment = new SandboxEnvironment(_payPalSettings.ClientId, _payPalSettings.ClientSecret);
             var client = new PayPalHttpClient(environment);
@@ -51,7 +52,7 @@ namespace EasyShop.Services.Payments.RustPaymentServices
                         {
                             Amount = new Amount()
                             {
-                                Total = amountToPay.ToString(CultureInfo.InvariantCulture),
+                                Total = "10.00",
                                 Currency = "USD"
                             }
                         }
