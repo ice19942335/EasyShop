@@ -1,9 +1,34 @@
-﻿
+﻿@using EasyShop.Interfaces.Services.CP.Rust.Shop
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@inject IRustShopService RustShopService
 @{
+    var tenantInfo = Context.GetMultiTenantContext().TenantInfo;
+
+    var shop = RustShopService.GetShopById(
+        Guid.Parse(HttpContextAccessor.HttpContext.GetMultiTenantContext().TenantInfo.Id));
+
+    var shopTitle = shop.ShopTitle;
+
     ViewData["Title"] = "Please Log-In";
-    Layout = "_Layout";
+    Layout = "_MainLayout";
 }
 
-<img style="width: 100%;" src="http://testshop123.gamestores.ru/img/games/gamestores.png" alt="Service logo" />
-<h3 class="well text-center">Please login first and then try again.</h3>
+<div class="title-bar">
+    <div class="panel panel-body">
+        <div class="row">
+            <div class="col-lg-2">
+                <a href="@($"/{tenantInfo.Identifier}")">
+                    <strong class="custom-nav-link">@shopTitle</strong>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-body">
+    <div class="well m-b-0">
+        <h3 class="text-center m-b-0 m-t-0">Please login first and then try again.</h3>
+    </div>
+</div>
 
