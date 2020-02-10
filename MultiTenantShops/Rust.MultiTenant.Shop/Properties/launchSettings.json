@@ -13,7 +13,7 @@
       "launchBrowser": true,
       "launchUrl": "https://localhost:44367/9d5f140a148c47199be22455e679e3dc",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development1"
+        "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
     "Rust.MultiTenant.Shop": {

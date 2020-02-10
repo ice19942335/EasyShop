@@ -15,6 +15,7 @@ class DynamicCategories {
     init() {
         this.initializeVariables();
         this.setEventHandlers();
+        this.renderProductsList();
     }
     initializeVariables() {
         this.categories = document.querySelectorAll('.ctegory-btn');
@@ -59,14 +60,18 @@ class DynamicCategories {
                 } else {
                     product.style.display = 'none';
                 }
-            } 
+            }
+
+            if (product.dataset.blocked !== undefined) {
+                product.style.backgroundColor = "rgba(119,119,119,0.6)";
+            }
         }
 
         this.renderSideMenu();
     }
     renderSideMenu() {
         for (const btn of this.categories) {
-            if(btn.dataset.categoryId === this.selectedCategoryId) {
+            if (btn.dataset.categoryId === this.selectedCategoryId) {
                 btn.style.backgroundColor = 'gray';
                 btn.style.borderColor = 'gray';
             } else {
@@ -166,6 +171,10 @@ class BuyModal {
             product = event.path[0];
         }
 
+        if (product.dataset.blocked !== undefined) {
+            return;
+        }
+
         this.showModal(product);
     }
     clickOnModalHandler(event) {
@@ -210,4 +219,3 @@ function initialize() {
 }
 
 initialize();
-

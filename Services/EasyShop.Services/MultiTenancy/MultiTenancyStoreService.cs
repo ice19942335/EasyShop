@@ -51,10 +51,9 @@ namespace EasyShop.Services.MultiTenancy
                     return false;
                 else
                     return true;
-
             }
 
-            return tenantDeletionResult;
+            return true;
         }
 
         public async Task<TenantInfo> TryGetAsync(string id) => await _tenantStore.TryGetAsync(id);
