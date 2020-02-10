@@ -51,6 +51,16 @@
                     <input class="form-control" value="@($"${Model.Balance}")" readonly="readonly">
                 </div>
             </div>
+
+            <div class="row m-t-md">
+                <div class="col-md-1 profile-label"></div>
+                <div class="col-md-6">
+                    <form method="get" asp-controller="Payment" asp-action="TopUpBalance">
+                        <button type="submit" class="btn btn-primary">Top-Up</button>
+                    </form>
+                </div>
+            </div>
+
         </div>
     </div>
 }

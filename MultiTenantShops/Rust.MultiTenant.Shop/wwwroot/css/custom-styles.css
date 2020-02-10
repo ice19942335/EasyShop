@@ -2,14 +2,16 @@
     font-size: 20px;
 }
 
-.profile-label {
-    position: relative;
-    top: 6px;
-}
-
-.user-details-wrap {
-    position: relative;
-    top: 56px;
+@media (min-width: 992px) {
+    .profile-label {
+        position: relative;
+        top: 6px;
+    }
+    
+    .user-details-wrap {
+        position: relative;
+        top: 56px;
+    }
 }
 
 .img-responsive-sixty {
