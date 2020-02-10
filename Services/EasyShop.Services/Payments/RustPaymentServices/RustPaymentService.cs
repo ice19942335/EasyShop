@@ -52,7 +52,7 @@ namespace EasyShop.Services.Payments.RustPaymentServices
                         {
                             Amount = new Amount()
                             {
-                                Total = "10.00",
+                                Total = model.AmountToPay,
                                 Currency = "USD"
                             }
                         }

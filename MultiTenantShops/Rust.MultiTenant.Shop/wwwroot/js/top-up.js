@@ -8,6 +8,7 @@ class TopUpForm {
         this.dollarsInputValue;
 
         this.topUpResult;
+        this.topUpResultHiden;
 
         this.centsInput;
         this.centsInputValue;
@@ -28,6 +29,7 @@ class TopUpForm {
         this.centsInput = document.getElementById('cents-input');
         this.topUpResult = document.getElementById('topup-result');
         this.agree = document.getElementById('agree');
+        this.topUpResultHiden = document.getElementById('topup-result-hiden');
 
         this.dollarsInputValue = this.dollarsInput.value;
         this.centsInputValue = this.centsInput.value;
@@ -82,7 +84,10 @@ class TopUpForm {
                 this.centsInputValue += '0';
             }
 
-            this.topUpResult.value = `${this.dollarsInputValue}.${(this.centsInputValue)}`;
+            
+            const topUpResultValue = `${this.dollarsInputValue}.${(this.centsInputValue)}`;
+            this.topUpResultHiden.value = topUpResultValue;
+            this.topUpResult.value = topUpResultValue;
 
             if (this.agree.checked !== true) {
                 this.switchOffButton();

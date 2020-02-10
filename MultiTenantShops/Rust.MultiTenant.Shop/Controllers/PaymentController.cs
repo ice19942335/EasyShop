@@ -32,7 +32,7 @@ namespace Rust.MultiTenant.Shop.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> TopUpBalance()
+        public IActionResult TopUpBalance()
         {
             if (User.Identity.IsAuthenticated)
                 return View(new RustStoreTopUpBalanceViewModel());
@@ -40,10 +40,14 @@ namespace Rust.MultiTenant.Shop.Controllers
             return RedirectToAction("UserHaveToBeLoggedIn", "Authentication");
         }
 
+        [HttpPost]
         public async Task<IActionResult> CretePayment(RustStoreTopUpBalanceViewModel model)
         {
             if (User.Identity.IsAuthenticated)
             {
+                if (!ModelState.IsValid)
+                    return View("TopUpBalance", model);
+
                 _logger.LogInformation($"Creating payment against the PayPal API");
 
                 var result = await _rustPaymentService.CreatePaymentAsync(model);
@@ -74,7 +78,7 @@ namespace Rust.MultiTenant.Shop.Controllers
             var result = await _rustPaymentService.ExecutePaymentAsync(paymentId, token, PayerID);
 
             if (result is null)
-                return View("CancelPayment");
+                return View("PaymentExecutionError");
 
             return View("SuccessPayment");
         }
@@ -82,5 +86,7 @@ namespace Rust.MultiTenant.Shop.Controllers
         public IActionResult CancelPayment() => View();
 
         public IActionResult SuccessPayment() => View();
+
+        public IActionResult PaymentExecutionError() => View();
     }
 }
