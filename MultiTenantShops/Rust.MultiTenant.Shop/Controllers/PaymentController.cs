@@ -46,7 +46,14 @@ namespace Rust.MultiTenant.Shop.Controllers
             if (User.Identity.IsAuthenticated)
             {
                 if (!ModelState.IsValid)
-                    return View("TopUpBalance", model);
+                {
+                    if (!ModelState.IsValid)
+                    {
+                        var errors = ModelState.Values.SelectMany(x => x.Errors.Select(xx => xx.ErrorMessage)).ToList();
+                        errors.ForEach(x => ModelState.AddModelError("", x));
+                        return View("TopUpBalance", model);
+                    }
+                }
 
                 _logger.LogInformation($"Creating payment against the PayPal API");
 
