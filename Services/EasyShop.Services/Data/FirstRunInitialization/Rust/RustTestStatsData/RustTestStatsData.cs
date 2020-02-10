@@ -28,7 +28,6 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData
         private readonly EasyShopContext _easyShopContext;
         private readonly IRustDefaultCategoriesWithItemsService _rustDefaultCategoriesWithItemsService;
         private readonly IMultiTenancyStoreService _tenancyStoreService;
-        private readonly IMultiTenantStore _tenantStore;
 
         private Shop _newShop;
 
