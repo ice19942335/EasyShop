@@ -12,7 +12,7 @@
     var shopTitle = shop.ShopTitle;
 
     ViewData["Title"] = "Store";
-    Layout = "_Layout";
+    Layout = "_MainLayout";
 }
 
 <div class="title-bar">
@@ -141,4 +141,8 @@
 {
     <link href="~/css/store.min.css" rel="stylesheet" asp-append-version="true" />
     <link href="~/css/store-custom.css" rel="stylesheet" asp-append-version="true" />
+}
+@section Scripts
+{
+    <script src="~/js/dynamic-store.js" asp-append-version="true"></script>
 }

@@ -22,8 +22,6 @@ namespace Rust.MultiTenant.Shop.Controllers
 
         public IActionResult Profile()
         {
-            throw new ApplicationException("Test exception");
-
             if (User.Identity.IsAuthenticated)
             {
                 var tenantInfo = HttpContext.GetMultiTenantContext().TenantInfo;

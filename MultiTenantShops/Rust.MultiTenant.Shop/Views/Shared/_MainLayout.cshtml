@@ -1,6 +1,5 @@
 ﻿@{
     Layout = "_BaseLayout";
-
 }
 
 @section Styles
@@ -10,7 +9,12 @@
 
 <body class="layout layout-header-fixed layout-sidebar-fixed layout-footer-fixed well-custom">
     @await Html.PartialAsync("Partial/_Header")
-    <div class="layout-main">
+    <div id="spinner">
+        <div class="text-center">
+            <div class="spinner spinner-primary spinner-lg"></div>
+        </div>
+    </div>
+    <div id="main-layout" class="layout-main" style="display: none;">
         <div class="layout-content">
             <div class="layout-content-body">
                 <div class="container">
@@ -22,11 +26,10 @@
         @await Html.PartialAsync("Partial/_Footer")
         @await Html.PartialAsync("Partial/_BuyModal")
     </div>
-
     <script src="~/js/vendor.min.js" asp-append-version="true"></script>
     <script src="~/js/elephant.min.js" asp-append-version="true"></script>
     <script src="~/js/application.min.js" asp-append-version="true"></script>
-    <script src="~/js/dynamic-store.js" asp-append-version="true"></script>
+    <script src="~/js/page-load-spinner.js" asp-append-version="true"></script>
     @RenderSection("Scripts", false)
     @Html.PartialAsync("Partial/_GoogleAnalyticScript")
 </body>
