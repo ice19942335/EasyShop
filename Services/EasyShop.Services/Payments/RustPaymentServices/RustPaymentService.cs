@@ -1,14 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
-using System.Reflection.Metadata.Ecma335;
-using System.Security.Claims;
 using System.Threading.Tasks;
-using AspNet.Security.OpenId.Steam;
-using EasyShop.DAL.Context;
 using EasyShop.Domain.Dto.PayPal;
 using EasyShop.Domain.Enums.PayPal;
 using EasyShop.Domain.Settings;
@@ -20,7 +14,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using PayPal.Core;
 using PayPal.v1.Payments;
 

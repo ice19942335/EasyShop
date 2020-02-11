@@ -73,9 +73,9 @@ namespace EasyShop.Services.SteamUsers
 
             var userClaims = _httpContextAccessor.HttpContext.User.Claims.ToList();
             var uid = userClaims.First(x => x.Type == SteamAuthenticationConstants.Parameters.UserUid).Value;
+            var user = _easyShopContext.SteamUsers.First(x => x.Uid == uid);
 
-            return _easyShopContext.SteamUsersShops.First(x =>
-                x.SteamUser.Uid == uid && x.ShopId == Guid.Parse(tenantInfo.TenantInfo.Identifier));
+            return _easyShopContext.SteamUsersShops.First(x => x.SteamUser.Id == user.Id && x.ShopId == Guid.Parse(tenantInfo.TenantInfo.Identifier));
         }
 
         #endregion SteamUserShopService

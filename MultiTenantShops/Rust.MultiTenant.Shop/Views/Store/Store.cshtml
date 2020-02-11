@@ -101,13 +101,13 @@
                                         @{
                                             if (product.BlockedTill != default)
                                             {
-                                                <div class="overlay-content overlay-top" style="@(product.Discount > 0 ? "" : "Display: none;")">
+                                                <div class="overlay-content overlay-top">
                                                     <span class="label label-primary pull-right">BLOCKED TILL @product.BlockedTill.Date.ToString("g")</span>
                                                 </div>
                                             }
-                                            else
+                                            else if (product.Discount > 0)
                                             {
-                                                <div class="overlay-content overlay-top" style="@(product.Discount > 0 ? "" : "Display: none;")">
+                                                <div class="overlay-content overlay-top">
                                                     <span class="label label-success pull-right">SALE! @product.Discount%</span>
                                                 </div>
                                             }
