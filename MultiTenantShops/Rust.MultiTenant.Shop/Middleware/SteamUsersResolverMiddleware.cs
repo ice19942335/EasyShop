@@ -39,7 +39,7 @@ namespace Rust.MultiTenant.Shop.Middleware
                 var tenantContext = httpContext.GetMultiTenantContext();
                 shop = _rustShopService.GetShopById(Guid.Parse(tenantContext.TenantInfo.Id));
             }
-            catch (Exception e)
+            catch
             {
                 await _next(httpContext);
             }

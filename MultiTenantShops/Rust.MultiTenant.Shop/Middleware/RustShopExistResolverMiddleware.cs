@@ -31,8 +31,10 @@ namespace Rust.MultiTenant.Shop.Middleware
                 var redirectLink = $"{httpContext.Request.Scheme}://{httpContext.Request.Host}/Error/ShopNotFound";
                 httpContext.Response.Redirect(redirectLink);
             }
-
-            await _next(httpContext);
+            else
+            {
+                await _next(httpContext);
+            }
         }
     }
 }
