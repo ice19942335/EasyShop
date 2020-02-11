@@ -1,8 +1,9 @@
-﻿
+﻿@model EasyShop.Domain.ViewModels.RustStore.Payment.PayPalPaymentSuccess
 @{
     ViewData["Title"] = "SuccessPayment";
     Layout = "_MainLayout";
 }
 
-<h1>SuccessPayment</h1>
+<h1>You've successfully topped up your balance for $@Model.AmountPaid</h1>
+<h3>Your current balance is: $@Model.CurrentBalance</h3>
 

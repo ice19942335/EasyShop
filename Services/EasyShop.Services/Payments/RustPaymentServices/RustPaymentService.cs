@@ -9,6 +9,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using AspNet.Security.OpenId.Steam;
 using EasyShop.DAL.Context;
+using EasyShop.Domain.Dto.PayPal;
 using EasyShop.Domain.Enums.PayPal;
 using EasyShop.Domain.Settings;
 using EasyShop.Domain.ViewModels.RustStore.Payment;
@@ -62,7 +63,7 @@ namespace EasyShop.Services.Payments.RustPaymentServices
                         {
                             Amount = new Amount()
                             {
-                                Total = model.AmountToPay,
+                                Total = model.MoneyToPay,
                                 Currency = "USD"
                             }
                         }
@@ -78,72 +79,87 @@ namespace EasyShop.Services.Payments.RustPaymentServices
                 }
             };
 
-            PaymentCreateRequest request = new PaymentCreateRequest();
-            request.RequestBody(payment);
+            PaymentCreateRequest paymentCreateRequest = new PaymentCreateRequest();
+            paymentCreateRequest.RequestBody(payment);
+
+            _logger.LogInformation($"Preparation for payment creation against PayPal API");
 
             HttpStatusCode responseStatusCode;
 
             try
             {
-                BraintreeHttp.HttpResponse response = await client.Execute(request);
-                responseStatusCode = response.StatusCode;
+                BraintreeHttp.HttpResponse createPaymentRequestResult = await client.Execute(paymentCreateRequest);
+
+                _logger.LogInformation($"PayPal payment creation result, {nameof(createPaymentRequestResult)}: {JsonConvert.SerializeObject(createPaymentRequestResult)}");
+
+                responseStatusCode = createPaymentRequestResult.StatusCode;
 
                 if (responseStatusCode != HttpStatusCode.Created)
                     return null;
 
-                Payment result = response.Result<Payment>();
+                Payment paymentResult = createPaymentRequestResult.Result<Payment>();
 
-                return result;
+                return paymentResult;
             }
-            catch (BraintreeHttp.HttpException ex)
+            catch (BraintreeHttp.HttpException e)
             {
-                responseStatusCode = ex.StatusCode;
-                var debugId = ex.Headers.GetValues("PayPal-Debug-Id").FirstOrDefault();
+                responseStatusCode = e.StatusCode;
+                var debugId = e.Headers.GetValues("PayPal-Debug-Id").FirstOrDefault();
 
-                _logger.LogError($"PayPal payment creation: Failed\nDebugId: {debugId}\nStatusCode: {responseStatusCode}\nException message: {ex.Message}");
+                _logger.LogError(e, $"PayPal payment creation: Failed\nDebugId: {debugId}\nStatusCode: {responseStatusCode}");
 
                 return null;
             }
         }
 
-        public async Task<PaymentExecutionResultEnum> ExecutePaymentAsync(string paymentId, string token, string PayerID)
+        public async Task<PaymentExecuteResultDto> ExecutePaymentAsync(string paymentId, string token, string payerId)
         {
             var environment = new SandboxEnvironment(_payPalSettings.ClientId, _payPalSettings.ClientSecret);
             var client = new PayPalHttpClient(environment);
 
-            PaymentExecution paymentExecution = new PaymentExecution() { PayerId = PayerID };
-
-            PaymentExecution payment = new PaymentExecution() { PayerId = PayerID };
-
+            PaymentExecution paymentExecution = new PaymentExecution() { PayerId = payerId };
+            PaymentExecution payment = new PaymentExecution() { PayerId = payerId };
             PaymentExecuteRequest request = new PaymentExecuteRequest(paymentId);
             request.RequestBody(payment);
 
             HttpStatusCode statusCode;
+            Payment paymentExecutionResult = null;
 
-            Payment paymentResult = null;
+            _logger.LogInformation($"Preparation for payment execution against PayPal API");
 
             try
             {
                 BraintreeHttp.HttpResponse response = await client.Execute(request);
                 statusCode = response.StatusCode;
-                paymentResult = response.Result<Payment>();
+                paymentExecutionResult = response.Result<Payment>();
 
-                if (paymentResult.State == "approved")
-                {
-                    var updateSteamUserShopBalanceResult = await AddFundsToSteamUserShopAsync(paymentResult);
-
-                    if (!updateSteamUserShopBalanceResult)
-                        return PaymentExecutionResultEnum.Failed;
-
-                    return PaymentExecutionResultEnum.Success;
-                }
-
-                return PaymentExecutionResultEnum.Failed;
+                _logger.LogInformation($"PayPal payment execution result, {nameof(paymentExecutionResult)}: {JsonConvert.SerializeObject(paymentExecutionResult)}");
             }
             catch (Exception e)
             {
-                return PaymentExecutionResultEnum.Failed;
+                _logger.LogError(e, $"Error on payment execution.");
+                return new PaymentExecuteResultDto { State = PaymentExecutionResultEnum.Failed };
             }
+
+            if (paymentExecutionResult.State == "approved")
+            {
+                var updateSteamUserShopBalanceResult = await AddFundsToSteamUserShopAsync(paymentExecutionResult);
+
+                if (!updateSteamUserShopBalanceResult)
+                    return new PaymentExecuteResultDto { State = PaymentExecutionResultEnum.Failed };
+
+                return new PaymentExecuteResultDto
+                {
+                    State = PaymentExecutionResultEnum.Success,
+                    AmountPaid = paymentExecutionResult
+                        .Transactions.First()
+                        .RelatedResources.First()
+                        .Sale.Amount.Details.Subtotal,
+                    CurrentBalance = _steamUserService.GetCurrentRequestSteamUserShop().Balance
+                };
+            }
+
+            return new PaymentExecuteResultDto { State = PaymentExecutionResultEnum.Failed };
         }
 
         private async Task<bool> AddFundsToSteamUserShopAsync(Payment payment)
@@ -151,12 +167,9 @@ namespace EasyShop.Services.Payments.RustPaymentServices
             string subtotalString = payment.Transactions.First().RelatedResources.First().Sale.Amount.Details.Subtotal;
             decimal subtotalDecimal = Convert.ToDecimal(subtotalString);
 
-            var tenantInfo = _httpContextAccessor.HttpContext.GetMultiTenantContext();
+            var steamUserShop = _steamUserService.GetCurrentRequestSteamUserShop();
 
-            var userClaims = _httpContextAccessor.HttpContext.User.Claims.ToList();
-            var uid = userClaims.First(x => x.Type == SteamAuthenticationConstants.Parameters.UserUid).Value;
-
-            var addFundsToSteamUserShop = await _steamUserService.AddFundsToSteamUserShop(subtotalDecimal, uid, tenantInfo.TenantInfo.Id);
+            var addFundsToSteamUserShop = await _steamUserService.AddFundsToSteamUserShop(subtotalDecimal, steamUserShop);
 
             if (!addFundsToSteamUserShop)
                 return false;

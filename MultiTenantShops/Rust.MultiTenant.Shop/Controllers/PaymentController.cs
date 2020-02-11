@@ -85,10 +85,17 @@ namespace Rust.MultiTenant.Shop.Controllers
         {
             var result = await _rustPaymentService.ExecutePaymentAsync(paymentId, token, PayerID);
 
-            if (result == PaymentExecutionResultEnum.Failed)
-                return View("PaymentExecutionError");
-            else
-                return View("SuccessPayment");
+            if (result.State == PaymentExecutionResultEnum.Failed)
+                return View("PaymentExecutionError", new PayPalPaymentFailed
+                {
+                    Reason = result.FailedReason
+                });
+
+            return View("SuccessPayment", new PayPalPaymentSuccess
+            {
+                CurrentBalance = result.CurrentBalance,
+                AmountPaid = result.AmountPaid
+            });
         }
 
         public IActionResult CancelPayment() => View();

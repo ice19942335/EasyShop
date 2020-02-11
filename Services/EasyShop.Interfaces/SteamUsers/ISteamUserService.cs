@@ -9,10 +9,22 @@ namespace EasyShop.Interfaces.SteamUsers
 {
     public interface ISteamUserService
     {
-        SteamUserShop GetSteamUserShopByShopIdAndUserUid(string shopId, string userUid);
+
+        #region SteamUserService
 
         SteamUser GetSteamUserByUid(string uid);
 
-        Task<bool> AddFundsToSteamUserShop(decimal subtotalDecimal, string uid, string shopId);
+        #endregion SteamUserService
+
+        #region SteamUserShopService
+
+        SteamUserShop GetSteamUserShopByShopIdAndUserUid(string shopId, string userUid);
+
+        Task<bool> AddFundsToSteamUserShop(decimal subtotalDecimal, SteamUserShop steamUserShop);
+
+        SteamUserShop GetCurrentRequestSteamUserShop();
+
+        #endregion SteamUserShopService
+
     }
 }
