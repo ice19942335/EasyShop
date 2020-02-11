@@ -5,6 +5,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using AspNet.Security.OpenId.Steam;
 using EasyShop.DAL.Context;
+using EasyShop.Domain.Enums.PayPal;
 using EasyShop.Domain.ViewModels.RustStore.Payment;
 using EasyShop.Domain.ViewModels.RustStore.Store;
 using EasyShop.Domain.ViewModels.RustStore.Store.Profile;
@@ -84,10 +85,10 @@ namespace Rust.MultiTenant.Shop.Controllers
         {
             var result = await _rustPaymentService.ExecutePaymentAsync(paymentId, token, PayerID);
 
-            if (result is null)
+            if (result == PaymentExecutionResultEnum.Failed)
                 return View("PaymentExecutionError");
-
-            return View("SuccessPayment");
+            else
+                return View("SuccessPayment");
         }
 
         public IActionResult CancelPayment() => View();

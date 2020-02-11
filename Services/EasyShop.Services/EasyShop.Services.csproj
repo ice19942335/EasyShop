@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Common\EasyShop.Domain\EasyShop.Domain.csproj" />
+    <ProjectReference Include="..\..\OpenID\AspNet.Security.OpenId.Steam\AspNet.Security.OpenId.Steam.csproj" />
     <ProjectReference Include="..\EasyShop.DAL\EasyShop.DAL.csproj" />
     <ProjectReference Include="..\EasyShop.Interfaces\EasyShop.Interfaces.csproj" />
   </ItemGroup>

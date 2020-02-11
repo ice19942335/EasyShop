@@ -48,17 +48,22 @@ class TopUpForm {
         }
 
         if (+this.dollarsInput.value > +max) {
-            this.dollarsInput.value = this.dollarsInputValue;
             toastr.warning(`Max value for this field is: ${max}`);
+            this.dollarsInput.value = this.dollarsInputValue;
         }
 
-        this.dollarsInputValue = parseInt(this.dollarsInput.value, 10);
+        if(+this.dollarsInput.value === 0) {
+            this.dollarsInput.value = this.dollarsInputValue;
+            toastr.warning(`Minimum value is:  $1.00`); 
+        }
+
+        let parsedValue = parseInt(this.dollarsInput.value, 10);
+
+        this.dollarsInputValue = parsedValue;
 
         this.render();
     }
     centsInputEventHandler() {
-        const max = this.centsInput.getAttribute("max");
-
         if (this.centsInput.value.length > 2) {
             this.centsInput.value = this.centsInputValue;
         }
