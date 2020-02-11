@@ -96,7 +96,7 @@ namespace Rust.MultiTenant.Shop.Controllers
             });
         }
 
-        public IActionResult CancelPayment() => View();
+        public IActionResult CancelPayment() => View(); 
 
         public IActionResult SuccessPayment(string currentBalance, string amountPaid) => View(new PayPalPaymentSuccess
         {

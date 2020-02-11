@@ -81,16 +81,16 @@ namespace EasyShop.Services.Payments.RustPaymentServices
 
             try
             {
-                BraintreeHttp.HttpResponse createPaymentRequestResult = await client.Execute(paymentCreateRequest);
+                BraintreeHttp.HttpResponse paymentCreateRequestResult = await client.Execute(paymentCreateRequest);
 
-                _logger.LogInformation($"PayPal payment creation result, {nameof(createPaymentRequestResult)}: {JsonConvert.SerializeObject(createPaymentRequestResult)}");
+                _logger.LogInformation($"PayPal payment creation result, {nameof(paymentCreateRequestResult)}: {JsonConvert.SerializeObject(paymentCreateRequestResult)}");
 
-                responseStatusCode = createPaymentRequestResult.StatusCode;
+                responseStatusCode = paymentCreateRequestResult.StatusCode;
 
                 if (responseStatusCode != HttpStatusCode.Created)
                     return null;
 
-                Payment paymentResult = createPaymentRequestResult.Result<Payment>();
+                Payment paymentResult = paymentCreateRequestResult.Result<Payment>();
 
                 return paymentResult;
             }
