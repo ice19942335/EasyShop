@@ -64,18 +64,22 @@ namespace Rust.MultiTenant.Shop.Middleware
                         TotalSpent = 0m
                     };
 
-                    var newSteamUserShop = new SteamUserShop
+                    if (shop != null)
                     {
-                        ShopId = shop.Id,
-                        Shop = shop,
-                        SteamUserId = newSteamUser.Id,
-                        SteamUser = newSteamUser,
-                        Balance = shop.StartBalance,
-                        TotalSpent = 0m
-                    };
+                        var newSteamUserShop = new SteamUserShop
+                        {
+                            ShopId = shop.Id,
+                            Shop = shop,
+                            SteamUserId = newSteamUser.Id,
+                            SteamUser = newSteamUser,
+                            Balance = shop.StartBalance,
+                            TotalSpent = 0m
+                        };
+
+                        _easyShopContext.SteamUsersShops.Add(newSteamUserShop);
+                    }
 
                     _easyShopContext.SteamUsers.Add(newSteamUser);
-                    _easyShopContext.SteamUsersShops.Add(newSteamUserShop);
                     await _easyShopContext.SaveChangesAsync();
                 }
                 else
