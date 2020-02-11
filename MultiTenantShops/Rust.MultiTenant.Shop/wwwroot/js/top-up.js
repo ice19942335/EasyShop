@@ -53,7 +53,7 @@ class TopUpForm {
         }
 
         if(+this.dollarsInput.value === 0) {
-            this.dollarsInput.value = this.dollarsInputValue;
+            //this.dollarsInput.value = this.dollarsInputValue;
             toastr.warning(`Minimum value is:  $1.00`); 
         }
 
