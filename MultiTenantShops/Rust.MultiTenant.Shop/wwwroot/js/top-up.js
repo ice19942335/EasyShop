@@ -43,18 +43,22 @@ class TopUpForm {
         const max = this.dollarsInput.getAttribute("max");
 
         if (this.dollarsInput.value.length > max.length) {
+            if (+this.dollarsInputValue == max) {
+                toastr.warning(`$${max}.00 is a maximum value`);
+            } else {
+                toastr.warning(`Please enter correct numbers`);
+            }
+
             this.dollarsInput.value = this.dollarsInputValue;
-            toastr.warning(`Please enter correct numbers`);
         }
 
         if (+this.dollarsInput.value > +max) {
-            toastr.warning(`Max value for this field is: ${max}`);
+            toastr.warning(`Maximum amount is $${max}.00`);
             this.dollarsInput.value = this.dollarsInputValue;
         }
 
-        if(+this.dollarsInput.value === 0) {
-            //this.dollarsInput.value = this.dollarsInputValue;
-            toastr.warning(`Minimum value is:  $1.00`); 
+        if (+this.dollarsInput.value === 0) {
+            toastr.warning(`Minimum value is:  $1.00`);
         }
 
         let parsedValue = parseInt(this.dollarsInput.value, 10);
@@ -73,7 +77,7 @@ class TopUpForm {
         this.render();
     }
     agreeClickEventHandler() {
-        this.render();  
+        this.render();
     }
     switchOnButton() {
         this.topUpBtn.removeAttribute('disabled');
@@ -89,7 +93,7 @@ class TopUpForm {
                 this.centsInputValue += '0';
             }
 
-            
+
             const topUpResultValue = `${this.dollarsInputValue}.${(this.centsInputValue)}`;
             this.topUpResultHiden.value = topUpResultValue;
             this.topUpResult.value = topUpResultValue;
@@ -99,7 +103,7 @@ class TopUpForm {
             } else {
                 this.switchOnButton();
             }
-            
+
         } else {
             this.switchOffButton();
             this.topUpResult.value = '';

@@ -20,8 +20,6 @@ namespace EasyShop.Interfaces.SteamUsers
 
         SteamUserShop GetSteamUserShopByShopIdAndUserUid(string shopId, string userUid);
 
-        Task<bool> AddFundsToSteamUserShop(decimal subtotalDecimal, SteamUserShop steamUserShop);
-
         SteamUserShop GetCurrentRequestSteamUserShop();
 
         #endregion SteamUserShopService

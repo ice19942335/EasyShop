@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using EasyShop.DAL.Context;
 using EasyShop.Domain.Dto.PayPal;
 using EasyShop.Domain.Enums.PayPal;
 using EasyShop.Domain.Settings;
 using EasyShop.Domain.ViewModels.RustStore.Payment;
 using EasyShop.Interfaces.Payments.RustPaymentServices;
+using EasyShop.Interfaces.Payments.RustPaymentServices.PayPal;
 using EasyShop.Interfaces.SteamUsers;
 using Finbuckle.MultiTenant;
 using Microsoft.AspNetCore.Http;
@@ -17,27 +19,30 @@ using Newtonsoft.Json;
 using PayPal.Core;
 using PayPal.v1.Payments;
 
-namespace EasyShop.Services.Payments.RustPaymentServices
+namespace EasyShop.Services.Payments.RustPaymentServices.PayPal
 {
-    public class RustPaymentService : IRustPaymentService
+    public class RustStoreSteamUserShopBalanceService : IRustPaymentService
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly ILogger<RustPaymentService> _logger;
+        private readonly ILogger<RustStoreSteamUserShopBalanceService> _logger;
         private readonly PayPalSettings _payPalSettings;
         private readonly ISteamUserService _steamUserService;
+        private readonly EasyShopContext _easyShopContext;
         private readonly MultiTenantContext _multiTenantContext;
         private readonly string _hostString;
 
-        public RustPaymentService(IHttpContextAccessor httpContextAccessor,
+        public RustStoreSteamUserShopBalanceService(IHttpContextAccessor httpContextAccessor,
             IConfiguration configuration,
-            ILogger<RustPaymentService> logger,
+            ILogger<RustStoreSteamUserShopBalanceService> logger,
             PayPalSettings payPalSettings,
-            ISteamUserService steamUserService)
+            ISteamUserService steamUserService,
+            EasyShopContext easyShopContext)
         {
             _httpContextAccessor = httpContextAccessor;
             _logger = logger;
             _payPalSettings = payPalSettings;
             _steamUserService = steamUserService;
+            _easyShopContext = easyShopContext;
             _hostString = $"{httpContextAccessor.HttpContext.Request.Scheme}://{httpContextAccessor.HttpContext.Request.Host}";
             _multiTenantContext = httpContextAccessor.HttpContext.GetMultiTenantContext();
         }
@@ -162,10 +167,24 @@ namespace EasyShop.Services.Payments.RustPaymentServices
 
             var steamUserShop = _steamUserService.GetCurrentRequestSteamUserShop();
 
-            var addFundsToSteamUserShop = await _steamUserService.AddFundsToSteamUserShop(subtotalDecimal, steamUserShop);
+            try
+            {
+                _logger.LogInformation($"Preparation for adding funds to steamUserShop with Id: {steamUserShop.ShopId}, balance BEFORE add: {steamUserShop.Balance}");
 
-            if (!addFundsToSteamUserShop)
-                return false;
+                steamUserShop.Balance += subtotalDecimal;
+
+                _easyShopContext.SteamUsersShops.Update(steamUserShop);
+
+                await _easyShopContext.SaveChangesAsync();
+
+                _logger.LogInformation($"Funds addition completed steamUserShop with Id: {steamUserShop.ShopId}, balance AFTER add: {steamUserShop.Balance}");
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, $"Error on updating SteamUserShop balance.");
+            }
 
             return true;
         }

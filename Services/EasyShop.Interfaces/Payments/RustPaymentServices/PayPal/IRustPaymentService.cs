@@ -1,10 +1,9 @@
 ﻿using System.Threading.Tasks;
 using EasyShop.Domain.Dto.PayPal;
-using EasyShop.Domain.Enums.PayPal;
 using EasyShop.Domain.ViewModels.RustStore.Payment;
 using PayPal.v1.Payments;
 
-namespace EasyShop.Interfaces.Payments.RustPaymentServices
+namespace EasyShop.Interfaces.Payments.RustPaymentServices.PayPal
 {
     public interface IRustPaymentService
     {

@@ -43,30 +43,6 @@ namespace EasyShop.Services.SteamUsers
                 x.ShopId == Guid.Parse(shopId) && x.SteamUserId == user.Id);
         }
 
-        public async Task<bool> AddFundsToSteamUserShop(decimal subtotalDecimal, SteamUserShop steamUserShop)
-        {
-            try
-            {
-                _logger.LogInformation($"Preparation for adding funds to steamUserShop with Id: {steamUserShop.ShopId}, balance BEFORE add: {steamUserShop.Balance}");
-
-                steamUserShop.Balance += subtotalDecimal;
-
-                _easyShopContext.SteamUsersShops.Update(steamUserShop);
-
-                await _easyShopContext.SaveChangesAsync();
-
-                _logger.LogInformation($"Funds addition completed steamUserShop with Id: {steamUserShop.ShopId}, balance AFTER add: {steamUserShop.Balance}");
-
-                return true;
-            }
-            catch (Exception e)
-            {
-                _logger.LogError(e, $"Error on updating SteamUserShop balance.");
-            }
-
-            return true;
-        }
-
         public SteamUserShop GetCurrentRequestSteamUserShop()
         {
             var tenantInfo = _httpContextAccessor.HttpContext.GetMultiTenantContext();
