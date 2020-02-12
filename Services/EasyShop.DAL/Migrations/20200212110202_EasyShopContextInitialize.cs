@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EasyShop.DAL.Migrations
 {
-    public partial class Initialize : Migration
+    public partial class EasyShopContextInitialize : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -552,6 +552,62 @@ namespace EasyShop.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "PayPalCreatedPayments",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    ShopId = table.Column<Guid>(nullable: true),
+                    SteamUserId = table.Column<Guid>(nullable: true),
+                    AmountToPay = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
+                    CreationDateTime = table.Column<DateTime>(nullable: false),
+                    ParsedPayPalSdkPayment = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PayPalCreatedPayments", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_PayPalCreatedPayments_Shops_ShopId",
+                        column: x => x.ShopId,
+                        principalTable: "Shops",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.SetNull);
+                    table.ForeignKey(
+                        name: "FK_PayPalCreatedPayments_SteamUsers_SteamUserId",
+                        column: x => x.SteamUserId,
+                        principalTable: "SteamUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.SetNull);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PayPalExecutedPayments",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    ShopId = table.Column<Guid>(nullable: true),
+                    SteamUserId = table.Column<Guid>(nullable: true),
+                    AmountPaid = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
+                    PaymentDateTime = table.Column<DateTime>(nullable: false),
+                    ParsedPayPalSdkPayment = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PayPalExecutedPayments", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_PayPalExecutedPayments_Shops_ShopId",
+                        column: x => x.ShopId,
+                        principalTable: "Shops",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.SetNull);
+                    table.ForeignKey(
+                        name: "FK_PayPalExecutedPayments_SteamUsers_SteamUserId",
+                        column: x => x.SteamUserId,
+                        principalTable: "SteamUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.SetNull);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "RustCategories",
                 columns: table => new
                 {
@@ -679,13 +735,13 @@ namespace EasyShop.DAL.Migrations
                         column: x => x.RustItemId,
                         principalTable: "RustItems",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.SetNull);
                     table.ForeignKey(
                         name: "FK_RustPurchasedItems_SteamUsers_RustUserId",
                         column: x => x.RustUserId,
                         principalTable: "SteamUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateTable(
@@ -740,9 +796,9 @@ namespace EasyShop.DAL.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    AppUserId = table.Column<string>(nullable: false),
-                    RustPurchasedItemId = table.Column<Guid>(nullable: false),
-                    ShopId = table.Column<Guid>(nullable: false)
+                    AppUserId = table.Column<string>(nullable: true),
+                    RustPurchasedItemId = table.Column<Guid>(nullable: true),
+                    ShopId = table.Column<Guid>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -752,19 +808,19 @@ namespace EasyShop.DAL.Migrations
                         column: x => x.AppUserId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.SetNull);
                     table.ForeignKey(
                         name: "FK_RustPurchaseStats_RustPurchasedItems_RustPurchasedItemId",
                         column: x => x.RustPurchasedItemId,
                         principalTable: "RustPurchasedItems",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.SetNull);
                     table.ForeignKey(
                         name: "FK_RustPurchaseStats_Shops_ShopId",
                         column: x => x.ShopId,
                         principalTable: "Shops",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateIndex(
@@ -845,6 +901,26 @@ namespace EasyShop.DAL.Migrations
                 name: "IX_GeneralSupportReports_StatusId",
                 table: "GeneralSupportReports",
                 column: "StatusId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PayPalCreatedPayments_ShopId",
+                table: "PayPalCreatedPayments",
+                column: "ShopId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PayPalCreatedPayments_SteamUserId",
+                table: "PayPalCreatedPayments",
+                column: "SteamUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PayPalExecutedPayments_ShopId",
+                table: "PayPalExecutedPayments",
+                column: "ShopId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PayPalExecutedPayments_SteamUserId",
+                table: "PayPalExecutedPayments",
+                column: "SteamUserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_RustCategories_AppUserId",
@@ -975,6 +1051,12 @@ namespace EasyShop.DAL.Migrations
 
             migrationBuilder.DropTable(
                 name: "GeneralSupportReports");
+
+            migrationBuilder.DropTable(
+                name: "PayPalCreatedPayments");
+
+            migrationBuilder.DropTable(
+                name: "PayPalExecutedPayments");
 
             migrationBuilder.DropTable(
                 name: "RustPurchaseStats");

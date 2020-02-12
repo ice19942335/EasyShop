@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EasyShop.DAL.Migrations
 {
     [DbContext(typeof(EasyShopContext))]
-    [Migration("20200211231813_Added_PayPal_Payment_Tables")]
-    partial class Added_PayPal_Payment_Tables
+    [Migration("20200212110202_EasyShopContextInitialize")]
+    partial class EasyShopContextInitialize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -587,13 +587,12 @@ namespace EasyShop.DAL.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("AppUserId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<Guid>("RustPurchasedItemId")
+                    b.Property<Guid?>("RustPurchasedItemId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("ShopId")
+                    b.Property<Guid?>("ShopId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
@@ -1136,21 +1135,15 @@ namespace EasyShop.DAL.Migrations
                 {
                     b.HasOne("EasyShop.Domain.Entries.Identity.AppUser", "AppUser")
                         .WithMany()
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AppUserId");
 
                     b.HasOne("EasyShop.Domain.Entries.Rust.RustPurchasedItem", "RustPurchasedItem")
                         .WithMany()
-                        .HasForeignKey("RustPurchasedItemId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("RustPurchasedItemId");
 
                     b.HasOne("EasyShop.Domain.Entries.Shop.Shop", "Shop")
                         .WithMany()
-                        .HasForeignKey("ShopId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ShopId");
                 });
 
             modelBuilder.Entity("EasyShop.Domain.Entries.Rust.RustPurchasedItem", b =>
