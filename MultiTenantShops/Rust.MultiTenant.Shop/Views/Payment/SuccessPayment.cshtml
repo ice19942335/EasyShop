@@ -4,6 +4,13 @@
     Layout = "_MainLayout";
 }
 
-<h1>You've successfully topped up your balance for $@Model.AmountPaid</h1>
-<h3>Your current balance is: $@Model.CurrentBalance</h3>
+@await Component.InvokeAsync("TenantNavBar")
+
+<div class="panel panel-body">
+    <div class="well text-center">
+        <h3>Success!</h3>
+        <h4>Current balance: $@Model.CurrentBalance</h4>
+    </div>
+</div>
+
 

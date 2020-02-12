@@ -75,7 +75,7 @@ namespace EasyShop.Services.Payments.RustPaymentServices.PayPal
                 RedirectUrls = new RedirectUrls()
                 {
                     ReturnUrl = $"{_hostString}/{_multiTenantContext.TenantInfo.Identifier}/payment/ExecutePayment",
-                    CancelUrl = $"{_hostString}/{_multiTenantContext.TenantInfo.Identifier}/payment/CancelPayment"
+                    CancelUrl = $"{_hostString}/{_multiTenantContext.TenantInfo.Identifier}/Store/Store"
                 },
                 Payer = new Payer()
                 {

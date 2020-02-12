@@ -62,7 +62,7 @@ namespace Rust.MultiTenant.Shop.Controllers
                 var result = await _rustPaymentService.CreatePaymentAsync(model);
 
                 if (result is null)
-                    return View("CancelPayment");
+                    return RedirectToAction("Store", "Store");
 
                 _logger.LogInformation($"Payment created successfully: '{result}' from the PayPal API");
 
@@ -75,7 +75,7 @@ namespace Rust.MultiTenant.Shop.Controllers
                     }
                 }
 
-                return View("CancelPayment");
+                return RedirectToAction("Store", "Store");
             }
 
             return RedirectToAction("UserHaveToBeLoggedIn", "Authentication");
@@ -97,14 +97,12 @@ namespace Rust.MultiTenant.Shop.Controllers
             });
         }
 
-        public IActionResult CancelPayment() => View(); 
-
         public IActionResult SuccessPayment(string currentBalance, string amountPaid) => View(new PayPalPaymentSuccess
         {
             CurrentBalance = Convert.ToDecimal(currentBalance),
             AmountPaid = amountPaid
         });
 
-        public IActionResult PaymentExecutionError(string reason) => View(new PayPalPaymentFailed() { Reason = reason });
+        public IActionResult PaymentExecutionError(string reason) => View(new PayPalPaymentFailed { Reason = reason });
     }
 }
