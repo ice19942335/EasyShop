@@ -12,7 +12,7 @@ namespace EasyShop.Interfaces.SteamUsers
 
         #region SteamUserService
 
-        SteamUser GetSteamUserByUid(string uid);
+        SteamUser GetCurrentRequestSteamUser();
 
         #endregion SteamUserService
 

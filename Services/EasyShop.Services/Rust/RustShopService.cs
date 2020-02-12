@@ -13,6 +13,7 @@ using EasyShop.Interfaces.MultiTenancy;
 using EasyShop.Interfaces.Services.CP.Rust.Data;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
 using EasyShop.Services.ExtensionMethods;
+using Finbuckle.MultiTenant;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -26,7 +27,7 @@ namespace EasyShop.Services.Rust
     {
         private readonly IConfiguration _configuration;
         private readonly UserManager<AppUser> _userManager;
-        private readonly EasyShopContext _context;
+        private readonly EasyShopContext _easyShopContext;
         private readonly ILogger<RustShopService> _logger;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IRustDefaultCategoriesWithItemsService _rustDefaultCategoriesWithItemsService;
@@ -35,7 +36,7 @@ namespace EasyShop.Services.Rust
         public RustShopService(
             IConfiguration configuration,
             UserManager<AppUser> userManager,
-            EasyShopContext context,
+            EasyShopContext easyShopContext,
             ILogger<RustShopService> logger,
             IHttpContextAccessor httpContextAccessor,
             IRustDefaultCategoriesWithItemsService rustDefaultCategoriesWithItemsService,
@@ -44,7 +45,7 @@ namespace EasyShop.Services.Rust
         {
             _configuration = configuration;
             _userManager = userManager;
-            _context = context;
+            _easyShopContext = easyShopContext;
             _logger = logger;
             _httpContextAccessor = httpContextAccessor;
             _rustDefaultCategoriesWithItemsService = rustDefaultCategoriesWithItemsService;
@@ -63,12 +64,12 @@ namespace EasyShop.Services.Rust
             if (userShops.Count() < userAllowedShops)
             {
                 Guid secret;
-                do { secret = Guid.NewGuid(); } while (_context.Shops.FirstOrDefault(x => x.Secret == secret) != null);
+                do { secret = Guid.NewGuid(); } while (_easyShopContext.Shops.FirstOrDefault(x => x.Secret == secret) != null);
 
-                var gameType = _context.GameTypes.First(x => x.Type == model.GameType);
+                var gameType = _easyShopContext.GameTypes.First(x => x.Type == model.GameType);
 
                 Guid newShopId;
-                do { newShopId = Guid.NewGuid(); } while (_context.UserShops.FirstOrDefault(x => x.ShopId == newShopId) != null);
+                do { newShopId = Guid.NewGuid(); } while (_easyShopContext.UserShops.FirstOrDefault(x => x.ShopId == newShopId) != null);
 
                 var newShop = new Shop
                 {
@@ -97,16 +98,16 @@ namespace EasyShop.Services.Rust
                 if (!addNewTenant)
                     return RustCreateShopResult.SomethingWentWrong;
 
-                _context.Shops.Add(newShop);
-                _context.UserShops.Add(userShop);
-                await _context.SaveChangesAsync();
+                _easyShopContext.Shops.Add(newShop);
+                _easyShopContext.UserShops.Add(userShop);
+                await _easyShopContext.SaveChangesAsync();
 
                 if (model.AddDefaultItems)
                 {
                     try
                     {
                         await SetDefaultProductsAsync(user, newShop);
-                        await _context.SaveChangesAsync();
+                        await _easyShopContext.SaveChangesAsync();
 
                         _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                             user.UserName,
@@ -118,10 +119,10 @@ namespace EasyShop.Services.Rust
                     }
                     catch(Exception e)
                     {
-                        _context.Shops.Remove(newShop);
-                        _context.UserShops.Remove(userShop);
+                        _easyShopContext.Shops.Remove(newShop);
+                        _easyShopContext.UserShops.Remove(userShop);
                         await RemoveAllCategoriesAndItemsInShopAsync(newShop);
-                        await _context.SaveChangesAsync();
+                        await _easyShopContext.SaveChangesAsync();
 
                         _logger.LogError("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                             user.UserName,
@@ -160,8 +161,8 @@ namespace EasyShop.Services.Rust
 
             try
             {
-                _context.Shops.Update(shop);
-                await _context.SaveChangesAsync();
+                _easyShopContext.Shops.Update(shop);
+                await _easyShopContext.SaveChangesAsync();
 
                 _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                     userForLog.UserName,
@@ -187,7 +188,7 @@ namespace EasyShop.Services.Rust
         {
             var userForLog = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
 
-            var userShop = _context.UserShops.FirstOrDefault(x => x.ShopId == shopId);
+            var userShop = _easyShopContext.UserShops.FirstOrDefault(x => x.ShopId == shopId);
             var shop = GetShopById(shopId);
 
             if (userShop is null || shop is null)
@@ -208,13 +209,13 @@ namespace EasyShop.Services.Rust
                 return false;
             }
             
-            _context.RustCategories.RemoveRange(allAssignedCategoriesToShop);
-            await _context.SaveChangesAsync();
+            _easyShopContext.RustCategories.RemoveRange(allAssignedCategoriesToShop);
+            await _easyShopContext.SaveChangesAsync();
 
-            _context.UserShops.Remove(userShop);
-            _context.Shops.Remove(shop);
+            _easyShopContext.UserShops.Remove(userShop);
+            _easyShopContext.Shops.Remove(shop);
 
-            await _context.SaveChangesAsync();
+            await _easyShopContext.SaveChangesAsync();
 
             
             _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
@@ -226,14 +227,21 @@ namespace EasyShop.Services.Rust
             return true;
         }
 
-        public Shop GetShopById(Guid shopId) => _context.Shops.FirstOrDefault(x => x.Id == shopId);
+        public Shop GetShopById(Guid shopId) => _easyShopContext.Shops.FirstOrDefault(x => x.Id == shopId);
+
+        public Shop GetCurrentRequestShop()
+        {
+            var tenantInfo = _httpContextAccessor.HttpContext.GetMultiTenantContext().TenantInfo;
+
+            return _easyShopContext.Shops.First(x => x.Id == Guid.Parse(tenantInfo.Id));
+        }
 
         #endregion
 
         #region Rust Categories
         public IEnumerable<RustCategory> GetAllAssignedCategoriesToShopByShopId(Guid shopId)
         {
-            var categories = _context.RustCategories
+            var categories = _easyShopContext.RustCategories
                 .Include(x => x.AppUser)
                 .Include(x => x.Shop)
                 .Where(x => x.Shop.Id == shopId)
@@ -263,8 +271,8 @@ namespace EasyShop.Services.Rust
                     Shop = shop
                 };
 
-                _context.RustCategories.Add(newCategory);
-                await _context.SaveChangesAsync();
+                _easyShopContext.RustCategories.Add(newCategory);
+                await _easyShopContext.SaveChangesAsync();
 
                 _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                     userForLog.UserName,
@@ -283,8 +291,8 @@ namespace EasyShop.Services.Rust
             category.Index = model.RustCategoryEditViewModel.Category.Index;
             category.Name = model.RustCategoryEditViewModel.Category.Name;
 
-            _context.RustCategories.Update(category);
-            await _context.SaveChangesAsync();
+            _easyShopContext.RustCategories.Update(category);
+            await _easyShopContext.SaveChangesAsync();
 
             _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                 userForLog.UserName,
@@ -295,18 +303,18 @@ namespace EasyShop.Services.Rust
             return (category, RustEditCategoryResult.Success);
         }
 
-        public RustCategory GetCategoryById(Guid categoryId) => _context.RustCategories
+        public RustCategory GetCategoryById(Guid categoryId) => _easyShopContext.RustCategories
             .Include(x => x.AppUser).Include(x => x.Shop).FirstOrDefault(x => x.Id == categoryId);
 
         public async Task<bool> DeleteCategory(Guid categoryId)
         {
-            var category = _context.RustCategories.FirstOrDefault(x => x.Id == categoryId);
+            var category = _easyShopContext.RustCategories.FirstOrDefault(x => x.Id == categoryId);
 
             if (category is null)
                 return false;
 
-            _context.RustCategories.Remove(category);
-            await _context.SaveChangesAsync();
+            _easyShopContext.RustCategories.Remove(category);
+            await _easyShopContext.SaveChangesAsync();
 
             var userForLog = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
             _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
@@ -322,7 +330,7 @@ namespace EasyShop.Services.Rust
         #region Rust Products
         public int GetAssignedUserItemsCountToACategoryInShop(Guid categoryId, Guid shopId)
         {
-            var result = _context.RustUserItems
+            var result = _easyShopContext.RustUserItems
                 .Include(x => x.Shop)
                 .Include(x => x.RustCategory)
                 .Where(x => x.RustCategory.Id == categoryId && x.Shop.Id == shopId).ToList().Count;
@@ -332,8 +340,8 @@ namespace EasyShop.Services.Rust
 
         public (List<RustCategory>, List<RustProduct>) GetDefaultCategoriesWithProducts(AppUser user, Shop shop)
         {
-            var defaultCategories = _context.RustCategories.Include(x => x.AppUser).Where(x => x.AppUser == null).ToList();
-            var rustItems = _context.RustItems.ToList();
+            var defaultCategories = _easyShopContext.RustCategories.Include(x => x.AppUser).Where(x => x.AppUser == null).ToList();
+            var rustItems = _easyShopContext.RustItems.ToList();
 
             return _rustDefaultCategoriesWithItemsService.CreateDefaultCategoriesWithItems(user, shop, defaultCategories, rustItems);
         }
@@ -345,10 +353,10 @@ namespace EasyShop.Services.Rust
 
             try
             {
-                _context.RustCategories.AddRange(defaultData?.Item1);
-                _context.RustUserItems.AddRange(defaultData?.Item2);
+                _easyShopContext.RustCategories.AddRange(defaultData?.Item1);
+                _easyShopContext.RustUserItems.AddRange(defaultData?.Item2);
 
-                await _context.SaveChangesAsync();
+                await _easyShopContext.SaveChangesAsync();
 
                 _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                     user.UserName,
@@ -371,7 +379,7 @@ namespace EasyShop.Services.Rust
 
         public async Task<IEnumerable<RustProduct>> GetAllAssignedProductsToAShopByShopIdAsync(Guid shopId)
         {
-            var products = _context.RustUserItems
+            var products = _easyShopContext.RustUserItems
                 .Include(x => x.Shop)
                 .Include(x => x.AppUser)
                 .Include(x => x.RustItem)
@@ -391,7 +399,7 @@ namespace EasyShop.Services.Rust
 
         public async Task<IEnumerable<RustProduct>> GetAllAssignedVisibleProductsToAShopByShopIdAsync(Guid shopId)
         {
-            var products = _context.RustUserItems
+            var products = _easyShopContext.RustUserItems
                 .Include(x => x.Shop)
                 .Include(x => x.AppUser)
                 .Include(x => x.RustItem)
@@ -411,7 +419,7 @@ namespace EasyShop.Services.Rust
 
         public async Task<RustProduct> GetProductById(Guid productId)
         {
-            var product = _context.RustUserItems
+            var product = _easyShopContext.RustUserItems
                     .Include(x => x.RustCategory)
                     .Include(x => x.RustItem)
                     .FirstOrDefault(x => x.Id == productId);
@@ -428,7 +436,7 @@ namespace EasyShop.Services.Rust
         {
             var shop = GetShopById(Guid.Parse(model.Id));
             var product =
-                _context.RustUserItems.FirstOrDefault(x => x.Id == Guid.Parse(model.RustProductEditViewModel.Id));
+                _easyShopContext.RustUserItems.FirstOrDefault(x => x.Id == Guid.Parse(model.RustProductEditViewModel.Id));
 
             var userForLog = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
 
@@ -439,8 +447,8 @@ namespace EasyShop.Services.Rust
             {
                 product.ShowInShop = false;
 
-                _context.RustUserItems.Update(product);
-                await _context.SaveChangesAsync();
+                _easyShopContext.RustUserItems.Update(product);
+                await _easyShopContext.SaveChangesAsync();
 
                 _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                     userForLog.UserName,
@@ -476,8 +484,8 @@ namespace EasyShop.Services.Rust
             if (model.RustProductEditViewModel.NewCategoryId != null)
                 product.RustCategory = GetCategoryById(Guid.Parse(model.RustProductEditViewModel.NewCategoryId));
 
-            _context.RustUserItems.Update(product);
-            await _context.SaveChangesAsync();
+            _easyShopContext.RustUserItems.Update(product);
+            await _easyShopContext.SaveChangesAsync();
 
             _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
                 userForLog.UserName,
@@ -493,8 +501,8 @@ namespace EasyShop.Services.Rust
         #region Private methods
         private async Task RemoveAllCategoriesAndItemsInShopAsync(Shop shop)
         {
-            _context.RustCategories.RemoveRange(_context.RustCategories.Where(x => x.Shop.Id == shop.Id));
-            await _context.SaveChangesAsync();
+            _easyShopContext.RustCategories.RemoveRange(_easyShopContext.RustCategories.Where(x => x.Shop.Id == shop.Id));
+            await _easyShopContext.SaveChangesAsync();
 
             var userForLog = await _userManager.FindByEmailAsync(_httpContextAccessor.HttpContext.User.Identity.Name);
             _logger.LogInformation("UserName: {0} | UserId: {1} | Request: {2} | Message: {3}",
@@ -511,14 +519,14 @@ namespace EasyShop.Services.Rust
             if (user is null)
                 return null;
 
-            var query = from userShop in _context.UserShops
-                join shop in _context.Shops on userShop.ShopId equals shop.Id
+            var query = from userShop in _easyShopContext.UserShops
+                join shop in _easyShopContext.Shops on userShop.ShopId equals shop.Id
                 where userShop.AppUserId == user.Id
                 select new Shop
                 {
                     Id = shop.Id,
                     ShopName = shop.ShopName,
-                    GameType = _context.GameTypes.FirstOrDefault(x => x.Id == shop.GameType.Id),
+                    GameType = _easyShopContext.GameTypes.FirstOrDefault(x => x.Id == shop.GameType.Id),
                     ShopTitle = shop.ShopTitle,
                     StartBalance = shop.StartBalance,
                     Secret = shop.Secret
@@ -534,8 +542,8 @@ namespace EasyShop.Services.Rust
             if (product.BlockedTill.Date.Ticks < DateTime.Now.Date.Ticks)
                 product.BlockedTill = default;
 
-            _context.RustUserItems.Update(product);
-            await _context.SaveChangesAsync();
+            _easyShopContext.RustUserItems.Update(product);
+            await _easyShopContext.SaveChangesAsync();
 
             return product;
         }

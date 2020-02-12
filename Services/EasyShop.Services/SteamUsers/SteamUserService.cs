@@ -29,7 +29,14 @@ namespace EasyShop.Services.SteamUsers
 
         #region SteamUserService
 
-        public SteamUser GetSteamUserByUid(string uid) => _easyShopContext.SteamUsers.First(x => x.Uid == uid);
+        public SteamUser GetCurrentRequestSteamUser()
+        {
+            var userClaims = _httpContextAccessor.HttpContext.User.Claims.ToList();
+            var uid = userClaims.First(x => x.Type == SteamAuthenticationConstants.Parameters.UserUid).Value;
+            var user = _easyShopContext.SteamUsers.First(x => x.Uid == uid);
+
+            return user;
+        }
 
         #endregion SteamUserService
 

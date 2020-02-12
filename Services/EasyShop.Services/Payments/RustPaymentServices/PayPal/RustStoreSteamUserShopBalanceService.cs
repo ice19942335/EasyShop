@@ -28,6 +28,8 @@ namespace EasyShop.Services.Payments.RustPaymentServices.PayPal
         private readonly PayPalSettings _payPalSettings;
         private readonly ISteamUserService _steamUserService;
         private readonly EasyShopContext _easyShopContext;
+        private readonly IPayPalCreatedPaymentService _payPalCreatedPaymentService;
+        private readonly IPayPalExecutedPaymentService _payPalExecutedPaymentService;
         private readonly MultiTenantContext _multiTenantContext;
         private readonly string _hostString;
 
@@ -36,13 +38,17 @@ namespace EasyShop.Services.Payments.RustPaymentServices.PayPal
             ILogger<RustStoreSteamUserShopBalanceService> logger,
             PayPalSettings payPalSettings,
             ISteamUserService steamUserService,
-            EasyShopContext easyShopContext)
+            EasyShopContext easyShopContext,
+            IPayPalCreatedPaymentService payPalCreatedPaymentService,
+            IPayPalExecutedPaymentService payPalExecutedPaymentService)
         {
             _httpContextAccessor = httpContextAccessor;
             _logger = logger;
             _payPalSettings = payPalSettings;
             _steamUserService = steamUserService;
             _easyShopContext = easyShopContext;
+            _payPalCreatedPaymentService = payPalCreatedPaymentService;
+            _payPalExecutedPaymentService = payPalExecutedPaymentService;
             _hostString = $"{httpContextAccessor.HttpContext.Request.Scheme}://{httpContextAccessor.HttpContext.Request.Host}";
             _multiTenantContext = httpContextAccessor.HttpContext.GetMultiTenantContext();
         }
@@ -97,6 +103,8 @@ namespace EasyShop.Services.Payments.RustPaymentServices.PayPal
 
                 Payment paymentResult = paymentCreateRequestResult.Result<Payment>();
 
+                await _payPalCreatedPaymentService.CreateAsync(paymentResult);
+
                 return paymentResult;
             }
             catch (BraintreeHttp.HttpException e)
@@ -131,6 +139,8 @@ namespace EasyShop.Services.Payments.RustPaymentServices.PayPal
                 statusCode = response.StatusCode;
                 paymentExecutionResult = response.Result<Payment>();
 
+                await _payPalExecutedPaymentService.CreateAsync(paymentExecutionResult);
+
                 _logger.LogInformation($"PayPal payment execution result, {nameof(paymentExecutionResult)}: {JsonConvert.SerializeObject(paymentExecutionResult)}");
             }
             catch (Exception e)
@@ -162,7 +172,7 @@ namespace EasyShop.Services.Payments.RustPaymentServices.PayPal
 
         private async Task<bool> AddFundsToSteamUserShopAsync(Payment payment)
         {
-            string subtotalString = payment.Transactions.First().RelatedResources.First().Sale.Amount.Details.Subtotal;
+            string subtotalString = payment.Transactions.First().RelatedResources.First().Sale.Amount.Total;
             decimal subtotalDecimal = Convert.ToDecimal(subtotalString);
 
             var steamUserShop = _steamUserService.GetCurrentRequestSteamUserShop();
