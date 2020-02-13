@@ -60,7 +60,7 @@ namespace Rust.MultiTenant.Shop.Controllers
                     Discount = x.Discount,
                     BlockedTill = x.BlockedTill,
                     ImgUrl = x.RustItem.ImgUrl,
-                    ItemsPerStack = x.Amount,
+                    ItemsPerStack = x.ItemsPerStack,
                     Description = x.Description,
                     CategoryId = x.RustCategory.Id,
                     CategoryName = x.RustCategory.Name,

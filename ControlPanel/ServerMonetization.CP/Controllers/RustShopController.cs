@@ -284,7 +284,7 @@ namespace ServerMonetization.CP.Controllers
                     Id = x.Id.ToString(),
                     Name = x.RustItem.Name,
                     Price = x.Price,
-                    Amount = x.Amount,
+                    Amount = x.ItemsPerStack,
                     ImgUrl = x.RustItem.ImgUrl,
                     Description = x.Description,
                     BlockedTill = x.BlockedTill,

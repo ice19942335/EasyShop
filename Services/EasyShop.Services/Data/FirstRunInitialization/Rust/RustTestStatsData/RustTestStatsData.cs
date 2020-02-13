@@ -145,13 +145,16 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData
 
             for (int i = 0; i < 1000; i++)
             {
+
+                var rndAmount = rnd.Next(1, 3);
                 var rustPurchasedItem = new RustPurchasedItem
                 {
                     Id = Guid.NewGuid(),
-                    RustUser = steamUser,
+                    SteamUser = steamUser,
                     RustItem = _easyShopContext.RustItems.First(),
                     HasBeenUsed = false,
-                    Amount = rnd.Next(1, 3),
+                    AmountLeft = rndAmount,
+                    AmountOnPurchase = rndAmount,
                     TotalPaid = rnd.Next(1, 5),
                 };
 

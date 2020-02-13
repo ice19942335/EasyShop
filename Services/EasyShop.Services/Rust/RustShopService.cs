@@ -455,7 +455,7 @@ namespace EasyShop.Services.Rust
                     userForLog.UserName,
                     userForLog.Id,
                     _httpContextAccessor.HttpContext.Request.GetRawTarget(),
-                    $"Rust product was successfully updated. ProductId: {product.Id}");
+                    $"Rust product was successfully updated. ItemId: {product.Id}");
 
                 return RustEditProductResult.Success;
             }
@@ -465,7 +465,7 @@ namespace EasyShop.Services.Rust
             product.Description = model.RustProductEditViewModel.Description;
             product.Price = model.RustProductEditViewModel.Price;
             product.Discount = model.RustProductEditViewModel.Discount;
-            product.Amount = model.RustProductEditViewModel.Amount;
+            product.ItemsPerStack = model.RustProductEditViewModel.Amount;
             product.Index = model.RustProductEditViewModel.Index;
 
             if (model.RustProductEditViewModel.BlockedTill != null)
@@ -492,7 +492,7 @@ namespace EasyShop.Services.Rust
                 userForLog.UserName,
                 userForLog.Id,
                 _httpContextAccessor.HttpContext.Request.GetRawTarget(),
-                $"Rust product was successfully updated. ProductId: {product.Id}");
+                $"Rust product was successfully updated. ItemId: {product.Id}");
 
             return RustEditProductResult.Success;
         }

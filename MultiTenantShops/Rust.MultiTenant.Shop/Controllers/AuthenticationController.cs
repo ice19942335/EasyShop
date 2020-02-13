@@ -10,12 +10,6 @@ namespace Rust.MultiTenant.Shop.Controllers
 {
     public class AuthenticationController : Controller
     {
-        [HttpGet]
-        public async Task<IActionResult> SignIn()
-        {
-            return View("SignIn", await HttpContext.GetExternalProvidersAsync());
-        }
-
         [HttpPost]
         public async Task<IActionResult> SignIn([FromForm] string provider)
         {

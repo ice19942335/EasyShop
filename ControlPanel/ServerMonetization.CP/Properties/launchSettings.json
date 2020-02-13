@@ -11,7 +11,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "https://localhost:44374/RustShop/ProductsManager?shopId=cc49b1b4-9e51-4a90-8b07-db7fc58cd264",
+      "launchUrl": "https://localhost:44374/RustShop/ShopStats?shopId=ca0db4f8-db2b-492b-afc3-3a62a41da4ed",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

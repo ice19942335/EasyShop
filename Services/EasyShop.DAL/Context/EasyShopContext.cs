@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using EasyShop.Domain.Entries.ContactUs;
 using EasyShop.Domain.Entries.ContactUs.BugReports;
 using EasyShop.Domain.Entries.ContactUs.CollaborationReports;
@@ -195,6 +196,61 @@ namespace EasyShop.DAL.Context
             //===================================================================
 
             #endregion
+
+            #region OnDeleteion SetNull
+
+            //RustPurchaseStats
+            modelBuilder.Entity<RustPurchaseStats>()
+                .HasOne(x => x.AppUser)
+                .WithMany()
+                .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<RustPurchaseStats>()
+                .HasOne(x => x.RustPurchasedItem)
+                .WithMany()
+                .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<RustPurchaseStats>()
+                .HasOne(x => x.Shop)
+                .WithMany()
+                .OnDelete(DeleteBehavior.SetNull);
+
+            //RustPurchasedItems
+            modelBuilder.Entity<RustPurchasedItem>()
+                .HasOne(x => x.SteamUser)
+                .WithMany()
+                .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<RustPurchasedItem>()
+                .HasOne(x => x.RustItem)
+                .WithMany()
+                .OnDelete(DeleteBehavior.SetNull);
+
+            //PayPalCreatedPayments
+            modelBuilder.Entity<PayPalCreatedPayment>()
+                .HasOne(x => x.Shop)
+                .WithMany()
+                .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<RustPurchasedItem>()
+                .HasOne(x => x.SteamUser)
+                .WithMany()
+                .OnDelete(DeleteBehavior.SetNull);
+
+            //PayPalExecutedPayment
+            modelBuilder.Entity<PayPalExecutedPayment>()
+                .HasOne(x => x.Shop)
+                .WithMany()
+                .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<PayPalExecutedPayment>()
+                .HasOne(x => x.SteamUser)
+                .WithMany()
+                .OnDelete(DeleteBehavior.SetNull);
+
+            #endregion
         }
     }
 }
+
+

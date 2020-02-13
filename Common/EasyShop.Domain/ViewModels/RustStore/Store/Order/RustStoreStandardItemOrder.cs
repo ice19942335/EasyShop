@@ -13,6 +13,6 @@ namespace EasyShop.Domain.ViewModels.RustStore.Store.Order
 
         [Required]
         [StringLength(maximumLength: 38, MinimumLength = 38, ErrorMessage = "Product ID is required")]
-        public string ProductId { get; set; }
+        public string ItemId { get; set; }
     }
 }
