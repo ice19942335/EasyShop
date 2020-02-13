@@ -37,7 +37,7 @@ namespace Rust.MultiTenant.Shop.Installers
             services.AddTransient<IPayPalExecutedPaymentService, PayPalExecutedPaymentService>();
 
             //Scoped---------------------------------------------------------------------------------------------------------
-            services.AddScoped<IRustPaymentService, RustStoreSteamUserShopBalanceService>();
+            services.AddScoped<IRustStorePaymentService, RustStoreStorePaymentService>();
 
             //Single-tone----------------------------------------------------------------------------------------------------
         }

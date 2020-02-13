@@ -12,11 +12,11 @@
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <h1 class="text-center">Top-Up Balance</h1>
-                <form onsubmit="return checkForm(this);" class="well" method="post" asp-controller="Payment" asp-action="CretePayment">
+                <form onsubmit="return checkForm(this);" class="well" method="post" asp-controller="Payment" asp-action="CretePaymentHandler">
                     <div asp-validation-summary="ModelOnly" class="alert alert-info"></div>
                     <div class="form-group">
                         <label>Payment method</label>
-                        <select id="form-control-6" class="form-control">
+                        <select asp-for="PaymentMethod" id="form-control-6" class="form-control">
                             <option value="paypal" selected>PayPal</option>
                         </select>
                     </div>
@@ -36,7 +36,7 @@
                         <label>You will pay:</label>
                         <div class="input-group">
                             <span class="input-group-addon">$</span>
-                            <input id="topup-result-hiden" asp-for="MoneyToPay" value="" hidden />
+                            <input id="topup-result-hiden" asp-for="amountToPay" value="" hidden />
                             <input id="topup-result" class="form-control" type="text" aria-label="US Dollar" disabled>
                         </div>
                     </div>

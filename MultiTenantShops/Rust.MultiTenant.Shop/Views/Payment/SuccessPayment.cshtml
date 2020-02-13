@@ -8,8 +8,13 @@
 
 <div class="panel panel-body">
     <div class="well text-center">
-        <h3>Success!</h3>
-        <h4>Current balance: $@Model.CurrentBalance</h4>
+        <h2>Success!</h2>
+        <h4>Paid: $@Model.AmountPaid</h4>
+
+
+        <form method="get" asp-controller="Store" asp-action="Store">
+            <button type="submit" class="btn btn-primary">Go back to store</button>
+        </form>
     </div>
 </div>
 

@@ -21,10 +21,10 @@ using PayPal.v1.Payments;
 
 namespace EasyShop.Services.Payments.RustPaymentServices.PayPal
 {
-    public class RustStoreSteamUserShopBalanceService : IRustPaymentService
+    public class RustStoreStorePaymentService : IRustStorePaymentService
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly ILogger<RustStoreSteamUserShopBalanceService> _logger;
+        private readonly ILogger<RustStoreStorePaymentService> _logger;
         private readonly PayPalSettings _payPalSettings;
         private readonly ISteamUserService _steamUserService;
         private readonly EasyShopContext _easyShopContext;
@@ -33,9 +33,9 @@ namespace EasyShop.Services.Payments.RustPaymentServices.PayPal
         private readonly MultiTenantContext _multiTenantContext;
         private readonly string _hostString;
 
-        public RustStoreSteamUserShopBalanceService(IHttpContextAccessor httpContextAccessor,
+        public RustStoreStorePaymentService(IHttpContextAccessor httpContextAccessor,
             IConfiguration configuration,
-            ILogger<RustStoreSteamUserShopBalanceService> logger,
+            ILogger<RustStoreStorePaymentService> logger,
             PayPalSettings payPalSettings,
             ISteamUserService steamUserService,
             EasyShopContext easyShopContext,
@@ -53,7 +53,7 @@ namespace EasyShop.Services.Payments.RustPaymentServices.PayPal
             _multiTenantContext = httpContextAccessor.HttpContext.GetMultiTenantContext();
         }
 
-        public async Task<Payment> CreatePaymentAsync(RustStoreTopUpBalanceViewModel model)
+        public async Task<Payment> CreatePayPalPaymentAsync(string amountToPay)
         {
             var environment = new SandboxEnvironment(_payPalSettings.ClientId, _payPalSettings.ClientSecret);
             var client = new PayPalHttpClient(environment);
@@ -67,20 +67,21 @@ namespace EasyShop.Services.Payments.RustPaymentServices.PayPal
                         {
                             Amount = new Amount()
                             {
-                                Total = model.MoneyToPay,
+                                Total = amountToPay,
                                 Currency = "USD"
                             }
                         }
                     },
                 RedirectUrls = new RedirectUrls()
                 {
-                    ReturnUrl = $"{_hostString}/{_multiTenantContext.TenantInfo.Identifier}/payment/ExecutePayment",
+                    ReturnUrl = $"{_hostString}/{_multiTenantContext.TenantInfo.Identifier}/payment/ExecutePayPalPayment",
                     CancelUrl = $"{_hostString}/{_multiTenantContext.TenantInfo.Identifier}/Store/Store"
                 },
                 Payer = new Payer()
                 {
                     PaymentMethod = "paypal"
-                }
+                },
+                NoteToPayer = "We do not make any refunds for this type of products!"
             };
 
             PaymentCreateRequest paymentCreateRequest = new PaymentCreateRequest();
@@ -118,7 +119,7 @@ namespace EasyShop.Services.Payments.RustPaymentServices.PayPal
             }
         }
 
-        public async Task<PaymentExecuteResultDto> ExecutePaymentAsync(string paymentId, string token, string payerId)
+        public async Task<PaymentExecuteResultDto> ExecutePayPalPaymentAsync(string paymentId, string token, string payerId)
         {
             var environment = new SandboxEnvironment(_payPalSettings.ClientId, _payPalSettings.ClientSecret);
             var client = new PayPalHttpClient(environment);

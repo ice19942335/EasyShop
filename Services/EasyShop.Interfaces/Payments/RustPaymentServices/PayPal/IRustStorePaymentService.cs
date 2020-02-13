@@ -5,10 +5,10 @@ using PayPal.v1.Payments;
 
 namespace EasyShop.Interfaces.Payments.RustPaymentServices.PayPal
 {
-    public interface IRustPaymentService
+    public interface IRustStorePaymentService
     {
-        Task<Payment> CreatePaymentAsync(RustStoreTopUpBalanceViewModel model);
+        Task<Payment> CreatePayPalPaymentAsync(string amountToPay);
 
-        Task<PaymentExecuteResultDto> ExecutePaymentAsync(string paymentId, string token, string payerId);
+        Task<PaymentExecuteResultDto> ExecutePayPalPaymentAsync(string paymentId, string token, string payerId);
     }
 }
