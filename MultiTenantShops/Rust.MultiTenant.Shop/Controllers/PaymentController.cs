@@ -57,11 +57,10 @@ namespace Rust.MultiTenant.Shop.Controllers
                 switch (model.PaymentMethod)
                 {
                     case "paypal":
-                        return RedirectToAction("CreatePayPalPayment", "Payment", new {amountToPay = model.amountToPay});
+                        return RedirectToAction("PayPalCreatePayment", "Payment", new { amountToPay = model.amountToPay });
 
                     default: return RedirectToAction("Error404", "Error");
                 }
-
             }
 
             return RedirectToAction("UserHaveToBeLoggedIn", "Authentication");
@@ -69,7 +68,7 @@ namespace Rust.MultiTenant.Shop.Controllers
 
         #region PayPal
 
-        public async Task<IActionResult> CreatePayPalPayment(string amountToPay)
+        public async Task<IActionResult> PayPalCreatePayment(string amountToPay)
         {
             if (User.Identity.IsAuthenticated)
             {
@@ -77,12 +76,12 @@ namespace Rust.MultiTenant.Shop.Controllers
 
                 var result = await _rustStorePaymentService.CreatePayPalPaymentAsync(amountToPay);
 
-                if (result is null)
-                    return RedirectToAction("Store", "Store");
+                if (result.State == PaymentCreationResultEnum.Failed)
+                    return RedirectToAction("PaymentFailed", "Payment", new { reason = result.FailedReason });
 
-                _logger.LogInformation($"Payment created successfully: '{result}' from the PayPal API");
+                _logger.LogInformation($"Payment created successfully: '{JsonConvert.SerializeObject(result.PaymentDetails)}' from the PayPal API");
 
-                foreach (var link in result.Links)
+                foreach (var link in result.PaymentDetails.Links)
                 {
                     if (link.Rel.Equals("approval_url"))
                     {
@@ -91,7 +90,7 @@ namespace Rust.MultiTenant.Shop.Controllers
                     }
                 }
 
-                return RedirectToAction("Store", "Store");
+                return RedirectToAction("PaymentFailed", "Payment", new { reason = "Error: 'approval_url' has not been found!" });
             }
 
             return RedirectToAction("UserHaveToBeLoggedIn", "Authentication");
@@ -103,9 +102,9 @@ namespace Rust.MultiTenant.Shop.Controllers
             var result = await _rustStorePaymentService.ExecutePayPalPaymentAsync(paymentId, token, PayerID);
 
             if (result.State == PaymentExecutionResultEnum.Failed)
-                return RedirectToAction("PaymentExecutionError", new { reason = result.FailedReason });
+                return RedirectToAction("PaymentFailed", new { reason = result.FailedReason });
 
-            return RedirectToAction("SuccessPayment", new
+            return RedirectToAction("PaymentSuccess", new
             {
                 currentBalance = result.CurrentBalance,
                 amountPaid = result.AmountPaid
@@ -114,12 +113,12 @@ namespace Rust.MultiTenant.Shop.Controllers
 
         #endregion PayPal
 
-        public IActionResult SuccessPayment(string currentBalance, string amountPaid) => View(new PayPalPaymentSuccess
+        public IActionResult PaymentSuccess(string currentBalance, string amountPaid) => View(new PayPalPaymentSuccess
         {
             CurrentBalance = Convert.ToDecimal(currentBalance),
             AmountPaid = amountPaid
         });
 
-        public IActionResult PaymentExecutionError(string reason) => View(new PayPalPaymentFailed { Reason = reason });
+        public IActionResult PaymentFailed(string reason) => View("PaymentFailed", reason);
     }
 }

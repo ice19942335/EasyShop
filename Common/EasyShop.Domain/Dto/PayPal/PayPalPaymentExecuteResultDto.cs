@@ -6,7 +6,7 @@ using EasyShop.Domain.Enums.PayPal;
 
 namespace EasyShop.Domain.Dto.PayPal
 {
-    public class PaymentExecuteResultDto
+    public class PayPalPaymentExecuteResultDto
     {
         public PaymentExecutionResultEnum State { get; set; }
 

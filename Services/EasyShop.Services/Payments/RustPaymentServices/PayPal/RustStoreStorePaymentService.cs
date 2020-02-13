@@ -5,6 +5,7 @@ using System.Net;
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Dto.PayPal;
+using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Enums.PayPal;
 using EasyShop.Domain.Settings;
 using EasyShop.Domain.ViewModels.RustStore.Payment;
@@ -13,6 +14,7 @@ using EasyShop.Interfaces.Payments.RustPaymentServices.PayPal;
 using EasyShop.Interfaces.SteamUsers;
 using Finbuckle.MultiTenant;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
@@ -24,6 +26,7 @@ namespace EasyShop.Services.Payments.RustPaymentServices.PayPal
     public class RustStoreStorePaymentService : IRustStorePaymentService
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IConfiguration _configuration;
         private readonly ILogger<RustStoreStorePaymentService> _logger;
         private readonly PayPalSettings _payPalSettings;
         private readonly ISteamUserService _steamUserService;
@@ -43,6 +46,7 @@ namespace EasyShop.Services.Payments.RustPaymentServices.PayPal
             IPayPalExecutedPaymentService payPalExecutedPaymentService)
         {
             _httpContextAccessor = httpContextAccessor;
+            _configuration = configuration;
             _logger = logger;
             _payPalSettings = payPalSettings;
             _steamUserService = steamUserService;
@@ -53,10 +57,13 @@ namespace EasyShop.Services.Payments.RustPaymentServices.PayPal
             _multiTenantContext = httpContextAccessor.HttpContext.GetMultiTenantContext();
         }
 
-        public async Task<Payment> CreatePayPalPaymentAsync(string amountToPay)
+        public async Task<PayPalPaymentCreationResultDto> CreatePayPalPaymentAsync(string amountToPay)
         {
             var environment = new SandboxEnvironment(_payPalSettings.ClientId, _payPalSettings.ClientSecret);
             var client = new PayPalHttpClient(environment);
+
+            var steamUser = _steamUserService.GetCurrentRequestSteamUser();
+
 
             var payment = new Payment()
             {
@@ -75,13 +82,13 @@ namespace EasyShop.Services.Payments.RustPaymentServices.PayPal
                 RedirectUrls = new RedirectUrls()
                 {
                     ReturnUrl = $"{_hostString}/{_multiTenantContext.TenantInfo.Identifier}/payment/ExecutePayPalPayment",
-                    CancelUrl = $"{_hostString}/{_multiTenantContext.TenantInfo.Identifier}/Store/Store"
+                    CancelUrl = $"{_hostString}/{_multiTenantContext.TenantInfo.Identifier}/payment/PaymentFailed"
                 },
                 Payer = new Payer()
                 {
                     PaymentMethod = "paypal"
                 },
-                NoteToPayer = "We do not make any refunds for this type of products!"
+                NoteToPayer = _configuration["BuyerNotes"]
             };
 
             PaymentCreateRequest paymentCreateRequest = new PaymentCreateRequest();
@@ -106,23 +113,28 @@ namespace EasyShop.Services.Payments.RustPaymentServices.PayPal
 
                 await _payPalCreatedPaymentService.CreateAsync(paymentResult);
 
-                return paymentResult;
+                return new PayPalPaymentCreationResultDto { State = PaymentCreationResultEnum.Success, PaymentDetails = paymentResult };
             }
             catch (BraintreeHttp.HttpException e)
             {
                 responseStatusCode = e.StatusCode;
                 var debugId = e.Headers.GetValues("PayPal-Debug-Id").FirstOrDefault();
+                _logger.LogError(e, $"PayPal payment creation: Failed\nSteamUserID: {steamUser.Id}\nSteamUserUID: {steamUser.Uid}\nDebugId: {debugId}\nStatusCode: {responseStatusCode}");
 
-                _logger.LogError(e, $"PayPal payment creation: Failed\nDebugId: {debugId}\nStatusCode: {responseStatusCode}");
-
-                return null;
+                return new PayPalPaymentCreationResultDto
+                {
+                    State = PaymentCreationResultEnum.Failed,
+                    FailedReason = debugId
+                };
             }
         }
 
-        public async Task<PaymentExecuteResultDto> ExecutePayPalPaymentAsync(string paymentId, string token, string payerId)
+        public async Task<PayPalPaymentExecuteResultDto> ExecutePayPalPaymentAsync(string paymentId, string token, string payerId)
         {
             var environment = new SandboxEnvironment(_payPalSettings.ClientId, _payPalSettings.ClientSecret);
             var client = new PayPalHttpClient(environment);
+
+            var steamUser = _steamUserService.GetCurrentRequestSteamUser();
 
             PaymentExecution paymentExecution = new PaymentExecution() { PayerId = payerId };
             PaymentExecution payment = new PaymentExecution() { PayerId = payerId };
@@ -134,6 +146,8 @@ namespace EasyShop.Services.Payments.RustPaymentServices.PayPal
 
             _logger.LogInformation($"Preparation for payment execution against PayPal API");
 
+            HttpStatusCode responseStatusCode;
+
             try
             {
                 BraintreeHttp.HttpResponse response = await client.Execute(request);
@@ -144,10 +158,16 @@ namespace EasyShop.Services.Payments.RustPaymentServices.PayPal
 
                 _logger.LogInformation($"PayPal payment execution result, {nameof(paymentExecutionResult)}: {JsonConvert.SerializeObject(paymentExecutionResult)}");
             }
-            catch (Exception e)
+            catch (BraintreeHttp.HttpException e)
             {
-                _logger.LogError(e, $"Error on payment execution.");
-                return new PaymentExecuteResultDto { State = PaymentExecutionResultEnum.Failed };
+                responseStatusCode = e.StatusCode;
+                var debugId = e.Headers.GetValues("PayPal-Debug-Id").FirstOrDefault();
+                _logger.LogError(e, $"PayPal payment execution: Failed\nSteamUserID: {steamUser.Id}\nSteamUserUID: {steamUser.Uid}\nDebugId: {debugId}\nStatusCode: {responseStatusCode}");
+                return new PayPalPaymentExecuteResultDto
+                {
+                    State = PaymentExecutionResultEnum.Failed,
+                    FailedReason = debugId
+                };
             }
 
             if (paymentExecutionResult.State == "approved")
@@ -155,20 +175,28 @@ namespace EasyShop.Services.Payments.RustPaymentServices.PayPal
                 var updateSteamUserShopBalanceResult = await AddFundsToSteamUserShopAsync(paymentExecutionResult);
 
                 if (!updateSteamUserShopBalanceResult)
-                    return new PaymentExecuteResultDto { State = PaymentExecutionResultEnum.Failed };
+                    return new PayPalPaymentExecuteResultDto
+                    {
+                        State = PaymentExecutionResultEnum.Failed,
+                        FailedReason = "Error on adding funds, please contact support!"
+                    };
 
-                return new PaymentExecuteResultDto
+                return new PayPalPaymentExecuteResultDto
                 {
                     State = PaymentExecutionResultEnum.Success,
                     AmountPaid = paymentExecutionResult
                         .Transactions.First()
                         .RelatedResources.First()
-                        .Sale.Amount.Details.Subtotal,
+                        .Sale.Amount.Total,
                     CurrentBalance = _steamUserService.GetCurrentRequestSteamUserShop().Balance
                 };
             }
 
-            return new PaymentExecuteResultDto { State = PaymentExecutionResultEnum.Failed };
+            return new PayPalPaymentExecuteResultDto
+            {
+                State = PaymentExecutionResultEnum.Failed,
+                FailedReason = "Payment has not been approved!"
+            };
         }
 
         private async Task<bool> AddFundsToSteamUserShopAsync(Payment payment)
