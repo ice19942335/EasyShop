@@ -1,4 +1,4 @@
-﻿@model string
+﻿@model EasyShop.Domain.ViewModels.RustStore.Payment.PayPalPaymentFailedViewModel
 @{
     ViewData["Title"] = "Payment failed";
     Layout = "_MainLayout";
@@ -12,15 +12,15 @@
         <h4>Payment failed =(</h4>
         <p><strong>Please, try again, if the problem newer went, then contact us by pressing the button below.</strong></p>
         @{
-            if (Model != null)
+            if (Model.FailedReason != null)
             {
                 <p>Please, copy the text below, and provide it to the support manager, it will help us to sort out your problem much faster. Thank you.</p>
                 <hr/>
-                <p>@Model</p>
+                <p>@Model.FailedReason</p>
                 <hr/>
             }
 
-            <a class="btn btn-danger m-b-md" href="https://server-monetization.com" target="_blank">Contact support</a>
+            <a class="btn btn-danger m-b-md" href="https://server-monetization.com/ContactUs" target="_blank">Contact support</a>
         }
         <form method="get" asp-controller="Store" asp-action="Store">
             <button type="submit" class="btn btn-primary">Go back to store</button>

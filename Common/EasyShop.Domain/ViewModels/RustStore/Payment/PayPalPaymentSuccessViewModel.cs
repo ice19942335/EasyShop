@@ -4,7 +4,7 @@ using System.Text;
 
 namespace EasyShop.Domain.ViewModels.RustStore.Payment
 {
-    public class PayPalPaymentSuccess
+    public class PayPalPaymentSuccessViewModel
     {
         public decimal CurrentBalance { get; set; }
 

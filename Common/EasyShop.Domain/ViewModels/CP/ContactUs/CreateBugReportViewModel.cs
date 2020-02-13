@@ -22,7 +22,8 @@ namespace EasyShop.Domain.ViewModels.CP.ContactUs
         [Required(ErrorMessage = "Email is required.")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "The bug category is required.")]
+        [Required(ErrorMessage = "The error category is required.")]
+        [RegularExpression("^[1-9]{1}$|^[0-9]{2,10}$", ErrorMessage = "The error category is required.")]
         public int SelectedCategory { get; set; }
 
         public List<BugReportCategoriesEnum> Categories { get; set; } = new List<BugReportCategoriesEnum>

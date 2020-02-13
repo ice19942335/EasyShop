@@ -7,7 +7,7 @@ namespace EasyShop.Domain.Enums.CP.ContactUs.BugReports
     public enum BugReportCategoriesEnum
     {
         //Common
-        Cp_Shop_creation_bug,
+        Cp_Shop_creation_bug = 1,
         Cp_Shop_manager_bug,
 
         //RustShop
