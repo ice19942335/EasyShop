@@ -1,7 +1,21 @@
-﻿
+﻿@model EasyShop.Domain.ViewModels.RustStore.Payment.PayPalPaymentSuccess
 @{
     ViewData["Title"] = "SuccessPayment";
+    Layout = "_MainLayout";
 }
 
-<h1>SuccessPayment</h1>
+@await Component.InvokeAsync("TenantNavBar")
+
+<div class="panel panel-body">
+    <div class="well text-center">
+        <h2>Success!</h2>
+        <h4>Paid: $@Model.AmountPaid</h4>
+
+
+        <form method="get" asp-controller="Store" asp-action="Store">
+            <button type="submit" class="btn btn-primary">Go back to store</button>
+        </form>
+    </div>
+</div>
+
 

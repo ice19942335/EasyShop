@@ -10,7 +10,7 @@ namespace Rust.MultiTenant.Shop.Extensions
     public static class SteamUsersResolverExtension
     {
         /// <summary>
-        /// Adding SteamUserResolver middleware to a app request pipeline
+        /// Adding SteamUserResolver middleware to the app request pipeline
         /// </summary>
         /// <param name="builder"></param>
         /// <returns></returns>

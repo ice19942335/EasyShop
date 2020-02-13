@@ -46,6 +46,7 @@ namespace Rust.MultiTenant.Shop
 
             app.UseMultiTenant();
 
+            app.UseRustShopExistResolver();
             app.UseSteamUserResolver();
 
             app.UseEndpoints(endpoints =>

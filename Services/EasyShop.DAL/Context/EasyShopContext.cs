@@ -8,6 +8,7 @@ using EasyShop.Domain.Entries.DevBlog;
 using EasyShop.Domain.Entries.GameType;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Entries.Notification;
+using EasyShop.Domain.Entries.Payment.PayPal;
 using EasyShop.Domain.Entries.Rust;
 using EasyShop.Domain.Entries.Shop;
 using EasyShop.Domain.Entries.Tariff;
@@ -72,6 +73,11 @@ namespace EasyShop.DAL.Context
         //Notification
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<UserNotification> UserNotifications { get; set; }
+
+
+        //PayPalPayments
+        public DbSet<PayPalCreatedPayment> PayPalCreatedPayments { get; set; }
+        public DbSet<PayPalExecutedPayment> PayPalExecutedPayments { get; set; }
 
 
         //Constructor

@@ -16,6 +16,10 @@ namespace Rust.MultiTenant.Shop.Controllers
             return View(nameof(Error404));
         }
 
+        [Route("/Error/ShopNotFound")]
+        public IActionResult ShopNotFound() => View();
+
+
         [Route("/Error/ErrorHandler/{code}")]
         public IActionResult ErrorHandler(int? code)
         {
@@ -31,6 +35,5 @@ namespace Rust.MultiTenant.Shop.Controllers
         public IActionResult Error404() => View();
 
         public IActionResult Error500() => View();
-
     }
 }

@@ -17,6 +17,8 @@ namespace EasyShop.Interfaces.Services.CP.Rust.Shop
 
         IEnumerable<RustCategory> GetAllAssignedCategoriesToShopByShopId(Guid shopId);
 
+        Domain.Entries.Shop.Shop GetCurrentRequestShop();
+
         int GetAssignedUserItemsCountToACategoryInShop(Guid categoryId, Guid shopId);
 
         Task<(RustCategory, RustEditCategoryResult)> UpdateCategoryAsync(RustShopViewModel model);

@@ -1,56 +1,51 @@
 ﻿@model EasyShop.Domain.ViewModels.RustStore.Store.Profile.RustStoreSteamUserViewModel
-@using EasyShop.Interfaces.Services.CP.Rust.Shop
-@using Microsoft.AspNetCore.Http
-@inject IHttpContextAccessor HttpContextAccessor
-@inject IRustShopService RustShopService
 @{
-    var tenantInfo = Context.GetMultiTenantContext().TenantInfo;
-
-    var shop = RustShopService.GetShopById(
-        Guid.Parse(HttpContextAccessor.HttpContext.GetMultiTenantContext().TenantInfo.Id));
-
-    var shopTitle = shop.ShopTitle;
-
     ViewData["Title"] = "Profile";
-    Layout = "_Layout";
+    Layout = "_MainLayout";
 }
 
-<div class="title-bar">
-    <div class="panel panel-body">
-        <div class="row">
-            <div class="col-lg-2">
-                <a href="@($"/{tenantInfo.Identifier}")">
-                    <strong class="custom-nav-link">@shopTitle</strong>
-                </a>
-            </div>
-            <div class="col-lg-10"></div>
-        </div>
-    </div>
-</div>
+@await Component.InvokeAsync("TenantNavBar")
 
 @if (Model != null)
 {
     <div class="panel panel-body">
-        <div class="col-md-3 text-center">
-            <h3 class="break-word">@Model.UserName</h3>
-            <img src="@Model.ImgUrl" alt="@Model.UserName" />
-        </div>
-        <div class="col-md-9 user-details-wrap">
-            <div class="row">
-                <div class="col-md-1 profile-label">
-                    <span class="text-left"><strong>UID</strong></span>
-                </div>
-                <div class="col-md-6">
-                    <input class="form-control" value="@Model.Uid" readonly="readonly">
-                </div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <h1 class="text-center">Profile</h1>
             </div>
-            <div class="row m-t-md">
-                <div class="col-md-1 profile-label">
-                    <span class="text-left"><strong>Balance</strong></span>
+        </div>
+        <div class="row">
+            <div class="col-md-3 text-center">
+                <h3 class="break-word">@Model.UserName</h3>
+                <img src="@Model.ImgUrl" alt="@Model.UserName" />
+            </div>
+            <div class="col-md-9 user-details-wrap">
+                <div class="row">
+                    <div class="col-md-1 profile-label">
+                        <span class="text-left"><strong>UID</strong></span>
+                    </div>
+                    <div class="col-md-6">
+                        <input class="form-control" value="@Model.Uid" readonly="readonly">
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <input class="form-control" value="@($"${Model.Balance}")" readonly="readonly">
+                <div class="row m-t-md">
+                    <div class="col-md-1 profile-label">
+                        <span class="text-left"><strong>Balance</strong></span>
+                    </div>
+                    <div class="col-md-6">
+                        <input class="form-control" value="@($"${Model.Balance}")" readonly="readonly">
+                    </div>
                 </div>
+
+                <div class="row m-t-md">
+                    <div class="col-md-1 profile-label"></div>
+                    <div class="col-md-6">
+                        <form method="get" asp-controller="Payment" asp-action="TopUpBalance">
+                            <button type="submit" class="btn btn-primary">Top-Up balance</button>
+                        </form>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

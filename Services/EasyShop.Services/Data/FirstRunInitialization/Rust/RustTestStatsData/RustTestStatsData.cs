@@ -200,7 +200,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData
             var newSteamUser = new SteamUser
             {
                 Id = newSteamUserGuid,
-                Uid = "76561198882487555",
+                Uid = "76561198882487777",
                 TotalSpent = 0m
             };
 

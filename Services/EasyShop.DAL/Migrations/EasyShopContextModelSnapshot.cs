@@ -390,6 +390,66 @@ namespace EasyShop.DAL.Migrations
                     b.ToTable("UserNotifications");
                 });
 
+            modelBuilder.Entity("EasyShop.Domain.Entries.Payment.PayPal.PayPalCreatedPayment", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("AmountToPay")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.Property<DateTime>("CreationDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ParsedPayPalSdkPayment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("ShopId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("SteamUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ShopId");
+
+                    b.HasIndex("SteamUserId");
+
+                    b.ToTable("PayPalCreatedPayments");
+                });
+
+            modelBuilder.Entity("EasyShop.Domain.Entries.Payment.PayPal.PayPalExecutedPayment", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("AmountPaid")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.Property<string>("ParsedPayPalSdkPayment")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("PaymentDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("ShopId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("SteamUserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ShopId");
+
+                    b.HasIndex("SteamUserId");
+
+                    b.ToTable("PayPalExecutedPayments");
+                });
+
             modelBuilder.Entity("EasyShop.Domain.Entries.Rust.RustCategory", b =>
                 {
                     b.Property<Guid>("Id")
@@ -525,13 +585,12 @@ namespace EasyShop.DAL.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("AppUserId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<Guid>("RustPurchasedItemId")
+                    b.Property<Guid?>("RustPurchasedItemId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("ShopId")
+                    b.Property<Guid?>("ShopId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
@@ -1001,6 +1060,28 @@ namespace EasyShop.DAL.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("EasyShop.Domain.Entries.Payment.PayPal.PayPalCreatedPayment", b =>
+                {
+                    b.HasOne("EasyShop.Domain.Entries.Shop.Shop", "Shop")
+                        .WithMany()
+                        .HasForeignKey("ShopId");
+
+                    b.HasOne("EasyShop.Domain.Entries.Users.SteamUser", "SteamUser")
+                        .WithMany()
+                        .HasForeignKey("SteamUserId");
+                });
+
+            modelBuilder.Entity("EasyShop.Domain.Entries.Payment.PayPal.PayPalExecutedPayment", b =>
+                {
+                    b.HasOne("EasyShop.Domain.Entries.Shop.Shop", "Shop")
+                        .WithMany()
+                        .HasForeignKey("ShopId");
+
+                    b.HasOne("EasyShop.Domain.Entries.Users.SteamUser", "SteamUser")
+                        .WithMany()
+                        .HasForeignKey("SteamUserId");
+                });
+
             modelBuilder.Entity("EasyShop.Domain.Entries.Rust.RustCategory", b =>
                 {
                     b.HasOne("EasyShop.Domain.Entries.Identity.AppUser", "AppUser")
@@ -1052,21 +1133,15 @@ namespace EasyShop.DAL.Migrations
                 {
                     b.HasOne("EasyShop.Domain.Entries.Identity.AppUser", "AppUser")
                         .WithMany()
-                        .HasForeignKey("AppUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AppUserId");
 
                     b.HasOne("EasyShop.Domain.Entries.Rust.RustPurchasedItem", "RustPurchasedItem")
                         .WithMany()
-                        .HasForeignKey("RustPurchasedItemId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("RustPurchasedItemId");
 
                     b.HasOne("EasyShop.Domain.Entries.Shop.Shop", "Shop")
                         .WithMany()
-                        .HasForeignKey("ShopId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ShopId");
                 });
 
             modelBuilder.Entity("EasyShop.Domain.Entries.Rust.RustPurchasedItem", b =>

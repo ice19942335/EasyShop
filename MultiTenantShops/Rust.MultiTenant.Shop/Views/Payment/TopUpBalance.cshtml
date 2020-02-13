@@ -1,7 +1,77 @@
-﻿
+﻿@model EasyShop.Domain.ViewModels.RustStore.Payment.RustStoreTopUpBalanceViewModel
 @{
     ViewData["Title"] = "Balance Top-Up";
+    Layout = "_MainLayout";
 }
 
+@await Component.InvokeAsync("TenantNavBar")
 
+@if (Model != null)
+{
+    <div class="panel panel-body">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <h1 class="text-center">Top-Up Balance</h1>
+                <form onsubmit="return checkForm(this);" class="well" method="post" asp-controller="Payment" asp-action="CretePaymentHandler">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-info"></div>
+                    <div class="form-group">
+                        <label>Payment method</label>
+                        <select asp-for="PaymentMethod" id="form-control-6" class="form-control">
+                            <option value="paypal" selected>PayPal</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Amount to Top-Up</label>
+                        <div class="top-up">
+                            <div class="input-group">
+                                <span class="input-group-addon">$</span>
+                                <input id="dollars-input" class="form-control" min="0" max="1000" data-max="1000" type="number" aria-label="US Dollar" placeholder="10">
+                            </div>
+                            <div class="cents-wrap">
+                                <input id="cents-input" class="form-control cents" type="number" min="0" max="99" placeholder="00">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>You will pay:</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">$</span>
+                            <input id="topup-result-hiden" asp-for="amountToPay" value="" hidden />
+                            <input id="topup-result" class="form-control" type="text" aria-label="US Dollar" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="custom-control custom-control-primary custom-checkbox">
+                            <input id="agree" class="custom-control-input" type="checkbox" name="agree" data-msg-required="In order to use our services, you must agree to the Terms of Service." required="" aria-required="true">
+                            <span class="custom-control-indicator"></span>
+                            <small class="custom-control-label">I agree to the Server-Monetization <a href="#">Terms of Service</a>.</small>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <button name="topupbutton" id="top-up-btn" class="btn btn-primary btn-block" type="submit" disabled>Top-Up</button>
+                    </div>
+                    <div class="form-group"></div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+}
+
+@section Styles
+{
+    <link href="~/css/top-up-balance.css" rel="stylesheet" asp-append-version="true" />
+}
+
+@section Scripts
+{
+    <script src="~/js/top-up.js" asp-append-version="true"></script>
+
+    <script>
+        function checkForm(form) {
+            form.topupbutton.disabled = true;
+            return true;
+        }
+    </script>
+}
 

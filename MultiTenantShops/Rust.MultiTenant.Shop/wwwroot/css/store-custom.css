@@ -67,6 +67,10 @@
     width: 98%;
 }
 
+.modal-dialog {
+    border-radius: 4px; 
+}
+
 @media (max-width: 435px) {
     .product-bage {
         bottom: 50%;

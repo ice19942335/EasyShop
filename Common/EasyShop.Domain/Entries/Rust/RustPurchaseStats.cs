@@ -13,10 +13,10 @@ namespace EasyShop.Domain.Entries.Rust
         [Key]
         public Guid Id { get; set; }
 
-        [Required] public AppUser AppUser { get; set; }
+        public AppUser AppUser { get; set; }
 
-        [Required] public RustPurchasedItem RustPurchasedItem { get; set; }
+        public RustPurchasedItem RustPurchasedItem { get; set; }
         
-        [Required] public Shop.Shop Shop { get; set; }
+        public Shop.Shop Shop { get; set; }
     }
 }

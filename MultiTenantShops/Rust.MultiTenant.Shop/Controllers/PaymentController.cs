@@ -1,8 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using AspNet.Security.OpenId.Steam;
+using EasyShop.DAL.Context;
+using EasyShop.Domain.Enums.PayPal;
+using EasyShop.Domain.ViewModels.RustStore.Payment;
+using EasyShop.Domain.ViewModels.RustStore.Store;
+using EasyShop.Domain.ViewModels.RustStore.Store.Profile;
 using EasyShop.Interfaces.Payments.RustPaymentServices;
+using EasyShop.Interfaces.Payments.RustPaymentServices.PayPal;
+using Finbuckle.MultiTenant;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
@@ -14,56 +23,103 @@ namespace Rust.MultiTenant.Shop.Controllers
     public class PaymentController : Controller
     {
         private readonly ILogger<PaymentController> _logger;
-        private readonly IRustPaymentService _rustPaymentService;
+        private readonly IRustStorePaymentService _rustStorePaymentService;
+        private readonly EasyShopContext _easyShopContext;
 
-        public PaymentController(ILogger<PaymentController> logger, IRustPaymentService rustPaymentService)
+        public PaymentController(ILogger<PaymentController> logger, IRustStorePaymentService rustStorePaymentService, EasyShopContext easyShopContext)
         {
             _logger = logger;
-            _rustPaymentService = rustPaymentService;
+            _rustStorePaymentService = rustStorePaymentService;
+            _easyShopContext = easyShopContext;
         }
 
-        public async Task<IActionResult> TopUpBalance()
+        [HttpGet]
+        public IActionResult TopUpBalance()
         {
-            return View();
+            if (User.Identity.IsAuthenticated)
+                return View(new RustStoreTopUpBalanceViewModel());
+
+            return RedirectToAction("UserHaveToBeLoggedIn", "Authentication");
         }
 
-        public async Task<IActionResult> CretePayment()
+        [HttpPost]
+        public async Task<IActionResult> CretePaymentHandler(RustStoreTopUpBalanceViewModel model)
         {
-            _logger.LogInformation($"Creating payment against the PayPal API");
-
-            var result = await _rustPaymentService.CreatePaymentAsync(15.26M);
-
-            if (result is null)
-                return View("CancelPayment");
-            
-            _logger.LogInformation($"Payment created successfully: '{result}' from the PayPal API");
-
-            foreach (var link in result.Links)
+            if (User.Identity.IsAuthenticated)
             {
-                if (link.Rel.Equals("approval_url"))
+                if (!ModelState.IsValid)
                 {
-                    _logger.LogInformation($"Found the approval URL: '{link.Href}' from response");
-                    return Redirect(link.Href);
+                    var errors = ModelState.Values.SelectMany(x => x.Errors.Select(xx => xx.ErrorMessage)).ToList();
+                    errors.ForEach(x => ModelState.AddModelError("", x));
+                    return View("TopUpBalance", model);
                 }
+
+                switch (model.PaymentMethod)
+                {
+                    case "paypal":
+                        return RedirectToAction("CreatePayPalPayment", "Payment", new {amountToPay = model.amountToPay});
+
+                    default: return RedirectToAction("Error404", "Error");
+                }
+
             }
 
-            return View("CancelPayment");
+            return RedirectToAction("UserHaveToBeLoggedIn", "Authentication");
+        }
+
+        #region PayPal
+
+        public async Task<IActionResult> CreatePayPalPayment(string amountToPay)
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                _logger.LogInformation($"Creating payment against the PayPal API");
+
+                var result = await _rustStorePaymentService.CreatePayPalPaymentAsync(amountToPay);
+
+                if (result is null)
+                    return RedirectToAction("Store", "Store");
+
+                _logger.LogInformation($"Payment created successfully: '{result}' from the PayPal API");
+
+                foreach (var link in result.Links)
+                {
+                    if (link.Rel.Equals("approval_url"))
+                    {
+                        _logger.LogInformation($"Found the approval URL: '{link.Href}' from response");
+                        return Redirect(link.Href);
+                    }
+                }
+
+                return RedirectToAction("Store", "Store");
+            }
+
+            return RedirectToAction("UserHaveToBeLoggedIn", "Authentication");
         }
 
         //Variables naming is ugly because of PayPal API making a GET request with these params names. =(
-        public async Task<IActionResult> ExecutePayment(string paymentId, string token, string PayerID) 
+        public async Task<IActionResult> ExecutePayPalPayment(string paymentId, string token, string PayerID)
         {
-            var result = await _rustPaymentService.ExecutePaymentAsync(paymentId, token, PayerID);
+            var result = await _rustStorePaymentService.ExecutePayPalPaymentAsync(paymentId, token, PayerID);
 
-            if (result is null)
-                return View("CancelPayment");
+            if (result.State == PaymentExecutionResultEnum.Failed)
+                return RedirectToAction("PaymentExecutionError", new { reason = result.FailedReason });
 
-            return View("SuccessPayment"); 
+            return RedirectToAction("SuccessPayment", new
+            {
+                currentBalance = result.CurrentBalance,
+                amountPaid = result.AmountPaid
+            });
         }
 
+        #endregion PayPal
 
-        public IActionResult CancelPayment() => View();
+        public IActionResult SuccessPayment(string currentBalance, string amountPaid) => View(new PayPalPaymentSuccess
+        {
+            CurrentBalance = Convert.ToDecimal(currentBalance),
+            AmountPaid = amountPaid
+        });
 
-        public IActionResult SuccessPayment() => View();
+        public IActionResult PaymentExecutionError(string reason) => View(new PayPalPaymentFailed { Reason = reason });
     }
 }
