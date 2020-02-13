@@ -7,8 +7,8 @@ namespace EasyShop.Interfaces.Payments.RustPaymentServices.PayPal
 {
     public interface IRustStorePaymentService
     {
-        Task<Payment> CreatePayPalPaymentAsync(string amountToPay);
+        Task<PayPalPaymentCreationResultDto> CreatePayPalPaymentAsync(string amountToPay);
 
-        Task<PaymentExecuteResultDto> ExecutePayPalPaymentAsync(string paymentId, string token, string payerId);
+        Task<PayPalPaymentExecuteResultDto> ExecutePayPalPaymentAsync(string paymentId, string token, string payerId);
     }
 }

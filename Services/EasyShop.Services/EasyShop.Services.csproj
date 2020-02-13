@@ -10,7 +10,6 @@
     <PackageReference Include="MailKit" Version="2.5.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="PayPal" Version="2.0.0-rc2" />
-    <PackageReference Include="PayPalCoreSDK" Version="1.7.1" />
     <PackageReference Include="Sendgrid" Version="9.12.0" />
   </ItemGroup>
 

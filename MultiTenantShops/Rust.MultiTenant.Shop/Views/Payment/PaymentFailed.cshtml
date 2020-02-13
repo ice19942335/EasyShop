@@ -1,0 +1,30 @@
+﻿@model string
+@{
+    ViewData["Title"] = "Payment failed";
+    Layout = "_MainLayout";
+}
+
+@await Component.InvokeAsync("TenantNavBar")
+
+<div class="panel panel-body">
+    <div class="well text-center">
+        <h2>Ups!!!</h2>
+        <h4>Payment failed =(</h4>
+        <p><strong>Please, try again, if the problem newer went, then contact us by pressing the button below.</strong></p>
+        @{
+            if (Model != null)
+            {
+                <p>Please, copy the text below, and provide it to the support manager, it will help us to sort out your problem much faster. Thank you.</p>
+                <hr/>
+                <p>@Model</p>
+                <hr/>
+            }
+
+            <a class="btn btn-danger m-b-md" href="https://server-monetization.com" target="_blank">Contact support</a>
+        }
+        <form method="get" asp-controller="Store" asp-action="Store">
+            <button type="submit" class="btn btn-primary">Go back to store</button>
+        </form>
+    </div>
+</div>
+
