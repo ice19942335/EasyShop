@@ -2,7 +2,7 @@
 using Imgur.API.Models;
 using Microsoft.AspNetCore.Http;
 
-namespace EasyShop.Interfaces.Imgur
+namespace EasyShop.Interfaces.Services.Imgur
 {
     public interface IImgUrService
     {

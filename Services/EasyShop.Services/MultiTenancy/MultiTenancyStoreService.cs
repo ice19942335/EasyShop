@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
-using EasyShop.Interfaces.MultiTenancy;
+using EasyShop.Interfaces.Services.MultiTenancy;
 using Finbuckle.MultiTenant;
 using Microsoft.Extensions.DependencyInjection;
 

@@ -9,6 +9,7 @@ using EasyShop.Domain.Enums.CP.Rust;
 using EasyShop.Domain.StaticVariables.GameTypes;
 using EasyShop.Domain.ViewModels.CP.ControlPanel.Shop;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
+using EasyShop.Interfaces.Services.Rust;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;

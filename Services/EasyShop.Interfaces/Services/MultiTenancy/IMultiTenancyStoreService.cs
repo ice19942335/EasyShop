@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Finbuckle.MultiTenant;
 
-namespace EasyShop.Interfaces.MultiTenancy
+namespace EasyShop.Interfaces.Services.MultiTenancy
 {
     public interface IMultiTenancyStoreService
     {

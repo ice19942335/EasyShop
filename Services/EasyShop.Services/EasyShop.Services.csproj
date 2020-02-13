@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <Folder Include="Data\FirstRunInitialization\Rust\RustShopDataInitialization\" />
+    <Folder Include="Rust\StandardProductPurchase\" />
   </ItemGroup>
 
 </Project>

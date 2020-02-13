@@ -7,7 +7,7 @@ using EasyShop.Domain.Enums.CP.Rust;
 using EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Shop;
 using EasyShop.Domain.ViewModels.CP.ControlPanel.Shop;
 
-namespace EasyShop.Interfaces.Services.CP.Rust.Shop
+namespace EasyShop.Interfaces.Services.Rust
 {
     public interface IRustShopService
     {

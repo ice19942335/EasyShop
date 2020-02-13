@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using PayPal.v1.Payments;
 
-namespace EasyShop.Interfaces.Payments.RustPaymentServices.PayPal
+namespace EasyShop.Interfaces.Services.Payments.RustPaymentServices.PayPal
 {
     public interface IPayPalExecutedPaymentService
     {

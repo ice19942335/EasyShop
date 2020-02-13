@@ -1,6 +1,4 @@
 ﻿using EasyShop.Interfaces.Email;
-using EasyShop.Interfaces.Imgur;
-using EasyShop.Interfaces.MultiTenancy;
 using EasyShop.Interfaces.Services.CP.Account;
 using EasyShop.Interfaces.Services.CP.Admin.BugReport;
 using EasyShop.Interfaces.Services.CP.Admin.Tariff;
@@ -13,6 +11,9 @@ using EasyShop.Interfaces.Services.CP.Rust.Data;
 using EasyShop.Interfaces.Services.CP.Rust.Server;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
 using EasyShop.Interfaces.Services.CP.UserProfile;
+using EasyShop.Interfaces.Services.Imgur;
+using EasyShop.Interfaces.Services.MultiTenancy;
+using EasyShop.Interfaces.Services.Rust;
 using EasyShop.Services.CP.Account;
 using EasyShop.Services.CP.Admin.BugReport;
 using EasyShop.Services.CP.Admin.Tariff;

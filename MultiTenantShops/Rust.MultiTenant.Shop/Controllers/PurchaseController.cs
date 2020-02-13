@@ -9,6 +9,11 @@ namespace Rust.MultiTenant.Shop.Controllers
 {
     public class PurchaseController : Controller
     {
+        public PurchaseController()
+        {
+            
+        }
+
         [HttpPost]
         public IActionResult RustStandardItem([FromForm] RustStoreStandardItemOrder model)
         {

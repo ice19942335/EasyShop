@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Settings;
-using EasyShop.Interfaces.Imgur;
+using EasyShop.Interfaces.Services.Imgur;
 using EasyShop.Services.ExtensionMethods;
 using Imgur.API.Authentication.Impl;
 using Imgur.API.Endpoints.Impl;

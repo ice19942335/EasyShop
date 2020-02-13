@@ -10,7 +10,7 @@ using EasyShop.Domain.ViewModels.RustStore.Payment;
 using EasyShop.Domain.ViewModels.RustStore.Store;
 using EasyShop.Domain.ViewModels.RustStore.Store.Profile;
 using EasyShop.Interfaces.Payments.RustPaymentServices;
-using EasyShop.Interfaces.Payments.RustPaymentServices.PayPal;
+using EasyShop.Interfaces.Services.Payments.RustPaymentServices.PayPal;
 using Finbuckle.MultiTenant;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
