@@ -98,6 +98,7 @@ class BuyModal {
         this.modalTotalToPay = undefined;
         this.modalItemsToBuy = undefined;
         this.itemToBuyPrice = 0;
+        this.productIdHidden;
 
         this.clickOnProductHandler = this.clickOnProductHandler.bind(this);
         this.closeModalHandler = this.closeModalHandler.bind(this);
@@ -120,6 +121,8 @@ class BuyModal {
         this.modalTotalToPay = document.getElementById('modal-total-to-pay');
         this.modalItemsToBuy = document.getElementById('modal-items-to-buy');
         this.productDescription = document.getElementById('product-description');
+
+        this.productIdHidden = document.getElementById('product-id');
     }
     setEventHandlers() {
         for (const product of this.allProductsNodes) {
@@ -199,6 +202,7 @@ class BuyModal {
         this.modalItemsToBuy.value = '1';
         this.modalTotalToPay.value = product.dataset.productPriceAfterDiscount;
         this.productDescription.innerText = '';
+        this.productIdHidden.value = product.dataset.productId;
 
         if (product.dataset.productDescription !== undefined) {
             let description = product.dataset.productDescription;

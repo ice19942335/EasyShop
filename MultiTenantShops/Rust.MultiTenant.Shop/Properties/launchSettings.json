@@ -11,7 +11,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "https://localhost:44367/c389cbe6923747f1a8df58935b7c9aa3/Payment/TopUpBalance",
+      "launchUrl": "https://localhost:44367/cc49b1b49e514a908b07db7fc58cd264",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
