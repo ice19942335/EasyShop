@@ -1,8 +1,18 @@
-﻿
-@{
-    ViewData["Title"] = "ShopNotFound";
-    Layout = "_BaseLayout";
+﻿@{
+    ViewData["Title"] = "Shop not found";
+    Layout = "Partial/_ErrorLayout";
 }
 
-<h1>ShopNotFound</h1>
+<div class="error" style="max-width: 100%;">
+    <div class="error-body" style="width: 100%;">
+        <div class="panel panel-body">
+            <div class="well text-center">
+                <h3>This shop not exist anymore</h3>
+                <h4><strong>Create your shop in a few clicks!</strong></h4>
+                <a href="https://server-monetization.com" class="btn btn-primary">Create</a>
+            </div>
+        </div>
+    </div>
+</div>
 
+@await Html.PartialAsync("Partial/_Footer")
