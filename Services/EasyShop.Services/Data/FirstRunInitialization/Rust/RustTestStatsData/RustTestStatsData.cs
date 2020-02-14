@@ -145,7 +145,6 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData
 
             for (int i = 0; i < 1000; i++)
             {
-
                 var rndAmount = rnd.Next(1, 3);
                 var rustPurchasedItem = new RustPurchasedItem
                 {
@@ -154,7 +153,8 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData
                     RustItem = _easyShopContext.RustItems.First(),
                     AmountLeft = rndAmount,
                     AmountOnPurchase = rndAmount,
-                    TotalPaid = rnd.Next(1, 5),
+                    ItemsPerStack = rnd.Next(1, 3),
+                    TotalPaid = rnd.Next(1, 5)
                 };
 
                 if (i >= 0 && i < 50) //Last week

@@ -198,7 +198,7 @@
 
         buyersData = Model.Stats.FirstOrDefault(x => x.Key == RustShopStatsUnitEnum.Buyers);
         buyersDates = string.Empty;
-        buyersTotal = buyersData.Value.Item2.Select(x => Int32.Parse(x)).Sum().ToString();
+        buyersTotal = buyersData.Value.Item2.Select(x => Int32.Parse(x)).ToList().Distinct().Sum().ToString();
         buyersValues = string.Join(", ", buyersData.Value.Item2);
         buyersValuesMax = buyersData.Value.Item2.Select(x => Int32.Parse(x)).Max();
         int tenPercentsFromBuyersValuesMax = (buyersValuesMax / 100 * 10) > 0 ? buyersValuesMax / 100 * 10 : 1;
@@ -307,7 +307,7 @@
         <div class="card">
             <div class="card-values">
                 <div class="p-x">
-                    <small>Unique Items</small>
+                    <small>Items</small>
                     <h3 class="card-title fw-l"><span class="icon icon-check-circle"></span> @soldItemsTotal</h3>
                 </div>
             </div>
