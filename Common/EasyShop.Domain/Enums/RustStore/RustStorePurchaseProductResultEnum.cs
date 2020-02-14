@@ -7,6 +7,7 @@ namespace EasyShop.Domain.Enums.RustStore
     public enum RustStorePurchaseProductResultEnum
     {
         Success,
-        Failed
+        Failed,
+        ContactSupport
     }
 }

@@ -14,6 +14,8 @@ using EasyShop.Interfaces.Services.Rust.StandardProductPurchase;
 using EasyShop.Interfaces.SteamUsers;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using Org.BouncyCastle.Math.EC.Rfc7748;
 
 namespace EasyShop.Services.Rust.StandardProductPurchase
@@ -24,39 +26,70 @@ namespace EasyShop.Services.Rust.StandardProductPurchase
         private readonly EasyShopContext _easyShopContext;
         private readonly IRustShopService _rustShopService;
         private readonly UserManager<AppUser> _userManager;
+        private readonly ILogger<RustStoreStandardProductPurchaseService> _logger;
 
         public RustStoreStandardProductPurchaseService(
-            ISteamUserService steamUserService, 
+            ISteamUserService steamUserService,
             EasyShopContext easyShopContext,
             IRustShopService rustShopService,
-            UserManager<AppUser> userManager)
+            UserManager<AppUser> userManager,
+            ILogger<RustStoreStandardProductPurchaseService> logger)
         {
             _steamUserService = steamUserService;
             _easyShopContext = easyShopContext;
             _rustShopService = rustShopService;
             _userManager = userManager;
+            _logger = logger;
         }
 
         public async Task<RustStorePurchaseStandardProductResultDto> TryPurchaseAsync(RustStoreStandardItemOrder model)
         {
+
+            #region Data preparation
+
             var steamUser = _steamUserService.GetCurrentRequestSteamUser();
             var steamUserShop = _steamUserService.GetCurrentRequestSteamUserShop();
             var currentShop = _rustShopService.GetCurrentRequestShop();
-            var currentUserShop = _easyShopContext.UserShops.First(x => x.ShopId == currentShop.Id);
-            var currentShopOwner = await _userManager.FindByIdAsync(currentUserShop.AppUserId);
-
+            var currentUserShop = _easyShopContext.UserShops.FirstOrDefault(x => x.ShopId == currentShop.Id);
+            var appUser = await _userManager.FindByIdAsync(currentUserShop?.AppUserId);
             var rustUserItem = _easyShopContext.RustUserItems
                 .Include(x => x.RustItem)
                 .FirstOrDefault(x => x.Id == Guid.Parse(model.ItemId));
 
-            if (rustUserItem is null)
-                return new RustStorePurchaseStandardProductResultDto()
+            #endregion Data preparation
+
+            #region Check data, continue or return
+
+            var errorId = Guid.NewGuid();
+
+            if (rustUserItem is null || appUser is null || currentUserShop is null || currentShop is null || steamUserShop is null || steamUser is null)
+            {
+                var error = new
                 {
-                    Status = RustStorePurchaseProductResultEnum.Failed,
-                    ErrorMessage = "Item not found"
+                    ErrorId = errorId,
+                    rustUserItem = rustUserItem?.Id,
+                    currentShopOwner = appUser?.Id,
+                    currentShop = currentShop?.Id,
+                    ErrosteamUserrId = steamUser?.Id,
+                    currentUserShop_AppUserId = currentUserShop?.AppUserId,
+                    currentUserShop_ShopId = currentUserShop?.ShopId,
+                    steamUserShop_SteamUserId = steamUserShop?.SteamUserId,
+                    steamUserShop_ShopId = steamUserShop?.ShopId,
                 };
 
-            //Price calculation
+                _logger.LogError($"Purchase data preparation ErrorID: {errorId}\nVariables:\n{JsonConvert.SerializeObject(error, Formatting.Indented)}");
+
+                return new RustStorePurchaseStandardProductResultDto()
+                {
+                    Status = RustStorePurchaseProductResultEnum.ContactSupport,
+                    ErrorMessage = $"Please contact support and give them this id '{errorId}'"
+                };
+            }
+
+            #endregion Check data, continue or return
+
+            #region Price calculation 
+
             decimal actualPrice;
             if (rustUserItem.Discount > 0)
                 actualPrice = rustUserItem.Price - (rustUserItem.Price / 100) * rustUserItem.Discount;
@@ -65,31 +98,57 @@ namespace EasyShop.Services.Rust.StandardProductPurchase
 
             actualPrice *= model.Amount;
 
-            //Check balance have enough money
+            #endregion Price calculation 
+
+            #region Check balance have enough money, if not return
+
             if (steamUserShop.Balance < actualPrice)
+            {
+                var balanceTooLow = new
+                {
+                    SteamUserId = steamUser.Id,
+                    ShopId = currentShop.Id,
+                    UserBalanceInShop = steamUserShop.Balance,
+                    OrderPrice = actualPrice,
+                    AmountOfItemsInOrder = model.Amount,
+                    SingleItemPrice = rustUserItem.Price - (rustUserItem.Price / 100) * rustUserItem.Discount
+                };
+
+                _logger.LogInformation($"Balance too low:\n{JsonConvert.SerializeObject(balanceTooLow, Formatting.Indented)}");
+
                 return new RustStorePurchaseStandardProductResultDto()
                 {
                     Status = RustStorePurchaseProductResultEnum.Failed,
                     ErrorMessage = "Sorry, your balance is too low for this item please Top-Up balance and try again."
                 };
+            }
+                
 
-            //SteamUserShop
+            #endregion Check balance have enough money, if not return
+
+            #region SteamUserShop updating entry values
+
             steamUserShop.Balance -= actualPrice;
             steamUserShop.TotalSpent += actualPrice;
             _easyShopContext.SteamUsersShops.Update(steamUserShop);
 
-            //SteamUser
+            #endregion SteamUserShop updating entry values
+
+            #region SteamUser updating entry values
+
             steamUser.TotalSpent += actualPrice;
             _easyShopContext.SteamUsers.Update(steamUser);
 
-            //RustPurchasedItem
+            #endregion SteamUser updating entry values
+
+            #region Creating entry RustPurchasedItems
+
             Guid rustPurchasedItemId;
             do
             {
                 rustPurchasedItemId = Guid.NewGuid();
             } while (_easyShopContext.RustPurchasedItems.FirstOrDefault(x => x.Id == rustPurchasedItemId) != null);
 
-            //Creating DB entry RustPurchasedItem
             var newRustPurchasedItem = new RustPurchasedItem
             {
                 Id = rustPurchasedItemId,
@@ -103,7 +162,10 @@ namespace EasyShop.Services.Rust.StandardProductPurchase
             };
             _easyShopContext.RustPurchasedItems.Add(newRustPurchasedItem);
 
-            //Creating DB entry RustPurchaseStats
+            #endregion Creating entry RustPurchasedItems
+
+            #region Creating entry RustPurchaseStats
+
             Guid rustPurchasedStatsId;
             do
             {
@@ -113,16 +175,28 @@ namespace EasyShop.Services.Rust.StandardProductPurchase
             var newRustPurchaseStats = new RustPurchaseStats
             {
                 Id = rustPurchasedStatsId,
-                AppUser = currentShopOwner,
+                AppUser = appUser,
                 RustPurchasedItem = newRustPurchasedItem,
                 Shop = currentShop
             };
             _easyShopContext.RustPurchaseStats.Add(newRustPurchaseStats);
 
-            //Saving purchase
+            #endregion Creating entry RustPurchaseStats
+
+            #region Try to save data into DB. Return on error
+
             try
             {
                 await _easyShopContext.SaveChangesAsync();
+
+                var purchaseSuccessDetails = new
+                {
+                    SteamUserId = steamUser.Id,
+                    RustPurchasedItemId = rustPurchasedItemId,
+                    RustPurchasedStatsId = rustPurchasedStatsId
+                };
+
+                _logger.LogInformation($"Purchase success:\n{JsonConvert.SerializeObject(purchaseSuccessDetails, Formatting.Indented)}");
 
                 return new RustStorePurchaseStandardProductResultDto()
                 {
@@ -132,12 +206,15 @@ namespace EasyShop.Services.Rust.StandardProductPurchase
             }
             catch (Exception e)
             {
+                _logger.LogError(e, $"Error on purchase:\n");
                 return new RustStorePurchaseStandardProductResultDto()
                 {
                     Status = RustStorePurchaseProductResultEnum.Failed,
                     ErrorMessage = "Please contact support!"
                 };
             }
+
+            #endregion Try to save data into DB. Return on error
         }
     }
 }
