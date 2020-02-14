@@ -95,7 +95,6 @@ namespace EasyShop.Services.Rust.StandardProductPurchase
                 Id = rustPurchasedItemId,
                 SteamUser = steamUser,
                 RustItem = rustUserItem.RustItem,
-                HasBeenUsed = false,
                 AmountLeft = model.Amount,
                 AmountOnPurchase = model.Amount,
                 ItemsPerStack = rustUserItem.ItemsPerStack,

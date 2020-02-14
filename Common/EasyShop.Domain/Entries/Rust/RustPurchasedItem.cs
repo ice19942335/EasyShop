@@ -16,9 +16,6 @@ namespace EasyShop.Domain.Entries.Rust
         public RustItem RustItem { get; set; }
 
         [Required]
-        public bool HasBeenUsed { get; set; }
-
-        [Required]
         public DateTime PurchaseDateTime { get; set; }
 
         [Required]

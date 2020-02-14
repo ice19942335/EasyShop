@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EasyShop.DAL.Migrations
 {
-    public partial class Initialization : Migration
+    public partial class Initialize : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -722,7 +722,6 @@ namespace EasyShop.DAL.Migrations
                     Id = table.Column<Guid>(nullable: false),
                     SteamUserId = table.Column<Guid>(nullable: true),
                     RustItemId = table.Column<Guid>(nullable: true),
-                    HasBeenUsed = table.Column<bool>(nullable: false),
                     PurchaseDateTime = table.Column<DateTime>(nullable: false),
                     TotalPaid = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
                     ItemsPerStack = table.Column<int>(nullable: false),

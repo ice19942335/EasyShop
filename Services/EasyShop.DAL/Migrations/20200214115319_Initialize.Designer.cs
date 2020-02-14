@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EasyShop.DAL.Migrations
 {
     [DbContext(typeof(EasyShopContext))]
-    [Migration("20200213231738_Initialization")]
-    partial class Initialization
+    [Migration("20200214115319_Initialize")]
+    partial class Initialize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -617,9 +617,6 @@ namespace EasyShop.DAL.Migrations
 
                     b.Property<int>("AmountOnPurchase")
                         .HasColumnType("int");
-
-                    b.Property<bool>("HasBeenUsed")
-                        .HasColumnType("bit");
 
                     b.Property<int>("ItemsPerStack")
                         .HasColumnType("int");

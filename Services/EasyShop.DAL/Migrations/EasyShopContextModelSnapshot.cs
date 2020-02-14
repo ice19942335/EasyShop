@@ -616,9 +616,6 @@ namespace EasyShop.DAL.Migrations
                     b.Property<int>("AmountOnPurchase")
                         .HasColumnType("int");
 
-                    b.Property<bool>("HasBeenUsed")
-                        .HasColumnType("bit");
-
                     b.Property<int>("ItemsPerStack")
                         .HasColumnType("int");
 
