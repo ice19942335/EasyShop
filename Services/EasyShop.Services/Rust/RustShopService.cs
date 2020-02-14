@@ -9,9 +9,10 @@ using EasyShop.Domain.Entries.Shop;
 using EasyShop.Domain.Enums.CP.Rust;
 using EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Shop;
 using EasyShop.Domain.ViewModels.CP.ControlPanel.Shop;
-using EasyShop.Interfaces.MultiTenancy;
 using EasyShop.Interfaces.Services.CP.Rust.Data;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
+using EasyShop.Interfaces.Services.MultiTenancy;
+using EasyShop.Interfaces.Services.Rust;
 using EasyShop.Services.ExtensionMethods;
 using Finbuckle.MultiTenant;
 using Microsoft.AspNetCore.Http;
@@ -454,7 +455,7 @@ namespace EasyShop.Services.Rust
                     userForLog.UserName,
                     userForLog.Id,
                     _httpContextAccessor.HttpContext.Request.GetRawTarget(),
-                    $"Rust product was successfully updated. ProductId: {product.Id}");
+                    $"Rust product was successfully updated. ItemId: {product.Id}");
 
                 return RustEditProductResult.Success;
             }
@@ -464,7 +465,7 @@ namespace EasyShop.Services.Rust
             product.Description = model.RustProductEditViewModel.Description;
             product.Price = model.RustProductEditViewModel.Price;
             product.Discount = model.RustProductEditViewModel.Discount;
-            product.Amount = model.RustProductEditViewModel.Amount;
+            product.ItemsPerStack = model.RustProductEditViewModel.Amount;
             product.Index = model.RustProductEditViewModel.Index;
 
             if (model.RustProductEditViewModel.BlockedTill != null)
@@ -491,7 +492,7 @@ namespace EasyShop.Services.Rust
                 userForLog.UserName,
                 userForLog.Id,
                 _httpContextAccessor.HttpContext.Request.GetRawTarget(),
-                $"Rust product was successfully updated. ProductId: {product.Id}");
+                $"Rust product was successfully updated. ItemId: {product.Id}");
 
             return RustEditProductResult.Success;
         }

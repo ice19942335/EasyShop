@@ -24,7 +24,7 @@ namespace EasyShop.Services.Mappers.ViewModels.Rust
                 Description = product.Description,
                 Price = product.Price,
                 Discount = product.Discount,
-                Amount = product.Amount,
+                Amount = product.ItemsPerStack,
                 BlockedTill = product.BlockedTill == default ? "" : string.Format("{0:M/d/yyyy}", product.BlockedTill),
                 CurrentCategoryName = product.RustCategory.Name,
                 RustCategories = userCategories.Select(x => x.CreateRustCategoryViewModel()),

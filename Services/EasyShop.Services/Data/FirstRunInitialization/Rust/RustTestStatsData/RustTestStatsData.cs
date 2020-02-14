@@ -9,9 +9,10 @@ using EasyShop.Domain.Entries.Rust;
 using EasyShop.Domain.Entries.Shop;
 using EasyShop.Domain.Entries.Users;
 using EasyShop.Domain.ViewModels.CP.ControlPanel.Shop;
-using EasyShop.Interfaces.MultiTenancy;
 using EasyShop.Interfaces.Services.CP.Rust.Data;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
+using EasyShop.Interfaces.Services.MultiTenancy;
+using EasyShop.Interfaces.Services.Rust;
 using EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization;
 using Finbuckle.MultiTenant;
 using Microsoft.AspNetCore.Identity;
@@ -144,14 +145,16 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData
 
             for (int i = 0; i < 1000; i++)
             {
+                var rndAmount = rnd.Next(1, 3);
                 var rustPurchasedItem = new RustPurchasedItem
                 {
                     Id = Guid.NewGuid(),
-                    RustUser = steamUser,
+                    SteamUser = steamUser,
                     RustItem = _easyShopContext.RustItems.First(),
-                    HasBeenUsed = false,
-                    Amount = rnd.Next(1, 3),
-                    TotalPaid = rnd.Next(1, 5),
+                    AmountLeft = rndAmount,
+                    AmountOnPurchase = rndAmount,
+                    ItemsPerStack = rnd.Next(1, 3),
+                    TotalPaid = rnd.Next(1, 5)
                 };
 
                 if (i >= 0 && i < 50) //Last week

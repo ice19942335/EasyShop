@@ -1,0 +1,30 @@
+﻿@model EasyShop.Domain.ViewModels.RustStore.Store.Purchase.RustStorePurchaseFailedViewModel
+@{
+    ViewData["Title"] = "Purchase failed";
+    Layout = "_MainLayout";
+}
+
+@await Component.InvokeAsync("TenantNavBar")
+
+<div class="panel panel-body">
+    <div class="well text-center">
+        <h2>Ups! Something went wrong! =(</h2>
+        <hr />
+        <p><strong>@Model.ErrorMessage</strong></p>
+        <hr />
+        @if (Model.ContactSupport)
+        {
+            <a class="btn btn-warning" href="https://server-monetization.com/ContactUs" target="_blank">Contact support</a>
+        }
+        else
+        {
+            <a class="btn btn-warning" asp-controller="Payment" asp-action="TopUpBalance">Top-Up balance</a>
+        }
+    </div>
+    @if (!Model.ContactSupport)
+    {
+        <div class="text-center">
+            <a class="btn btn-primary" asp-controller="Store" asp-action="Store">Go back to store</a>
+        </div>
+    }
+</div>

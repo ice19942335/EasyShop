@@ -28,7 +28,6 @@ class RustProduct {
     }
     discountInputEventHandler(event) {
         const value = event.target.value;
-        console.log(value);
 
         if (value < 0 || value > 100) {
             toastr.error(`Discount can't be less than 0 percent or more than 100 percent.`);

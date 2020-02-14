@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json.Linq;
 
-namespace AspNet.Security.OpenId
+namespace AspNet.Security.OpenId.Events
 {
     /// <summary>
     /// Exposes various information about the current OpenID authentication flow.

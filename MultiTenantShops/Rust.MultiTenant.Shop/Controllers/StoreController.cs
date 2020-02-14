@@ -9,6 +9,7 @@ using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.ViewModels.RustStore.Store;
 using EasyShop.Domain.ViewModels.RustStore.Store.Profile;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
+using EasyShop.Interfaces.Services.Rust;
 using Finbuckle.MultiTenant;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
@@ -59,7 +60,7 @@ namespace Rust.MultiTenant.Shop.Controllers
                     Discount = x.Discount,
                     BlockedTill = x.BlockedTill,
                     ImgUrl = x.RustItem.ImgUrl,
-                    ItemsPerStack = x.Amount,
+                    ItemsPerStack = x.ItemsPerStack,
                     Description = x.Description,
                     CategoryId = x.RustCategory.Id,
                     CategoryName = x.RustCategory.Name,

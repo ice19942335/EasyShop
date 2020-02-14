@@ -9,8 +9,7 @@ using EasyShop.Domain.Enums.PayPal;
 using EasyShop.Domain.ViewModels.RustStore.Payment;
 using EasyShop.Domain.ViewModels.RustStore.Store;
 using EasyShop.Domain.ViewModels.RustStore.Store.Profile;
-using EasyShop.Interfaces.Payments.RustPaymentServices;
-using EasyShop.Interfaces.Payments.RustPaymentServices.PayPal;
+using EasyShop.Interfaces.Services.Payments.RustPaymentServices.PayPal;
 using Finbuckle.MultiTenant;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -113,12 +112,12 @@ namespace Rust.MultiTenant.Shop.Controllers
 
         #endregion PayPal
 
-        public IActionResult PaymentSuccess(string currentBalance, string amountPaid) => View(new PayPalPaymentSuccess
+        public IActionResult PaymentSuccess(string currentBalance, string amountPaid) => View(new PayPalPaymentSuccessViewModel
         {
             CurrentBalance = Convert.ToDecimal(currentBalance),
             AmountPaid = amountPaid
         });
 
-        public IActionResult PaymentFailed(string reason) => View("PaymentFailed", reason);
+        public IActionResult PaymentFailed(string reason) => View(new PayPalPaymentFailedViewModel { FailedReason = reason });
     }
 }

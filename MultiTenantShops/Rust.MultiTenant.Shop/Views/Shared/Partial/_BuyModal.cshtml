@@ -1,4 +1,6 @@
-﻿<div class="modal-background fade-in" id="buy-modal-bg"></div>
+﻿@model EasyShop.Domain.ViewModels.RustStore.Store.Order.RustStoreStandardItemOrder
+
+<div class="modal-background fade-in" id="buy-modal-bg"></div>
 <div class="panel panel-body custom-modal fade-in-down" id="buy-modal">
     <div class="modal-content-custom">
         <div class="modal-header bg-primary">
@@ -12,7 +14,7 @@
             </div>
             <p class="text-center" id="product-description"></p>
         </div>
-        <form method="post" asp-controller="Payment" asp-action="CretePayment">
+        <form method="post" asp-controller="Purchase" asp-action="RustStandardItem">
             <div class="text-center">
                 <div class="total-to-pay-wrap">
                     <p class="text-left"><strong>Total</strong></p>
@@ -25,7 +27,8 @@
                     <p class="text-left"><strong>Items to buy</strong></p>
                     <div class="amount-to-buy-control-wrap">
                         <button id="modal-decrement" class="btn btn-primary" type="button"><span class="icon icon-minus"></span></button>
-                        <input id="modal-items-to-buy" type="text" class="form-control" readonly="readonly">
+                        <input asp-for="Amount" id="modal-items-to-buy" type="text" class="form-control" readonly="readonly">
+                        <input id="product-id" asp-for="ItemId" type="text" hidden/>
                         <button id="modal-increment" class="btn btn-primary" type="button"><span class="icon icon-plus"></span></button>
                     </div>
                 </div>

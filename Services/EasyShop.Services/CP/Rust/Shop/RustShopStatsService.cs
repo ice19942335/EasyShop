@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
+using Org.BouncyCastle.Math.EC.Rfc7748;
 
 namespace EasyShop.Services.CP.Rust.Shop
 {
@@ -208,7 +209,7 @@ namespace EasyShop.Services.CP.Rust.Shop
             List<string> itemsSoldValues = new List<string>();
             List<string> itemsSoldEmpty = new List<string>();
 
-            itemsSoldValues.Add(rustPurchaseStats.Select(x => x.RustPurchasedItem.Amount).Sum().ToString("G29"));
+            itemsSoldValues.Add(rustPurchaseStats.Select(x => x.RustPurchasedItem.AmountOnPurchase * x.RustPurchasedItem.ItemsPerStack).Sum().ToString("G29"));
 
             return new KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>(RustShopStatsUnitEnum.ItemsSold, (itemsSoldDates, itemsSoldValues, itemsSoldEmpty));
         }
@@ -226,7 +227,7 @@ namespace EasyShop.Services.CP.Rust.Shop
             List<string> buyersEmpty = new List<string>();
 
             buyersValues.Add(rustPurchaseStats
-                .Select(x => x.RustPurchasedItem.RustUser)
+                .Select(x => x.RustPurchasedItem.SteamUser)
                 .ToList()
                 .Distinct()
                 .Count()
@@ -255,7 +256,7 @@ namespace EasyShop.Services.CP.Rust.Shop
             List<string> revenueValues = new List<string>();
             List<string> revenueEmpty = new List<string>();
 
-            for (int i = 0; i < daysPeriod; i++)
+            for (int i = daysPeriod; i >= 0; i--)
             {
                 var selectedDay = DateTime.Today.Subtract(TimeSpan.FromDays(i));
 
@@ -267,9 +268,6 @@ namespace EasyShop.Services.CP.Rust.Shop
                     totalRevenueInSelectedDate += item.RustPurchasedItem.TotalPaid;
                 revenueValues.Add(totalRevenueInSelectedDate.ToString());
             }
-
-            revenueDates.Reverse();
-            revenueValues.Reverse();
 
             return new KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>(RustShopStatsUnitEnum.Revenue, (revenueDates, revenueValues, revenueEmpty));
         }
@@ -291,7 +289,7 @@ namespace EasyShop.Services.CP.Rust.Shop
             List<string> ordersValues = new List<string>();
             List<string> ordersEmpty = new List<string>();
 
-            for (int i = 0; i < daysPeriod; i++)
+            for (int i = daysPeriod; i >= 0; i--)
             {
                 var selectedDay = DateTime.Today.Subtract(TimeSpan.FromDays(i));
 
@@ -300,9 +298,6 @@ namespace EasyShop.Services.CP.Rust.Shop
 
                 ordersValues.Add(soldProductOfSelectedDate.Count.ToString());
             }
-
-            ordersDates.Reverse();
-            ordersValues.Reverse();
 
             return new KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>(RustShopStatsUnitEnum.Orders, (ordersDates, ordersValues, ordersEmpty));
         }
@@ -324,7 +319,7 @@ namespace EasyShop.Services.CP.Rust.Shop
             List<string> itemsSoldValues = new List<string>();
             List<string> itemsSoldEmpty = new List<string>();
 
-            for (int i = 0; i < daysPeriod; i++)
+            for (int i = daysPeriod; i >= 0; i--)
             {
                 var selectedDay = DateTime.Today.Subtract(TimeSpan.FromDays(i));
 
@@ -333,15 +328,12 @@ namespace EasyShop.Services.CP.Rust.Shop
 
                 int soldItemsInSelectedDate = 0;
                 soldProductsInSelectedDate
-                        .Select(x => x.RustPurchasedItem.Amount)
+                        .Select(x => x.RustPurchasedItem.AmountOnPurchase * x.RustPurchasedItem.ItemsPerStack)
                         .ToList()
                         .ForEach(x => soldItemsInSelectedDate += x);
 
                 itemsSoldValues.Add(soldItemsInSelectedDate.ToString());
             }
-
-            itemsSoldDates.Reverse();
-            itemsSoldValues.Reverse();
 
             return new KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>(RustShopStatsUnitEnum.ItemsSold, (itemsSoldDates, itemsSoldValues, itemsSoldEmpty));
         }
@@ -352,6 +344,7 @@ namespace EasyShop.Services.CP.Rust.Shop
             var rustPurchaseStats = _context.RustPurchaseStats
                 .Include(x => x.AppUser)
                 .Include(x => x.RustPurchasedItem.RustItem)
+                .Include(x => x.RustPurchasedItem.SteamUser)
                 .Include(x => x.Shop)
                 .Where(x => 
                     x.RustPurchasedItem.PurchaseDateTime.Date > datePeriodAgo.Date && 
@@ -363,20 +356,16 @@ namespace EasyShop.Services.CP.Rust.Shop
             List<string> buyersValues = new List<string>();
             List<string> buyersEmpty = new List<string>();
 
-            for (int i = 0; i < daysPeriod; i++)
+            for (int i = daysPeriod; i >= 0 ; i--)
             {
                 var selectedDay = DateTime.Today.Subtract(TimeSpan.FromDays(i));
 
                 buyersDates.Add(selectedDay.DayOfWeek.ToString());
                 var soldProductInSelectedDate = rustPurchaseStats.Where(x => x.RustPurchasedItem.PurchaseDateTime.Date == selectedDay.Date).ToList();
 
-                var buyersInSelectedDate = soldProductInSelectedDate.Select(x => x.RustPurchasedItem.RustUser).ToList().Distinct();
-
-                buyersValues.Add(buyersInSelectedDate.Count().ToString());
+                var buyersInSelectedDate = soldProductInSelectedDate.Select(x => x.RustPurchasedItem.SteamUser.Uid).Distinct().Count().ToString("G29");
+                buyersValues.Add(buyersInSelectedDate);
             }
-
-            buyersDates.Reverse();
-            buyersValues.Reverse();
 
             return new KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>(RustShopStatsUnitEnum.Buyers, (buyersDates, buyersValues, buyersEmpty));
         }
@@ -398,7 +387,7 @@ namespace EasyShop.Services.CP.Rust.Shop
             List<string> revenueOverviewValues = new List<string>();
             List<string> revenueOverviewPreviousWeekValues = new List<string>();
 
-            for (int i = 0; i < daysPeriod; i++)
+            for (int i = daysPeriod; i >= 0; i--)
             {
                 var selectedDay = DateTime.Today.Subtract(TimeSpan.FromDays(i));
                 var selectedDateWeekAgo = selectedDay.Subtract(TimeSpan.FromDays(daysPeriod));
@@ -421,10 +410,6 @@ namespace EasyShop.Services.CP.Rust.Shop
                     totalRevenueInSelectedDateWeekAgo += item.RustPurchasedItem.TotalPaid;
                 revenueOverviewPreviousWeekValues.Add(totalRevenueInSelectedDateWeekAgo.ToString());
             }
-
-            revenueOverviewDates.Reverse();
-            revenueOverviewValues.Reverse();
-            revenueOverviewPreviousWeekValues.Reverse();
 
             return new KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>(RustShopStatsUnitEnum.RevenueOverview, (revenueOverviewDates, revenueOverviewValues, revenueOverviewPreviousWeekValues));
         }

@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using EasyShop.DAL.Context;
-using EasyShop.Domain.Entries.Identity;
+﻿using EasyShop.DAL.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Rust.MultiTenant.Shop.Installers;
 
-namespace Rust.MultiTenant.Shop.ConfigureServicesInstallers
+namespace Rust.MultiTenant.Shop.Installers
 {
     public class DbInstaller : IInstaller
     {

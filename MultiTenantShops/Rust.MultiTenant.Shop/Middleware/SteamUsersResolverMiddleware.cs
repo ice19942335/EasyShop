@@ -9,6 +9,7 @@ using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Rust;
 using EasyShop.Domain.Entries.Users;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
+using EasyShop.Interfaces.Services.Rust;
 using Finbuckle.MultiTenant;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

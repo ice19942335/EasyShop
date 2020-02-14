@@ -1,0 +1,20 @@
+﻿@model string
+@{
+    ViewData["Title"] = "Success-full purchase";
+    Layout = "_MainLayout";
+}
+
+@await Component.InvokeAsync("TenantNavBar")
+
+<div class="panel panel-body">
+    <div class="well text-center">
+        <h2>Success!</h2>
+        <h4><strong>Type<span class="text-primary"> /store </span> in-game chat to collect your item(s).</strong></h4>
+
+        <img src="@Model" alt="Rust product" />
+    </div>
+    <div class="text-center">
+        <a class="btn btn-primary" asp-controller="Store" asp-action="Store">Go back to store</a>
+    </div>
+</div>
+

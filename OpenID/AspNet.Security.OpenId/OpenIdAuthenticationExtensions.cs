@@ -5,13 +5,13 @@
  */
 
 using System;
-using AspNet.Security.OpenId;
 using JetBrains.Annotations;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
 
-namespace Microsoft.Extensions.DependencyInjection
+namespace AspNet.Security.OpenId
 {
     public static class OpenIdAuthenticationExtensions
     {

@@ -5,16 +5,12 @@ using System.Net;
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Dto.PayPal;
-using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Enums.PayPal;
 using EasyShop.Domain.Settings;
-using EasyShop.Domain.ViewModels.RustStore.Payment;
-using EasyShop.Interfaces.Payments.RustPaymentServices;
-using EasyShop.Interfaces.Payments.RustPaymentServices.PayPal;
+using EasyShop.Interfaces.Services.Payments.RustPaymentServices.PayPal;
 using EasyShop.Interfaces.SteamUsers;
 using Finbuckle.MultiTenant;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
@@ -63,7 +59,6 @@ namespace EasyShop.Services.Payments.RustPaymentServices.PayPal
             var client = new PayPalHttpClient(environment);
 
             var steamUser = _steamUserService.GetCurrentRequestSteamUser();
-
 
             var payment = new Payment()
             {

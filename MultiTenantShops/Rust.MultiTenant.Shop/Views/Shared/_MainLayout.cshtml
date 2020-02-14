@@ -1,4 +1,5 @@
-﻿@{
+﻿@using EasyShop.Domain.ViewModels.RustStore.Store.Order
+@{
     Layout = "_BaseLayout";
 }
 
@@ -24,7 +25,7 @@
             </div>
         </div>
         @await Html.PartialAsync("Partial/_Footer")
-        @await Html.PartialAsync("Partial/_BuyModal")
+        @await Html.PartialAsync("Partial/_BuyModal", new RustStoreStandardItemOrder())
     </div>
     <script src="~/js/vendor.min.js" asp-append-version="true"></script>
     <script src="~/js/elephant.min.js" asp-append-version="true"></script>

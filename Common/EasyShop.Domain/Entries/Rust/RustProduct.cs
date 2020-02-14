@@ -32,7 +32,7 @@ namespace EasyShop.Domain.Entries.Rust
         public decimal Price { get; set; }
 
         [Required]
-        public int Amount { get; set; }
+        public int ItemsPerStack { get; set; }
 
         public string Description { get; set; }
 
