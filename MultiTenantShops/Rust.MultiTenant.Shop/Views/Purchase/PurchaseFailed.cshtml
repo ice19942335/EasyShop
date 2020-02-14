@@ -4,5 +4,17 @@
     Layout = "_MainLayout";
 }
 
-<h1>PurchaseFailed</h1>
-<p>@(Model?? "")</p>
+@await Component.InvokeAsync("TenantNavBar")
+
+<div class="panel panel-body">
+    <div class="well text-center">
+        <h2>Ups! Something went wrong! =(</h2>
+        <hr />
+        <p><strong>@Model</strong></p>
+        <hr />
+        <a class="btn btn-warning" asp-controller="Payment" asp-action="TopUpBalance">Top-Up balance</a>
+    </div>
+    <div class="text-center">
+        <a class="btn btn-primary" asp-controller="Store" asp-action="Store">Go back to store</a>
+    </div>
+</div>

@@ -29,13 +29,13 @@ namespace Rust.MultiTenant.Shop.Controllers
                 if (purchaseResult.Status == RustStorePurchaseProductResultEnum.Failed)
                     return RedirectToAction("PurchaseFailed", "Purchase", new { message = purchaseResult.ErrorMessage });
 
-                return View("PurchaseSuccess", purchaseResult.RustProduct);
+                return RedirectToAction("PurchaseSuccess", "Purchase", new {imgUrl = purchaseResult.RustProduct.RustItem.ImgUrl});
             }
 
             return RedirectToAction("UserHaveToBeLoggedIn", "Authentication");
         }
 
-        public IActionResult PurchaseSuccess() => View();
+        public IActionResult PurchaseSuccess(string imgUrl) => View("PurchaseSuccess", imgUrl);
 
         public IActionResult PurchaseFailed(string message) => View("PurchaseFailed", message);
     }
