@@ -342,6 +342,7 @@ namespace EasyShop.Services.CP.Rust.Dashboard
             var rustPurchaseStats = _context.RustPurchaseStats
                 .Include(x => x.AppUser)
                 .Include(x => x.RustPurchasedItem.RustItem)
+                .Include(x => x.RustPurchasedItem.SteamUser)
                 .Include(x => x.Shop)
                 .Where(x =>
                     x.RustPurchasedItem.PurchaseDateTime.Date > datePeriodAgo.Date &&
@@ -359,16 +360,8 @@ namespace EasyShop.Services.CP.Rust.Dashboard
                 buyersDates.Add(selectedDay.DayOfWeek.ToString());
                 var soldProductInSelectedDate = rustPurchaseStats.Where(x => x.RustPurchasedItem.PurchaseDateTime.Date == selectedDay.Date).ToList();
 
-                var buyersInSelectedDate = soldProductInSelectedDate.Select(x => x.RustPurchasedItem.SteamUser).ToList().Distinct();
-
-                buyersValues.Add(buyersInSelectedDate.Count().ToString());
-
-                buyersValues.Add(rustPurchaseStats
-                    .Select(x => x.RustPurchasedItem.SteamUser)
-                    .ToList()
-                    .Distinct()
-                    .Count()
-                    .ToString("G29"));
+                var buyersInSelectedDate = soldProductInSelectedDate.Select(x => x.RustPurchasedItem.SteamUser.Uid).Distinct().Count().ToString("G29");
+                buyersValues.Add(buyersInSelectedDate);
             }
 
             return new KeyValuePair<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>(DashBoardStatsUnitEnum.Buyers, (buyersDates, buyersValues, buyersEmpty));

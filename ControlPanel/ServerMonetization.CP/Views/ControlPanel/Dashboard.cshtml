@@ -197,7 +197,7 @@
 
         buyersData = Model.Stats.FirstOrDefault(x => x.Key == DashBoardStatsUnitEnum.Buyers);
         buyersDates = string.Empty;
-        buyersTotal = buyersData.Value.Item2.Select(x => Int32.Parse(x)).ToList().Distinct().Sum().ToString();
+        buyersTotal = buyersData.Value.Item2.Select(x => Int32.Parse(x)).Distinct().Sum().ToString();
         buyersValues = string.Join(", ", buyersData.Value.Item2);
         buyersValuesMax = buyersData.Value.Item2.Select(x => Int32.Parse(x)).Max();
         int tenPercentsFromBuyersValuesMax = (buyersValuesMax / 100 * 10) > 0 ? buyersValuesMax / 100 * 10 : 1;

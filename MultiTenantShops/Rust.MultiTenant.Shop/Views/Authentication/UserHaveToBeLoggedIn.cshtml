@@ -1,13 +1,19 @@
 ﻿@{
     ViewData["Title"] = "Please Log-In";
     Layout = "_MainLayout";
+
+    var tenantInfo = Context.GetMultiTenantContext().TenantInfo;
 }
 
 @await Component.InvokeAsync("TenantNavBar")
 
-<div class="panel panel-body">
+<div class="panel panel-body text-center">
     <div class="well m-b-0">
-        <h3 class="text-center m-b-0 m-t-0">Please login first and then try again.</h3>
+        <h3 class="m-t-0">Please login first and then try again.</h3>
+        <form action="@($"/{tenantInfo.Identifier}/authentication/signin")" method="post">
+            <input type="hidden" name="Provider" value="Steam" />
+            <button class="btn btn-primary login-btn" type="submit">Log In</button>
+        </form>
     </div>
 </div>
 

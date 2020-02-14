@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
+using Org.BouncyCastle.Math.EC.Rfc7748;
 
 namespace EasyShop.Services.CP.Rust.Shop
 {
@@ -343,6 +344,7 @@ namespace EasyShop.Services.CP.Rust.Shop
             var rustPurchaseStats = _context.RustPurchaseStats
                 .Include(x => x.AppUser)
                 .Include(x => x.RustPurchasedItem.RustItem)
+                .Include(x => x.RustPurchasedItem.SteamUser)
                 .Include(x => x.Shop)
                 .Where(x => 
                     x.RustPurchasedItem.PurchaseDateTime.Date > datePeriodAgo.Date && 
@@ -361,12 +363,8 @@ namespace EasyShop.Services.CP.Rust.Shop
                 buyersDates.Add(selectedDay.DayOfWeek.ToString());
                 var soldProductInSelectedDate = rustPurchaseStats.Where(x => x.RustPurchasedItem.PurchaseDateTime.Date == selectedDay.Date).ToList();
 
-                buyersValues.Add(rustPurchaseStats
-                    .Select(x => x.RustPurchasedItem.SteamUser)
-                    .ToList()
-                    .Distinct()
-                    .Count()
-                    .ToString("G29"));
+                var buyersInSelectedDate = soldProductInSelectedDate.Select(x => x.RustPurchasedItem.SteamUser.Uid).Distinct().Count().ToString("G29");
+                buyersValues.Add(buyersInSelectedDate);
             }
 
             return new KeyValuePair<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)>(RustShopStatsUnitEnum.Buyers, (buyersDates, buyersValues, buyersEmpty));

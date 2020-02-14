@@ -44,7 +44,6 @@ namespace EasyShop.Services.Rust.StandardProductPurchase
 
         public async Task<RustStorePurchaseStandardProductResultDto> TryPurchaseAsync(RustStoreStandardItemOrder model)
         {
-
             #region Data preparation
 
             var steamUser = _steamUserService.GetCurrentRequestSteamUser();
