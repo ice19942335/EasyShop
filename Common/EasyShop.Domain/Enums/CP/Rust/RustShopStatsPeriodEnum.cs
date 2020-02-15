@@ -7,6 +7,7 @@
         Over_the_last_30_days,
         Over_the_last_90_days,
         Over_the_last_180_days,
-        Over_the_last_year
+        Over_the_last_year,
+        All_Time
     }
 }

@@ -2,6 +2,7 @@
 using EasyShop.Domain.Entries.Shop;
 using EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Category;
 using EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Shop;
+using EasyShop.Domain.ViewModels.CP.ControlPanel.Shop.Stats;
 
 namespace EasyShop.Services.Mappers.ViewModels.Rust
 {
@@ -22,7 +23,8 @@ namespace EasyShop.Services.Mappers.ViewModels.Rust
                 ShopName = shop.ShopName,
                 ShopTitle = shop.ShopTitle,
                 RustShopEditMainSettingsViewModel = shop.CreateMainSettingsViewModel(),
-                RustCategoryEditViewModel = new RustCategoryEditViewModel()
+                RustCategoryEditViewModel = new RustCategoryEditViewModel(),
+                RustShopStatsViewModel = new RustShopStatsViewModel()
             };
 
             return model;

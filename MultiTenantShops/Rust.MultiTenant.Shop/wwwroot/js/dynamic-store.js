@@ -15,7 +15,7 @@ class DynamicCategories {
     init() {
         this.initializeVariables();
         this.setEventHandlers();
-        this.renderProductsList();
+        //this.renderProductsList();
     }
     initializeVariables() {
         this.categories = document.querySelectorAll('.ctegory-btn');

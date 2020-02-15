@@ -21,9 +21,14 @@ namespace ServerMonetization.CP
 
             using (var serviceScope = host.Services.CreateScope())
             {
+                //EasyShopContext
                 var dbContext = serviceScope.ServiceProvider.GetRequiredService<EasyShopContext>();
-
                 await dbContext.Database.MigrateAsync();
+
+                //RustShopMultiTenantStoreContext
+                var rustShopMultiTenantStoreContext =
+                    serviceScope.ServiceProvider.GetRequiredService<RustShopMultiTenantStoreContext>();
+                await rustShopMultiTenantStoreContext.Database.MigrateAsync();
 
                 //Services
                 var roleManager = serviceScope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();

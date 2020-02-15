@@ -38,15 +38,10 @@ namespace ServerMonetization.CP.Controllers
                 DashBoardStatsPeriodEnum.Over_the_last_90_days => _dashBoardStatsService.GetOverTheLast90DaysStats(),
                 DashBoardStatsPeriodEnum.Over_the_last_180_days => _dashBoardStatsService.GetOverTheLast180DaysStats(),
                 DashBoardStatsPeriodEnum.Over_the_last_year => _dashBoardStatsService.GetOverTheLastYearStats(),
+                DashBoardStatsPeriodEnum.All_time => _dashBoardStatsService.GetAllTimeStats(),
             };
 
-            var model = new DashBoardViewModel
-            {
-                StatsPeriod = statsPeriod,
-                Stats = stats
-            };
-
-            return View(model);
+            return View(stats);
         }
 
         public IActionResult SomethingWentWrong() => View();

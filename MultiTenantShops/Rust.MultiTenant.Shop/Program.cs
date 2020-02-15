@@ -21,10 +21,7 @@ namespace Rust.MultiTenant.Shop
 
             using (var serviceScope = host.Services.CreateScope())
             {
-                var rustShopMultiTenantStoreContext =
-                    serviceScope.ServiceProvider.GetRequiredService<RustShopMultiTenantStoreContext>();
-
-                await rustShopMultiTenantStoreContext.Database.MigrateAsync();
+                //Some logic with DB or anything else.
             }
 
             await host.RunAsync();

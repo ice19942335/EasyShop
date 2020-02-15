@@ -72,11 +72,13 @@ namespace ServerMonetization.CP.Controllers
                     Guid.Parse(shopId)),
                 RustShopStatsPeriodEnum.Over_the_last_year => _rustShopStatsService.GetOverTheLastYearStats(
                     Guid.Parse(shopId)),
+                RustShopStatsPeriodEnum.All_Time => _rustShopStatsService.GetAllTimeStats(
+                    Guid.Parse(shopId))
             };
 
             var model = shop.CreateRustShopViewModel();
-            model.StatsPeriod = statsPeriod;
-            model.Stats = stats;
+            model.RustShopStatsViewModel.StatsPeriod = statsPeriod;
+            model.RustShopStatsViewModel = stats;
 
             return View(model);
         }
