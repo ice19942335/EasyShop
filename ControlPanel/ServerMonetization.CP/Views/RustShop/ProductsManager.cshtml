@@ -35,7 +35,7 @@
                                     <th>Description</th>
                                     <th>Items per stack</th>
                                     <th>Price</th>
-                                    <th>Discount</th>
+                                    <th>Discount in (%)</th>
                                     <th>Block time</th>
                                     <th>Status</th>
                                     <th>Edit</th>
@@ -56,7 +56,7 @@
                                             <td><strong>@product.CategoryViewModel.Name</strong></td>
                                             <td><strong>@product.Amount</strong></td>
                                             <td><strong>@product.Price</strong></td>
-                                            <td><strong>%@product.Discount</strong></td>
+                                            <td><strong>@product.Discount</strong></td>
                                             <td><strong>@(product.BlockedTill == default ? "None" : product.BlockedTill.ToString())</strong></td>
                                             <td>
                                                 <span class="label @(product.ShowInShop ? "label-success" : "label-danger") label-pill">

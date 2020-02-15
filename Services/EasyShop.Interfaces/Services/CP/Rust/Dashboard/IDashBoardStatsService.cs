@@ -2,21 +2,24 @@
 using System.Collections.Generic;
 using System.Text;
 using EasyShop.Domain.Enums.CP.DashBoard;
+using EasyShop.Domain.ViewModels.CP.ControlPanel.DashBoard;
 
 namespace EasyShop.Interfaces.Services.CP.Rust.Dashboard
 {
     public interface IDashBoardStatsService
     {
-        Dictionary<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetTodayStats();
+        DashBoardViewModel GetTodayStats();
 
-        Dictionary<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetOverTheLastWeekStats();
+        DashBoardViewModel GetOverTheLastWeekStats();
 
-        Dictionary<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetOverTheLast30DaysStats();
+        DashBoardViewModel GetOverTheLast30DaysStats();
 
-        Dictionary<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetOverTheLast90DaysStats();
+        DashBoardViewModel GetOverTheLast90DaysStats();
 
-        Dictionary<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetOverTheLast180DaysStats();
+        DashBoardViewModel GetOverTheLast180DaysStats();
 
-        Dictionary<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetOverTheLastYearStats();
+        DashBoardViewModel GetOverTheLastYearStats();
+
+        DashBoardViewModel GetAllTimeStats();
     }
 }

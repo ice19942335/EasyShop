@@ -14,9 +14,14 @@ namespace EasyShop.Domain.ViewModels.CP.ControlPanel.DashBoard
             DashBoardStatsPeriodEnum.Over_the_last_30_days,
             DashBoardStatsPeriodEnum.Over_the_last_90_days,
             DashBoardStatsPeriodEnum.Over_the_last_180_days,
-            DashBoardStatsPeriodEnum.Over_the_last_year
+            DashBoardStatsPeriodEnum.Over_the_last_year,
+            DashBoardStatsPeriodEnum.All_time
         };
+        
 
-        public Dictionary<DashBoardStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> Stats { get; set; }
+        public DashBoardTotalRevenueViewModel RevenueModel { get; set; }
+        public DashBoardTotalOrdersViewModel OrdersModel { get; set; }
+        public DashBoardTotalItemsViewModel ItemsModel { get; set; }
+        public DashBoardTotalBuyersViewModel BuyersModel { get; set; }
     }
 }
