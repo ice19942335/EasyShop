@@ -1,0 +1,80 @@
+﻿@model EasyShop.Domain.ViewModels.RustStore.Store.Purchase.RustStorePurchaseHistoryViewModel
+@{
+    ViewData["Title"] = "Purchase history";
+    Layout = "_MainLayout";
+}
+
+@await Component.InvokeAsync("TenantNavBar")
+
+    <div class="row gutter-xs">
+        <div class="col-xs-12">
+            <div class="card">
+                <div class="card-header">
+                    @*<div class="card-actions">
+                        <button type="button" class="card-action card-toggler" title="Collapse"></button>
+                        <button type="button" class="card-action card-reload" title="Reload"></button>
+                        <button type="button" class="card-action card-remove" title="Remove"></button>
+                    </div>*@
+                    <strong>Purchase history</strong>
+                </div>
+                <div class="card-body">
+                    <table id="demo-datatables-1" class="table table-striped table-nowrap dataTable" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>Purchase date</th>
+                                <th>Name</th>
+                                <th>QTY</th>
+                                <th>QTY available</th>
+                                <th>Paid</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Purchase date</th>
+                                <th>Name</th>
+                                <th>QTY</th>
+                                <th>QTY available</th>
+                                <th>Paid</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            @foreach (var product in Model.PurchasedProducts)
+                            {
+                                <tr>
+                                    <td>@product.PurchaseDateTime.ToString("yyyy MMMM dd")</td>
+                                    <td>@product.Name</td>
+                                    <td>@product.AmountOnPurchase</td>
+                                    <td>@product.AmountLeft</td>
+                                    <td>@product.PaidTotal</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@section Styles
+{
+    <link rel="stylesheet" href="~/css/demo.min.css" asp-append-version="true">
+}
+
+@section Scripts
+{
+    <script>
+        var $datatables = $('#demo-datatables-1');
+        $datatables.DataTable({
+            dom: "<'row'<'col-sm-6'i><'col-sm-6'f>>" + "<'table-responsive'tr>" + "<'row'<'col-sm-6'l><'col-sm-6'p>>",
+            language: {
+                paginate: {
+                    previous: '&laquo;',
+                    next: '&raquo;'
+                },
+                search: "_INPUT_",
+                searchPlaceholder: "Search…"
+            }
+        });
+    </script>
+}
+
