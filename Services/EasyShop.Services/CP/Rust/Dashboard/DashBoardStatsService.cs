@@ -220,7 +220,7 @@ namespace EasyShop.Services.CP.Rust.Dashboard
             return new DashBoardTotalRevenueViewModel
             {
                 ChartValues = revenueValues,
-                ChartDateTimeValues = revenueDates,
+                ChartLabelValues = revenueDates,
                 TotalRevenue = revenueValues.Sum()
             };  
         }
@@ -252,7 +252,7 @@ namespace EasyShop.Services.CP.Rust.Dashboard
             return new DashBoardTotalOrdersViewModel
             {
                 ChartValues = ordersValues,
-                ChartDateTimeValues = ordersDates,
+                ChartLabelValues = ordersDates,
                 TotalOrders = ordersValues.Select(x => Int32.Parse(x)).Sum()
             };
         }
@@ -290,7 +290,7 @@ namespace EasyShop.Services.CP.Rust.Dashboard
             return new DashBoardTotalItemsViewModel
             {
                 ChartValues = itemsSoldValues,
-                ChartDateTimeValues = itemsSoldDates,
+                ChartLabelValues = itemsSoldDates,
                 TotalItems = itemsSoldValues.Select(x => Int32.Parse(x)).Sum()
             };
         }
@@ -328,7 +328,7 @@ namespace EasyShop.Services.CP.Rust.Dashboard
             return new DashBoardTotalBuyersViewModel
             {
                 ChartValues = buyersValues,
-                ChartDateTimeValues = buyersDates,
+                ChartLabelValues = buyersDates,
                 TotalBuyers = uniqueBuyers.Distinct().Count()
             };
         }

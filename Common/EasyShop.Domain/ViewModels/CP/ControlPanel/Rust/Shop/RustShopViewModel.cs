@@ -3,6 +3,7 @@ using EasyShop.Domain.Enums.CP.Rust;
 using EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Category;
 using EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Product;
 using EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Server;
+using EasyShop.Domain.ViewModels.CP.ControlPanel.Shop.Stats;
 
 namespace EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Shop
 {
@@ -14,19 +15,7 @@ namespace EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Shop
 
         public string ShopTitle { get; set; }
 
-        public RustShopStatsPeriodEnum StatsPeriod { get; set; } = RustShopStatsPeriodEnum.Over_the_last_week;
-
-        public List<RustShopStatsPeriodEnum> StatsPeriodList { get; set; } = new List<RustShopStatsPeriodEnum>
-        {
-            RustShopStatsPeriodEnum.Today,
-            RustShopStatsPeriodEnum.Over_the_last_week,
-            RustShopStatsPeriodEnum.Over_the_last_30_days,
-            RustShopStatsPeriodEnum.Over_the_last_90_days,
-            RustShopStatsPeriodEnum.Over_the_last_180_days,
-            RustShopStatsPeriodEnum.Over_the_last_year
-        };
-
-        public Dictionary<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> Stats { get; set; }
+        public RustShopStatsViewModel RustShopStatsViewModel { get; set; }
 
         public RustShopEditMainSettingsViewModel RustShopEditMainSettingsViewModel { get; set; }
 
@@ -41,7 +30,5 @@ namespace EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Shop
         public RustProductsManagerViewModel RustProductsManagerViewModel { get; set; }
 
         public RustServerManagerViewModel RustServerManagerViewModel { get; set; }
-
-        
     }
 }

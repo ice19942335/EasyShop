@@ -2,21 +2,24 @@
 using System.Collections.Generic;
 using System.Text;
 using EasyShop.Domain.Enums.CP.Rust;
+using EasyShop.Domain.ViewModels.CP.ControlPanel.Shop.Stats;
 
 namespace EasyShop.Interfaces.Services.CP.Rust.Shop
 {
     public interface IRustShopStatsService
     {
-        Dictionary<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetTodayStats(Guid shopId);
+        RustShopStatsViewModel GetTodayStats(Guid shopId);
 
-        Dictionary<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetOverTheLastWeekStats(Guid shopId);
+        RustShopStatsViewModel GetOverTheLastWeekStats(Guid shopId);
 
-        Dictionary<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetOverTheLast30DaysStats(Guid shopId);
+        RustShopStatsViewModel GetOverTheLast30DaysStats(Guid shopId);
 
-        Dictionary<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetOverTheLast90DaysStats(Guid shopId);
+        RustShopStatsViewModel GetOverTheLast90DaysStats(Guid shopId);
 
-        Dictionary<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetOverTheLast180DaysStats(Guid shopId);
+        RustShopStatsViewModel GetOverTheLast180DaysStats(Guid shopId);
 
-        Dictionary<RustShopStatsUnitEnum, (IEnumerable<string>, IEnumerable<string>, IEnumerable<string>)> GetOverTheLastYearStats(Guid shopId);
+        RustShopStatsViewModel GetOverTheLastYearStats(Guid shopId);
+
+        RustShopStatsViewModel GetAllTimeStats(Guid shopId);
     }
 }

@@ -21,7 +21,6 @@
     <Folder Include="ViewModels\CP\ControlPanel\Rust\Product\" />
     <Folder Include="ViewModels\CP\ControlPanel\Rust\Server\" />
     <Folder Include="ViewModels\CP\ControlPanel\Rust\Shop\" />
-    <Folder Include="ViewModels\CP\ControlPanel\Shop\" />
     <Folder Include="ViewModels\CP\ControlPanel\Tariff\" />
     <Folder Include="ViewModels\CP\User\UserData\" />
     <Folder Include="ViewModels\CP\User\UserProfile\" />

@@ -70,7 +70,7 @@
             <div class="card-chart">
                 <canvas data-chart="line"
                         data-animation="false"
-                        data-labels='[@(Model.RevenueModel.ChartDateTimeValues != null ? string.Join(",", Model.RevenueModel.ChartDateTimeValues) : "")]'
+                        data-labels='[@(Model.RevenueModel.ChartLabelValues != null ? string.Join(",", Model.RevenueModel.ChartLabelValues) : "")]'
                         data-values='[{"backgroundColor": "rgba(255, 255, 255, 0.1)", "borderColor": "#ff8c00", "data": [@(Model.RevenueModel.ChartValues != null ? string.Join(",", Model.RevenueModel.ChartValues) : "")]}]'
                         data-scales='{"yAxes": [{ "ticks": {"max": @revenueMaxChartValue}}]}'
                         data-hide='["legend", "points", "scalesX", "scalesY", "tooltips"]'
@@ -89,7 +89,7 @@
                 <div class="card-chart">
                     <canvas data-chart="line"
                             data-animation="false"
-                            data-labels='[@(Model.OrdersModel.ChartDateTimeValues != null ? string.Join(",", Model.OrdersModel.ChartDateTimeValues) : "")]'
+                            data-labels='[@(Model.OrdersModel.ChartLabelValues != null ? string.Join(",", Model.OrdersModel.ChartLabelValues) : "")]'
                             data-values='[{"backgroundColor": "rgba(255, 255, 255, 0.1)", "borderColor": "#ff8c00", "data": [@(Model.OrdersModel.ChartValues != null ? string.Join(",", Model.OrdersModel.ChartValues) : "")]}]'
                             data-scales='{"yAxes": [{ "ticks": {"max": @ordersMaxChartValue}}]}'
                             data-hide='["legend", "points", "scalesX", "scalesY", "tooltips"]'
@@ -108,7 +108,7 @@
                 <div class="card-chart">
                     <canvas data-chart="line"
                             data-animation="false"
-                            data-labels='[@(Model.ItemsModel.ChartDateTimeValues != null ? string.Join(",", Model.ItemsModel.ChartDateTimeValues) : "")]'
+                            data-labels='[@(Model.ItemsModel.ChartLabelValues != null ? string.Join(",", Model.ItemsModel.ChartLabelValues) : "")]'
                             data-values='[{"backgroundColor": "rgba(255, 255, 255, 0.1)", "borderColor": "#ff8c00", "data": [@(Model.ItemsModel.ChartValues != null ? string.Join(",", Model.ItemsModel.ChartValues) : "")]}]'
                             data-scales='{"yAxes": [{ "ticks": {"max": @itemsMaxChartValue}}]}'
                             data-hide='["legend", "points", "scalesX", "scalesY", "tooltips"]'
@@ -127,7 +127,7 @@
                 <div class="card-chart">
                     <canvas data-chart="line"
                             data-animation="false"
-                            data-labels='[@(Model.BuyersModel.ChartDateTimeValues != null ? string.Join(",", Model.BuyersModel.ChartDateTimeValues) : "")]'
+                            data-labels='[@(Model.BuyersModel.ChartLabelValues != null ? string.Join(",", Model.BuyersModel.ChartLabelValues) : "")]'
                             data-values='[{"backgroundColor": "rgba(255, 255, 255, 0.1)", "borderColor": "#ff8c00", "data": [@(Model.BuyersModel.ChartValues != null ? string.Join(",", Model.BuyersModel.ChartValues) : "")]}]'
                             data-scales='{"yAxes": [{ "ticks": {"max": @buyersMaxChartValue}}]}'
                             data-hide='["legend", "points", "scalesX", "scalesY", "tooltips"]'
