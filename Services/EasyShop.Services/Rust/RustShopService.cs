@@ -407,7 +407,7 @@ namespace EasyShop.Services.Rust
                 .Include(x => x.RustCategory)
                 .Include(x => x.RustItem.RustItemType)
                 .Where(x => x.Shop.Id == shopId && x.ShowInShop)
-                .OrderBy(x => x.RustCategory.Index)
+                .OrderBy(x => x.Index)
                 .ToList();
 
             var productsList = new List<RustProduct>();
