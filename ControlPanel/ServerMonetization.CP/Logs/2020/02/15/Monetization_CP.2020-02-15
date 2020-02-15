@@ -9270,3 +9270,393 @@ WHERE [u].[AppUserId] = @__user_Id_0
 
 2020-02-15 12:40:22,341 [10] ?     - Request finished in 384.0059ms 200 text/html; charset=utf-8
 
+2020-02-15 12:44:44,123 [13] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-02-15 12:44:44,136 [13] ?     - Hosting environment: Development
+
+2020-02-15 12:44:44,138 [13] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP
+
+2020-02-15 12:44:44,146 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/  
+
+2020-02-15 12:44:44,253 [8] ?     - Executing endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-15 12:44:44,303 [8] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller ServerMonetization.CP.Controllers.HomeController (ServerMonetization.CP).
+
+2020-02-15 12:44:44,339 [8] ?     - Executing ViewResult, running view Index.
+
+2020-02-15 12:44:44,575 [8] ?     - Executed ViewResult - view Index executed in 245.7975ms.
+
+2020-02-15 12:44:44,577 [8] ?     - Executed action ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP) in 271.8653ms
+
+2020-02-15 12:44:44,583 [8] ?     - Executed endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-15 12:44:44,626 [8] ?     - Request finished in 444.6315ms 200 text/html; charset=utf-8
+
+2020-02-15 12:46:45,624 [9] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-02-15 12:46:45,638 [9] ?     - Hosting environment: Development
+
+2020-02-15 12:46:45,640 [9] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP
+
+2020-02-15 12:46:45,649 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/  
+
+2020-02-15 12:46:45,749 [4] ?     - Executing endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-15 12:46:45,793 [4] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller ServerMonetization.CP.Controllers.HomeController (ServerMonetization.CP).
+
+2020-02-15 12:46:45,817 [4] ?     - Executing ViewResult, running view Index.
+
+2020-02-15 12:46:46,088 [4] ?     - Executed ViewResult - view Index executed in 274.4249ms.
+
+2020-02-15 12:46:46,100 [4] ?     - Executed action ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP) in 295.2115ms
+
+2020-02-15 12:46:46,103 [4] ?     - Executed endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-15 12:46:46,129 [4] ?     - Request finished in 461.8924ms 200 text/html; charset=utf-8
+
+2020-02-15 12:48:20,606 [8] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-02-15 12:48:20,616 [8] ?     - Hosting environment: Development
+
+2020-02-15 12:48:20,617 [8] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP
+
+2020-02-15 12:48:20,626 [16] ?     - Request starting HTTP/2.0 GET https://localhost:44374/  
+
+2020-02-15 12:48:20,723 [16] ?     - Executing endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-15 12:48:20,777 [16] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller ServerMonetization.CP.Controllers.HomeController (ServerMonetization.CP).
+
+2020-02-15 12:48:20,799 [16] ?     - Executing ViewResult, running view Index.
+
+2020-02-15 12:48:21,028 [16] ?     - Executed ViewResult - view Index executed in 231.5938ms.
+
+2020-02-15 12:48:21,030 [16] ?     - Executed action ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP) in 251.4685ms
+
+2020-02-15 12:48:21,032 [16] ?     - Executed endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-15 12:48:21,038 [16] ?     - Request finished in 412.8427ms 200 text/html; charset=utf-8
+
+2020-02-15 12:49:21,465 [8] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-02-15 12:49:21,475 [8] ?     - Hosting environment: Development
+
+2020-02-15 12:49:21,477 [8] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP
+
+2020-02-15 12:49:21,487 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/  
+
+2020-02-15 12:49:21,586 [4] ?     - Executing endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-15 12:49:21,630 [4] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller ServerMonetization.CP.Controllers.HomeController (ServerMonetization.CP).
+
+2020-02-15 12:49:21,654 [4] ?     - Executing ViewResult, running view Index.
+
+2020-02-15 12:49:21,985 [4] ?     - Executed ViewResult - view Index executed in 287.6381ms.
+
+2020-02-15 12:49:22,006 [4] ?     - Executed action ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP) in 354.8647ms
+
+2020-02-15 12:49:22,009 [4] ?     - Executed endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-15 12:49:22,017 [4] ?     - Request finished in 530.9973ms 200 text/html; charset=utf-8
+
+2020-02-15 12:50:23,035 [4] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-02-15 12:50:23,045 [4] ?     - Hosting environment: Development
+
+2020-02-15 12:50:23,046 [4] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP
+
+2020-02-15 12:50:23,054 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/  
+
+2020-02-15 12:50:23,152 [9] ?     - Executing endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-15 12:50:23,204 [9] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller ServerMonetization.CP.Controllers.HomeController (ServerMonetization.CP).
+
+2020-02-15 12:50:23,236 [9] ?     - Executing ViewResult, running view Index.
+
+2020-02-15 12:50:23,523 [9] ?     - Executed ViewResult - view Index executed in 291.1005ms.
+
+2020-02-15 12:50:23,526 [9] ?     - Executed action ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP) in 319.9541ms
+
+2020-02-15 12:50:23,533 [9] ?     - Executed endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-15 12:50:23,583 [9] ?     - Request finished in 510.3311ms 200 text/html; charset=utf-8
+
+2020-02-15 12:53:07,698 [4] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-02-15 12:53:07,709 [4] ?     - Hosting environment: Development
+
+2020-02-15 12:53:07,711 [4] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP
+
+2020-02-15 12:53:07,719 [14] ?     - Request starting HTTP/2.0 GET https://localhost:44374/  
+
+2020-02-15 12:53:07,810 [14] ?     - Executing endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-15 12:53:07,853 [14] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller ServerMonetization.CP.Controllers.HomeController (ServerMonetization.CP).
+
+2020-02-15 12:53:07,873 [14] ?     - Executing ViewResult, running view Index.
+
+2020-02-15 12:53:08,083 [14] ?     - Executed ViewResult - view Index executed in 212.7039ms.
+
+2020-02-15 12:53:08,085 [14] ?     - Executed action ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP) in 230.3574ms
+
+2020-02-15 12:53:08,087 [14] ?     - Executed endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-15 12:53:08,093 [14] ?     - Request finished in 374.9126ms 200 text/html; charset=utf-8
+
+2020-02-15 12:56:14,167 [4] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-02-15 12:56:14,178 [4] ?     - Hosting environment: Development
+
+2020-02-15 12:56:14,180 [4] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP
+
+2020-02-15 12:56:14,190 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/  
+
+2020-02-15 12:56:14,292 [9] ?     - Executing endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-15 12:56:14,336 [9] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller ServerMonetization.CP.Controllers.HomeController (ServerMonetization.CP).
+
+2020-02-15 12:56:14,358 [9] ?     - Executing ViewResult, running view Index.
+
+2020-02-15 12:56:14,630 [9] ?     - Executed ViewResult - view Index executed in 273.8844ms.
+
+2020-02-15 12:56:14,635 [9] ?     - Executed action ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP) in 294.0598ms
+
+2020-02-15 12:56:14,637 [9] ?     - Executed endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-15 12:56:14,646 [9] ?     - Request finished in 454.5363ms 200 text/html; charset=utf-8
+
+2020-02-15 13:00:53,582 [9] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-02-15 13:00:53,601 [9] ?     - Hosting environment: Development
+
+2020-02-15 13:00:53,602 [9] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP
+
+2020-02-15 13:00:53,611 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/  
+
+2020-02-15 13:00:53,695 [8] ?     - Executing endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-15 13:00:53,738 [8] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller ServerMonetization.CP.Controllers.HomeController (ServerMonetization.CP).
+
+2020-02-15 13:00:53,779 [8] ?     - Executing ViewResult, running view Index.
+
+2020-02-15 13:00:54,093 [8] ?     - Executed ViewResult - view Index executed in 314.1943ms.
+
+2020-02-15 13:00:54,096 [8] ?     - Executed action ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP) in 354.5951ms
+
+2020-02-15 13:00:54,099 [8] ?     - Executed endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-15 13:00:54,140 [8] ?     - Request finished in 495.5104ms 200 text/html; charset=utf-8
+
+2020-02-15 13:02:52,129 [11] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-02-15 13:02:52,140 [11] ?     - Hosting environment: Development
+
+2020-02-15 13:02:52,142 [11] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP
+
+2020-02-15 13:02:52,152 [9] ?     - Request starting HTTP/2.0 GET https://localhost:44374/  
+
+2020-02-15 13:02:52,297 [9] ?     - Entity Framework Core 3.1.1 initialized 'EasyShopContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer' with options: None
+
+2020-02-15 13:02:52,323 [4] ?     - Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[BirthDate], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[FirstName], [a].[Gender], [a].[LastName], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[ProfileImage], [a].[PurchasedTariffs], [a].[RegistrationDate], [a].[SecurityStamp], [a].[ShopsAllowed], [a].[TotalRevenue], [a].[TransactionPercent], [a].[TwoFactorEnabled], [a].[UserName], [a].[UsingTariff]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+
+2020-02-15 13:02:52,368 [17] ?     - Executed DbCommand (1ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+
+2020-02-15 13:02:52,409 [9] ?     - Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+
+2020-02-15 13:02:52,415 [4] ?     - Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+
+2020-02-15 13:02:52,425 [9] ?     - Executed DbCommand (2ms) [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+
+2020-02-15 13:02:52,428 [12] ?     - Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0
+
+2020-02-15 13:02:52,432 [11] ?     - Executed DbCommand (1ms) [Parameters=[@__role_Id_0='?' (Size = 450)], CommandType='Text', CommandTimeout='30']
+SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0
+
+2020-02-15 13:02:52,443 [11] ?     - Executing endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-15 13:02:52,485 [11] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller ServerMonetization.CP.Controllers.HomeController (ServerMonetization.CP).
+
+2020-02-15 13:02:52,509 [11] ?     - Executing ViewResult, running view Index.
+
+2020-02-15 13:02:52,764 [11] ?     - Executed ViewResult - view Index executed in 259.8036ms.
+
+2020-02-15 13:02:52,766 [11] ?     - Executed action ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP) in 278.9029ms
+
+2020-02-15 13:02:52,768 [11] ?     - Executed endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-15 13:02:52,776 [11] ?     - Request finished in 625.6758ms 200 text/html; charset=utf-8
+
+2020-02-15 13:03:13,310 [9] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-02-15 13:03:13,323 [9] ?     - Hosting environment: Development
+
+2020-02-15 13:03:13,325 [9] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP
+
+2020-02-15 13:03:13,333 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/  
+
+2020-02-15 13:03:27,123 [8] ?     - Executing endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-15 13:03:27,163 [8] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller ServerMonetization.CP.Controllers.HomeController (ServerMonetization.CP).
+
+2020-02-15 13:03:27,191 [8] ?     - Executing ViewResult, running view Index.
+
+2020-02-15 13:03:27,390 [8] ?     - Executed ViewResult - view Index executed in 203.3443ms.
+
+2020-02-15 13:03:27,393 [8] ?     - Executed action ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP) in 227.5271ms
+
+2020-02-15 13:03:27,395 [8] ?     - Executed endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-15 13:03:27,401 [8] ?     - Request finished in 14068.2073ms 200 text/html; charset=utf-8
+
+2020-02-15 13:05:40,670 [8] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-02-15 13:05:40,682 [8] ?     - Hosting environment: Development
+
+2020-02-15 13:05:40,684 [8] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP
+
+2020-02-15 13:05:40,691 [10] ?     - Request starting HTTP/2.0 GET https://localhost:44374/  
+
+2020-02-15 13:05:40,792 [10] ?     - Executing endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-15 13:05:40,846 [10] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller ServerMonetization.CP.Controllers.HomeController (ServerMonetization.CP).
+
+2020-02-15 13:05:40,871 [10] ?     - Executing ViewResult, running view Index.
+
+2020-02-15 13:05:56,938 [10] ?     - Executed ViewResult - view Index executed in 16070.3734ms.
+
+2020-02-15 13:05:56,940 [10] ?     - Executed action ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP) in 16092.7055ms
+
+2020-02-15 13:05:56,942 [10] ?     - Executed endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-15 13:05:56,950 [10] ?     - Request finished in 16257.7686ms 200 text/html; charset=utf-8
+
+2020-02-15 13:09:34,046 [10] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-02-15 13:09:34,062 [10] ?     - Hosting environment: Development
+
+2020-02-15 13:09:34,063 [10] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP
+
+2020-02-15 13:09:34,082 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/  
+
+2020-02-15 13:09:34,217 [4] ?     - Executing endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-15 13:09:34,267 [4] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller ServerMonetization.CP.Controllers.HomeController (ServerMonetization.CP).
+
+2020-02-15 13:09:34,298 [4] ?     - Executing ViewResult, running view Index.
+
+2020-02-15 13:09:34,677 [4] ?     - Executed ViewResult - view Index executed in 353.2255ms.
+
+2020-02-15 13:09:34,682 [4] ?     - Executed action ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP) in 410.7897ms
+
+2020-02-15 13:09:34,685 [4] ?     - Executed endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-15 13:09:34,719 [4] ?     - Request finished in 614.1385ms 200 text/html; charset=utf-8
+
+2020-02-15 13:11:44,240 [8] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-02-15 13:11:44,252 [8] ?     - Hosting environment: Development
+
+2020-02-15 13:11:44,254 [8] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP
+
+2020-02-15 13:11:44,264 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/  
+
+2020-02-15 13:11:44,369 [4] ?     - Executing endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-15 13:11:44,419 [4] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller ServerMonetization.CP.Controllers.HomeController (ServerMonetization.CP).
+
+2020-02-15 13:11:44,440 [4] ?     - Executing ViewResult, running view Index.
+
+2020-02-15 13:11:44,704 [4] ?     - Executed ViewResult - view Index executed in 236.0998ms.
+
+2020-02-15 13:11:44,736 [4] ?     - Executed action ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP) in 288.9393ms
+
+2020-02-15 13:11:44,759 [4] ?     - Executed endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-15 13:11:44,767 [4] ?     - Request finished in 504.8583ms 200 text/html; charset=utf-8
+
+2020-02-15 13:12:45,663 [13] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-02-15 13:12:45,675 [13] ?     - Hosting environment: Development
+
+2020-02-15 13:12:45,676 [13] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP
+
+2020-02-15 13:12:45,685 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/  
+
+2020-02-15 13:12:45,766 [4] ?     - Executing endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-15 13:12:45,808 [4] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller ServerMonetization.CP.Controllers.HomeController (ServerMonetization.CP).
+
+2020-02-15 13:12:45,836 [4] ?     - Executing ViewResult, running view Index.
+
+2020-02-15 13:12:46,078 [4] ?     - Executed ViewResult - view Index executed in 245.3626ms.
+
+2020-02-15 13:12:46,080 [4] ?     - Executed action ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP) in 270.8229ms
+
+2020-02-15 13:12:46,083 [4] ?     - Executed endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-15 13:12:46,092 [4] ?     - Request finished in 404.8742ms 200 text/html; charset=utf-8
+
+2020-02-15 13:13:47,366 [4] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-02-15 13:13:47,375 [4] ?     - Hosting environment: Development
+
+2020-02-15 13:13:47,377 [4] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP
+
+2020-02-15 13:13:47,388 [8] ?     - Request starting HTTP/2.0 GET https://localhost:44374/  
+
+2020-02-15 13:13:47,491 [8] ?     - Executing endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-15 13:13:47,540 [8] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller ServerMonetization.CP.Controllers.HomeController (ServerMonetization.CP).
+
+2020-02-15 13:13:47,567 [8] ?     - Executing ViewResult, running view Index.
+
+2020-02-15 13:13:47,815 [8] ?     - Executed ViewResult - view Index executed in 251.4743ms.
+
+2020-02-15 13:13:47,820 [8] ?     - Executed action ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP) in 275.1476ms
+
+2020-02-15 13:13:47,824 [8] ?     - Executed endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-15 13:13:47,839 [8] ?     - Request finished in 445.4719ms 200 text/html; charset=utf-8
+
+2020-02-15 13:16:40,144 [9] ?     - Application started. Press Ctrl+C to shut down.
+
+2020-02-15 13:16:40,177 [9] ?     - Hosting environment: Development
+
+2020-02-15 13:16:40,180 [9] ?     - Content root path: C:\Users\Administrator\source\repos\ice19942335\EasyShop\ControlPanel\ServerMonetization.CP
+
+2020-02-15 13:16:40,190 [4] ?     - Request starting HTTP/2.0 GET https://localhost:44374/  
+
+2020-02-15 13:16:40,291 [4] ?     - Executing endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-15 13:16:40,330 [4] ?     - Route matched with {action = "Index", controller = "Home"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Index() on controller ServerMonetization.CP.Controllers.HomeController (ServerMonetization.CP).
+
+2020-02-15 13:16:40,353 [4] ?     - Executing ViewResult, running view Index.
+
+2020-02-15 13:16:40,599 [4] ?     - Executed ViewResult - view Index executed in 248.3194ms.
+
+2020-02-15 13:16:40,603 [4] ?     - Executed action ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP) in 269.8936ms
+
+2020-02-15 13:16:40,606 [4] ?     - Executed endpoint 'ServerMonetization.CP.Controllers.HomeController.Index (ServerMonetization.CP)'
+
+2020-02-15 13:16:40,614 [4] ?     - Request finished in 424.4599ms 200 text/html; charset=utf-8
+

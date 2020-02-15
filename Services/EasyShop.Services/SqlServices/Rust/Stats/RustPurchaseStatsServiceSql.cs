@@ -51,10 +51,9 @@ namespace EasyShop.Services.SqlServices.Rust.Stats
                 .Include(x => x.RustPurchasedItem.RustItem)
                 .Include(x => x.RustPurchasedItem.SteamUser)
                 .Include(x => x.Shop)
-                .OrderBy(x => x.RustPurchasedItem.PurchaseDateTime)
                 .Where(x => x.Shop.Id == shopId && x.RustPurchasedItem.SteamUser.Id == steamUserId)
                 .ToList()
-                .AsEnumerable();
+                .OrderByDescending(x => x.RustPurchasedItem.PurchaseDateTime);
         }
 
         public Task<RustPurchaseStats> UpdateAsync(AppUser appUser = null, RustPurchasedItem rustPurchasedItem = null, Shop shop = null)
