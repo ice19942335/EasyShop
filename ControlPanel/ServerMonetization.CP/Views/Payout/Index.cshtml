@@ -1,0 +1,15 @@
+﻿@model EasyShop.Domain.Contracts.CP.PayPal.Authentication.Response.PayPalAuthenticationResponse
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_ControlPanelLayout";
+}
+
+<h1>Index</h1>
+
+<a class="btn btn-default" asp-controller="Payout" asp-action="Authenticate">Authenticate</a>
+
+@if (Model != null)
+{
+    @Model.access_token
+}
+

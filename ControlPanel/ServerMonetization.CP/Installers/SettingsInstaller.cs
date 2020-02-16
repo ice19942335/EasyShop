@@ -15,6 +15,8 @@ namespace ServerMonetization.CP.Installers
             services.Configure<GmailSmtpSettings>(configuration.GetSection("GmailSmtpSettings"));
 
             services.AddSingleton(configuration.GetSection("ImgurSettings").Get<ImgurSettings>());
+
+            services.AddSingleton(configuration.GetSection("PayPalSettings").Get<PayPalSettings>());
         }
     }
 }
