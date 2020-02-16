@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net;
-using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
 using EasyShop.Domain.Contracts.CP.PayPal.Authentication.Response;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Settings;
