@@ -51,48 +51,42 @@ namespace EasyShop.Services.Payments.Payout.PayPal.Authentication
             request.AddHeader("Authorization", $"Basic {_userCredentialsBase64}");
             request.AddParameter("grant_type", "client_credentials");
 
-            _logger.LogInformation(string.Format("\nUserEmail: {0}\nUserId: {1}\nRequest: {2}\nMessage: {3}",
-                _currentRequestUser.Email,
-                _currentRequestUser.Id,
-                _httpContextAccessor.HttpContext.Request.GetRawTarget(),
-                "Created client with 'RestClient' against PayPal API"));
-
-            IRestResponse response;
+            Log("Created client with 'RestClient' against PayPal API");
 
             try
             {
-                response = client.Execute(request);
+                var response = client.Execute(request);
 
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
                     PayPalAuthenticationResponse authResponse =
                         JsonConvert.DeserializeObject<PayPalAuthenticationResponse>(response.Content);
 
-                    _logger.LogInformation(string.Format("\nUserEmail: {0}\nUserId: {1}\nRequest: {2}\nMessage: {3}",
-                            _currentRequestUser.Email, _currentRequestUser.Id,
-                            _httpContextAccessor.HttpContext.Request.GetRawTarget(),
-                        $"Successfully authenticated\nHttp request response: {response.Content}"));
+                    Log($"Successfully authenticated\nHttp request response: {response.Content}");
 
                     return authResponse;
                 }
 
-                _logger.LogInformation(string.Format("\nUserEmail: {0}\nUserId: {1}\nRequest: {2}\nMessage: {3}",
-                        _currentRequestUser.Email, _currentRequestUser.Id,
-                        _httpContextAccessor.HttpContext.Request.GetRawTarget(),
-                    $"Request response status code: {response.StatusCode}"));
+                Log($"Request response status code: {response.StatusCode}");
 
                 return null;
 
             }
             catch (Exception e)
             {
-                _logger.LogInformation(string.Format("\nUserEmail: {0}\nUserId: {1}\nRequest: {2}\nMessage: {3}",
-                        _currentRequestUser.Email, _currentRequestUser.Id,
-                        _httpContextAccessor.HttpContext.Request.GetRawTarget(),
-                    $"Error: {e.Message} | InnerMessage: {e.InnerException?.Message}"));
+                Log($"Error: {e.Message} | InnerMessage: {e.InnerException?.Message}");
 
                 return null;
             }
+        }
+
+        private void Log(string message)
+        {
+            _logger.LogInformation(string.Format("\nUserEmail: {0}\nUserId: {1}\nRequest: {2}\nMessage: {3}",
+                _currentRequestUser.Email,
+                _currentRequestUser.Id,
+                _httpContextAccessor.HttpContext.Request.GetRawTarget(),
+                message));
         }
     }
 }
