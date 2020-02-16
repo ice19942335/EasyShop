@@ -44,22 +44,24 @@
 
     var revenueOverviewDotDialogLast = Model.RustShopStatsViewModel.StatsPeriod switch
     {
-        RustShopStatsPeriodEnum.Today => "",
+        RustShopStatsPeriodEnum.Today => "Today",
         RustShopStatsPeriodEnum.Over_the_last_week => "Last week",
         RustShopStatsPeriodEnum.Over_the_last_30_days => "Last month",
         RustShopStatsPeriodEnum.Over_the_last_90_days => "Last 90 days",
         RustShopStatsPeriodEnum.Over_the_last_180_days => "Last 180 days",
         RustShopStatsPeriodEnum.Over_the_last_year => "Last year",
+        RustShopStatsPeriodEnum.All_time => "All time"
     };
 
     var revenueOverviewDotDialogPrevious = Model.RustShopStatsViewModel.StatsPeriod switch
     {
-        RustShopStatsPeriodEnum.Today => "",
+        RustShopStatsPeriodEnum.Today => "Today",
         RustShopStatsPeriodEnum.Over_the_last_week => "Previous week",
         RustShopStatsPeriodEnum.Over_the_last_30_days => "Previous month",
         RustShopStatsPeriodEnum.Over_the_last_90_days => "Previous 90 days",
         RustShopStatsPeriodEnum.Over_the_last_180_days => "Previous 180 days",
         RustShopStatsPeriodEnum.Over_the_last_year => "Previous year",
+        RustShopStatsPeriodEnum.All_time => "All time"
     };
 
     #endregion
@@ -160,7 +162,7 @@
     </div>
 </div>
 
-@if (Model.RustShopStatsViewModel.StatsPeriod != RustShopStatsPeriodEnum.Today && Model.RustShopStatsViewModel.StatsPeriod != RustShopStatsPeriodEnum.All_Time)
+@if (Model.RustShopStatsViewModel.StatsPeriod != RustShopStatsPeriodEnum.Today && Model.RustShopStatsViewModel.StatsPeriod != RustShopStatsPeriodEnum.All_time)
 {
 <div class="row gutter-xs">
     <div class="col-lg-12">
@@ -203,6 +205,7 @@ else
         <span class="icon icon-area-chart icon-lg"></span> The graph can be seen only from one week until the annual stats period.
     </div>
 }
+
 
 
 @section Scripts

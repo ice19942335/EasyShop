@@ -137,11 +137,11 @@
         </div>
 </div>
 
-@if (Model.StatsPeriod == DashBoardStatsPeriodEnum.Today)
+@if (Model.StatsPeriod == DashBoardStatsPeriodEnum.Today || Model.StatsPeriod == DashBoardStatsPeriodEnum.All_time)
 {
-    <div class="well text-center">
-        <span class="icon icon-area-chart icon-lg"></span> The graph can be seen starting with weekly statistics.
-    </div>
+<div class="well text-center">
+    <span class="icon icon-area-chart icon-lg"></span> The graph can be seen only from one week until the annual stats period.
+</div>
 }
 
 

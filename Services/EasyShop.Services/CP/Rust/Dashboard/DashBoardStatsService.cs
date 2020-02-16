@@ -108,10 +108,92 @@ namespace EasyShop.Services.CP.Rust.Dashboard
         }
         public DashBoardViewModel GetAllTimeStats()
         {
-            throw new NotImplementedException();
+            DashBoardViewModel statsResult = new DashBoardViewModel
+            {
+                StatsPeriod = DashBoardStatsPeriodEnum.All_time,
+                RevenueModel = GetAllTimeRevenueStats(),
+                OrdersModel = GetAllTimeOrdersStats(),
+                ItemsModel = GetAllTimeSoldItemsStats(),
+                BuyersModel = GetAllTimeBuyersStats()
+            };
+
+            return statsResult;
         }
 
         #endregion Public Get methods
+
+
+        #region AllTimeStats
+        private DashBoardTotalRevenueViewModel GetAllTimeRevenueStats()
+        {
+            var rustPurchaseStats = _context.RustPurchaseStats
+                .Include(x => x.AppUser)
+                .Include(x => x.RustPurchasedItem.RustItem)
+                .Include(x => x.Shop)
+                .Where(x => x.AppUser == _user)
+                .ToList();
+
+            var totalRevenue = rustPurchaseStats.Select(x => x.RustPurchasedItem.TotalPaid).Sum();
+
+            return new DashBoardTotalRevenueViewModel
+            {
+                ChartValues = new[] { 0.00m },
+                TotalRevenue = totalRevenue
+            };
+        }
+        private DashBoardTotalOrdersViewModel GetAllTimeOrdersStats()
+        {
+            var rustPurchaseStats = _context.RustPurchaseStats
+                .Include(x => x.AppUser)
+                .Include(x => x.RustPurchasedItem.RustItem)
+                .Include(x => x.Shop)
+                .Where(x => x.AppUser == _user);
+
+            return new DashBoardTotalOrdersViewModel()
+            {
+                ChartValues = new[] { "0" },
+                TotalOrders = rustPurchaseStats.Count()
+            };
+        }
+        private DashBoardTotalItemsViewModel GetAllTimeSoldItemsStats()
+        {
+            var rustPurchaseStats = _context.RustPurchaseStats
+                .Include(x => x.AppUser)
+                .Include(x => x.RustPurchasedItem.RustItem)
+                .Include(x => x.Shop)
+                .Where(x => x.AppUser == _user);
+
+            return new DashBoardTotalItemsViewModel
+            {
+                ChartValues = new[] { "0" },
+                TotalItems = rustPurchaseStats.Select(x => x.RustPurchasedItem.ItemsPerStack * x.RustPurchasedItem.AmountOnPurchase).Sum()
+            };
+        }
+        private DashBoardTotalBuyersViewModel GetAllTimeBuyersStats()
+        {
+            var rustPurchaseStats = _context.RustPurchaseStats
+                .Include(x => x.AppUser)
+                .Include(x => x.RustPurchasedItem.RustItem)
+                .Include(x => x.Shop)
+                .Where(x => x.AppUser == _user);
+
+            List<string> buyersDates = new List<string>();
+            List<string> buyersValues = new List<string>();
+            List<string> buyersEmpty = new List<string>();
+
+            var uniqueBuyers = rustPurchaseStats
+                .Select(x => x.RustPurchasedItem.SteamUser)
+                .ToList()
+                .Distinct()
+                .Count();
+
+            return new DashBoardTotalBuyersViewModel
+            {
+                ChartValues = new[] { "0" },
+                TotalBuyers = uniqueBuyers
+            };
+        }
+        #endregion AllTimeStats
 
 
         #region DailyStats
