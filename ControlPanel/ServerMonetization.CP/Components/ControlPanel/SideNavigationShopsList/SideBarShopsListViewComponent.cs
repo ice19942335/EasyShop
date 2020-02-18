@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using EasyShop.DAL.Context;
-using EasyShop.Domain.Entries.Identity;
-using EasyShop.Domain.Entries.Shop;
-using EasyShop.Domain.ViewModels.CP.ControlPanel.Shop;
+﻿using EasyShop.Domain.ViewModels.CP.ControlPanel.Shop;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ViewComponents;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace ServerMonetization.CP.Components.ControlPanel.SideNavigationShopsList
 {
