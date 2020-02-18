@@ -17,7 +17,7 @@ namespace EasyShop.Domain.ViewModels.CP.ControlPanel.Shop.Stats
             RustShopStatsPeriodEnum.Over_the_last_90_days,
             RustShopStatsPeriodEnum.Over_the_last_180_days,
             RustShopStatsPeriodEnum.Over_the_last_year,
-            RustShopStatsPeriodEnum.All_Time,
+            RustShopStatsPeriodEnum.All_time,
         };
 
         public ShopTotalRevenueViewModel RevenueModel { get; set; }

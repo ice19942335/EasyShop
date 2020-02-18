@@ -11,6 +11,12 @@
                             <span class="sidenav-label">Dashboard</span>
                         </a>
                     </li>
+                    <li class="sidenav-item">
+                        <a asp-area="" asp-controller="Payout" asp-action="Summary">
+                            <span class="sidenav-icon icon icon-money"></span>
+                            <span class="sidenav-label">Payout</span>
+                        </a>
+                    </li>
                     @await Component.InvokeAsync("SideNavigationShopsList")
                 </ul>
             </nav>

@@ -5,7 +5,9 @@ using System.Text;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Entries.Users;
+using EasyShop.Domain.Enums.CP.DashBoard;
 using EasyShop.Domain.Enums.CP.Rust;
+using EasyShop.Domain.ViewModels.CP.ControlPanel.DashBoard;
 using EasyShop.Domain.ViewModels.CP.ControlPanel.Shop.Stats;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
 using Microsoft.AspNetCore.Http;
@@ -41,7 +43,6 @@ namespace EasyShop.Services.CP.Rust.Shop
                 BuyersModel = GetBuyersDailyStats(shopId),
             };
         }
-
         public RustShopStatsViewModel GetOverTheLastWeekStats(Guid shopId)
         {
             return new RustShopStatsViewModel
@@ -54,7 +55,6 @@ namespace EasyShop.Services.CP.Rust.Shop
                 RevenueOverviewModel = GetRevenueOverviewStats(shopId, 7)
             };
         }
-
         public RustShopStatsViewModel GetOverTheLast30DaysStats(Guid shopId)
         {
             return new RustShopStatsViewModel
@@ -67,7 +67,6 @@ namespace EasyShop.Services.CP.Rust.Shop
                 RevenueOverviewModel = GetRevenueOverviewStats(shopId, 30)
             };
         }
-
         public RustShopStatsViewModel GetOverTheLast90DaysStats(Guid shopId)
         {
             return new RustShopStatsViewModel
@@ -80,7 +79,6 @@ namespace EasyShop.Services.CP.Rust.Shop
                 RevenueOverviewModel = GetRevenueOverviewStats(shopId, 90)
             };
         }
-
         public RustShopStatsViewModel GetOverTheLast180DaysStats(Guid shopId)
         {
             return new RustShopStatsViewModel
@@ -93,7 +91,6 @@ namespace EasyShop.Services.CP.Rust.Shop
                 RevenueOverviewModel = GetRevenueOverviewStats(shopId, 180)
             };
         }
-
         public RustShopStatsViewModel GetOverTheLastYearStats(Guid shopId)
         {
             return new RustShopStatsViewModel
@@ -106,17 +103,87 @@ namespace EasyShop.Services.CP.Rust.Shop
                 RevenueOverviewModel = GetRevenueOverviewStats(shopId, 360)
             };
         }
-
         public RustShopStatsViewModel GetAllTimeStats(Guid shopId)
         {
-            throw new NotImplementedException();
-        }
+            RustShopStatsViewModel statsResult = new RustShopStatsViewModel
+            {
+                StatsPeriod = RustShopStatsPeriodEnum.All_time,
+                RevenueModel = GetAllTimeRevenueStats(shopId),
+                OrdersModel = GetAllTimeOrdersStats(shopId),
+                ItemsModel = GetAllTimeSoldItemsStats(shopId),
+                BuyersModel = GetAllTimeBuyersStats(shopId)
+            };
 
+            return statsResult;
+        }
         #endregion Public Get methods
 
 
-        #region DailyStats
+        #region AllTimeStats
+        private ShopTotalRevenueViewModel GetAllTimeRevenueStats(Guid shopId)
+        {
+            var rustPurchaseStats = _context.RustPurchaseStats
+                .Include(x => x.AppUser)
+                .Include(x => x.RustPurchasedItem.RustItem)
+                .Include(x => x.Shop)
+                .Where(x => x.AppUser == _user && x.Shop.Id == shopId);
 
+            return new ShopTotalRevenueViewModel
+            {
+                ChartValues = new[] { 0.00m },
+                ChartLabelValues = null,
+                TotalRevenue = rustPurchaseStats.Select(x => x.RustPurchasedItem.TotalPaid).Sum()
+            };
+        }
+        private ShopTotalOrdersViewModel GetAllTimeOrdersStats(Guid shopId)
+        {
+            var rustPurchaseStats = _context.RustPurchaseStats
+                .Include(x => x.AppUser)
+                .Include(x => x.RustPurchasedItem.RustItem)
+                .Include(x => x.Shop)
+                .Where(x => x.AppUser == _user && x.Shop.Id == shopId);
+
+            return new ShopTotalOrdersViewModel
+            {
+                ChartValues = new[] { "0" },
+                ChartLabelValues = null,
+                TotalOrders = rustPurchaseStats.Count()
+            };
+        }
+        private ShopTotalItemsViewModel GetAllTimeSoldItemsStats(Guid shopId)
+        {
+            var rustPurchaseStats = _context.RustPurchaseStats
+                .Include(x => x.AppUser)
+                .Include(x => x.RustPurchasedItem.RustItem)
+                .Include(x => x.Shop)
+                .Where(x => x.AppUser == _user && x.Shop.Id == shopId);
+
+            return new ShopTotalItemsViewModel
+            {
+                ChartValues = new[] { "0" },
+                ChartLabelValues = null,
+                TotalItems = rustPurchaseStats.Select(x => x.RustPurchasedItem.AmountOnPurchase * x.RustPurchasedItem.ItemsPerStack).Sum()
+            };
+        }
+        private ShopTotalBuyersViewModel GetAllTimeBuyersStats(Guid shopId)
+        {
+            var rustPurchaseStats = _context.RustPurchaseStats
+                .Include(x => x.AppUser)
+                .Include(x => x.RustPurchasedItem.RustItem)
+                .Include(x => x.Shop)
+                .Where(x => x.AppUser == _user && x.Shop.Id == shopId);
+
+            return new ShopTotalBuyersViewModel
+            {
+                ChartValues = new[] { "0" },
+                ChartLabelValues = null,
+                TotalBuyers = rustPurchaseStats.Select(x => x.RustPurchasedItem.SteamUser).ToList().Distinct().Count()
+            };
+        }
+        #endregion AllTimeStats
+
+
+        #region DailyStats
         private ShopTotalRevenueViewModel GetRevenueDailyStats(Guid shopId)
         {
             var rustPurchaseStats = _context.RustPurchaseStats
@@ -132,7 +199,6 @@ namespace EasyShop.Services.CP.Rust.Shop
                 TotalRevenue = rustPurchaseStats.Select(x => x.RustPurchasedItem.TotalPaid).Sum()
             };
         }
-
         private ShopTotalOrdersViewModel GetOrdersDailyStats(Guid shopId)
         {
             var rustPurchaseStats = _context.RustPurchaseStats
@@ -148,7 +214,6 @@ namespace EasyShop.Services.CP.Rust.Shop
                 TotalOrders = rustPurchaseStats.Count()
             };
         }
-
         private ShopTotalItemsViewModel GetSoldItemsDailyStats(Guid shopId)
         {
             var rustPurchaseStats = _context.RustPurchaseStats
@@ -164,7 +229,6 @@ namespace EasyShop.Services.CP.Rust.Shop
                 TotalItems = rustPurchaseStats.Select(x => x.RustPurchasedItem.AmountOnPurchase * x.RustPurchasedItem.ItemsPerStack).Sum()
             };
         }
-
         private ShopTotalBuyersViewModel GetBuyersDailyStats(Guid shopId)
         {
             var rustPurchaseStats = _context.RustPurchaseStats
@@ -180,12 +244,10 @@ namespace EasyShop.Services.CP.Rust.Shop
                 TotalBuyers = rustPurchaseStats.Select(x => x.RustPurchasedItem.SteamUser).ToList().Distinct().Count()
             };
         }
-
         #endregion DailyStats
 
 
         #region StatsByPeriod
-
         private ShopTotalRevenueViewModel GetRevenueStats(Guid shopId, int daysPeriod)
         {
             DateTime datePeriodAgo = DateTime.Today.Subtract(TimeSpan.FromDays(daysPeriod));
@@ -221,7 +283,6 @@ namespace EasyShop.Services.CP.Rust.Shop
                 TotalRevenue = revenueValues.Sum()
             };
         }
-
         private ShopTotalOrdersViewModel GetOrdersStats(Guid shopId, int daysPeriod)
         {
             DateTime datePeriodAgo = DateTime.Today.Subtract(TimeSpan.FromDays(daysPeriod));
@@ -257,7 +318,6 @@ namespace EasyShop.Services.CP.Rust.Shop
             };
 
         }
-
         private ShopTotalItemsViewModel GetSoldItemsStats(Guid shopId, int daysPeriod)
         {
             DateTime datePeriodAgo = DateTime.Today.Subtract(TimeSpan.FromDays(daysPeriod));
@@ -297,7 +357,6 @@ namespace EasyShop.Services.CP.Rust.Shop
                 TotalItems = itemsSoldValues.Sum()
             };
         }
-
         private ShopTotalBuyersViewModel GetBuyersStats(Guid shopId, int daysPeriod)
         {
             DateTime datePeriodAgo = DateTime.Today.Subtract(TimeSpan.FromDays(daysPeriod));
@@ -337,7 +396,6 @@ namespace EasyShop.Services.CP.Rust.Shop
                 TotalBuyers = steamUsersList.Distinct().Count()
             };
         }
-
         private ShopTotalRevenueOverviewViewModel GetRevenueOverviewStats(Guid shopId, int daysPeriod)
         {
             DateTime datePeriodAgo = DateTime.Today.Subtract(TimeSpan.FromDays(daysPeriod * 2));
@@ -386,7 +444,6 @@ namespace EasyShop.Services.CP.Rust.Shop
                 ChartValuesForPreviousPeriod = revenueOverviewPreviousPeriodValues
             };
         }
-
         #endregion StatsByPeriod
     }
 }

@@ -13,6 +13,7 @@ using EasyShop.Interfaces.Services.CP.Rust.Shop;
 using EasyShop.Interfaces.Services.CP.UserProfile;
 using EasyShop.Interfaces.Services.Imgur;
 using EasyShop.Interfaces.Services.MultiTenancy;
+using EasyShop.Interfaces.Services.Payments.Payout.PayPal.Authentication;
 using EasyShop.Interfaces.Services.Rust;
 using EasyShop.Services.CP.Account;
 using EasyShop.Services.CP.Admin.BugReport;
@@ -31,6 +32,7 @@ using EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData;
 using EasyShop.Services.Email;
 using EasyShop.Services.Imgur;
 using EasyShop.Services.MultiTenancy;
+using EasyShop.Services.Payments.Payout.PayPal.Authentication;
 using EasyShop.Services.Rust;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -83,6 +85,8 @@ namespace ServerMonetization.CP.Installers
             //TenantStore
             services.AddTransient<IMultiTenancyStoreService, MultiTenancyStoreService>();
 
+            
+
 
             //Scooped ---------------------------------------------------------------------------------
 
@@ -94,6 +98,9 @@ namespace ServerMonetization.CP.Installers
 
             //ImgUr services
             services.AddScoped<IImgUrService, ImgUrService>();
+
+            //PayPal services
+            services.AddScoped<IPayPalAuthenticationService, PayPalAuthenticationService>();
 
 
             //SingleTone ------------------------------------------------------------------------------
