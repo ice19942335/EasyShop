@@ -33,7 +33,7 @@ namespace ServerMonetization.CP.Controllers
             _configuration = configuration;
         }
 
-        public async Task<IActionResult> ShopsManager()
+        public async Task<IActionResult> ShopsList()
         {
             var userShops = await _shopService.UserShopsByUserEmailAsync(User.Identity.Name);
 

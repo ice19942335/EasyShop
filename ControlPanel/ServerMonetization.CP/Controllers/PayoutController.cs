@@ -2,33 +2,25 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using EasyShop.Domain.Contracts.CP.PayPal.Authentication.Response;
-using EasyShop.Interfaces.Services.Payments.Payout.PayPal.Authentication;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ServerMonetization.CP.Controllers
 {
-    [Authorize(Roles = "Admin,User")]
     public class PayoutController : Controller
     {
-        private readonly IPayPalAuthenticationService _payPalAuthenticationService;
-
-        public PayoutController(IPayPalAuthenticationService payPalAuthenticationService)
-        {
-            _payPalAuthenticationService = payPalAuthenticationService;
-        }
-
-        public IActionResult Index()
+        public IActionResult Summary()
         {
             return View();
         }
 
-        public IActionResult Authenticate()
+        public IActionResult Withdraw()
         {
-            PayPalAuthenticationResponse authResponse = _payPalAuthenticationService.GetAccessToken();
+            return View();
+        }
 
-            return View("Index", authResponse);
+        public IActionResult History()
+        {
+            return View();
         }
     }
 }
