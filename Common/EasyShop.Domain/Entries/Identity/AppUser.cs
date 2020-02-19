@@ -29,8 +29,7 @@ namespace EasyShop.Domain.Entries.Identity
 
         public int ShopsAllowed { get; set; }
 
-        [Column(TypeName = "decimal(18, 2)")]
-        public double TransactionPercent { get; set; }
+        public int TransactionPercent { get; set; }
 
         [Column(TypeName = "decimal(18, 2)")]
         public decimal Balance { get; set; }

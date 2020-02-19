@@ -323,8 +323,8 @@ namespace EasyShop.DAL.Migrations
                     b.Property<int>("ShopsAllowed")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("TransactionPercent")
-                        .HasColumnType("decimal(18, 2)");
+                    b.Property<int>("TransactionPercent")
+                        .HasColumnType("int");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");

@@ -9,5 +9,7 @@ namespace EasyShop.Domain.Settings
         public string ClientId { get; set; }
 
         public string ClientSecret { get; set; }
+
+        public int Fees { get; set; }
     }
 }

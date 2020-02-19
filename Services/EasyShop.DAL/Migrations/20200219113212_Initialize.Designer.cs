@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EasyShop.DAL.Migrations
 {
     [DbContext(typeof(EasyShopContext))]
-    [Migration("20200214115319_Initialize")]
+    [Migration("20200219113212_Initialize")]
     partial class Initialize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -260,6 +260,9 @@ namespace EasyShop.DAL.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<decimal>("Balance")
+                        .HasColumnType("decimal(18, 2)");
+
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
 
@@ -322,11 +325,8 @@ namespace EasyShop.DAL.Migrations
                     b.Property<int>("ShopsAllowed")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("TotalRevenue")
-                        .HasColumnType("decimal(18, 2)");
-
-                    b.Property<decimal>("TransactionPercent")
-                        .HasColumnType("decimal(18, 2)");
+                    b.Property<int>("TransactionPercent")
+                        .HasColumnType("int");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");

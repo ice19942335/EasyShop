@@ -42,14 +42,14 @@ namespace EasyShop.DAL.Migrations
                     AccessFailedCount = table.Column<int>(nullable: false),
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
-                    BirthDate = table.Column<DateTime>(nullable: false),
                     Gender = table.Column<int>(nullable: false),
+                    BirthDate = table.Column<DateTime>(nullable: false),
                     RegistrationDate = table.Column<DateTime>(nullable: false),
                     ProfileImage = table.Column<string>(nullable: true),
                     ShopsAllowed = table.Column<int>(nullable: false),
-                    TransactionPercent = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
+                    TransactionPercent = table.Column<int>(nullable: false),
+                    Balance = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
                     UsingTariff = table.Column<bool>(nullable: false),
-                    TotalRevenue = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
                     PurchasedTariffs = table.Column<string>(maxLength: 10000, nullable: true)
                 },
                 constraints: table =>
