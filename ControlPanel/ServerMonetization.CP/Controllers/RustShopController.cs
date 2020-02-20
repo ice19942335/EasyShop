@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Enums.CP.Rust;
 using EasyShop.Domain.Enums.CP.Rust.RedirectEnums;
+using EasyShop.Domain.ViewModels.ControlPanel.PageViewModel;
 using EasyShop.Domain.ViewModels.ControlPanel.Rust.Category;
 using EasyShop.Domain.ViewModels.ControlPanel.Rust.Product;
 using EasyShop.Domain.ViewModels.ControlPanel.Rust.Server;
@@ -91,7 +92,7 @@ namespace ServerMonetization.CP.Controllers
 
         #region Sales history
 
-        public IActionResult SalesHistory(string shopId)
+        public IActionResult SalesHistory(string shopId, int page = 1)
         {
             var shop = _shopService.GetShopById(Guid.Parse(shopId));
 
@@ -100,7 +101,7 @@ namespace ServerMonetization.CP.Controllers
 
             var model = shop.CreateRustShopViewModel();
 
-            model.RustShopSalesHistoryViewModel = _rustShopSalesService.GetSalesHistory(Guid.Parse(shopId));
+            model.RustShopSalesHistoryViewModel = _rustShopSalesService.GetSalesHistory(Guid.Parse(shopId), page);
 
             return View(model);
         }

@@ -1,34 +1,46 @@
-﻿@model EasyShop.Domain.ViewModels.ControlPanel.Rust.Shop.RustShopViewModel
+﻿@using EasyShop.Domain.Enums.CP.Pagination
+@model EasyShop.Domain.ViewModels.ControlPanel.Rust.Shop.RustShopViewModel
 @{
     ViewData["Title"] = "Sales history";
     Layout = "Partial/_RustEditLayout";
 }
 
-<div class="table-responsive">
-    <table class="table table-middle">
-        <thead>
-            <tr>
-                <th>Date of sale</th>
-                <th>Name</th>
-                <th>Amount</th>
-                <th>UID</th>
-                <th>Paid</th>
-                <th>Profit</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var sale in Model.RustShopSalesHistoryViewModel.Sales)
-            {
+<div class="panel panel-body">
+    <div class="table-responsive">
+        <table class="table table-middle">
+            <thead>
                 <tr>
-                    <td>@sale.DateTime</td>
-                    <td>@sale.Name</td>
-                    <td>@sale.Amount</td>
-                    <td>@sale.UID</td>
-                    <td>@sale.Paid</td>
-                    <td>@sale.Profit</td>
+                    <th>Date of sale</th>
+                    <th>Name</th>
+                    <th>Amount</th>
+                    <th>UID</th>
+                    <th>Paid</th>
+                    <th>Profit</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var sale in Model.RustShopSalesHistoryViewModel.Sales)
+                {
+                    <tr>
+                        <td>@sale.DateTime</td>
+                        <td>@sale.Name</td>
+                        <td>@sale.Amount</td>
+                        <td>@sale.UID</td>
+                        <td>@sale.Paid</td>
+                        <td>@sale.Profit</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
+
+@if (Model.RustShopSalesHistoryViewModel.Pages.TotalPages > 1)
+{
+    <div class="row">
+        <div class="col-sm-12">
+            <page-link page-model="@Model.RustShopSalesHistoryViewModel.Pages" type="@PaginationTypeEnum.ControlPanelSalesHistory" shop-id="@Model.Id"></page-link>
+        </div>
+    </div>
+}
 

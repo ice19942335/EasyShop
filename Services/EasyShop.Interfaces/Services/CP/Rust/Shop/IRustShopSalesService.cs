@@ -8,6 +8,6 @@ namespace EasyShop.Interfaces.Services.CP.Rust.Shop
 {
     public interface IRustShopSalesService
     {
-        RustShopSalesHistoryViewModel GetSalesHistory(Guid shopId);
+        RustShopSalesHistoryViewModel GetSalesHistory(Guid shopId, int page);
     }
 }

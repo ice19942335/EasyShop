@@ -6,7 +6,8 @@ namespace EasyShop.Domain.Enums.CP.Pagination
 {
     public enum PaginationTypeEnum
     {
-        DevBlog,
-        Notifications
+        ControlPanelDevBlog,
+        ControlPanelNotifications,
+        ControlPanelSalesHistory
     }
 }

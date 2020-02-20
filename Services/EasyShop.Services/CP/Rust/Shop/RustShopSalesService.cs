@@ -6,6 +6,7 @@ using System.Threading;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Settings;
+using EasyShop.Domain.ViewModels.ControlPanel.PageViewModel;
 using EasyShop.Domain.ViewModels.ControlPanel.Rust.Shop;
 using EasyShop.Domain.ViewModels.ControlPanel.Shop.Stats;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
@@ -40,7 +41,7 @@ namespace EasyShop.Services.CP.Rust.Shop
                 userManager.FindByEmailAsync(httpContextAccessor.HttpContext.User.Identity.Name).Result;
         }
 
-        public RustShopSalesHistoryViewModel GetSalesHistory(Guid shopId)
+        public RustShopSalesHistoryViewModel GetSalesHistory(Guid shopId, int page)
         {
             var shop = _easyShopContext.Shops.FirstOrDefault(x => x.Id == shopId);
 
@@ -53,18 +54,26 @@ namespace EasyShop.Services.CP.Rust.Shop
                 .OrderByDescending(x => x.RustPurchasedItem.PurchaseDateTime)
                 .ToList();
 
+            int pageSize = 15;
+            var purchaseStats = rustPurchaseStats;
+            var rustPurchaseStatsLength = rustPurchaseStats.Count;
+            var rustPurchaseStatsPage = purchaseStats.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
+            PageViewModel pageModel = new PageViewModel(rustPurchaseStatsLength, page, pageSize);
+
             var totalFees = _payPalSettings.Fees + _configuration.GetValue<int>("ServicePercentPerTransaction");
 
             var result = new RustShopSalesHistoryViewModel()
             {
-                Sales = rustPurchaseStats.Select(x => new RustShopSaleViewModel(totalFees, x.RustPurchasedItem.TotalPaid)
+                Sales = rustPurchaseStatsPage.Select(x => new RustShopSaleViewModel(totalFees, x.RustPurchasedItem.TotalPaid)
                 {
                     DateTime = x.RustPurchasedItem.PurchaseDateTime,
                     Name = x.RustPurchasedItem.RustItem.Name,
                     Amount = x.RustPurchasedItem.AmountOnPurchase,
                     UID = x.RustPurchasedItem.SteamUser.Uid,
                     Paid = x.RustPurchasedItem.TotalPaid
-                })
+                }),
+                Pages = pageModel
             };
 
             return result;
