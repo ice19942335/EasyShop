@@ -94,7 +94,8 @@ namespace Rust.MultiTenant.Shop.Middleware
                             Shop = shop,
                             SteamUser = steamUser,
                             Balance = shop.StartBalance,
-                            TotalSpent = 0m
+                            TotalSpent = 0m,
+                            StartBalance = shop.StartBalance
                         };
 
                         _easyShopContext.SteamUsersShops.Add(newSteamUserShop);

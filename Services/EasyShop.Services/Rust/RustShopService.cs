@@ -87,7 +87,7 @@ namespace EasyShop.Services.Rust
                     ShopId = newShopId,
                     Shop = newShop,
                     AppUserId = user.Id,
-                    AppUser = user
+                    AppUser = user,
                 };
 
                 var addNewTenant = await _tenancyStoreService.TryAddAsync(
