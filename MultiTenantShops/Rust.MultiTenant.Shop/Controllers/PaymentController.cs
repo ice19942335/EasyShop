@@ -42,7 +42,7 @@ namespace Rust.MultiTenant.Shop.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CretePaymentHandler(RustStoreTopUpBalanceViewModel model)
+        public IActionResult CretePaymentHandler(RustStoreTopUpBalanceViewModel model)
         {
             if (User.Identity.IsAuthenticated)
             {
