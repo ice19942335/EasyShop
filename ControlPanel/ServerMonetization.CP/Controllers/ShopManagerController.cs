@@ -64,7 +64,7 @@ namespace ServerMonetization.CP.Controllers
 
             if (result == RustCreateShopResult.Success)
             {
-                return RedirectToAction("ShopsManager", "ShopManager");
+                return RedirectToAction("ShopsList", "ShopManager");
             }
             else if (result == RustCreateShopResult.MaxShopLimitIsReached)
             {
@@ -98,7 +98,7 @@ namespace ServerMonetization.CP.Controllers
             if (!result)
                 return RedirectToAction("SomethingWentWrong", "ControlPanel");
 
-            return RedirectToAction("ShopsManager");
+            return RedirectToAction("ShopsList");
         }
 
         public IActionResult EditShopHandler(string shopId)

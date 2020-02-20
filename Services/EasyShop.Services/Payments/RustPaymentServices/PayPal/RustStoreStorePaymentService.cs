@@ -203,7 +203,7 @@ namespace EasyShop.Services.Payments.RustPaymentServices.PayPal
 
             try
             {
-                _logger.LogInformation($"Preparation for adding funds to steamUserShop with Id: {steamUserShop.ShopId}, balance BEFORE add: {steamUserShop.Balance}");
+                _logger.LogInformation($"Preparation for adding funds to steamUserShop with Id: {steamUserShop.Shop.Id}, balance BEFORE add: {steamUserShop.Balance}");
 
                 steamUserShop.Balance += subtotalDecimal;
 
@@ -211,7 +211,7 @@ namespace EasyShop.Services.Payments.RustPaymentServices.PayPal
 
                 await _easyShopContext.SaveChangesAsync();
 
-                _logger.LogInformation($"Funds addition completed steamUserShop with Id: {steamUserShop.ShopId}, balance AFTER add: {steamUserShop.Balance}");
+                _logger.LogInformation($"Funds addition completed steamUserShop with Id: {steamUserShop.Shop.Id}, balance AFTER add: {steamUserShop.Balance}");
 
                 return true;
             }

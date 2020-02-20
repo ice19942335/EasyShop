@@ -17,7 +17,5 @@ namespace EasyShop.Domain.Entries.Users
 
         [Column(TypeName = "decimal(18, 2)")]
         public Decimal TotalSpent { get; set; }
-
-        public ICollection<SteamUserShop> SteamUserShops { get; set; }
     }
 }

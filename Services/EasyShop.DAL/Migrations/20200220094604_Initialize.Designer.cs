@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EasyShop.DAL.Migrations
 {
     [DbContext(typeof(EasyShopContext))]
-    [Migration("20200219113212_Initialize")]
+    [Migration("20200220094604_Initialize")]
     partial class Initialize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -701,19 +701,32 @@ namespace EasyShop.DAL.Migrations
 
             modelBuilder.Entity("EasyShop.Domain.Entries.Rust.SteamUserShop", b =>
                 {
-                    b.Property<Guid>("ShopId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("SteamUserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<decimal>("Balance")
                         .HasColumnType("decimal(18, 2)");
 
+                    b.Property<Guid?>("ShopId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("StartBalance")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.Property<Guid?>("SteamUserId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<decimal>("TotalSpent")
                         .HasColumnType("decimal(18, 2)");
 
-                    b.HasKey("ShopId", "SteamUserId");
+                    b.Property<decimal>("TotalToppedUp")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ShopId");
 
                     b.HasIndex("SteamUserId");
 
@@ -1186,16 +1199,14 @@ namespace EasyShop.DAL.Migrations
             modelBuilder.Entity("EasyShop.Domain.Entries.Rust.SteamUserShop", b =>
                 {
                     b.HasOne("EasyShop.Domain.Entries.Shop.Shop", "Shop")
-                        .WithMany("SteamUserShops")
+                        .WithMany()
                         .HasForeignKey("ShopId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("EasyShop.Domain.Entries.Users.SteamUser", "SteamUser")
-                        .WithMany("SteamUserShops")
+                        .WithMany()
                         .HasForeignKey("SteamUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
                 });
 
             modelBuilder.Entity("EasyShop.Domain.Entries.Shop.Shop", b =>

@@ -165,21 +165,6 @@ namespace EasyShop.DAL.Context
                 .HasForeignKey(x => x.AppUserId);
             //===================================================================
 
-            //SteamUser ---------------------------------------------------------
-            modelBuilder.Entity<SteamUserShop>()
-                .HasKey(x => new { x.ShopId, x.SteamUserId });
-
-            modelBuilder.Entity<SteamUserShop>()
-                .HasOne(x => x.SteamUser)
-                .WithMany(x => x.SteamUserShops)
-                .HasForeignKey(x => x.SteamUserId);
-
-            modelBuilder.Entity<SteamUserShop>()
-                .HasOne(x => x.Shop)
-                .WithMany(x => x.SteamUserShops)
-                .HasForeignKey(x => x.ShopId);
-            //===================================================================
-
             //UserNotification --------------------------------------------------
             modelBuilder.Entity<UserNotification>()
                 .HasKey(x => new { x.AppUserId, x.NotificationId });
@@ -245,6 +230,17 @@ namespace EasyShop.DAL.Context
 
             modelBuilder.Entity<PayPalExecutedPayment>()
                 .HasOne(x => x.SteamUser)
+                .WithMany()
+                .OnDelete(DeleteBehavior.SetNull);
+
+            //SteamUserShops
+            modelBuilder.Entity<SteamUserShop>()
+                .HasOne(x => x.SteamUser)
+                .WithMany()
+                .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<SteamUserShop>()
+                .HasOne(x => x.Shop)
                 .WithMany()
                 .OnDelete(DeleteBehavior.SetNull);
 

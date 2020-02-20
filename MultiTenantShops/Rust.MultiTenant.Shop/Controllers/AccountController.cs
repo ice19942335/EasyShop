@@ -33,7 +33,7 @@ namespace Rust.MultiTenant.Shop.Controllers
 
                 var steamUser = _easyShopContext.SteamUsers.First(x => x.Uid == uid);
                 var userShop = _easyShopContext.SteamUsersShops.First(x =>
-                    x.ShopId == Guid.Parse(tenantInfo.Id) && x.SteamUserId == steamUser.Id);
+                    x.Shop.Id == Guid.Parse(tenantInfo.Id) && x.SteamUser.Id == steamUser.Id);
 
                 var model = new RustStoreSteamUserViewModel
                 {

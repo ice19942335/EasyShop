@@ -29,7 +29,5 @@ namespace EasyShop.Domain.Entries.Shop
         public Guid Secret { get; set; }
 
         public ICollection<UserShop> UserShops { get; set; }
-
-        public ICollection<SteamUserShop> SteamUserShops { get; set; }
     }
 }

@@ -209,9 +209,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData
 
             var newSteamUserShop = new SteamUserShop
             {
-                ShopId = _newShop.Id,
                 Shop = _newShop,
-                SteamUserId = newSteamUser.Id,
                 SteamUser = newSteamUser,
                 Balance = _newShop.StartBalance,
                 TotalSpent = 0m

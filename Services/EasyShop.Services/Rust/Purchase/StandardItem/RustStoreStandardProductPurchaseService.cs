@@ -76,8 +76,8 @@ namespace EasyShop.Services.Rust.Purchase.StandardItem
                     ErrosteamUserrId = steamUser?.Id,
                     currentUserShop_AppUserId = currentUserShop?.AppUserId,
                     currentUserShop_ShopId = currentUserShop?.ShopId,
-                    steamUserShop_SteamUserId = steamUserShop?.SteamUserId,
-                    steamUserShop_ShopId = steamUserShop?.ShopId,
+                    steamUserShop_SteamUserId = steamUserShop?.SteamUser.Id,
+                    steamUserShop_ShopId = steamUserShop?.Shop.Id,
                 };
 
                 _logger.LogError($"Purchase data preparation ErrorID: {errorId}\nVariables:\n{JsonConvert.SerializeObject(error, Formatting.Indented)}");

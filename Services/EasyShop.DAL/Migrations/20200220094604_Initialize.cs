@@ -669,26 +669,30 @@ namespace EasyShop.DAL.Migrations
                 name: "SteamUserShops",
                 columns: table => new
                 {
-                    ShopId = table.Column<Guid>(nullable: false),
-                    SteamUserId = table.Column<Guid>(nullable: false),
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ShopId = table.Column<Guid>(nullable: true),
+                    SteamUserId = table.Column<Guid>(nullable: true),
+                    StartBalance = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
                     Balance = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
-                    TotalSpent = table.Column<decimal>(type: "decimal(18, 2)", nullable: false)
+                    TotalSpent = table.Column<decimal>(type: "decimal(18, 2)", nullable: false),
+                    TotalToppedUp = table.Column<decimal>(type: "decimal(18, 2)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SteamUserShops", x => new { x.ShopId, x.SteamUserId });
+                    table.PrimaryKey("PK_SteamUserShops", x => x.Id);
                     table.ForeignKey(
                         name: "FK_SteamUserShops_Shops_ShopId",
                         column: x => x.ShopId,
                         principalTable: "Shops",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.SetNull);
                     table.ForeignKey(
                         name: "FK_SteamUserShops_SteamUsers_SteamUserId",
                         column: x => x.SteamUserId,
                         principalTable: "SteamUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.SetNull);
                 });
 
             migrationBuilder.CreateTable(
@@ -997,6 +1001,11 @@ namespace EasyShop.DAL.Migrations
                 name: "IX_Shops_GameTypeId",
                 table: "Shops",
                 column: "GameTypeId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_SteamUserShops_ShopId",
+                table: "SteamUserShops",
+                column: "ShopId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_SteamUserShops_SteamUserId",
