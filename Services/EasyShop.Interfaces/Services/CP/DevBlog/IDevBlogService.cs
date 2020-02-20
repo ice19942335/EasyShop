@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entries.DevBlog;
 using EasyShop.Domain.Enums.CP.DevBlog;
-using EasyShop.Domain.ViewModels.CP.ControlPanel.DevBlog;
+using EasyShop.Domain.ViewModels.ControlPanel.DevBlog;
 
 namespace EasyShop.Interfaces.Services.CP.DevBlog
 {

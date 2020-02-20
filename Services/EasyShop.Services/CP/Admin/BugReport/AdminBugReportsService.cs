@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
-using EasyShop.Domain.ViewModels.CP.Admin.BugReport;
+using EasyShop.Domain.ViewModels.ControlPanel.Admin.BugReport;
 using EasyShop.Interfaces.Email;
 using EasyShop.Interfaces.Services.CP.Admin.BugReport;
 using EasyShop.Services.Helpers;

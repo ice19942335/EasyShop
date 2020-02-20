@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Threading.Tasks;
-using EasyShop.Domain.ViewModels.CP.Notification;
+using EasyShop.Domain.ViewModels.ControlPanel.Notification;
 using EasyShop.Interfaces.Services.CP.Notification;
 using EasyShop.Services.Mappers.ViewModels.Notification;
 using Microsoft.AspNetCore.Mvc;

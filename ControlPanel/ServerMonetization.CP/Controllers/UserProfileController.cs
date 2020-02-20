@@ -3,7 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Enums.CP.Profile;
-using EasyShop.Domain.ViewModels.CP.User.UserProfile;
+using EasyShop.Domain.ViewModels.ControlPanel.User.UserProfile;
 using EasyShop.Interfaces.Services.CP;
 using EasyShop.Interfaces.Services.CP.FileImage;
 using EasyShop.Interfaces.Services.CP.UserProfile;

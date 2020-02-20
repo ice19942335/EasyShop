@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Enums.CP.Rust;
 using EasyShop.Domain.Enums.CP.Rust.RedirectEnums;
-using EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Category;
-using EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Product;
-using EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Server;
-using EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Shop;
+using EasyShop.Domain.ViewModels.ControlPanel.Rust.Category;
+using EasyShop.Domain.ViewModels.ControlPanel.Rust.Product;
+using EasyShop.Domain.ViewModels.ControlPanel.Rust.Server;
+using EasyShop.Domain.ViewModels.ControlPanel.Rust.Shop;
 using EasyShop.Interfaces.Services.CP.Rust.Server;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
 using EasyShop.Interfaces.Services.Rust;
@@ -84,6 +84,15 @@ namespace ServerMonetization.CP.Controllers
         }
 
         #endregion Shop statis
+
+        #region Sales history
+
+        public IActionResult SalesHistory()
+        {
+            return View();
+        }
+
+        #endregion Sales history
 
         #region Main settings
 

@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Enums.CP.Notification;
-using EasyShop.Domain.ViewModels.CP.Notification;
+using EasyShop.Domain.ViewModels.ControlPanel.Notification;
 
 namespace EasyShop.Interfaces.Services.CP.Notification
 {

@@ -1,8 +1,8 @@
 ﻿using System;
 using EasyShop.Domain.Entries.Shop;
-using EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Category;
-using EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Shop;
-using EasyShop.Domain.ViewModels.CP.ControlPanel.Shop.Stats;
+using EasyShop.Domain.ViewModels.ControlPanel.Rust.Category;
+using EasyShop.Domain.ViewModels.ControlPanel.Rust.Shop;
+using EasyShop.Domain.ViewModels.ControlPanel.Shop.Stats;
 
 namespace EasyShop.Services.Mappers.ViewModels.Rust
 {

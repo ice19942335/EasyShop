@@ -5,7 +5,7 @@ using System.Text;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Enums.CP.DashBoard;
-using EasyShop.Domain.ViewModels.CP.ControlPanel.DashBoard;
+using EasyShop.Domain.ViewModels.ControlPanel.DashBoard;
 using EasyShop.Interfaces.Services.CP.Rust.Dashboard;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;

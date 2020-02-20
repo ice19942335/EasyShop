@@ -1,6 +1,7 @@
-﻿@model EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Shop.RustShopViewModel
+﻿@model EasyShop.Domain.ViewModels.ControlPanel.Rust.Shop.RustShopViewModel
 
 <ul class="profile-nav m-l-n">
     <li><a asp-area="" asp-controller="RustShop" asp-action="ShopStats" asp-route-shopId="@Model.Id">Shop stats</a></li>
     <li><a asp-area="" asp-controller="RustShop" asp-action="EditMainSettings" asp-route-shopId="@Model.Id">Shop management</a></li>
+    <li><a asp-area="" asp-controller="RustShop" asp-action="SalesHistory" asp-route-shopId="@Model.Id">Shop management</a></li>
 </ul>

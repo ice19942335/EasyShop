@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using EasyShop.Domain.ViewModels.CP.Admin.BugReport;
-using EasyShop.Domain.ViewModels.CP.ControlPanel.Tariff;
-using EasyShop.Domain.ViewModels.CP.Notification;
+using EasyShop.Domain.ViewModels.ControlPanel.Admin.BugReport;
+using EasyShop.Domain.ViewModels.ControlPanel.Tariff;
 using EasyShop.Interfaces.Services.CP;
 using EasyShop.Interfaces.Services.CP.Admin.BugReport;
 using EasyShop.Interfaces.Services.CP.Admin.Tariff;

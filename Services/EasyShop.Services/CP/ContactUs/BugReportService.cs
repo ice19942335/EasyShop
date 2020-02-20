@@ -8,7 +8,7 @@ using EasyShop.Domain.Entries.ContactUs.BugReports;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Enums.CP.ContactUs;
 using EasyShop.Domain.Enums.CP.ContactUs.BugReports;
-using EasyShop.Domain.ViewModels.CP.ContactUs;
+using EasyShop.Domain.ViewModels.ControlPanel.ContactUs;
 using EasyShop.Interfaces.Email;
 using EasyShop.Interfaces.Services.CP.ContactUs;
 using EasyShop.Interfaces.Services.CP.FileImage;
