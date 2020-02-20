@@ -230,7 +230,7 @@ namespace EasyShop.Services.Rust
 
         public Shop GetShopById(Guid shopId) => _easyShopContext.Shops.FirstOrDefault(x => x.Id == shopId);
 
-        public Shop GetCurrentRequestShop()
+        public Shop GetCurrentRequestShopInRustStore()
         {
             var tenantInfo = _httpContextAccessor.HttpContext.GetMultiTenantContext().TenantInfo;
 

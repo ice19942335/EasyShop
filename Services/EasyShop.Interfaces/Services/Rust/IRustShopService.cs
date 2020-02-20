@@ -17,7 +17,7 @@ namespace EasyShop.Interfaces.Services.Rust
 
         IEnumerable<RustCategory> GetAllAssignedCategoriesToShopByShopId(Guid shopId);
 
-        Domain.Entries.Shop.Shop GetCurrentRequestShop();
+        Domain.Entries.Shop.Shop GetCurrentRequestShopInRustStore();
 
         int GetAssignedUserItemsCountToACategoryInShop(Guid categoryId, Guid shopId);
 

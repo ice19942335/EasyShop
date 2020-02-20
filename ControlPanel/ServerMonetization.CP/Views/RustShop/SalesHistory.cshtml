@@ -1,7 +1,34 @@
-﻿@*@model RustShopSalesHistoryViewModel*@
+﻿@model EasyShop.Domain.ViewModels.ControlPanel.Rust.Shop.RustShopViewModel
 @{
     ViewData["Title"] = "Sales history";
+    Layout = "Partial/_RustEditLayout";
 }
 
-<h1>SalesHistory</h1>
+<div class="table-responsive">
+    <table class="table table-middle">
+        <thead>
+            <tr>
+                <th>Date of sale</th>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>UID</th>
+                <th>Paid</th>
+                <th>Profit</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var sale in Model.RustShopSalesHistoryViewModel.Sales)
+            {
+                <tr>
+                    <td>@sale.DateTime</td>
+                    <td>@sale.Name</td>
+                    <td>@sale.Amount</td>
+                    <td>@sale.UID</td>
+                    <td>@sale.Paid</td>
+                    <td>@sale.Profit</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 

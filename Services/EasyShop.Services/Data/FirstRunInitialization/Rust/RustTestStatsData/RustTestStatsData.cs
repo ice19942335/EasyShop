@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
@@ -10,14 +9,12 @@ using EasyShop.Domain.Entries.Shop;
 using EasyShop.Domain.Entries.Users;
 using EasyShop.Domain.ViewModels.ControlPanel.Shop;
 using EasyShop.Interfaces.Services.CP.Rust.Data;
-using EasyShop.Interfaces.Services.CP.Rust.Shop;
+using EasyShop.Interfaces.Services.CP.Shop;
 using EasyShop.Interfaces.Services.MultiTenancy;
 using EasyShop.Interfaces.Services.Rust;
 using EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization;
-using Finbuckle.MultiTenant;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace EasyShop.Services.Data.FirstRunInitialization.Rust.RustTestStatsData
 {

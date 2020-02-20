@@ -28,5 +28,7 @@ namespace EasyShop.Domain.ViewModels.ControlPanel.Rust.Shop
         public RustProductsManagerViewModel RustProductsManagerViewModel { get; set; }
 
         public RustServerManagerViewModel RustServerManagerViewModel { get; set; }
+
+        public RustShopSalesHistoryViewModel RustShopSalesHistoryViewModel { get; set; }
     }
 }

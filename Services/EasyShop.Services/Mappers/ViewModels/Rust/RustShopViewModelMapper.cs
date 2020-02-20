@@ -24,7 +24,7 @@ namespace EasyShop.Services.Mappers.ViewModels.Rust
                 ShopTitle = shop.ShopTitle,
                 RustShopEditMainSettingsViewModel = shop.CreateMainSettingsViewModel(),
                 RustCategoryEditViewModel = new RustCategoryEditViewModel(),
-                RustShopStatsViewModel = new RustShopStatsViewModel()
+                RustShopStatsViewModel = new RustShopStatsViewModel()   
             };
 
             return model;

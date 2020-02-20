@@ -12,6 +12,7 @@ using EasyShop.Domain.ViewModels.ControlPanel.Rust.Server;
 using EasyShop.Domain.ViewModels.ControlPanel.Rust.Shop;
 using EasyShop.Interfaces.Services.CP.Rust.Server;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
+using EasyShop.Interfaces.Services.CP.Shop;
 using EasyShop.Interfaces.Services.Rust;
 using EasyShop.Services.Mappers.ViewModels.Rust;
 using Microsoft.AspNetCore.Authorization;
@@ -31,6 +32,7 @@ namespace ServerMonetization.CP.Controllers
         private readonly IRustServerService _rustServerService;
         private readonly UserManager<AppUser> _userManager;
         private readonly IRustShopStatsService _rustShopStatsService;
+        private readonly IRustShopSalesService _rustShopSalesService;
 
         public RustShopController(
             IShopService shopService,
@@ -38,7 +40,8 @@ namespace ServerMonetization.CP.Controllers
             IHttpContextAccessor httpContextAccessor,
             IRustServerService rustServerService,
             UserManager<AppUser> userManager,
-            IRustShopStatsService rustShopStatsService)
+            IRustShopStatsService rustShopStatsService,
+            IRustShopSalesService rustShopSalesService)
         {
             _shopService = shopService;
             _rustShopService = rustShopService;
@@ -46,6 +49,7 @@ namespace ServerMonetization.CP.Controllers
             _rustServerService = rustServerService;
             _userManager = userManager;
             _rustShopStatsService = rustShopStatsService;
+            _rustShopSalesService = rustShopSalesService;
         }
 
 
@@ -87,9 +91,18 @@ namespace ServerMonetization.CP.Controllers
 
         #region Sales history
 
-        public IActionResult SalesHistory()
+        public IActionResult SalesHistory(string shopId)
         {
-            return View();
+            var shop = _shopService.GetShopById(Guid.Parse(shopId));
+
+            if (shop is null)
+                return RedirectToAction("NotFoundPage", "Home");
+
+            var model = shop.CreateRustShopViewModel();
+
+            model.RustShopSalesHistoryViewModel = _rustShopSalesService.GetSalesHistory(Guid.Parse(shopId));
+
+            return View(model);
         }
 
         #endregion Sales history

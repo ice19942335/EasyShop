@@ -52,7 +52,7 @@ namespace EasyShop.Services.Rust.Purchase.StandardItem
 
             var steamUser = _steamUserService.GetCurrentRequestSteamUser();
             var steamUserShop = _steamUserService.GetCurrentRequestSteamUserShop();
-            var currentShop = _rustShopService.GetCurrentRequestShop();
+            var currentShop = _rustShopService.GetCurrentRequestShopInRustStore();
             var currentUserShop = _easyShopContext.UserShops.FirstOrDefault(x => x.ShopId == currentShop.Id);
             var appUser = await _userManager.FindByIdAsync(currentUserShop?.AppUserId);
             var rustUserItem = _easyShopContext.RustUserItems
