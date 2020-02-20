@@ -6,9 +6,9 @@ namespace EasyShop.Domain.ViewModels.ControlPanel.Rust.Shop
 {
     public class RustShopSaleViewModel
     {
-        public RustShopSaleViewModel(int totalFees)
+        public RustShopSaleViewModel(int totalFees, decimal paid)
         {
-            Profit = Paid - (Paid / 100) * totalFees;
+            Profit = paid - (paid / 100) * totalFees;
         }
 
         public DateTime DateTime { get; set; }

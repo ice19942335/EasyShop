@@ -57,7 +57,7 @@ namespace EasyShop.Services.CP.Rust.Shop
 
             var result = new RustShopSalesHistoryViewModel()
             {
-                Sales = rustPurchaseStats.Select(x => new RustShopSaleViewModel(totalFees)
+                Sales = rustPurchaseStats.Select(x => new RustShopSaleViewModel(totalFees, x.RustPurchasedItem.TotalPaid)
                 {
                     DateTime = x.RustPurchasedItem.PurchaseDateTime,
                     Name = x.RustPurchasedItem.RustItem.Name,
