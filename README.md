@@ -1,6 +1,6 @@
 # Server-Monetization
 
-## The repository has been moved to a private repository.
+## Since 2.21.2020, this project moved to a private repository.
 
 #### Create a shop in Control panel, set up all the products you want to sell, customize price, description, and much more. <br> Link to your shop you will find in Control panel on the shop management page.
 
