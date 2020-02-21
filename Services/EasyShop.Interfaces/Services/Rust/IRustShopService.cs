@@ -4,8 +4,8 @@ using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Entries.Rust;
 using EasyShop.Domain.Enums.CP.Rust;
-using EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Shop;
-using EasyShop.Domain.ViewModels.CP.ControlPanel.Shop;
+using EasyShop.Domain.ViewModels.ControlPanel.Rust.Shop;
+using EasyShop.Domain.ViewModels.ControlPanel.Shop;
 
 namespace EasyShop.Interfaces.Services.Rust
 {
@@ -17,7 +17,7 @@ namespace EasyShop.Interfaces.Services.Rust
 
         IEnumerable<RustCategory> GetAllAssignedCategoriesToShopByShopId(Guid shopId);
 
-        Domain.Entries.Shop.Shop GetCurrentRequestShop();
+        Domain.Entries.Shop.Shop GetCurrentRequestShopInRustStore();
 
         int GetAssignedUserItemsCountToACategoryInShop(Guid categoryId, Guid shopId);
 

@@ -4,7 +4,9 @@ using System.Threading.Tasks;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.GameType;
 using EasyShop.Domain.Entries.Identity;
+using EasyShop.Domain.Settings;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 
 namespace EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization
 {
@@ -13,12 +15,22 @@ namespace EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization
         private readonly EasyShopContext _dbContext;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly UserManager<AppUser> _userManager;
+        private readonly IConfiguration _configuration;
+        private readonly int _percentPerTransaction;
 
-        public IdentityInitializer(EasyShopContext dbContext, RoleManager<IdentityRole> roleManager, UserManager<AppUser> userManager)
+        public IdentityInitializer(
+            EasyShopContext dbContext, 
+            RoleManager<IdentityRole> roleManager, 
+            UserManager<AppUser> userManager, 
+            IConfiguration configuration,
+            PayPalSettings payPalSettings)
         {
             _dbContext = dbContext;
             _roleManager = roleManager;
             _userManager = userManager;
+            _configuration = configuration;
+
+            _percentPerTransaction = configuration.GetValue<int>("ServicePercentPerTransaction") + payPalSettings.Fees;
         }
 
         public async Task InitializeIdentity()
@@ -38,7 +50,7 @@ namespace EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization
                     FirstName = DefaultIdentity.DefaultAdminFirstName,
                     LastName = DefaultIdentity.DefaultAdminLastname,
                     EmailConfirmed = true,
-                    TransactionPercent = 1,
+                    TransactionPercent = _percentPerTransaction,
                     ShopsAllowed = 10,
                     ProfileImage = DefaultIdentity.DefaultAdminPicture,
                     BirthDate = new DateTime(1994, 10, 05)

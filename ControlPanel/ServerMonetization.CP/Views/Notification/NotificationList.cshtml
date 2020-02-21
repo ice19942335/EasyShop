@@ -3,7 +3,7 @@
 @using EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization
 @using Microsoft.AspNetCore.Http
 @using Microsoft.AspNetCore.Identity
-@model EasyShop.Domain.ViewModels.CP.Notification.NotificationsListViewModel
+@model EasyShop.Domain.ViewModels.ControlPanel.Notification.NotificationsListViewModel
 @inject UserManager<AppUser> UserManager
 @inject IUrlHelper UrlHelper
 @inject IHttpContextAccessor HttpContextAccessor
@@ -95,7 +95,7 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="dataTables_paginate" id="demo-dynamic-tables-1_paginate">
-                <page-link page-model="@Model.PageViewModel" type="@PaginationTypeEnum.Notifications"></page-link>
+                <page-link page-model="@Model.PageViewModel" type="@PaginationTypeEnum.ControlPanelNotifications"></page-link>
             </div>
         </div>
     </div>

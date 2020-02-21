@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using EasyShop.Domain.Contracts.CP.Response;
+using EasyShop.Domain.Contracts.CP.DevBlog.Response;
 using EasyShop.Domain.Enums.CP.DevBlog;
-using EasyShop.Domain.ViewModels.CP.ControlPanel.DevBlog;
-using EasyShop.Domain.ViewModels.CP.PageViewModel;
+using EasyShop.Domain.ViewModels.ControlPanel.DevBlog;
+using EasyShop.Domain.ViewModels.ControlPanel.PageViewModel;
 using EasyShop.Interfaces.Services.CP.DevBlog;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

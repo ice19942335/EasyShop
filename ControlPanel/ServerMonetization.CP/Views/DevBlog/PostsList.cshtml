@@ -1,4 +1,4 @@
-﻿@model EasyShop.Domain.ViewModels.CP.ControlPanel.DevBlog.DevBlogViewModel
+﻿@model EasyShop.Domain.ViewModels.ControlPanel.DevBlog.DevBlogViewModel
 @using EasyShop.Domain.Entries.Identity
 @using EasyShop.Domain.Enums.CP.Pagination
 @using EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization
@@ -96,7 +96,7 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="dataTables_paginate" id="demo-dynamic-tables-1_paginate">
-                <page-link page-model="@Model.Pages" type="@PaginationTypeEnum.DevBlog"></page-link>
+                <page-link page-model="@Model.Pages" type="@PaginationTypeEnum.ControlPanelDevBlog"></page-link>
             </div>
         </div>
     </div>

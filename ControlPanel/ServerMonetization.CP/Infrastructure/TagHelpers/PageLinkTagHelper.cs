@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EasyShop.Domain.Enums.CP.Pagination;
-using EasyShop.Domain.ViewModels.CP.Notification;
-using EasyShop.Domain.ViewModels.CP.PageViewModel;
+using EasyShop.Domain.ViewModels.ControlPanel.PageViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.Routing;
@@ -29,6 +28,8 @@ namespace ServerMonetization.CP.Infrastructure.TagHelpers
         public PaginationTypeEnum Type { get; set; }
 
         public PageViewModel PageModel { get; set; }
+
+        public string ShopId { get; set; }
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
@@ -76,7 +77,7 @@ namespace ServerMonetization.CP.Infrastructure.TagHelpers
                 item.AddCssClass("active");
             else
             {
-                if (Type == PaginationTypeEnum.Notifications)
+                if (Type == PaginationTypeEnum.ControlPanelNotifications)
                 {
                     link.Attributes["href"] = urlHelper.Action(
                         "NotificationList",
@@ -84,12 +85,20 @@ namespace ServerMonetization.CP.Infrastructure.TagHelpers
                         new { page = pageNumber },
                         ViewContext.HttpContext.Request.Scheme);
                 }
-                else if (Type == PaginationTypeEnum.DevBlog)
+                else if (Type == PaginationTypeEnum.ControlPanelDevBlog)
                 {
                     link.Attributes["href"] = urlHelper.Action(
                         "PostsList",
                         "DevBlog",
                         new { page = pageNumber },
+                        ViewContext.HttpContext.Request.Scheme);
+                }
+                else if (Type == PaginationTypeEnum.ControlPanelSalesHistory)
+                {
+                    link.Attributes["href"] = urlHelper.Action(
+                        "SalesHistory",
+                        "RustShop",
+                        new { shopId = ShopId, page = pageNumber },
                         ViewContext.HttpContext.Request.Scheme);
                 }
             }
@@ -114,7 +123,7 @@ namespace ServerMonetization.CP.Infrastructure.TagHelpers
 
                 if (PageModel.HasPreviousPage)
                 {
-                    if (Type == PaginationTypeEnum.Notifications)
+                    if (Type == PaginationTypeEnum.ControlPanelNotifications)
                     {
                         link.Attributes["href"] = urlHelper.Action(
                             "NotificationList",
@@ -122,12 +131,20 @@ namespace ServerMonetization.CP.Infrastructure.TagHelpers
                             new { page = --pageNumber },
                             ViewContext.HttpContext.Request.Scheme);
                     }
-                    else if (Type == PaginationTypeEnum.DevBlog)
+                    else if (Type == PaginationTypeEnum.ControlPanelDevBlog)
                     {
                         link.Attributes["href"] = urlHelper.Action(
                             "PostsList",
                             "DevBlog",
                             new { page = --pageNumber },
+                            ViewContext.HttpContext.Request.Scheme);
+                    }
+                    else if (Type == PaginationTypeEnum.ControlPanelSalesHistory)
+                    {
+                        link.Attributes["href"] = urlHelper.Action(
+                            "SalesHistory",
+                            "RustShop",
+                            new { shopId = ShopId, page = --pageNumber },
                             ViewContext.HttpContext.Request.Scheme);
                     }
                 }
@@ -146,7 +163,7 @@ namespace ServerMonetization.CP.Infrastructure.TagHelpers
 
                 if (PageModel.HasNextPage)
                 {
-                    if (Type == PaginationTypeEnum.Notifications)
+                    if (Type == PaginationTypeEnum.ControlPanelNotifications)
                     {
                         link.Attributes["href"] = urlHelper.Action(
                             "NotificationList",
@@ -154,12 +171,20 @@ namespace ServerMonetization.CP.Infrastructure.TagHelpers
                             new { page = ++pageNumber },
                             ViewContext.HttpContext.Request.Scheme);
                     }
-                    else if (Type == PaginationTypeEnum.DevBlog)
+                    else if (Type == PaginationTypeEnum.ControlPanelDevBlog)
                     {
                         link.Attributes["href"] = urlHelper.Action(
                             "PostsList",
                             "DevBlog",
                             new { page = ++pageNumber },
+                            ViewContext.HttpContext.Request.Scheme);
+                    }
+                    else if (Type == PaginationTypeEnum.ControlPanelSalesHistory)
+                    {
+                        link.Attributes["href"] = urlHelper.Action(
+                            "SalesHistory",
+                            "RustShop",
+                            new { shopId = ShopId, page = ++pageNumber },
                             ViewContext.HttpContext.Request.Scheme);
                     }
                 }

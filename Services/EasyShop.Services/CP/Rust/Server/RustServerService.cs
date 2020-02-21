@@ -7,7 +7,7 @@ using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Entries.Rust;
 using EasyShop.Domain.Enums.CP.Rust;
-using EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Shop;
+using EasyShop.Domain.ViewModels.ControlPanel.Rust.Shop;
 using EasyShop.Interfaces.Services.CP.Rust.Server;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
 using EasyShop.Services.ExtensionMethods;

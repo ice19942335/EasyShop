@@ -196,22 +196,23 @@ namespace EasyShop.Services.Payments.RustPaymentServices.PayPal
 
         private async Task<bool> AddFundsToSteamUserShopAsync(Payment payment)
         {
-            string subtotalString = payment.Transactions.First().RelatedResources.First().Sale.Amount.Total;
-            decimal subtotalDecimal = Convert.ToDecimal(subtotalString);
+            string totalPaidStr = payment.Transactions.First().RelatedResources.First().Sale.Amount.Total;
+            decimal totalPaidDecimal = Convert.ToDecimal(totalPaidStr);
 
             var steamUserShop = _steamUserService.GetCurrentRequestSteamUserShop();
 
             try
             {
-                _logger.LogInformation($"Preparation for adding funds to steamUserShop with Id: {steamUserShop.ShopId}, balance BEFORE add: {steamUserShop.Balance}");
+                _logger.LogInformation($"Preparation for adding funds to steamUserShop with Id: {steamUserShop.Shop.Id}, balance BEFORE add: {steamUserShop.Balance}");
 
-                steamUserShop.Balance += subtotalDecimal;
+                steamUserShop.Balance += totalPaidDecimal;
+                steamUserShop.TotalToppedUp += totalPaidDecimal;
 
                 _easyShopContext.SteamUsersShops.Update(steamUserShop);
 
                 await _easyShopContext.SaveChangesAsync();
 
-                _logger.LogInformation($"Funds addition completed steamUserShop with Id: {steamUserShop.ShopId}, balance AFTER add: {steamUserShop.Balance}");
+                _logger.LogInformation($"Funds addition completed steamUserShop with Id: {steamUserShop.Shop.Id}, balance AFTER add: {steamUserShop.Balance}");
 
                 return true;
             }

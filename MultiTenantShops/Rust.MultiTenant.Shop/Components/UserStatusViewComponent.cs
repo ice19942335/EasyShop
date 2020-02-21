@@ -40,7 +40,7 @@ namespace Rust.MultiTenant.Shop.Components
                     throw new ApplicationException("Steam user not found! User should be added on SteamUserResolverMiddleware stage");
 
                 var userShop = _easyShopContext.SteamUsersShops.First(x =>
-                    x.ShopId == Guid.Parse(tenantInfo.Id) && x.SteamUserId == steamUser.Id);
+                    x.Shop.Id == Guid.Parse(tenantInfo.Id) && x.SteamUser.Id == steamUser.Id);
 
                 return View("SignedIn", new RustStoreUserStatusViewModel
                 {

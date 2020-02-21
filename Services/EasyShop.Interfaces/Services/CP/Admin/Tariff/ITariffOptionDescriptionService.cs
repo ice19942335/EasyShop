@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Tariff;
-using EasyShop.Domain.ViewModels.CP.ControlPanel.Tariff;
+using EasyShop.Domain.ViewModels.ControlPanel.Tariff;
 
 namespace EasyShop.Interfaces.Services.CP.Admin.Tariff
 {

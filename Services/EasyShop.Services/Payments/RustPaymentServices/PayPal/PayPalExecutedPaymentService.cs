@@ -49,7 +49,7 @@ namespace EasyShop.Services.Payments.RustPaymentServices.PayPal
                 var executedPayment = new PayPalExecutedPayment
                 {
                     Id = id,
-                    Shop = _rustShopService.GetCurrentRequestShop(),
+                    Shop = _rustShopService.GetCurrentRequestShopInRustStore(),
                     SteamUser = _steamUserService.GetCurrentRequestSteamUser(),
                     AmountPaid = Convert.ToDecimal(subtotalString),
                     PaymentDateTime = DateTime.Now,

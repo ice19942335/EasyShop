@@ -10,6 +10,7 @@ using EasyShop.Interfaces.Services.CP.Rust.Dashboard;
 using EasyShop.Interfaces.Services.CP.Rust.Data;
 using EasyShop.Interfaces.Services.CP.Rust.Server;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
+using EasyShop.Interfaces.Services.CP.Shop;
 using EasyShop.Interfaces.Services.CP.UserProfile;
 using EasyShop.Interfaces.Services.Imgur;
 using EasyShop.Interfaces.Services.MultiTenancy;
@@ -85,7 +86,8 @@ namespace ServerMonetization.CP.Installers
             //TenantStore
             services.AddTransient<IMultiTenancyStoreService, MultiTenancyStoreService>();
 
-            
+            //RustShopSalesService
+            services.AddTransient<IRustShopSalesService, RustShopSalesService>();
 
 
             //Scooped ---------------------------------------------------------------------------------

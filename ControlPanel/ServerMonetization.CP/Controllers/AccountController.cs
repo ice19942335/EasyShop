@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Identity;
-using EasyShop.Domain.ViewModels.CP.Account;
+using EasyShop.Domain.ViewModels.ControlPanel.Account;
 using EasyShop.Interfaces.Email;
 using EasyShop.Interfaces.Services.CP;
 using EasyShop.Interfaces.Services.CP.Account;

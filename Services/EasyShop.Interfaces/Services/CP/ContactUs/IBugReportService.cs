@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using EasyShop.Domain.ViewModels.CP.ContactUs;
+using EasyShop.Domain.ViewModels.ControlPanel.ContactUs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EasyShop.Interfaces.Services.CP.ContactUs

@@ -1,4 +1,4 @@
-﻿namespace EasyShop.Domain.Contracts.CP.Response
+﻿namespace EasyShop.Domain.Contracts.CP.DevBlog.Response
 {
     public class UserAlreadyLikedThePostResponse
     {

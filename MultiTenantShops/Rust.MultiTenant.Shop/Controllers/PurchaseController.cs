@@ -62,7 +62,7 @@ namespace Rust.MultiTenant.Shop.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                var currentShop = _rustShopService.GetCurrentRequestShop();
+                var currentShop = _rustShopService.GetCurrentRequestShopInRustStore();
                 var steamUser = _steamUserService.GetCurrentRequestSteamUser();
 
                 var model = new RustStorePurchaseHistoryViewModel()

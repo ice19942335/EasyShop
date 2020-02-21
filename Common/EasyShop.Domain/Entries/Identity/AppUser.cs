@@ -17,26 +17,24 @@ namespace EasyShop.Domain.Entries.Identity
 
         public string LastName { get; set; }
 
+        public int Gender { get; set; }
+
         [DataType(DataType.Date)]
         public DateTime BirthDate { get; set; }
-
-        public int Gender { get; set; }
 
         [DataType(DataType.Date)]
         public DateTime RegistrationDate { get; set; }
 
         public string ProfileImage { get; set; }
 
-
         public int ShopsAllowed { get; set; }
 
+        public int TransactionPercent { get; set; }
+
         [Column(TypeName = "decimal(18, 2)")]
-        public double TransactionPercent { get; set; }
+        public decimal Balance { get; set; }
 
         public bool UsingTariff { get; set; }
-
-        [Column(TypeName = "decimal(18, 2)")]
-        public decimal TotalRevenue { get; set; }
 
         public Dictionary<Tariff.Tariff, DateTime> PurchasedTariffs { get; set; }
 

@@ -69,9 +69,7 @@ namespace Rust.MultiTenant.Shop.Middleware
                     {
                         var newSteamUserShop = new SteamUserShop
                         {
-                            ShopId = shop.Id,
                             Shop = shop,
-                            SteamUserId = newSteamUser.Id,
                             SteamUser = newSteamUser,
                             Balance = shop.StartBalance,
                             TotalSpent = 0m
@@ -87,18 +85,17 @@ namespace Rust.MultiTenant.Shop.Middleware
                 {
                     var steamUserShop =
                         _easyShopContext.SteamUsersShops.FirstOrDefault(x =>
-                            x.SteamUserId == steamUser.Id && x.ShopId == shop.Id);
+                            x.SteamUser.Id == steamUser.Id && x.Shop.Id == shop.Id);
 
                     if (steamUserShop is null)
                     {
                         var newSteamUserShop = new SteamUserShop
                         {
-                            ShopId = shop.Id,
                             Shop = shop,
-                            SteamUserId = steamUser.Id,
                             SteamUser = steamUser,
                             Balance = shop.StartBalance,
-                            TotalSpent = 0m
+                            TotalSpent = 0m,
+                            StartBalance = shop.StartBalance
                         };
 
                         _easyShopContext.SteamUsersShops.Add(newSteamUserShop);

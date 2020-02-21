@@ -258,6 +258,9 @@ namespace EasyShop.DAL.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<decimal>("Balance")
+                        .HasColumnType("decimal(18, 2)");
+
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime2");
 
@@ -320,11 +323,8 @@ namespace EasyShop.DAL.Migrations
                     b.Property<int>("ShopsAllowed")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("TotalRevenue")
-                        .HasColumnType("decimal(18, 2)");
-
-                    b.Property<decimal>("TransactionPercent")
-                        .HasColumnType("decimal(18, 2)");
+                    b.Property<int>("TransactionPercent")
+                        .HasColumnType("int");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
@@ -699,19 +699,32 @@ namespace EasyShop.DAL.Migrations
 
             modelBuilder.Entity("EasyShop.Domain.Entries.Rust.SteamUserShop", b =>
                 {
-                    b.Property<Guid>("ShopId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("SteamUserId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<decimal>("Balance")
                         .HasColumnType("decimal(18, 2)");
 
+                    b.Property<Guid?>("ShopId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("StartBalance")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.Property<Guid?>("SteamUserId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<decimal>("TotalSpent")
                         .HasColumnType("decimal(18, 2)");
 
-                    b.HasKey("ShopId", "SteamUserId");
+                    b.Property<decimal>("TotalToppedUp")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ShopId");
 
                     b.HasIndex("SteamUserId");
 
@@ -1184,16 +1197,14 @@ namespace EasyShop.DAL.Migrations
             modelBuilder.Entity("EasyShop.Domain.Entries.Rust.SteamUserShop", b =>
                 {
                     b.HasOne("EasyShop.Domain.Entries.Shop.Shop", "Shop")
-                        .WithMany("SteamUserShops")
+                        .WithMany()
                         .HasForeignKey("ShopId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("EasyShop.Domain.Entries.Users.SteamUser", "SteamUser")
-                        .WithMany("SteamUserShops")
+                        .WithMany()
                         .HasForeignKey("SteamUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.SetNull);
                 });
 
             modelBuilder.Entity("EasyShop.Domain.Entries.Shop.Shop", b =>

@@ -50,7 +50,7 @@ namespace EasyShop.Services.Payments.RustPaymentServices.PayPal
                 var createdPayment = new PayPalCreatedPayment
                 {
                     Id = id,
-                    Shop = _rustShopService.GetCurrentRequestShop(),
+                    Shop = _rustShopService.GetCurrentRequestShopInRustStore(),
                     SteamUser = _steamUserService.GetCurrentRequestSteamUser(),
                     AmountToPay = Convert.ToDecimal(amountToPay),
                     CreationDateTime = DateTime.Now,

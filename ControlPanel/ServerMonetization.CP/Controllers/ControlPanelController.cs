@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Enums.CP.DashBoard;
 using EasyShop.Domain.Enums.CP.Rust;
-using EasyShop.Domain.ViewModels.CP.ControlPanel.DashBoard;
 using EasyShop.Interfaces.Services.CP.Rust.Dashboard;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
 using Microsoft.AspNetCore.Authorization;

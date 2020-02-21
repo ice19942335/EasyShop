@@ -1,6 +1,6 @@
 ﻿using System;
 using EasyShop.Domain.Entries.Identity;
-using EasyShop.Domain.ViewModels.CP.User.UserProfile;
+using EasyShop.Domain.ViewModels.ControlPanel.User.UserProfile;
 using EasyShop.Services.ExtensionMethods;
 using EasyShop.Services.Helpers;
 

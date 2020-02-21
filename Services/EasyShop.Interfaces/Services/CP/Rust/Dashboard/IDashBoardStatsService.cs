@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using EasyShop.Domain.Enums.CP.DashBoard;
-using EasyShop.Domain.ViewModels.CP.ControlPanel.DashBoard;
+using EasyShop.Domain.ViewModels.ControlPanel.DashBoard;
 
 namespace EasyShop.Interfaces.Services.CP.Rust.Dashboard
 {

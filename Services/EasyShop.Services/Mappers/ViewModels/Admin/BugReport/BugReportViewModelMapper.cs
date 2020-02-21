@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using EasyShop.Domain.Entries.Rust;
-using EasyShop.Domain.ViewModels.CP.Admin.BugReport;
-using EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Category;
+using EasyShop.Domain.ViewModels.ControlPanel.Admin.BugReport;
 
 namespace EasyShop.Services.Mappers.ViewModels.Admin.BugReport
 {

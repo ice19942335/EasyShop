@@ -6,12 +6,14 @@ using EasyShop.Domain.Dto.RustStore;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Entries.Rust;
 using EasyShop.Domain.Enums.RustStore;
+using EasyShop.Domain.Settings;
 using EasyShop.Domain.ViewModels.RustStore.Store.Order;
 using EasyShop.Interfaces.Services.Rust;
 using EasyShop.Interfaces.Services.Rust.StandardProductPurchase;
 using EasyShop.Interfaces.SteamUsers;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 
@@ -24,19 +26,24 @@ namespace EasyShop.Services.Rust.Purchase.StandardItem
         private readonly IRustShopService _rustShopService;
         private readonly UserManager<AppUser> _userManager;
         private readonly ILogger<RustStoreStandardProductPurchaseService> _logger;
+        private readonly int _servicePercentPerTransaction;
 
         public RustStoreStandardProductPurchaseService(
             ISteamUserService steamUserService,
             EasyShopContext easyShopContext,
             IRustShopService rustShopService,
             UserManager<AppUser> userManager,
-            ILogger<RustStoreStandardProductPurchaseService> logger)
+            ILogger<RustStoreStandardProductPurchaseService> logger,
+            PayPalSettings payPalSettings,
+            IConfiguration configuration)
         {
             _steamUserService = steamUserService;
             _easyShopContext = easyShopContext;
             _rustShopService = rustShopService;
             _userManager = userManager;
             _logger = logger;
+            _servicePercentPerTransaction =
+                configuration.GetValue<int>("ServicePercentPerTransaction") + payPalSettings.Fees;
         }
 
         public async Task<RustStorePurchaseStandardProductResultDto> TryPurchaseAsync(RustStoreStandardItemOrder model)
@@ -45,7 +52,7 @@ namespace EasyShop.Services.Rust.Purchase.StandardItem
 
             var steamUser = _steamUserService.GetCurrentRequestSteamUser();
             var steamUserShop = _steamUserService.GetCurrentRequestSteamUserShop();
-            var currentShop = _rustShopService.GetCurrentRequestShop();
+            var currentShop = _rustShopService.GetCurrentRequestShopInRustStore();
             var currentUserShop = _easyShopContext.UserShops.FirstOrDefault(x => x.ShopId == currentShop.Id);
             var appUser = await _userManager.FindByIdAsync(currentUserShop?.AppUserId);
             var rustUserItem = _easyShopContext.RustUserItems
@@ -69,8 +76,8 @@ namespace EasyShop.Services.Rust.Purchase.StandardItem
                     ErrosteamUserrId = steamUser?.Id,
                     currentUserShop_AppUserId = currentUserShop?.AppUserId,
                     currentUserShop_ShopId = currentUserShop?.ShopId,
-                    steamUserShop_SteamUserId = steamUserShop?.SteamUserId,
-                    steamUserShop_ShopId = steamUserShop?.ShopId,
+                    steamUserShop_SteamUserId = steamUserShop?.SteamUser.Id,
+                    steamUserShop_ShopId = steamUserShop?.Shop.Id,
                 };
 
                 _logger.LogError($"Purchase data preparation ErrorID: {errorId}\nVariables:\n{JsonConvert.SerializeObject(error, Formatting.Indented)}");
@@ -118,7 +125,7 @@ namespace EasyShop.Services.Rust.Purchase.StandardItem
                     ErrorMessage = "Sorry, your balance is too low for this item please Top-Up balance and try again."
                 };
             }
-                
+
 
             #endregion Check balance have enough money, if not return
 
@@ -192,9 +199,17 @@ namespace EasyShop.Services.Rust.Purchase.StandardItem
                     RustPurchasedStatsId = rustPurchasedStatsId
                 };
 
+                var balanceBeforeFundsAddition = appUser.Balance;
+                decimal fundsAddToAppUser = actualPrice - (actualPrice / 100) * _servicePercentPerTransaction;
+                appUser.Balance += fundsAddToAppUser;
+
+                _easyShopContext.Users.Update(appUser);
+                await _easyShopContext.SaveChangesAsync();
+
+                _logger.LogInformation($"\nAppUser ID: {appUser.Id}\nAppUser Email: {appUser.Email}\nBalance before funds addition: {balanceBeforeFundsAddition}\nFunds added: {fundsAddToAppUser}\nBalance after funds addition: {appUser.Balance}");
                 _logger.LogInformation($"Purchase success:\n{JsonConvert.SerializeObject(purchaseSuccessDetails, Formatting.Indented)}");
 
-                return new RustStorePurchaseStandardProductResultDto()
+                return new RustStorePurchaseStandardProductResultDto
                 {
                     Status = RustStorePurchaseProductResultEnum.Success,
                     RustProduct = rustUserItem

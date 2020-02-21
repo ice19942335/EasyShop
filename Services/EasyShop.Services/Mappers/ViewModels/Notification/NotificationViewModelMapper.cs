@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using EasyShop.Domain.ViewModels.CP.Admin.BugReport;
-using EasyShop.Domain.ViewModels.CP.Notification;
+using EasyShop.Domain.ViewModels.ControlPanel.Notification;
 
 namespace EasyShop.Services.Mappers.ViewModels.Notification
 {

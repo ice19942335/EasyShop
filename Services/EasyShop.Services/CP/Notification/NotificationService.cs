@@ -7,7 +7,7 @@ using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Entries.Notification;
 using EasyShop.Domain.Enums.CP.Notification;
-using EasyShop.Domain.ViewModels.CP.Notification;
+using EasyShop.Domain.ViewModels.ControlPanel.Notification;
 using EasyShop.Interfaces.Services.CP.Notification;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;

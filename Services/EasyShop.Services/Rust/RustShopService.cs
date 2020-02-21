@@ -7,8 +7,8 @@ using EasyShop.Domain.Entries.Identity;
 using EasyShop.Domain.Entries.Rust;
 using EasyShop.Domain.Entries.Shop;
 using EasyShop.Domain.Enums.CP.Rust;
-using EasyShop.Domain.ViewModels.CP.ControlPanel.Rust.Shop;
-using EasyShop.Domain.ViewModels.CP.ControlPanel.Shop;
+using EasyShop.Domain.ViewModels.ControlPanel.Rust.Shop;
+using EasyShop.Domain.ViewModels.ControlPanel.Shop;
 using EasyShop.Interfaces.Services.CP.Rust.Data;
 using EasyShop.Interfaces.Services.CP.Rust.Shop;
 using EasyShop.Interfaces.Services.MultiTenancy;
@@ -87,7 +87,7 @@ namespace EasyShop.Services.Rust
                     ShopId = newShopId,
                     Shop = newShop,
                     AppUserId = user.Id,
-                    AppUser = user
+                    AppUser = user,
                 };
 
                 var addNewTenant = await _tenancyStoreService.TryAddAsync(
@@ -230,7 +230,7 @@ namespace EasyShop.Services.Rust
 
         public Shop GetShopById(Guid shopId) => _easyShopContext.Shops.FirstOrDefault(x => x.Id == shopId);
 
-        public Shop GetCurrentRequestShop()
+        public Shop GetCurrentRequestShopInRustStore()
         {
             var tenantInfo = _httpContextAccessor.HttpContext.GetMultiTenantContext().TenantInfo;
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using EasyShop.Domain.ViewModels.CP.Admin.BugReport;
+using EasyShop.Domain.ViewModels.ControlPanel.Admin.BugReport;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EasyShop.Interfaces.Services.CP.Admin.BugReport

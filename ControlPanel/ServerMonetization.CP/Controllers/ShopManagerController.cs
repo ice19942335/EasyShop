@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EasyShop.Domain.Entries.Identity;
-using EasyShop.Domain.Entries.Shop;
-using EasyShop.Domain.Enums;
 using EasyShop.Domain.Enums.CP.Rust;
 using EasyShop.Domain.StaticVariables.GameTypes;
-using EasyShop.Domain.ViewModels.CP.ControlPanel.Shop;
-using EasyShop.Interfaces.Services.CP.Rust.Shop;
+using EasyShop.Domain.ViewModels.ControlPanel.Shop;
+using EasyShop.Interfaces.Services.CP.Shop;
 using EasyShop.Interfaces.Services.Rust;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -64,7 +61,7 @@ namespace ServerMonetization.CP.Controllers
 
             if (result == RustCreateShopResult.Success)
             {
-                return RedirectToAction("ShopsManager", "ShopManager");
+                return RedirectToAction("ShopsList", "ShopManager");
             }
             else if (result == RustCreateShopResult.MaxShopLimitIsReached)
             {
@@ -98,7 +95,7 @@ namespace ServerMonetization.CP.Controllers
             if (!result)
                 return RedirectToAction("SomethingWentWrong", "ControlPanel");
 
-            return RedirectToAction("ShopsManager");
+            return RedirectToAction("ShopsList");
         }
 
         public IActionResult EditShopHandler(string shopId)

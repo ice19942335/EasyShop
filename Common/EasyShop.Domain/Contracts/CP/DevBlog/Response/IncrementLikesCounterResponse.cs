@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace EasyShop.Domain.Contracts.CP.Response
+﻿namespace EasyShop.Domain.Contracts.CP.DevBlog.Response
 {
     public class IncrementLikesCounterResponse
     {

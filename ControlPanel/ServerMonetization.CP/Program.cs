@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using EasyShop.DAL.Context;
 using EasyShop.Domain.Entries.Identity;
+using EasyShop.Domain.Settings;
 using EasyShop.Interfaces.Services.CP.Rust.Data;
 using EasyShop.Services.Data.FirstRunInitialization.ContactUs;
 using EasyShop.Services.Data.FirstRunInitialization.IdentityInitialization;
@@ -8,6 +9,7 @@ using EasyShop.Services.Data.FirstRunInitialization.Rust.RustShopDataInitializat
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -34,10 +36,11 @@ namespace ServerMonetization.CP
                 var roleManager = serviceScope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
                 var userManager = serviceScope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
                 var rustTestStatsInit = serviceScope.ServiceProvider.GetRequiredService<IRustTestStatsData>();
-                
+                var configuration = serviceScope.ServiceProvider.GetRequiredService<IConfiguration>();
+                var payPalSettings = serviceScope.ServiceProvider.GetRequiredService<PayPalSettings>();
 
                 //Default Identity initialization
-                var basicIdentityInitializer = new IdentityInitializer(dbContext, roleManager, userManager);
+                var basicIdentityInitializer = new IdentityInitializer(dbContext, roleManager, userManager, configuration, payPalSettings);
                 await basicIdentityInitializer.InitializeIdentity();
                 
 
