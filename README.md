@@ -13,12 +13,12 @@
 - Google
 - ImgUr
 
-##### Published for TESTING purposes.<br>
+##### Some examples of work in LIVE
 Control panel: https://server-monetization.com/ <br>
-Multi tenancy: http://tenant.server-monetization.com/{shopId} <br>
+Multi tenancy: http://rust.server-monetization.com/{shopId} <br>
 <br>
 Tenant: <br>
-TestDataShop, Link: https://tenant.server-monetization.com/8a9edf81a8eb42dfa5c1bfc8534aaa41 <br>
+TestDataShop, Link: https://rust.server-monetization.com/someuniquename <br>
 Same link to your shop you can find in the Control panel (https://server-monetization.com/) <br>
 
 Feel free to play and test anything you want. If there will be any bugs, please report it to this link https://server-monetization.com/ContactUs
