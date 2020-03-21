@@ -18,7 +18,7 @@ Control panel: https://server-monetization.com/ <br>
 Multi tenancy: http://rust.server-monetization.com/{shopId} <br>
 <br>
 Tenant: <br>
-TestDataShop, Link: https://rust.server-monetization.com/someuniquename <br>
+TestDataShop, Link: https://rust.server-monetization.com/TestShop1 <br>
 Same link to your shop you can find in the Control panel (https://server-monetization.com/) <br>
 
 Feel free to play and test anything you want. If there will be any bugs, please report it to this link https://server-monetization.com/ContactUs
